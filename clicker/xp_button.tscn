@@ -15,6 +15,7 @@ script = ExtResource("1_07bva")
 _xp_count_label = NodePath("MarginContainer/VBoxContainer/XP Row/Total XP")
 _xp_speed_label = NodePath("MarginContainer/VBoxContainer/XP Row/XP Gain Speed")
 _progress_bar = NodePath("MarginContainer/VBoxContainer/TextureProgressBar")
+_speed_history_msec = 1500
 
 [node name="XP Background Texture" type="TextureRect" parent="." unique_id=466219434]
 layout_mode = 1

@@ -34,7 +34,6 @@ func _on_gui_input(event: InputEvent) -> void:
             _click()
 
 func _handle_change_xp(new_value: float) -> void:
-    print_debug("xp is %s" % new_value)
     _xp_count_label.text = "%s xp" % [floor(new_value * 10) / 10.0]
     _sync_progress_bar()
 
@@ -58,16 +57,21 @@ func _process(_delta: float) -> void:
         return
 
     var time_threshold: int = Time.get_ticks_msec() - _speed_history_msec
+    var earliest: float = -1.0
     var total: float = 0.0
     var next_history: Array[GainInfo]
     for info: GainInfo in _gain_history:
         if info.time < time_threshold:
             continue
+
         next_history.append(info)
+
         total += info.gain
+        if earliest < 0.0:
+            earliest = info.time * 0.001
 
     _gain_history = next_history
-    _set_speed(total / (_speed_history_msec * 0.001))
+    _set_speed(total / maxf(1.0, Time.get_ticks_msec() * 0.001 - earliest))
 
 func _set_speed(speed: float) -> void:
     _xp_speed_label.text = "%s xp/s" % [roundi(speed * 10) / 10.0]

@@ -12,6 +12,8 @@ class_name ClickerAbilityData
 @export var costs: Array[int] = [10]
 @export var descriptions: Array[String] = [""]
 
+@export var autohide_on_completed: bool = true
+
 var levels: int:
     get():
         return costs.size()

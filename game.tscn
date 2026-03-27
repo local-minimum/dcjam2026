@@ -22,7 +22,7 @@ script = ExtResource("6_eow3j")
 id = "mental"
 icon = ExtResource("6_hve3p")
 title = "Mental Gymnastics"
-descriptions = Array[String](["Modifies XP clicking"])
+descriptions = Array[String](["Improves XP uptake"])
 metadata/_custom_type_script = "uid://bt1vi716f5csr"
 
 [sub_resource type="Resource" id="Resource_eow3j"]
@@ -32,7 +32,43 @@ icon = ExtResource("6_hve3p")
 title = "Smarts"
 requirement_ids = Array[String](["mental"])
 costs = Array[int]([10, 100, 1000, 10000, 20000, 50000])
-descriptions = Array[String](["Each click gives 2xp", "Each click gives 4xp", "Each click gives 8xp", "Each click gives 16xp", "Each click gives 32xp", "Each click gives 64xp"])
+descriptions = Array[String](["Increases XP gained each click"])
+autohide_on_completed = null
+metadata/_custom_type_script = "uid://bt1vi716f5csr"
+
+[sub_resource type="Resource" id="Resource_vef74"]
+script = ExtResource("6_eow3j")
+id = "memory"
+icon = ExtResource("6_hve3p")
+title = "Memory Palace"
+requirement_ids = Array[String](["mental"])
+costs = Array[int]([10, 50, 100, 200, 1000, 10000])
+descriptions = Array[String](["Inceases maximum XP capacity"])
+metadata/_custom_type_script = "uid://bt1vi716f5csr"
+
+[sub_resource type="Resource" id="Resource_hve3p"]
+script = ExtResource("6_eow3j")
+id = "multi-tasking"
+title = "Multi-Tasking"
+requirement_ids = Array[String](["mental"])
+costs = Array[int]([10, 50, 100, 200, 1000, 10000])
+descriptions = Array[String](["Adds an auto-clicker to the XP button"])
+metadata/_custom_type_script = "uid://bt1vi716f5csr"
+
+[sub_resource type="Resource" id="Resource_mfdv2"]
+script = ExtResource("6_eow3j")
+id = "agression"
+title = "Agression"
+costs = Array[int]([100])
+descriptions = Array[String](["Improve weapon stats"])
+metadata/_custom_type_script = "uid://bt1vi716f5csr"
+
+[sub_resource type="Resource" id="Resource_iotsf"]
+script = ExtResource("6_eow3j")
+id = "appearance"
+title = "Appearance"
+costs = Array[int]([100])
+descriptions = Array[String](["Improve stats for worn things, max health and carrying capacity"])
 metadata/_custom_type_script = "uid://bt1vi716f5csr"
 
 [node name="Control" type="Control" unique_id=1242508304]
@@ -111,18 +147,34 @@ layout_mode = 2
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer" unique_id=1989865175]
+[node name="AbilititiesSorter" type="VBoxContainer" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer" unique_id=1989865175]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Clicker Ability Button" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=324514739 instance=ExtResource("4_7jktm")]
+[node name="Mental" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesSorter" unique_id=324514739 instance=ExtResource("4_7jktm")]
 layout_mode = 2
 ability = SubResource("Resource_j5wjh")
 
-[node name="Clicker Ability Button2" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=466467596 instance=ExtResource("4_7jktm")]
+[node name="Mental Smarts" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesSorter" unique_id=466467596 instance=ExtResource("4_7jktm")]
 layout_mode = 2
 ability = SubResource("Resource_eow3j")
+
+[node name="Mental Memory Palace" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesSorter" unique_id=1620446177 instance=ExtResource("4_7jktm")]
+layout_mode = 2
+ability = SubResource("Resource_vef74")
+
+[node name="Mental Multi-Tasking" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesSorter" unique_id=1949463060 instance=ExtResource("4_7jktm")]
+layout_mode = 2
+ability = SubResource("Resource_hve3p")
+
+[node name="Agression" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesSorter" unique_id=941157657 instance=ExtResource("4_7jktm")]
+layout_mode = 2
+ability = SubResource("Resource_mfdv2")
+
+[node name="Appearance" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesSorter" unique_id=1919510791 instance=ExtResource("4_7jktm")]
+layout_mode = 2
+ability = SubResource("Resource_iotsf")
 
 [node name="Secrets Protector" type="TextureRect" parent="HSplitContainer/ColorRect2" unique_id=1288201195]
 visible = false

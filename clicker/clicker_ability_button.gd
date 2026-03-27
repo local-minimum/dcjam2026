@@ -40,6 +40,9 @@ var _locked_requirements: Array[String]
 var _revealed: bool
 
 func _enter_tree() -> void:
+    if Engine.is_editor_hint():
+        return
+
     if __SignalBus.on_change_ability_level.connect(_handle_change_ability_level) != OK:
         push_error("Failed to connect change ability level")
 
@@ -102,10 +105,18 @@ func _handle_change_ability_level(ability_id: String, level: int) -> void:
     if ability.id == ability_id:
         _ability_level = level
         _current_cost = ability.get_cost(level)
+
+        if ability.autohide_on_completed && !has_more_levels:
+            hide()
+            return
+
         _sync_level()
         _sync_buy_cost(__GlobalGameState.xp)
 
 func _sync_level() -> void:
+    if _revealed:
+        tooltip_text = ability.get_description(_ability_level)
+
     var max_lvl: int = ability.levels if ability != null else 0
     for lvl: int in level_icons.size():
         if lvl >= max_lvl || max_lvl < 2:

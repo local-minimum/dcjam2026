@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ClickerAbilityData" format=3 uid="uid://cb466h3c61gqf"]
+
+[ext_resource type="Script" uid="uid://bt1vi716f5csr" path="res://clicker/clicker_ability_data.gd" id="1_4hcdl"]
+
+[resource]
+script = ExtResource("1_4hcdl")
+id = "agression"
+title = "Agression"
+costs = Array[int]([100])
+descriptions = Array[String](["Improve weapon stats"])
+metadata/_custom_type_script = "uid://bt1vi716f5csr"

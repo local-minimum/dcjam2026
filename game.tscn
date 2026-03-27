@@ -7,6 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://ctchufnwaro7b" path="res://clicker/clicker_ability_button.tscn" id="4_7jktm"]
 [ext_resource type="Script" uid="uid://bt1vi716f5csr" path="res://clicker/clicker_ability_data.gd" id="6_eow3j"]
 [ext_resource type="Texture2D" uid="uid://d08irex16meun" path="res://clicker/clicker_ability_icon_brian.png" id="6_hve3p"]
+[ext_resource type="Resource" uid="uid://c208p6knl8gu2" path="res://clicker/abilities/mental_smarts.tres" id="7_iotsf"]
+[ext_resource type="Resource" uid="uid://3gmnrhfplofm" path="res://clicker/abilities/mental_memory_palace.tres" id="8_lc2xo"]
+[ext_resource type="Resource" uid="uid://ie2phil58tny" path="res://clicker/abilities/mental_multi_tasking.tres" id="9_215e1"]
+[ext_resource type="Resource" uid="uid://cb466h3c61gqf" path="res://clicker/abilities/agression.tres" id="10_7sc4i"]
+[ext_resource type="Resource" uid="uid://cd0ty3rasequ4" path="res://clicker/abilities/appearance.tres" id="11_80cx4"]
+[ext_resource type="Script" uid="uid://bygrk7a3mcgx7" path="res://clicker_xp_rules.gd" id="13_lc2xo"]
 
 [sub_resource type="Theme" id="Theme_4scmg"]
 HSplitContainer/constants/minimum_grab_thickness = 0
@@ -23,52 +29,6 @@ id = "mental"
 icon = ExtResource("6_hve3p")
 title = "Mental Gymnastics"
 descriptions = Array[String](["Improves XP uptake"])
-metadata/_custom_type_script = "uid://bt1vi716f5csr"
-
-[sub_resource type="Resource" id="Resource_eow3j"]
-script = ExtResource("6_eow3j")
-id = "smarts"
-icon = ExtResource("6_hve3p")
-title = "Smarts"
-requirement_ids = Array[String](["mental"])
-costs = Array[int]([10, 100, 1000, 10000, 20000, 50000])
-descriptions = Array[String](["Increases XP gained each click"])
-autohide_on_completed = null
-metadata/_custom_type_script = "uid://bt1vi716f5csr"
-
-[sub_resource type="Resource" id="Resource_vef74"]
-script = ExtResource("6_eow3j")
-id = "memory"
-icon = ExtResource("6_hve3p")
-title = "Memory Palace"
-requirement_ids = Array[String](["mental"])
-costs = Array[int]([10, 50, 100, 200, 1000, 10000])
-descriptions = Array[String](["Inceases maximum XP capacity"])
-metadata/_custom_type_script = "uid://bt1vi716f5csr"
-
-[sub_resource type="Resource" id="Resource_hve3p"]
-script = ExtResource("6_eow3j")
-id = "multi-tasking"
-title = "Multi-Tasking"
-requirement_ids = Array[String](["mental"])
-costs = Array[int]([10, 50, 100, 200, 1000, 10000])
-descriptions = Array[String](["Adds an auto-clicker to the XP button"])
-metadata/_custom_type_script = "uid://bt1vi716f5csr"
-
-[sub_resource type="Resource" id="Resource_mfdv2"]
-script = ExtResource("6_eow3j")
-id = "agression"
-title = "Agression"
-costs = Array[int]([100])
-descriptions = Array[String](["Improve weapon stats"])
-metadata/_custom_type_script = "uid://bt1vi716f5csr"
-
-[sub_resource type="Resource" id="Resource_iotsf"]
-script = ExtResource("6_eow3j")
-id = "appearance"
-title = "Appearance"
-costs = Array[int]([100])
-descriptions = Array[String](["Improve stats for worn things, max health and carrying capacity"])
 metadata/_custom_type_script = "uid://bt1vi716f5csr"
 
 [node name="Control" type="Control" unique_id=1242508304]
@@ -158,23 +118,23 @@ ability = SubResource("Resource_j5wjh")
 
 [node name="Mental Smarts" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesSorter" unique_id=466467596 instance=ExtResource("4_7jktm")]
 layout_mode = 2
-ability = SubResource("Resource_eow3j")
+ability = ExtResource("7_iotsf")
 
 [node name="Mental Memory Palace" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesSorter" unique_id=1620446177 instance=ExtResource("4_7jktm")]
 layout_mode = 2
-ability = SubResource("Resource_vef74")
+ability = ExtResource("8_lc2xo")
 
 [node name="Mental Multi-Tasking" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesSorter" unique_id=1949463060 instance=ExtResource("4_7jktm")]
 layout_mode = 2
-ability = SubResource("Resource_hve3p")
+ability = ExtResource("9_215e1")
 
 [node name="Agression" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesSorter" unique_id=941157657 instance=ExtResource("4_7jktm")]
 layout_mode = 2
-ability = SubResource("Resource_mfdv2")
+ability = ExtResource("10_7sc4i")
 
 [node name="Appearance" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesSorter" unique_id=1919510791 instance=ExtResource("4_7jktm")]
 layout_mode = 2
-ability = SubResource("Resource_iotsf")
+ability = ExtResource("11_80cx4")
 
 [node name="Secrets Protector" type="TextureRect" parent="HSplitContainer/ColorRect2" unique_id=1288201195]
 visible = false
@@ -186,3 +146,9 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_feb5d")
 expand_mode = 1
+
+[node name="ClickerXPRules" type="Node" parent="." unique_id=44132690]
+script = ExtResource("13_lc2xo")
+_memory_palace = ExtResource("8_lc2xo")
+_multi_tasking = ExtResource("9_215e1")
+_smarts = ExtResource("7_iotsf")

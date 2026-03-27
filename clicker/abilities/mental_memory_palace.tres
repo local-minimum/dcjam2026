@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ClickerAbilityData" format=3 uid="uid://3gmnrhfplofm"]
+
+[ext_resource type="Texture2D" uid="uid://d08irex16meun" path="res://clicker/clicker_ability_icon_brian.png" id="1_h8c11"]
+[ext_resource type="Script" uid="uid://bt1vi716f5csr" path="res://clicker/clicker_ability_data.gd" id="2_bg8a3"]
+
+[resource]
+script = ExtResource("2_bg8a3")
+id = "memory"
+icon = ExtResource("1_h8c11")
+title = "Memory Palace"
+requirement_ids = Array[String](["mental"])
+costs = Array[int]([10, 50, 100, 200, 1000, 10000])
+descriptions = Array[String](["Inceases maximum XP capacity"])
+metadata/_custom_type_script = "uid://bt1vi716f5csr"

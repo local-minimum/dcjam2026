@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ClickerAbilityData" format=3 uid="uid://cd0ty3rasequ4"]
+
+[ext_resource type="Script" uid="uid://bt1vi716f5csr" path="res://clicker/clicker_ability_data.gd" id="1_jmdlf"]
+
+[resource]
+script = ExtResource("1_jmdlf")
+id = "appearance"
+title = "Appearance"
+costs = Array[int]([100])
+descriptions = Array[String](["Improve stats for worn things, max health and carrying capacity"])
+metadata/_custom_type_script = "uid://bt1vi716f5csr"

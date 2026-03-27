@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ClickerAbilityData" format=3 uid="uid://c208p6knl8gu2"]
+
+[ext_resource type="Texture2D" uid="uid://d08irex16meun" path="res://clicker/clicker_ability_icon_brian.png" id="1_w5cih"]
+[ext_resource type="Script" uid="uid://bt1vi716f5csr" path="res://clicker/clicker_ability_data.gd" id="2_u03pl"]
+
+[resource]
+script = ExtResource("2_u03pl")
+id = "smarts"
+icon = ExtResource("1_w5cih")
+title = "Smarts"
+requirement_ids = Array[String](["mental"])
+costs = Array[int]([10, 100, 1000, 10000, 20000, 50000])
+descriptions = Array[String](["Increases XP gained each click"])
+autohide_on_completed = null
+metadata/_custom_type_script = "uid://bt1vi716f5csr"

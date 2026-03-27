@@ -4,6 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://bufrvjcwdgi7q" path="res://clicker/dungeon.tscn" id="2_e2o6t"]
 [ext_resource type="PackedScene" uid="uid://b0e0rvd3dfopu" path="res://clicker/xp_button.tscn" id="3_fc0e3"]
 [ext_resource type="Texture2D" uid="uid://cwnthnv701tbf" path="res://clicker/secret_panel.png" id="3_feb5d"]
+[ext_resource type="PackedScene" uid="uid://ctchufnwaro7b" path="res://clicker/clicker_ability_button.tscn" id="4_7jktm"]
+[ext_resource type="Script" uid="uid://bt1vi716f5csr" path="res://clicker/clicker_ability_data.gd" id="6_eow3j"]
+[ext_resource type="Texture2D" uid="uid://d08irex16meun" path="res://clicker/clicker_ability_icon_brian.png" id="6_hve3p"]
 
 [sub_resource type="Theme" id="Theme_4scmg"]
 HSplitContainer/constants/minimum_grab_thickness = 0
@@ -13,6 +16,24 @@ HSplitContainer/icons/touch_dragger = null
 
 [sub_resource type="World3D" id="World3D_e2o6t"]
 environment = ExtResource("1_80nbo")
+
+[sub_resource type="Resource" id="Resource_j5wjh"]
+script = ExtResource("6_eow3j")
+id = "mental"
+icon = ExtResource("6_hve3p")
+title = "Mental Gymnastics"
+descriptions = Array[String](["Modifies XP clicking"])
+metadata/_custom_type_script = "uid://bt1vi716f5csr"
+
+[sub_resource type="Resource" id="Resource_eow3j"]
+script = ExtResource("6_eow3j")
+id = "smarts"
+icon = ExtResource("6_hve3p")
+title = "Smarts"
+requirement_ids = Array[String](["mental"])
+costs = Array[int]([10, 100, 1000, 10000, 20000, 50000])
+descriptions = Array[String](["Each click gives 2xp", "Each click gives 4xp", "Each click gives 8xp", "Each click gives 16xp", "Each click gives 32xp", "Each click gives 64xp"])
+metadata/_custom_type_script = "uid://bt1vi716f5csr"
 
 [node name="Control" type="Control" unique_id=1242508304]
 layout_mode = 3
@@ -95,73 +116,13 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Button" type="Button" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=613633638]
+[node name="Clicker Ability Button" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=324514739 instance=ExtResource("4_7jktm")]
 layout_mode = 2
-text = "HELLO [100 xp]"
+ability = SubResource("Resource_j5wjh")
 
-[node name="Button2" type="Button" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1675690412]
+[node name="Clicker Ability Button2" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=466467596 instance=ExtResource("4_7jktm")]
 layout_mode = 2
-text = "HELLO [100 xp]"
-
-[node name="Button3" type="Button" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=546067544]
-layout_mode = 2
-text = "HELLO [100 xp]"
-
-[node name="Button4" type="Button" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1734095077]
-layout_mode = 2
-text = "HELLO [100 xp]"
-
-[node name="Button5" type="Button" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1605906796]
-layout_mode = 2
-text = "HELLO [100 xp]"
-
-[node name="Button6" type="Button" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=112259493]
-layout_mode = 2
-text = "HELLO [100 xp]"
-
-[node name="Button7" type="Button" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=252080397]
-layout_mode = 2
-text = "HELLO [100 xp]"
-
-[node name="Button8" type="Button" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=913107060]
-layout_mode = 2
-text = "HELLO [100 xp]"
-
-[node name="Button9" type="Button" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1059080165]
-layout_mode = 2
-text = "HELLO [100 xp]"
-
-[node name="Button10" type="Button" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1854668648]
-layout_mode = 2
-text = "HELLO [100 xp]"
-
-[node name="Button11" type="Button" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=2022906028]
-layout_mode = 2
-text = "HELLO [100 xp]"
-
-[node name="Button12" type="Button" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=186322659]
-layout_mode = 2
-text = "HELLO [100 xp]"
-
-[node name="Button13" type="Button" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1383254376]
-layout_mode = 2
-text = "HELLO [100 xp]"
-
-[node name="Button14" type="Button" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1803718034]
-layout_mode = 2
-text = "HELLO [100 xp]"
-
-[node name="Button15" type="Button" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1335176965]
-layout_mode = 2
-text = "HELLO [100 xp]"
-
-[node name="Button16" type="Button" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=237483182]
-layout_mode = 2
-text = "HELLO [100 xp]"
-
-[node name="Button17" type="Button" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1225445721]
-layout_mode = 2
-text = "HELLO [100 xp]"
+ability = SubResource("Resource_eow3j")
 
 [node name="Secrets Protector" type="TextureRect" parent="HSplitContainer/ColorRect2" unique_id=1288201195]
 visible = false

@@ -15,3 +15,16 @@ var xp: float:
     set(value):
         xp = clamp(value, 0, max_xp)
         __SignalBus.on_change_xp.emit(xp)
+
+
+var _unlocked_clicker_abilities: Array[String]
+
+func get_current_ability_level(ability_id: String) -> int:
+    return _unlocked_clicker_abilities.count(ability_id)
+
+func has_ability_unlocked(ability_id: String) -> bool:
+    return _unlocked_clicker_abilities.has(ability_id)
+
+func increase_ability_level(ability_id: String) -> void:
+    _unlocked_clicker_abilities.append(ability_id)
+    __SignalBus.on_change_ability_level.emit(ability_id, get_current_ability_level(ability_id))

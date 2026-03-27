@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://b0e0rvd3dfopu"]
+
+[ext_resource type="Script" uid="uid://vc1pvngry5qw" path="res://clicker/xp_button.gd" id="1_07bva"]
+[ext_resource type="Texture2D" uid="uid://8qnqvakqmrcx" path="res://clicker/xp_button_bg.png" id="1_te0py"]
+[ext_resource type="Texture2D" uid="uid://hqls202v3tpf" path="res://clicker/xp_button_progrss_bar_bg.png" id="2_07bva"]
+[ext_resource type="Texture2D" uid="uid://5iq0rlr6mok3" path="res://clicker/xp_button_progrss_bar_top.png" id="3_8n5ww"]
+[ext_resource type="Texture2D" uid="uid://c3k0odemmqaxo" path="res://clicker/xp_button_progrss_bar.png" id="4_5jdtb"]
+
+[node name="XP Button" type="Control" unique_id=1599280232 node_paths=PackedStringArray("_xp_count_label", "_xp_speed_label", "_progress_bar")]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 3
+anchors_preset = 0
+mouse_default_cursor_shape = 2
+script = ExtResource("1_07bva")
+_xp_count_label = NodePath("MarginContainer/VBoxContainer/XP Row/Total XP")
+_xp_speed_label = NodePath("MarginContainer/VBoxContainer/XP Row/XP Gain Speed")
+_progress_bar = NodePath("MarginContainer/VBoxContainer/TextureProgressBar")
+
+[node name="XP Background Texture" type="TextureRect" parent="." unique_id=466219434]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_te0py")
+
+[node name="Button Title" type="Label" parent="." unique_id=1579821044]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 30.0
+offset_bottom = 35.0
+grow_vertical = 0
+rotation = -1.5707964
+theme_override_font_sizes/font_size = 32
+text = "XP"
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1130478227]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1669639518]
+layout_mode = 2
+theme_override_constants/separation = 11
+
+[node name="XP Row" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=140439770]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Total XP" type="Label" parent="MarginContainer/VBoxContainer/XP Row" unique_id=387248530]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+text = "100 xp"
+horizontal_alignment = 1
+
+[node name="XP Gain Speed" type="Label" parent="MarginContainer/VBoxContainer/XP Row" unique_id=842280862]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "1.25 xp / s"
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/VBoxContainer" unique_id=949286864]
+layout_mode = 2
+size_flags_vertical = 3
+value = 25.0
+rounded = true
+texture_under = ExtResource("2_07bva")
+texture_over = ExtResource("3_8n5ww")
+texture_progress = ExtResource("4_5jdtb")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

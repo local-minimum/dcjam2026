@@ -2,6 +2,7 @@
 
 [ext_resource type="Environment" uid="uid://cab2e1qcby00n" path="res://clicker/clicker_environment.tres" id="1_80nbo"]
 [ext_resource type="PackedScene" uid="uid://bufrvjcwdgi7q" path="res://clicker/dungeon.tscn" id="2_e2o6t"]
+[ext_resource type="PackedScene" uid="uid://b0e0rvd3dfopu" path="res://clicker/xp_button.tscn" id="3_fc0e3"]
 [ext_resource type="Texture2D" uid="uid://cwnthnv701tbf" path="res://clicker/secret_panel.png" id="3_feb5d"]
 
 [sub_resource type="Theme" id="Theme_4scmg"]
@@ -51,7 +52,7 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.3
 color = Color(1, 0.20784314, 1, 1)
 
-[node name="MarginContainer" type="MarginContainer" parent="HSplitContainer/ColorRect2" unique_id=1641450040]
+[node name="Clicker Content" type="MarginContainer" parent="HSplitContainer/ColorRect2" unique_id=1641450040]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -63,102 +64,107 @@ theme_override_constants/margin_top = 6
 theme_override_constants/margin_right = 6
 theme_override_constants/margin_bottom = 6
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/ColorRect2/MarginContainer" unique_id=919007821]
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/ColorRect2/Clicker Content" unique_id=919007821]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="HSplitContainer/ColorRect2/MarginContainer/VBoxContainer" unique_id=613655648]
+[node name="XP Button" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer" unique_id=1599280232 instance=ExtResource("3_fc0e3")]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer" unique_id=613655648]
+visible = false
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 text = "Gain XP"
 
-[node name="ProgressBar" type="ProgressBar" parent="HSplitContainer/ColorRect2/MarginContainer/VBoxContainer" unique_id=2013487708]
+[node name="ProgressBar" type="ProgressBar" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer" unique_id=2013487708]
 custom_minimum_size = Vector2(0, 12)
 layout_mode = 2
 value = 30.0
 show_percentage = false
 
-[node name="HSeparator" type="HSeparator" parent="HSplitContainer/ColorRect2/MarginContainer/VBoxContainer" unique_id=1228020230]
+[node name="HSeparator" type="HSeparator" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer" unique_id=1228020230]
 layout_mode = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="HSplitContainer/ColorRect2/MarginContainer/VBoxContainer" unique_id=46873957]
+[node name="ScrollContainer" type="ScrollContainer" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer" unique_id=46873957]
 layout_mode = 2
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/ColorRect2/MarginContainer/VBoxContainer/ScrollContainer" unique_id=1989865175]
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer" unique_id=1989865175]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Button" type="Button" parent="HSplitContainer/ColorRect2/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=613633638]
+[node name="Button" type="Button" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=613633638]
 layout_mode = 2
 text = "HELLO [100 xp]"
 
-[node name="Button2" type="Button" parent="HSplitContainer/ColorRect2/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1675690412]
+[node name="Button2" type="Button" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1675690412]
 layout_mode = 2
 text = "HELLO [100 xp]"
 
-[node name="Button3" type="Button" parent="HSplitContainer/ColorRect2/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=546067544]
+[node name="Button3" type="Button" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=546067544]
 layout_mode = 2
 text = "HELLO [100 xp]"
 
-[node name="Button4" type="Button" parent="HSplitContainer/ColorRect2/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1734095077]
+[node name="Button4" type="Button" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1734095077]
 layout_mode = 2
 text = "HELLO [100 xp]"
 
-[node name="Button5" type="Button" parent="HSplitContainer/ColorRect2/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1605906796]
+[node name="Button5" type="Button" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1605906796]
 layout_mode = 2
 text = "HELLO [100 xp]"
 
-[node name="Button6" type="Button" parent="HSplitContainer/ColorRect2/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=112259493]
+[node name="Button6" type="Button" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=112259493]
 layout_mode = 2
 text = "HELLO [100 xp]"
 
-[node name="Button7" type="Button" parent="HSplitContainer/ColorRect2/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=252080397]
+[node name="Button7" type="Button" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=252080397]
 layout_mode = 2
 text = "HELLO [100 xp]"
 
-[node name="Button8" type="Button" parent="HSplitContainer/ColorRect2/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=913107060]
+[node name="Button8" type="Button" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=913107060]
 layout_mode = 2
 text = "HELLO [100 xp]"
 
-[node name="Button9" type="Button" parent="HSplitContainer/ColorRect2/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1059080165]
+[node name="Button9" type="Button" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1059080165]
 layout_mode = 2
 text = "HELLO [100 xp]"
 
-[node name="Button10" type="Button" parent="HSplitContainer/ColorRect2/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1854668648]
+[node name="Button10" type="Button" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1854668648]
 layout_mode = 2
 text = "HELLO [100 xp]"
 
-[node name="Button11" type="Button" parent="HSplitContainer/ColorRect2/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=2022906028]
+[node name="Button11" type="Button" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=2022906028]
 layout_mode = 2
 text = "HELLO [100 xp]"
 
-[node name="Button12" type="Button" parent="HSplitContainer/ColorRect2/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=186322659]
+[node name="Button12" type="Button" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=186322659]
 layout_mode = 2
 text = "HELLO [100 xp]"
 
-[node name="Button13" type="Button" parent="HSplitContainer/ColorRect2/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1383254376]
+[node name="Button13" type="Button" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1383254376]
 layout_mode = 2
 text = "HELLO [100 xp]"
 
-[node name="Button14" type="Button" parent="HSplitContainer/ColorRect2/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1803718034]
+[node name="Button14" type="Button" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1803718034]
 layout_mode = 2
 text = "HELLO [100 xp]"
 
-[node name="Button15" type="Button" parent="HSplitContainer/ColorRect2/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1335176965]
+[node name="Button15" type="Button" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1335176965]
 layout_mode = 2
 text = "HELLO [100 xp]"
 
-[node name="Button16" type="Button" parent="HSplitContainer/ColorRect2/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=237483182]
+[node name="Button16" type="Button" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=237483182]
 layout_mode = 2
 text = "HELLO [100 xp]"
 
-[node name="Button17" type="Button" parent="HSplitContainer/ColorRect2/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1225445721]
+[node name="Button17" type="Button" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1225445721]
 layout_mode = 2
 text = "HELLO [100 xp]"
 
 [node name="Secrets Protector" type="TextureRect" parent="HSplitContainer/ColorRect2" unique_id=1288201195]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

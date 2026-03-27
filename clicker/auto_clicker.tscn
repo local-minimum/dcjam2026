@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://due2c5pqr6l1n"]
+
+[ext_resource type="Script" uid="uid://oqm7ygrgq7i5" path="res://clicker/auto_clicker.gd" id="1_boiww"]
+[ext_resource type="Texture2D" uid="uid://bj2t3g8df1upx" path="res://clicker/pointing_hand.png" id="2_32q7n"]
+
+[sub_resource type="Animation" id="Animation_boiww"]
+resource_name = "Click"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.20050487, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 12), Vector2(0, 12), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_32q7n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_32q7n"]
+_data = {
+&"Click": SubResource("Animation_boiww"),
+&"RESET": SubResource("Animation_32q7n")
+}
+
+[node name="AutoClicker" type="Control" unique_id=1380644300 node_paths=PackedStringArray("player")]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_boiww")
+player = NodePath("AnimationPlayer")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=464964252]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 3.1415927
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("2_32q7n")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=247512000]
+libraries/ = SubResource("AnimationLibrary_32q7n")

@@ -4,6 +4,7 @@ extends Control
 @export var _xp_speed_label: Label
 @export var _progress_bar: TextureProgressBar
 @export var _speed_history_msec: int = 5000
+@export var _autoclickers: Array[AutoClicker]
 
 class GainInfo:
     var time: int
@@ -20,6 +21,12 @@ func _enter_tree() -> void:
     if __SignalBus.on_change_xp.connect(_handle_change_xp) != OK:
         push_error("Failed to connect change xp")
 
+    if __SignalBus.on_change_autoclicker_count.connect(_handle_change_autoclicker_count) != OK:
+        push_error("Failed to connect change autoclicker count")
+
+    if __SignalBus.on_autoclick.connect(_handle_autoclick) != OK:
+        push_error("Failed to connect autoclick")
+
 func _ready() -> void:
     _set_speed(0.0)
     _handle_change_xp(__GlobalGameState.xp)
@@ -33,8 +40,25 @@ func _on_gui_input(event: InputEvent) -> void:
         if mevent.pressed && mevent.button_index == MOUSE_BUTTON_LEFT:
             _click()
 
+func _handle_autoclick(efficiency: float) -> void:
+    _click(efficiency)
+
+func _handle_change_autoclicker_count(clickers: int) -> void:
+    var interval: int = _autoclickers[0].click_frequency_msec
+    var step: int = roundi(interval / float(clickers))
+    var t0: int = Time.get_ticks_msec()
+
+    for idx: int in _autoclickers.size():
+        _autoclickers[idx].active = clickers > idx
+        _autoclickers[idx].next_click = t0 + interval + step * idx
+
 func _handle_change_xp(new_value: float) -> void:
-    _xp_count_label.text = "%s xp" % [floor(new_value * 10) / 10.0]
+    if new_value <= 10.0:
+        new_value = floorf(new_value * 10.0) / 10.0
+    else:
+        new_value = floori(new_value)
+
+    _xp_count_label.text = "%s xp" % [new_value]
     _sync_progress_bar()
 
 func _handle_change_max_xp(_new_max: float) -> void:
@@ -46,8 +70,8 @@ func _sync_progress_bar() -> void:
 
 var _gain_history: Array[GainInfo]
 
-func _click() -> void:
-    var gain: float = __GlobalGameState.xp_click_value
+func _click(efficiency: float = 1.0) -> void:
+    var gain: float = __GlobalGameState.xp_click_value * efficiency
     __GlobalGameState.xp += gain
     _gain_history.append(GainInfo.new(Time.get_ticks_msec(), gain))
 
@@ -74,4 +98,9 @@ func _process(_delta: float) -> void:
     _set_speed(total / maxf(1.0, Time.get_ticks_msec() * 0.001 - earliest))
 
 func _set_speed(speed: float) -> void:
-    _xp_speed_label.text = "%s xp/s" % [roundi(speed * 10) / 10.0]
+    if speed <= 10:
+        speed = roundf(speed * 10) / 10.0
+    else:
+        speed = roundf(speed)
+
+    _xp_speed_label.text = "%s xp/s" % [speed]

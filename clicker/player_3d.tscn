@@ -1,0 +1,177 @@
+[gd_scene format=3 uid="uid://dfe2ewygagnw0"]
+
+[ext_resource type="Script" uid="uid://gca7baymjcg6" path="res://core/entities/physics_gridplayer_controller.gd" id="1_reoop"]
+[ext_resource type="Script" uid="uid://vbs5gbbsn6tv" path="res://addons/minimum_convenience/scripts/captured_mouse_eventer.gd" id="2_sxlqi"]
+[ext_resource type="Script" uid="uid://5qkpcuqohaaw" path="res://core/entities/gridded_controller.gd" id="3_aoiyr"]
+[ext_resource type="Script" uid="uid://yjtiqbwbqcdd" path="res://addons/minimum_convenience/scripts/free_look_cam.gd" id="4_60w1x"]
+[ext_resource type="Script" uid="uid://x6uxf7lr5f1b" path="res://core/entities/physics_controller_steps_caster.gd" id="7_460ac"]
+[ext_resource type="Script" uid="uid://cbaspepqt0vih" path="res://core/entities/grid_entity.gd" id="15_jrod8"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_reoop"]
+radius = 0.3
+height = 1.6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_60w1x"]
+transparency = 1
+albedo_color = Color(0.2627451, 1, 1, 0.36862746)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_0nu4v"]
+material = SubResource("StandardMaterial3D_60w1x")
+radius = 0.3
+height = 1.6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ali1n"]
+albedo_color = Color(0.2627451, 1, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_aoiyr"]
+material = SubResource("StandardMaterial3D_ali1n")
+radius = 0.05
+height = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aoiyr"]
+albedo_color = Color(0.2627451, 1, 1, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_60w1x"]
+material = SubResource("StandardMaterial3D_aoiyr")
+top_radius = 0.0
+bottom_radius = 0.1
+height = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_460ac"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_460ac"]
+material = SubResource("StandardMaterial3D_460ac")
+radius = 0.1
+height = 0.2
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mr5p5"]
+radius = 0.25
+height = 1.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aoiyr"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="Player3d" type="CharacterBody3D" unique_id=942295760 node_paths=PackedStringArray("_camera", "_freelook_cam", "_gridded_controller", "grid_entity", "look_target", "_captured_pointer_eventer", "stepper", "_forward", "_left", "_right", "_backward", "_debug_shapes")]
+collision_layer = 512
+collision_mask = 1029
+input_ray_pickable = false
+script = ExtResource("1_reoop")
+_camera = NodePath("Camera3D")
+_freelook_cam = NodePath("Camera3D")
+_gridded_controller = NodePath("GriddedController")
+grid_entity = NodePath("Player GridEntity")
+look_target = NodePath("Look Target")
+_captured_pointer_eventer = NodePath("Camera3D/CapturedMouseRay")
+stepper = NodePath("Casting Origin/Step Caster")
+_forward = NodePath("Casting Origin/Cast Forward")
+_left = NodePath("Casting Origin/Cast Left")
+_right = NodePath("Casting Origin/Cast Right")
+_backward = NodePath("Casting Origin/Cast Backward")
+_debug_shapes = [NodePath("Debug Step CollisionPt"), NodePath("Player Collision Body/Debug Body Shape"), NodePath("Camera3D/Debug Cam Position"), NodePath("Camera3D/Debug Cam Look Direction")]
+
+[node name="GriddedController" type="Node" parent="." unique_id=1745718286 node_paths=PackedStringArray("_player")]
+script = ExtResource("3_aoiyr")
+_player = NodePath("..")
+_translation_resolution = 10
+
+[node name="Player Collision Body" type="CollisionShape3D" parent="." unique_id=249778954]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+shape = SubResource("CapsuleShape3D_reoop")
+
+[node name="Debug Body Shape" type="MeshInstance3D" parent="Player Collision Body" unique_id=517800321]
+visible = false
+layers = 524288
+mesh = SubResource("CapsuleMesh_0nu4v")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=652950801]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0697947, 0.5461663)
+cull_mask = 524287
+current = true
+near = 0.2
+script = ExtResource("4_60w1x")
+_yaw_limit_degrees = 60.0
+_pitch_limit_degrees = 60.0
+
+[node name="CapturedMouseRay" type="RayCast3D" parent="Camera3D" unique_id=694970535 node_paths=PackedStringArray("_camera")]
+target_position = Vector3(0, 0, -20)
+collision_mask = 7
+script = ExtResource("2_sxlqi")
+_camera = NodePath("..")
+
+[node name="Debug Cam Position" type="MeshInstance3D" parent="Camera3D" unique_id=956402569]
+layers = 524288
+mesh = SubResource("SphereMesh_aoiyr")
+
+[node name="Debug Cam Look Direction" type="MeshInstance3D" parent="Camera3D" unique_id=1056326842]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, -0.19999999)
+layers = 524288
+mesh = SubResource("CylinderMesh_60w1x")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=2027711003]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1028626, 0.86164474)
+layers = 7
+light_color = Color(0.8043004, 0.5058316, 0.35971963, 1)
+light_energy = 0.6
+
+[node name="Debug Step CollisionPt" type="MeshInstance3D" parent="." unique_id=881636487]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0.25)
+layers = 524288
+mesh = SubResource("SphereMesh_460ac")
+skeleton = NodePath("../Casting Origin/Step Caster")
+
+[node name="Casting Origin" type="Node3D" parent="." unique_id=1037750991]
+
+[node name="Cast Forward" type="ShapeCast3D" parent="Casting Origin" unique_id=428773777]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8477182, -0.4)
+shape = SubResource("CapsuleShape3D_mr5p5")
+target_position = Vector3(0, 0, -1.4)
+collision_mask = 3073
+
+[node name="Cast Left" type="ShapeCast3D" parent="Casting Origin" unique_id=220809817]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0.8477182, 0)
+shape = SubResource("CapsuleShape3D_mr5p5")
+target_position = Vector3(-1.4, 0, 0)
+collision_mask = 3073
+
+[node name="Cast Backward" type="ShapeCast3D" parent="Casting Origin" unique_id=1919981056]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8477182, 0.4)
+shape = SubResource("CapsuleShape3D_mr5p5")
+target_position = Vector3(0, 0, 1.4)
+collision_mask = 3073
+
+[node name="Cast Right" type="ShapeCast3D" parent="Casting Origin" unique_id=1454541202]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.8477182, 0)
+shape = SubResource("CapsuleShape3D_mr5p5")
+target_position = Vector3(1.4, 0, 0)
+collision_mask = 3073
+
+[node name="Step Caster" type="ShapeCast3D" parent="Casting Origin" unique_id=2081488253 node_paths=PackedStringArray("_debug_shape")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+enabled = false
+shape = SubResource("BoxShape3D_aoiyr")
+target_position = Vector3(0, -1.4, 0)
+collision_mask = 3073
+script = ExtResource("7_460ac")
+step_height_max = 0.45
+step_down_max = 0.5
+min_clearing_above = 0.15
+_debug_shape = NodePath("../../Debug Step CollisionPt")
+
+[node name="Look Target" type="Node3D" parent="." unique_id=368639951]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8004148, 0)
+
+[node name="Player GridEntity" type="Node" parent="." unique_id=11367634 node_paths=PackedStringArray("entity_root", "detection_areas")]
+script = ExtResource("15_jrod8")
+type = 1
+entity_root = NodePath("..")
+detection_areas = [NodePath("../GridEntity Collision Area")]
+metadata/_custom_type_script = "uid://cbaspepqt0vih"
+
+[node name="GridEntity Collision Area" type="Area3D" parent="." unique_id=1658601083]
+collision_layer = 1536
+collision_mask = 1536
+input_ray_pickable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GridEntity Collision Area" unique_id=1721867353]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8227693, 0)
+shape = SubResource("CapsuleShape3D_reoop")

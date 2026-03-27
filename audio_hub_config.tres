@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="AudioHubConfig" format=3 uid="uid://um50ukvxevpp"]
+
+[ext_resource type="Script" uid="uid://ksj8iby0h1hc" path="res://addons/minimum_convenience/scripts/audio_hub_config.gd" id="1_fmqvq"]
+
+[resource]
+script = ExtResource("1_fmqvq")
+metadata/_custom_type_script = "uid://ksj8iby0h1hc"

@@ -1,0 +1,2 @@
+extends GlobalGameStateCore
+class_name GlobalGameState

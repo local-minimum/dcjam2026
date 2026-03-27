@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="BindingHintsConfig" format=3 uid="uid://butdrd6a4vdwv"]
+
+[ext_resource type="Script" uid="uid://dwfkyp4ydh2e8" path="res://addons/minimum_convenience/scripts/utils/binding_hints_config.gd" id="1_gb7gi"]
+
+[resource]
+script = ExtResource("1_gb7gi")
+metadata/_custom_type_script = "uid://dwfkyp4ydh2e8"

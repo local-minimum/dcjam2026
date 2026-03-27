@@ -1,0 +1,46 @@
+class_name SaveSystemWrapper
+
+static func autosave() -> void:
+    if SaveSystem.instance == null:
+        push_error("No save system loaded")
+        return
+
+    __SignalBus.on_before_save.emit()
+
+    SaveSystem.instance.save_last_slot()
+
+    __SignalBus.on_save_complete.emit()
+
+static func load_last_save() -> void:
+    if SaveSystem.instance == null:
+        push_error("No save system loaded")
+        __SignalBus.on_load_fail.emit()
+        return
+
+    __SignalBus.on_before_load.emit()
+
+    if !SaveSystem.instance.preload_last_save_into_cache():
+        push_error("Failed to load last save")
+        __SignalBus.on_load_fail.emit()
+        return
+
+    if !SaveSystem.instance.can_load_cache_onto_this_level():
+        # TODO: Describe better what causes next scene to be correct...
+        if !SceneSwapper.transition_to_next_scene():
+            push_error("Failed to transition to next scene")
+            __SignalBus.on_load_fail.emit()
+            return
+
+    elif !SaveSystem.instance.load_cached_save():
+        push_error("Failed to load cached save")
+        __SignalBus.on_load_fail.emit()
+        return
+
+    __SignalBus.on_load_complete.emit()
+
+static func load_cached_save() -> void:
+    if !SaveSystem.instance.load_cached_save():
+        push_error("Failed to load last save")
+        __SignalBus.on_load_fail.emit()
+
+    __SignalBus.on_load_complete.emit()

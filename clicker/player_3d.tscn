@@ -53,7 +53,7 @@ size = Vector3(0.1, 0.1, 0.1)
 
 [node name="Player3d" type="CharacterBody3D" unique_id=942295760 node_paths=PackedStringArray("_camera", "_freelook_cam", "_gridded_controller", "grid_entity", "look_target", "_captured_pointer_eventer", "stepper", "_forward", "_left", "_right", "_backward", "_debug_shapes")]
 collision_layer = 512
-collision_mask = 1029
+collision_mask = 1025
 input_ray_pickable = false
 script = ExtResource("1_reoop")
 _camera = NodePath("Camera3D")

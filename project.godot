@@ -187,6 +187,12 @@ toggle_dev_console={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_1="Default"
+3d_physics/layer_10="Player"
+3d_physics/layer_11="Enemies"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

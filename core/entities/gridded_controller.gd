@@ -233,6 +233,10 @@ func _attempt_gridded_translation(movement: Movement.MovementType, direction: Ve
         push_warning("Failed to connect end of movement")
         _player.handle_translation_end(movement)
         _player.grid_entity.is_translating = false
+        __SignalBus.on_physics_player_arrive_tile.emit(
+            _player,
+            _player.dungeon.get_closest_coordinates(_player.global_position)
+        )
         steps.clear()
 
 func _config_step_tween(pt: Vector3, prev_pt: Vector3, norm: Vector3, prev_norm: Vector3) -> void:

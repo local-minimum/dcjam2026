@@ -15,6 +15,8 @@
 [ext_resource type="Script" uid="uid://bygrk7a3mcgx7" path="res://clicker_xp_rules.gd" id="13_lc2xo"]
 [ext_resource type="PackedScene" uid="uid://c0qmcq36iacog" path="res://addons/minimum_dev_console/scenes/example_dev_console.tscn" id="14_215e1"]
 [ext_resource type="Script" uid="uid://dikj7ouqdoq0m" path="res://clicker/dev_console_xp.gd" id="15_7sc4i"]
+[ext_resource type="Script" uid="uid://3kvqfeoh3qbc" path="res://clicker/battle_manager.gd" id="16_80cx4"]
+[ext_resource type="Script" uid="uid://cxwcyqew8etn4" path="res://clicker/battle_ui.gd" id="16_e8heu"]
 
 [sub_resource type="Theme" id="Theme_4scmg"]
 HSplitContainer/constants/minimum_grab_thickness = 0
@@ -160,6 +162,7 @@ _multi_tasking = ExtResource("9_215e1")
 _smarts = ExtResource("7_iotsf")
 
 [node name="DevConsole" parent="." unique_id=540056483 node_paths=PackedStringArray("commands") instance=ExtResource("14_215e1")]
+visible = false
 commands = [NodePath("Gain XP Command")]
 
 [node name="Gain XP Command" type="Node" parent="DevConsole" unique_id=705109122]
@@ -167,3 +170,15 @@ script = ExtResource("15_7sc4i")
 command = Array[String](["xp"])
 usage = "[delta gain/loss]"
 description = "How much xp to be given or taken away"
+
+[node name="Battle UI" type="Control" parent="." unique_id=91901115]
+anchors_preset = 0
+offset_left = 13.0
+offset_top = 11.0
+offset_right = 870.0
+offset_bottom = 149.0
+script = ExtResource("16_e8heu")
+
+[node name="Battle Manager" type="Node" parent="Battle UI" unique_id=1063599184 node_paths=PackedStringArray("_ui")]
+script = ExtResource("16_80cx4")
+_ui = NodePath("..")

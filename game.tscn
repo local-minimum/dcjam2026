@@ -40,6 +40,8 @@
 [ext_resource type="Resource" uid="uid://c4tcus8oljh2c" path="res://clicker/abilities/agression_plasma_uzi.tres" id="32_iu0sx"]
 [ext_resource type="Resource" uid="uid://dyg4vh0d0ggxu" path="res://clicker/abilities/agression_laser_rifle.tres" id="33_4v2jo"]
 [ext_resource type="Resource" uid="uid://7l7cp2w07pxx" path="res://clicker/abilities/agression_rail_guns.tres" id="34_l1i01"]
+[ext_resource type="PackedScene" uid="uid://3heqxlultjpy" path="res://clicker/loot_and_inventory.tscn" id="39_eu6ph"]
+[ext_resource type="Script" uid="uid://dpr1k74riep1o" path="res://clicker/dev_console_loot.gd" id="44_kq12w"]
 
 [sub_resource type="Theme" id="Theme_4scmg"]
 HSplitContainer/constants/minimum_grab_thickness = 0
@@ -354,11 +356,21 @@ _memory_palace = ExtResource("8_lc2xo")
 _multi_tasking = ExtResource("9_215e1")
 _smarts = ExtResource("7_iotsf")
 
+[node name="Loot And Inventory" parent="." unique_id=1114366633 instance=ExtResource("39_eu6ph")]
+layout_mode = 1
+
 [node name="DevConsole" parent="." unique_id=540056483 node_paths=PackedStringArray("commands") instance=ExtResource("14_215e1")]
-commands = [NodePath("Gain XP Command")]
+visible = false
+commands = [NodePath("Gain XP Command"), NodePath("Loot Command")]
 
 [node name="Gain XP Command" type="Node" parent="DevConsole" unique_id=705109122]
 script = ExtResource("15_7sc4i")
 command = Array[String](["xp"])
 usage = "[delta gain/loss]"
 description = "How much xp to be given or taken away"
+
+[node name="Loot Command" type="Node" parent="DevConsole" unique_id=2053918153]
+script = ExtResource("44_kq12w")
+command = Array[String](["loot"])
+usage = "[total loot value]"
+description = "Simulates the end of a battle"

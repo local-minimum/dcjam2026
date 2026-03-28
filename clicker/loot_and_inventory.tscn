@@ -1,0 +1,127 @@
+[gd_scene format=3 uid="uid://3heqxlultjpy"]
+
+[ext_resource type="Script" uid="uid://cfj01il1gpau3" path="res://clicker/loot_and_inventory.gd" id="1_afi37"]
+[ext_resource type="PackedScene" uid="uid://rw40yloyksye" path="res://clicker/loot_preview.tscn" id="2_yrt3n"]
+[ext_resource type="Texture2D" uid="uid://bkrvcm6p5i78q" path="res://clicker/inventory_character.png" id="3_lbac6"]
+[ext_resource type="Script" uid="uid://d1lkn4se6hynh" path="res://clicker/weapon_slot_ui.gd" id="4_hnr7w"]
+[ext_resource type="Texture2D" uid="uid://b5lutg1qvwqnd" path="res://clicker/equipment_slot.png" id="5_flcwp"]
+[ext_resource type="Script" uid="uid://bl33wdh2b41xo" path="res://clicker/weapons_smith.gd" id="6_imme1"]
+
+[node name="Loot And Inventory" type="ColorRect" unique_id=1114366633 node_paths=PackedStringArray("_loot_root", "_loot_previews", "_weapons_smith")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.18120003, 0.18120006, 0.1812, 0.7490196)
+script = ExtResource("1_afi37")
+_loot_root = NodePath("Loot And Inventory/HBoxContainer/CenterContainer/Loot Panel")
+_loot_previews = [NodePath("Loot And Inventory/HBoxContainer/CenterContainer/Loot Panel/MarginContainer/VBoxContainer/Loot Preview"), NodePath("Loot And Inventory/HBoxContainer/CenterContainer/Loot Panel/MarginContainer/VBoxContainer/Loot Preview2"), NodePath("Loot And Inventory/HBoxContainer/CenterContainer/Loot Panel/MarginContainer/VBoxContainer/Loot Preview3")]
+_weapons_smith = NodePath("Weapons Smith")
+
+[node name="Loot And Inventory" type="CenterContainer" parent="." unique_id=1416476791]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Loot And Inventory" unique_id=615417505]
+layout_mode = 2
+alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="Loot And Inventory/HBoxContainer" unique_id=255210550]
+layout_mode = 2
+
+[node name="Loot Panel" type="PanelContainer" parent="Loot And Inventory/HBoxContainer/CenterContainer" unique_id=791999901]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Loot And Inventory/HBoxContainer/CenterContainer/Loot Panel" unique_id=1253734802]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Loot And Inventory/HBoxContainer/CenterContainer/Loot Panel/MarginContainer" unique_id=701664657]
+layout_mode = 2
+
+[node name="Looting Title" type="Label" parent="Loot And Inventory/HBoxContainer/CenterContainer/Loot Panel/MarginContainer/VBoxContainer" unique_id=214669426]
+layout_mode = 2
+theme_override_font_sizes/font_size = 46
+text = "PICK YOUR LOOT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Loot And Inventory/HBoxContainer/CenterContainer/Loot Panel/MarginContainer/VBoxContainer" unique_id=102132772]
+layout_mode = 2
+
+[node name="Loot Preview" parent="Loot And Inventory/HBoxContainer/CenterContainer/Loot Panel/MarginContainer/VBoxContainer" unique_id=1447326071 instance=ExtResource("2_yrt3n")]
+layout_mode = 2
+
+[node name="Loot Preview2" parent="Loot And Inventory/HBoxContainer/CenterContainer/Loot Panel/MarginContainer/VBoxContainer" unique_id=2141471518 instance=ExtResource("2_yrt3n")]
+layout_mode = 2
+
+[node name="Loot Preview3" parent="Loot And Inventory/HBoxContainer/CenterContainer/Loot Panel/MarginContainer/VBoxContainer" unique_id=1704816354 instance=ExtResource("2_yrt3n")]
+layout_mode = 2
+
+[node name="Inventory Panel" type="PanelContainer" parent="Loot And Inventory/HBoxContainer" unique_id=694669563]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Loot And Inventory/HBoxContainer/Inventory Panel" unique_id=1648370281]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Loot And Inventory/HBoxContainer/Inventory Panel/MarginContainer" unique_id=2048057532]
+layout_mode = 2
+
+[node name="Body" type="TextureRect" parent="Loot And Inventory/HBoxContainer/Inventory Panel/MarginContainer/VBoxContainer" unique_id=1954903018]
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 2
+texture = ExtResource("3_lbac6")
+
+[node name="Weapon Slot UI" type="TextureRect" parent="Loot And Inventory/HBoxContainer/Inventory Panel/MarginContainer/VBoxContainer/Body" unique_id=9567788]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 220.0
+offset_right = 72.0
+offset_bottom = 284.0
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("4_hnr7w")
+
+[node name="Frame" type="TextureRect" parent="Loot And Inventory/HBoxContainer/Inventory Panel/MarginContainer/VBoxContainer/Body/Weapon Slot UI" unique_id=174834100]
+custom_minimum_size = Vector2(72, 72)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_flcwp")
+
+[node name="Close Button" type="Button" parent="Loot And Inventory/HBoxContainer/Inventory Panel/MarginContainer/VBoxContainer/Body" unique_id=2098959996]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -20.0
+offset_bottom = 31.0
+grow_horizontal = 0
+text = "X"
+
+[node name="Weapons Smith" type="Node" parent="." unique_id=1965783852]
+script = ExtResource("6_imme1")
+
+[connection signal="pressed" from="Loot And Inventory/HBoxContainer/Inventory Panel/MarginContainer/VBoxContainer/Body/Close Button" to="." method="_on_close_button_pressed"]

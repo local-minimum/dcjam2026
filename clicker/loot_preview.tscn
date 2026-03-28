@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://rw40yloyksye"]
+
+[ext_resource type="Texture2D" uid="uid://pxppetlw4kl1" path="res://clicker/enemy_frame_bg.png" id="1_mms3g"]
+[ext_resource type="Script" uid="uid://bcwuwwgdljgir" path="res://clicker/loot_preview.gd" id="1_mw1fy"]
+
+[node name="Loot Preview" type="PanelContainer" unique_id=1447326071 node_paths=PackedStringArray("_icon", "_title", "_description")]
+mouse_default_cursor_shape = 2
+script = ExtResource("1_mw1fy")
+_icon = NodePath("MarginContainer/HBoxContainer/TextureRect")
+_title = NodePath("MarginContainer/HBoxContainer/VBoxContainer/Title")
+_description = NodePath("MarginContainer/HBoxContainer/VBoxContainer/Description")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=45289011]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1347170413]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=261723784]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("1_mms3g")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=695275414]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Title" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1346833007]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+text = "POOR CARDBOARD RAIL GUN"
+autowrap_mode = 2
+uppercase = true
+
+[node name="Description" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1392411724]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "EST. CURRENT DPS:"
+autowrap_mode = 2
+uppercase = true
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

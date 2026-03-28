@@ -1,6 +1,9 @@
 extends Node
 class_name Weapon
 
+## Internal cost of making it
+var score: int
+
 enum Quality { POOR, ORDINARY, FANCY, CHAOTIC }
 enum Mat { CARDBOARD, PLASTIC, BRASS, ALUMINUM, TITANIUM }
 enum Base { PLASMA_BATON, PLASMA_SWORD, LASER_GUN, PLASMA_UZI, LASER_RIFLE, RAIL_GUN }
@@ -16,6 +19,8 @@ func get_mat() -> Mat:
 var _base: Base
 func get_base() -> Base:
     return _base
+
+var icon: Texture2D
 
 func _modify_die_sides_by_quality(sides: Array[int]) -> void:
     match _quality:
@@ -171,15 +176,18 @@ func cooldown() -> float:
     push_warning("Don't know cooldown for %s" % [Base.find_key(_base)])
     return 1.0
 
+var _cached_die: Die
 func attack() -> int:
-    var die: Die = _make_die()
+    _cached_die = _make_die()
+    return reroll_attack()
 
+func reroll_attack() -> int:
     var qual_skill: String = ("%s_%s" % [_AGG_SKILLS, Quality.find_key(_quality)]).to_lower()
     var qual_level: int = __GlobalGameState.get_current_ability_level(qual_skill)
 
     var rolls: Array[int]
     for _idx: int in _qual_level_to_dice_count(qual_level):
-        rolls.append(die.roll())
+        rolls.append(_cached_die.roll())
 
     rolls.sort()
     var attack_strength: int = 0
@@ -192,6 +200,16 @@ func attack() -> int:
             attack_strength = ArrayUtils.sumi(rolls.slice(-1))
 
     return attack_strength
+
+func is_same(other: Weapon) -> bool:
+    return _base == other._base && _mat == other._mat && _quality == other._quality
+
+func humanized() -> String:
+    return ("%s %s %s" % [
+        Quality.find_key(_quality),
+        Mat.find_key(_mat),
+        Base.find_key(_base)
+    ]).replace("_", " ").to_lower().capitalize()
 
 func _to_string() -> String:
     return "<%s %s %s %s>" % [

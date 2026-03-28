@@ -26,7 +26,7 @@ size = Vector3(22.198341, 18.132324, 0.26278687)
 [node name="Dungeon" type="Node3D" unique_id=1143420985 node_paths=PackedStringArray("collision_system", "player")]
 script = ExtResource("1_6pvhc")
 grid_size = Vector3(2.5, 4.5, 2.5)
-collision_system = NodePath("Node")
+collision_system = NodePath("Collision System")
 player = NodePath("Player3d")
 _invoke_cinematic_on_ready = false
 metadata/_custom_type_script = "uid://5nd45w6q42kq"
@@ -35,7 +35,7 @@ metadata/_custom_type_script = "uid://5nd45w6q42kq"
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Node" type="Node" parent="." unique_id=1467278961]
+[node name="Collision System" type="Node" parent="." unique_id=1467278961]
 script = ExtResource("2_nibym")
 
 [node name="Player3d" parent="." unique_id=942295760 instance=ExtResource("3_sufut")]

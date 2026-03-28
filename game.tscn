@@ -13,6 +13,8 @@
 [ext_resource type="Resource" uid="uid://cb466h3c61gqf" path="res://clicker/abilities/agression.tres" id="10_7sc4i"]
 [ext_resource type="Resource" uid="uid://cd0ty3rasequ4" path="res://clicker/abilities/appearance.tres" id="11_80cx4"]
 [ext_resource type="Script" uid="uid://bygrk7a3mcgx7" path="res://clicker_xp_rules.gd" id="13_lc2xo"]
+[ext_resource type="PackedScene" uid="uid://c0qmcq36iacog" path="res://addons/minimum_dev_console/scenes/example_dev_console.tscn" id="14_215e1"]
+[ext_resource type="Script" uid="uid://dikj7ouqdoq0m" path="res://clicker/dev_console_xp.gd" id="15_7sc4i"]
 
 [sub_resource type="Theme" id="Theme_4scmg"]
 HSplitContainer/constants/minimum_grab_thickness = 0
@@ -156,3 +158,12 @@ script = ExtResource("13_lc2xo")
 _memory_palace = ExtResource("8_lc2xo")
 _multi_tasking = ExtResource("9_215e1")
 _smarts = ExtResource("7_iotsf")
+
+[node name="DevConsole" parent="." unique_id=540056483 node_paths=PackedStringArray("commands") instance=ExtResource("14_215e1")]
+commands = [NodePath("Gain XP Command")]
+
+[node name="Gain XP Command" type="Node" parent="DevConsole" unique_id=705109122]
+script = ExtResource("15_7sc4i")
+command = Array[String](["xp"])
+usage = "[delta gain/loss]"
+description = "How much xp to be given or taken away"

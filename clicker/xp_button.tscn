@@ -17,7 +17,7 @@ _xp_count_label = NodePath("MarginContainer/VBoxContainer/XP Row/Total XP")
 _xp_speed_label = NodePath("MarginContainer/VBoxContainer/XP Row/XP Gain Speed")
 _progress_bar = NodePath("MarginContainer/VBoxContainer/TextureProgressBar")
 _speed_history_msec = 1500
-_autoclickers = [NodePath("Top Clickers/AutoClicker"), NodePath("Top Clickers/AutoClicker2"), NodePath("Top Clickers/AutoClicker3"), NodePath("Top Clickers/AutoClicker4"), NodePath("Top Clickers/AutoClicker5"), NodePath("Top Clickers/AutoClicker6"), NodePath("Top Clickers/AutoClicker7"), NodePath("Top Clickers/AutoClicker8"), NodePath("Top Clickers/AutoClicker9")]
+_autoclickers = [NodePath("Top Clickers/AutoClicker"), NodePath("Top Clickers/AutoClicker2"), NodePath("Top Clickers/AutoClicker3"), NodePath("Top Clickers/AutoClicker4"), NodePath("Top Clickers/AutoClicker5"), NodePath("Top Clickers/AutoClicker6"), NodePath("Top Clickers/AutoClicker7"), NodePath("Top Clickers/AutoClicker8"), NodePath("Top Clickers/AutoClicker9"), NodePath("Top Clickers/AutoClicker10"), NodePath("Top Clickers/AutoClicker11")]
 
 [node name="XP Background Texture" type="TextureRect" parent="." unique_id=466219434]
 layout_mode = 1
@@ -91,6 +91,8 @@ anchor_right = 1.0
 offset_top = -20.0
 offset_bottom = 4.0
 grow_horizontal = 2
+theme_override_constants/separation = -2
+alignment = 1
 
 [node name="AutoClicker" parent="Top Clickers" unique_id=1380644300 instance=ExtResource("6_8n5ww")]
 layout_mode = 2
@@ -117,6 +119,12 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="AutoClicker9" parent="Top Clickers" unique_id=1100507211 instance=ExtResource("6_8n5ww")]
+layout_mode = 2
+
+[node name="AutoClicker10" parent="Top Clickers" unique_id=927813532 instance=ExtResource("6_8n5ww")]
+layout_mode = 2
+
+[node name="AutoClicker11" parent="Top Clickers" unique_id=980921772 instance=ExtResource("6_8n5ww")]
 layout_mode = 2
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]

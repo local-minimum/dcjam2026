@@ -53,12 +53,18 @@ func _handle_change_autoclicker_count(clickers: int) -> void:
         _autoclickers[idx].next_click = t0 + interval + step * idx
 
 func _handle_change_xp(new_value: float) -> void:
+    var suffix: String = ""
+
+    if new_value > 1000.0:
+        new_value /= 1000.0
+        suffix = "k"
+
     if new_value <= 10.0:
         new_value = floorf(new_value * 10.0) / 10.0
+        _xp_count_label.text = "%s%s xp" % [new_value, suffix]
     else:
-        new_value = floori(new_value)
+        _xp_count_label.text = "%s%s xp" % [floori(new_value), suffix]
 
-    _xp_count_label.text = "%s xp" % [new_value]
     _sync_progress_bar()
 
 func _handle_change_max_xp(_new_max: float) -> void:
@@ -100,7 +106,6 @@ func _process(_delta: float) -> void:
 func _set_speed(speed: float) -> void:
     if speed <= 10:
         speed = roundf(speed * 10) / 10.0
+        _xp_speed_label.text = "%s xp/s" % [speed]
     else:
-        speed = roundf(speed)
-
-    _xp_speed_label.text = "%s xp/s" % [speed]
+        _xp_speed_label.text = "%s xp/s" % [roundi(speed)]

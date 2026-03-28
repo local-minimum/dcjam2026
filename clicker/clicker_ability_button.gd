@@ -77,6 +77,7 @@ func _sync_all() -> void:
 
     show()
 
+
 func _handle_change_xp(new_xp: float) -> void:
     if visible && !_revealed && new_xp >= reveal_threshold * _current_cost:
         _revealed = true
@@ -100,6 +101,7 @@ func _handle_change_ability_level(ability_id: String, level: int) -> void:
     if _locked_requirements.has(ability_id):
         _locked_requirements.erase(ability_id)
         if _locked_requirements.is_empty():
+            _revealed = __GlobalGameState.xp >= reveal_threshold * _current_cost
             _sync_all()
 
     if ability.id == ability_id:

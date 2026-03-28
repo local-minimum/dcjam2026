@@ -1,4 +1,5 @@
 extends ColorRect
+class_name LootAndInventory
 
 @export var _loot_root: Control
 @export var _loot_previews: Array[LootPreviewUI]
@@ -19,6 +20,8 @@ func _ready() -> void:
     hide()
 
 func _handle_battle_end(credits: int) -> void:
+    PhysicsGridPlayerController.last_connected_player.add_cinematic_blocker(self)
+
     var active_weapon_value: int = __GlobalGameState.weapon.score
     var weapons: Array[Weapon] = []
 
@@ -46,6 +49,18 @@ func _handle_battle_end(credits: int) -> void:
 
             _loot_previews[idx].preview_weapon(weapon)
             _loot_previews[idx].show()
+            _loot_previews[idx].loot_and_inventory = self
 
     _loot_root.show()
     show()
+
+func check_remaining_loot() -> void:
+    for preview: LootPreviewUI in _loot_previews:
+        if preview.visible:
+            return
+
+    close_ui()
+
+func close_ui() -> void:
+    PhysicsGridPlayerController.last_connected_player.remove_cinematic_blocker(self)
+    hide()

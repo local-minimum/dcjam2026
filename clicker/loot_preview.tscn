@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bcwuwwgdljgir" path="res://clicker/loot_preview.gd" id="1_mw1fy"]
 
 [node name="Loot Preview" type="PanelContainer" unique_id=1447326071 node_paths=PackedStringArray("_icon", "_title", "_description")]
+mouse_default_cursor_shape = 2
 script = ExtResource("1_mw1fy")
 _icon = NodePath("MarginContainer/HBoxContainer/TextureRect")
 _title = NodePath("MarginContainer/HBoxContainer/VBoxContainer/Title")
@@ -45,3 +46,5 @@ theme_override_font_sizes/font_size = 12
 text = "EST. CURRENT DPS:"
 autowrap_mode = 2
 uppercase = true
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

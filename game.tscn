@@ -43,6 +43,7 @@
 [ext_resource type="Script" uid="uid://cfj01il1gpau3" path="res://clicker/loot_and_inventory.gd" id="39_eu6ph"]
 [ext_resource type="PackedScene" uid="uid://rw40yloyksye" path="res://clicker/loot_preview.tscn" id="39_klri6"]
 [ext_resource type="Script" uid="uid://bl33wdh2b41xo" path="res://clicker/weapons_smith.gd" id="41_edr7y"]
+[ext_resource type="Script" uid="uid://dpr1k74riep1o" path="res://clicker/dev_console_loot.gd" id="44_kq12w"]
 
 [sub_resource type="Theme" id="Theme_4scmg"]
 HSplitContainer/constants/minimum_grab_thickness = 0
@@ -417,10 +418,16 @@ layout_mode = 2
 script = ExtResource("41_edr7y")
 
 [node name="DevConsole" parent="." unique_id=540056483 node_paths=PackedStringArray("commands") instance=ExtResource("14_215e1")]
-commands = [NodePath("Gain XP Command")]
+commands = [NodePath("Gain XP Command"), NodePath("Loot Command")]
 
 [node name="Gain XP Command" type="Node" parent="DevConsole" unique_id=705109122]
 script = ExtResource("15_7sc4i")
 command = Array[String](["xp"])
 usage = "[delta gain/loss]"
 description = "How much xp to be given or taken away"
+
+[node name="Loot Command" type="Node" parent="DevConsole" unique_id=2053918153]
+script = ExtResource("44_kq12w")
+command = Array[String](["loot"])
+usage = "[total loot value]"
+description = "Simulates the end of a battle"

@@ -28,7 +28,7 @@ var _quality_costs: Dictionary[Weapon.Quality, int] = {
 func _roll_base(credits: int) -> Weapon.Base:
     var opt: Array[Weapon.Base] = []
     for base: Weapon.Base in _base_costs:
-        if _base_costs[base] < credits * 1.25:
+        if _base_costs[base] < credits * 1.25 && _base_costs[base] + 30 > credits * 0.8:
             opt.append(base)
 
     if opt.is_empty():
@@ -93,10 +93,59 @@ func assign_score(weapon: Weapon) -> void:
         0
     )
 
-func assign_icon(_weapon: Weapon) -> bool:
+var _icon_cache: Array[Weapon]
+
+const _ICON_RES_ROOT: String = "res://clicker/thumbnails/"
+
+func _base_to_icon_folder(base: Weapon.Base) -> String:
+    match base:
+        Weapon.Base.PLASMA_BATON:
+            return "baton"
+        Weapon.Base.PLASMA_SWORD:
+            return "sword"
+        Weapon.Base.LASER_GUN:
+            return "gun"
+        Weapon.Base.PLASMA_UZI:
+            return "uzi"
+        Weapon.Base.LASER_RIFLE:
+            return "rifle"
+        Weapon.Base.RAIL_GUN:
+            return "rail_gun"
+        _:
+            push_error("Unknown path to %s" % [Weapon.Base.find_key(base)])
+            return ""
+
+func assign_icon(weapon: Weapon, size: String = "128") -> bool:
+    for cached: Weapon in _icon_cache:
+        if weapon.is_same(cached):
+            weapon.icon = cached.icon
+            return true
+
+    var folder: String = _base_to_icon_folder(weapon.get_base())
+    if folder.is_empty():
+        return false
+
+    var path: String = ("%s/%s/%s_%s_%s_%s.png" % [
+        _ICON_RES_ROOT,
+        folder,
+        Weapon.Base.find_key(weapon.get_base()),
+        Weapon.Quality.find_key(weapon.get_quality()),
+        Weapon.Mat.find_key(weapon.get_mat()),
+        size,
+    ]).to_lower()
+
+    var icon: Texture2D = load(path)
+    print_debug("Loading icon at %s for %s" % [path, weapon])
+    if icon == null:
+        return false
+
+    weapon.icon = icon
+    _icon_cache.append(weapon)
+
     return false
 
 func create_weapon(credits: int) -> Weapon:
+    print_debug("Creating a weapon from %s credits" % [credits])
     var base: Weapon.Base = _roll_base(credits)
     credits -= _base_costs[base]
 

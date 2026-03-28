@@ -78,7 +78,8 @@ func _ready() -> void:
         if child is ClickerAbilityButton:
             _abilities.append(child as ClickerAbilityButton)
 
-    _handle_change_weapon(__GlobalGameState.weapon)
+    if __GlobalGameState.weapon != null:
+        _handle_change_weapon(__GlobalGameState.weapon)
 
 func _handle_change_weapon(weapon: Weapon) -> void:
     for ability: ClickerAbilityButton in _abilities:

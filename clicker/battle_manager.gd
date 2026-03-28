@@ -73,9 +73,6 @@ func _enter_tree() -> void:
         push_error("Failed to connect change weapon")
 
 func _ready() -> void:
-    if __GlobalGameState.weapon == null:
-        __GlobalGameState.weapon = Weapon.new(Weapon.Quality.POOR, Weapon.Mat.BRASS, Weapon.Base.PLASMA_BATON)
-
     set_process(false)
 
     if _masochism_ability != null:

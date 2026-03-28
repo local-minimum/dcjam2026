@@ -21,7 +21,7 @@ class_name ClickerAbilityButton
 @export var affordable_color: Color = Color.LAWN_GREEN
 
 @warning_ignore_start("unused_private_class_variable")
-@export_tool_button("Sync") var _sync_btn: Callable = _sync_all
+@export_tool_button("Sync") var _sync_btn: Callable = sync_all
 @warning_ignore_restore("unused_private_class_variable")
 
 
@@ -30,6 +30,7 @@ var intercatable: bool:
         return (
             ability != null &&
             _locked_requirements.is_empty() &&
+            !weapon_blocked &&
             _ability_level < ability.levels &&
             _current_cost <= __GlobalGameState.xp
         )
@@ -37,6 +38,7 @@ var intercatable: bool:
 var _ability_level: int = 0
 var _current_cost: int
 var _locked_requirements: Array[String]
+var weapon_blocked: bool
 var _revealed: bool
 
 func _enter_tree() -> void:
@@ -52,9 +54,9 @@ func _enter_tree() -> void:
     _locked_requirements = Array(ability.requirement_ids if ability != null else [])
 
 func _ready() -> void:
-    _sync_all()
+    sync_all()
 
-func _sync_all() -> void:
+func sync_all() -> void:
     _current_cost = ability.get_cost(_ability_level) if ability != null else -1
 
     icon.texture = ability.icon if ability != null else null
@@ -70,7 +72,7 @@ func _sync_all() -> void:
     _sync_level()
 
     if !Engine.is_editor_hint():
-        if !_locked_requirements.is_empty():
+        if weapon_blocked || !_locked_requirements.is_empty():
             hide()
             return
         _sync_interactable()
@@ -81,7 +83,7 @@ func _sync_all() -> void:
 func _handle_change_xp(new_xp: float) -> void:
     if visible && !_revealed && new_xp >= reveal_threshold * _current_cost:
         _revealed = true
-        _sync_all()
+        sync_all()
     else:
         _sync_buy_cost(new_xp)
         _sync_interactable()
@@ -102,7 +104,7 @@ func _handle_change_ability_level(ability_id: String, level: int) -> void:
         _locked_requirements.erase(ability_id)
         if _locked_requirements.is_empty():
             _revealed = __GlobalGameState.xp >= reveal_threshold * _current_cost
-            _sync_all()
+            sync_all()
 
     if ability.id == ability_id:
         _ability_level = level

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ClickerAbilityData" format=3 uid="uid://mgtjimd7x1dv"]
+
+[ext_resource type="Script" uid="uid://bt1vi716f5csr" path="res://clicker/clicker_ability_data.gd" id="1_0k0du"]
+
+[resource]
+script = ExtResource("1_0k0du")
+id = "agression_aluminum"
+title = "Aluminum Weapons"
+requirement_ids = Array[String](["agression"])
+costs = Array[int]([10, 100, 2000, 50000])
+descriptions = Array[String](["Increases damage dealt"])
+autohide_on_completed = false
+require_weapon = true
+metadata/_custom_type_script = "uid://bt1vi716f5csr"

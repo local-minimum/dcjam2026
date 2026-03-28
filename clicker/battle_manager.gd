@@ -58,7 +58,6 @@ class Enemy:
         return d
 
 
-var _player_weapon: Weapon = Weapon.new(Weapon.Quality.POOR, Weapon.Mat.BRASS, Weapon.Base.PLASMA_BATON)
 var _player_next_attack_msec: int
 
 var _gained_loot_cred: int = 0
@@ -70,11 +69,20 @@ func _enter_tree() -> void:
         push_error("Failed to connect enemy join battle")
     if __SignalBus.on_change_ability_level.connect(_handle_change_ability_level) != OK:
         push_error("Failed to connect change ability level")
+    if __SignalBus.on_change_weapon.connect(_handle_change_weapon) != OK:
+        push_error("Failed to connect change weapon")
 
 func _ready() -> void:
+    if __GlobalGameState.weapon == null:
+        __GlobalGameState.weapon = Weapon.new(Weapon.Quality.POOR, Weapon.Mat.BRASS, Weapon.Base.PLASMA_BATON)
+
     set_process(false)
+
     if _masochism_ability != null:
         _handle_change_ability_level(_masochism_ability.id, __GlobalGameState.get_current_ability_level(_masochism_ability.id))
+
+func _handle_change_weapon(weapon: Weapon) -> void:
+    _player_next_attack_msec = Time.get_ticks_msec() + roundi(weapon.cooldown() * 1000)
 
 func _handle_change_ability_level(ability_id: String, lvl: int) -> void:
     if _masochism_ability == null || _masochism_ability.id != ability_id:
@@ -104,7 +112,7 @@ func _handle_enemy_join_battle(enemy_data: EnemyData) -> void:
     if _enemies.is_empty():
         _gained_loot_cred = 0
         set_process(true)
-        _player_next_attack_msec = Time.get_ticks_msec() + roundi(_player_weapon.cooldown() * 1000)
+        _player_next_attack_msec = Time.get_ticks_msec() + roundi(__GlobalGameState.weapon.cooldown() * 1000)
 
     var e: Enemy = Enemy.new(enemy_data)
     _enemies.append(e)
@@ -112,8 +120,8 @@ func _handle_enemy_join_battle(enemy_data: EnemyData) -> void:
 
 func _process(_delta: float) -> void:
     if Time.get_ticks_msec() >= _player_next_attack_msec:
-        var dmg: int = _player_weapon.attack()
-        _player_next_attack_msec = Time.get_ticks_msec() + roundi(_player_weapon.cooldown() * 1000)
+        var dmg: int = __GlobalGameState.weapon.attack()
+        _player_next_attack_msec = Time.get_ticks_msec() + roundi(__GlobalGameState.weapon.cooldown() * 1000)
 
         #print_debug("Player attacks with %s for %s" % [_player_weapon, dmg])
 
@@ -137,7 +145,7 @@ func _process(_delta: float) -> void:
             else:
                 hit = HitType.MISS
 
-            __SignalBus.on_player_attack.emit(_player_weapon, target, dmg, hit)
+            __SignalBus.on_player_attack.emit(__GlobalGameState.weapon, target, dmg, hit)
 
             if !target.is_alive:
                 _enemies.erase(target)

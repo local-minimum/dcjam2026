@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ClickerAbilityData" format=3 uid="uid://7l7cp2w07pxx"]
+
+[ext_resource type="Script" uid="uid://bt1vi716f5csr" path="res://clicker/clicker_ability_data.gd" id="1_3wu8b"]
+
+[resource]
+script = ExtResource("1_3wu8b")
+id = "agression_rail_guns"
+title = "Rail Guns"
+requirement_ids = Array[String](["agression"])
+costs = Array[int]([10, 100, 2000, 50000])
+descriptions = Array[String](["Decreases cooldown"])
+autohide_on_completed = false
+require_weapon = true
+metadata/_custom_type_script = "uid://bt1vi716f5csr"

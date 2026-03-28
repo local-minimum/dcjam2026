@@ -1,6 +1,11 @@
 extends GlobalGameStateCore
 class_name GlobalGameState
 
+var weapon: Weapon:
+    set(value):
+        weapon = value
+        __SignalBus.on_change_weapon.emit(value)
+
 var health: float:
     set(value):
         health = clampf(value, 0.0, max_health)

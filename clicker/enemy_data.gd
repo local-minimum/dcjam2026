@@ -2,7 +2,7 @@ extends Resource
 class_name EnemyData
 
 @export var portrait: Texture2D
-@export var name: String
+@export var monster_name: String
 @export var attacks: Array[String]
 @export var attack_interval_msec: int = 1500
 @export var defence: String = "D6"

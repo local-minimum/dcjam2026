@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://cjvexujnvp0lw"]
+
+[ext_resource type="Script" uid="uid://cisrbagk8gcws" path="res://enemy_ui.gd" id="1_kncor"]
+[ext_resource type="Texture2D" uid="uid://pxppetlw4kl1" path="res://clicker/enemy_frame_bg.png" id="2_7r56a"]
+[ext_resource type="Texture2D" uid="uid://ca2yywbtyo5uv" path="res://clicker/enemy_unknown.png" id="3_pqv1x"]
+[ext_resource type="Texture2D" uid="uid://vfqyxmknrqsw" path="res://clicker/clicker_enemy_health_bg.png" id="4_1fow4"]
+[ext_resource type="Texture2D" uid="uid://b8un8vm5yj4ry" path="res://clicker/clicker_enemy_health.png" id="5_ptcpp"]
+[ext_resource type="Texture2D" uid="uid://0ghbhpbbbuy8" path="res://clicker/enemy_frame_fg.png" id="6_pb4fy"]
+
+[node name="Enemy UI" type="Control" unique_id=1289570251 node_paths=PackedStringArray("monster_image", "monster_name", "monster_health")]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_kncor")
+monster_image = NodePath("MarginContainer/VBoxContainer/Image")
+monster_name = NodePath("MarginContainer/VBoxContainer/VBoxContainer/Name")
+monster_health = NodePath("MarginContainer/VBoxContainer/VBoxContainer/Health")
+
+[node name="Frame BG" type="TextureRect" parent="." unique_id=229054981]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_7r56a")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=749042341]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1595512419]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Image" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=2137420370]
+custom_minimum_size = Vector2(0, 86)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_pqv1x")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1957124756]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Name" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=330141457]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.083392, 0.083392, 0.08339202, 1)
+theme_override_font_sizes/font_size = 10
+text = "MONSTER"
+
+[node name="Health" type="TextureProgressBar" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=464083500]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+value = 30.0
+texture_under = ExtResource("4_1fow4")
+texture_progress = ExtResource("5_ptcpp")
+
+[node name="Frame" type="TextureRect" parent="." unique_id=511773697]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_pb4fy")

@@ -11,4 +11,6 @@ signal on_autoclick(efficiency: float)
 
 signal on_enemy_join_battle(enemy_data: EnemyData)
 signal on_enemy_attack(enemy: BattleManager.Enemy, attack: int)
+signal on_player_attack(enemy: BattleManager.Enemy, weapon: Weapon, attack: int)
+signal on_battle_end(credits: int)
 @warning_ignore_restore("unused_signal")

@@ -17,6 +17,7 @@
 [ext_resource type="Script" uid="uid://dikj7ouqdoq0m" path="res://clicker/dev_console_xp.gd" id="15_7sc4i"]
 [ext_resource type="Script" uid="uid://3kvqfeoh3qbc" path="res://clicker/battle_manager.gd" id="16_80cx4"]
 [ext_resource type="Script" uid="uid://cxwcyqew8etn4" path="res://clicker/battle_ui.gd" id="16_e8heu"]
+[ext_resource type="PackedScene" uid="uid://cjvexujnvp0lw" path="res://clicker/enemy_ui.tscn" id="18_rvswv"]
 
 [sub_resource type="Theme" id="Theme_4scmg"]
 HSplitContainer/constants/minimum_grab_thickness = 0
@@ -171,14 +172,34 @@ command = Array[String](["xp"])
 usage = "[delta gain/loss]"
 description = "How much xp to be given or taken away"
 
-[node name="Battle UI" type="Control" parent="." unique_id=91901115]
-anchors_preset = 0
+[node name="Battle UI" type="HBoxContainer" parent="." unique_id=164512167 node_paths=PackedStringArray("_enemies")]
+layout_mode = 0
 offset_left = 13.0
 offset_top = 11.0
 offset_right = 870.0
 offset_bottom = 149.0
+alignment = 1
 script = ExtResource("16_e8heu")
+_enemies = [NodePath("Enemy UI"), NodePath("Enemy UI2"), NodePath("Enemy UI3"), NodePath("Enemy UI4"), NodePath("Enemy UI5"), NodePath("Enemy UI6")]
 
 [node name="Battle Manager" type="Node" parent="Battle UI" unique_id=1063599184 node_paths=PackedStringArray("_ui")]
 script = ExtResource("16_80cx4")
 _ui = NodePath("..")
+
+[node name="Enemy UI" parent="Battle UI" unique_id=1289570251 instance=ExtResource("18_rvswv")]
+layout_mode = 2
+
+[node name="Enemy UI2" parent="Battle UI" unique_id=1806529435 instance=ExtResource("18_rvswv")]
+layout_mode = 2
+
+[node name="Enemy UI3" parent="Battle UI" unique_id=1575408839 instance=ExtResource("18_rvswv")]
+layout_mode = 2
+
+[node name="Enemy UI4" parent="Battle UI" unique_id=1269801102 instance=ExtResource("18_rvswv")]
+layout_mode = 2
+
+[node name="Enemy UI5" parent="Battle UI" unique_id=735670171 instance=ExtResource("18_rvswv")]
+layout_mode = 2
+
+[node name="Enemy UI6" parent="Battle UI" unique_id=1137036187 instance=ExtResource("18_rvswv")]
+layout_mode = 2

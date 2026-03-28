@@ -4,7 +4,7 @@ class_name Die
 var _sides: Array[int]
 
 func _to_string() -> String:
-    return "<Die %s>" % _sides
+    return "<Die %s>" % [_sides]
 
 func roll() -> int:
     return _sides.pick_random()
@@ -17,6 +17,11 @@ static var _d_matcher: RegEx
 const _C_PATTERN: String = "^(\\{[\\d,]+\\})$"
 static var _c_matcher: RegEx
 
+static func parse_first_die_from_string(die_string: String) -> Array[int]:
+    for a: Array[int] in parse_die_string(die_string):
+        return a
+    return []
+
 static func parse_die_string(die_string: String) -> Array[Array]:
     if die_string.is_empty():
         return []
@@ -28,7 +33,9 @@ static func parse_die_string(die_string: String) -> Array[Array]:
     if d_match != null:
         var count_s: String = d_match.get_string(1)
         var count: int = 1 if count_s.is_empty() else int(count_s)
-        var die: Array[int] = Array(range(int(d_match.get_string(2))))
+        var die: Array[int] = []
+        die.append_array(range(int(d_match.get_string(2))))
+
         if d_match.get_group_count() == 3:
             var mod_s: String = d_match.get_string(3)
             var mod: int = int(mod_s)

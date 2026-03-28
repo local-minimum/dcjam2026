@@ -13,7 +13,7 @@ script = ExtResource("2_88guo")
 portrait = ExtResource("2_q222v")
 monster_name = "Cat-o-tron"
 attacks = Array[String](["D6-1"])
-defence = "D3"
+defence = ""
 max_health = 10.0
 metadata/_custom_type_script = "uid://csfgoet4qt0pt"
 

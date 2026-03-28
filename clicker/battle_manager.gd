@@ -145,7 +145,7 @@ func _process(_delta: float) -> void:
             else:
                 hit = HitType.MISS
 
-            __SignalBus.on_player_attack.emit(__GlobalGameState.weapon, target, dmg, hit)
+            __SignalBus.on_player_attack.emit(target, __GlobalGameState.weapon, dmg, hit)
 
             if !target.is_alive:
                 _enemies.erase(target)
@@ -164,12 +164,14 @@ func _process(_delta: float) -> void:
                 _most_recent_attacker = e
 
                 __GlobalGameState.health -= attack
-                __SignalBus.on_enemy_attack.emit(e, attack)
+                __SignalBus.on_enemy_attack.emit(e, attack, HitType.HIT)
 
                 if __GlobalGameState.health == 0:
                     PhysicsGridPlayerController.last_connected_player.add_cinematic_blocker(self)
                     set_process(false)
                     __SignalBus.on_player_death.emit(0)
                     return
+            else:
+                __SignalBus.on_enemy_attack.emit(e, 0, HitType.MISS)
 
             e.last_attack_ticks_msec = Time.get_ticks_msec()

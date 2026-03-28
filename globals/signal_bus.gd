@@ -10,7 +10,7 @@ signal on_change_autoclicker_count(clickers: int)
 signal on_autoclick(efficiency: float)
 
 signal on_enemy_join_battle(enemy_data: EnemyData)
-signal on_enemy_attack(enemy: BattleManager.Enemy, attack: int)
+signal on_enemy_attack(enemy: BattleManager.Enemy, attack: int, hit: BattleManager.HitType)
 signal on_player_max_health_changed()
 signal on_player_attack(enemy: BattleManager.Enemy, weapon: Weapon, attack: int, hit: BattleManager.HitType)
 signal on_battle_end(credits: int)

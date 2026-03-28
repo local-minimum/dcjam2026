@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://cs23uil2d5u6p" path="res://clicker/player_health_ui.gd" id="9_x5p1p"]
 [ext_resource type="Resource" uid="uid://cb466h3c61gqf" path="res://clicker/abilities/agression.tres" id="10_7sc4i"]
 [ext_resource type="Resource" uid="uid://cd0ty3rasequ4" path="res://clicker/abilities/appearance.tres" id="11_80cx4"]
+[ext_resource type="Script" uid="uid://bt10ci7pn81qq" path="res://clicker/battle_texts_spawner.gd" id="11_r62pu"]
 [ext_resource type="Script" uid="uid://bal5t10rmus64" path="res://clicker/abilitities_manager.gd" id="12_f1jbl"]
 [ext_resource type="Script" uid="uid://bygrk7a3mcgx7" path="res://clicker_xp_rules.gd" id="13_lc2xo"]
 [ext_resource type="PackedScene" uid="uid://c0qmcq36iacog" path="res://addons/minimum_dev_console/scenes/example_dev_console.tscn" id="14_215e1"]
@@ -55,7 +56,6 @@ id = "mental"
 icon = ExtResource("6_hve3p")
 title = "Mental Gymnastics"
 descriptions = Array[String](["Improves XP uptake"])
-require_weapon = null
 metadata/_custom_type_script = "uid://bt1vi716f5csr"
 
 [node name="Control" type="Control" unique_id=1242508304]
@@ -160,6 +160,25 @@ texture_under = ExtResource("6_hb5m1")
 texture_over = ExtResource("7_x5p1p")
 texture_progress = ExtResource("8_qhcbd")
 script = ExtResource("9_x5p1p")
+
+[node name="BattleTextsSpawner" type="Control" parent="HSplitContainer/Viewport Side" unique_id=824109206]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -30.0
+offset_right = 40.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("11_r62pu")
+player_stats_color = Color(1, 0, 0, 0.7607843)
+enemy_stats_color = Color(0, 0, 0.5019608, 0.8156863)
+end_color = Color(0.45882353, 0.45882353, 0.45882353, 0.29411766)
 
 [node name="Sidebar" type="ColorRect" parent="HSplitContainer" unique_id=1457495423]
 layout_mode = 2

@@ -64,3 +64,7 @@ func check_remaining_loot() -> void:
 func close_ui() -> void:
     PhysicsGridPlayerController.last_connected_player.remove_cinematic_blocker(self)
     hide()
+
+
+func _on_close_button_pressed() -> void:
+    close_ui()

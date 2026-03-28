@@ -45,7 +45,7 @@ func _on_gui_input(event: InputEvent) -> void:
 
 func quick_equip() -> void:
     if _weapon != null:
-        __SignalBus.on_change_weapon.emit(_weapon)
+        __GlobalGameState.weapon = _weapon
 
     hide()
 

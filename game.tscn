@@ -43,7 +43,9 @@
 [ext_resource type="Script" uid="uid://cfj01il1gpau3" path="res://clicker/loot_and_inventory.gd" id="39_eu6ph"]
 [ext_resource type="PackedScene" uid="uid://rw40yloyksye" path="res://clicker/loot_preview.tscn" id="39_klri6"]
 [ext_resource type="Script" uid="uid://bl33wdh2b41xo" path="res://clicker/weapons_smith.gd" id="41_edr7y"]
+[ext_resource type="Texture2D" uid="uid://bkrvcm6p5i78q" path="res://clicker/inventory_character.png" id="41_lwlx3"]
 [ext_resource type="Script" uid="uid://d1lkn4se6hynh" path="res://clicker/weapon_slot_ui.gd" id="41_t46w6"]
+[ext_resource type="Texture2D" uid="uid://b5lutg1qvwqnd" path="res://clicker/equipment_slot.png" id="42_m28ev"]
 [ext_resource type="Script" uid="uid://dpr1k74riep1o" path="res://clicker/dev_console_loot.gd" id="44_kq12w"]
 
 [sub_resource type="Theme" id="Theme_4scmg"]
@@ -435,13 +437,14 @@ layout_mode = 2
 [node name="Body" type="TextureRect" parent="Loot And Inventory/Loot And Inventory/HBoxContainer/Inventory Panel/MarginContainer/VBoxContainer" unique_id=1529366811]
 custom_minimum_size = Vector2(300, 400)
 layout_mode = 2
+texture = ExtResource("41_lwlx3")
 
 [node name="Weapon Slot UI" type="TextureRect" parent="Loot And Inventory/Loot And Inventory/HBoxContainer/Inventory Panel/MarginContainer/VBoxContainer/Body" unique_id=527081900]
 layout_mode = 0
 offset_left = 8.0
-offset_top = 170.0
+offset_top = 220.0
 offset_right = 72.0
-offset_bottom = 234.0
+offset_bottom = 284.0
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("41_t46w6")
@@ -460,6 +463,7 @@ offset_right = 36.0
 offset_bottom = 36.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("42_m28ev")
 
 [node name="Weapons Smith" type="Node" parent="Loot And Inventory" unique_id=1371734994]
 script = ExtResource("41_edr7y")

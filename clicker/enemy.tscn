@@ -12,8 +12,9 @@ radius = 0.93603516
 script = ExtResource("2_88guo")
 portrait = ExtResource("2_q222v")
 monster_name = "Cat-o-tron"
-attacks = Array[String](["{8,6,5,4,3,3}", "2D6"])
-max_health = 15.0
+attacks = Array[String](["D6-1"])
+defence = "D3"
+max_health = 10.0
 metadata/_custom_type_script = "uid://csfgoet4qt0pt"
 
 [node name="Enemy" type="Node3D" unique_id=286162732]

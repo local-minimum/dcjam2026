@@ -1,7 +1,9 @@
 extends Node
 class_name BattleManager
 
+enum HitType { HIT, MISS, BLOCKED }
 @export var _ui: BattleUI
+@export var _masochism_ability: ClickerAbilityData
 
 class Enemy:
     var _data: EnemyData
@@ -57,7 +59,6 @@ class Enemy:
 
 
 var _player_weapon: Weapon = Weapon.new(Weapon.Quality.POOR, Weapon.Mat.BRASS, Weapon.Base.PLASMA_BATON)
-var _player_dice_count: int = 1
 var _player_next_attack_msec: int
 
 var _gained_loot_cred: int = 0
@@ -67,9 +68,37 @@ var _most_recent_attacker: Enemy
 func _enter_tree() -> void:
     if __SignalBus.on_enemy_join_battle.connect(_handle_enemy_join_battle) != OK:
         push_error("Failed to connect enemy join battle")
+    if __SignalBus.on_change_ability_level.connect(_handle_change_ability_level) != OK:
+        push_error("Failed to connect change ability level")
 
 func _ready() -> void:
     set_process(false)
+    if _masochism_ability != null:
+        _handle_change_ability_level(_masochism_ability.id, __GlobalGameState.get_current_ability_level(_masochism_ability.id))
+
+func _handle_change_ability_level(ability_id: String, lvl: int) -> void:
+    if _masochism_ability == null || _masochism_ability.id != ability_id:
+        return
+
+    var health_deficit: float = minf(0.0, __GlobalGameState.health - __GlobalGameState.max_health)
+    print_debug("Deficit %s (%s/%s)" % [health_deficit, __GlobalGameState.health, __GlobalGameState.max_health])
+    match lvl:
+        -1,0:
+            __GlobalGameState.max_health = 20.
+        1:
+            __GlobalGameState.max_health = 70.
+        2:
+            __GlobalGameState.max_health = 120.
+        3:
+            __GlobalGameState.max_health = 220.
+        4:
+            __GlobalGameState.max_health = 270.
+        5:
+            __GlobalGameState.max_health = 300.
+
+    __GlobalGameState.health = __GlobalGameState.max_health + health_deficit
+
+    __SignalBus.on_player_max_health_changed.emit()
 
 func _handle_enemy_join_battle(enemy_data: EnemyData) -> void:
     if _enemies.is_empty():
@@ -95,12 +124,20 @@ func _process(_delta: float) -> void:
 
         #print_debug("Attack target %s %s" % [target, _enemies])
         if target != null:
+            var hit: HitType = HitType.HIT
 
             if dmg > 0:
-                target.health -= dmg
-                _ui.focus_enemy_getting_attacked(target)
+                dmg = maxi(0, dmg - target.roll_defence())
+                if dmg > 0:
+                    target.health -= dmg
+                else:
+                    hit = HitType.BLOCKED
 
-            __SignalBus.on_player_attack.emit(_player_weapon, target, dmg)
+                _ui.focus_enemy_getting_attacked(target)
+            else:
+                hit = HitType.MISS
+
+            __SignalBus.on_player_attack.emit(_player_weapon, target, dmg, hit)
 
             if !target.is_alive:
                 _enemies.erase(target)
@@ -118,5 +155,13 @@ func _process(_delta: float) -> void:
                 _ui.focus_enemy_attacking(e)
                 _most_recent_attacker = e
 
+                __GlobalGameState.health -= attack
                 __SignalBus.on_enemy_attack.emit(e, attack)
+
+                if __GlobalGameState.health == 0:
+                    PhysicsGridPlayerController.last_connected_player.add_cinematic_blocker(self)
+                    set_process(false)
+                    __SignalBus.on_player_death.emit(0)
+                    return
+
             e.last_attack_ticks_msec = Time.get_ticks_msec()

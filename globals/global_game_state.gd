@@ -1,6 +1,17 @@
 extends GlobalGameStateCore
 class_name GlobalGameState
 
+var health: float:
+    set(value):
+        health = clampf(value, 0.0, max_health)
+
+var max_health: float:
+    set(value):
+        max_health = value
+        if health > max_health:
+            health = max_health
+
+
 var xp_click_value: float = 1.0
 
 var max_xp: float = 10.0:

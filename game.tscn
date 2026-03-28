@@ -6,10 +6,14 @@
 [ext_resource type="Texture2D" uid="uid://cwnthnv701tbf" path="res://clicker/secret_panel.png" id="3_feb5d"]
 [ext_resource type="PackedScene" uid="uid://ctchufnwaro7b" path="res://clicker/clicker_ability_button.tscn" id="4_7jktm"]
 [ext_resource type="Script" uid="uid://bt1vi716f5csr" path="res://clicker/clicker_ability_data.gd" id="6_eow3j"]
+[ext_resource type="Texture2D" uid="uid://bj23l1l07x67h" path="res://clicker/player_health_bg.png" id="6_hb5m1"]
 [ext_resource type="Texture2D" uid="uid://d08irex16meun" path="res://clicker/clicker_ability_icon_brian.png" id="6_hve3p"]
 [ext_resource type="Resource" uid="uid://c208p6knl8gu2" path="res://clicker/abilities/mental_smarts.tres" id="7_iotsf"]
+[ext_resource type="Texture2D" uid="uid://3g7a1qgy4jjc" path="res://clicker/player_health_fg.png" id="7_x5p1p"]
 [ext_resource type="Resource" uid="uid://3gmnrhfplofm" path="res://clicker/abilities/mental_memory_palace.tres" id="8_lc2xo"]
+[ext_resource type="Texture2D" uid="uid://b5fmrl4b8wotb" path="res://clicker/player_health.png" id="8_qhcbd"]
 [ext_resource type="Resource" uid="uid://ie2phil58tny" path="res://clicker/abilities/mental_multi_tasking.tres" id="9_215e1"]
+[ext_resource type="Script" uid="uid://cs23uil2d5u6p" path="res://clicker/player_health_ui.gd" id="9_x5p1p"]
 [ext_resource type="Resource" uid="uid://cb466h3c61gqf" path="res://clicker/abilities/agression.tres" id="10_7sc4i"]
 [ext_resource type="Resource" uid="uid://cd0ty3rasequ4" path="res://clicker/abilities/appearance.tres" id="11_80cx4"]
 [ext_resource type="Script" uid="uid://bygrk7a3mcgx7" path="res://clicker_xp_rules.gd" id="13_lc2xo"]
@@ -18,6 +22,7 @@
 [ext_resource type="Script" uid="uid://3kvqfeoh3qbc" path="res://clicker/battle_manager.gd" id="16_80cx4"]
 [ext_resource type="Script" uid="uid://cxwcyqew8etn4" path="res://clicker/battle_ui.gd" id="16_e8heu"]
 [ext_resource type="PackedScene" uid="uid://cjvexujnvp0lw" path="res://clicker/enemy_ui.tscn" id="18_rvswv"]
+[ext_resource type="Resource" uid="uid://drp8oybvi57m1" path="res://clicker/abilities/appearance_masochism.tres" id="19_qhcbd"]
 
 [sub_resource type="Theme" id="Theme_4scmg"]
 HSplitContainer/constants/minimum_grab_thickness = 0
@@ -44,6 +49,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="TextureRect" type="ColorRect" parent="." unique_id=486237816]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.20784314, 1, 1)
+
 [node name="HSplitContainer" type="HSplitContainer" parent="." unique_id=849613091]
 layout_mode = 1
 anchors_preset = 15
@@ -55,26 +69,88 @@ theme = SubResource("Theme_4scmg")
 dragging_enabled = false
 dragger_visibility = 1
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="HSplitContainer" unique_id=588941381]
+[node name="Viewport Side" type="Control" parent="HSplitContainer" unique_id=454983271]
 layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="HSplitContainer/Viewport Side" unique_id=588941381]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 stretch = true
 
-[node name="SubViewport" type="SubViewport" parent="HSplitContainer/SubViewportContainer" unique_id=245882761]
+[node name="SubViewport" type="SubViewport" parent="HSplitContainer/Viewport Side/SubViewportContainer" unique_id=245882761]
 world_3d = SubResource("World3D_e2o6t")
 handle_input_locally = false
 size = Vector2i(882, 648)
 render_target_update_mode = 4
 
-[node name="Dungeon" parent="HSplitContainer/SubViewportContainer/SubViewport" unique_id=1143420985 instance=ExtResource("2_e2o6t")]
+[node name="Dungeon" parent="HSplitContainer/Viewport Side/SubViewportContainer/SubViewport" unique_id=1143420985 instance=ExtResource("2_e2o6t")]
 
-[node name="ColorRect2" type="ColorRect" parent="HSplitContainer" unique_id=1457495423]
+[node name="Battle UI" type="HBoxContainer" parent="HSplitContainer/Viewport Side" unique_id=164512167 node_paths=PackedStringArray("_enemies")]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 11.0
+offset_right = 878.0
+offset_bottom = 149.0
+alignment = 1
+script = ExtResource("16_e8heu")
+_enemies = [NodePath("Enemy UI"), NodePath("Enemy UI2"), NodePath("Enemy UI3"), NodePath("Enemy UI4"), NodePath("Enemy UI5"), NodePath("Enemy UI6")]
+
+[node name="Battle Manager" type="Node" parent="HSplitContainer/Viewport Side/Battle UI" unique_id=1063599184 node_paths=PackedStringArray("_ui")]
+script = ExtResource("16_80cx4")
+_ui = NodePath("..")
+_masochism_ability = ExtResource("19_qhcbd")
+
+[node name="Enemy UI" parent="HSplitContainer/Viewport Side/Battle UI" unique_id=1289570251 instance=ExtResource("18_rvswv")]
+layout_mode = 2
+
+[node name="Enemy UI2" parent="HSplitContainer/Viewport Side/Battle UI" unique_id=1806529435 instance=ExtResource("18_rvswv")]
+layout_mode = 2
+
+[node name="Enemy UI3" parent="HSplitContainer/Viewport Side/Battle UI" unique_id=1575408839 instance=ExtResource("18_rvswv")]
+layout_mode = 2
+
+[node name="Enemy UI4" parent="HSplitContainer/Viewport Side/Battle UI" unique_id=1269801102 instance=ExtResource("18_rvswv")]
+layout_mode = 2
+
+[node name="Enemy UI5" parent="HSplitContainer/Viewport Side/Battle UI" unique_id=735670171 instance=ExtResource("18_rvswv")]
+layout_mode = 2
+
+[node name="Enemy UI6" parent="HSplitContainer/Viewport Side/Battle UI" unique_id=1137036187 instance=ExtResource("18_rvswv")]
+layout_mode = 2
+
+[node name="Player Health UI" type="TextureProgressBar" parent="HSplitContainer/Viewport Side" unique_id=544018918]
+custom_minimum_size = Vector2(40, 240)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -240.0
+grow_horizontal = 0
+grow_vertical = 0
+step = 0.1
+value = 100.0
+fill_mode = 3
+texture_under = ExtResource("6_hb5m1")
+texture_over = ExtResource("7_x5p1p")
+texture_progress = ExtResource("8_qhcbd")
+script = ExtResource("9_x5p1p")
+
+[node name="Sidebar" type="ColorRect" parent="HSplitContainer" unique_id=1457495423]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.3
 color = Color(1, 0.20784314, 1, 1)
 
-[node name="Clicker Content" type="MarginContainer" parent="HSplitContainer/ColorRect2" unique_id=1641450040]
+[node name="Clicker Content" type="MarginContainer" parent="HSplitContainer/Sidebar" unique_id=1641450040]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -86,66 +162,70 @@ theme_override_constants/margin_top = 6
 theme_override_constants/margin_right = 6
 theme_override_constants/margin_bottom = 6
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/ColorRect2/Clicker Content" unique_id=919007821]
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Sidebar/Clicker Content" unique_id=919007821]
 layout_mode = 2
 
-[node name="Spacer" type="Control" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer" unique_id=774188937]
+[node name="Spacer" type="Control" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer" unique_id=774188937]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
-[node name="XP Button" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer" unique_id=1599280232 instance=ExtResource("3_fc0e3")]
+[node name="XP Button" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer" unique_id=1599280232 instance=ExtResource("3_fc0e3")]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer" unique_id=613655648]
+[node name="Button" type="Button" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer" unique_id=613655648]
 visible = false
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 text = "Gain XP"
 
-[node name="ProgressBar" type="ProgressBar" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer" unique_id=2013487708]
+[node name="ProgressBar" type="ProgressBar" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer" unique_id=2013487708]
 custom_minimum_size = Vector2(0, 12)
 layout_mode = 2
 value = 30.0
 show_percentage = false
 
-[node name="HSeparator" type="HSeparator" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer" unique_id=1228020230]
+[node name="HSeparator" type="HSeparator" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer" unique_id=1228020230]
 layout_mode = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer" unique_id=46873957]
+[node name="ScrollContainer" type="ScrollContainer" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer" unique_id=46873957]
 layout_mode = 2
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
-[node name="AbilititiesSorter" type="VBoxContainer" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer" unique_id=1989865175]
+[node name="AbilititiesSorter" type="VBoxContainer" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer" unique_id=1989865175]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Mental" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesSorter" unique_id=324514739 instance=ExtResource("4_7jktm")]
+[node name="Mental" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesSorter" unique_id=324514739 instance=ExtResource("4_7jktm")]
 layout_mode = 2
 ability = SubResource("Resource_j5wjh")
 
-[node name="Mental Smarts" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesSorter" unique_id=466467596 instance=ExtResource("4_7jktm")]
+[node name="Mental Smarts" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesSorter" unique_id=466467596 instance=ExtResource("4_7jktm")]
 layout_mode = 2
 ability = ExtResource("7_iotsf")
 
-[node name="Mental Memory Palace" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesSorter" unique_id=1620446177 instance=ExtResource("4_7jktm")]
+[node name="Mental Memory Palace" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesSorter" unique_id=1620446177 instance=ExtResource("4_7jktm")]
 layout_mode = 2
 ability = ExtResource("8_lc2xo")
 
-[node name="Mental Multi-Tasking" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesSorter" unique_id=1949463060 instance=ExtResource("4_7jktm")]
+[node name="Mental Multi-Tasking" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesSorter" unique_id=1949463060 instance=ExtResource("4_7jktm")]
 layout_mode = 2
 ability = ExtResource("9_215e1")
 
-[node name="Agression" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesSorter" unique_id=941157657 instance=ExtResource("4_7jktm")]
+[node name="Agression" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesSorter" unique_id=941157657 instance=ExtResource("4_7jktm")]
 layout_mode = 2
 ability = ExtResource("10_7sc4i")
 
-[node name="Appearance" parent="HSplitContainer/ColorRect2/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesSorter" unique_id=1919510791 instance=ExtResource("4_7jktm")]
+[node name="Appearance" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesSorter" unique_id=1919510791 instance=ExtResource("4_7jktm")]
 layout_mode = 2
 ability = ExtResource("11_80cx4")
 
-[node name="Secrets Protector" type="TextureRect" parent="HSplitContainer/ColorRect2" unique_id=1288201195]
+[node name="Masochism" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesSorter" unique_id=313034514 instance=ExtResource("4_7jktm")]
+layout_mode = 2
+ability = ExtResource("19_qhcbd")
+
+[node name="Secrets Protector" type="TextureRect" parent="HSplitContainer/Sidebar" unique_id=1288201195]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -163,7 +243,6 @@ _multi_tasking = ExtResource("9_215e1")
 _smarts = ExtResource("7_iotsf")
 
 [node name="DevConsole" parent="." unique_id=540056483 node_paths=PackedStringArray("commands") instance=ExtResource("14_215e1")]
-visible = false
 commands = [NodePath("Gain XP Command")]
 
 [node name="Gain XP Command" type="Node" parent="DevConsole" unique_id=705109122]
@@ -171,35 +250,3 @@ script = ExtResource("15_7sc4i")
 command = Array[String](["xp"])
 usage = "[delta gain/loss]"
 description = "How much xp to be given or taken away"
-
-[node name="Battle UI" type="HBoxContainer" parent="." unique_id=164512167 node_paths=PackedStringArray("_enemies")]
-layout_mode = 0
-offset_left = 13.0
-offset_top = 11.0
-offset_right = 870.0
-offset_bottom = 149.0
-alignment = 1
-script = ExtResource("16_e8heu")
-_enemies = [NodePath("Enemy UI"), NodePath("Enemy UI2"), NodePath("Enemy UI3"), NodePath("Enemy UI4"), NodePath("Enemy UI5"), NodePath("Enemy UI6")]
-
-[node name="Battle Manager" type="Node" parent="Battle UI" unique_id=1063599184 node_paths=PackedStringArray("_ui")]
-script = ExtResource("16_80cx4")
-_ui = NodePath("..")
-
-[node name="Enemy UI" parent="Battle UI" unique_id=1289570251 instance=ExtResource("18_rvswv")]
-layout_mode = 2
-
-[node name="Enemy UI2" parent="Battle UI" unique_id=1806529435 instance=ExtResource("18_rvswv")]
-layout_mode = 2
-
-[node name="Enemy UI3" parent="Battle UI" unique_id=1575408839 instance=ExtResource("18_rvswv")]
-layout_mode = 2
-
-[node name="Enemy UI4" parent="Battle UI" unique_id=1269801102 instance=ExtResource("18_rvswv")]
-layout_mode = 2
-
-[node name="Enemy UI5" parent="Battle UI" unique_id=735670171 instance=ExtResource("18_rvswv")]
-layout_mode = 2
-
-[node name="Enemy UI6" parent="Battle UI" unique_id=1137036187 instance=ExtResource("18_rvswv")]
-layout_mode = 2

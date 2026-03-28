@@ -468,3 +468,12 @@ shape = SubResource("BoxShape3D_yrdjv")
 
 [node name="Enemy" parent="." unique_id=286162732 instance=ExtResource("4_yrdjv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.5)
+
+[node name="Enemy2" parent="." unique_id=1378578119 instance=ExtResource("4_yrdjv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -10)
+
+[node name="Enemy3" parent="." unique_id=1288023106 instance=ExtResource("4_yrdjv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -5)
+
+[node name="Enemy4" parent="." unique_id=1300790365 instance=ExtResource("4_yrdjv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 0)

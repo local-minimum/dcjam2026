@@ -16,6 +16,8 @@
 [ext_resource type="Script" uid="uid://cs23uil2d5u6p" path="res://clicker/player_health_ui.gd" id="9_x5p1p"]
 [ext_resource type="Resource" uid="uid://cb466h3c61gqf" path="res://clicker/abilities/agression.tres" id="10_7sc4i"]
 [ext_resource type="Resource" uid="uid://cd0ty3rasequ4" path="res://clicker/abilities/appearance.tres" id="11_80cx4"]
+[ext_resource type="Script" uid="uid://bt10ci7pn81qq" path="res://clicker/battle_texts_spawner.gd" id="11_r62pu"]
+[ext_resource type="Script" uid="uid://bal5t10rmus64" path="res://clicker/abilitities_manager.gd" id="12_f1jbl"]
 [ext_resource type="Script" uid="uid://bygrk7a3mcgx7" path="res://clicker_xp_rules.gd" id="13_lc2xo"]
 [ext_resource type="PackedScene" uid="uid://c0qmcq36iacog" path="res://addons/minimum_dev_console/scenes/example_dev_console.tscn" id="14_215e1"]
 [ext_resource type="Script" uid="uid://dikj7ouqdoq0m" path="res://clicker/dev_console_xp.gd" id="15_7sc4i"]
@@ -23,6 +25,21 @@
 [ext_resource type="Script" uid="uid://cxwcyqew8etn4" path="res://clicker/battle_ui.gd" id="16_e8heu"]
 [ext_resource type="PackedScene" uid="uid://cjvexujnvp0lw" path="res://clicker/enemy_ui.tscn" id="18_rvswv"]
 [ext_resource type="Resource" uid="uid://drp8oybvi57m1" path="res://clicker/abilities/appearance_masochism.tres" id="19_qhcbd"]
+[ext_resource type="Resource" uid="uid://bmpmueriggevp" path="res://clicker/abilities/agression_ordinary.tres" id="20_vaj68"]
+[ext_resource type="Resource" uid="uid://d28gn2rveyp1y" path="res://clicker/abilities/agression_poor.tres" id="21_i2p71"]
+[ext_resource type="Resource" uid="uid://cfnnvn7ut0dtk" path="res://clicker/abilities/agression_fancy.tres" id="22_xa8c5"]
+[ext_resource type="Resource" uid="uid://dyk8fm68xjdqq" path="res://clicker/abilities/agression_chaotic.tres" id="23_5b14r"]
+[ext_resource type="Resource" uid="uid://dw6lrf5an38xg" path="res://clicker/abilities/agression_cardboard.tres" id="24_bnpwn"]
+[ext_resource type="Resource" uid="uid://c87w6f8d4e802" path="res://clicker/abilities/agression_plastic.tres" id="25_36jdj"]
+[ext_resource type="Resource" uid="uid://cq636ry35us33" path="res://clicker/abilities/agression_brass.tres" id="26_xfvwf"]
+[ext_resource type="Resource" uid="uid://mgtjimd7x1dv" path="res://clicker/abilities/agression_aluminum.tres" id="27_dhpj7"]
+[ext_resource type="Resource" uid="uid://ca4j3sqqad1rk" path="res://clicker/abilities/agression_titanium.tres" id="28_7knny"]
+[ext_resource type="Resource" uid="uid://bq0wdavkbg1au" path="res://clicker/abilities/agression_plasma_baton.tres" id="29_082n1"]
+[ext_resource type="Resource" uid="uid://dn8foh3kgta5p" path="res://clicker/abilities/agression_plasma_swords.tres" id="30_xex6t"]
+[ext_resource type="Resource" uid="uid://732w02hi7f3u" path="res://clicker/abilities/agression_laser_gun.tres" id="31_aa0lp"]
+[ext_resource type="Resource" uid="uid://c4tcus8oljh2c" path="res://clicker/abilities/agression_plasma_uzi.tres" id="32_iu0sx"]
+[ext_resource type="Resource" uid="uid://dyg4vh0d0ggxu" path="res://clicker/abilities/agression_laser_rifle.tres" id="33_4v2jo"]
+[ext_resource type="Resource" uid="uid://7l7cp2w07pxx" path="res://clicker/abilities/agression_rail_guns.tres" id="34_l1i01"]
 
 [sub_resource type="Theme" id="Theme_4scmg"]
 HSplitContainer/constants/minimum_grab_thickness = 0
@@ -144,6 +161,25 @@ texture_over = ExtResource("7_x5p1p")
 texture_progress = ExtResource("8_qhcbd")
 script = ExtResource("9_x5p1p")
 
+[node name="BattleTextsSpawner" type="Control" parent="HSplitContainer/Viewport Side" unique_id=824109206]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -30.0
+offset_right = 40.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("11_r62pu")
+player_stats_color = Color(1, 0, 0, 0.7607843)
+enemy_stats_color = Color(0, 0, 0.5019608, 0.8156863)
+end_color = Color(0.45882353, 0.45882353, 0.45882353, 0.29411766)
+
 [node name="Sidebar" type="ColorRect" parent="HSplitContainer" unique_id=1457495423]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -192,36 +228,112 @@ layout_mode = 2
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
-[node name="AbilititiesSorter" type="VBoxContainer" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer" unique_id=1989865175]
+[node name="AbilititiesManager" type="VBoxContainer" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer" unique_id=1989865175]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource("12_f1jbl")
+_ab_ordinary = ExtResource("20_vaj68")
+_ab_poor = ExtResource("21_i2p71")
+_ab_fancy = ExtResource("22_xa8c5")
+_ab_chaotic = ExtResource("23_5b14r")
+_ab_cardboard = ExtResource("24_bnpwn")
+_ab_plastic = ExtResource("25_36jdj")
+_ab_brass = ExtResource("26_xfvwf")
+_ab_aluminum = ExtResource("27_dhpj7")
+_ab_titanium = ExtResource("28_7knny")
+_ab_plasma_baton = ExtResource("29_082n1")
+_ab_plasma_sword = ExtResource("30_xex6t")
+_ab_laser_gun = ExtResource("31_aa0lp")
+_ab_plasma_uzi = ExtResource("32_iu0sx")
+_ab_laser_rifle = ExtResource("33_4v2jo")
+_ab_rail_gun = ExtResource("34_l1i01")
 
-[node name="Mental" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesSorter" unique_id=324514739 instance=ExtResource("4_7jktm")]
+[node name="Mental" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=324514739 instance=ExtResource("4_7jktm")]
 layout_mode = 2
 ability = SubResource("Resource_j5wjh")
 
-[node name="Mental Smarts" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesSorter" unique_id=466467596 instance=ExtResource("4_7jktm")]
+[node name="Mental Smarts" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=466467596 instance=ExtResource("4_7jktm")]
 layout_mode = 2
 ability = ExtResource("7_iotsf")
 
-[node name="Mental Memory Palace" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesSorter" unique_id=1620446177 instance=ExtResource("4_7jktm")]
+[node name="Mental Memory Palace" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=1620446177 instance=ExtResource("4_7jktm")]
 layout_mode = 2
 ability = ExtResource("8_lc2xo")
 
-[node name="Mental Multi-Tasking" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesSorter" unique_id=1949463060 instance=ExtResource("4_7jktm")]
+[node name="Mental Multi-Tasking" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=1949463060 instance=ExtResource("4_7jktm")]
 layout_mode = 2
 ability = ExtResource("9_215e1")
 
-[node name="Agression" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesSorter" unique_id=941157657 instance=ExtResource("4_7jktm")]
+[node name="Agression" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=941157657 instance=ExtResource("4_7jktm")]
 layout_mode = 2
 ability = ExtResource("10_7sc4i")
 
-[node name="Appearance" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesSorter" unique_id=1919510791 instance=ExtResource("4_7jktm")]
+[node name="Ordinary" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=788992411 instance=ExtResource("4_7jktm")]
+layout_mode = 2
+ability = ExtResource("20_vaj68")
+
+[node name="Poor" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=305227785 instance=ExtResource("4_7jktm")]
+layout_mode = 2
+ability = ExtResource("21_i2p71")
+
+[node name="Fancy" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=939722134 instance=ExtResource("4_7jktm")]
+layout_mode = 2
+ability = ExtResource("22_xa8c5")
+
+[node name="Chaotic" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=1503964633 instance=ExtResource("4_7jktm")]
+layout_mode = 2
+ability = ExtResource("23_5b14r")
+
+[node name="Cardboard" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=860980824 instance=ExtResource("4_7jktm")]
+layout_mode = 2
+ability = ExtResource("24_bnpwn")
+
+[node name="Plastic" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=563105052 instance=ExtResource("4_7jktm")]
+layout_mode = 2
+ability = ExtResource("25_36jdj")
+
+[node name="Brass" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=237344758 instance=ExtResource("4_7jktm")]
+layout_mode = 2
+ability = ExtResource("26_xfvwf")
+
+[node name="Aluminum" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=1671876638 instance=ExtResource("4_7jktm")]
+layout_mode = 2
+ability = ExtResource("27_dhpj7")
+
+[node name="Titanium" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=2030502592 instance=ExtResource("4_7jktm")]
+layout_mode = 2
+ability = ExtResource("28_7knny")
+
+[node name="Plasma Baton" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=1912325238 instance=ExtResource("4_7jktm")]
+layout_mode = 2
+ability = ExtResource("29_082n1")
+
+[node name="Plasma Sword" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=1882151423 instance=ExtResource("4_7jktm")]
+layout_mode = 2
+ability = ExtResource("30_xex6t")
+
+[node name="Laser Gun" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=2039520738 instance=ExtResource("4_7jktm")]
+layout_mode = 2
+ability = ExtResource("31_aa0lp")
+
+[node name="Plasma Uzi" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=1896045292 instance=ExtResource("4_7jktm")]
+layout_mode = 2
+ability = ExtResource("32_iu0sx")
+
+[node name="Laser Rifle" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=514403116 instance=ExtResource("4_7jktm")]
+layout_mode = 2
+ability = ExtResource("33_4v2jo")
+
+[node name="Rail Gun" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=1774850543 instance=ExtResource("4_7jktm")]
+layout_mode = 2
+ability = ExtResource("34_l1i01")
+
+[node name="Appearance" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=1919510791 instance=ExtResource("4_7jktm")]
 layout_mode = 2
 ability = ExtResource("11_80cx4")
 
-[node name="Masochism" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesSorter" unique_id=313034514 instance=ExtResource("4_7jktm")]
+[node name="Masochism" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=313034514 instance=ExtResource("4_7jktm")]
 layout_mode = 2
 ability = ExtResource("19_qhcbd")
 

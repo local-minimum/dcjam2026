@@ -6,8 +6,16 @@ enum Mat { CARDBOARD, PLASTIC, BRASS, ALUMINUM, TITANIUM }
 enum Base { PLASMA_BATON, PLASMA_SWORD, LASER_GUN, PLASMA_UZI, LASER_RIFLE, RAIL_GUN }
 
 var _quality: Quality
+func get_quality() -> Quality:
+    return _quality
+
 var _mat: Mat
+func get_mat() -> Mat:
+    return _mat
+
 var _base: Base
+func get_base() -> Base:
+    return _base
 
 func _modify_die_sides_by_quality(sides: Array[int]) -> void:
     match _quality:

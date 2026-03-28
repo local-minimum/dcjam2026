@@ -10,5 +10,5 @@ func _max_change() -> void:
     max_value = __GlobalGameState.max_health
     value = __GlobalGameState.health
 
-func _attacked(_enemy: BattleManager.Enemy, _attack: int) -> void:
+func _attacked(_enemy: BattleManager.Enemy, _attack: int, _hit: BattleManager.HitType) -> void:
     value = __GlobalGameState.health

@@ -124,8 +124,24 @@ func humanized() -> String:
     return ("%s %s %s" % [
         Quality.find_key(_quality),
         Mat.find_key(_mat),
-        Base.find_key(_base)
+        humanize_base(_base),
     ]).replace("_", " ").to_lower().capitalize()
+
+static func humanize_base(base: Base) -> String:
+    match base:
+        Base.HEAD:
+            return "hat"
+        Base.UPPER_BODY:
+            return "shirt"
+        Base.LOWER_BODY:
+            return "pants"
+        Base.FEET:
+            return "shoes"
+        Base.HANDS:
+            return "gloves"
+        _:
+            push_warning("Unknown base %s" % [Base.find_key(base)])
+            return (Base.find_key(base) as String).to_lower()
 
 func _to_string() -> String:
     return "<%s %s %s (%s) %s>" % [

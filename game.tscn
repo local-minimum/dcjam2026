@@ -64,6 +64,8 @@
 [ext_resource type="Resource" uid="uid://tb56tghp7fsp" path="res://clicker/abilities/appearance_fashionista.tres" id="55_du4n2"]
 [ext_resource type="Script" uid="uid://cypvqaxbcaqeh" path="res://core/dev_console_commands/dev_speed.gd" id="63_ple6s"]
 [ext_resource type="Script" uid="uid://c50eh21gdu5cn" path="res://sound_track_manager.gd" id="63_ra4rb"]
+[ext_resource type="Script" uid="uid://baylsupfim5dn" path="res://horror/dev_ready_horror.gd" id="64_56gn1"]
+[ext_resource type="Script" uid="uid://beht0oihcg27w" path="res://phase_transition.gd" id="65_jo4nb"]
 
 [sub_resource type="Theme" id="Theme_4scmg"]
 HSplitContainer/constants/minimum_grab_thickness = 0
@@ -107,8 +109,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_4scmg")
+split_offsets = PackedInt32Array(-3)
 dragging_enabled = false
 dragger_visibility = 1
+split_offset = -3
 
 [node name="Viewport Side" type="Control" parent="HSplitContainer" unique_id=454983271]
 layout_mode = 2
@@ -127,7 +131,7 @@ stretch = true
 [node name="SubViewport" type="SubViewport" parent="HSplitContainer/Viewport Side/SubViewportContainer" unique_id=245882761]
 world_3d = SubResource("World3D_e2o6t")
 handle_input_locally = false
-size = Vector2i(2, 2)
+size = Vector2i(1469, 1080)
 render_target_update_mode = 4
 
 [node name="Dungeon" parent="HSplitContainer/Viewport Side/SubViewportContainer/SubViewport" unique_id=1143420985 instance=ExtResource("2_e2o6t")]
@@ -505,7 +509,7 @@ _smarts = ExtResource("7_iotsf")
 layout_mode = 1
 
 [node name="DevConsole" parent="." unique_id=540056483 node_paths=PackedStringArray("commands") instance=ExtResource("14_215e1")]
-commands = [NodePath("Gain XP Command"), NodePath("Loot Command"), NodePath("Game Speed Command")]
+commands = [NodePath("Gain XP Command"), NodePath("Loot Command"), NodePath("Game Speed Command"), NodePath("Ready Horror Command")]
 
 [node name="Gain XP Command" type="Node" parent="DevConsole" unique_id=705109122]
 script = ExtResource("15_7sc4i")
@@ -525,6 +529,11 @@ command = Array[String](["speed"])
 usage = "[speed factor]"
 description = "Change game speed"
 
+[node name="Ready Horror Command" type="Node" parent="DevConsole" unique_id=1158521928]
+script = ExtResource("64_56gn1")
+command = Array[String](["ready-horror"])
+description = "Cause game to trigger horror transition"
+
 [node name="SoundTrackManager" type="Node" parent="." unique_id=2037367065]
 script = ExtResource("63_ra4rb")
 clicker_tracks = Array[String](["res://clicker/music/before-a.mp3", "res://clicker/music/before-b.mp3", "res://clicker/music/before-c.mp3"])
@@ -532,7 +541,7 @@ clicker_soft_volumes = Array[float]([1.0, 0.0, 0.0])
 clicker_medium_volumes = Array[float]([1.0, 1.0, 0.0])
 clicker_intense_volumes = Array[float]([1.0, 1.0, 1.0])
 
-[node name="Break Through Screen Grab Target" type="TextureRect" parent="." unique_id=1884846982]
+[node name="Break Through Screen Grab Target" type="TextureRect" parent="." unique_id=1884846982 node_paths=PackedStringArray("_split_container", "_subviewport", "_unloading_nodes")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -540,3 +549,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 0
+script = ExtResource("65_jo4nb")
+_split_container = NodePath("../HSplitContainer")
+_subviewport = NodePath("../HSplitContainer/Viewport Side/SubViewportContainer/SubViewport")
+_unloading_nodes = [NodePath("../HSplitContainer/Viewport Side/SubViewportContainer/SubViewport/Dungeon"), NodePath("../HSplitContainer/Viewport Side/Battle UI"), NodePath("../HSplitContainer/Viewport Side/Player Health UI"), NodePath("../HSplitContainer/Viewport Side/BattleTextsSpawner"), NodePath("../HSplitContainer/Sidebar"), NodePath("../ClickerXPRules"), NodePath("../Loot And Inventory"), NodePath("../DevConsole/Loot Command"), NodePath("../DevConsole/Gain XP Command"), NodePath("../DevConsole/Ready Horror Command")]
+_horror_dungeon_scene = "res://horror/horror_dungeon.tscn"
+_horror_panel_scene = "res://horror/horror_sidebar.tscn"

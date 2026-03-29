@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dbbbvw47dto45"]
 
-[ext_resource type="PackedScene" uid="uid://iuctck7ne3ic" path="res://levels/horror/monster/monster_v1.glb" id="1_rgwrv"]
-[ext_resource type="Script" uid="uid://core866w8qx1y" path="res://levels/horror/monster/monster.gd" id="2_oqs4p"]
-[ext_resource type="Script" uid="uid://cxpcy8u870pnk" path="res://levels/horror/monster/leg_ik_target.gd" id="3_kva6l"]
+[ext_resource type="PackedScene" uid="uid://iuctck7ne3ic" path="res://horror/monster/monster_v1.glb" id="1_rgwrv"]
+[ext_resource type="Script" uid="uid://core866w8qx1y" path="res://horror/monster/monster.gd" id="2_oqs4p"]
+[ext_resource type="Script" uid="uid://cxpcy8u870pnk" path="res://horror/monster/leg_ik_target.gd" id="3_kva6l"]
 
 [node name="Monster" unique_id=1082106793 node_paths=PackedStringArray("_FL_ik_target", "_FR_ik_target", "_BL_ik_target", "_BR_ik_target", "_ik_targets", "_step_target_container", "_step_targets", "_step_rays") instance=ExtResource("1_rgwrv")]
 script = ExtResource("2_oqs4p")

@@ -157,6 +157,9 @@ func list_commands() -> void:
     var context_command: MinimumDevCommand
 
     for command: MinimumDevCommand in commands:
+        if !is_instance_valid(command):
+            continue
+
         if command.is_context(_context):
             context_command = command
             continue

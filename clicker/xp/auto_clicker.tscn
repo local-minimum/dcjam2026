@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://due2c5pqr6l1n"]
 
-[ext_resource type="Script" uid="uid://oqm7ygrgq7i5" path="res://clicker/auto_clicker.gd" id="1_boiww"]
-[ext_resource type="Texture2D" uid="uid://bj2t3g8df1upx" path="res://clicker/pointing_hand.png" id="2_32q7n"]
+[ext_resource type="Script" uid="uid://oqm7ygrgq7i5" path="res://clicker/xp/auto_clicker.gd" id="1_boiww"]
+[ext_resource type="Texture2D" uid="uid://bj2t3g8df1upx" path="res://clicker/xp/pointing_hand.png" id="2_32q7n"]
 
 [sub_resource type="Animation" id="Animation_boiww"]
 resource_name = "Click"

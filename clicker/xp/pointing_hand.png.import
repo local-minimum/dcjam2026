@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pxppetlw4kl1"
-path="res://.godot/imported/enemy_frame_bg.png-348fc551e9d5dd37296a3df83a4ab495.ctex"
+uid="uid://bj2t3g8df1upx"
+path="res://.godot/imported/pointing_hand.png-b560d0e1a6351dfff5a1be9b4cc88ef7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://clicker/enemy_frame_bg.png"
-dest_files=["res://.godot/imported/enemy_frame_bg.png-348fc551e9d5dd37296a3df83a4ab495.ctex"]
+source_file="res://clicker/xp/pointing_hand.png"
+dest_files=["res://.godot/imported/pointing_hand.png-b560d0e1a6351dfff5a1be9b4cc88ef7.ctex"]
 
 [params]
 

@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://bufrvjcwdgi7q"]
 
 [ext_resource type="Script" uid="uid://5nd45w6q42kq" path="res://core/dungeon.gd" id="1_6pvhc"]
-[ext_resource type="Script" uid="uid://dfqjle1xd7utg" path="res://clicker/entity_collision_join_battle.gd" id="2_sufut"]
+[ext_resource type="Script" uid="uid://dfqjle1xd7utg" path="res://clicker/battle/entity_collision_join_battle.gd" id="2_sufut"]
 [ext_resource type="PackedScene" uid="uid://dfe2ewygagnw0" path="res://clicker/player_3d.tscn" id="3_sufut"]
-[ext_resource type="PackedScene" uid="uid://dbknfpibyx65f" path="res://clicker/health_station.tscn" id="4_1pa7v"]
+[ext_resource type="PackedScene" uid="uid://dbknfpibyx65f" path="res://clicker/health/health_station.tscn" id="4_1pa7v"]
 [ext_resource type="PackedScene" uid="uid://bui680ugvj0rj" path="res://clicker/enemy.tscn" id="4_yrdjv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sufut"]

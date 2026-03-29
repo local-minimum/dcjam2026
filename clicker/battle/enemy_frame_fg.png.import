@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3g7a1qgy4jjc"
-path="res://.godot/imported/player_health_fg.png-998019336d7800328cc8085e4b535702.ctex"
+uid="uid://0ghbhpbbbuy8"
+path="res://.godot/imported/enemy_frame_fg.png-24963675f26c2dcb379997246576576a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://clicker/player_health_fg.png"
-dest_files=["res://.godot/imported/player_health_fg.png-998019336d7800328cc8085e4b535702.ctex"]
+source_file="res://clicker/battle/enemy_frame_fg.png"
+dest_files=["res://.godot/imported/enemy_frame_fg.png-24963675f26c2dcb379997246576576a.ctex"]
 
 [params]
 

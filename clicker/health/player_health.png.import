@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hqls202v3tpf"
-path="res://.godot/imported/xp_button_progrss_bar_bg.png-99e114d4eb7094613418d28ab4af061e.ctex"
+uid="uid://b5fmrl4b8wotb"
+path="res://.godot/imported/player_health.png-a6294cbf93e840656b1d170ee2097345.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://clicker/xp_button_progrss_bar_bg.png"
-dest_files=["res://.godot/imported/xp_button_progrss_bar_bg.png-99e114d4eb7094613418d28ab4af061e.ctex"]
+source_file="res://clicker/health/player_health.png"
+dest_files=["res://.godot/imported/player_health.png-a6294cbf93e840656b1d170ee2097345.ctex"]
 
 [params]
 

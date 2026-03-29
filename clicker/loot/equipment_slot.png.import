@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3k0odemmqaxo"
-path="res://.godot/imported/xp_button_progrss_bar.png-4fc6ad3575ff59ddd52823ce1bb0c9df.ctex"
+uid="uid://b5lutg1qvwqnd"
+path="res://.godot/imported/equipment_slot.png-b8ee4a20f09cbb4750f868edf221824d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://clicker/xp_button_progrss_bar.png"
-dest_files=["res://.godot/imported/xp_button_progrss_bar.png-4fc6ad3575ff59ddd52823ce1bb0c9df.ctex"]
+source_file="res://clicker/loot/equipment_slot.png"
+dest_files=["res://.godot/imported/equipment_slot.png-b8ee4a20f09cbb4750f868edf221824d.ctex"]
 
 [params]
 

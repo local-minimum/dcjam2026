@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dbknfpibyx65f"]
 
-[ext_resource type="Script" uid="uid://maoj4m6q3yul" path="res://clicker/health_station.gd" id="1_58lu1"]
+[ext_resource type="Script" uid="uid://maoj4m6q3yul" path="res://clicker/health/health_station.gd" id="1_58lu1"]
 [ext_resource type="Resource" uid="uid://sle6175akmfa" path="res://clicker/abilities/appearance_nursing.tres" id="2_ew0ap"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1pa7v"]

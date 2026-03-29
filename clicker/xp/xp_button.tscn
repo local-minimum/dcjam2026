@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://b0e0rvd3dfopu"]
 
-[ext_resource type="Script" uid="uid://vc1pvngry5qw" path="res://clicker/xp_button.gd" id="1_07bva"]
-[ext_resource type="Texture2D" uid="uid://8qnqvakqmrcx" path="res://clicker/xp_button_bg.png" id="1_te0py"]
-[ext_resource type="Texture2D" uid="uid://hqls202v3tpf" path="res://clicker/xp_button_progrss_bar_bg.png" id="2_07bva"]
+[ext_resource type="Script" uid="uid://vc1pvngry5qw" path="res://clicker/xp/xp_button.gd" id="1_07bva"]
+[ext_resource type="Texture2D" uid="uid://8qnqvakqmrcx" path="res://clicker/xp/xp_button_bg.png" id="1_te0py"]
+[ext_resource type="Texture2D" uid="uid://hqls202v3tpf" path="res://clicker/xp/xp_button_progrss_bar_bg.png" id="2_07bva"]
 [ext_resource type="FontFile" uid="uid://dctop3skfnx1l" path="res://fonts/monoton/Monoton-Regular.ttf" id="3_5jdtb"]
-[ext_resource type="Texture2D" uid="uid://5iq0rlr6mok3" path="res://clicker/xp_button_progrss_bar_top.png" id="3_8n5ww"]
-[ext_resource type="Texture2D" uid="uid://c3k0odemmqaxo" path="res://clicker/xp_button_progrss_bar.png" id="4_5jdtb"]
-[ext_resource type="PackedScene" uid="uid://due2c5pqr6l1n" path="res://clicker/auto_clicker.tscn" id="6_8n5ww"]
+[ext_resource type="Texture2D" uid="uid://5iq0rlr6mok3" path="res://clicker/xp/xp_button_progrss_bar_top.png" id="3_8n5ww"]
+[ext_resource type="Texture2D" uid="uid://c3k0odemmqaxo" path="res://clicker/xp/xp_button_progrss_bar.png" id="4_5jdtb"]
+[ext_resource type="PackedScene" uid="uid://due2c5pqr6l1n" path="res://clicker/xp/auto_clicker.tscn" id="6_8n5ww"]
 
 [node name="XP Button" type="Control" unique_id=1599280232 node_paths=PackedStringArray("_xp_count_label", "_xp_speed_label", "_progress_bar", "_autoclickers")]
 custom_minimum_size = Vector2(428, 60)

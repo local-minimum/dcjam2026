@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5iq0rlr6mok3"
-path="res://.godot/imported/xp_button_progrss_bar_top.png-afad44392210d0b3c57e481dac9e6991.ctex"
+uid="uid://cveoocfew04et"
+path="res://.godot/imported/boredom_cover.png-cb7b15d788672a1fc01e099af64f25ce.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://clicker/xp_button_progrss_bar_top.png"
-dest_files=["res://.godot/imported/xp_button_progrss_bar_top.png-afad44392210d0b3c57e481dac9e6991.ctex"]
+source_file="res://clicker/boredom/boredom_cover.png"
+dest_files=["res://.godot/imported/boredom_cover.png-cb7b15d788672a1fc01e099af64f25ce.ctex"]
 
 [params]
 

@@ -90,17 +90,29 @@ func _setup_dungeon(dungeon: Dungeon) -> void:
 func _process(_delta: float) -> void:
     match phase:
         Phase.LOAD_DUNGEON:
-            var dungeon: Dungeon = _check_loading_next_scene(_horror_dungeon_scene)
-            if dungeon != null:
-                _setup_dungeon(dungeon)
-                _load_horror_panel()
+            var packed_scene: PackedScene = _check_loading_next_scene(_horror_dungeon_scene)
+            if packed_scene != null:
+                var dungeon: Dungeon = packed_scene.instantiate()
+                if dungeon != null:
+                    _setup_dungeon(dungeon)
+                    _load_horror_panel()
+                else:
+                    push_error("Dungeon scene '%s' root wasn't a dungeon!" % [_horror_dungeon_scene])
+                    _panic()
+                    return
 
         Phase.LOAD_PANEL:
-            var panel: Control = _check_loading_next_scene(_horror_panel_scene)
-            if panel != null:
-                _split_container.add_child(panel)
-                set_process(false)
-                _finalize()
+            var packed_scene: PackedScene = _check_loading_next_scene(_horror_panel_scene)
+            if packed_scene != null:
+                var panel: Control = packed_scene.instantiate()
+                if panel != null:
+                    _split_container.add_child(panel)
+                    set_process(false)
+                    _finalize()
+                else:
+                    push_error("Horror panel '%s' isn't a control!" % [_horror_panel_scene])
+                    _panic()
+                    return
 
         Phase.ERROR:
             set_process(false)

@@ -22,6 +22,12 @@ func _enter_tree() -> void:
     if __SignalBus.on_player_max_health_changed.connect(_handle_player_max_health_change) != OK:
         push_error("Failed to connect player max health")
 
+    if __SignalBus.on_ready_horror.connect(_handle_ready_horror) != OK:
+        push_error("Failed to connect ready horror")
+
+    if __SignalBus.on_horror_loaded.connect(_handle_horror_loaded) != OK:
+        push_error("Failed to connect horror loaded")
+
 func _get_target_volumes() -> Array[float]:
     match _clicker_mood:
         ClickerMood.SOFT:
@@ -43,6 +49,13 @@ func _ready() -> void:
         clicker_initial_fade_in,
     )
 
+func _handle_ready_horror() -> void:
+    # Transition to intermediary
+    pass
+
+func _handle_horror_loaded() -> void:
+    # Load horror music
+    pass
 
 func _handle_player_health_change(_new_health: float, _old_health: float) -> void:
     _change_clicker_music()

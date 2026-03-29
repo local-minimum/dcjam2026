@@ -30,7 +30,7 @@ func remove_enemy_ui(enemy: BattleManager.Enemy) -> void:
         ui.hide()
         _enemy_to_ui.erase(enemy)
 
-func focus_enemy_attacking(enemy: BattleManager.Enemy) -> void:
+func focus_enemy_attacking(_enemy: BattleManager.Enemy) -> void:
     pass
 
 func focus_enemy_getting_attacked(enemy: BattleManager.Enemy) -> void:

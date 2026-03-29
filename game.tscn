@@ -19,10 +19,16 @@
 [ext_resource type="Script" uid="uid://bt10ci7pn81qq" path="res://clicker/battle_texts_spawner.gd" id="11_r62pu"]
 [ext_resource type="Script" uid="uid://bal5t10rmus64" path="res://clicker/abilitities_manager.gd" id="12_f1jbl"]
 [ext_resource type="Script" uid="uid://bygrk7a3mcgx7" path="res://clicker_xp_rules.gd" id="13_lc2xo"]
+[ext_resource type="Script" uid="uid://bgdnhr86vy5ne" path="res://core/2d/split_texture_progressbars.gd" id="13_lwlx3"]
+[ext_resource type="Texture2D" uid="uid://dcyv0yvo5fsqf" path="res://clicker/boredom_bg.png" id="13_m28ev"]
 [ext_resource type="PackedScene" uid="uid://c0qmcq36iacog" path="res://addons/minimum_dev_console/scenes/example_dev_console.tscn" id="14_215e1"]
+[ext_resource type="Texture2D" uid="uid://bjlvrgc8gi3oo" path="res://clicker/boredom_lower.png" id="14_lwlx3"]
+[ext_resource type="Texture2D" uid="uid://cveoocfew04et" path="res://clicker/boredom_cover.png" id="15_0de7l"]
 [ext_resource type="Script" uid="uid://dikj7ouqdoq0m" path="res://clicker/dev_console_xp.gd" id="15_7sc4i"]
 [ext_resource type="Script" uid="uid://3kvqfeoh3qbc" path="res://clicker/battle_manager.gd" id="16_80cx4"]
+[ext_resource type="Texture2D" uid="uid://8qlicmfc7c77" path="res://clicker/boredom_upper.png" id="16_87ddb"]
 [ext_resource type="Script" uid="uid://cxwcyqew8etn4" path="res://clicker/battle_ui.gd" id="16_e8heu"]
+[ext_resource type="Script" uid="uid://bsgeqwfcrwlhy" path="res://clicker/boredom_manager.gd" id="18_0de7l"]
 [ext_resource type="PackedScene" uid="uid://cjvexujnvp0lw" path="res://clicker/enemy_ui.tscn" id="18_rvswv"]
 [ext_resource type="Resource" uid="uid://drp8oybvi57m1" path="res://clicker/abilities/appearance_masochism.tres" id="19_qhcbd"]
 [ext_resource type="Resource" uid="uid://bmpmueriggevp" path="res://clicker/abilities/agression_ordinary.tres" id="20_vaj68"]
@@ -210,17 +216,64 @@ layout_mode = 2
 [node name="XP Button" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer" unique_id=1599280232 instance=ExtResource("3_fc0e3")]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer" unique_id=613655648]
-visible = false
-custom_minimum_size = Vector2(0, 60)
+[node name="Boredom" type="Control" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer" unique_id=324893593 node_paths=PackedStringArray("bars")]
+custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
-text = "Gain XP"
+tooltip_text = "Boredom decreases efficiency of XP gain. Explore, adventure and fight to combat it!"
+script = ExtResource("13_lwlx3")
+bars = [NodePath("Progress Lower"), NodePath("Progress Upper")]
+step = 0.1
+value_noise = 0.1
+value_noise_speed = 0.01
+value = 5.0
+live = true
 
-[node name="ProgressBar" type="ProgressBar" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer" unique_id=2013487708]
-custom_minimum_size = Vector2(0, 12)
-layout_mode = 2
-value = 30.0
-show_percentage = false
+[node name="Progress Lower" type="TextureProgressBar" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/Boredom" unique_id=951254857]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+step = 0.1
+value = 5.0
+texture_under = ExtResource("13_m28ev")
+texture_progress = ExtResource("14_lwlx3")
+
+[node name="Progress Upper" type="TextureProgressBar" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/Boredom" unique_id=1324662167]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+step = 0.1
+value = 5.0
+texture_over = ExtResource("15_0de7l")
+texture_progress = ExtResource("16_87ddb")
+
+[node name="Label" type="Label" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/Boredom" unique_id=1076582240]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -2.5
+offset_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.7882353, 0.7882353, 0.7882353, 0.6666667)
+theme_override_colors/font_shadow_color = Color(0.101960786, 0.101960786, 0.101960786, 0.3372549)
+text = "BOREDOM"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="BoredomManager" type="Node" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/Boredom" unique_id=462340935 node_paths=PackedStringArray("_ui")]
+script = ExtResource("18_0de7l")
+_ui = NodePath("..")
+_change_to_velocity_factor = 0.01
+_new_coordinates_exploration_decay = 0.001
+_velocity_decay_over_time = 0.4
 
 [node name="HSeparator" type="HSeparator" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer" unique_id=1228020230]
 layout_mode = 2
@@ -357,6 +410,7 @@ _multi_tasking = ExtResource("9_215e1")
 _smarts = ExtResource("7_iotsf")
 
 [node name="Loot And Inventory" parent="." unique_id=1114366633 instance=ExtResource("39_eu6ph")]
+visible = false
 layout_mode = 1
 
 [node name="DevConsole" parent="." unique_id=540056483 node_paths=PackedStringArray("commands") instance=ExtResource("14_215e1")]

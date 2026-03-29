@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ClickerAbilityData" format=3 uid="uid://tb56tghp7fsp"]
+
+[ext_resource type="Script" uid="uid://bt1vi716f5csr" path="res://clicker/clicker_ability_data.gd" id="1_l47or"]
+
+[resource]
+script = ExtResource("1_l47or")
+id = "appearance_fashionista"
+title = "Fashionista"
+requirement_ids = Array[String](["appearance"])
+costs = Array[int]([100, 500, 1000, 10000, 50000])
+descriptions = Array[String](["Improves base defence when matching same modifier"])
+metadata/_custom_type_script = "uid://bt1vi716f5csr"

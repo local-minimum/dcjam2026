@@ -60,6 +60,8 @@
 [ext_resource type="Resource" uid="uid://df7cvo3up8mlt" path="res://clicker/abilities/appearance_plastic.tres" id="51_mc3al"]
 [ext_resource type="Resource" uid="uid://br813yeror8bu" path="res://clicker/abilities/appearance_brass.tres" id="52_bqa6y"]
 [ext_resource type="Resource" uid="uid://41360xnp21fo" path="res://clicker/abilities/appearance_aluminum.tres" id="53_du4n2"]
+[ext_resource type="Resource" uid="uid://c7fxk8piyplae" path="res://clicker/abilities/appearance_mix_and_match.tres" id="55_bqa6y"]
+[ext_resource type="Resource" uid="uid://tb56tghp7fsp" path="res://clicker/abilities/appearance_fashionista.tres" id="55_du4n2"]
 
 [sub_resource type="Theme" id="Theme_4scmg"]
 HSplitContainer/constants/minimum_grab_thickness = 0
@@ -147,6 +149,8 @@ _queing_enemies = NodePath("Queuing Enemies")
 script = ExtResource("16_80cx4")
 _ui = NodePath("..")
 _masochism_ability = ExtResource("19_qhcbd")
+_fashionista_ability = ExtResource("55_du4n2")
+_mix_and_match_ability = ExtResource("55_bqa6y")
 _max_enemies_active = 5
 
 [node name="Enemy UI" parent="HSplitContainer/Viewport Side/Battle UI" unique_id=1289570251 instance=ExtResource("18_rvswv")]
@@ -469,6 +473,14 @@ ability = ExtResource("53_du4n2")
 [node name="Obsidian Clothes" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=687809529 instance=ExtResource("4_7jktm")]
 layout_mode = 2
 ability = ExtResource("45_mc3al")
+
+[node name="Fashionista" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=1374770239 instance=ExtResource("4_7jktm")]
+layout_mode = 2
+ability = ExtResource("55_du4n2")
+
+[node name="Mix and Match" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=347076597 instance=ExtResource("4_7jktm")]
+layout_mode = 2
+ability = ExtResource("55_bqa6y")
 
 [node name="Secrets Protector" type="TextureRect" parent="HSplitContainer/Sidebar" unique_id=1288201195]
 visible = false

@@ -10,4 +10,5 @@ requirement_ids = Array[String](["appearance"])
 costs = Array[int]([1000, 10000])
 descriptions = Array[String](["Improves defence roll"])
 autohide_on_completed = false
+require_gear = true
 metadata/_custom_type_script = "uid://bt1vi716f5csr"

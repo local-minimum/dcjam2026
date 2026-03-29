@@ -31,11 +31,17 @@ layout/style_directory={}
 
 [display]
 
-window/stretch/mode="viewport"
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/minimum_convenience/plugin.cfg", "res://addons/minimum_dev_console/plugin.cfg")
+
+[gui]
+
+theme/custom_font="uid://c7p84b460gfg8"
 
 [input]
 

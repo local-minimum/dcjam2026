@@ -8,13 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://0ghbhpbbbuy8" path="res://clicker/enemy_frame_fg.png" id="6_pb4fy"]
 
 [node name="Enemy UI" type="Control" unique_id=1289570251 node_paths=PackedStringArray("monster_image", "monster_name", "monster_health")]
-custom_minimum_size = Vector2(120, 0)
+custom_minimum_size = Vector2(130, 185)
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_kncor")
 monster_image = NodePath("MarginContainer/VBoxContainer/Image")
-monster_name = NodePath("MarginContainer/VBoxContainer/VBoxContainer/Name")
-monster_health = NodePath("MarginContainer/VBoxContainer/VBoxContainer/Health")
+monster_name = NodePath("MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Name")
+monster_health = NodePath("MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Health")
 
 [node name="Frame BG" type="TextureRect" parent="." unique_id=229054981]
 layout_mode = 1
@@ -33,7 +33,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 12
-theme_override_constants/margin_top = 6
+theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
@@ -49,17 +49,22 @@ texture = ExtResource("3_pqv1x")
 expand_mode = 2
 stretch_mode = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1957124756]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=1574232008]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer" unique_id=1957124756]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Name" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=330141457]
+[node name="Name" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=330141457]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.083392, 0.083392, 0.08339202, 1)
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 16
 text = "MONSTER"
 
-[node name="Health" type="TextureProgressBar" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=464083500]
+[node name="Health" type="TextureProgressBar" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=464083500]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 value = 30.0

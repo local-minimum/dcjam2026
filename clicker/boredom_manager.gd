@@ -60,10 +60,11 @@ func _handle_enemy_join_battle(_enemy_data: EnemyData) -> void:
     _in_battle = true
     _boredom_velocity -= _enemy_encounter_decay
 
-func _handle_player_death(_player: PhysicsGridPlayerController) -> void:
-    set_process(false)
-    _ui.live = false
-    _dead = true
+func _handle_player_death(phase: int) -> void:
+    if phase == 0:
+        set_process(false)
+        _ui.live = false
+        _dead = true
 
 func _handle_player_arrive_tile(_player: PhysicsGridPlayerController, coords: Vector3i) -> void:
     if _dead:

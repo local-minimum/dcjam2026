@@ -1,4 +1,4 @@
-extends Node
+extends RefCounted
 class_name Weapon
 
 ## Internal cost of making it

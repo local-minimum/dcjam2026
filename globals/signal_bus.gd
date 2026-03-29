@@ -17,4 +17,5 @@ signal on_player_attack(enemy: BattleManager.Enemy, weapon: Weapon, attack: int,
 signal on_battle_end(credits: int)
 signal on_player_death(phase: int)
 signal on_change_weapon(weapon: Weapon)
+signal on_change_gear(slot: Gear.Base, gear: Gear)
 @warning_ignore_restore("unused_signal")

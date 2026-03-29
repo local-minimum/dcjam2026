@@ -6,8 +6,9 @@
 [ext_resource type="Script" uid="uid://d1lkn4se6hynh" path="res://clicker/weapon_slot_ui.gd" id="4_hnr7w"]
 [ext_resource type="Texture2D" uid="uid://b5lutg1qvwqnd" path="res://clicker/equipment_slot.png" id="5_flcwp"]
 [ext_resource type="Script" uid="uid://bl33wdh2b41xo" path="res://clicker/weapons_smith.gd" id="6_imme1"]
+[ext_resource type="Script" uid="uid://jp8g8pd46146" path="res://clicker/gear_smith.gd" id="7_yrt3n"]
 
-[node name="Loot And Inventory" type="ColorRect" unique_id=1114366633 node_paths=PackedStringArray("_loot_root", "_loot_previews", "_weapons_smith")]
+[node name="Loot And Inventory" type="ColorRect" unique_id=1114366633 node_paths=PackedStringArray("_loot_root", "_loot_previews", "_weapons_smith", "_gear_smith")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -18,6 +19,7 @@ script = ExtResource("1_afi37")
 _loot_root = NodePath("Loot And Inventory/HBoxContainer/CenterContainer/Loot Panel")
 _loot_previews = [NodePath("Loot And Inventory/HBoxContainer/CenterContainer/Loot Panel/MarginContainer/VBoxContainer/Loot Preview"), NodePath("Loot And Inventory/HBoxContainer/CenterContainer/Loot Panel/MarginContainer/VBoxContainer/Loot Preview2"), NodePath("Loot And Inventory/HBoxContainer/CenterContainer/Loot Panel/MarginContainer/VBoxContainer/Loot Preview3")]
 _weapons_smith = NodePath("Weapons Smith")
+_gear_smith = NodePath("Gear Smith")
 
 [node name="Loot And Inventory" type="CenterContainer" parent="." unique_id=1416476791]
 layout_mode = 1
@@ -123,5 +125,8 @@ text = "X"
 
 [node name="Weapons Smith" type="Node" parent="." unique_id=1965783852]
 script = ExtResource("6_imme1")
+
+[node name="Gear Smith" type="Node" parent="." unique_id=2028427087]
+script = ExtResource("7_yrt3n")
 
 [connection signal="pressed" from="Loot And Inventory/HBoxContainer/Inventory Panel/MarginContainer/VBoxContainer/Body/Close Button" to="." method="_on_close_button_pressed"]

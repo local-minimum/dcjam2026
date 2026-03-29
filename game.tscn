@@ -501,7 +501,6 @@ _multi_tasking = ExtResource("9_215e1")
 _smarts = ExtResource("7_iotsf")
 
 [node name="Loot And Inventory" parent="." unique_id=1114366633 instance=ExtResource("39_eu6ph")]
-visible = false
 layout_mode = 1
 
 [node name="DevConsole" parent="." unique_id=540056483 node_paths=PackedStringArray("commands") instance=ExtResource("14_215e1")]

@@ -6,7 +6,12 @@
 [ext_resource type="Script" uid="uid://d1lkn4se6hynh" path="res://clicker/weapon_slot_ui.gd" id="4_hnr7w"]
 [ext_resource type="Texture2D" uid="uid://b5lutg1qvwqnd" path="res://clicker/equipment_slot.png" id="5_flcwp"]
 [ext_resource type="Script" uid="uid://bl33wdh2b41xo" path="res://clicker/weapons_smith.gd" id="6_imme1"]
+[ext_resource type="Script" uid="uid://cgwptmq5mmsg7" path="res://clicker/gear_slot_ui.gd" id="6_lbac6"]
 [ext_resource type="Script" uid="uid://jp8g8pd46146" path="res://clicker/gear_smith.gd" id="7_yrt3n"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yrt3n"]
+font_size = 24
+shadow_color = Color(0.12156863, 0.12156863, 0.12156863, 0.8509804)
 
 [node name="Loot And Inventory" type="ColorRect" unique_id=1114366633 node_paths=PackedStringArray("_loot_root", "_loot_previews", "_weapons_smith", "_gear_smith")]
 anchors_preset = 15
@@ -41,9 +46,9 @@ layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="Loot And Inventory/HBoxContainer/CenterContainer/Loot Panel" unique_id=1253734802]
 layout_mode = 2
-theme_override_constants/margin_left = 6
+theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 6
-theme_override_constants/margin_right = 6
+theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 6
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Loot And Inventory/HBoxContainer/CenterContainer/Loot Panel/MarginContainer" unique_id=701664657]
@@ -78,15 +83,12 @@ theme_override_constants/margin_top = 6
 theme_override_constants/margin_right = 6
 theme_override_constants/margin_bottom = 6
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Loot And Inventory/HBoxContainer/Inventory Panel/MarginContainer" unique_id=2048057532]
-layout_mode = 2
-
-[node name="Body" type="TextureRect" parent="Loot And Inventory/HBoxContainer/Inventory Panel/MarginContainer/VBoxContainer" unique_id=1954903018]
+[node name="Body" type="TextureRect" parent="Loot And Inventory/HBoxContainer/Inventory Panel/MarginContainer" unique_id=1954903018]
 custom_minimum_size = Vector2(300, 400)
 layout_mode = 2
 texture = ExtResource("3_lbac6")
 
-[node name="Weapon Slot UI" type="TextureRect" parent="Loot And Inventory/HBoxContainer/Inventory Panel/MarginContainer/VBoxContainer/Body" unique_id=9567788]
+[node name="Weapon Slot UI" type="TextureRect" parent="Loot And Inventory/HBoxContainer/Inventory Panel/MarginContainer/Body" unique_id=9567788]
 layout_mode = 0
 offset_left = 8.0
 offset_top = 220.0
@@ -96,7 +98,7 @@ expand_mode = 1
 stretch_mode = 5
 script = ExtResource("4_hnr7w")
 
-[node name="Frame" type="TextureRect" parent="Loot And Inventory/HBoxContainer/Inventory Panel/MarginContainer/VBoxContainer/Body/Weapon Slot UI" unique_id=174834100]
+[node name="Frame" type="TextureRect" parent="Loot And Inventory/HBoxContainer/Inventory Panel/MarginContainer/Body/Weapon Slot UI" unique_id=174834100]
 custom_minimum_size = Vector2(72, 72)
 layout_mode = 1
 anchors_preset = 8
@@ -112,7 +114,111 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_flcwp")
 
-[node name="Close Button" type="Button" parent="Loot And Inventory/HBoxContainer/Inventory Panel/MarginContainer/VBoxContainer/Body" unique_id=2098959996]
+[node name="Gear Slot Pants" type="TextureRect" parent="Loot And Inventory/HBoxContainer/Inventory Panel/MarginContainer/Body" unique_id=1004701635]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 238.0
+offset_right = 212.0
+offset_bottom = 337.0
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("6_lbac6")
+_slot = 3
+
+[node name="Frame" type="TextureRect" parent="Loot And Inventory/HBoxContainer/Inventory Panel/MarginContainer/Body/Gear Slot Pants" unique_id=328560688]
+custom_minimum_size = Vector2(72, 72)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_flcwp")
+
+[node name="Gear Slot Feet" type="TextureRect" parent="Loot And Inventory/HBoxContainer/Inventory Panel/MarginContainer/Body" unique_id=556436981]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 319.0
+offset_right = 119.0
+offset_bottom = 388.0
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("6_lbac6")
+_slot = 4
+
+[node name="Frame" type="TextureRect" parent="Loot And Inventory/HBoxContainer/Inventory Panel/MarginContainer/Body/Gear Slot Feet" unique_id=1243469243]
+custom_minimum_size = Vector2(72, 72)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_flcwp")
+
+[node name="Gear Slot Shirt" type="TextureRect" parent="Loot And Inventory/HBoxContainer/Inventory Panel/MarginContainer/Body" unique_id=1428866089]
+layout_mode = 0
+offset_left = 105.0
+offset_top = 126.0
+offset_right = 205.0
+offset_bottom = 232.0
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("6_lbac6")
+_slot = 1
+
+[node name="Frame" type="TextureRect" parent="Loot And Inventory/HBoxContainer/Inventory Panel/MarginContainer/Body/Gear Slot Shirt" unique_id=1620272197]
+custom_minimum_size = Vector2(72, 72)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_flcwp")
+
+[node name="Gear Slot Hat" type="TextureRect" parent="Loot And Inventory/HBoxContainer/Inventory Panel/MarginContainer/Body" unique_id=1138623573]
+layout_mode = 0
+offset_left = 123.0
+offset_top = 15.0
+offset_right = 205.0
+offset_bottom = 99.0
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("6_lbac6")
+
+[node name="Frame" type="TextureRect" parent="Loot And Inventory/HBoxContainer/Inventory Panel/MarginContainer/Body/Gear Slot Hat" unique_id=411828637]
+custom_minimum_size = Vector2(72, 72)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_flcwp")
+
+[node name="Gear Slot Gloves" type="TextureRect" parent="Loot And Inventory/HBoxContainer/Inventory Panel/MarginContainer/Body" unique_id=890136866]
+layout_mode = 0
+offset_left = 225.0
+offset_top = 175.0
+offset_right = 294.0
+offset_bottom = 241.0
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("6_lbac6")
+_slot = 2
+
+[node name="Frame" type="TextureRect" parent="Loot And Inventory/HBoxContainer/Inventory Panel/MarginContainer/Body/Gear Slot Gloves" unique_id=1605579542]
+custom_minimum_size = Vector2(72, 72)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_flcwp")
+
+[node name="Close Button" type="Button" parent="Loot And Inventory/HBoxContainer/Inventory Panel/MarginContainer/Body" unique_id=2098959996]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 1
 anchors_preset = 1
@@ -123,10 +229,17 @@ offset_bottom = 31.0
 grow_horizontal = 0
 text = "X"
 
+[node name="Label" type="Label" parent="Loot And Inventory/HBoxContainer/Inventory Panel/MarginContainer" unique_id=753945114]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Inventory"
+label_settings = SubResource("LabelSettings_yrt3n")
+
 [node name="Weapons Smith" type="Node" parent="." unique_id=1965783852]
 script = ExtResource("6_imme1")
 
 [node name="Gear Smith" type="Node" parent="." unique_id=2028427087]
 script = ExtResource("7_yrt3n")
 
-[connection signal="pressed" from="Loot And Inventory/HBoxContainer/Inventory Panel/MarginContainer/VBoxContainer/Body/Close Button" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="Loot And Inventory/HBoxContainer/Inventory Panel/MarginContainer/Body/Close Button" to="." method="_on_close_button_pressed"]

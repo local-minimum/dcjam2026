@@ -29,9 +29,11 @@ var max_xp: float = 10.0:
 
 var xp: float:
     set(value):
+        var old_value: float = xp
         xp = clamp(value, 0, max_xp)
-        __SignalBus.on_change_xp.emit(xp)
+        __SignalBus.on_change_xp.emit(xp, old_value)
 
+var boredome: float
 
 var _unlocked_clicker_abilities: Array[String]
 

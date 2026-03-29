@@ -80,7 +80,7 @@ func sync_all() -> void:
     show()
 
 
-func _handle_change_xp(new_xp: float) -> void:
+func _handle_change_xp(new_xp: float, _old_value: float) -> void:
     if visible && !_revealed && new_xp >= reveal_threshold * _current_cost:
         _revealed = true
         sync_all()

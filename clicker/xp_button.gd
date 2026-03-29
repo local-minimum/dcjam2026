@@ -52,7 +52,7 @@ func _handle_change_autoclicker_count(clickers: int) -> void:
         _autoclickers[idx].active = clickers > idx
         _autoclickers[idx].next_click = t0 + interval + step * idx
 
-func _handle_change_xp(new_value: float) -> void:
+func _handle_change_xp(new_value: float, _old_value: float = 0.0) -> void:
     var suffix: String = ""
 
     if new_value > 1000.0:
@@ -77,7 +77,7 @@ func _sync_progress_bar() -> void:
 var _gain_history: Array[GainInfo]
 
 func _click(efficiency: float = 1.0) -> void:
-    var gain: float = __GlobalGameState.xp_click_value * efficiency
+    var gain: float = __GlobalGameState.xp_click_value * efficiency * (1.0 - __GlobalGameState.boredome)
     __GlobalGameState.xp += gain
     _gain_history.append(GainInfo.new(Time.get_ticks_msec(), gain))
 

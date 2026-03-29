@@ -188,9 +188,88 @@ func clear_all_dialogues() -> void:
         _clear_callbacks(player)
         player.stop()
 
+## Synchroniously starts an array of tracks
+## If crossfade is less than 0, it doesn't end playing tracks
+## If exactly 0 it ends all directly and plays new
+## If larger then it fades
+## Returned object gives access to fading volume of each track
+## tuner(new_volume, fade_duration = -1)
+func multiplay_music(
+    sound_resource_paths: Array[String],
+    initial_volumes: Array[float],
+    crossfade_time: float = -1,
+) -> Array[Callable]:
+    var players: Array[AudioStreamPlayer]
+    var fading_callbacks: Array[Callable]
+    var idx: int = 0
+
+    for path: String in sound_resource_paths:
+
+        if path.is_empty():
+            push_warning("Missing at least one sound path in %s" %[sound_resource_paths])
+            idx += 1
+            continue
+
+        var player: AudioStreamPlayer = _music_available.pop_back()
+        if player == null:
+            player = _create_player(Bus.MUSIC, _music_available, _music_running, false)
+            _config.music_players += 1
+            push_warning("Extending '%s' with a %sth player because all busy" % [_bus_name(Bus.MUSIC), _config.music_players])
+
+        player.stream = load(path)
+
+        var target_volume: float = initial_volumes[idx] if initial_volumes.size() else 1.0
+        player.volume_linear = 0.0 if crossfade_time > 0 else target_volume
+
+        fading_callbacks.append(
+            func (new_volume: float, fade_duration = -1) -> void:
+                _fade_player(player, player.volume_linear, new_volume, fade_duration)
+        )
+        players.append(player)
+
+    if crossfade_time == 0.0:
+        _end_music_players()
+
+    idx = 0
+    var prev_players: Array[AudioStreamPlayer]
+    prev_players.append_array(_music_running)
+
+    for player: AudioStreamPlayer in players:
+        var target_volume: float = initial_volumes[idx] if initial_volumes.size() else 1.0
+
+        if crossfade_time <= 0:
+            player.volume_linear = target_volume
+        else:
+            _fade_player(player, 0, target_volume, crossfade_time)
+
+        player.play()
+
+        idx += 1
+        _music_running.append(player)
+
+    if crossfade_time > 0:
+        for other: AudioStreamPlayer in prev_players:
+            _fade_player(
+                other,
+                other.volume_linear,
+                0,
+                crossfade_time,
+                func () -> void:
+                    other.stop()
+                    if !_music_available.has(other):
+                        _music_available.append(other)
+                    _music_running.erase(other)
+            )
+
+    return fading_callbacks
+
+## Change or add new track
+## If crossfade is less than 0, it doesn't end playing tracks
+## If exactly 0 it ends all directly and plays new
+## If larger then it fades
 func play_music(
     sound_resource_path: String,
-    crossfade_time: float = -1,
+    crossfade_time: float = -1.0,
 ) -> void:
     if sound_resource_path.is_empty():
         return
@@ -212,7 +291,7 @@ func play_music(
         for other: AudioStreamPlayer in _music_running:
             _fade_player(
                 other,
-                1,
+                other.volume_linear,
                 0,
                 crossfade_time,
                 func () -> void:

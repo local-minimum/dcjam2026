@@ -62,6 +62,7 @@
 [ext_resource type="Resource" uid="uid://41360xnp21fo" path="res://clicker/abilities/appearance_aluminum.tres" id="53_du4n2"]
 [ext_resource type="Resource" uid="uid://c7fxk8piyplae" path="res://clicker/abilities/appearance_mix_and_match.tres" id="55_bqa6y"]
 [ext_resource type="Resource" uid="uid://tb56tghp7fsp" path="res://clicker/abilities/appearance_fashionista.tres" id="55_du4n2"]
+[ext_resource type="Script" uid="uid://c50eh21gdu5cn" path="res://sound_track_manager.gd" id="63_ra4rb"]
 
 [sub_resource type="Theme" id="Theme_4scmg"]
 HSplitContainer/constants/minimum_grab_thickness = 0
@@ -517,3 +518,10 @@ script = ExtResource("44_kq12w")
 command = Array[String](["loot"])
 usage = "[total loot value]"
 description = "Simulates the end of a battle"
+
+[node name="SoundTrackManager" type="Node" parent="." unique_id=2037367065]
+script = ExtResource("63_ra4rb")
+clicker_tracks = Array[String](["res://clicker/music/before-a.mp3", "res://clicker/music/before-b.mp3", "res://clicker/music/before-c.mp3"])
+clicker_soft_volumes = Array[float]([1.0, 0.0, 0.0])
+clicker_medium_volumes = Array[float]([1.0, 1.0, 0.0])
+clicker_intense_volumes = Array[float]([1.0, 1.0, 1.0])

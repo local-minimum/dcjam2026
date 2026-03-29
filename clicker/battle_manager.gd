@@ -4,7 +4,11 @@ class_name BattleManager
 enum HitType { HIT, MISS, BLOCKED }
 @export var _ui: BattleUI
 @export var _masochism_ability: ClickerAbilityData
+@export var _fashionista_ability: ClickerAbilityData
+@export var _mix_and_match_ability: ClickerAbilityData
+
 @export var _max_enemies_active: int = 4
+
 
 class Enemy:
     var _data: EnemyData
@@ -127,6 +131,68 @@ func _handle_enemy_join_battle(enemy_data: EnemyData) -> void:
         _enemy_queue.append(e)
         _ui.queing_enemies = true
 
+func _get_mix_and_match_mult() -> int:
+    match __GlobalGameState.get_current_ability_level(_mix_and_match_ability.id):
+        0:
+            return 0
+        1:
+            return 1
+        2:
+            return 2
+        3:
+            return 4
+        4:
+            return 8
+        5:
+            return 16
+        _:
+            push_error("Unknown conversion for mix and match level %s" % [
+                __GlobalGameState.get_current_ability_level(_fashionista_ability.id)
+            ])
+            return 0
+
+func _get_fashionista_mult() -> int:
+    match __GlobalGameState.get_current_ability_level(_fashionista_ability.id):
+        0:
+            return 0
+        1:
+            return 1
+        2:
+            return 2
+        3:
+            return 3
+        4:
+            return 5
+        5:
+            return 8
+        _:
+            push_error("Unknown conversion for fashionista level %s" % [
+                __GlobalGameState.get_current_ability_level(_fashionista_ability.id)
+            ])
+            return 0
+
+func _calc_base_defence(all_gear: Array[Gear]) -> int:
+    var fashionista_mult: int = _get_fashionista_mult()
+    var mix_and_match_mult: int = _get_mix_and_match_mult()
+
+    var mats: Array[Gear.Mat] = []
+    var quals: Dictionary[Gear.Quality, int]
+
+    for g: Gear in all_gear:
+        if mix_and_match_mult > 0 && !mats.has(g.get_mat()):
+            mats.append(g.get_mat())
+        if fashionista_mult > 0:
+            quals.set(g.get_quality(), quals.get(g.get_quality(), 0) + 1)
+
+    var fashion_base: int = 0
+    if fashionista_mult > 0 && !quals.is_empty():
+        var q: Array[int]
+        q.append_array(quals.values())
+        q.sort()
+        fashion_base = fashionista_mult * q[-1]
+
+    return mix_and_match_mult * mats.size() + fashion_base
+
 func _process(_delta: float) -> void:
     if Time.get_ticks_msec() >= _player_next_attack_msec:
         var dmg: int = __GlobalGameState.weapon.attack()
@@ -172,21 +238,36 @@ func _process(_delta: float) -> void:
                     __SignalBus.on_battle_end.emit(_gained_loot_cred)
                     set_process(false)
 
+    var _all_gear: Array[Gear] = __GlobalGameState.get_all_gear()
+    var _base_def: int = _calc_base_defence(_all_gear)
+    var _total_dodge: float = 0
+    for g: Gear in _all_gear:
+        _total_dodge += g.dodge_chance_percent()
+
     for e: Enemy in _enemies:
         if e.should_attack:
+            _ui.focus_enemy_attacking(e)
+            _most_recent_attacker = e
+
             var attack: int = e.roll_attack()
-            if attack > 0:
-                _ui.focus_enemy_attacking(e)
-                _most_recent_attacker = e
+            if attack > 0 && randf_range(0.0, 100.0) > _total_dodge:
+                var def: int = 0
+                for g: Gear in _all_gear:
+                    def += g.defend()
+                def = maxi(def, 0) + _base_def
 
-                __GlobalGameState.health -= attack
-                __SignalBus.on_enemy_attack.emit(e, attack, HitType.HIT)
+                attack -= def
+                if attack <= 0:
+                    __SignalBus.on_enemy_attack.emit(e, attack, HitType.BLOCKED)
+                else:
+                    __GlobalGameState.health -= attack
+                    __SignalBus.on_enemy_attack.emit(e, attack, HitType.HIT)
 
-                if __GlobalGameState.health == 0:
-                    PhysicsGridPlayerController.last_connected_player.add_cinematic_blocker(self)
-                    set_process(false)
-                    __SignalBus.on_player_death.emit(0)
-                    return
+                    if __GlobalGameState.health == 0:
+                        PhysicsGridPlayerController.last_connected_player.add_cinematic_blocker(self)
+                        set_process(false)
+                        __SignalBus.on_player_death.emit(0)
+                        return
             else:
                 __SignalBus.on_enemy_attack.emit(e, 0, HitType.MISS)
 

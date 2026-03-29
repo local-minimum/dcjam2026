@@ -1,6 +1,42 @@
 extends GlobalGameStateCore
 class_name GlobalGameState
 
+var _gear: Dictionary[Gear.Base, Gear]
+
+func is_naked() -> bool:
+    return _gear.is_empty()
+
+func clear_gear(base: Gear.Base) -> void:
+    if _gear.has(base):
+        _gear.erase(base)
+        __SignalBus.on_change_gear.emit(base, null)
+
+func set_gear(gear: Gear) -> void:
+    _gear[gear.get_base()] = gear
+    __SignalBus.on_change_gear.emit(gear.get_base(), gear)
+
+func get_gear(base: Gear.Base) -> Gear:
+    return _gear.get(base, null)
+
+func get_all_gear() -> Array[Gear]:
+    if _gear.is_empty():
+        return []
+
+    var all: Array[Gear]
+    all.append_array(_gear.values())
+    return all
+
+func get_average_gear_score() -> int:
+    if _gear.is_empty():
+        return 0
+
+    var tot: float = 0.0
+    for gear: Gear in _gear.values():
+        tot += gear.score
+
+    return roundi(tot / _gear.size())
+
+
 var weapon: Weapon:
     set(value):
         weapon = value

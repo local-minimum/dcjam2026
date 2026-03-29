@@ -32,6 +32,49 @@ func _roll_base(credits: int) -> Weapon.Base:
             opt.append(base)
 
     if opt.is_empty():
+        if credits >= _base_costs[Weapon.Base.RAIL_GUN]:
+            return [
+                Weapon.Base.RAIL_GUN,
+                Weapon.Base.LASER_RIFLE,
+            ].pick_random()
+
+        if credits >= _base_costs[Weapon.Base.LASER_RIFLE]:
+            return [
+                Weapon.Base.LASER_RIFLE,
+                Weapon.Base.LASER_RIFLE,
+                Weapon.Base.PLASMA_UZI,
+            ].pick_random()
+
+        if credits >= _base_costs[Weapon.Base.PLASMA_UZI]:
+            return [
+                Weapon.Base.PLASMA_UZI,
+                Weapon.Base.PLASMA_UZI,
+                Weapon.Base.LASER_GUN,
+            ].pick_random()
+
+        if credits >= _base_costs[Weapon.Base.LASER_GUN]:
+            return [
+                Weapon.Base.LASER_GUN,
+                Weapon.Base.LASER_GUN,
+                Weapon.Base.PLASMA_SWORD,
+                Weapon.Base.PLASMA_BATON,
+            ].pick_random()
+
+        if credits >= _base_costs[Weapon.Base.PLASMA_SWORD]:
+            return [
+                Weapon.Base.PLASMA_SWORD,
+                Weapon.Base.PLASMA_SWORD,
+                Weapon.Base.PLASMA_BATON,
+            ].pick_random()
+
+        if credits >= _base_costs[Weapon.Base.PLASMA_BATON]:
+            return [
+                Weapon.Base.PLASMA_BATON,
+                Weapon.Base.PLASMA_BATON,
+                Weapon.Base.PLASMA_BATON,
+                Weapon.Base.PLASMA_SWORD,
+            ].pick_random()
+
         return Weapon.Base.PLASMA_BATON
 
     return opt.pick_random()
@@ -90,7 +133,7 @@ func _roll_qual(credits: int) -> Weapon.Quality:
 func assign_score(weapon: Weapon) -> void:
     weapon.score = maxi(
         _base_costs[weapon.get_base()] + _material_costs[weapon.get_mat()] + _quality_costs[weapon.get_quality()],
-        0
+        1
     )
 
 var _icon_cache: Array[Weapon]

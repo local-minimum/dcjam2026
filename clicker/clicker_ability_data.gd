@@ -14,6 +14,7 @@ class_name ClickerAbilityData
 
 @export var autohide_on_completed: bool = true
 @export var require_weapon: bool
+@export var require_gear: bool
 
 var levels: int:
     get():

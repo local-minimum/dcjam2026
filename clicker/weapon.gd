@@ -1,4 +1,4 @@
-extends Node
+extends RefCounted
 class_name Weapon
 
 ## Internal cost of making it
@@ -212,6 +212,6 @@ func humanized() -> String:
     ]).replace("_", " ").to_lower().capitalize()
 
 func _to_string() -> String:
-    return "<%s %s %s %s>" % [
-        Quality.find_key(_quality), Mat.find_key(_mat), Base.find_key(_base), _make_die(),
+    return "<%s %s %s (%s) %s>" % [
+        Quality.find_key(_quality), Mat.find_key(_mat), Base.find_key(_base), score, _make_die(),
     ]

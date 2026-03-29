@@ -6,15 +6,41 @@ var loot_and_inventory: LootAndInventory
 @export var _title: Label
 @export var _description: Label
 var _weapon: Weapon
+var _gear: Gear
 
 const WEAPON_META: String = "weapon"
+const GEAR_META: String = "gear"
 const LOOT_PREVIEW_META: String = "loot"
 
 func _ready() -> void:
     _icon.set_meta(LOOT_PREVIEW_META, self)
 
+func preview_gear(gear: Gear) -> void:
+    _weapon = null
+    _gear = gear
+
+    _icon.texture = gear.icon
+    _icon.set_meta(GEAR_META, gear)
+
+    _title.text = gear.humanized()
+
+    var dodge: float = gear.dodge_chance_percent()
+    var def_total: float = 0
+    var rolls: int = 20
+    for idx: int in rolls:
+        def_total += maxi(gear.defend() if idx == 0 else gear.reroll_defend(), 0)
+
+    var avg: float = def_total / rolls
+
+    _description.text = "Est. Current Avg. DEF: %s and %s% dodge" % [
+        roundf(avg * 100) / 100,
+        roundf(dodge),
+    ]
+
+
 func preview_weapon(weapon: Weapon) -> void:
     _weapon = weapon
+    _gear = null
 
     _icon.texture = weapon.icon
     _icon.set_meta(WEAPON_META, weapon)
@@ -33,7 +59,6 @@ func preview_weapon(weapon: Weapon) -> void:
         roundf(dps * 100) / 100
     ]
 
-
 func _on_gui_input(event: InputEvent) -> void:
     if event.is_echo():
         return
@@ -46,6 +71,8 @@ func _on_gui_input(event: InputEvent) -> void:
 func quick_equip() -> void:
     if _weapon != null:
         __GlobalGameState.weapon = _weapon
+    if _gear != null:
+        __GlobalGameState.set_gear(_gear)
 
     hide()
 

@@ -4,4 +4,5 @@
 
 [resource]
 script = ExtResource("1_fmqvq")
+music_players = 4
 metadata/_custom_type_script = "uid://ksj8iby0h1hc"

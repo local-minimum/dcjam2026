@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dg118006wksbo"]
 
-[ext_resource type="Material" uid="uid://bttodiouk0rae" path="res://levels/horror/monster/TEMP/TEMP_checker_mat.tres" id="1_n4lit"]
-[ext_resource type="PackedScene" uid="uid://dbbbvw47dto45" path="res://levels/horror/monster/monster.tscn" id="2_bujxq"]
+[ext_resource type="Material" uid="uid://bttodiouk0rae" path="res://horror/monster/TEMP/TEMP_checker_mat.tres" id="1_n4lit"]
+[ext_resource type="PackedScene" uid="uid://dbbbvw47dto45" path="res://horror/monster/monster.tscn" id="2_bujxq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_n4lit"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)

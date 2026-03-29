@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://bttodiouk0rae"]
 
-[ext_resource type="Shader" uid="uid://bvgx3di77ojio" path="res://levels/horror/monster/TEMP/TEMP_checker_shader.gdshader" id="1_bycwt"]
+[ext_resource type="Shader" uid="uid://bvgx3di77ojio" path="res://horror/monster/TEMP/TEMP_checker_shader.gdshader" id="1_bycwt"]
 
 [resource]
 render_priority = 0

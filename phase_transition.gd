@@ -3,6 +3,7 @@ extends TextureRect
 @export var _split_container: HSplitContainer
 @export var _subviewport: SubViewport
 @export var _unloading_nodes: Array[Node]
+@export var _error_scene: PackedScene
 
 @export_file_path("*.tscn") var _horror_dungeon_scene: String
 @export_file_path("*.tscn") var _horror_panel_scene: String
@@ -100,6 +101,21 @@ func _process(_delta: float) -> void:
                 _split_container.add_child(panel)
                 set_process(false)
                 _finalize()
+
+        Phase.ERROR:
+            set_process(false)
+
+func _panic() -> void:
+    if _error_scene != null:
+        match get_tree().change_scene_to_packed(_error_scene):
+            OK:
+                return
+            ERR_CANT_CREATE:
+                push_error("Cannot create new root scene '%s'" % _error_scene)
+            ERR_INVALID_PARAMETER:
+                push_error("Invalid parameter swapping root to packed scene '%s'" % _error_scene)
+
+    get_tree().quit(100)
 
 func _finalize() -> void:
     __SignalBus.on_horror_loaded.emit()

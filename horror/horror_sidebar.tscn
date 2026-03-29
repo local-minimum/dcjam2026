@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://cf712amno0wnv"]
+
+[ext_resource type="Texture2D" uid="uid://cwnthnv701tbf" path="res://clicker/secret_panel.png" id="1_c6h0q"]
+
+[node name="Horror Sidebar" type="ColorRect" unique_id=933494870]
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+color = Color(0.085367166, 6.757858e-06, 0.085840054, 1)
+
+[node name="Clicker Content" type="MarginContainer" parent="." unique_id=340762396]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Clicker Content" unique_id=1837067038]
+layout_mode = 2
+
+[node name="Secrets Protector" type="TextureRect" parent="." unique_id=846225166]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_c6h0q")
+expand_mode = 1

@@ -272,6 +272,7 @@ uppercase = true
 script = ExtResource("18_0de7l")
 _ui = NodePath("..")
 _change_to_velocity_factor = 0.01
+_new_coordinates_exploration_decay = 0.001
 _velocity_decay_over_time = 0.4
 
 [node name="HSeparator" type="HSeparator" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer" unique_id=1228020230]

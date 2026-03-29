@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://rw40yloyksye"]
 
-[ext_resource type="Texture2D" uid="uid://pxppetlw4kl1" path="res://clicker/enemy_frame_bg.png" id="1_mms3g"]
-[ext_resource type="Script" uid="uid://bcwuwwgdljgir" path="res://clicker/loot_preview.gd" id="1_mw1fy"]
+[ext_resource type="Texture2D" uid="uid://pxppetlw4kl1" path="res://clicker/battle/enemy_frame_bg.png" id="1_mms3g"]
+[ext_resource type="Script" uid="uid://bcwuwwgdljgir" path="res://clicker/loot/loot_preview.gd" id="1_mw1fy"]
 
 [node name="Loot Preview" type="PanelContainer" unique_id=1447326071 node_paths=PackedStringArray("_icon", "_title", "_description")]
 mouse_default_cursor_shape = 2

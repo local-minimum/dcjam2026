@@ -2,35 +2,35 @@
 
 [ext_resource type="Environment" uid="uid://cab2e1qcby00n" path="res://clicker/clicker_environment.tres" id="1_80nbo"]
 [ext_resource type="PackedScene" uid="uid://bufrvjcwdgi7q" path="res://clicker/dungeon.tscn" id="2_e2o6t"]
-[ext_resource type="PackedScene" uid="uid://b0e0rvd3dfopu" path="res://clicker/xp_button.tscn" id="3_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://b0e0rvd3dfopu" path="res://clicker/xp/xp_button.tscn" id="3_fc0e3"]
 [ext_resource type="Texture2D" uid="uid://cwnthnv701tbf" path="res://clicker/secret_panel.png" id="3_feb5d"]
 [ext_resource type="PackedScene" uid="uid://ctchufnwaro7b" path="res://clicker/clicker_ability_button.tscn" id="4_7jktm"]
 [ext_resource type="Script" uid="uid://bt1vi716f5csr" path="res://clicker/clicker_ability_data.gd" id="6_eow3j"]
-[ext_resource type="Texture2D" uid="uid://bj23l1l07x67h" path="res://clicker/player_health_bg.png" id="6_hb5m1"]
+[ext_resource type="Texture2D" uid="uid://bj23l1l07x67h" path="res://clicker/health/player_health_bg.png" id="6_hb5m1"]
 [ext_resource type="Texture2D" uid="uid://d08irex16meun" path="res://clicker/clicker_ability_icon_brian.png" id="6_hve3p"]
-[ext_resource type="Texture2D" uid="uid://ca2yywbtyo5uv" path="res://clicker/enemy_unknown.png" id="7_87ddb"]
+[ext_resource type="Texture2D" uid="uid://ca2yywbtyo5uv" path="res://clicker/battle/enemy_unknown.png" id="7_87ddb"]
 [ext_resource type="Resource" uid="uid://c208p6knl8gu2" path="res://clicker/abilities/mental_smarts.tres" id="7_iotsf"]
-[ext_resource type="Texture2D" uid="uid://3g7a1qgy4jjc" path="res://clicker/player_health_fg.png" id="7_x5p1p"]
+[ext_resource type="Texture2D" uid="uid://3g7a1qgy4jjc" path="res://clicker/health/player_health_fg.png" id="7_x5p1p"]
 [ext_resource type="Resource" uid="uid://3gmnrhfplofm" path="res://clicker/abilities/mental_memory_palace.tres" id="8_lc2xo"]
-[ext_resource type="Texture2D" uid="uid://b5fmrl4b8wotb" path="res://clicker/player_health.png" id="8_qhcbd"]
+[ext_resource type="Texture2D" uid="uid://b5fmrl4b8wotb" path="res://clicker/health/player_health.png" id="8_qhcbd"]
 [ext_resource type="Resource" uid="uid://ie2phil58tny" path="res://clicker/abilities/mental_multi_tasking.tres" id="9_215e1"]
-[ext_resource type="Script" uid="uid://cs23uil2d5u6p" path="res://clicker/player_health_ui.gd" id="9_x5p1p"]
+[ext_resource type="Script" uid="uid://cs23uil2d5u6p" path="res://clicker/health/player_health_ui.gd" id="9_x5p1p"]
 [ext_resource type="Resource" uid="uid://cb466h3c61gqf" path="res://clicker/abilities/agression.tres" id="10_7sc4i"]
 [ext_resource type="Resource" uid="uid://cd0ty3rasequ4" path="res://clicker/abilities/appearance.tres" id="11_80cx4"]
-[ext_resource type="Script" uid="uid://bt10ci7pn81qq" path="res://clicker/battle_texts_spawner.gd" id="11_r62pu"]
+[ext_resource type="Script" uid="uid://bt10ci7pn81qq" path="res://clicker/battle/battle_texts_spawner.gd" id="11_r62pu"]
 [ext_resource type="Script" uid="uid://bal5t10rmus64" path="res://clicker/abilitities_manager.gd" id="12_f1jbl"]
 [ext_resource type="Script" uid="uid://bygrk7a3mcgx7" path="res://clicker_xp_rules.gd" id="13_lc2xo"]
 [ext_resource type="Script" uid="uid://bgdnhr86vy5ne" path="res://core/2d/split_texture_progressbars.gd" id="13_lwlx3"]
-[ext_resource type="Texture2D" uid="uid://dcyv0yvo5fsqf" path="res://clicker/boredom_bg.png" id="13_m28ev"]
+[ext_resource type="Texture2D" uid="uid://dcyv0yvo5fsqf" path="res://clicker/boredom/boredom_bg.png" id="13_m28ev"]
 [ext_resource type="PackedScene" uid="uid://c0qmcq36iacog" path="res://addons/minimum_dev_console/scenes/example_dev_console.tscn" id="14_215e1"]
-[ext_resource type="Texture2D" uid="uid://bjlvrgc8gi3oo" path="res://clicker/boredom_lower.png" id="14_lwlx3"]
-[ext_resource type="Texture2D" uid="uid://cveoocfew04et" path="res://clicker/boredom_cover.png" id="15_0de7l"]
+[ext_resource type="Texture2D" uid="uid://bjlvrgc8gi3oo" path="res://clicker/boredom/boredom_lower.png" id="14_lwlx3"]
+[ext_resource type="Texture2D" uid="uid://cveoocfew04et" path="res://clicker/boredom/boredom_cover.png" id="15_0de7l"]
 [ext_resource type="Script" uid="uid://dikj7ouqdoq0m" path="res://clicker/dev_console_xp.gd" id="15_7sc4i"]
 [ext_resource type="Script" uid="uid://3kvqfeoh3qbc" path="res://clicker/battle_manager.gd" id="16_80cx4"]
-[ext_resource type="Texture2D" uid="uid://8qlicmfc7c77" path="res://clicker/boredom_upper.png" id="16_87ddb"]
-[ext_resource type="Script" uid="uid://cxwcyqew8etn4" path="res://clicker/battle_ui.gd" id="16_e8heu"]
-[ext_resource type="Script" uid="uid://bsgeqwfcrwlhy" path="res://clicker/boredom_manager.gd" id="18_0de7l"]
-[ext_resource type="PackedScene" uid="uid://cjvexujnvp0lw" path="res://clicker/enemy_ui.tscn" id="18_rvswv"]
+[ext_resource type="Texture2D" uid="uid://8qlicmfc7c77" path="res://clicker/boredom/boredom_upper.png" id="16_87ddb"]
+[ext_resource type="Script" uid="uid://cxwcyqew8etn4" path="res://clicker/battle/battle_ui.gd" id="16_e8heu"]
+[ext_resource type="Script" uid="uid://bsgeqwfcrwlhy" path="res://clicker/boredom/boredom_manager.gd" id="18_0de7l"]
+[ext_resource type="PackedScene" uid="uid://cjvexujnvp0lw" path="res://clicker/battle/enemy_ui.tscn" id="18_rvswv"]
 [ext_resource type="Resource" uid="uid://drp8oybvi57m1" path="res://clicker/abilities/appearance_masochism.tres" id="19_qhcbd"]
 [ext_resource type="Resource" uid="uid://bmpmueriggevp" path="res://clicker/abilities/agression_ordinary.tres" id="20_vaj68"]
 [ext_resource type="Resource" uid="uid://d28gn2rveyp1y" path="res://clicker/abilities/agression_poor.tres" id="21_i2p71"]
@@ -47,7 +47,7 @@
 [ext_resource type="Resource" uid="uid://c4tcus8oljh2c" path="res://clicker/abilities/agression_plasma_uzi.tres" id="32_iu0sx"]
 [ext_resource type="Resource" uid="uid://dyg4vh0d0ggxu" path="res://clicker/abilities/agression_laser_rifle.tres" id="33_4v2jo"]
 [ext_resource type="Resource" uid="uid://7l7cp2w07pxx" path="res://clicker/abilities/agression_rail_guns.tres" id="34_l1i01"]
-[ext_resource type="PackedScene" uid="uid://3heqxlultjpy" path="res://clicker/loot_and_inventory.tscn" id="39_eu6ph"]
+[ext_resource type="PackedScene" uid="uid://3heqxlultjpy" path="res://clicker/loot/loot_and_inventory.tscn" id="39_eu6ph"]
 [ext_resource type="Script" uid="uid://dpr1k74riep1o" path="res://clicker/dev_console_loot.gd" id="44_kq12w"]
 [ext_resource type="Resource" uid="uid://sle6175akmfa" path="res://clicker/abilities/appearance_nursing.tres" id="44_mljfx"]
 [ext_resource type="Resource" uid="uid://byy8djgdai0" path="res://clicker/abilities/appearance_obsidian.tres" id="45_mc3al"]
@@ -62,6 +62,7 @@
 [ext_resource type="Resource" uid="uid://41360xnp21fo" path="res://clicker/abilities/appearance_aluminum.tres" id="53_du4n2"]
 [ext_resource type="Resource" uid="uid://c7fxk8piyplae" path="res://clicker/abilities/appearance_mix_and_match.tres" id="55_bqa6y"]
 [ext_resource type="Resource" uid="uid://tb56tghp7fsp" path="res://clicker/abilities/appearance_fashionista.tres" id="55_du4n2"]
+[ext_resource type="Script" uid="uid://cypvqaxbcaqeh" path="res://core/dev_console_commands/dev_speed.gd" id="63_ple6s"]
 [ext_resource type="Script" uid="uid://c50eh21gdu5cn" path="res://sound_track_manager.gd" id="63_ra4rb"]
 
 [sub_resource type="Theme" id="Theme_4scmg"]
@@ -126,7 +127,7 @@ stretch = true
 [node name="SubViewport" type="SubViewport" parent="HSplitContainer/Viewport Side/SubViewportContainer" unique_id=245882761]
 world_3d = SubResource("World3D_e2o6t")
 handle_input_locally = false
-size = Vector2i(1472, 1080)
+size = Vector2i(2, 2)
 render_target_update_mode = 4
 
 [node name="Dungeon" parent="HSplitContainer/Viewport Side/SubViewportContainer/SubViewport" unique_id=1143420985 instance=ExtResource("2_e2o6t")]
@@ -504,7 +505,7 @@ _smarts = ExtResource("7_iotsf")
 layout_mode = 1
 
 [node name="DevConsole" parent="." unique_id=540056483 node_paths=PackedStringArray("commands") instance=ExtResource("14_215e1")]
-commands = [NodePath("Gain XP Command"), NodePath("Loot Command")]
+commands = [NodePath("Gain XP Command"), NodePath("Loot Command"), NodePath("Game Speed Command")]
 
 [node name="Gain XP Command" type="Node" parent="DevConsole" unique_id=705109122]
 script = ExtResource("15_7sc4i")
@@ -518,9 +519,24 @@ command = Array[String](["loot"])
 usage = "[total loot value]"
 description = "Simulates the end of a battle"
 
+[node name="Game Speed Command" type="Node" parent="DevConsole" unique_id=1912456362]
+script = ExtResource("63_ple6s")
+command = Array[String](["speed"])
+usage = "[speed factor]"
+description = "Change game speed"
+
 [node name="SoundTrackManager" type="Node" parent="." unique_id=2037367065]
 script = ExtResource("63_ra4rb")
 clicker_tracks = Array[String](["res://clicker/music/before-a.mp3", "res://clicker/music/before-b.mp3", "res://clicker/music/before-c.mp3"])
 clicker_soft_volumes = Array[float]([1.0, 0.0, 0.0])
 clicker_medium_volumes = Array[float]([1.0, 1.0, 0.0])
 clicker_intense_volumes = Array[float]([1.0, 1.0, 1.0])
+
+[node name="Break Through Screen Grab Target" type="TextureRect" parent="." unique_id=1884846982]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0

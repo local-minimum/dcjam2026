@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bj2t3g8df1upx"
-path="res://.godot/imported/pointing_hand.png-671f3b6e07eb60afce2a9fdc55f4d48a.ctex"
+uid="uid://bjlvrgc8gi3oo"
+path="res://.godot/imported/boredom_lower.png-51598a17f3024e896fb9aa181f05c313.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://clicker/pointing_hand.png"
-dest_files=["res://.godot/imported/pointing_hand.png-671f3b6e07eb60afce2a9fdc55f4d48a.ctex"]
+source_file="res://clicker/boredom/boredom_lower.png"
+dest_files=["res://.godot/imported/boredom_lower.png-51598a17f3024e896fb9aa181f05c313.ctex"]
 
 [params]
 

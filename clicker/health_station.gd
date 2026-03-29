@@ -2,6 +2,7 @@ extends Node3D
 class_name HealthStation
 
 @export var healing_amount: float = 10
+@export var _nursing_ability: ClickerAbilityData
 
 const _DEACTIVATION_COUNT: int = 3
 static var _inactive_stations: Array[HealthStation]
@@ -20,7 +21,7 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
         return
 
     print_debug("Healing player %s by %s" % [player, healing_amount])
-    __GlobalGameState.health += healing_amount
+    __GlobalGameState.health += healing_amount * (1 + __GlobalGameState.get_current_ability_level(_nursing_ability.id))
     _deactivate()
 
 func _deactivate() -> void:

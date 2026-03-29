@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dbknfpibyx65f"]
 
 [ext_resource type="Script" uid="uid://maoj4m6q3yul" path="res://clicker/health_station.gd" id="1_58lu1"]
+[ext_resource type="Resource" uid="uid://sle6175akmfa" path="res://clicker/abilities/appearance_nursing.tres" id="2_ew0ap"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1pa7v"]
 transparency = 1
@@ -29,6 +30,7 @@ size = Vector3(2.185913, 2.9274902, 1.8946838)
 
 [node name="Health Station" type="Node3D" unique_id=847146449]
 script = ExtResource("1_58lu1")
+_nursing_ability = ExtResource("2_ew0ap")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1927270392]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)

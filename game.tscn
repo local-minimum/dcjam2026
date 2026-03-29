@@ -49,6 +49,7 @@
 [ext_resource type="Resource" uid="uid://7l7cp2w07pxx" path="res://clicker/abilities/agression_rail_guns.tres" id="34_l1i01"]
 [ext_resource type="PackedScene" uid="uid://3heqxlultjpy" path="res://clicker/loot_and_inventory.tscn" id="39_eu6ph"]
 [ext_resource type="Script" uid="uid://dpr1k74riep1o" path="res://clicker/dev_console_loot.gd" id="44_kq12w"]
+[ext_resource type="Resource" uid="uid://sle6175akmfa" path="res://clicker/abilities/appearance_nursing.tres" id="44_mljfx"]
 
 [sub_resource type="Theme" id="Theme_4scmg"]
 HSplitContainer/constants/minimum_grab_thickness = 0
@@ -404,6 +405,10 @@ ability = ExtResource("11_80cx4")
 [node name="Masochism" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=313034514 instance=ExtResource("4_7jktm")]
 layout_mode = 2
 ability = ExtResource("19_qhcbd")
+
+[node name="Nursing" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=390587771 instance=ExtResource("4_7jktm")]
+layout_mode = 2
+ability = ExtResource("44_mljfx")
 
 [node name="Secrets Protector" type="TextureRect" parent="HSplitContainer/Sidebar" unique_id=1288201195]
 visible = false

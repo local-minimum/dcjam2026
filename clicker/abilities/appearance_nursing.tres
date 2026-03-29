@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ClickerAbilityData" format=3 uid="uid://sle6175akmfa"]
+
+[ext_resource type="Script" uid="uid://bt1vi716f5csr" path="res://clicker/clicker_ability_data.gd" id="1_hgdlv"]
+
+[resource]
+script = ExtResource("1_hgdlv")
+id = "appearance_nursing"
+title = "Nursing"
+requirement_ids = Array[String](["appearance"])
+costs = Array[int]([100, 500, 1000, 10000, 50000])
+descriptions = Array[String](["Increases health gained at healing stations"])
+metadata/_custom_type_script = "uid://bt1vi716f5csr"

@@ -8,7 +8,9 @@ var weapon: Weapon:
 
 var health: float:
     set(value):
+        var previous: float = health
         health = clampf(value, 0.0, max_health)
+        __SignalBus.on_player_health_changed.emit(health, previous)
 
 var max_health: float:
     set(value):

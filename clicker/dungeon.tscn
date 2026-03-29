@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://5nd45w6q42kq" path="res://core/dungeon.gd" id="1_6pvhc"]
 [ext_resource type="Script" uid="uid://dfqjle1xd7utg" path="res://clicker/entity_collision_join_battle.gd" id="2_sufut"]
 [ext_resource type="PackedScene" uid="uid://dfe2ewygagnw0" path="res://clicker/player_3d.tscn" id="3_sufut"]
+[ext_resource type="PackedScene" uid="uid://dbknfpibyx65f" path="res://clicker/health_station.tscn" id="4_1pa7v"]
 [ext_resource type="PackedScene" uid="uid://bui680ugvj0rj" path="res://clicker/enemy.tscn" id="4_yrdjv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sufut"]
@@ -283,6 +284,9 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.5,
 mesh = SubResource("QuadMesh_sufut")
 surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
 
+[node name="Health Station" parent="Walls And Floors" unique_id=847146449 instance=ExtResource("4_1pa7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 3.300601, -12.5)
+
 [node name="Floor20" type="MeshInstance3D" parent="Walls And Floors" unique_id=656781991]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 5, 0, -12.5)
 mesh = SubResource("QuadMesh_sufut")
@@ -377,7 +381,7 @@ mesh = SubResource("QuadMesh_yrdjv")
 shape = SubResource("BoxShape3D_yrdjv")
 
 [node name="Wall26" type="MeshInstance3D" parent="Walls And Floors" unique_id=2052939164]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2.25, -13.75)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.99937, 2.2525525, -13.74988)
 mesh = SubResource("QuadMesh_yrdjv")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Walls And Floors/Wall26" unique_id=2068724760]

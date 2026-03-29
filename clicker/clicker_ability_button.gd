@@ -31,6 +31,7 @@ var intercatable: bool:
             ability != null &&
             _locked_requirements.is_empty() &&
             !weapon_blocked &&
+            !gear_blocked &&
             _ability_level < ability.levels &&
             _current_cost <= __GlobalGameState.xp
         )
@@ -39,6 +40,7 @@ var _ability_level: int = 0
 var _current_cost: int
 var _locked_requirements: Array[String]
 var weapon_blocked: bool
+var gear_blocked: bool
 var _revealed: bool
 
 func _enter_tree() -> void:
@@ -72,7 +74,7 @@ func sync_all() -> void:
     _sync_level()
 
     if !Engine.is_editor_hint():
-        if weapon_blocked || !_locked_requirements.is_empty():
+        if gear_blocked || weapon_blocked || !_locked_requirements.is_empty():
             hide()
             return
         _sync_interactable()

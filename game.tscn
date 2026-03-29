@@ -66,6 +66,7 @@ id = "mental"
 icon = ExtResource("6_hve3p")
 title = "Mental Gymnastics"
 descriptions = Array[String](["Improves XP uptake"])
+require_gear = null
 metadata/_custom_type_script = "uid://bt1vi716f5csr"
 
 [node name="Control" type="Control" unique_id=1242508304]
@@ -432,7 +433,6 @@ visible = false
 layout_mode = 1
 
 [node name="DevConsole" parent="." unique_id=540056483 node_paths=PackedStringArray("commands") instance=ExtResource("14_215e1")]
-visible = false
 commands = [NodePath("Gain XP Command"), NodePath("Loot Command")]
 
 [node name="Gain XP Command" type="Node" parent="DevConsole" unique_id=705109122]

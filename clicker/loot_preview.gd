@@ -59,7 +59,6 @@ func preview_weapon(weapon: Weapon) -> void:
         roundf(dps * 100) / 100
     ]
 
-
 func _on_gui_input(event: InputEvent) -> void:
     if event.is_echo():
         return
@@ -72,6 +71,8 @@ func _on_gui_input(event: InputEvent) -> void:
 func quick_equip() -> void:
     if _weapon != null:
         __GlobalGameState.weapon = _weapon
+    if _gear != null:
+        __GlobalGameState.set_gear(_gear)
 
     hide()
 

@@ -172,21 +172,35 @@ func _process(_delta: float) -> void:
                     __SignalBus.on_battle_end.emit(_gained_loot_cred)
                     set_process(false)
 
+    var _all_gear: Array[Gear] = __GlobalGameState.get_all_gear()
+    var _total_dodge: float = 0
+    for g: Gear in _all_gear:
+        _total_dodge += g.dodge_chance_percent()
+
     for e: Enemy in _enemies:
         if e.should_attack:
+            _ui.focus_enemy_attacking(e)
+            _most_recent_attacker = e
+
             var attack: int = e.roll_attack()
-            if attack > 0:
-                _ui.focus_enemy_attacking(e)
-                _most_recent_attacker = e
+            if attack > 0 && randf_range(0.0, 100.0) > _total_dodge:
+                var def: int = 0
+                for g: Gear in _all_gear:
+                    def += g.defend()
+                def = maxi(def, 0)
 
-                __GlobalGameState.health -= attack
-                __SignalBus.on_enemy_attack.emit(e, attack, HitType.HIT)
+                attack -= def
+                if attack <= 0:
+                    __SignalBus.on_enemy_attack.emit(e, attack, HitType.BLOCKED)
+                else:
+                    __GlobalGameState.health -= attack
+                    __SignalBus.on_enemy_attack.emit(e, attack, HitType.HIT)
 
-                if __GlobalGameState.health == 0:
-                    PhysicsGridPlayerController.last_connected_player.add_cinematic_blocker(self)
-                    set_process(false)
-                    __SignalBus.on_player_death.emit(0)
-                    return
+                    if __GlobalGameState.health == 0:
+                        PhysicsGridPlayerController.last_connected_player.add_cinematic_blocker(self)
+                        set_process(false)
+                        __SignalBus.on_player_death.emit(0)
+                        return
             else:
                 __SignalBus.on_enemy_attack.emit(e, 0, HitType.MISS)
 

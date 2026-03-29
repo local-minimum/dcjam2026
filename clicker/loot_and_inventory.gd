@@ -17,12 +17,14 @@ func _ready() -> void:
         if _weapons_smith != null:
             __GlobalGameState.weapon = _weapons_smith.create_weapon(_start_weapon_value)
         else:
+            print_debug("Creating start weapon without smith")
             __GlobalGameState.weapon = Weapon.new(Weapon.Quality.POOR, Weapon.Mat.BRASS, Weapon.Base.PLASMA_BATON)
 
     if __GlobalGameState.is_naked():
         if _gear_smith != null:
             __GlobalGameState.set_gear(_gear_smith.create_gear(_start_gear_value))
         else:
+            print_debug("Creating start gear without smith")
             __GlobalGameState.set_gear(Gear.new(Gear.Quality.SOILED, Gear.Mat.PLASTIC, Gear.Base.LOWER_BODY))
 
     hide()
@@ -33,6 +35,7 @@ func _handle_battle_end(credits: int) -> void:
     var active_weapon_value: int = __GlobalGameState.weapon.score
     var gear_value: int = __GlobalGameState.get_average_gear_score()
 
+    print_debug("Creating Loot: Active Weapon (%s) and Avg Gear (%s)" % [active_weapon_value, gear_value])
     var weapons: Array[Weapon] = []
     var gears: Array[Gear] = []
 

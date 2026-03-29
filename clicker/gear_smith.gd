@@ -194,7 +194,7 @@ func assign_icon(gear: Gear, size: String = "128") -> bool:
 func assign_score(gear: Gear) -> void:
     gear.score = maxi(
         _base_costs[gear.get_base()] + _material_costs[gear.get_mat()] + _quality_costs[gear.get_quality()],
-        0
+        1
     )
 
 func create_gear(credits: int) -> Gear:

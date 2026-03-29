@@ -18,6 +18,14 @@ func set_gear(gear: Gear) -> void:
 func get_gear(base: Gear.Base) -> Gear:
     return _gear.get(base, null)
 
+func get_all_gear() -> Array[Gear]:
+    if _gear.is_empty():
+        return []
+
+    var all: Array[Gear]
+    all.append_array(_gear.values())
+    return all
+
 func get_average_gear_score() -> int:
     if _gear.is_empty():
         return 0
@@ -27,6 +35,7 @@ func get_average_gear_score() -> int:
         tot += gear.score
 
     return roundi(tot / _gear.size())
+
 
 var weapon: Weapon:
     set(value):

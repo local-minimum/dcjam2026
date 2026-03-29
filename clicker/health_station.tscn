@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://dbknfpibyx65f"]
+
+[ext_resource type="Script" uid="uid://maoj4m6q3yul" path="res://clicker/health_station.gd" id="1_58lu1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1pa7v"]
+transparency = 1
+albedo_color = Color(0.89411765, 0.32156864, 0.09411765, 0.78039217)
+metallic = 0.21
+roughness = 0.77
+
+[sub_resource type="BoxMesh" id="BoxMesh_3gtn2"]
+material = SubResource("StandardMaterial3D_1pa7v")
+size = Vector3(1.5, 1.5, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w13no"]
+transparency = 1
+albedo_color = Color(0.89411765, 0.32156864, 0.09411765, 0.78039217)
+metallic = 0.21
+roughness = 0.77
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_qsdn1"]
+material = SubResource("StandardMaterial3D_w13no")
+top_radius = 0.1
+bottom_radius = 0.2
+height = 1.5
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1pa7v"]
+size = Vector3(2.185913, 2.9274902, 1.8946838)
+
+[node name="Health Station" type="Node3D" unique_id=847146449]
+script = ExtResource("1_58lu1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1927270392]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("BoxMesh_3gtn2")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshInstance3D" unique_id=937789328]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.2617159, 0.46159554, -0.86705923)
+mesh = SubResource("CylinderMesh_qsdn1")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="MeshInstance3D" unique_id=1535641593]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.44701767, 0.46159554, -0.86705923)
+mesh = SubResource("CylinderMesh_qsdn1")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="MeshInstance3D" unique_id=126023437]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.52846766, -0.58741283, -0.86705923)
+mesh = SubResource("CylinderMesh_qsdn1")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="MeshInstance3D" unique_id=438763185]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.055769444, -0.15125561, -0.86705923)
+mesh = SubResource("CylinderMesh_qsdn1")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="MeshInstance3D" unique_id=1043259514]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.40838718, -0.33683872, -0.86705923)
+mesh = SubResource("CylinderMesh_qsdn1")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=97075159]
+collision_mask = 512
+input_ray_pickable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=925421835]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014953613, -1.6938806, 0.05970764)
+shape = SubResource("BoxShape3D_1pa7v")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

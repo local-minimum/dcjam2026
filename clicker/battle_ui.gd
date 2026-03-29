@@ -2,9 +2,17 @@ extends Control
 class_name BattleUI
 
 @export var _enemies: Array[EnemyUI]
+@export var _queing_enemies: Control
+
 var _enemy_to_ui: Dictionary[BattleManager.Enemy, EnemyUI]
 
+var queing_enemies: bool:
+    set(value):
+        _queing_enemies.visible = value
+        queing_enemies = value
+
 func _ready() -> void:
+    _queing_enemies.hide()
     for e: EnemyUI in _enemies:
         e.hide()
 

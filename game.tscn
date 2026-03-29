@@ -50,6 +50,16 @@
 [ext_resource type="PackedScene" uid="uid://3heqxlultjpy" path="res://clicker/loot_and_inventory.tscn" id="39_eu6ph"]
 [ext_resource type="Script" uid="uid://dpr1k74riep1o" path="res://clicker/dev_console_loot.gd" id="44_kq12w"]
 [ext_resource type="Resource" uid="uid://sle6175akmfa" path="res://clicker/abilities/appearance_nursing.tres" id="44_mljfx"]
+[ext_resource type="Resource" uid="uid://byy8djgdai0" path="res://clicker/abilities/appearance_obsidian.tres" id="45_mc3al"]
+[ext_resource type="Resource" uid="uid://p1v2jt43krjt" path="res://clicker/abilities/appearance_soiled.tres" id="45_qpefm"]
+[ext_resource type="Resource" uid="uid://by3yrux0h1xja" path="res://clicker/abilities/appearance_basic.tres" id="46_tb2lt"]
+[ext_resource type="Resource" uid="uid://dcvaghfxwvsib" path="res://clicker/abilities/appearance_fancy.tres" id="47_cfc7e"]
+[ext_resource type="Resource" uid="uid://cuhujnow1lh1p" path="res://clicker/abilities/appearance_royal.tres" id="48_gh0px"]
+[ext_resource type="Resource" uid="uid://de5e7merv8tqt" path="res://clicker/abilities/appearance_impossible.tres" id="49_v33yl"]
+[ext_resource type="Resource" uid="uid://biiceahtxp57d" path="res://clicker/abilities/appearance_cardboard.tres" id="50_3gvs5"]
+[ext_resource type="Resource" uid="uid://df7cvo3up8mlt" path="res://clicker/abilities/appearance_plastic.tres" id="51_mc3al"]
+[ext_resource type="Resource" uid="uid://br813yeror8bu" path="res://clicker/abilities/appearance_brass.tres" id="52_bqa6y"]
+[ext_resource type="Resource" uid="uid://41360xnp21fo" path="res://clicker/abilities/appearance_aluminum.tres" id="53_du4n2"]
 
 [sub_resource type="Theme" id="Theme_4scmg"]
 HSplitContainer/constants/minimum_grab_thickness = 0
@@ -66,7 +76,6 @@ id = "mental"
 icon = ExtResource("6_hve3p")
 title = "Mental Gymnastics"
 descriptions = Array[String](["Improves XP uptake"])
-require_gear = null
 metadata/_custom_type_script = "uid://bt1vi716f5csr"
 
 [node name="Control" type="Control" unique_id=1242508304]
@@ -318,6 +327,16 @@ _ab_laser_gun = ExtResource("31_aa0lp")
 _ab_plasma_uzi = ExtResource("32_iu0sx")
 _ab_laser_rifle = ExtResource("33_4v2jo")
 _ab_rail_gun = ExtResource("34_l1i01")
+_ab_g_soiled = ExtResource("45_qpefm")
+_ab_g_basic = ExtResource("46_tb2lt")
+_ab_g_fancy = ExtResource("47_cfc7e")
+_ab_g_royal = ExtResource("48_gh0px")
+_ab_g_impossible = ExtResource("49_v33yl")
+_ab_g_cardboard = ExtResource("50_3gvs5")
+_ab_g_plastic = ExtResource("51_mc3al")
+_ab_g_brass = ExtResource("52_bqa6y")
+_ab_g_aluminum = ExtResource("53_du4n2")
+_ab_g_obsidian = ExtResource("45_mc3al")
 
 [node name="Mental" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=324514739 instance=ExtResource("4_7jktm")]
 layout_mode = 2
@@ -339,39 +358,39 @@ ability = ExtResource("9_215e1")
 layout_mode = 2
 ability = ExtResource("10_7sc4i")
 
-[node name="Ordinary" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=788992411 instance=ExtResource("4_7jktm")]
+[node name="Ordinary Weapons" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=788992411 instance=ExtResource("4_7jktm")]
 layout_mode = 2
 ability = ExtResource("20_vaj68")
 
-[node name="Poor" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=305227785 instance=ExtResource("4_7jktm")]
+[node name="Poor Weapons" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=305227785 instance=ExtResource("4_7jktm")]
 layout_mode = 2
 ability = ExtResource("21_i2p71")
 
-[node name="Fancy" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=939722134 instance=ExtResource("4_7jktm")]
+[node name="Fancy Weapons" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=939722134 instance=ExtResource("4_7jktm")]
 layout_mode = 2
 ability = ExtResource("22_xa8c5")
 
-[node name="Chaotic" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=1503964633 instance=ExtResource("4_7jktm")]
+[node name="Chaotic Weapons" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=1503964633 instance=ExtResource("4_7jktm")]
 layout_mode = 2
 ability = ExtResource("23_5b14r")
 
-[node name="Cardboard" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=860980824 instance=ExtResource("4_7jktm")]
+[node name="Cardboard Weapons" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=860980824 instance=ExtResource("4_7jktm")]
 layout_mode = 2
 ability = ExtResource("24_bnpwn")
 
-[node name="Plastic" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=563105052 instance=ExtResource("4_7jktm")]
+[node name="Plastic Weapons" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=563105052 instance=ExtResource("4_7jktm")]
 layout_mode = 2
 ability = ExtResource("25_36jdj")
 
-[node name="Brass" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=237344758 instance=ExtResource("4_7jktm")]
+[node name="Brass Weapons" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=237344758 instance=ExtResource("4_7jktm")]
 layout_mode = 2
 ability = ExtResource("26_xfvwf")
 
-[node name="Aluminum" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=1671876638 instance=ExtResource("4_7jktm")]
+[node name="Aluminum Weapons" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=1671876638 instance=ExtResource("4_7jktm")]
 layout_mode = 2
 ability = ExtResource("27_dhpj7")
 
-[node name="Titanium" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=2030502592 instance=ExtResource("4_7jktm")]
+[node name="Titanium Weapons" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=2030502592 instance=ExtResource("4_7jktm")]
 layout_mode = 2
 ability = ExtResource("28_7knny")
 
@@ -410,6 +429,46 @@ ability = ExtResource("19_qhcbd")
 [node name="Nursing" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=390587771 instance=ExtResource("4_7jktm")]
 layout_mode = 2
 ability = ExtResource("44_mljfx")
+
+[node name="Soiled Clothes" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=1331812516 instance=ExtResource("4_7jktm")]
+layout_mode = 2
+ability = ExtResource("45_qpefm")
+
+[node name="Basic Clothes" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=1461720758 instance=ExtResource("4_7jktm")]
+layout_mode = 2
+ability = ExtResource("46_tb2lt")
+
+[node name="Fancy Clothes" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=2038175876 instance=ExtResource("4_7jktm")]
+layout_mode = 2
+ability = ExtResource("47_cfc7e")
+
+[node name="Royal Clothes" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=1370718471 instance=ExtResource("4_7jktm")]
+layout_mode = 2
+ability = ExtResource("48_gh0px")
+
+[node name="Impossible Clothes" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=208556750 instance=ExtResource("4_7jktm")]
+layout_mode = 2
+ability = ExtResource("49_v33yl")
+
+[node name="Cardboard Clothes" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=138921893 instance=ExtResource("4_7jktm")]
+layout_mode = 2
+ability = ExtResource("50_3gvs5")
+
+[node name="Plastic Clothes" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=1135065481 instance=ExtResource("4_7jktm")]
+layout_mode = 2
+ability = ExtResource("51_mc3al")
+
+[node name="Brass Clothes" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=1889002583 instance=ExtResource("4_7jktm")]
+layout_mode = 2
+ability = ExtResource("52_bqa6y")
+
+[node name="Aluminum Clothes" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=1206230007 instance=ExtResource("4_7jktm")]
+layout_mode = 2
+ability = ExtResource("53_du4n2")
+
+[node name="Obsidian Clothes" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=687809529 instance=ExtResource("4_7jktm")]
+layout_mode = 2
+ability = ExtResource("45_mc3al")
 
 [node name="Secrets Protector" type="TextureRect" parent="HSplitContainer/Sidebar" unique_id=1288201195]
 visible = false

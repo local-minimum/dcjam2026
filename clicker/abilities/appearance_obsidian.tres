@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ClickerAbilityData" format=3 uid="uid://byy8djgdai0"]
+
+[ext_resource type="Script" uid="uid://bt1vi716f5csr" path="res://clicker/clicker_ability_data.gd" id="1_ylgtj"]
+
+[resource]
+script = ExtResource("1_ylgtj")
+id = "appearance_obsidian"
+title = "Obsidian Clothes"
+requirement_ids = Array[String](["appearance"])
+costs = Array[int]([1000, 10000])
+descriptions = Array[String](["Improves defence roll"])
+autohide_on_completed = false
+metadata/_custom_type_script = "uid://bt1vi716f5csr"

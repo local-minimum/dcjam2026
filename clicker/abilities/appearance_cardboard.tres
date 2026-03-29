@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ClickerAbilityData" format=3 uid="uid://biiceahtxp57d"]
+
+[ext_resource type="Script" uid="uid://bt1vi716f5csr" path="res://clicker/clicker_ability_data.gd" id="1_372yf"]
+
+[resource]
+script = ExtResource("1_372yf")
+id = "appearance_cardboard"
+title = "Cardboarrd Clothes"
+requirement_ids = Array[String](["appearance"])
+costs = Array[int]([1000, 10000])
+descriptions = Array[String](["Improves defence roll"])
+autohide_on_completed = false
+metadata/_custom_type_script = "uid://bt1vi716f5csr"

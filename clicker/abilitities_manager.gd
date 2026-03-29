@@ -148,9 +148,9 @@ func _handle_change_weapon(weapon: Weapon) -> void:
         #print_debug("Ability %s is weapons blocked %s by %s" % [ability, ability.weapon_blocked, weapon])
         ability.sync_all()
 
-func _most_common_gear_quality(ability: ClickerAbilityData, all_gear: Array[Gear]) -> bool:
+func _most_common_gear_qualities(all_gear: Array[Gear]) -> Array[Gear.Quality]:
     if all_gear.is_empty():
-        return false
+        return []
 
     var count: Dictionary[Gear.Quality, int]
     for g: Gear in all_gear:
@@ -166,15 +166,17 @@ func _most_common_gear_quality(ability: ClickerAbilityData, all_gear: Array[Gear
             most_common.append(qual)
         elif c == most_common_count:
             most_common.append(qual)
+    return most_common
 
+func _most_common_gear_quality(ability: ClickerAbilityData, most_common: Array[Gear.Quality]) -> bool:
     for qual: Gear.Quality in most_common:
         if _matching_gear_quality(ability, qual):
             return true
     return false
 
-func _most_common_gear_mat(ability: ClickerAbilityData, all_gear: Array[Gear]) -> bool:
+func _most_common_gear_mats(all_gear: Array[Gear]) -> Array[Gear.Mat]:
     if all_gear.is_empty():
-        return false
+        return []
 
     var count: Dictionary[Gear.Mat, int]
     for g: Gear in all_gear:
@@ -191,6 +193,9 @@ func _most_common_gear_mat(ability: ClickerAbilityData, all_gear: Array[Gear]) -
         elif c == most_common_count:
             most_common.append(mat)
 
+    return most_common
+
+func _most_common_gear_mat(ability: ClickerAbilityData, most_common: Array[Gear.Mat]) -> bool:
     for mat: Gear.Mat in most_common:
         if _matching_gear_mat(ability, mat):
             return true
@@ -198,6 +203,8 @@ func _most_common_gear_mat(ability: ClickerAbilityData, all_gear: Array[Gear]) -
 
 func _handle_change_gear(_slot: Gear.Base = Gear.Base.LOWER_BODY, _gear: Gear = null) -> void:
     var all_gear: Array[Gear] = __GlobalGameState.get_all_gear()
+    var most_common_quality: Array[Gear.Quality] = _most_common_gear_qualities(all_gear)
+    var most_common_mats: Array[Gear.Mat] = _most_common_gear_mats(all_gear)
 
     for ability: ClickerAbilityButton in _abilities:
         if !is_instance_valid(ability) || !ability.ability.require_gear:
@@ -205,8 +212,8 @@ func _handle_change_gear(_slot: Gear.Base = Gear.Base.LOWER_BODY, _gear: Gear = 
 
         if ability.ability.require_gear:
             ability.gear_blocked = !(
-                _most_common_gear_quality(ability.ability, all_gear) ||
-                _most_common_gear_mat(ability.ability, all_gear)
+                _most_common_gear_quality(ability.ability, most_common_quality) ||
+                _most_common_gear_mat(ability.ability, most_common_mats)
             )
 
         #print_debug("Ability %s is weapons blocked %s by %s" % [ability, ability.weapon_blocked, weapon])

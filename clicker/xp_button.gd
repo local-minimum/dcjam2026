@@ -6,6 +6,8 @@ extends Control
 @export var _speed_history_msec: int = 5000
 @export var _autoclickers: Array[AutoClicker]
 
+var _player_dead: bool
+
 class GainInfo:
     var time: int
     var gain: float
@@ -27,6 +29,9 @@ func _enter_tree() -> void:
     if __SignalBus.on_autoclick.connect(_handle_autoclick) != OK:
         push_error("Failed to connect autoclick")
 
+    if __SignalBus.on_player_death.connect(_handle_player_death) != OK:
+        push_error("Failed to connect player death")
+
 func _ready() -> void:
     _set_speed(0.0)
     _handle_change_xp(__GlobalGameState.xp)
@@ -39,6 +44,11 @@ func _on_gui_input(event: InputEvent) -> void:
         var mevent: InputEventMouseButton = event
         if mevent.pressed && mevent.button_index == MOUSE_BUTTON_LEFT:
             _click()
+
+func _handle_player_death(phase: int) -> void:
+    if phase == 0:
+        _player_dead = true
+        set_process(false)
 
 func _handle_autoclick(efficiency: float) -> void:
     _click(efficiency)
@@ -77,14 +87,25 @@ func _sync_progress_bar() -> void:
 var _gain_history: Array[GainInfo]
 
 func _click(efficiency: float = 1.0) -> void:
+    if _player_dead || PhysicsGridPlayerController.last_connected_player_cinematic:
+        return
+
     var gain: float = __GlobalGameState.xp_click_value * efficiency * (1.0 - __GlobalGameState.boredome)
     __GlobalGameState.xp += gain
     _gain_history.append(GainInfo.new(Time.get_ticks_msec(), gain))
+
+var _update_freq_msec: int = 200
+var _next_update_msec: int
 
 func _process(_delta: float) -> void:
     if _gain_history.is_empty():
         _set_speed(0.0)
         return
+
+    if Time.get_ticks_msec() < _next_update_msec:
+        return
+
+    _next_update_msec = Time.get_ticks_msec() + _update_freq_msec
 
     var time_threshold: int = Time.get_ticks_msec() - _speed_history_msec
     var earliest: float = -1.0

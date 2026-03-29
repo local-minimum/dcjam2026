@@ -111,17 +111,21 @@ stretch = true
 [node name="SubViewport" type="SubViewport" parent="HSplitContainer/Viewport Side/SubViewportContainer" unique_id=245882761]
 world_3d = SubResource("World3D_e2o6t")
 handle_input_locally = false
-size = Vector2i(882, 648)
+size = Vector2i(1472, 1080)
 render_target_update_mode = 4
 
 [node name="Dungeon" parent="HSplitContainer/Viewport Side/SubViewportContainer/SubViewport" unique_id=1143420985 instance=ExtResource("2_e2o6t")]
 
 [node name="Battle UI" type="HBoxContainer" parent="HSplitContainer/Viewport Side" unique_id=164512167 node_paths=PackedStringArray("_enemies")]
-layout_mode = 0
-offset_left = 21.0
-offset_top = 11.0
-offset_right = 878.0
-offset_bottom = 149.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -505.75
+offset_top = 10.0
+offset_right = 505.75
+offset_bottom = 195.0
+grow_horizontal = 2
 alignment = 1
 script = ExtResource("16_e8heu")
 _enemies = [NodePath("Enemy UI"), NodePath("Enemy UI2"), NodePath("Enemy UI3"), NodePath("Enemy UI4"), NodePath("Enemy UI5"), NodePath("Enemy UI6")]
@@ -257,8 +261,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -2.5
-offset_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.7882353, 0.7882353, 0.7882353, 0.6666667)

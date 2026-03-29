@@ -71,12 +71,19 @@ func _enter_tree() -> void:
         push_error("Failed to connect change ability level")
     if __SignalBus.on_change_weapon.connect(_handle_change_weapon) != OK:
         push_error("Failed to connect change weapon")
+    if __SignalBus.on_player_death.connect(_handle_player_death) != OK:
+        push_error("FAiled to connect player death")
+
 
 func _ready() -> void:
     set_process(false)
 
     if _masochism_ability != null:
         _handle_change_ability_level(_masochism_ability.id, __GlobalGameState.get_current_ability_level(_masochism_ability.id))
+
+func _handle_player_death(phase: int) -> void:
+    if phase == 0:
+        set_process(false)
 
 func _handle_change_weapon(weapon: Weapon) -> void:
     _player_next_attack_msec = Time.get_ticks_msec() + roundi(weapon.cooldown() * 1000)

@@ -4,6 +4,7 @@ class_name BattleManager
 enum HitType { HIT, MISS, BLOCKED }
 @export var _ui: BattleUI
 @export var _masochism_ability: ClickerAbilityData
+@export var _max_enemies_active: int = 4
 
 class Enemy:
     var _data: EnemyData
@@ -62,6 +63,7 @@ var _player_next_attack_msec: int
 
 var _gained_loot_cred: int = 0
 var _enemies: Array[Enemy]
+var _enemy_queue: Array[Enemy]
 var _most_recent_attacker: Enemy
 
 func _enter_tree() -> void:
@@ -73,7 +75,6 @@ func _enter_tree() -> void:
         push_error("Failed to connect change weapon")
     if __SignalBus.on_player_death.connect(_handle_player_death) != OK:
         push_error("FAiled to connect player death")
-
 
 func _ready() -> void:
     set_process(false)
@@ -119,8 +120,12 @@ func _handle_enemy_join_battle(enemy_data: EnemyData) -> void:
         _player_next_attack_msec = Time.get_ticks_msec() + roundi(__GlobalGameState.weapon.cooldown() * 1000)
 
     var e: Enemy = Enemy.new(enemy_data)
-    _enemies.append(e)
-    _ui.add_enemy_ui(e)
+    if _enemies.size() < _max_enemies_active:
+        _enemies.append(e)
+        _ui.add_enemy_ui(e)
+    else:
+        _enemy_queue.append(e)
+        _ui.queing_enemies = true
 
 func _process(_delta: float) -> void:
     if Time.get_ticks_msec() >= _player_next_attack_msec:
@@ -156,7 +161,14 @@ func _process(_delta: float) -> void:
                 _ui.remove_enemy_ui(target)
                 _gained_loot_cred += target.loot_credits
 
-                if _enemies.is_empty():
+                if !_enemy_queue.is_empty():
+                    var e: Enemy = _enemy_queue[0]
+                    _enemy_queue.remove_at(0)
+                    _enemies.append(e)
+                    _ui.add_enemy_ui(e)
+                    _ui.queing_enemies = !_enemy_queue.is_empty()
+
+                elif _enemies.is_empty():
                     __SignalBus.on_battle_end.emit(_gained_loot_cred)
                     set_process(false)
 

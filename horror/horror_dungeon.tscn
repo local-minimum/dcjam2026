@@ -17,7 +17,7 @@ size = Vector2(2.5, 4.5)
 size = Vector3(2.5, 4.5, 0.043)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sufut"]
-size = Vector3(50, 50, 0.263)
+size = Vector3(50, 50, 0.4913633)
 
 [sub_resource type="QuadMesh" id="QuadMesh_sufut"]
 size = Vector2(2.5, 2.5)
@@ -102,7 +102,7 @@ shape = SubResource("BoxShape3D_yrdjv")
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Walls And Floors/Floor Collision" unique_id=357102592]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7469902, 1.6716309, -0.13185121)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7469902, 1.6716309, -0.24603285)
 shape = SubResource("BoxShape3D_sufut")
 
 [node name="Wall24" type="MeshInstance3D" parent="Walls And Floors" unique_id=1389665496]
@@ -471,4 +471,4 @@ mesh = SubResource("QuadMesh_yrdjv")
 shape = SubResource("BoxShape3D_yrdjv")
 
 [node name="Monster" parent="." unique_id=1082106793 instance=ExtResource("5_ifq1x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10713565, 0.24964762, -11.0604515)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11058891, 0.57561415, -12.117689)

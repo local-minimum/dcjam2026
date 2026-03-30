@@ -66,6 +66,7 @@
 [ext_resource type="Script" uid="uid://c50eh21gdu5cn" path="res://sound_track_manager.gd" id="63_ra4rb"]
 [ext_resource type="Script" uid="uid://baylsupfim5dn" path="res://horror/dev_ready_horror.gd" id="64_56gn1"]
 [ext_resource type="Script" uid="uid://beht0oihcg27w" path="res://phase_transition.gd" id="65_jo4nb"]
+[ext_resource type="Shader" uid="uid://cutdt6mffm4do" path="res://horror/dissolve.gdshader" id="66_avmo2"]
 
 [sub_resource type="Theme" id="Theme_4scmg"]
 HSplitContainer/constants/minimum_grab_thickness = 0
@@ -83,6 +84,10 @@ icon = ExtResource("6_hve3p")
 title = "Mental Gymnastics"
 descriptions = Array[String](["Improves XP uptake"])
 metadata/_custom_type_script = "uid://bt1vi716f5csr"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vyqle"]
+shader = ExtResource("66_avmo2")
+shader_parameter/intensity = 0.0
 
 [node name="Control" type="Control" unique_id=1242508304]
 layout_mode = 3
@@ -543,6 +548,7 @@ clicker_medium_volumes = Array[float]([1.0, 1.0, 0.0])
 clicker_intense_volumes = Array[float]([1.0, 1.0, 1.0])
 
 [node name="Break Through Screen Grab Target" type="TextureRect" parent="." unique_id=1884846982 node_paths=PackedStringArray("_split_container", "_subviewport", "_unloading_nodes")]
+material = SubResource("ShaderMaterial_vyqle")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -550,9 +556,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 0
+expand_mode = 1
 script = ExtResource("65_jo4nb")
 _split_container = NodePath("../HSplitContainer")
 _subviewport = NodePath("../HSplitContainer/Viewport Side/SubViewportContainer/SubViewport")
 _unloading_nodes = [NodePath("../HSplitContainer/Viewport Side/SubViewportContainer/SubViewport/Dungeon"), NodePath("../HSplitContainer/Viewport Side/Battle UI"), NodePath("../HSplitContainer/Viewport Side/Player Health UI"), NodePath("../HSplitContainer/Viewport Side/BattleTextsSpawner"), NodePath("../HSplitContainer/Sidebar"), NodePath("../ClickerXPRules"), NodePath("../Loot And Inventory"), NodePath("../DevConsole/Loot Command"), NodePath("../DevConsole/Gain XP Command"), NodePath("../DevConsole/Ready Horror Command")]
+_transition_duration = 1.0
 _horror_dungeon_scene = "res://horror/horror_dungeon.tscn"
 _horror_panel_scene = "res://horror/horror_sidebar.tscn"

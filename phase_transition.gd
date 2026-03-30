@@ -4,6 +4,8 @@ extends TextureRect
 @export var _subviewport: SubViewport
 @export var _unloading_nodes: Array[Node]
 @export var _error_scene: PackedScene
+@export var _before_transition: float = 1.0
+@export var _transition_duration: float = 2.0
 
 @export_file_path("*.tscn") var _horror_dungeon_scene: String
 @export_file_path("*.tscn") var _horror_panel_scene: String
@@ -143,9 +145,25 @@ func _panic() -> void:
     get_tree().quit(100)
 
 func _finalize() -> void:
-    __SignalBus.on_horror_loaded.emit()
+    await get_tree().create_timer(_before_transition).timeout
 
-    await get_tree().create_timer(2).timeout
+
+    var tween: Tween = create_tween()
+    var shader_mat: ShaderMaterial = material
+
+
+    tween.tween_method(
+        func (progress: float) -> void:
+            shader_mat.set_shader_parameter("intensity", progress),
+        0.0,
+        1.0,
+        _transition_duration,
+    ).set_trans(Tween.TRANS_CUBIC)
+    tween.play()
+
+    await get_tree().create_timer(_transition_duration).timeout
+
+    __SignalBus.on_horror_loaded.emit()
 
     hide()
     PhysicsGridPlayerController.last_connected_player.remove_cinematic_blocker(self)

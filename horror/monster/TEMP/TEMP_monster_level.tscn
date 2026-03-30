@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://dg118006wksbo"]
 
+[ext_resource type="Script" uid="uid://d2ehytl3kps4d" path="res://horror/monster/TEMP/temp_monster_level.gd" id="1_agkej"]
 [ext_resource type="Material" uid="uid://bttodiouk0rae" path="res://horror/monster/TEMP/TEMP_checker_mat.tres" id="1_n4lit"]
 [ext_resource type="PackedScene" uid="uid://dbbbvw47dto45" path="res://horror/monster/monster.tscn" id="2_bujxq"]
+[ext_resource type="Script" uid="uid://cbaspepqt0vih" path="res://core/entities/grid_entity.gd" id="2_wrf78"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_n4lit"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -30,10 +32,15 @@ size = Vector3(10, 2, 0.1)
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_bujxq"]
 data = PackedVector3Array(-5, 1, 0.049999997, 5, 1, 0.049999997, -5, -1, 0.049999997, 5, 1, 0.049999997, 5, -1, 0.049999997, -5, -1, 0.049999997, 5, 1, -0.049999997, -5, 1, -0.049999997, 5, -1, -0.049999997, -5, 1, -0.049999997, -5, -1, -0.049999997, 5, -1, -0.049999997, 5, 1, 0.049999997, 5, 1, -0.049999997, 5, -1, 0.049999997, 5, 1, -0.049999997, 5, -1, -0.049999997, 5, -1, 0.049999997, -5, 1, -0.049999997, -5, 1, 0.049999997, -5, -1, -0.049999997, -5, 1, 0.049999997, -5, -1, 0.049999997, -5, -1, -0.049999997, 5, 1, 0.049999997, -5, 1, 0.049999997, 5, 1, -0.049999997, -5, 1, 0.049999997, -5, 1, -0.049999997, 5, 1, -0.049999997, -5, -1, 0.049999997, 5, -1, 0.049999997, -5, -1, -0.049999997, 5, -1, 0.049999997, 5, -1, -0.049999997, -5, -1, -0.049999997)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_wrf78"]
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_nu3k2"]
 data = PackedVector3Array(-5, 1, 0.049999997, 5, 1, 0.049999997, -5, -1, 0.049999997, 5, 1, 0.049999997, 5, -1, 0.049999997, -5, -1, 0.049999997, 5, 1, -0.049999997, -5, 1, -0.049999997, 5, -1, -0.049999997, -5, 1, -0.049999997, -5, -1, -0.049999997, 5, -1, -0.049999997, 5, 1, 0.049999997, 5, 1, -0.049999997, 5, -1, 0.049999997, 5, 1, -0.049999997, 5, -1, -0.049999997, 5, -1, 0.049999997, -5, 1, -0.049999997, -5, 1, 0.049999997, -5, -1, -0.049999997, -5, 1, 0.049999997, -5, -1, 0.049999997, -5, -1, -0.049999997, 5, 1, 0.049999997, -5, 1, 0.049999997, 5, 1, -0.049999997, -5, 1, 0.049999997, -5, 1, -0.049999997, 5, 1, -0.049999997, -5, -1, 0.049999997, 5, -1, 0.049999997, -5, -1, -0.049999997, 5, -1, 0.049999997, 5, -1, -0.049999997, -5, -1, -0.049999997)
 
-[node name="TestMonsterLevel" type="Node3D" unique_id=124525444]
+[node name="TestMonsterLevel" type="Node3D" unique_id=124525444 node_paths=PackedStringArray("keith")]
+script = ExtResource("1_agkej")
+keith = NodePath("GridEntity/Monster")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1013455689]
+transform = Transform3D(1.3081254e-07, -0.31361136, 0.94955146, 4.4079393e-08, 0.94955146, 0.31361136, -1, 8.313563e-10, 1.3803705e-07, 3, 3, -0.3133167)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=874579958]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
@@ -66,12 +73,58 @@ shape = SubResource("ConcavePolygonShape3D_bujxq")
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 1, 0)
 mesh = SubResource("BoxMesh_bujxq")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Meshes/WallMesh2" unique_id=2047256677]
+[node name="StaticBody3D" type="StaticBody3D" parent="Meshes/WallMesh2" unique_id=642014236]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Meshes/WallMesh2/StaticBody3D" unique_id=1187618558]
-shape = SubResource("ConcavePolygonShape3D_wrf78")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Meshes/WallMesh2/StaticBody3D" unique_id=1512761115]
+shape = SubResource("ConcavePolygonShape3D_nu3k2")
 
-[node name="Monster" parent="." unique_id=1082106793 instance=ExtResource("2_bujxq")]
+[node name="WallMesh3" type="MeshInstance3D" parent="Meshes" unique_id=1999755929]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 3, 0)
+mesh = SubResource("BoxMesh_bujxq")
 
-[node name="Camera3D" type="Camera3D" parent="Monster" unique_id=1013455689]
-transform = Transform3D(-1, 0, 8.742278e-08, 2.262668e-08, 0.9659259, 0.25881907, -8.444392e-08, 0.25881907, -0.9659258, 0, 1, -1)
+[node name="StaticBody3D" type="StaticBody3D" parent="Meshes/WallMesh3" unique_id=136253660]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Meshes/WallMesh3/StaticBody3D" unique_id=1893235709]
+shape = SubResource("ConcavePolygonShape3D_nu3k2")
+
+[node name="WallMesh4" type="MeshInstance3D" parent="Meshes" unique_id=206757770]
+transform = Transform3D(1.9106855e-15, 1, -4.371139e-08, 4.371139e-08, -4.371139e-08, -1, -1, 0, -4.371139e-08, -4, 4, 0)
+mesh = SubResource("BoxMesh_bujxq")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Meshes/WallMesh4" unique_id=1107877768]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Meshes/WallMesh4/StaticBody3D" unique_id=1980892317]
+shape = SubResource("ConcavePolygonShape3D_nu3k2")
+
+[node name="WallMesh5" type="MeshInstance3D" parent="Meshes" unique_id=73364785]
+transform = Transform3D(1.9106855e-15, 1, -4.371139e-08, 4.371139e-08, -4.371139e-08, -1, -1, 0, -4.371139e-08, -2, 4, 0)
+mesh = SubResource("BoxMesh_bujxq")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Meshes/WallMesh5" unique_id=1566016903]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Meshes/WallMesh5/StaticBody3D" unique_id=1636777597]
+shape = SubResource("ConcavePolygonShape3D_nu3k2")
+
+[node name="GridEntity" type="Node" parent="." unique_id=1133591859 node_paths=PackedStringArray("entity_root")]
+script = ExtResource("2_wrf78")
+type = 2
+entity_root = NodePath("Monster")
+metadata/_custom_type_script = "uid://cbaspepqt0vih"
+
+[node name="Monster" parent="GridEntity" unique_id=1082106793 instance=ExtResource("2_bujxq")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2003184885]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=368532639]
+offset_left = 32.0
+offset_top = 27.0
+offset_right = 127.0
+offset_bottom = 58.0
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="MoveButton" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=1418225027]
+layout_mode = 2
+text = "Move Keith"
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/MoveButton" to="." method="_on_move_button_pressed"]

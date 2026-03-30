@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://core866w8qx1y" path="res://horror/monster/monster.gd" id="2_oqs4p"]
 [ext_resource type="Script" uid="uid://cxpcy8u870pnk" path="res://horror/monster/leg_ik_target.gd" id="3_kva6l"]
 
-[node name="Monster" unique_id=1082106793 node_paths=PackedStringArray("_FL_ik_target", "_FR_ik_target", "_BL_ik_target", "_BR_ik_target", "_ik_targets", "_step_target_container", "_step_targets", "_step_rays") instance=ExtResource("1_rgwrv")]
+[node name="Monster" unique_id=1082106793 node_paths=PackedStringArray("_FL_ik_target", "_FR_ik_target", "_BL_ik_target", "_BR_ik_target", "_ik_targets", "_step_target_container", "_step_targets", "_step_rays", "_front_ray") instance=ExtResource("1_rgwrv")]
 script = ExtResource("2_oqs4p")
 _FL_ik_target = NodePath("Armature/IKTargets/LegFLIKTarget")
 _FR_ik_target = NodePath("Armature/IKTargets/LegFRIKTarget")
@@ -14,6 +14,7 @@ _ik_targets = [NodePath("Armature/IKTargets/LegFLIKTarget"), NodePath("Armature/
 _step_target_container = NodePath("Armature/StepTargets")
 _step_targets = [NodePath("Armature/StepTargets/LegFLRayCast/LegFLStepTarget"), NodePath("Armature/StepTargets/LegFRRayCast/LegFRStepTarget"), NodePath("Armature/StepTargets/LegBLRayCast/LegBLStepTarget"), NodePath("Armature/StepTargets/LegBRRayCast/LegBRStepTarget")]
 _step_rays = [NodePath("Armature/StepTargets/LegFLRayCast"), NodePath("Armature/StepTargets/LegFRRayCast"), NodePath("Armature/StepTargets/LegBLRayCast"), NodePath("Armature/StepTargets/LegBRRayCast")]
+_front_ray = NodePath("Armature/FrontRay")
 
 [node name="Armature" parent="." index="0" unique_id=1103288917]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
@@ -115,14 +116,14 @@ _opposite_target = NodePath("../LegFLIKTarget")
 [node name="StepTargets" type="Node3D" parent="Armature" index="2" unique_id=1149284409]
 
 [node name="LegFLRayCast" type="RayCast3D" parent="Armature/StepTargets" index="0" unique_id=1809616656]
-transform = Transform3D(0.70710677, 0.061628412, -0.70441604, 0, 0.9961947, 0.08715574, 0.70710677, -0.061628412, 0.70441604, -0.42, 0.75, 0.47)
+transform = Transform3D(0.7071067, 0.1227878, -0.6963642, 0, 0.9848077, 0.17364818, 0.7071067, -0.1227878, 0.6963642, -0.42, 0.75, 0.47)
 target_position = Vector3(0, -2, 0)
 
 [node name="LegFLStepTarget" type="Marker3D" parent="Armature/StepTargets/LegFLRayCast" index="0" unique_id=372936407]
 transform = Transform3D(0.70842326, -8.0518425e-05, 0.7057879, 0.060934674, 0.99627304, -0.06104854, -0.70315254, 0.086255156, 0.7057879, 0, -0.5, 0)
 
 [node name="LegFRRayCast" type="RayCast3D" parent="Armature/StepTargets" index="1" unique_id=1116327571]
-transform = Transform3D(0.70441604, -0.061628412, -0.70710677, 0.08715574, 0.9961947, 0, 0.70441604, -0.061628412, 0.70710677, 0.42, 0.75, 0.47)
+transform = Transform3D(0.6963642, -0.1227878, -0.7071067, 0.17364818, 0.9848077, 0, 0.6963642, -0.1227878, 0.7071067, 0.42, 0.75, 0.47)
 target_position = Vector3(0, -2, 0)
 hit_back_faces = false
 
@@ -130,14 +131,14 @@ hit_back_faces = false
 transform = Transform3D(0.70842326, -8.0518425e-05, 0.7057879, 0.060934674, 0.99627304, -0.06104854, -0.70315254, 0.086255156, 0.7057879, 0, -0.5, 0)
 
 [node name="LegBLRayCast" type="RayCast3D" parent="Armature/StepTargets" index="2" unique_id=90906874]
-transform = Transform3D(0.70710677, 0.061628412, 0.70441604, 0, 0.9961947, -0.08715574, -0.70710677, 0.061628412, 0.70441604, -0.42, 0.75, -0.47)
+transform = Transform3D(0.7071067, 0.1227878, 0.6963642, 0, 0.9848077, -0.17364818, -0.7071067, 0.1227878, 0.6963642, -0.42, 0.75, -0.47)
 target_position = Vector3(0, -2, 0)
 
 [node name="LegBLStepTarget" type="Marker3D" parent="Armature/StepTargets/LegBLRayCast" index="0" unique_id=106038171]
 transform = Transform3D(0.70842326, -8.0518425e-05, -0.7057879, 0.060934674, 0.99627304, 0.06104854, 0.70315254, -0.086255156, 0.7057879, 0, -0.5, 0)
 
 [node name="LegBRRayCast" type="RayCast3D" parent="Armature/StepTargets" index="3" unique_id=1799688343]
-transform = Transform3D(0.70441604, -0.061628412, 0.70710677, 0.08715574, 0.9961947, 0, -0.70441604, 0.061628412, 0.70710677, 0.42, 0.75, -0.47)
+transform = Transform3D(0.6963642, -0.1227878, 0.7071067, 0.17364818, 0.9848077, 0, -0.6963642, 0.1227878, 0.7071067, 0.42, 0.75, -0.47)
 target_position = Vector3(0, -2, 0)
 
 [node name="LegBRStepTarget" type="Marker3D" parent="Armature/StepTargets/LegBRRayCast" index="0" unique_id=880733027]
@@ -156,3 +157,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 1, -0.5)
 
 [node name="LegBRPole" type="Marker3D" parent="Armature/Poles" index="3" unique_id=2065928129]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 1, -0.5)
+
+[node name="FrontRay" type="RayCast3D" parent="Armature" index="4" unique_id=57388095]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1, 0)
+target_position = Vector3(0, -1.5, 0)

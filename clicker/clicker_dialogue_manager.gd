@@ -28,6 +28,8 @@ func _enter_tree() -> void:
         push_error("Failed to connect healing refused")
     if __SignalBus.on_physics_player_arrive_tile.connect(_handle_arrive_tile) != OK:
         push_error("Failed to connect arrive tile")
+    if __SignalBus.on_progress_quest.connect(_handle_progress_quest) != OK:
+        push_error("Failed to connect progress quest")
 
 
 var _player: PhysicsGridPlayerController
@@ -52,7 +54,7 @@ func _handle_arrive_tile(__player: PhysicsGridPlayerController, _coords: Vector3
         __AudioHub.play_dialogue(_gain_quest)
         await get_tree().create_timer(8.0).timeout
 
-        __SignalBus.on_gain_quest.emit("dragons")
+        __SignalBus.on_gain_quest.emit(Dragon.DRAGONS_QUEST_ID)
 
 func _handle_healing_refused(_station: HealthStation) -> void:
     __AudioHub.play_dialogue(_reheal_fail)
@@ -89,3 +91,7 @@ func _time_refusal() -> void:
         await get_tree().create_timer(10.0).timeout
 
         __SignalBus.on_gain_bonus_autoclickers.emit(1)
+
+func _handle_progress_quest(quest_id: String, step: int) -> void:
+    if quest_id == Dragon.DRAGONS_QUEST_ID && step == 1:
+        __AudioHub.play_dialogue(_first_dragon)

@@ -338,7 +338,7 @@ func focus_on(
     _cam_slide_tween = create_tween().set_parallel()
     @warning_ignore_start("return_value_discarded")
     _cam_slide_tween.tween_property(_camera, "global_position", expected, ease_duration)
-    _cam_slide_tween.tween_property(_camera, "near", _gridless_controller.camera_near, ease_duration)
+    _cam_slide_tween.tween_property(_camera, "near", _gridless_controller.camera_near if _gridless_controller != null else 0.01, ease_duration)
     _cam_slide_tween.tween_property(_camera, "fov", _focus_fov, ease_duration)
     _cam_slide_tween.tween_method(tw_rot_method, _camera.global_basis.get_rotation_quaternion(), Basis.looking_at(-offset).get_rotation_quaternion(), ease_duration)
     @warning_ignore_restore("return_value_discarded")

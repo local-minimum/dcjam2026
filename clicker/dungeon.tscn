@@ -989,6 +989,964 @@ transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -23.
 [node name="wall33" parent="Walls And Floors/Hallways" unique_id=1182415106 instance=ExtResource("5_w13no")]
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -23.75, 0, -37.5)
 
+[node name="Cubicle Landscape" type="Node3D" parent="Walls And Floors" unique_id=234184771]
+
+[node name="Floor32" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=1809689216]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 5, 0, -10)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor33" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=927080771]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 5, 0, -12.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor34" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=2127763254]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 5, 0, -15)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor35" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=1777740964]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 5, 0, -17.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor36" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=1288518231]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.5, 0, -17.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor38" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=616651315]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 5, 0, -20)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor39" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=1362103882]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.5, 0, -20)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor40" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=1369170991]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 5, 0, -22.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor42" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=1557576723]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 7.5, 0, -10)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor43" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=1843108369]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 7.5, 0, -12.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor44" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=1738618379]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 7.5, 0, -15)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor45" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=1551388050]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 7.5, 0, -17.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor46" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=175470951]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 7.5, 0, -20)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor47" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=1799220082]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 7.5, 0, -22.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor48" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=1976160008]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 10, 0, -10)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor49" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=1513361400]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 10, 0, -12.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor50" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=1353624226]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 10, 0, -15)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor51" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=125359514]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 10, 0, -17.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor52" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=1690466505]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 10, 0, -20)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor53" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=1997660506]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 10, 0, -22.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor54" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=776581917]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 12.5, 0, -10)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor55" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=1439104483]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 12.5, 0, -12.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor56" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=892733857]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 12.5, 0, -15)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor57" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=640566770]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 12.5, 0, -17.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor58" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=23214940]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 12.5, 0, -20)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor59" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=1881826338]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 12.5, 0, -22.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor77" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=1648689557]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 12.5, 0, -25)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor78" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=669868396]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 12.5, 0, -27.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor79" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=876506166]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 15, 0, -27.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor80" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=47186974]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 15, 0, -25)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor81" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=2048949031]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 17.5, 0, -25)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor82" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=419033122]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 17.5, 0, -27.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor83" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=773476227]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 17.5, 0, -30)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor84" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=1052450831]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 15, 0, -30)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor85" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=1127699066]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 15, 0, -32.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor86" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=416289845]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 15, 0, -35)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor87" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=1377758660]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 17.5, 0, -35)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor88" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=908258877]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 17.5, 0, -32.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor89" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=1401630076]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 12.5, 0, -32.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor90" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=827615545]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 12.5, 0, -35)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor91" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=1819291087]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 12.5, 0, -30)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor60" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=1955310678]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 15, 0, -10)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor66" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=494391542]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 10, 0, -7.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor67" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=1092805692]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 12.5, 0, -7.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor68" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=1406365067]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 15, 0, -7.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor61" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=1288157381]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 15, 0, -12.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor62" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=456511848]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 15, 0, -15)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor63" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=545539622]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 15, 0, -17.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor64" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=794549083]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 15, 0, -20)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor65" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=190557302]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 15, 0, -22.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor69" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=250396126]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 17.5, 0, -22.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor70" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=442835332]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 17.5, 0, -20)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor71" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=1317076870]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 17.5, 0, -17.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor72" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=122584831]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 17.5, 0, -15)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor73" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=1853430747]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 17.5, 0, -12.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor75" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=6315445]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 17.5, 0, -10)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor76" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=78229318]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 17.5, 0, -7.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor74" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=1851942452]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor41" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=893701925]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.5, 0, -22.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor37" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=929755027]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.5, 0, -15)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="wall15" parent="Walls And Floors/Cubicle Landscape" unique_id=1186826394 instance=ExtResource("5_w13no")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -13.75)
+
+[node name="wall16" parent="Walls And Floors/Cubicle Landscape" unique_id=769883579 instance=ExtResource("5_w13no")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, -13.75)
+
+[node name="wall23" parent="Walls And Floors/Cubicle Landscape" unique_id=725737256 instance=ExtResource("5_w13no")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, -16.25)
+
+[node name="wall28" parent="Walls And Floors/Cubicle Landscape" unique_id=543874056 instance=ExtResource("5_w13no")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 12.5, 0, -21.25)
+
+[node name="wall29" parent="Walls And Floors/Cubicle Landscape" unique_id=1725689504 instance=ExtResource("5_w13no")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 15, 0, -21.25)
+
+[node name="wall30" parent="Walls And Floors/Cubicle Landscape" unique_id=165203385 instance=ExtResource("5_w13no")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 15, 0, -16.25)
+
+[node name="wall31" parent="Walls And Floors/Cubicle Landscape" unique_id=704128639 instance=ExtResource("5_w13no")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 12.5, 0, -13.75)
+
+[node name="wall32" parent="Walls And Floors/Cubicle Landscape" unique_id=1055765216 instance=ExtResource("5_w13no")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 12.5, 0, -8.75)
+
+[node name="wall33" parent="Walls And Floors/Cubicle Landscape" unique_id=247195010 instance=ExtResource("5_w13no")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 15, 0, -8.75)
+
+[node name="wall34" parent="Walls And Floors/Cubicle Landscape" unique_id=1864773965 instance=ExtResource("5_w13no")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 10, 0, -6.25)
+
+[node name="wall35" parent="Walls And Floors/Cubicle Landscape" unique_id=490213860 instance=ExtResource("5_w13no")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 12.5, 0, -6.25)
+
+[node name="wall36" parent="Walls And Floors/Cubicle Landscape" unique_id=344618058 instance=ExtResource("5_w13no")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 15, 0, -6.25)
+
+[node name="wall37" parent="Walls And Floors/Cubicle Landscape" unique_id=1381954253 instance=ExtResource("5_w13no")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 17.5, 0, -6.25)
+
+[node name="wall38" parent="Walls And Floors/Cubicle Landscape" unique_id=1191518131 instance=ExtResource("5_w13no")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 18.75, 0, -10)
+
+[node name="wall39" parent="Walls And Floors/Cubicle Landscape" unique_id=1076095879 instance=ExtResource("5_w13no")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 18.75, 0, -12.5)
+
+[node name="wall40" parent="Walls And Floors/Cubicle Landscape" unique_id=2134965905 instance=ExtResource("5_w13no")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 18.75, 0, -15)
+
+[node name="wall41" parent="Walls And Floors/Cubicle Landscape" unique_id=1351297709 instance=ExtResource("5_w13no")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 18.75, 0, -17.5)
+
+[node name="wall42" parent="Walls And Floors/Cubicle Landscape" unique_id=1567099309 instance=ExtResource("5_w13no")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 18.75, 0, -20)
+
+[node name="wall44" parent="Walls And Floors/Cubicle Landscape" unique_id=1615290751 instance=ExtResource("5_w13no")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 18.75, 0, -25)
+
+[node name="wall45" parent="Walls And Floors/Cubicle Landscape" unique_id=1516708650 instance=ExtResource("5_w13no")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 18.75, 0, -27.5)
+
+[node name="wall46" parent="Walls And Floors/Cubicle Landscape" unique_id=1924456715 instance=ExtResource("5_w13no")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 18.75, 0, -30)
+
+[node name="wall47" parent="Walls And Floors/Cubicle Landscape" unique_id=1167974399 instance=ExtResource("5_w13no")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 18.75, 0, -32.5)
+
+[node name="wall49" parent="Walls And Floors/Cubicle Landscape" unique_id=212223955 instance=ExtResource("5_w13no")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 11.25, 0, -35)
+
+[node name="wall50" parent="Walls And Floors/Cubicle Landscape" unique_id=1006957782 instance=ExtResource("5_w13no")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 11.25, 0, -32.5)
+
+[node name="wall51" parent="Walls And Floors/Cubicle Landscape" unique_id=312762006 instance=ExtResource("5_w13no")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 11.25, 0, -30)
+
+[node name="wall48" parent="Walls And Floors/Cubicle Landscape" unique_id=1994755475 instance=ExtResource("5_w13no")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 18.75, 0, -35)
+
+[node name="wall43" parent="Walls And Floors/Cubicle Landscape" unique_id=1254031646 instance=ExtResource("5_w13no")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 18.75, 0, -22.5)
+
+[node name="wall25" parent="Walls And Floors/Cubicle Landscape" unique_id=812523920 instance=ExtResource("5_w13no")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.25, 0, -20)
+
+[node name="wall17" parent="Walls And Floors/Cubicle Landscape" unique_id=1383158121 instance=ExtResource("5_w13no")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, -23.75)
+
+[node name="wall21" parent="Walls And Floors/Cubicle Landscape" unique_id=389192185 instance=ExtResource("5_w13no")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.75, 0, -10)
+
+[node name="wall22" parent="Walls And Floors/Cubicle Landscape" unique_id=1551013686 instance=ExtResource("5_w13no")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.75, 0, -10)
+
+[node name="wall18" parent="Walls And Floors/Cubicle Landscape" unique_id=1995645701 instance=ExtResource("5_w13no")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -16.25)
+
+[node name="wall19" parent="Walls And Floors/Cubicle Landscape" unique_id=513377575 instance=ExtResource("5_w13no")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -21.25)
+
+[node name="wall20" parent="Walls And Floors/Cubicle Landscape" unique_id=533975281 instance=ExtResource("5_w13no")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -23.75)
+
+[node name="wall24" parent="Walls And Floors/Cubicle Landscape" unique_id=360294445 instance=ExtResource("5_w13no")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -23.75)
+
+[node name="wall26" parent="Walls And Floors/Cubicle Landscape" unique_id=1374767275 instance=ExtResource("5_w13no")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -23.75)
+
+[node name="wall27" parent="Walls And Floors/Cubicle Landscape" unique_id=94687748 instance=ExtResource("5_w13no")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -23.75)
+
+[node name="wall_corner2" parent="Walls And Floors/Cubicle Landscape" unique_id=266440137 instance=ExtResource("6_qsdn1")]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 3.75, 0, -20)
+
+[node name="wall_corner6" parent="Walls And Floors/Cubicle Landscape" unique_id=860255806 instance=ExtResource("6_qsdn1")]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 8.75, 0, -12.5)
+
+[node name="wall_corner7" parent="Walls And Floors/Cubicle Landscape" unique_id=1597634797 instance=ExtResource("6_qsdn1")]
+transform = Transform3D(-2.1855693e-07, 0, -1, 0, 1, 0, 1, 0, -2.1855693e-07, 8.75, 0, -17.5)
+
+[node name="wall_corner21" parent="Walls And Floors/Cubicle Landscape" unique_id=2057767568 instance=ExtResource("6_qsdn1")]
+transform = Transform3D(-2.1855693e-07, 0, -1, 0, 1, 0, 1, 0, -2.1855693e-07, 13.75, 0, -25)
+
+[node name="wall_corner22" parent="Walls And Floors/Cubicle Landscape" unique_id=832572255 instance=ExtResource("6_qsdn1")]
+transform = Transform3D(-2.1855693e-07, 0, -1, 0, 1, 0, 1, 0, -2.1855693e-07, 11.25, 0, -25)
+
+[node name="wall_corner11" parent="Walls And Floors/Cubicle Landscape" unique_id=2111080127 instance=ExtResource("6_qsdn1")]
+transform = Transform3D(-2.1855693e-07, 0, -1, 0, 1, 0, 1, 0, -2.1855693e-07, 11.25, 0, -17.5)
+
+[node name="wall_corner12" parent="Walls And Floors/Cubicle Landscape" unique_id=346079370 instance=ExtResource("6_qsdn1")]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 11.25, 0, -20)
+
+[node name="wall_corner23" parent="Walls And Floors/Cubicle Landscape" unique_id=161210526 instance=ExtResource("6_qsdn1")]
+transform = Transform3D(-1, 0, 2.6226832e-07, 0, 1, 0, -2.6226832e-07, 0, -1, 15, 0, -28.75)
+
+[node name="wall_corner24" parent="Walls And Floors/Cubicle Landscape" unique_id=456766595 instance=ExtResource("6_qsdn1")]
+transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, 17.5, 0, -28.75)
+
+[node name="wall_corner25" parent="Walls And Floors/Cubicle Landscape" unique_id=1617838002 instance=ExtResource("6_qsdn1")]
+transform = Transform3D(-1, 0, 2.6226832e-07, 0, 1, 0, -2.6226832e-07, 0, -1, 12.5, 0, -36.25)
+
+[node name="wall_corner26" parent="Walls And Floors/Cubicle Landscape" unique_id=1545706426 instance=ExtResource("6_qsdn1")]
+transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, 17.5, 0, -36.25)
+
+[node name="wall_corner13" parent="Walls And Floors/Cubicle Landscape" unique_id=1937306123 instance=ExtResource("6_qsdn1")]
+transform = Transform3D(-2.1855693e-07, 0, -1, 0, 1, 0, 1, 0, -2.1855693e-07, 11.25, 0, -10)
+
+[node name="wall_corner14" parent="Walls And Floors/Cubicle Landscape" unique_id=95074515 instance=ExtResource("6_qsdn1")]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 11.25, 0, -12.5)
+
+[node name="wall_corner15" parent="Walls And Floors/Cubicle Landscape" unique_id=1823663930 instance=ExtResource("6_qsdn1")]
+transform = Transform3D(-2.1855693e-07, 0, -1, 0, 1, 0, 1, 0, -2.1855693e-07, 16.25, 0, -10)
+
+[node name="wall_corner19" parent="Walls And Floors/Cubicle Landscape" unique_id=224611892 instance=ExtResource("6_qsdn1")]
+transform = Transform3D(-2.1855693e-07, 0, -1, 0, 1, 0, 1, 0, -2.1855693e-07, 18.75, 0, -7.5)
+
+[node name="wall_corner16" parent="Walls And Floors/Cubicle Landscape" unique_id=1668173400 instance=ExtResource("6_qsdn1")]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 16.25, 0, -12.5)
+
+[node name="wall_corner17" parent="Walls And Floors/Cubicle Landscape" unique_id=853566023 instance=ExtResource("6_qsdn1")]
+transform = Transform3D(-2.1855693e-07, 0, -1, 0, 1, 0, 1, 0, -2.1855693e-07, 16.25, 0, -17.5)
+
+[node name="wall_corner18" parent="Walls And Floors/Cubicle Landscape" unique_id=1816450105 instance=ExtResource("6_qsdn1")]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 16.25, 0, -20)
+
+[node name="wall_corner20" parent="Walls And Floors/Cubicle Landscape" unique_id=949319927 instance=ExtResource("6_qsdn1")]
+transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, 17.5, 0, -23.75)
+
+[node name="wall_corner8" parent="Walls And Floors/Cubicle Landscape" unique_id=1637321791 instance=ExtResource("6_qsdn1")]
+transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, 7.5, 0, -21.25)
+
+[node name="wall_corner9" parent="Walls And Floors/Cubicle Landscape" unique_id=1735606669 instance=ExtResource("6_qsdn1")]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 1.25, 0, -22.5)
+
+[node name="wall_corner10" parent="Walls And Floors/Cubicle Landscape" unique_id=1331324177 instance=ExtResource("6_qsdn1")]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 1.25, 0, -17.5)
+
+[node name="wall_corner3" parent="Walls And Floors/Cubicle Landscape" unique_id=1280114946 instance=ExtResource("6_qsdn1")]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 3.75, 0, -12.5)
+
+[node name="wall_corner4" parent="Walls And Floors/Cubicle Landscape" unique_id=2028164151 instance=ExtResource("6_qsdn1")]
+transform = Transform3D(-4.371138e-08, 0, -1, 0, 1, 0, 1, 0, -4.371138e-08, 3.75, 0, -17.5)
+
+[node name="wall_corner5" parent="Walls And Floors/Cubicle Landscape" unique_id=1231145231 instance=ExtResource("6_qsdn1")]
+transform = Transform3D(-4.371138e-08, 0, -1, 0, 1, 0, 1, 0, -4.371138e-08, 1.25, 0, -15)
+
+[node name="wall_portal5" parent="Walls And Floors/Cubicle Landscape" unique_id=544716455 instance=ExtResource("8_qsdn1")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 5, 0, -13.75)
+
+[node name="wall_portal6" parent="Walls And Floors/Cubicle Landscape" unique_id=592977563 instance=ExtResource("8_qsdn1")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 15, 0, -13.75)
+
+[node name="wall_portal7" parent="Walls And Floors/Cubicle Landscape" unique_id=2079383732 instance=ExtResource("8_qsdn1")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 12.5, 0, -16.25)
+
+[node name="wall_portal8" parent="Walls And Floors/Cubicle Landscape" unique_id=732900146 instance=ExtResource("8_qsdn1")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 8.75, 0, -20)
+
+[node name="wall_portal9" parent="Walls And Floors/Cubicle Landscape" unique_id=1362919211 instance=ExtResource("8_qsdn1")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 13.75, 0, -27.5)
+
+[node name="wall_portal10" parent="Walls And Floors/Cubicle Landscape" unique_id=902291503 instance=ExtResource("8_qsdn1")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 11.25, 0, -27.5)
+
+[node name="wall_portal11" parent="Walls And Floors/Cubicle Landscape" unique_id=70063411 instance=ExtResource("8_qsdn1")]
+transform = Transform3D(-1, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -1, 15, 0, -36.25)
+
+[node name="Atrium" type="Node3D" parent="Walls And Floors" unique_id=1153892398]
+
+[node name="wall_corner9" parent="Walls And Floors/Atrium" unique_id=607854869 instance=ExtResource("6_qsdn1")]
+transform = Transform3D(-1, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -1, -2.5, 0, -18.75)
+
+[node name="wall_corner10" parent="Walls And Floors/Atrium" unique_id=1451118849 instance=ExtResource("6_qsdn1")]
+transform = Transform3D(-4.371138e-08, 0, -1, 0, 1, 0, 1, 0, -4.371138e-08, -11.25, 0, -37.5)
+
+[node name="wall_corner14" parent="Walls And Floors/Atrium" unique_id=980816802 instance=ExtResource("6_qsdn1")]
+transform = Transform3D(-4.371138e-08, 0, -1, 0, 1, 0, 1, 0, -4.371138e-08, -1.25, 0, -45)
+
+[node name="wall_corner15" parent="Walls And Floors/Atrium" unique_id=1007452828 instance=ExtResource("6_qsdn1")]
+transform = Transform3D(-1, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -1, 0, 0, -46.25)
+
+[node name="wall_corner13" parent="Walls And Floors/Atrium" unique_id=1189097373 instance=ExtResource("6_qsdn1")]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -11.25, 0, -42.5)
+
+[node name="wall_corner11" parent="Walls And Floors/Atrium" unique_id=734606195 instance=ExtResource("6_qsdn1")]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -6.25, 0, -35)
+
+[node name="wall_corner12" parent="Walls And Floors/Atrium" unique_id=1678443472 instance=ExtResource("6_qsdn1")]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 11.25, 0, -45)
+
+[node name="wall18" parent="Walls And Floors/Atrium" unique_id=1960648105 instance=ExtResource("5_w13no")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -18.75)
+
+[node name="wall19" parent="Walls And Floors/Atrium" unique_id=1539775189 instance=ExtResource("5_w13no")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.75, 0, -20)
+
+[node name="wall20" parent="Walls And Floors/Atrium" unique_id=605844773 instance=ExtResource("5_w13no")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.25, 0, -22.5)
+
+[node name="wall21" parent="Walls And Floors/Atrium" unique_id=1873976565 instance=ExtResource("5_w13no")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.25, 0, -25)
+
+[node name="wall22" parent="Walls And Floors/Atrium" unique_id=182257658 instance=ExtResource("5_w13no")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.25, 0, -27.5)
+
+[node name="wall30" parent="Walls And Floors/Atrium" unique_id=1203162146 instance=ExtResource("5_w13no")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.25, 0, -30)
+
+[node name="wall23" parent="Walls And Floors/Atrium" unique_id=928955906 instance=ExtResource("5_w13no")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -11.25, 0, -40)
+
+[node name="wall31" parent="Walls And Floors/Atrium" unique_id=1671770423 instance=ExtResource("5_w13no")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -10, 0, -43.75)
+
+[node name="wall32" parent="Walls And Floors/Atrium" unique_id=1783647381 instance=ExtResource("5_w13no")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -7.5, 0, -43.75)
+
+[node name="wall35" parent="Walls And Floors/Atrium" unique_id=553615465 instance=ExtResource("5_w13no")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2.5, 0, -46.25)
+
+[node name="wall36" parent="Walls And Floors/Atrium" unique_id=1479507115 instance=ExtResource("5_w13no")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 5, 0, -46.25)
+
+[node name="wall37" parent="Walls And Floors/Atrium" unique_id=926826882 instance=ExtResource("5_w13no")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 7.5, 0, -46.25)
+
+[node name="wall38" parent="Walls And Floors/Atrium" unique_id=1500707644 instance=ExtResource("5_w13no")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 10, 0, -46.25)
+
+[node name="wall33" parent="Walls And Floors/Atrium" unique_id=1913440275 instance=ExtResource("5_w13no")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -5, 0, -43.75)
+
+[node name="wall34" parent="Walls And Floors/Atrium" unique_id=586791775 instance=ExtResource("5_w13no")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -2.5, 0, -43.75)
+
+[node name="wall24" parent="Walls And Floors/Atrium" unique_id=208313082 instance=ExtResource("5_w13no")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.25, 0, -32.5)
+
+[node name="wall28" parent="Walls And Floors/Atrium" unique_id=128375951 instance=ExtResource("5_w13no")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -7.5, 0, -36.25)
+
+[node name="wall29" parent="Walls And Floors/Atrium" unique_id=1978563239 instance=ExtResource("5_w13no")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -10, 0, -36.25)
+
+[node name="wall25" parent="Walls And Floors/Atrium" unique_id=314663841 instance=ExtResource("5_w13no")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 11.25, 0, -37.5)
+
+[node name="wall26" parent="Walls And Floors/Atrium" unique_id=1005343433 instance=ExtResource("5_w13no")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 11.25, 0, -40)
+
+[node name="wall27" parent="Walls And Floors/Atrium" unique_id=867578529 instance=ExtResource("5_w13no")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 11.25, 0, -42.5)
+
+[node name="wall_portal" parent="Walls And Floors/Atrium" unique_id=467504715 instance=ExtResource("8_qsdn1")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -5, 0, -21.25)
+
+[node name="Floor43" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=1024121086]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -5, 0, -22.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor44" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=1168897987]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -5, 0, -25)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor45" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=1243599490]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -5, 0, -27.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor46" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=1795486742]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -2.5, 0, -20)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor47" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=1233272911]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -2.5, 0, -22.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor48" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=390250432]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -2.5, 0, -25)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor49" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=1218792832]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 0, 0, -20)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor50" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=987348522]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 0, 0, -22.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor51" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=1465877463]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 0, 0, -25)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor52" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=1424332832]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -2.5, 0, -27.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor53" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=976463298]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -2.5, 0, -30)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor54" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=1468889452]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -2.5, 0, -32.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor55" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=1560702945]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 0, 0, -27.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor56" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=1760675551]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 0, 0, -30)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor57" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=2046094311]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 0, 0, -32.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor58" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=300343275]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 2.5, 0, -25)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor59" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=1851644095]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 2.5, 0, -27.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor60" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=1296973020]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 2.5, 0, -30)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor61" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=1737071698]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 5, 0, -25)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor62" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=523575606]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 5, 0, -27.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor63" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=432603395]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 5, 0, -30)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor64" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=1790547282]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 7.5, 0, -25)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor65" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=952053220]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 7.5, 0, -27.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor66" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=1369183936]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 7.5, 0, -30)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor67" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=163760669]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 10, 0, -25)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor68" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=2031349175]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 10, 0, -27.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor69" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=642606205]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 10, 0, -30)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor70" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=469701450]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 7.5, 0, -32.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor71" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=735227464]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 7.5, 0, -35)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor72" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=1959941291]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 7.5, 0, -37.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor73" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=867334540]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 10, 0, -32.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor74" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=197057318]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 10, 0, -35)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor75" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=1763603478]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 10, 0, -37.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor76" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=1082112472]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 2.5, 0, -32.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor77" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=296030067]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 2.5, 0, -35)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor78" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=1950138839]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 2.5, 0, -37.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor79" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=1802399250]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 5, 0, -32.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor80" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=376756892]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 5, 0, -35)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor81" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=627405693]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 5, 0, -37.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor82" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=683866499]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 2.5, 0, -40)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor83" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=1560250438]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 2.5, 0, -42.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor84" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=1596108425]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 2.5, 0, -45)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor112" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=2019065024]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 0, 0, -45)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor113" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=676107731]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 0, 0, -42.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor114" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=2033520013]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -2.5, 0, -42.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor85" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=401784496]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 5, 0, -40)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor86" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=845569312]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 5, 0, -42.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor87" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=1161675290]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 5, 0, -45)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor88" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=1029024967]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 7.5, 0, -40)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor89" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=1272830489]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 7.5, 0, -42.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor90" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=266047232]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 7.5, 0, -45)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor91" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=710415913]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 10, 0, -40)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor92" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=1133586414]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 10, 0, -42.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor93" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=531324165]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 10, 0, -45)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor94" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=1084248686]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -2.5, 0, -35)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor106" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=599421505]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -5, 0, -30)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor107" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=758667395]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -5, 0, -32.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor108" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=1025735759]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -5, 0, -35)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor109" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=783800954]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -5, 0, -37.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor110" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=1069105042]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -5, 0, -40)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor111" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=2014088601]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -5, 0, -42.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor95" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=1653711314]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -2.5, 0, -37.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor96" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=747489881]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -2.5, 0, -40)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor97" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=890089768]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 0, 0, -35)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor98" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=1261271078]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 0, 0, -37.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor99" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=2107486191]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 0, 0, -40)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor100" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=941871694]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -10, 0, -37.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor101" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=1857023431]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -10, 0, -40)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor102" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=1329238525]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -10, 0, -42.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor103" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=1505609935]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -7.5, 0, -37.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor104" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=325221642]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -7.5, 0, -40)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor105" type="MeshInstance3D" parent="Walls And Floors/Atrium" unique_id=511339840]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -7.5, 0, -42.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
 [node name="Enemy" parent="." unique_id=286162732 instance=ExtResource("4_yrdjv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.5)
 

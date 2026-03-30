@@ -39,7 +39,7 @@ func _input(event: InputEvent) -> void:
             _handle_input_key(key_evt)
 
     else:
-        if event.is_action_pressed("toggle_dev_console"):
+        if !disabled && event.is_action_pressed("toggle_dev_console"):
             toggle_visible()
             get_viewport().set_input_as_handled()
         elif container.visible && event is InputEventKey:

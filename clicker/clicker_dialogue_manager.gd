@@ -16,6 +16,8 @@ class_name ClickerDialogueManager
 func _enter_tree() -> void:
     if __SignalBus.on_change_xp.connect(_change_xp) != OK:
         push_error("Failed to connect change xp")
+    if __SignalBus.on_enemy_join_battle.connect(_first_fight, CONNECT_ONE_SHOT) != OK:
+        push_error("Failed to connect enemy join battle")
 
 var _player: PhysicsGridPlayerController
 
@@ -30,6 +32,8 @@ func _ready() -> void:
         _delay_first_dialogue,
     )
 
+func _first_fight(_data: EnemyData) -> void:
+    __AudioHub.play_dialogue(_fight)
 
 var _has_gained_xp: bool
 func _change_xp(new_xp: float, prev_xp: float) -> void:

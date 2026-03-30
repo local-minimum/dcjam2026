@@ -14,5 +14,5 @@ func _handle_change_gear(slot: Gear.Base, gear: Gear) -> void:
         texture = null
         tooltip_text = "No %s equipped" % [Gear.humanize_base(_slot)]
     else:
-        texture = gear.dress_up_icon
+        texture = gear.dress_up_icon if gear.dress_up_icon != null else gear.icon
         tooltip_text = gear.humanized()

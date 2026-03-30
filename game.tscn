@@ -67,6 +67,7 @@
 [ext_resource type="Script" uid="uid://baylsupfim5dn" path="res://horror/dev_ready_horror.gd" id="64_56gn1"]
 [ext_resource type="Script" uid="uid://beht0oihcg27w" path="res://phase_transition.gd" id="65_jo4nb"]
 [ext_resource type="Shader" uid="uid://cutdt6mffm4do" path="res://horror/dissolve.gdshader" id="66_avmo2"]
+[ext_resource type="Script" uid="uid://c40ulppy5imka" path="res://clicker/clicker_dialogue_manager.gd" id="68_vyqle"]
 
 [sub_resource type="Theme" id="Theme_4scmg"]
 HSplitContainer/constants/minimum_grab_thickness = 0
@@ -564,3 +565,14 @@ _unloading_nodes = [NodePath("../HSplitContainer/Viewport Side/SubViewportContai
 _transition_duration = 1.0
 _horror_dungeon_scene = "res://horror/horror_dungeon.tscn"
 _horror_panel_scene = "res://horror/horror_sidebar.tscn"
+
+[node name="Clicker Dialogue Manager" type="Node" parent="." unique_id=1047932264]
+script = ExtResource("68_vyqle")
+_first_view_path = "res://clicker/dialogue/first_impression.mp3"
+_refuse_clicking = "res://clicker/dialogue/stubborn.mp3"
+_bored = "res://clicker/dialogue/bored.mp3"
+_fight = "res://clicker/dialogue/battle.mp3"
+_healing = "res://clicker/dialogue/healing.mp3"
+_reheal_fail = "res://clicker/dialogue/rehealing.mp3"
+_gain_quest = "res://clicker/dialogue/dragons.mp3"
+_first_dragon = "res://clicker/dialogue/first_dragon.mp3"

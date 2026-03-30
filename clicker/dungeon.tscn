@@ -503,13 +503,13 @@ transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -8.7
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -8.75, 0, -7.5)
 
 [node name="wall40" parent="Walls And Floors/Library" unique_id=1126736484 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -12.5, 0, -12.5)
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -11.25, 0, -12.5)
 
 [node name="wall41" parent="Walls And Floors/Library" unique_id=386696792 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -12.5, 0, -10)
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -11.25, 0, -10)
 
 [node name="wall42" parent="Walls And Floors/Library" unique_id=2019481303 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -12.5, 0, -7.5)
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -11.25, 0, -7.5)
 
 [node name="wall43" parent="Walls And Floors/Library" unique_id=994521869 instance=ExtResource("5_w13no")]
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -16.25, 0, -12.5)
@@ -521,13 +521,13 @@ transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -16.
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -16.25, 0, -7.5)
 
 [node name="wall46" parent="Walls And Floors/Library" unique_id=1585292982 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -20, 0, -12.5)
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -18.75, 0, -12.5)
 
 [node name="wall47" parent="Walls And Floors/Library" unique_id=643871588 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -20, 0, -10)
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -18.75, 0, -10)
 
 [node name="wall48" parent="Walls And Floors/Library" unique_id=1227493572 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -20, 0, -7.5)
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -18.75, 0, -7.5)
 
 [node name="wall25" parent="Walls And Floors/Library" unique_id=1765375470 instance=ExtResource("5_w13no")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -7.5, 0, -3.75)

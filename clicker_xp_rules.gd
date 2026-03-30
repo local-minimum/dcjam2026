@@ -8,9 +8,13 @@ extends Node
 @export var _multi_tasking_levels: Array[int] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 @export var _smarts_levels: Array[int] = [1, 2, 4, 8, 16, 32, 64]
 
+var _bonus_clickers: int = 0
+
 func _enter_tree() -> void:
     if __SignalBus.on_change_ability_level.connect(_handle_change_ability_level) != OK:
         push_error("Failed to connect change ability level")
+    if __SignalBus.on_gain_bonus_autoclickers.connect(_handle_bonus_clickers) != OK:
+        push_error("Failed to connect")
 
 func _ready() -> void:
     if _memory_palace != null:
@@ -19,6 +23,13 @@ func _ready() -> void:
         _handle_sync_multitasking(__GlobalGameState.get_current_ability_level(_multi_tasking.id))
     if _smarts != null:
         _handle_sync_smarts(__GlobalGameState.get_current_ability_level(_smarts.id))
+
+
+func _handle_bonus_clickers(clickers: int) -> void:
+    _bonus_clickers += clickers
+    _handle_sync_multitasking(
+        __GlobalGameState.get_current_ability_level(_multi_tasking.id) if _multi_tasking else 0
+    )
 
 func _handle_change_ability_level(ability_id: String, level: int) -> void:
     if _smarts != null && _smarts.id == ability_id:
@@ -41,8 +52,8 @@ func _handle_sync_multitasking(level: int) -> void:
         push_error("Unhandled multi tasking level %s, only support %s" % [level, _multi_tasking_levels])
         return
 
-    print_debug("Changing number of auto-clickers to %s" % [_multi_tasking_levels[level]])
-    __SignalBus.on_change_autoclicker_count.emit(_multi_tasking_levels[level])
+    print_debug("Changing number of auto-clickers to %s" % [_bonus_clickers + _multi_tasking_levels[level]])
+    __SignalBus.on_change_autoclicker_count.emit(_bonus_clickers + _multi_tasking_levels[level])
 
 func _handle_sync_memory_palace(level: int) -> void:
     if level < 0 || level >= _memory_palace_levels.size():

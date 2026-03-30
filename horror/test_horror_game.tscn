@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://bx523dktwh7d"]
+
+[ext_resource type="World3D" uid="uid://rnlsw4jgnugo" path="res://horror/horror_world_3d.tres" id="1_k2405"]
+[ext_resource type="PackedScene" uid="uid://bcjd42hnh7if4" path="res://horror/horror_dungeon.tscn" id="2_kqxtw"]
+[ext_resource type="PackedScene" uid="uid://cf712amno0wnv" path="res://horror/horror_sidebar.tscn" id="3_05bc0"]
+
+[sub_resource type="Theme" id="Theme_2c45e"]
+HSplitContainer/constants/minimum_grab_thickness = 0
+HSplitContainer/constants/separation = 0
+HSplitContainer/icons/grabber = null
+HSplitContainer/icons/touch_dragger = null
+
+[node name="TestHorrorGame" type="Control" unique_id=682544796]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="ColorRect" parent="." unique_id=1974507148]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.20784314, 1, 1)
+
+[node name="HSplitContainer" type="HSplitContainer" parent="." unique_id=1249283411]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_2c45e")
+split_offsets = PackedInt32Array(-3)
+dragging_enabled = false
+dragger_visibility = 1
+split_offset = -3
+
+[node name="Viewport Side" type="Control" parent="HSplitContainer" unique_id=1777845615]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="HSplitContainer/Viewport Side" unique_id=633551019]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="HSplitContainer/Viewport Side/SubViewportContainer" unique_id=1617891971]
+world_3d = ExtResource("1_k2405")
+handle_input_locally = false
+size = Vector2i(1469, 1080)
+render_target_update_mode = 4
+
+[node name="Dungeon2" parent="HSplitContainer/Viewport Side/SubViewportContainer/SubViewport" unique_id=1143420985 instance=ExtResource("2_kqxtw")]
+
+[node name="Horror Sidebar" parent="HSplitContainer" unique_id=933494870 instance=ExtResource("3_05bc0")]
+layout_mode = 2

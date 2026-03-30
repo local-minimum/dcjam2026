@@ -1,0 +1,6 @@
+[gd_resource type="World3D" format=3 uid="uid://rnlsw4jgnugo"]
+
+[ext_resource type="Environment" uid="uid://cab2e1qcby00n" path="res://clicker/clicker_environment.tres" id="1_qnwh0"]
+
+[resource]
+environment = ExtResource("1_qnwh0")

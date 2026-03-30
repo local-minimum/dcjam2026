@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://5nd45w6q42kq" path="res://core/dungeon.gd" id="1_rtw18"]
 [ext_resource type="Script" uid="uid://dfqjle1xd7utg" path="res://clicker/battle/entity_collision_join_battle.gd" id="2_4oo4h"]
-[ext_resource type="PackedScene" uid="uid://dfe2ewygagnw0" path="res://clicker/player_3d.tscn" id="3_v3vwk"]
 [ext_resource type="PackedScene" uid="uid://dbknfpibyx65f" path="res://clicker/health/health_station.tscn" id="4_xhs8j"]
+[ext_resource type="PackedScene" uid="uid://b6svyccqvk55" path="res://horror/player_3d_horror.tscn" id="5_eidof"]
 [ext_resource type="PackedScene" uid="uid://dbbbvw47dto45" path="res://horror/monster/monster.tscn" id="5_ifq1x"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sufut"]
@@ -39,8 +39,6 @@ shadow_enabled = true
 
 [node name="Collision System" type="Node" parent="." unique_id=1467278961]
 script = ExtResource("2_4oo4h")
-
-[node name="Player3d" parent="." unique_id=942295760 instance=ExtResource("3_v3vwk")]
 
 [node name="Walls And Floors" type="Node3D" parent="." unique_id=1436493536]
 
@@ -472,3 +470,5 @@ shape = SubResource("BoxShape3D_yrdjv")
 
 [node name="Monster" parent="." unique_id=1082106793 instance=ExtResource("5_ifq1x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11058891, 0.57561415, -12.117689)
+
+[node name="Player3d" parent="." unique_id=942295760 instance=ExtResource("5_eidof")]

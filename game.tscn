@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://bjlvrgc8gi3oo" path="res://clicker/boredom/boredom_lower.png" id="14_lwlx3"]
 [ext_resource type="Texture2D" uid="uid://cveoocfew04et" path="res://clicker/boredom/boredom_cover.png" id="15_0de7l"]
 [ext_resource type="Script" uid="uid://dikj7ouqdoq0m" path="res://clicker/dev_console_xp.gd" id="15_7sc4i"]
+[ext_resource type="Script" uid="uid://d2lm4ukdo8cux" path="res://clicker/quest_ui.gd" id="15_xoeau"]
 [ext_resource type="Script" uid="uid://3kvqfeoh3qbc" path="res://clicker/battle_manager.gd" id="16_80cx4"]
 [ext_resource type="Texture2D" uid="uid://8qlicmfc7c77" path="res://clicker/boredom/boredom_upper.png" id="16_87ddb"]
 [ext_resource type="Script" uid="uid://cxwcyqew8etn4" path="res://clicker/battle/battle_ui.gd" id="16_e8heu"]
@@ -77,6 +78,11 @@ HSplitContainer/icons/touch_dragger = null
 
 [sub_resource type="World3D" id="World3D_e2o6t"]
 environment = ExtResource("1_80nbo")
+
+[sub_resource type="LabelSettings" id="LabelSettings_6qn5j"]
+font_size = 42
+font_color = Color(0.8328191, 0.0005648625, 0.83658105, 1)
+outline_size = 7
 
 [sub_resource type="Resource" id="Resource_j5wjh"]
 script = ExtResource("6_eow3j")
@@ -229,6 +235,28 @@ script = ExtResource("11_r62pu")
 player_stats_color = Color(1, 0, 0, 0.7607843)
 enemy_stats_color = Color(0, 0, 0.5019608, 0.8156863)
 end_color = Color(0.45882353, 0.45882353, 0.45882353, 0.29411766)
+
+[node name="Quest UI" type="VBoxContainer" parent="HSplitContainer/Viewport Side" unique_id=717770510 node_paths=PackedStringArray("dragon_quest_v1", "dragon_quest_v2")]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 0
+offset_left = 20.0
+offset_top = 270.0
+offset_right = 358.0
+offset_bottom = 364.0
+mouse_filter = 2
+script = ExtResource("15_xoeau")
+dragon_quest_v1 = NodePath("Dragon Quest")
+dragon_quest_v2 = NodePath("Dragon Quest V2")
+
+[node name="Dragon Quest" type="Label" parent="HSplitContainer/Viewport Side/Quest UI" unique_id=1126309021]
+layout_mode = 2
+text = "Collect 4 Dragons?"
+label_settings = SubResource("LabelSettings_6qn5j")
+
+[node name="Dragon Quest V2" type="Label" parent="HSplitContainer/Viewport Side/Quest UI" unique_id=1848853075]
+layout_mode = 2
+text = "1 / 4 Dragons"
+label_settings = SubResource("LabelSettings_6qn5j")
 
 [node name="Sidebar" type="ColorRect" parent="HSplitContainer" unique_id=1457495423]
 layout_mode = 2
@@ -561,7 +589,7 @@ expand_mode = 1
 script = ExtResource("65_jo4nb")
 _split_container = NodePath("../HSplitContainer")
 _subviewport = NodePath("../HSplitContainer/Viewport Side/SubViewportContainer/SubViewport")
-_unloading_nodes = [NodePath("../HSplitContainer/Viewport Side/SubViewportContainer/SubViewport/Dungeon"), NodePath("../HSplitContainer/Viewport Side/Battle UI"), NodePath("../HSplitContainer/Viewport Side/Player Health UI"), NodePath("../HSplitContainer/Viewport Side/BattleTextsSpawner"), NodePath("../HSplitContainer/Sidebar"), NodePath("../ClickerXPRules"), NodePath("../Loot And Inventory"), NodePath("../DevConsole/Loot Command"), NodePath("../DevConsole/Gain XP Command"), NodePath("../DevConsole/Ready Horror Command")]
+_unloading_nodes = [NodePath("../HSplitContainer/Viewport Side/SubViewportContainer/SubViewport/Dungeon"), NodePath("../HSplitContainer/Viewport Side/Battle UI"), NodePath("../HSplitContainer/Viewport Side/Player Health UI"), NodePath("../HSplitContainer/Viewport Side/BattleTextsSpawner"), NodePath("../HSplitContainer/Sidebar"), NodePath("../ClickerXPRules"), NodePath("../Loot And Inventory"), NodePath("../DevConsole/Loot Command"), NodePath("../DevConsole/Gain XP Command"), NodePath("../DevConsole/Ready Horror Command"), NodePath("../Clicker Dialogue Manager"), NodePath("../HSplitContainer/Viewport Side/Quest UI")]
 _transition_duration = 1.0
 _horror_dungeon_scene = "res://horror/horror_dungeon.tscn"
 _horror_panel_scene = "res://horror/horror_sidebar.tscn"

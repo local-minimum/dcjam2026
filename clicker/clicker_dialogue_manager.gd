@@ -9,6 +9,7 @@ class_name ClickerDialogueManager
 @export_file_path("*.mp3") var _reheal_fail: String
 @export_file_path("*.mp3") var _gain_quest: String
 @export_file_path("*.mp3") var _first_dragon: String
+@export_file_path("*.mp3") var _first_dragon_without_quest: String
 
 @export var _delay_first_dialogue: float = 1.0
 @export var _refuse_after_wait: float = 10.0
@@ -94,4 +95,10 @@ func _time_refusal() -> void:
 
 func _handle_progress_quest(quest_id: String, step: int) -> void:
     if quest_id == Dragon.DRAGONS_QUEST_ID && step == 1:
-        __AudioHub.play_dialogue(_first_dragon)
+        # We don't wanna restart if we've already gotten it
+        if __SignalBus.on_physics_player_arrive_tile.is_connected(_handle_arrive_tile):
+            __SignalBus.on_physics_player_arrive_tile.disconnect(_handle_arrive_tile)
+            __AudioHub.play_dialogue(_first_dragon_without_quest)
+
+        else:
+            __AudioHub.play_dialogue(_first_dragon)

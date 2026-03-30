@@ -138,7 +138,7 @@ func assign_score(weapon: Weapon) -> void:
 
 var _icon_cache: Array[Weapon]
 
-const _ICON_RES_ROOT: String = "res://clicker/thumbnails/"
+const _ICON_RES_ROOT: String = "res://clicker/thumbnails"
 
 func _base_to_icon_folder(base: Weapon.Base) -> String:
     match base:
@@ -166,6 +166,7 @@ func assign_icon(weapon: Weapon, size: String = "128") -> bool:
 
     var folder: String = _base_to_icon_folder(weapon.get_base())
     if folder.is_empty():
+        push_error("There's no folder name for %s's base" % [weapon])
         return false
 
     var path: String = ("%s/%s/%s_%s_%s_%s.png" % [
@@ -185,7 +186,7 @@ func assign_icon(weapon: Weapon, size: String = "128") -> bool:
     weapon.icon = icon
     _icon_cache.append(weapon)
 
-    return false
+    return true
 
 func create_weapon(credits: int) -> Weapon:
     print_debug("Creating a weapon from %s credits" % [credits])

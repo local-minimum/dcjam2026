@@ -10,6 +10,8 @@ extends TextureRect
 
 var _player_coords: Vector3i
 var _player_orientation: Quaternion
+var _waiting_for_resting_player: bool
+var _player: PhysicsGridPlayerController
 
 func _enter_tree() -> void:
     if __SignalBus.on_ready_horror.connect(_handle_ready_horror) != OK:
@@ -19,26 +21,30 @@ func _ready() -> void:
     hide()
 
 func _handle_ready_horror() -> void:
-    var player: PhysicsGridPlayerController = PhysicsGridPlayerController.last_connected_player
-    player.add_cinematic_blocker(self)
+    _player = PhysicsGridPlayerController.last_connected_player
+    _player.add_cinematic_blocker(self)
 
-    # TODO: Await movement end
-    _player_coords = player.dungeon.get_closest_coordinates(player.global_position)
-    _player_orientation = player.global_basis.get_rotation_quaternion()
+    _waiting_for_resting_player = true
 
-    _snapshot()
-
-    show()
-
-    _unload_conent()
-
-    _load_horror_dungeon()
+    if _player.grid_entity.is_stationary:
+        _start_transition()
 
     set_process(true)
 
-enum Phase { WAITING, ERROR, LOAD_DUNGEON, LOAD_PANEL }
+enum Phase { WAITING, ERROR, LOAD_DUNGEON, LOAD_PANEL, COMPLETE_LOAD }
 
 var phase: Phase = Phase.WAITING
+
+func _start_transition() -> void:
+    _waiting_for_resting_player = false
+
+    _player_coords = _player.dungeon.get_closest_coordinates(_player.global_position)
+    _player_orientation = _player.global_basis.get_rotation_quaternion()
+
+    _snapshot()
+    show()
+    _unload_conent()
+    _load_horror_dungeon()
 
 func _snapshot() -> void:
     var img: Image = get_viewport().get_texture().get_image()
@@ -90,6 +96,11 @@ func _setup_dungeon(dungeon: Dungeon) -> void:
     dungeon.player.add_cinematic_blocker(self)
 
 func _process(_delta: float) -> void:
+    if _waiting_for_resting_player:
+        if _player.grid_entity.is_stationary:
+            _start_transition()
+        return
+
     match phase:
         Phase.LOAD_DUNGEON:
             var packed_scene: PackedScene = _check_loading_next_scene(_horror_dungeon_scene)

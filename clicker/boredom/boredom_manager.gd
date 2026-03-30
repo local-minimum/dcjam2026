@@ -66,8 +66,10 @@ func _handle_player_death(phase: int) -> void:
         _ui.live = false
         _dead = true
 
+var _last_coord: Vector3i
+
 func _handle_player_arrive_tile(_player: PhysicsGridPlayerController, coords: Vector3i) -> void:
-    if _dead:
+    if _dead || _last_coord == coords:
         return
 
     var new_coords: bool = !_exploration_history.has(coords)
@@ -81,6 +83,7 @@ func _handle_player_arrive_tile(_player: PhysicsGridPlayerController, coords: Ve
 
     #print_debug("Explored new %s delta %s velocity %s -> %s" % [new_coords, delta, _boredom_velocity, _boredom_velocity - delta])
     _boredom_velocity -= delta
+    _last_coord = coords
 
 func _handle_update_xp(new_value: float, old_value: float) -> void:
     if new_value <= old_value || _dead || _in_battle:

@@ -12,12 +12,23 @@ class_name ClickerDialogueManager
 
 @export var _delay_first_dialogue: float = 1.0
 @export var _refuse_after_wait: float = 10.0
+@export var _boredom_threshold: float = 0.8
+@export var _steps_until_quest: int = 40
 
 func _enter_tree() -> void:
     if __SignalBus.on_change_xp.connect(_change_xp) != OK:
         push_error("Failed to connect change xp")
     if __SignalBus.on_enemy_join_battle.connect(_first_fight, CONNECT_ONE_SHOT) != OK:
         push_error("Failed to connect enemy join battle")
+    if __SignalBus.on_change_boredom.connect(_handle_change_boredom) != OK:
+        push_error("Failed to connect boredom change")
+    if __SignalBus.on_player_spot_healing.connect(_handle_healing_spotted, CONNECT_ONE_SHOT) != OK:
+        push_error("Failed to connect spot healing")
+    if __SignalBus.on_healing_refused.connect(_handle_healing_refused, CONNECT_ONE_SHOT) != OK:
+        push_error("Failed to connect healing refused")
+    if __SignalBus.on_physics_player_arrive_tile.connect(_handle_arrive_tile) != OK:
+        push_error("Failed to connect arrive tile")
+
 
 var _player: PhysicsGridPlayerController
 
@@ -31,6 +42,28 @@ func _ready() -> void:
         true,
         _delay_first_dialogue,
     )
+
+var _steps: int
+func _handle_arrive_tile(__player: PhysicsGridPlayerController, _coords: Vector3i) -> void:
+    _steps += 1
+    if _steps >= _steps_until_quest:
+        __SignalBus.on_physics_player_arrive_tile.disconnect(_handle_arrive_tile)
+
+        __AudioHub.play_dialogue(_gain_quest)
+        await get_tree().create_timer(8.0).timeout
+
+        __SignalBus.on_gain_quest.emit("dragons")
+
+func _handle_healing_refused(_station: HealthStation) -> void:
+    __AudioHub.play_dialogue(_reheal_fail)
+
+func _handle_healing_spotted(_station: HealthStation) -> void:
+    __AudioHub.play_dialogue(_healing)
+
+func _handle_change_boredom(boredom: float) -> void:
+    if boredom > _boredom_threshold:
+        __SignalBus.on_change_boredom.disconnect(_handle_change_boredom)
+        __AudioHub.play_dialogue(_bored)
 
 func _first_fight(_data: EnemyData) -> void:
     __AudioHub.play_dialogue(_fight)

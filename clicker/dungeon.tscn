@@ -45,7 +45,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.128643, 18.659729, -0.1318
 shape = SubResource("BoxShape3D_sufut")
 
 [node name="Health Station" parent="Walls And Floors" unique_id=847146449 instance=ExtResource("4_1pa7v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 3.300601, -7.5)
+transform = Transform3D(-0.012147195, 0, -0.99992615, 0, 1, 0, 0.99992615, 0, -0.012147195, 7.5, 3.300601, -7.5)
 
 [node name="Foyaer" type="Node3D" parent="Walls And Floors" unique_id=1211992558]
 
@@ -2389,3 +2389,5 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 5, 0
 
 [node name="wall_portal3" parent="." unique_id=1132704022 instance=ExtResource("8_qsdn1")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.25, 0, 0)
+
+[editable path="Walls And Floors/Health Station"]

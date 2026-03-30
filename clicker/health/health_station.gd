@@ -18,6 +18,7 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
         return
 
     if inactive:
+        __SignalBus.on_healing_refused.emit(self)
         return
 
     print_debug("Healing player %s by %s" % [player, healing_amount])
@@ -34,3 +35,8 @@ func _deactivate() -> void:
 
 func _activate() -> void:
     pass
+
+func _on_healing_spotting_area_entered(area: Area3D) -> void:
+    var player: PhysicsGridPlayerController = PhysicsGridPlayerController.find_in_tree(area)
+    if player == null:
+        __SignalBus.on_player_spot_healing.emit(self)

@@ -132,15 +132,15 @@ const _ICON_RES_ROOT: String = "res://clicker/thumbnails/"
 func _base_to_icon_folder(base: Gear.Base) -> String:
     match base:
         Gear.Base.HEAD:
-            return "hats"
+            return "head"
         Gear.Base.UPPER_BODY:
-            return "shirt"
+            return "upper_body"
         Gear.Base.LOWER_BODY:
-            return "pants"
+            return "lower_body"
         Gear.Base.HANDS:
-            return "gloves"
+            return "hands"
         Gear.Base.FEET:
-            return "shoes"
+            return "feet"
         _:
             push_error("Unknown path to %s" % [Gear.Base.find_key(base)])
             return ""
@@ -170,8 +170,19 @@ func assign_icon(gear: Gear, size: String = "128") -> bool:
         return false
 
     gear.icon = icon
+    return true
 
-    path = ("%s/%s/%s_%s_%s_%s_transparent.png" % [
+func assign_dressup_icon(gear: Gear, size: String = "128") -> bool:
+    for cached: Gear in _icon_cache:
+        if gear.is_same(cached):
+            gear.icon = cached.icon
+            return true
+
+    var folder: String = _base_to_icon_folder(gear.get_base())
+    if folder.is_empty():
+        return false
+
+    var path: String = ("%s/%s/%s_%s_%s_%s_transparent.png" % [
         _ICON_RES_ROOT,
         folder,
         Gear.Base.find_key(gear.get_base()),
@@ -180,7 +191,7 @@ func assign_icon(gear: Gear, size: String = "128") -> bool:
         size,
     ]).to_lower()
 
-    icon = load(path)
+    var icon: Texture2D = load(path)
     print_debug("Loading transparent icon at %s for %s" % [path, gear])
     if icon == null:
         return false
@@ -189,7 +200,7 @@ func assign_icon(gear: Gear, size: String = "128") -> bool:
 
     _icon_cache.append(gear)
 
-    return false
+    return true
 
 func assign_score(gear: Gear) -> void:
     gear.score = maxi(
@@ -210,7 +221,8 @@ func create_gear(credits: int) -> Gear:
     var g = Gear.new(qual, mat, base)
     if !assign_icon(g):
         push_warning("Couldn't find an icon for %s" % [g])
-
+    #if !assign_dressup_icon(g):
+    #    push_warning("Couldn't find a dressup icon for %s" % [g])
     assign_score(g)
     print_debug("Created gear %s" % [g])
     return g

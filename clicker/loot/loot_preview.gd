@@ -32,7 +32,7 @@ func preview_gear(gear: Gear) -> void:
 
     var avg: float = def_total / rolls
 
-    _description.text = "Est. Current Avg. DEF: %s and %s% dodge" % [
+    _description.text = "Est. Current Avg. DEF: %s and %s%% dodge" % [
         roundf(avg * 100) / 100,
         roundf(dodge),
     ]

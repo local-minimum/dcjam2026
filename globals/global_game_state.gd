@@ -71,7 +71,11 @@ var xp: float:
         xp = clamp(value, 0, max_xp)
         __SignalBus.on_change_xp.emit(xp, old_value)
 
-var boredome: float
+var boredome: float:
+    set(value):
+        if value != boredome:
+            boredome = value
+            __SignalBus.on_change_boredom.emit(value)
 
 var _unlocked_clicker_abilities: Array[String]
 

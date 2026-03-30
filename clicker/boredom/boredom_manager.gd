@@ -102,5 +102,10 @@ func _process(delta: float) -> void:
         _boredom_velocity *= (1.0 - _velocity_decay_over_time * delta)
 
     _boredom = clamp(_boredom + _boredom_velocity, -_hidden_overshoots, 1.0 + _hidden_overshoots)
+    if _boredom <= -_hidden_overshoots:
+        _boredom_velocity = 0.0
+    elif _boredom >= 1.0 + _hidden_overshoots:
+        _boredom_velocity = 0.0
+
     #print_debug(_boredom)
     _ui.value = clampf(_boredom, 0.0, 1.0)

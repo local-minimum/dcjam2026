@@ -509,6 +509,7 @@ _smarts = ExtResource("7_iotsf")
 layout_mode = 1
 
 [node name="DevConsole" parent="." unique_id=540056483 node_paths=PackedStringArray("commands") instance=ExtResource("14_215e1")]
+hide_in_build = true
 commands = [NodePath("Gain XP Command"), NodePath("Loot Command"), NodePath("Game Speed Command"), NodePath("Ready Horror Command")]
 
 [node name="Gain XP Command" type="Node" parent="DevConsole" unique_id=705109122]

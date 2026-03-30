@@ -41,7 +41,9 @@ enum Phase { WAITING, ERROR, LOAD_DUNGEON, LOAD_PANEL }
 var phase: Phase = Phase.WAITING
 
 func _snapshot() -> void:
-    pass
+    var img: Image = get_viewport().get_texture().get_image()
+    var tex: ImageTexture = ImageTexture.create_from_image(img)
+    texture = tex
 
 func _unload_conent() -> void:
     for node: Node in _unloading_nodes:
@@ -131,6 +133,8 @@ func _panic() -> void:
 
 func _finalize() -> void:
     __SignalBus.on_horror_loaded.emit()
+
+    await get_tree().create_timer(2).timeout
 
     hide()
     PhysicsGridPlayerController.last_connected_player.remove_cinematic_blocker(self)

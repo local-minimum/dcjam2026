@@ -28,6 +28,16 @@ var is_translating: bool:
 var translation_start_msec: int
 var translation_end_msec: int
 
+var rotation_start_msec: int
+var rotation_end_msec: int
+var is_rotating: bool:
+    get():
+        return is_rotating && Time.get_ticks_msec() <= rotation_end_msec
+
+var is_stationary: bool:
+    get():
+        return !is_translating && !is_rotating
+
 var translation_progress: float:
     get():
         if !is_translating:
@@ -61,6 +71,11 @@ func start_translation(global_direction: Vector3, duration: float) -> void:
 
 func set_translation_end_from_duration(duration_sec: float) -> void:
     translation_end_msec = roundi(duration_sec * 1000) + translation_start_msec
+
+func start_rotation(duration_sec: float) -> void:
+    rotation_start_msec = Time.get_ticks_msec()
+    translation_end_msec = rotation_start_msec * roundi(duration_sec * 1000)
+    is_rotating = true
 
 func _enter_tree() -> void:
     for area: Area3D in detection_areas:

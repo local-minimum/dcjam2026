@@ -37,6 +37,7 @@ func _input(event: InputEvent) -> void:
         if event is InputEventKey:
             var key_evt: InputEventKey = event
             _handle_input_key(key_evt)
+
     else:
         if event.is_action_pressed("toggle_dev_console"):
             toggle_visible()

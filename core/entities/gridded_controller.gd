@@ -236,7 +236,6 @@ func _attempt_gridded_translation(movement: Movement.MovementType, direction: Ve
     ) != OK:
         push_warning("Failed to connect end of movement")
         _player.handle_translation_end(movement)
-        _player.grid_entity.is_translating = false
         __SignalBus.on_physics_player_arrive_tile.emit(
             _player,
             _player.dungeon.get_closest_coordinates(_player.global_position)
@@ -287,12 +286,16 @@ func _attempt_transition_to_gridded_translation() -> void:
 
     steps.clear()
     var target: Vector3 = _calculate_estimated_gridded_translation_target()
+    _player.grid_entity.start_translation((target - _player.global_position).normalized(), _translation_duration)
 
     _translation_tween = create_tween()
     @warning_ignore_start("return_value_discarded")
     _translation_tween.tween_property(_player, "global_position", target, _translation_duration)
     @warning_ignore_restore("return_value_discarded")
-    if _translation_tween.finished.connect(_player.handle_translation_end.bind(Movement.MovementType.CENTER)) != OK:
+    if _translation_tween.finished.connect(func () -> void:
+        _player.grid_entity.is_translating = false
+        _player.handle_translation_end(Movement.MovementType.CENTER)
+    ) != OK:
         push_warning("Failed to connect end of movement")
         _player.handle_translation_end(Movement.MovementType.CENTER)
 
@@ -327,11 +330,18 @@ func force_abort_translation() -> void:
         func () -> void:
             _player.handle_translation_end(_active_movement)
             _player.grid_entity.is_translating = false
+            __SignalBus.on_physics_player_arrive_tile.emit(
+                _player,
+                _player.dungeon.get_closest_coordinates(_player.global_position)
+            )
             steps.clear()
     ) != OK:
         push_warning("Failed to connect end of movement")
         _player.handle_translation_end(_active_movement)
-        _player.grid_entity.is_translating = false
+        __SignalBus.on_physics_player_arrive_tile.emit(
+            _player,
+            _player.dungeon.get_closest_coordinates(_player.global_position)
+        )
         steps.clear()
 
 func _attempt_turn(angle: float) -> void:
@@ -341,11 +351,21 @@ func _attempt_turn(angle: float) -> void:
     var t: Transform3D = _player.global_transform.rotated(Vector3.UP, angle)
     var target_global_rotation: Quaternion = _player.dungeon.get_cardial_rotation(t.basis.get_rotation_quaternion())
 
+    _player.grid_entity.start_rotation(_rotation_duration)
     _rotation_tween = create_tween()
     @warning_ignore_start("return_value_discarded")
     var tween_func: Callable = QuaternionUtils.create_tween_rotation_method(_player)
-    _rotation_tween.tween_method(tween_func, _player.global_transform.basis.get_rotation_quaternion(), target_global_rotation, _rotation_duration)
+    _rotation_tween.tween_method(
+        tween_func,
+        _player.global_transform.basis.get_rotation_quaternion(),
+        target_global_rotation,
+        _rotation_duration
+    )
     @warning_ignore_restore("return_value_discarded")
+    if _rotation_tween.finished.connect(func () -> void:
+        _player.grid_entity.is_rotating = false
+    ) != OK:
+        push_error("Failed to connect rotation ended")
 
 func _animate_refused_movement(movement: Movement.MovementType, mid: Vector3) -> void:
     _translation_tween = create_tween()

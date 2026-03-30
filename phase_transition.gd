@@ -4,12 +4,16 @@ extends TextureRect
 @export var _subviewport: SubViewport
 @export var _unloading_nodes: Array[Node]
 @export var _error_scene: PackedScene
+@export var _before_transition: float = 1.0
+@export var _transition_duration: float = 2.0
 
 @export_file_path("*.tscn") var _horror_dungeon_scene: String
 @export_file_path("*.tscn") var _horror_panel_scene: String
 
 var _player_coords: Vector3i
 var _player_orientation: Quaternion
+var _waiting_for_resting_player: bool
+var _player: PhysicsGridPlayerController
 
 func _enter_tree() -> void:
     if __SignalBus.on_ready_horror.connect(_handle_ready_horror) != OK:
@@ -19,29 +23,35 @@ func _ready() -> void:
     hide()
 
 func _handle_ready_horror() -> void:
-    var player: PhysicsGridPlayerController = PhysicsGridPlayerController.last_connected_player
-    player.add_cinematic_blocker(self)
+    _player = PhysicsGridPlayerController.last_connected_player
+    _player.add_cinematic_blocker(self)
 
-    # TODO: Await movement end
-    _player_coords = player.dungeon.get_closest_coordinates(player.global_position)
-    _player_orientation = player.global_basis.get_rotation_quaternion()
+    _waiting_for_resting_player = true
 
-    _snapshot()
-
-    show()
-
-    _unload_conent()
-
-    _load_horror_dungeon()
+    if _player.grid_entity.is_stationary:
+        _start_transition()
 
     set_process(true)
 
-enum Phase { WAITING, ERROR, LOAD_DUNGEON, LOAD_PANEL }
+enum Phase { WAITING, ERROR, LOAD_DUNGEON, LOAD_PANEL, COMPLETE_LOAD }
 
 var phase: Phase = Phase.WAITING
 
+func _start_transition() -> void:
+    _waiting_for_resting_player = false
+
+    _player_coords = _player.dungeon.get_closest_coordinates(_player.global_position)
+    _player_orientation = _player.global_basis.get_rotation_quaternion()
+
+    _snapshot()
+    show()
+    _unload_conent()
+    _load_horror_dungeon()
+
 func _snapshot() -> void:
-    pass
+    var img: Image = get_viewport().get_texture().get_image()
+    var tex: ImageTexture = ImageTexture.create_from_image(img)
+    texture = tex
 
 func _unload_conent() -> void:
     for node: Node in _unloading_nodes:
@@ -88,6 +98,11 @@ func _setup_dungeon(dungeon: Dungeon) -> void:
     dungeon.player.add_cinematic_blocker(self)
 
 func _process(_delta: float) -> void:
+    if _waiting_for_resting_player:
+        if _player.grid_entity.is_stationary:
+            _start_transition()
+        return
+
     match phase:
         Phase.LOAD_DUNGEON:
             var packed_scene: PackedScene = _check_loading_next_scene(_horror_dungeon_scene)
@@ -130,6 +145,24 @@ func _panic() -> void:
     get_tree().quit(100)
 
 func _finalize() -> void:
+    await get_tree().create_timer(_before_transition).timeout
+
+
+    var tween: Tween = create_tween()
+    var shader_mat: ShaderMaterial = material
+
+
+    tween.tween_method(
+        func (progress: float) -> void:
+            shader_mat.set_shader_parameter("intensity", progress),
+        0.0,
+        1.0,
+        _transition_duration,
+    ).set_trans(Tween.TRANS_CUBIC)
+    tween.play()
+
+    await get_tree().create_timer(_transition_duration).timeout
+
     __SignalBus.on_horror_loaded.emit()
 
     hide()

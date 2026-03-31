@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://cruxk6l5jm7l1" path="res://clicker/models/wall_portal.blend" id="8_qsdn1"]
 [ext_resource type="Script" uid="uid://dombw6pswxxfq" path="res://clicker/models/dragon.gd" id="9_l3xlb"]
 [ext_resource type="PackedScene" uid="uid://ctar0x0es8uc6" path="res://clicker/models/sideboard.blend" id="12_sm5ll"]
+[ext_resource type="ArrayMesh" uid="uid://b0vlo73s2fd38" path="res://visual/clutter/sculptures/sculpture_triangle.obj" id="13_hm7ry"]
+[ext_resource type="ArrayMesh" uid="uid://ceb8oy4go2no4" path="res://visual/clutter/sculptures/sculpture_walk.obj" id="14_eppcp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sufut"]
 size = Vector3(75.727066, 99.23596, 0.263)
@@ -55,7 +57,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.128643, 18.659729, -0.1318
 shape = SubResource("BoxShape3D_sufut")
 
 [node name="Health Station" parent="Walls And Floors" unique_id=847146449 instance=ExtResource("4_1pa7v")]
-transform = Transform3D(-0.012147195, 0, -0.99992615, 0, 1, 0, 0.99992615, 0, -0.012147195, 7.5, 3.300601, -7.5)
+transform = Transform3D(0.14546137, 0, -0.9893638, 0, 1, 0, 0.9893638, 0, 0.14546137, 7.908676, 0, -7.6862793)
+
+[node name="Healing Trigger" parent="Walls And Floors/Health Station" index="0" unique_id=97075159]
+transform = Transform3D(0.5421189, 0, -0.84030175, 0, 1, 0, 0.84030175, 0, 0.5421189, 0, 0, 0)
+
+[node name="Healing Spotting" parent="Walls And Floors/Health Station" index="1" unique_id=15656062]
+transform = Transform3D(0.9773459, 0, -0.21164894, 0, 1, 0, 0.21164894, 0, 0.9773459, 0, 0, 0)
 
 [node name="Foyaer" type="Node3D" parent="Walls And Floors" unique_id=1211992558]
 
@@ -2435,6 +2443,14 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.2
 
 [node name="sideboard" parent="." unique_id=1737767895 instance=ExtResource("12_sm5ll")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 8.218872, 0, -2.7341309)
+
+[node name="SculptureTriangle" type="MeshInstance3D" parent="." unique_id=248872972]
+transform = Transform3D(-0.076597214, 0, -0.9970621, 0, 1, 0, 0.9970621, 0, -0.076597214, 3.1411438, -0.00048824548, -4.8501587)
+mesh = ExtResource("13_hm7ry")
+
+[node name="SculptureWalk" type="MeshInstance3D" parent="." unique_id=459975525]
+transform = Transform3D(0.016946416, 0, -0.9998564, 0, 1, 0, 0.9998564, 0, 0.016946416, -2.4293823, 0.024633849, -8.031372)
+mesh = ExtResource("14_eppcp")
 
 [connection signal="area_entered" from="Walls And Floors/Cubicle Landscape/Floor45/MeshInstance3D/dragon/trigger area" to="Walls And Floors/Cubicle Landscape/Floor45/MeshInstance3D/dragon" method="_on_trigger_area_area_entered"]
 

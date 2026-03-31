@@ -58,9 +58,11 @@ func _handle_arrive_tile(__player: PhysicsGridPlayerController, _coords: Vector3
         __SignalBus.on_gain_quest.emit(Dragon.DRAGONS_QUEST_ID)
 
 func _handle_healing_refused(_station: HealthStation) -> void:
+    print_debug("Dialogue Manager: Play healing refused clip")
     __AudioHub.play_dialogue(_reheal_fail)
 
 func _handle_healing_spotted(_station: HealthStation) -> void:
+    print_debug("Dialogue Manager: Play healing spotted clip")
     __AudioHub.play_dialogue(_healing)
 
 func _handle_change_boredom(boredom: float) -> void:

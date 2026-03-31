@@ -109,6 +109,7 @@ mesh = SubResource("CylinderMesh_60w1x")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=2027711003]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1028626, 0.86164474)
+visible = false
 layers = 7
 light_color = Color(0.8043004, 0.5058316, 0.35971963, 1)
 light_energy = 0.6

@@ -16,10 +16,10 @@ _step_targets = [NodePath("Armature/StepTargets/LegFLRayCast/LegFLStepTarget"), 
 _step_rays = [NodePath("Armature/StepTargets/LegFLRayCast"), NodePath("Armature/StepTargets/LegFRRayCast"), NodePath("Armature/StepTargets/LegBLRayCast"), NodePath("Armature/StepTargets/LegBRRayCast")]
 _front_ray = NodePath("Armature/FrontRay")
 
-[node name="Armature" parent="." index="0" unique_id=1103288917]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+[node name="Armature" parent="." index="0" unique_id=253096244]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
 
-[node name="LegFLTwoBoneIK" type="TwoBoneIK3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(1128482902) index="1" unique_id=391264738]
+[node name="LegFLTwoBoneIK" type="TwoBoneIK3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(1030592306) index="1" unique_id=391264738]
 setting_count = 1
 settings/0/target_node = NodePath("../../IKTargets/LegFLIKTarget")
 settings/0/pole_node = NodePath("../../Poles/LegFLPole")
@@ -33,7 +33,7 @@ settings/0/end_bone = 2
 settings/0/use_virtual_end = false
 settings/0/extend_end_bone = false
 
-[node name="LegFRTwoBoneIK" type="TwoBoneIK3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(1128482902) index="2" unique_id=692486199]
+[node name="LegFRTwoBoneIK" type="TwoBoneIK3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(1030592306) index="2" unique_id=692486199]
 setting_count = 1
 settings/0/target_node = NodePath("../../IKTargets/LegFRIKTarget")
 settings/0/pole_node = NodePath("../../Poles/LegFRPole")
@@ -47,7 +47,7 @@ settings/0/end_bone = 5
 settings/0/use_virtual_end = false
 settings/0/extend_end_bone = false
 
-[node name="LegBLTwoBoneIK" type="TwoBoneIK3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(1128482902) index="3" unique_id=2062038172]
+[node name="LegBLTwoBoneIK" type="TwoBoneIK3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(1030592306) index="3" unique_id=2062038172]
 setting_count = 1
 settings/0/target_node = NodePath("../../IKTargets/LegBLIKTarget")
 settings/0/pole_node = NodePath("../../Poles/LegBLPole")
@@ -61,7 +61,7 @@ settings/0/end_bone = 11
 settings/0/use_virtual_end = false
 settings/0/extend_end_bone = false
 
-[node name="LegBRTwoBoneIK" type="TwoBoneIK3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(1128482902) index="4" unique_id=1490883692]
+[node name="LegBRTwoBoneIK" type="TwoBoneIK3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(1030592306) index="4" unique_id=1490883692]
 setting_count = 1
 settings/0/target_node = NodePath("../../IKTargets/LegBRIKTarget")
 settings/0/pole_node = NodePath("../../Poles/LegBRPole")
@@ -85,6 +85,7 @@ _root = NodePath("../../..")
 _step_target = NodePath("../../StepTargets/LegFLRayCast/LegFLStepTarget")
 _adjacent_target = NodePath("../LegFRIKTarget")
 _opposite_target = NodePath("../LegBRIKTarget")
+offset_pos = Vector3(-0.45, 0, 0.5)
 
 [node name="LegFRIKTarget" type="Marker3D" parent="Armature/IKTargets" index="1" unique_id=801089604 node_paths=PackedStringArray("_root", "_step_target", "_adjacent_target", "_opposite_target")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 0, 0.5)
@@ -94,6 +95,7 @@ _root = NodePath("../../..")
 _step_target = NodePath("../../StepTargets/LegFRRayCast/LegFRStepTarget")
 _adjacent_target = NodePath("../LegFLIKTarget")
 _opposite_target = NodePath("../LegBLIKTarget")
+offset_pos = Vector3(0.45, 0, 0.5)
 
 [node name="LegBLIKTarget" type="Marker3D" parent="Armature/IKTargets" index="2" unique_id=553422170 node_paths=PackedStringArray("_root", "_step_target", "_adjacent_target", "_opposite_target")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0, -0.5)
@@ -103,6 +105,7 @@ _root = NodePath("../../..")
 _step_target = NodePath("../../StepTargets/LegBLRayCast/LegBLStepTarget")
 _adjacent_target = NodePath("../LegBRIKTarget")
 _opposite_target = NodePath("../LegFRIKTarget")
+offset_pos = Vector3(-0.45, 0, -0.5)
 
 [node name="LegBRIKTarget" type="Marker3D" parent="Armature/IKTargets" index="3" unique_id=701894150 node_paths=PackedStringArray("_root", "_step_target", "_adjacent_target", "_opposite_target")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 0, -0.5)
@@ -112,6 +115,7 @@ _root = NodePath("../../..")
 _step_target = NodePath("../../StepTargets/LegBRRayCast/LegBRStepTarget")
 _adjacent_target = NodePath("../LegBLIKTarget")
 _opposite_target = NodePath("../LegFLIKTarget")
+offset_pos = Vector3(0.45, 0, -0.5)
 
 [node name="StepTargets" type="Node3D" parent="Armature" index="2" unique_id=1149284409]
 

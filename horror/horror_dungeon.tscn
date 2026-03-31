@@ -2,473 +2,67 @@
 
 [ext_resource type="Script" uid="uid://5nd45w6q42kq" path="res://core/dungeon.gd" id="1_rtw18"]
 [ext_resource type="Script" uid="uid://dfqjle1xd7utg" path="res://clicker/battle/entity_collision_join_battle.gd" id="2_4oo4h"]
-[ext_resource type="PackedScene" uid="uid://dbknfpibyx65f" path="res://clicker/health/health_station.tscn" id="4_xhs8j"]
 [ext_resource type="PackedScene" uid="uid://b6svyccqvk55" path="res://horror/player_3d_horror.tscn" id="5_eidof"]
-[ext_resource type="PackedScene" uid="uid://dbbbvw47dto45" path="res://horror/monster/monster.tscn" id="5_ifq1x"]
+[ext_resource type="PackedScene" uid="uid://b31jydn3i0u4j" path="res://horror/rooms/library.tscn" id="6_eidof"]
+[ext_resource type="PackedScene" uid="uid://d0hjjxkgu2bv4" path="res://horror/rooms/cubicles.tscn" id="7_bifnm"]
+[ext_resource type="PackedScene" uid="uid://dch5u7micaf0v" path="res://horror/rooms/atrium.tscn" id="8_urtwg"]
+[ext_resource type="PackedScene" uid="uid://dhdjfsnd5kuvn" path="res://horror/rooms/corridor.tscn" id="9_75gv8"]
+[ext_resource type="PackedScene" uid="uid://7ufpontbryf2" path="res://horror/rooms/outside.tscn" id="9_nn07l"]
+[ext_resource type="PackedScene" uid="uid://crdkc5mx8cs5l" path="res://horror/rooms/monster_room.tscn" id="10_75gv8"]
+[ext_resource type="PackedScene" uid="uid://miqvvv57y7jw" path="res://horror/rooms/foyer.tscn" id="16_ijayo"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sufut"]
-albedo_color = Color(1, 0.5647059, 1, 1)
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_75gv8"]
 
-[sub_resource type="QuadMesh" id="QuadMesh_yrdjv"]
-material = SubResource("StandardMaterial3D_sufut")
-size = Vector2(2.5, 4.5)
+[sub_resource type="Sky" id="Sky_gagwy"]
+sky_material = SubResource("ProceduralSkyMaterial_75gv8")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_yrdjv"]
-size = Vector3(2.5, 4.5, 0.043)
+[sub_resource type="Environment" id="Environment_ifq1x"]
+background_mode = 2
+background_color = Color(0.67481464, 0.67481464, 0.6748146, 1)
+sky = SubResource("Sky_gagwy")
+reflected_light_source = 2
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_sufut"]
-size = Vector3(50, 50, 0.4913633)
+[sub_resource type="BoxShape3D" id="BoxShape3D_eidof"]
+size = Vector3(75.727066, 99.23596, 0.263)
 
-[sub_resource type="QuadMesh" id="QuadMesh_sufut"]
-size = Vector2(2.5, 2.5)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yrdjv"]
-albedo_color = Color(0.31925523, 0.31925526, 0.31925526, 1)
-
-[node name="Dungeon2" type="Node3D" unique_id=1143420985 node_paths=PackedStringArray("collision_system", "player")]
+[node name="HorrorLevel" type="Node3D" unique_id=1143420985 node_paths=PackedStringArray("collision_system", "player")]
 script = ExtResource("1_rtw18")
-grid_size = Vector3(2.5, 4.5, 2.5)
+grid_size = Vector3(2, 4, 2)
 collision_system = NodePath("Collision System")
-player = NodePath("Player3d")
+player = NodePath("Player")
 _invoke_cinematic_on_ready = false
 metadata/_custom_type_script = "uid://5nd45w6q42kq"
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1203206045]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-shadow_enabled = true
+[node name="Misc" type="Node3D" parent="." unique_id=1253155253]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Misc" unique_id=850651614]
+environment = SubResource("Environment_ifq1x")
+
+[node name="Floor Collision" type="StaticBody3D" parent="Misc" unique_id=1355826590]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -3.75, 0, -18.75)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Misc/Floor Collision" unique_id=1782019905]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.128643, 18.659729, -0.13185121)
+shape = SubResource("BoxShape3D_eidof")
+
+[node name="Player" parent="." unique_id=942295760 instance=ExtResource("5_eidof")]
 
 [node name="Collision System" type="Node" parent="." unique_id=1467278961]
 script = ExtResource("2_4oo4h")
 
-[node name="Walls And Floors" type="Node3D" parent="." unique_id=1436493536]
+[node name="Floors" type="Node3D" parent="." unique_id=2053274620]
 
-[node name="Wall17" type="MeshInstance3D" parent="Walls And Floors" unique_id=383887514]
-transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, -2.5, 2.25, -3.75)
-mesh = SubResource("QuadMesh_yrdjv")
+[node name="Foyer" parent="." unique_id=248408387 instance=ExtResource("16_ijayo")]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls And Floors/Wall17" unique_id=1265337985]
+[node name="Library" parent="." unique_id=1536973768 instance=ExtResource("6_eidof")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls And Floors/Wall17/StaticBody3D" unique_id=13295196]
-shape = SubResource("BoxShape3D_yrdjv")
+[node name="Cubicles" parent="." unique_id=1279492692 instance=ExtResource("7_bifnm")]
 
-[node name="Wall18" type="MeshInstance3D" parent="Walls And Floors" unique_id=623144176]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -1.25, 2.25, -5)
-mesh = SubResource("QuadMesh_yrdjv")
+[node name="Atrium" parent="." unique_id=1315631618 instance=ExtResource("8_urtwg")]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls And Floors/Wall18" unique_id=731911071]
+[node name="Outside" parent="." unique_id=1686640705 instance=ExtResource("9_nn07l")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls And Floors/Wall18/StaticBody3D" unique_id=1994599369]
-shape = SubResource("BoxShape3D_yrdjv")
+[node name="Corridor" parent="." unique_id=353704301 instance=ExtResource("9_75gv8")]
 
-[node name="Wall30" type="MeshInstance3D" parent="Walls And Floors" unique_id=334719610]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -1.25, 2.25, -7.5)
-mesh = SubResource("QuadMesh_yrdjv")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls And Floors/Wall30" unique_id=943790784]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls And Floors/Wall30/StaticBody3D" unique_id=1428280507]
-shape = SubResource("BoxShape3D_yrdjv")
-
-[node name="Wall31" type="MeshInstance3D" parent="Walls And Floors" unique_id=491920772]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -1.25, 2.25, -10)
-mesh = SubResource("QuadMesh_yrdjv")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls And Floors/Wall31" unique_id=33818036]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls And Floors/Wall31/StaticBody3D" unique_id=1827252790]
-shape = SubResource("BoxShape3D_yrdjv")
-
-[node name="Wall32" type="MeshInstance3D" parent="Walls And Floors" unique_id=1495574046]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -1.25, 2.25, -12.5)
-mesh = SubResource("QuadMesh_yrdjv")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls And Floors/Wall32" unique_id=1564741723]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls And Floors/Wall32/StaticBody3D" unique_id=64146199]
-shape = SubResource("BoxShape3D_yrdjv")
-
-[node name="Wall10" type="MeshInstance3D" parent="Walls And Floors" unique_id=672471931]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.75, 2.25, 2.5)
-mesh = SubResource("QuadMesh_yrdjv")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls And Floors/Wall10" unique_id=1697969847]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls And Floors/Wall10/StaticBody3D" unique_id=300982154]
-shape = SubResource("BoxShape3D_yrdjv")
-
-[node name="Floor Collision" type="StaticBody3D" parent="Walls And Floors" unique_id=1804325127]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls And Floors/Floor Collision" unique_id=357102592]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7469902, 1.6716309, -0.24603285)
-shape = SubResource("BoxShape3D_sufut")
-
-[node name="Wall24" type="MeshInstance3D" parent="Walls And Floors" unique_id=1389665496]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 6.25, 2.25, -2.5)
-mesh = SubResource("QuadMesh_yrdjv")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls And Floors/Wall24" unique_id=1347782930]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls And Floors/Wall24/StaticBody3D" unique_id=1745547188]
-shape = SubResource("BoxShape3D_yrdjv")
-
-[node name="Wall16" type="MeshInstance3D" parent="Walls And Floors" unique_id=1403091409]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -3.75, 2.25, -2.5)
-mesh = SubResource("QuadMesh_yrdjv")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls And Floors/Wall16" unique_id=958490125]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls And Floors/Wall16/StaticBody3D" unique_id=1376801791]
-shape = SubResource("BoxShape3D_yrdjv")
-
-[node name="Wall11" type="MeshInstance3D" parent="Walls And Floors" unique_id=1626524377]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 2.5, 2.25, 3.75)
-mesh = SubResource("QuadMesh_yrdjv")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls And Floors/Wall11" unique_id=273202196]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls And Floors/Wall11/StaticBody3D" unique_id=1679050513]
-shape = SubResource("BoxShape3D_yrdjv")
-
-[node name="Wall12" type="MeshInstance3D" parent="Walls And Floors" unique_id=1813020028]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 2.25, 3.75)
-mesh = SubResource("QuadMesh_yrdjv")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls And Floors/Wall12" unique_id=1227601810]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls And Floors/Wall12/StaticBody3D" unique_id=1083945699]
-shape = SubResource("BoxShape3D_yrdjv")
-
-[node name="Wall13" type="MeshInstance3D" parent="Walls And Floors" unique_id=1850969440]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -2.5, 2.25, 3.75)
-mesh = SubResource("QuadMesh_yrdjv")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls And Floors/Wall13" unique_id=1485696207]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls And Floors/Wall13/StaticBody3D" unique_id=592521593]
-shape = SubResource("BoxShape3D_yrdjv")
-
-[node name="Wall14" type="MeshInstance3D" parent="Walls And Floors" unique_id=216875181]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -3.75, 2.25, 2.5)
-mesh = SubResource("QuadMesh_yrdjv")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls And Floors/Wall14" unique_id=927680590]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls And Floors/Wall14/StaticBody3D" unique_id=923706489]
-shape = SubResource("BoxShape3D_yrdjv")
-
-[node name="Wall15" type="MeshInstance3D" parent="Walls And Floors" unique_id=888039278]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -3.75, 2.25, 0)
-mesh = SubResource("QuadMesh_yrdjv")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls And Floors/Wall15" unique_id=1565852958]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls And Floors/Wall15/StaticBody3D" unique_id=607763750]
-shape = SubResource("BoxShape3D_yrdjv")
-
-[node name="Wall6" type="MeshInstance3D" parent="Walls And Floors" unique_id=433335763]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 8.75, 2.25, -2.5)
-mesh = SubResource("QuadMesh_yrdjv")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls And Floors/Wall6" unique_id=1374089597]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls And Floors/Wall6/StaticBody3D" unique_id=1560901090]
-shape = SubResource("BoxShape3D_yrdjv")
-
-[node name="Wall21" type="MeshInstance3D" parent="Walls And Floors" unique_id=1455717064]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.25, 2.25, -2.5)
-mesh = SubResource("QuadMesh_yrdjv")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls And Floors/Wall21" unique_id=363554924]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls And Floors/Wall21/StaticBody3D" unique_id=492369508]
-shape = SubResource("BoxShape3D_yrdjv")
-
-[node name="Wall7" type="MeshInstance3D" parent="Walls And Floors" unique_id=552032973]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 8.75, 2.25, 0)
-mesh = SubResource("QuadMesh_yrdjv")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls And Floors/Wall7" unique_id=1568637278]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls And Floors/Wall7/StaticBody3D" unique_id=364060033]
-shape = SubResource("BoxShape3D_yrdjv")
-
-[node name="Wall8" type="MeshInstance3D" parent="Walls And Floors" unique_id=1814741334]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 7.5, 2.25, 1.25)
-mesh = SubResource("QuadMesh_yrdjv")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls And Floors/Wall8" unique_id=1030761837]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls And Floors/Wall8/StaticBody3D" unique_id=540854835]
-shape = SubResource("BoxShape3D_yrdjv")
-
-[node name="Wall9" type="MeshInstance3D" parent="Walls And Floors" unique_id=880683380]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 5, 2.25, 1.25)
-mesh = SubResource("QuadMesh_yrdjv")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls And Floors/Wall9" unique_id=1698047971]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls And Floors/Wall9/StaticBody3D" unique_id=692859319]
-shape = SubResource("BoxShape3D_yrdjv")
-
-[node name="Wall22" type="MeshInstance3D" parent="Walls And Floors" unique_id=1790134062]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 5, 2.25, -3.75)
-mesh = SubResource("QuadMesh_yrdjv")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls And Floors/Wall22" unique_id=1812192260]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls And Floors/Wall22/StaticBody3D" unique_id=1330526230]
-shape = SubResource("BoxShape3D_yrdjv")
-
-[node name="Wall23" type="MeshInstance3D" parent="Walls And Floors" unique_id=1335784521]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 2.5, 2.25, -3.75)
-mesh = SubResource("QuadMesh_yrdjv")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls And Floors/Wall23" unique_id=2113380243]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls And Floors/Wall23/StaticBody3D" unique_id=1937122999]
-shape = SubResource("BoxShape3D_yrdjv")
-
-[node name="Wall33" type="MeshInstance3D" parent="Walls And Floors" unique_id=2085002401]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 2.5, 2.25, -8.75)
-mesh = SubResource("QuadMesh_yrdjv")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls And Floors/Wall33" unique_id=293389394]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls And Floors/Wall33/StaticBody3D" unique_id=150836458]
-shape = SubResource("BoxShape3D_yrdjv")
-
-[node name="Wall34" type="MeshInstance3D" parent="Walls And Floors" unique_id=797656934]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 5, 2.25, -8.75)
-mesh = SubResource("QuadMesh_yrdjv")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls And Floors/Wall34" unique_id=1288364288]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls And Floors/Wall34/StaticBody3D" unique_id=1123791472]
-shape = SubResource("BoxShape3D_yrdjv")
-
-[node name="Floor" type="MeshInstance3D" parent="Walls And Floors" unique_id=1281175806]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor2" type="MeshInstance3D" parent="Walls And Floors" unique_id=1117170168]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, -2.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor3" type="MeshInstance3D" parent="Walls And Floors" unique_id=780283226]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, -5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor16" type="MeshInstance3D" parent="Walls And Floors" unique_id=927644693]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, -7.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor17" type="MeshInstance3D" parent="Walls And Floors" unique_id=218447017]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, -10)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor18" type="MeshInstance3D" parent="Walls And Floors" unique_id=1154150613]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, -12.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor19" type="MeshInstance3D" parent="Walls And Floors" unique_id=1809558809]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.5, 0, -12.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Health Station" parent="Walls And Floors" unique_id=847146449 instance=ExtResource("4_xhs8j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 3.300601, -12.5)
-
-[node name="Floor20" type="MeshInstance3D" parent="Walls And Floors" unique_id=656781991]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 5, 0, -12.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor21" type="MeshInstance3D" parent="Walls And Floors" unique_id=1162667418]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 5, 0, -10)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor22" type="MeshInstance3D" parent="Walls And Floors" unique_id=1983649730]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.5, 0, -10)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor4" type="MeshInstance3D" parent="Walls And Floors" unique_id=2039176991]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.5, 0, -5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor5" type="MeshInstance3D" parent="Walls And Floors" unique_id=2023382632]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 5, 0, -5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor6" type="MeshInstance3D" parent="Walls And Floors" unique_id=2013946035]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 7.5, 0, -5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor7" type="MeshInstance3D" parent="Walls And Floors" unique_id=155902603]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 7.5, 0, -2.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor8" type="MeshInstance3D" parent="Walls And Floors" unique_id=385652293]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 7.5, 0, 0)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor9" type="MeshInstance3D" parent="Walls And Floors" unique_id=999685090]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 5, 0, 0)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor10" type="MeshInstance3D" parent="Walls And Floors" unique_id=445038067]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.5, 0, 0)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor11" type="MeshInstance3D" parent="Walls And Floors" unique_id=1580760535]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.5, 0, 2.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor12" type="MeshInstance3D" parent="Walls And Floors" unique_id=1045005344]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 2.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor13" type="MeshInstance3D" parent="Walls And Floors" unique_id=615872251]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2.5, 0, 2.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor14" type="MeshInstance3D" parent="Walls And Floors" unique_id=306617552]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2.5, 0, 0)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor15" type="MeshInstance3D" parent="Walls And Floors" unique_id=1599122741]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2.5, 0, -2.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Wall" type="MeshInstance3D" parent="Walls And Floors" unique_id=1191066868]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25, -13.75)
-mesh = SubResource("QuadMesh_yrdjv")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls And Floors/Wall" unique_id=266226876]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls And Floors/Wall/StaticBody3D" unique_id=1364229059]
-shape = SubResource("BoxShape3D_yrdjv")
-
-[node name="Wall25" type="MeshInstance3D" parent="Walls And Floors" unique_id=337686781]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2.25, -13.75)
-mesh = SubResource("QuadMesh_yrdjv")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls And Floors/Wall25" unique_id=730936047]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls And Floors/Wall25/StaticBody3D" unique_id=1990349528]
-shape = SubResource("BoxShape3D_yrdjv")
-
-[node name="Wall26" type="MeshInstance3D" parent="Walls And Floors" unique_id=2052939164]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.99937, 2.2525525, -13.74988)
-mesh = SubResource("QuadMesh_yrdjv")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls And Floors/Wall26" unique_id=2068724760]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls And Floors/Wall26/StaticBody3D" unique_id=905549246]
-shape = SubResource("BoxShape3D_yrdjv")
-
-[node name="Wall2" type="MeshInstance3D" parent="Walls And Floors" unique_id=1027188007]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2.25, -6.25)
-mesh = SubResource("QuadMesh_yrdjv")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls And Floors/Wall2" unique_id=692137206]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls And Floors/Wall2/StaticBody3D" unique_id=1164614859]
-shape = SubResource("BoxShape3D_yrdjv")
-
-[node name="Wall19" type="MeshInstance3D" parent="Walls And Floors" unique_id=2125761949]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2.25, -1.25)
-mesh = SubResource("QuadMesh_yrdjv")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls And Floors/Wall19" unique_id=8792255]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls And Floors/Wall19/StaticBody3D" unique_id=849843281]
-shape = SubResource("BoxShape3D_yrdjv")
-
-[node name="Wall20" type="MeshInstance3D" parent="Walls And Floors" unique_id=1420775716]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2.25, -1.25)
-mesh = SubResource("QuadMesh_yrdjv")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls And Floors/Wall20" unique_id=2129272276]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls And Floors/Wall20/StaticBody3D" unique_id=1664577261]
-shape = SubResource("BoxShape3D_yrdjv")
-
-[node name="Wall3" type="MeshInstance3D" parent="Walls And Floors" unique_id=274664542]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2.25, -6.25)
-mesh = SubResource("QuadMesh_yrdjv")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls And Floors/Wall3" unique_id=1716316049]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls And Floors/Wall3/StaticBody3D" unique_id=2065473655]
-shape = SubResource("BoxShape3D_yrdjv")
-
-[node name="Wall4" type="MeshInstance3D" parent="Walls And Floors" unique_id=1470380488]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 2.25, -6.25)
-mesh = SubResource("QuadMesh_yrdjv")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls And Floors/Wall4" unique_id=740096514]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls And Floors/Wall4/StaticBody3D" unique_id=1213086394]
-shape = SubResource("BoxShape3D_yrdjv")
-
-[node name="Wall5" type="MeshInstance3D" parent="Walls And Floors" unique_id=26813421]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 8.75, 2.25, -5)
-mesh = SubResource("QuadMesh_yrdjv")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls And Floors/Wall5" unique_id=1591238332]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls And Floors/Wall5/StaticBody3D" unique_id=1636305055]
-shape = SubResource("BoxShape3D_yrdjv")
-
-[node name="Wall27" type="MeshInstance3D" parent="Walls And Floors" unique_id=2015838371]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6.25, 2.25, -12.5)
-mesh = SubResource("QuadMesh_yrdjv")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls And Floors/Wall27" unique_id=657380985]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls And Floors/Wall27/StaticBody3D" unique_id=481167059]
-shape = SubResource("BoxShape3D_yrdjv")
-
-[node name="Wall28" type="MeshInstance3D" parent="Walls And Floors" unique_id=1888753889]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6.25, 2.25, -10)
-mesh = SubResource("QuadMesh_yrdjv")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls And Floors/Wall28" unique_id=1229502345]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls And Floors/Wall28/StaticBody3D" unique_id=920300357]
-shape = SubResource("BoxShape3D_yrdjv")
-
-[node name="Wall29" type="MeshInstance3D" parent="Walls And Floors" unique_id=282907711]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.25, 2.25, -7.5)
-mesh = SubResource("QuadMesh_yrdjv")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls And Floors/Wall29" unique_id=125504480]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls And Floors/Wall29/StaticBody3D" unique_id=472812325]
-shape = SubResource("BoxShape3D_yrdjv")
-
-[node name="Monster" parent="." unique_id=1082106793 instance=ExtResource("5_ifq1x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11058891, 0.57561415, -12.117689)
-
-[node name="Player3d" parent="." unique_id=942295760 instance=ExtResource("5_eidof")]
+[node name="MonsterRoom" parent="." unique_id=507186414 instance=ExtResource("10_75gv8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, -21)

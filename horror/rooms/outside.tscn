@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://7ufpontbryf2"]
+
+[ext_resource type="Texture2D" uid="uid://cfcne61wjlmf3" path="res://horror/monster/TEMP/retrofuture-ref.png" id="1_5611i"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_udm7l"]
+size = Vector3(200, 1, 200)
+
+[sub_resource type="SphereMesh" id="SphereMesh_qahwi"]
+radius = 20.0
+height = 10.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_qahwi"]
+size = Vector3(10, 80, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lara0"]
+size = Vector3(10, 116, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kecal"]
+size = Vector3(40, 100, 40)
+
+[node name="Outside" type="Node3D" unique_id=1686640705]
+
+[node name="Reference" type="Sprite3D" parent="." unique_id=693591890]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 14, -96)
+transparency = 0.75
+cast_shadow = 0
+texture = ExtResource("1_5611i")
+
+[node name="Ground" type="MeshInstance3D" parent="." unique_id=2007699251]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, -136)
+mesh = SubResource("BoxMesh_udm7l")
+
+[node name="Saucer" type="MeshInstance3D" parent="." unique_id=1109583282]
+transform = Transform3D(0.9948895, -0.10077671, 0.0062361546, 0.10060318, 0.98413146, -0.14616564, 0.008592896, 0.14604603, 0.9892404, -20.144855, 44.23793, -114)
+mesh = SubResource("SphereMesh_qahwi")
+
+[node name="SkyScaperLeft" type="MeshInstance3D" parent="." unique_id=1186014361]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 20, -130)
+mesh = SubResource("BoxMesh_qahwi")
+
+[node name="SkyScraperMiddle" type="Node3D" parent="." unique_id=1519745753]
+
+[node name="LeftTower" type="MeshInstance3D" parent="SkyScraperMiddle" unique_id=2102905734]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 38, -183)
+mesh = SubResource("BoxMesh_lara0")
+
+[node name="RightTower" type="MeshInstance3D" parent="SkyScraperMiddle" unique_id=1167939547]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 38, -183)
+mesh = SubResource("BoxMesh_lara0")
+
+[node name="SkyScraperRight" type="MeshInstance3D" parent="." unique_id=1545370123]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78, 30, -125)
+mesh = SubResource("BoxMesh_kecal")

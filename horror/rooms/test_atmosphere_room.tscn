@@ -1,0 +1,459 @@
+[gd_scene format=4 uid="uid://nrhgesnfit8p"]
+
+[ext_resource type="Script" uid="uid://pq54prborom3" path="res://horror/triggers.gd" id="1_ssua3"]
+[ext_resource type="Shader" uid="uid://cjso02no5cy8s" path="res://visual/tiles/base_tile_shader.gdshader" id="2_3bcqs"]
+[ext_resource type="Texture2D" uid="uid://cissx04jm214g" path="res://visual/tiles/test/tiles_high_grunge/tiles_high_grunge_baseColor.png" id="3_li1sn"]
+[ext_resource type="Texture2D" uid="uid://caeqho18rhmp2" path="res://visual/tiles/test/tiles_high_grunge/tiles_high_grunge_normal.png" id="4_eup7k"]
+[ext_resource type="Texture2D" uid="uid://cxu7qwa01sjv1" path="res://visual/tiles/test/tiles_high_grunge/tiles_high_grunge_occlusionRoughnessMetallic.png" id="5_oorhm"]
+[ext_resource type="Texture2D" uid="uid://b0s21rrgycq" path="res://visual/tiles/test/tiles_med_grunge/2_tiles_grungy_baseColor.png" id="6_6rou5"]
+[ext_resource type="Texture2D" uid="uid://286s0pu8pmxs" path="res://visual/tiles/test/tiles_med_grunge/2_tiles_grungy_normal.png" id="7_dt6eb"]
+[ext_resource type="Texture2D" uid="uid://dk2vh4fmaxar1" path="res://visual/tiles/test/tiles_med_grunge/2_tiles_grungy_occlusionRoughnessMetallic.png" id="8_tj02n"]
+[ext_resource type="Texture2D" uid="uid://dydy3p8wg76kl" path="res://visual/tiles/marked_walkway/marked_walkway_baseColor.png" id="9_gff1q"]
+[ext_resource type="Texture2D" uid="uid://eflyjxhpstfw" path="res://visual/tiles/marked_walkway/marked_walkway_normal.png" id="10_n5jq8"]
+[ext_resource type="Texture2D" uid="uid://drjokb1oxbljr" path="res://visual/tiles/marked_walkway/marked_walkway_occlusionRoughnessMetallic.png" id="11_quj6t"]
+[ext_resource type="PackedScene" uid="uid://dbbbvw47dto45" path="res://horror/monster/monster.tscn" id="12_p2c4x"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4828v"]
+
+[sub_resource type="Animation" id="Animation_ap2dw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_4828v"]
+resource_name = "flash"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666669, 0.93333334, 1.1333334, 2.5666666, 2.7666667, 3.3, 3.4999998),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ijayo"]
+_data = {
+&"RESET": SubResource("Animation_ap2dw"),
+&"flash": SubResource("Animation_4828v")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_31oss"]
+render_priority = 0
+shader = ExtResource("2_3bcqs")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("3_li1sn")
+shader_parameter/texture_orm = ExtResource("5_oorhm")
+shader_parameter/texture_normal = ExtResource("4_eup7k")
+shader_parameter/normal_scale = 1.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_tshes"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -0.1, 2, 2, 0.2),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAwABAAAAAQAEAAIAAQADAAQAAgAEAAUABAADAAYABAAGAAUABwADAAAAAgAHAAAABgADAAcABQAHAAIABQAGAAcA"),
+"name": "Mesh",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAAAAAAAAAP////8AAAAAAAD//wAAAAD//wAAAAD///////8AAP//AAD//wAA/////wAAAAD//wAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_75gv8"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -0.1, 2, 2, 0.2),
+"attribute_data": PackedByteArray("ZeYAAP///////wAAZeb/////AAAAAP//AAAAAP////8AAAAAmRn//5kZAAAAAP//AAAAAP///////wAAAAD///////8AAGXm//9l5gAA/////wAAAACZGf//mRkAAAAA"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQACAAJAAoACwAJAAgADAANAA4ADwANAAwAEAARABIAEwARABAAFAAVABYAFwAVABQA"),
+"material": SubResource("ShaderMaterial_31oss"),
+"name": "Mesh",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAAAA/z8AAP//////PwAAAAD///8/AAD//wAA/z///wAAAAD//wAA//8AAP//AAAAAAAA////////AAD/////AAD///8//////wAA/z///wAAAAD/P/////////8/AAAAAP///n/////////+f///AAD///5/AAD//////n8AAAAA////////AAAAAP//AAAAAAAA/////wAA//////////////8/AAD//wAA/z//////AAD/PwAA//////8//3////9/////f////3///////3////9/////f////3//fwAA/38AAP9/AAD/fwAA/3////9/////f////3////9//z//f/8//3//P/9//z////9/////f////3////9/")
+}]
+shadow_mesh = SubResource("ArrayMesh_tshes")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_eidof"]
+data = PackedVector3Array(-1, -1, -0.099999994, -1, 1, 0.099999994, -1, -1, 0.099999994, -1, 1, -0.099999994, -1, 1, 0.099999994, -1, -1, -0.099999994, 1, -1, -0.099999994, -1, 1, -0.099999994, -1, -1, -0.099999994, 1, 1, -0.099999994, -1, 1, -0.099999994, 1, -1, -0.099999994, 1, -1, 0.099999994, 1, 1, -0.099999994, 1, -1, -0.099999994, 1, 1, 0.099999994, 1, 1, -0.099999994, 1, -1, 0.099999994, -1, -1, 0.099999994, 1, 1, 0.099999994, 1, -1, 0.099999994, -1, 1, 0.099999994, 1, 1, 0.099999994, -1, -1, 0.099999994, -1, -1, 0.099999994, 1, -1, -0.099999994, -1, -1, -0.099999994, 1, -1, 0.099999994, 1, -1, -0.099999994, -1, -1, 0.099999994, 1, 1, 0.099999994, -1, 1, -0.099999994, 1, 1, -0.099999994, -1, 1, 0.099999994, -1, 1, -0.099999994, 1, 1, 0.099999994)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eidof"]
+render_priority = 0
+shader = ExtResource("2_3bcqs")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/normal_scale = 1.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_1m84d"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -0.1, 2, 2, 0.2),
+"attribute_data": PackedByteArray("ZeYAAP///////wAAZeb/////AAAAAP//AAAAAP////8AAAAAmRn//5kZAAAAAP//AAAAAP///////wAAAAD///////8AAGXm//9l5gAA/////wAAAACZGf//mRkAAAAA"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQACAAJAAoACwAJAAgADAANAA4ADwANAAwAEAARABIAEwARABAAFAAVABYAFwAVABQA"),
+"material": SubResource("ShaderMaterial_eidof"),
+"name": "Mesh",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAAAA/z8AAP//////PwAAAAD///8/AAD//wAA/z///wAAAAD//wAA//8AAP//AAAAAAAA////////AAD/////AAD///8//////wAA/z///wAAAAD/P/////////8/AAAAAP///n/////////+f///AAD///5/AAD//////n8AAAAA////////AAAAAP//AAAAAAAA/////wAA//////////////8/AAD//wAA/z//////AAD/PwAA//////8//3////9/////f////3///////3////9/////f////3//fwAA/38AAP9/AAD/fwAA/3////9/////f////3////9//z//f/8//3//P/9//z////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_tshes")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bifnm"]
+render_priority = 0
+shader = ExtResource("2_3bcqs")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("6_6rou5")
+shader_parameter/texture_orm = ExtResource("8_tj02n")
+shader_parameter/texture_normal = ExtResource("7_dt6eb")
+shader_parameter/normal_scale = 1.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ap2dw"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -0.1, 2, 2, 0.2),
+"attribute_data": PackedByteArray("ZeYAAP///////wAAZeb/////AAAAAP//AAAAAP////8AAAAAmRn//5kZAAAAAP//AAAAAP///////wAAAAD///////8AAGXm//9l5gAA/////wAAAACZGf//mRkAAAAA"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQACAAJAAoACwAJAAgADAANAA4ADwANAAwAEAARABIAEwARABAAFAAVABYAFwAVABQA"),
+"material": SubResource("ShaderMaterial_bifnm"),
+"name": "Mesh",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAAAA/z8AAP//////PwAAAAD///8/AAD//wAA/z///wAAAAD//wAA//8AAP//AAAAAAAA////////AAD/////AAD///8//////wAA/z///wAAAAD/P/////////8/AAAAAP///n/////////+f///AAD///5/AAD//////n8AAAAA////////AAAAAP//AAAAAAAA/////wAA//////////////8/AAD//wAA/z//////AAD/PwAA//////8//3////9/////f////3///////3////9/////f////3//fwAA/38AAP9/AAD/fwAA/3////9/////f////3////9//z//f/8//3//P/9//z////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_tshes")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_urtwg"]
+render_priority = 0
+shader = ExtResource("2_3bcqs")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("9_gff1q")
+shader_parameter/texture_orm = ExtResource("11_quj6t")
+shader_parameter/texture_normal = ExtResource("10_n5jq8")
+shader_parameter/normal_scale = 1.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_nekqp"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -0.1, 2, 2, 0.2),
+"attribute_data": PackedByteArray("ZeYAAP///////wAAZeb/////AAAAAP//AAAAAP////8AAAAAmRn//5kZAAAAAP//AAAAAP///////wAAAAD///////8AAGXm//9l5gAA/////wAAAACZGf//mRkAAAAA"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQACAAJAAoACwAJAAgADAANAA4ADwANAAwAEAARABIAEwARABAAFAAVABYAFwAVABQA"),
+"material": SubResource("ShaderMaterial_urtwg"),
+"name": "Mesh",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAAAA/z8AAP//////PwAAAAD///8/AAD//wAA/z///wAAAAD//wAA//8AAP//AAAAAAAA////////AAD/////AAD///8//////wAA/z///wAAAAD/P/////////8/AAAAAP///n/////////+f///AAD///5/AAD//////n8AAAAA////////AAAAAP//AAAAAAAA/////wAA//////////////8/AAD//wAA/z//////AAD/PwAA//////8//3////9/////f////3///////3////9/////f////3//fwAA/38AAP9/AAD/fwAA/3////9/////f////3////9//z//f/8//3//P/9//z////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_tshes")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ap2dw"]
+size = Vector3(2, 18, 0.2)
+
+[node name="TestAtmosphereRoom" type="Node3D" unique_id=1965163772]
+
+[node name="Triggers" type="Node3D" parent="." unique_id=144713224 node_paths=PackedStringArray("keith", "keith_light")]
+script = ExtResource("1_ssua3")
+keith = NodePath("../Monster")
+keith_light = NodePath("../Monster/RedLight2")
+keith_scare_sfx_path = "uid://bt4jw627jua1r"
+
+[node name="Area3D" type="Area3D" parent="Triggers" unique_id=501044912]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 0)
+collision_layer = 512
+collision_mask = 512
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Triggers/Area3D" unique_id=1868475883]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+shape = SubResource("BoxShape3D_4828v")
+
+[node name="RedLight" type="OmniLight3D" parent="." unique_id=961379258]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 1.6709311, 10)
+light_color = Color(0.99999994, 0.17606175, 0.107509546, 1)
+omni_range = 1.6038629
+omni_attenuation = 2.935
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="RedLight" unique_id=1732657433]
+libraries/ = SubResource("AnimationLibrary_ijayo")
+autoplay = &"flash"
+
+[node name="Walls" type="Node3D" parent="." unique_id=1832502750]
+
+[node name="TestFeel" type="Node3D" parent="Walls" unique_id=34806746]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/TestFeel" unique_id=999008851]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 2, 1, 6)
+mesh = SubResource("ArrayMesh_75gv8")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Walls/TestFeel/MeshInstance3D" unique_id=377213232]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/TestFeel/MeshInstance3D/StaticBody3D" unique_id=881152335]
+shape = SubResource("ConcavePolygonShape3D_eidof")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Walls/TestFeel" unique_id=134566248]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -2, 1, 6)
+mesh = SubResource("ArrayMesh_1m84d")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Walls/TestFeel/MeshInstance3D3" unique_id=1548801532]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/TestFeel/MeshInstance3D3/StaticBody3D" unique_id=36137158]
+shape = SubResource("ConcavePolygonShape3D_eidof")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Walls/TestFeel" unique_id=854149993]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 1, 6)
+mesh = SubResource("ArrayMesh_ap2dw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Walls/TestFeel/MeshInstance3D5" unique_id=1627574857]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/TestFeel/MeshInstance3D5/StaticBody3D" unique_id=197761172]
+shape = SubResource("ConcavePolygonShape3D_eidof")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Walls/TestFeel" unique_id=1778807670]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 3, 6)
+mesh = SubResource("ArrayMesh_1m84d")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="Walls/TestFeel" unique_id=442265096]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2, -0.1, 7)
+mesh = SubResource("ArrayMesh_1m84d")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="Walls/TestFeel" unique_id=1482910692]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, -2, -0.1, 9)
+mesh = SubResource("ArrayMesh_1m84d")
+
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="Walls/TestFeel" unique_id=1349596066]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, -2, -0.1, 11)
+mesh = SubResource("ArrayMesh_1m84d")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Walls/TestFeel" unique_id=232875538]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 3, 6)
+mesh = SubResource("ArrayMesh_75gv8")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Walls/TestFeel" unique_id=1879161511]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2, -0.09961659, 7)
+mesh = SubResource("ArrayMesh_75gv8")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="Walls/TestFeel" unique_id=1677172644]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, 2, -0.1, 9)
+mesh = SubResource("ArrayMesh_75gv8")
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="Walls/TestFeel" unique_id=1746412798]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, 2, -0.1, 11)
+mesh = SubResource("ArrayMesh_75gv8")
+
+[node name="MeshInstance3D16" type="MeshInstance3D" parent="Walls/TestFeel" unique_id=405025510]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, 4, -0.1, 11)
+mesh = SubResource("ArrayMesh_nekqp")
+
+[node name="MeshInstance3D26" type="MeshInstance3D" parent="Walls/TestFeel" unique_id=2098965476]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, -1, -4.3711385e-08, -4.3711392e-08, -4.371139e-08, -4.3711392e-08, 1, 4, 0.9, 10)
+mesh = SubResource("ArrayMesh_nekqp")
+
+[node name="MeshInstance3D27" type="MeshInstance3D" parent="Walls/TestFeel" unique_id=1011748446]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, -1, -4.3711385e-08, -4.3711392e-08, -4.371139e-08, -4.3711392e-08, 1, 6, 0.9, 10)
+mesh = SubResource("ArrayMesh_nekqp")
+
+[node name="MeshInstance3D28" type="MeshInstance3D" parent="Walls/TestFeel" unique_id=1611626281]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, -1, -4.3711385e-08, -4.3711392e-08, -4.371139e-08, -4.3711392e-08, 1, 8, 0.9, 10)
+mesh = SubResource("ArrayMesh_nekqp")
+
+[node name="MeshInstance3D29" type="MeshInstance3D" parent="Walls/TestFeel" unique_id=708646032]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, -1, -4.3711385e-08, -4.3711392e-08, -4.371139e-08, -4.3711392e-08, 1, 10, 0.9, 10)
+mesh = SubResource("ArrayMesh_nekqp")
+
+[node name="MeshInstance3D30" type="MeshInstance3D" parent="Walls/TestFeel" unique_id=1449109244]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, -1, -4.3711385e-08, -4.3711392e-08, -4.371139e-08, -4.3711392e-08, 1, 14, 0.9, 10)
+mesh = SubResource("ArrayMesh_nekqp")
+
+[node name="MeshInstance3D31" type="MeshInstance3D" parent="Walls/TestFeel" unique_id=1370766113]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, -1, -4.3711385e-08, -4.3711392e-08, -4.371139e-08, -4.3711392e-08, 1, 16, 0.9, 10)
+mesh = SubResource("ArrayMesh_nekqp")
+
+[node name="MeshInstance3D32" type="MeshInstance3D" parent="Walls/TestFeel" unique_id=1097188241]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, -1, -4.3711385e-08, -4.3711392e-08, -4.371139e-08, -4.3711392e-08, 1, 18, 0.9, 10)
+mesh = SubResource("ArrayMesh_nekqp")
+
+[node name="MeshInstance3D33" type="MeshInstance3D" parent="Walls/TestFeel" unique_id=1047237820]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, -1, -4.3711385e-08, -4.3711392e-08, -4.371139e-08, -4.3711392e-08, 1, 20, 0.9, 10)
+mesh = SubResource("ArrayMesh_nekqp")
+
+[node name="MeshInstance3D25" type="MeshInstance3D" parent="Walls/TestFeel" unique_id=1860539931]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, -1, -4.3711385e-08, -4.3711392e-08, -4.371139e-08, -4.3711392e-08, 1, 12, 0.9, 10)
+mesh = SubResource("ArrayMesh_nekqp")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Walls/TestFeel/MeshInstance3D25" unique_id=1257359974]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/TestFeel/MeshInstance3D25/StaticBody3D" unique_id=362481105]
+transform = Transform3D(1, -1.642028e-15, 0, -1.642028e-15, 1, 0, 0, 0, 1, 5.9604645e-08, 0.028808594, 0)
+shape = SubResource("BoxShape3D_ap2dw")
+
+[node name="MeshInstance3D34" type="MeshInstance3D" parent="Walls/TestFeel" unique_id=839483167]
+transform = Transform3D(4.371138e-08, -1, 4.371139e-08, -1, -4.3711385e-08, -4.3711392e-08, 4.3711392e-08, -4.3711385e-08, -1, 20, 0.9, 12.000001)
+mesh = SubResource("ArrayMesh_nekqp")
+
+[node name="MeshInstance3D43" type="MeshInstance3D" parent="Walls/TestFeel" unique_id=711446066]
+transform = Transform3D(4.371139e-08, 3.5527137e-15, -1, -1, -4.3711385e-08, -4.3711392e-08, -4.3711385e-08, 1, 0, 21, 0.9, 11.000001)
+mesh = SubResource("ArrayMesh_nekqp")
+
+[node name="MeshInstance3D35" type="MeshInstance3D" parent="Walls/TestFeel" unique_id=1971065837]
+transform = Transform3D(4.371138e-08, -1, 4.371139e-08, -1, -4.3711385e-08, -4.3711392e-08, 4.3711392e-08, -4.3711385e-08, -1, 18, 0.9, 12)
+mesh = SubResource("ArrayMesh_nekqp")
+
+[node name="MeshInstance3D36" type="MeshInstance3D" parent="Walls/TestFeel" unique_id=997682059]
+transform = Transform3D(4.371138e-08, -1, 4.371139e-08, -1, -4.3711385e-08, -4.3711392e-08, 4.3711392e-08, -4.3711385e-08, -1, 16, 0.9, 12)
+mesh = SubResource("ArrayMesh_nekqp")
+
+[node name="MeshInstance3D37" type="MeshInstance3D" parent="Walls/TestFeel" unique_id=2075625998]
+transform = Transform3D(4.371138e-08, -1, 4.371139e-08, -1, -4.3711385e-08, -4.3711392e-08, 4.3711392e-08, -4.3711385e-08, -1, 14, 0.9, 12)
+mesh = SubResource("ArrayMesh_nekqp")
+
+[node name="MeshInstance3D38" type="MeshInstance3D" parent="Walls/TestFeel" unique_id=989468980]
+transform = Transform3D(4.371138e-08, -1, 4.371139e-08, -1, -4.3711385e-08, -4.3711392e-08, 4.3711392e-08, -4.3711385e-08, -1, 10, 0.9, 12)
+mesh = SubResource("ArrayMesh_nekqp")
+
+[node name="MeshInstance3D39" type="MeshInstance3D" parent="Walls/TestFeel" unique_id=1016711709]
+transform = Transform3D(4.371138e-08, -1, 4.371139e-08, -1, -4.3711385e-08, -4.3711392e-08, 4.3711392e-08, -4.3711385e-08, -1, 8, 0.9, 12)
+mesh = SubResource("ArrayMesh_nekqp")
+
+[node name="MeshInstance3D40" type="MeshInstance3D" parent="Walls/TestFeel" unique_id=891460448]
+transform = Transform3D(4.371138e-08, -1, 4.371139e-08, -1, -4.3711385e-08, -4.3711392e-08, 4.3711392e-08, -4.3711385e-08, -1, 6, 0.9, 12)
+mesh = SubResource("ArrayMesh_nekqp")
+
+[node name="MeshInstance3D41" type="MeshInstance3D" parent="Walls/TestFeel" unique_id=1992142439]
+transform = Transform3D(4.371138e-08, -1, 4.371139e-08, -1, -4.3711385e-08, -4.3711392e-08, 4.3711392e-08, -4.3711385e-08, -1, 4, 0.9, 11.999999)
+mesh = SubResource("ArrayMesh_nekqp")
+
+[node name="MeshInstance3D42" type="MeshInstance3D" parent="Walls/TestFeel" unique_id=1146257265]
+transform = Transform3D(4.371138e-08, -1, 4.371139e-08, -1, -4.3711385e-08, -4.3711392e-08, 4.3711392e-08, -4.3711385e-08, -1, 12, 0.9, 12)
+mesh = SubResource("ArrayMesh_nekqp")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Walls/TestFeel/MeshInstance3D42" unique_id=1984690465]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/TestFeel/MeshInstance3D42/StaticBody3D" unique_id=258467353]
+transform = Transform3D(1, -1.642028e-15, 0, -1.642028e-15, 1, 0, 0, 0, 1, 5.9604645e-08, 0.028808594, 0)
+shape = SubResource("BoxShape3D_ap2dw")
+
+[node name="MeshInstance3D17" type="MeshInstance3D" parent="Walls/TestFeel" unique_id=2090513351]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, 6, -0.1, 11)
+mesh = SubResource("ArrayMesh_nekqp")
+
+[node name="MeshInstance3D18" type="MeshInstance3D" parent="Walls/TestFeel" unique_id=116741169]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, 8, -0.1, 11)
+mesh = SubResource("ArrayMesh_nekqp")
+
+[node name="MeshInstance3D19" type="MeshInstance3D" parent="Walls/TestFeel" unique_id=1271922676]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, 10, -0.1, 11)
+mesh = SubResource("ArrayMesh_nekqp")
+
+[node name="MeshInstance3D20" type="MeshInstance3D" parent="Walls/TestFeel" unique_id=328621282]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, 12, -0.1, 11)
+mesh = SubResource("ArrayMesh_nekqp")
+
+[node name="MeshInstance3D21" type="MeshInstance3D" parent="Walls/TestFeel" unique_id=2070434496]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, 14, -0.1, 11)
+mesh = SubResource("ArrayMesh_nekqp")
+
+[node name="MeshInstance3D22" type="MeshInstance3D" parent="Walls/TestFeel" unique_id=1830117520]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, 16, -0.1, 11)
+mesh = SubResource("ArrayMesh_nekqp")
+
+[node name="MeshInstance3D23" type="MeshInstance3D" parent="Walls/TestFeel" unique_id=1528415230]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, 18, -0.1, 11)
+mesh = SubResource("ArrayMesh_nekqp")
+
+[node name="MeshInstance3D24" type="MeshInstance3D" parent="Walls/TestFeel" unique_id=981813619]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, 20, -0.1, 11)
+mesh = SubResource("ArrayMesh_nekqp")
+
+[node name="MeshInstance3D44" type="MeshInstance3D" parent="Walls/TestFeel" unique_id=1338564506]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, 4, 1.9, 11)
+mesh = SubResource("ArrayMesh_nekqp")
+
+[node name="MeshInstance3D45" type="MeshInstance3D" parent="Walls/TestFeel" unique_id=282801677]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, 6, 1.9, 11)
+mesh = SubResource("ArrayMesh_nekqp")
+
+[node name="MeshInstance3D46" type="MeshInstance3D" parent="Walls/TestFeel" unique_id=1459879218]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, 8, 1.9, 11)
+mesh = SubResource("ArrayMesh_nekqp")
+
+[node name="MeshInstance3D47" type="MeshInstance3D" parent="Walls/TestFeel" unique_id=728238422]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, 10, 1.9, 11)
+mesh = SubResource("ArrayMesh_nekqp")
+
+[node name="MeshInstance3D48" type="MeshInstance3D" parent="Walls/TestFeel" unique_id=1908156314]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, 12, 1.9, 11)
+mesh = SubResource("ArrayMesh_nekqp")
+
+[node name="MeshInstance3D49" type="MeshInstance3D" parent="Walls/TestFeel" unique_id=16028570]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, 14, 1.9, 11)
+mesh = SubResource("ArrayMesh_nekqp")
+
+[node name="MeshInstance3D50" type="MeshInstance3D" parent="Walls/TestFeel" unique_id=1744443722]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, 16, 1.9, 11)
+mesh = SubResource("ArrayMesh_nekqp")
+
+[node name="MeshInstance3D51" type="MeshInstance3D" parent="Walls/TestFeel" unique_id=623047636]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, 18, 1.9, 11)
+mesh = SubResource("ArrayMesh_nekqp")
+
+[node name="MeshInstance3D52" type="MeshInstance3D" parent="Walls/TestFeel" unique_id=1824388470]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, 20, 1.9, 11)
+mesh = SubResource("ArrayMesh_nekqp")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Walls/TestFeel" unique_id=479597721]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 6)
+mesh = SubResource("ArrayMesh_ap2dw")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Walls/TestFeel" unique_id=1161628021]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -0.1, 7)
+mesh = SubResource("ArrayMesh_ap2dw")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="Walls/TestFeel" unique_id=1805496042]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, 0, -0.1, 9)
+mesh = SubResource("ArrayMesh_ap2dw")
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="Walls/TestFeel" unique_id=1332566490]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, 0, -0.1, 11)
+mesh = SubResource("ArrayMesh_ap2dw")
+
+[node name="Monster" parent="." unique_id=1082106793 instance=ExtResource("12_p2c4x")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 20, 0.1, 10)
+
+[node name="RedLight2" type="OmniLight3D" parent="Monster" unique_id=58721719]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1.5709311, 0)
+visible = false
+light_color = Color(0.99999994, 0.17606175, 0.107509546, 1)
+omni_range = 1.6038629
+omni_attenuation = 2.935
+
+[node name="Lights" type="Node3D" parent="." unique_id=506254087]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights" unique_id=763104554]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.458057, 7.9680243)
+omni_range = 4.8284636
+
+[connection signal="body_entered" from="Triggers/Area3D" to="Triggers" method="_on_area_3d_body_entered"]

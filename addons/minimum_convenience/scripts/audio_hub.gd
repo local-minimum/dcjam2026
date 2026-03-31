@@ -384,7 +384,8 @@ func _check_oneshot_callbacks(player: AudioStreamPlayer, bus: Bus) -> void:
     _oneshots[player] = []
 
     for callback: Callable in callbacks:
-        callback.call()
+        if is_instance_valid(callback):
+            callback.call()
 
     print_debug("[Audio Hub] Player %s checks for queued in %s if '%s' is false (%s)" % [player.name, _queue, Bus.find_key(bus), is_busy(bus)])
     if !is_busy(bus) && !(_queue.get(bus, []) as Array).is_empty():

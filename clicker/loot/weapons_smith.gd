@@ -3,15 +3,15 @@ class_name WeaponsSmith
 
 var _base_costs: Dictionary[Weapon.Base, int] = {
     Weapon.Base.PLASMA_BATON: 0,
-    Weapon.Base.PLASMA_SWORD: 1,
-    Weapon.Base.LASER_GUN: 3,
-    Weapon.Base.PLASMA_UZI: 5,
-    Weapon.Base.LASER_RIFLE: 10,
+    Weapon.Base.PLASMA_SWORD: 3,
+    Weapon.Base.LASER_GUN: 6,
+    Weapon.Base.PLASMA_UZI: 9,
+    Weapon.Base.LASER_RIFLE: 12,
     Weapon.Base.RAIL_GUN: 20,
 }
 
 var _material_costs: Dictionary[Weapon.Mat, int] = {
-    Weapon.Mat.CARDBOARD: -5,
+    Weapon.Mat.CARDBOARD: -3,
     Weapon.Mat.PLASTIC: -1,
     Weapon.Mat.BRASS: 1,
     Weapon.Mat.ALUMINUM: 5,
@@ -19,7 +19,7 @@ var _material_costs: Dictionary[Weapon.Mat, int] = {
 }
 
 var _quality_costs: Dictionary[Weapon.Quality, int] = {
-    Weapon.Quality.POOR: -5,
+    Weapon.Quality.POOR: -3,
     Weapon.Quality.ORDINARY: 0,
     Weapon.Quality.FANCY: 15,
     Weapon.Quality.CHAOTIC: 10,

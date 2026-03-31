@@ -67,7 +67,6 @@ func _ready() -> void:
         )
 
     else:
-        __GlobalGameState.reset_day_progress()
 
         if __GlobalGameState.has_disposed_completed:
             __AudioHub.play_dialogue(

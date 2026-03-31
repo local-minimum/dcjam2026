@@ -31,5 +31,6 @@ signal on_gain_quest(quest_id: String)
 signal on_progress_quest(quest_id: String, step: int)
 
 signal on_ready_horror()
+signal on_transition_to_horror()
 signal on_horror_loaded()
 @warning_ignore_restore("unused_signal")

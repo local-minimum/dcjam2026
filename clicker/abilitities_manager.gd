@@ -115,11 +115,27 @@ func _matching_gear_mat(ability: ClickerAbilityData, mat: Gear.Mat) -> bool:
     push_warning("Unhandled mat %s" % [Gear.Mat.find_key(mat)])
     return false
 
+@export_category("Specials")
+@export var _ab_click_hard: ClickerAbilityData
+@export var _clicker_button_scene: PackedScene
+@export var _ready_special_after_abilities: int = 25
+@export var _free_abilities_towards_special_on_later_day: int = 10
+@export var _ready_special_after_steps: int = 200
+@export var _free_steps_towards_special_on_later_day: int = 100
+
+var _special_ready: bool
+var _abilities_learnt: int
+var _steps: int
+
 func _enter_tree() -> void:
     if __SignalBus.on_change_weapon.connect(_handle_change_weapon) != OK:
         push_error("Failed to connect change weapon")
     if __SignalBus.on_change_gear.connect(_handle_change_gear) != OK:
         push_error("Failed to connect change gear")
+    if __SignalBus.on_change_ability_level.connect(_handle_change_ability_level) != OK:
+        push_error("Failed to connect change abilities")
+    if __SignalBus.on_physics_player_arrive_tile.connect(_handle_arrive_at_tile) != OK:
+        push_error("Failed to connect arrive tile")
 
 func _ready() -> void:
     for idx: int in get_child_count():
@@ -130,8 +146,30 @@ func _ready() -> void:
     if __GlobalGameState.weapon != null:
         _handle_change_weapon(__GlobalGameState.weapon)
 
+    if __GlobalGameState.replay > 0:
+        _abilities_learnt = _free_abilities_towards_special_on_later_day
+        _steps = _free_steps_towards_special_on_later_day
+
     _handle_change_gear()
 
+func _handle_arrive_at_tile(_player: PhysicsGridPlayerController, _coords: Vector3i) -> void:
+    _steps += 1
+    print_debug("Specials %s / %s %s" % [_steps, _ready_special_after_steps, _special_ready])
+    if !_special_ready && _steps >= _ready_special_after_steps:
+        _ready_special()
+
+func _handle_change_ability_level(_ability: String, _lvl: int) -> void:
+    _abilities_learnt += 1
+    if !_special_ready && _abilities_learnt >= _ready_special_after_abilities:
+        _ready_special()
+
+func _ready_special() -> void:
+    _special_ready = true
+    var btn: ClickerAbilityButton = _clicker_button_scene.instantiate()
+    btn.ability = _ab_click_hard
+    _abilities.append(btn)
+    add_child(btn)
+    btn.sync_all()
 
 func _handle_change_weapon(weapon: Weapon) -> void:
     for ability: ClickerAbilityButton in _abilities:

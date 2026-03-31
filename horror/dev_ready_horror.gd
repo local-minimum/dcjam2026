@@ -13,3 +13,4 @@ func execute(parameters: String, console: MinimumDevConsole) -> bool:
 func _delay_ready() -> void:
     await get_tree().create_timer(0.5).timeout
     __SignalBus.on_ready_horror.emit()
+    __SignalBus.on_transition_to_horror.emit()

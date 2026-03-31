@@ -6,6 +6,8 @@ extends TextureRect
 @export var _error_scene: PackedScene
 @export var _before_transition: float = 1.0
 @export var _transition_duration: float = 2.0
+@export var _transition_prep_animator: AnimationPlayer
+@export var _transition_animation: String
 
 @export_file_path("*.tscn") var _horror_dungeon_scene: String
 @export_file_path("*.tscn") var _horror_panel_scene: String
@@ -18,32 +20,41 @@ var _player: PhysicsGridPlayerController
 func _enter_tree() -> void:
     if __SignalBus.on_ready_horror.connect(_handle_ready_horror) != OK:
         push_error()
+    if __SignalBus.on_transition_to_horror.connect(_handle_transition_to_horror) != OK:
+        push_error()
 
 func _ready() -> void:
     hide()
 
+var _may_transition: bool
+
+func _handle_transition_to_horror() -> void:
+    _may_transition = true
+
 func _handle_ready_horror() -> void:
+    _may_transition = false
     _player = PhysicsGridPlayerController.last_connected_player
     _player.add_cinematic_blocker(self)
 
     _waiting_for_resting_player = true
 
     if _player.grid_entity.is_stationary:
-        _start_transition()
+        _ready_transition()
 
     set_process(true)
 
-enum Phase { WAITING, ERROR, LOAD_DUNGEON, LOAD_PANEL, COMPLETE_LOAD }
+enum Phase { WAITING, ERROR, LOAD_DUNGEON, LOAD_PANEL, WAITING_TO_FINALIZE, DONE }
 
 var phase: Phase = Phase.WAITING
 
-func _start_transition() -> void:
+func _ready_transition() -> void:
     _waiting_for_resting_player = false
 
     _player_coords = _player.dungeon.get_closest_coordinates(_player.global_position)
     _player_orientation = _player.global_basis.get_rotation_quaternion()
 
     _snapshot()
+    _transition_prep_animator.play(_transition_animation)
     show()
     _unload_conent()
     _load_horror_dungeon()
@@ -100,7 +111,7 @@ func _setup_dungeon(dungeon: Dungeon) -> void:
 func _process(_delta: float) -> void:
     if _waiting_for_resting_player:
         if _player.grid_entity.is_stationary:
-            _start_transition()
+            _ready_transition()
         return
 
     match phase:
@@ -122,12 +133,18 @@ func _process(_delta: float) -> void:
                 var panel: Control = packed_scene.instantiate()
                 if panel != null:
                     _split_container.add_child(panel)
-                    set_process(false)
-                    _finalize()
+                    if _may_transition:
+                        _finalize()
+                    else:
+                        phase = Phase.WAITING_TO_FINALIZE
                 else:
                     push_error("Horror panel '%s' isn't a control!" % [_horror_panel_scene])
                     _panic()
                     return
+
+        Phase.WAITING_TO_FINALIZE:
+            if _may_transition:
+                _finalize()
 
         Phase.ERROR:
             set_process(false)
@@ -145,6 +162,9 @@ func _panic() -> void:
     get_tree().quit(100)
 
 func _finalize() -> void:
+    phase = Phase.DONE
+    set_process(false)
+
     await get_tree().create_timer(_before_transition).timeout
 
 

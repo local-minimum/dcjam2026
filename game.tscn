@@ -5,9 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b0e0rvd3dfopu" path="res://clicker/xp/xp_button.tscn" id="3_fc0e3"]
 [ext_resource type="Texture2D" uid="uid://cwnthnv701tbf" path="res://clicker/secret_panel.png" id="3_feb5d"]
 [ext_resource type="PackedScene" uid="uid://ctchufnwaro7b" path="res://clicker/clicker_ability_button.tscn" id="4_7jktm"]
-[ext_resource type="Script" uid="uid://bt1vi716f5csr" path="res://clicker/clicker_ability_data.gd" id="6_eow3j"]
 [ext_resource type="Texture2D" uid="uid://bj23l1l07x67h" path="res://clicker/health/player_health_bg.png" id="6_hb5m1"]
-[ext_resource type="Texture2D" uid="uid://d08irex16meun" path="res://clicker/clicker_ability_icon_brian.png" id="6_hve3p"]
 [ext_resource type="Texture2D" uid="uid://ca2yywbtyo5uv" path="res://clicker/battle/enemy_unknown.png" id="7_87ddb"]
 [ext_resource type="Resource" uid="uid://c208p6knl8gu2" path="res://clicker/abilities/mental_smarts.tres" id="7_iotsf"]
 [ext_resource type="Texture2D" uid="uid://3g7a1qgy4jjc" path="res://clicker/health/player_health_fg.png" id="7_x5p1p"]
@@ -56,8 +54,10 @@
 [ext_resource type="Resource" uid="uid://by3yrux0h1xja" path="res://clicker/abilities/appearance_basic.tres" id="46_tb2lt"]
 [ext_resource type="Resource" uid="uid://dcvaghfxwvsib" path="res://clicker/abilities/appearance_fancy.tres" id="47_cfc7e"]
 [ext_resource type="Resource" uid="uid://cuhujnow1lh1p" path="res://clicker/abilities/appearance_royal.tres" id="48_gh0px"]
+[ext_resource type="Resource" uid="uid://d3js5rmf1rpk" path="res://clicker/abilities/click_hard.tres" id="49_6qn5j"]
 [ext_resource type="Resource" uid="uid://de5e7merv8tqt" path="res://clicker/abilities/appearance_impossible.tres" id="49_v33yl"]
 [ext_resource type="Resource" uid="uid://biiceahtxp57d" path="res://clicker/abilities/appearance_cardboard.tres" id="50_3gvs5"]
+[ext_resource type="Resource" uid="uid://fuk8h78kio6" path="res://clicker/abilities/mental.tres" id="50_xoeau"]
 [ext_resource type="Resource" uid="uid://df7cvo3up8mlt" path="res://clicker/abilities/appearance_plastic.tres" id="51_mc3al"]
 [ext_resource type="Resource" uid="uid://br813yeror8bu" path="res://clicker/abilities/appearance_brass.tres" id="52_bqa6y"]
 [ext_resource type="Resource" uid="uid://41360xnp21fo" path="res://clicker/abilities/appearance_aluminum.tres" id="53_du4n2"]
@@ -70,6 +70,7 @@
 [ext_resource type="Script" uid="uid://dvcajf5fcrlk7" path="res://clicker/dev_console_free_from_intro.gd" id="66_6qn5j"]
 [ext_resource type="Shader" uid="uid://cutdt6mffm4do" path="res://horror/dissolve.gdshader" id="66_avmo2"]
 [ext_resource type="Script" uid="uid://c40ulppy5imka" path="res://clicker/clicker_dialogue_manager.gd" id="68_vyqle"]
+[ext_resource type="FontFile" uid="uid://cm51agl5qwtdc" path="res://fonts/husky-stash/HUSKYSTA.TTF" id="70_wj41c"]
 
 [sub_resource type="Theme" id="Theme_4scmg"]
 HSplitContainer/constants/minimum_grab_thickness = 0
@@ -85,17 +86,76 @@ font_size = 42
 font_color = Color(0.8328191, 0.0005648625, 0.83658105, 1)
 outline_size = 7
 
-[sub_resource type="Resource" id="Resource_j5wjh"]
-script = ExtResource("6_eow3j")
-id = "mental"
-icon = ExtResource("6_hve3p")
-title = "Mental Gymnastics"
-descriptions = Array[String](["Improves XP uptake"])
-metadata/_custom_type_script = "uid://bt1vi716f5csr"
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vyqle"]
 shader = ExtResource("66_avmo2")
 shader_parameter/intensity = 0.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_baljx"]
+font = ExtResource("70_wj41c")
+font_size = 144
+font_color = Color(0.9589763, 0.00083805266, 0.9717123, 1)
+outline_size = 2
+outline_color = Color(0.024271233, 0.23344386, 0.023166992, 1)
+
+[sub_resource type="Animation" id="Animation_wj41c"]
+resource_name = "Lost"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Connection Lost Label:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Connection Lost Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.29, 0.4501961, 0.7916632, 0.93333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 0.7882353), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_baljx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Connection Lost Label:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Connection Lost Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t2ssd"]
+_data = {
+&"Lost": SubResource("Animation_wj41c"),
+&"RESET": SubResource("Animation_baljx")
+}
 
 [node name="Control" type="Control" unique_id=1242508304]
 layout_mode = 3
@@ -388,10 +448,12 @@ _ab_g_plastic = ExtResource("51_mc3al")
 _ab_g_brass = ExtResource("52_bqa6y")
 _ab_g_aluminum = ExtResource("53_du4n2")
 _ab_g_obsidian = ExtResource("45_mc3al")
+_ab_click_hard = ExtResource("49_6qn5j")
+_clicker_button_scene = ExtResource("4_7jktm")
 
 [node name="Mental" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=324514739 instance=ExtResource("4_7jktm")]
 layout_mode = 2
-ability = SubResource("Resource_j5wjh")
+ability = ExtResource("50_xoeau")
 
 [node name="Mental Smarts" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=466467596 instance=ExtResource("4_7jktm")]
 layout_mode = 2
@@ -589,7 +651,7 @@ clicker_soft_volumes = Array[float]([1.0, 0.0, 0.0])
 clicker_medium_volumes = Array[float]([1.0, 1.0, 0.0])
 clicker_intense_volumes = Array[float]([1.0, 1.0, 1.0])
 
-[node name="Break Through Screen Grab Target" type="TextureRect" parent="." unique_id=1884846982 node_paths=PackedStringArray("_split_container", "_subviewport", "_unloading_nodes")]
+[node name="Break Through Screen Grab Target" type="TextureRect" parent="." unique_id=1884846982 node_paths=PackedStringArray("_split_container", "_subviewport", "_unloading_nodes", "_transition_prep_animator")]
 material = SubResource("ShaderMaterial_vyqle")
 layout_mode = 1
 anchors_preset = 15
@@ -604,8 +666,31 @@ _split_container = NodePath("../HSplitContainer")
 _subviewport = NodePath("../HSplitContainer/Viewport Side/SubViewportContainer/SubViewport")
 _unloading_nodes = [NodePath("../HSplitContainer/Viewport Side/SubViewportContainer/SubViewport/Dungeon"), NodePath("../HSplitContainer/Viewport Side/Battle UI"), NodePath("../HSplitContainer/Viewport Side/Player Health UI"), NodePath("../HSplitContainer/Viewport Side/BattleTextsSpawner"), NodePath("../HSplitContainer/Sidebar"), NodePath("../ClickerXPRules"), NodePath("../Loot And Inventory"), NodePath("../DevConsole/Loot Command"), NodePath("../DevConsole/Gain XP Command"), NodePath("../DevConsole/Ready Horror Command"), NodePath("../Clicker Dialogue Manager"), NodePath("../HSplitContainer/Viewport Side/Quest UI"), NodePath("../DevConsole/Free From Intro Command")]
 _transition_duration = 1.0
+_transition_prep_animator = NodePath("AnimationPlayer")
+_transition_animation = "Lost"
 _horror_dungeon_scene = "res://horror/horror_dungeon.tscn"
 _horror_panel_scene = "res://horror/horror_sidebar.tscn"
+
+[node name="Connection Lost Label" type="Label" parent="Break Through Screen Grab Target" unique_id=490660960]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -582.0
+offset_top = -70.0
+offset_right = 582.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "CONNECTION    LOST"
+label_settings = SubResource("LabelSettings_baljx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Break Through Screen Grab Target" unique_id=212859148]
+libraries/ = SubResource("AnimationLibrary_t2ssd")
+next/Lost = &"Lost"
 
 [node name="Clicker Dialogue Manager" type="Node" parent="." unique_id=1047932264]
 script = ExtResource("68_vyqle")
@@ -629,3 +714,5 @@ _third_dragon = "res://clicker/dialogue/dragon_3.mp3"
 _fourth_dragon = "res://clicker/dialogue/dragon_4.mp3"
 _dispose_quest = "res://clicker/dialogue/gain_dispose_quest.mp3"
 _complete_dispose_quest = "res://clicker/dialogue/complete_dispose_quest.mp3"
+_signal_lost = "res://clicker/dialogue/click_hard.mp3"
+_click_hard_ability = ExtResource("49_6qn5j")

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ClickerAbilityData" format=3 uid="uid://fuk8h78kio6"]
+
+[ext_resource type="Texture2D" uid="uid://d08irex16meun" path="res://clicker/clicker_ability_icon_brian.png" id="1_34lfx"]
+[ext_resource type="Script" uid="uid://bt1vi716f5csr" path="res://clicker/clicker_ability_data.gd" id="2_lxsl0"]
+
+[resource]
+script = ExtResource("2_lxsl0")
+id = "mental"
+icon = ExtResource("1_34lfx")
+title = "Mental Gymnastics"
+descriptions = Array[String](["Improves XP uptake"])
+metadata/_custom_type_script = "uid://bt1vi716f5csr"

@@ -25,6 +25,9 @@ class_name ClickerDialogueManager
 @export_file_path("*.mp3") var _dispose_quest: String
 @export_file_path("*.mp3") var _complete_dispose_quest: String
 
+@export_file_path("*.mp3") var _signal_lost: String
+
+@export var _click_hard_ability: ClickerAbilityData
 
 @export var _delay_first_dialogue: float = 1.0
 @export var _refuse_after_wait: float = 10.0
@@ -32,6 +35,7 @@ class_name ClickerDialogueManager
 @export var _steps_until_dragon_quest: int = 40
 @export var _steps_until_dispose_quest: int = 20
 @export var _delay_before_reset: float = 0.5
+@export var _delay_before_signal_loss: float = 10.0
 
 func _enter_tree() -> void:
     if __SignalBus.on_change_xp.connect(_change_xp) != OK:
@@ -50,6 +54,8 @@ func _enter_tree() -> void:
         push_error("Failed to connect arrive tile")
     if __SignalBus.on_progress_quest.connect(_handle_progress_quest) != OK:
         push_error("Failed to connect progress quest")
+    if __SignalBus.on_change_ability_level.connect(_handle_change_ability_level) != OK:
+        push_error("Failed to connect change ability level")
 
 
 var _player: PhysicsGridPlayerController
@@ -86,6 +92,28 @@ func _ready() -> void:
 
         await get_tree().create_timer(5.0).timeout
         __SignalBus.on_gain_bonus_autoclickers.emit(2)
+
+var _started_click_through: bool
+
+func _handle_change_ability_level(ability_id: String, lvl: int) -> void:
+    if !_started_click_through && _click_hard_ability != null && ability_id == _click_hard_ability.id && lvl > 0:
+        _started_click_through = true
+
+        await get_tree().create_timer(_delay_before_signal_loss).timeout
+
+        var player: PhysicsGridPlayerController = PhysicsGridPlayerController.last_connected_player
+        player.add_cinematic_blocker(self)
+
+        __SignalBus.on_ready_horror.emit()
+
+        __AudioHub.play_dialogue(
+            _signal_lost,
+            func () -> void:
+                __SignalBus.on_transition_to_horror.emit(),
+            false,
+            true,
+        )
+        print_debug("Clicking through!")
 
 var _steps: int
 var _dragons: int

@@ -36,20 +36,40 @@ var dialogue_busy: bool:
 var _music_available: Array[AudioStreamPlayer]
 var _music_running: Array[AudioStreamPlayer]
 
+var _default_bus_volumes: Dictionary[Bus, float]
+
 func _ready() -> void:
     @warning_ignore_start("return_value_discarded")
+    _default_bus_volumes[Bus.SFX] = AudioServer.get_bus_volume_linear(
+        AudioServer.get_bus_index(_bus_name(Bus.SFX)),
+    )
+
     for _i: int in range(_config.sfx_players):
         _create_player(Bus.SFX, _sfx_available)
     print_debug("[Audio Hub] %s SFX players added to %s" % [_config.sfx_players, _sfx_available])
 
+    _default_bus_volumes[Bus.DIALGUE] = AudioServer.get_bus_volume_linear(
+        AudioServer.get_bus_index(_bus_name(Bus.DIALGUE)),
+    )
     for _i: int in range(_config.dialogue_players):
         _create_player(Bus.DIALGUE, _dialogue_available, _dialogue_running, true)
     print_debug("[Audio Hub] %s dialogue players added to %s" % [_config.dialogue_players, _dialogue_available])
 
+    _default_bus_volumes[Bus.MUSIC] = AudioServer.get_bus_volume_linear(
+        AudioServer.get_bus_index(_bus_name(Bus.MUSIC)),
+    )
     for _i: int in range(_config.music_players):
         _create_player(Bus.MUSIC, _music_available, _music_running)
     print_debug("[Audio Hub] %s music player added to %s" % [_config.music_players, _music_available])
     @warning_ignore_restore("return_value_discarded")
+
+func mute_bus(bus: Bus) -> void:
+    var bus_idx: int = AudioServer.get_bus_index(_bus_name(bus))
+    AudioServer.set_bus_volume_linear(bus_idx, 0.0)
+
+func unmute_bus(bus: Bus) -> void:
+    var bus_idx: int = AudioServer.get_bus_index(_bus_name(bus))
+    AudioServer.set_bus_volume_linear(bus_idx, _default_bus_volumes.get(bus, 1.0))
 
 func is_busy(bus: Bus) -> bool:
     if bus == Bus.DIALGUE:

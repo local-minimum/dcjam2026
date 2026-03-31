@@ -236,7 +236,7 @@ player_stats_color = Color(1, 0, 0, 0.7607843)
 enemy_stats_color = Color(0, 0, 0.5019608, 0.8156863)
 end_color = Color(0.45882353, 0.45882353, 0.45882353, 0.29411766)
 
-[node name="Quest UI" type="VBoxContainer" parent="HSplitContainer/Viewport Side" unique_id=717770510 node_paths=PackedStringArray("dragon_quest_v1", "dragon_quest_v2")]
+[node name="Quest UI" type="VBoxContainer" parent="HSplitContainer/Viewport Side" unique_id=717770510 node_paths=PackedStringArray("dragon_quest_v1", "dragon_quest_v2", "dispose_quest")]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 0
 offset_left = 20.0
@@ -247,6 +247,7 @@ mouse_filter = 2
 script = ExtResource("15_xoeau")
 dragon_quest_v1 = NodePath("Dragon Quest")
 dragon_quest_v2 = NodePath("Dragon Quest V2")
+dispose_quest = NodePath("Dispose Quest")
 
 [node name="Dragon Quest" type="Label" parent="HSplitContainer/Viewport Side/Quest UI" unique_id=1126309021]
 layout_mode = 2
@@ -256,6 +257,11 @@ label_settings = SubResource("LabelSettings_6qn5j")
 [node name="Dragon Quest V2" type="Label" parent="HSplitContainer/Viewport Side/Quest UI" unique_id=1848853075]
 layout_mode = 2
 text = "1 / 4 Dragons"
+label_settings = SubResource("LabelSettings_6qn5j")
+
+[node name="Dispose Quest" type="Label" parent="HSplitContainer/Viewport Side/Quest UI" unique_id=476044289]
+layout_mode = 2
+text = "Dispose of Dragons"
 label_settings = SubResource("LabelSettings_6qn5j")
 
 [node name="Sidebar" type="ColorRect" parent="HSplitContainer" unique_id=1457495423]
@@ -596,11 +602,23 @@ _horror_panel_scene = "res://horror/horror_sidebar.tscn"
 
 [node name="Clicker Dialogue Manager" type="Node" parent="." unique_id=1047932264]
 script = ExtResource("68_vyqle")
-_first_view_path = "res://clicker/dialogue/first_impression.mp3"
+_awake = "res://clicker/dialogue/first_impression.mp3"
+_repeat_awake = "res://clicker/dialogue/second_awake.mp3"
+_awake_after_dispose = "res://clicker/dialogue/awake_after_dispose.mp3"
+_first_death = "res://clicker/dialogue/death_1.mp3"
+_repeat_death = "res://clicker/dialogue/death_2.mp3"
 _refuse_clicking = "res://clicker/dialogue/stubborn.mp3"
 _bored = "res://clicker/dialogue/bored.mp3"
 _fight = "res://clicker/dialogue/battle.mp3"
+_new_day_first_fight = "res://clicker/dialogue/battle_new_day.mp3"
 _healing = "res://clicker/dialogue/healing.mp3"
 _reheal_fail = "res://clicker/dialogue/rehealing.mp3"
 _gain_quest = "res://clicker/dialogue/dragons.mp3"
 _first_dragon = "res://clicker/dialogue/first_dragon.mp3"
+_first_dragon_without_quest = "res://clicker/dialogue/first_dragon_no_quest.mp3"
+_first_dragon_repeat = "res://clicker/dialogue/first_dragon_second_try.mp3"
+_second_dragon = "res://clicker/dialogue/dragon_2.mp3"
+_third_dragon = "res://clicker/dialogue/dragon_3.mp3"
+_fourth_dragon = "res://clicker/dialogue/dragon_4.mp3"
+_dispose_quest = "res://clicker/dialogue/gain_dispose_quest.mp3"
+_complete_dispose_quest = "res://clicker/dialogue/complete_dispose_quest.mp3"

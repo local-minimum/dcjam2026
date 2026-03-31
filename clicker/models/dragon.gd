@@ -4,6 +4,8 @@ class_name Dragon
 @export var focus_time: float = 10.0
 
 const DRAGONS_QUEST_ID: String = "dragons"
+const DISPOSE_QUEST_ID: String = "dispose-dragons"
+
 static var _dragons_found: int = 0
 
 var consumed: bool

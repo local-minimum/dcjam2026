@@ -33,7 +33,9 @@ var intercatable: bool:
             !weapon_blocked &&
             !gear_blocked &&
             _ability_level < ability.levels &&
-            _current_cost <= __GlobalGameState.xp
+            _current_cost <= __GlobalGameState.xp &&
+            !PhysicsGridPlayerController.last_connected_player_cinematic &&
+            __GlobalGameState.health > 0.0
         )
 
 var _ability_level: int = 0

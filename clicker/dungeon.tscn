@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bui680ugvj0rj" path="res://clicker/enemy.tscn" id="4_yrdjv"]
 [ext_resource type="PackedScene" uid="uid://b8ce50tuokndq" path="res://clicker/models/wall.blend" id="5_w13no"]
 [ext_resource type="PackedScene" uid="uid://df4j8gscil84h" path="res://clicker/models/wall_corner.blend" id="6_qsdn1"]
+[ext_resource type="PackedScene" uid="uid://1u7yq3idj1i" path="res://clicker/models/shredder.tscn" id="7_qmmos"]
 [ext_resource type="PackedScene" uid="uid://b3vfstytefmpx" path="res://clicker/models/dragon.blend" id="8_jorcj"]
 [ext_resource type="PackedScene" uid="uid://cruxk6l5jm7l1" path="res://clicker/models/wall_portal.blend" id="8_qsdn1"]
 [ext_resource type="Script" uid="uid://dombw6pswxxfq" path="res://clicker/models/dragon.gd" id="9_l3xlb"]
@@ -64,6 +65,11 @@ surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
 
 [node name="Floor5" type="MeshInstance3D" parent="Walls And Floors/Foyaer" unique_id=1921313422]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.5, 0, 0)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor28" type="MeshInstance3D" parent="Walls And Floors/Foyaer" unique_id=1950675129]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.5, 0, 2.5)
 mesh = SubResource("QuadMesh_sufut")
 surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
 
@@ -186,6 +192,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 1.25)
 [node name="wall15" parent="Walls And Floors/Foyaer" unique_id=655483420 instance=ExtResource("5_w13no")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 1.25)
 
+[node name="wall19" parent="Walls And Floors/Foyaer" unique_id=731055394 instance=ExtResource("5_w13no")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 3.75)
+
 [node name="wall16" parent="Walls And Floors/Foyaer" unique_id=1345537991 instance=ExtResource("5_w13no")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.25)
 
@@ -240,6 +249,12 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 8.75
 [node name="wall_corner5" parent="Walls And Floors/Foyaer" unique_id=1765366823 instance=ExtResource("6_qsdn1")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.75, 0, 0)
 
+[node name="wall_corner11" parent="Walls And Floors/Foyaer" unique_id=2073332998 instance=ExtResource("6_qsdn1")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.75, 0, 2.5)
+
+[node name="wall_corner12" parent="Walls And Floors/Foyaer" unique_id=2117564961 instance=ExtResource("6_qsdn1")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.25, 0, 2.5)
+
 [node name="wall_corner7" parent="Walls And Floors/Foyaer" unique_id=1924851658 instance=ExtResource("6_qsdn1")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.75, 0, -7.5)
 
@@ -260,6 +275,9 @@ transform = Transform3D(-1, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -1, -5, 
 
 [node name="wall_corner3" parent="Walls And Floors/Foyaer" unique_id=161458740 instance=ExtResource("6_qsdn1")]
 transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 8.75, 0, -7.5)
+
+[node name="Shredder" parent="Walls And Floors/Foyaer" unique_id=1014609165 instance=ExtResource("7_qmmos")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 2.5, 0, 2.875)
 
 [node name="Library" type="Node3D" parent="Walls And Floors" unique_id=267323684]
 

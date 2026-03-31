@@ -15,17 +15,34 @@ func _enter_tree() -> void:
 func _ready() -> void:
     if __GlobalGameState.weapon == null:
         if _weapons_smith != null:
-            __GlobalGameState.weapon = _weapons_smith.create_weapon(_start_weapon_value)
+            __GlobalGameState.weapon = _weapons_smith.create_weapon(
+                _start_weapon_value if __GlobalGameState.replay == 0 else 2 * _start_weapon_value
+            )
+            print_debug("Creating start weapon %s" % [__GlobalGameState.weapon])
         else:
-            print_debug("Creating start weapon without smith")
-            __GlobalGameState.weapon = Weapon.new(Weapon.Quality.POOR, Weapon.Mat.BRASS, Weapon.Base.PLASMA_BATON)
+            __GlobalGameState.weapon = Weapon.new(
+                Weapon.Quality.POOR,
+                Weapon.Mat.BRASS,
+                Weapon.Base.PLASMA_BATON,
+            ) if __GlobalGameState.replay == 0 else Weapon.new(
+                Weapon.Quality.ORDINARY,
+                Weapon.Mat.PLASTIC,
+                Weapon.Base.PLASMA_SWORD,
+            )
+            print_debug("Creating start weapon without smith %s" % [__GlobalGameState.weapon])
 
     if __GlobalGameState.is_naked():
         if _gear_smith != null:
-            __GlobalGameState.set_gear(_gear_smith.create_gear(_start_gear_value))
+            __GlobalGameState.set_gear(_gear_smith.create_gear(
+                _start_gear_value if __GlobalGameState.replay == 0 else 3 * _start_gear_value
+            ))
         else:
             print_debug("Creating start gear without smith")
-            __GlobalGameState.set_gear(Gear.new(Gear.Quality.SOILED, Gear.Mat.PLASTIC, Gear.Base.LOWER_BODY))
+            __GlobalGameState.set_gear(
+                Gear.new(Gear.Quality.SOILED, Gear.Mat.PLASTIC, Gear.Base.LOWER_BODY)
+                if __GlobalGameState.replay == 0 else
+                Gear.new(Gear.Quality.BASIC, Gear.Mat.CARDBOARD, Gear.Base.UPPER_BODY)
+            )
 
     hide()
 

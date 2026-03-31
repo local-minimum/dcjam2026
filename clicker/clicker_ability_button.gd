@@ -55,7 +55,8 @@ func _enter_tree() -> void:
     if __SignalBus.on_change_xp.connect(_handle_change_xp) != OK:
         push_error("Failed to connect change xp")
 
-    _locked_requirements = Array(ability.requirement_ids if ability != null else [])
+    _locked_requirements.clear()
+    _locked_requirements.append_array(ability.requirement_ids if ability != null else [])
 
 func _ready() -> void:
     sync_all()

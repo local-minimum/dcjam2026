@@ -67,7 +67,6 @@ func _ready() -> void:
         )
 
     else:
-        __GlobalGameState.reset_day_progress()
 
         if __GlobalGameState.has_disposed_completed:
             __AudioHub.play_dialogue(
@@ -84,6 +83,9 @@ func _ready() -> void:
                 true,
                 _delay_first_dialogue,
             )
+
+        await get_tree().create_timer(5.0).timeout
+        __SignalBus.on_gain_bonus_autoclickers.emit(2)
 
 var _steps: int
 var _dragons: int
@@ -162,7 +164,6 @@ func _time_refusal() -> void:
     _player.remove_cinematic_blocker(self)
     await get_tree().create_timer(_refuse_after_wait).timeout
     if !_has_gained_xp:
-        _player.remove_cinematic_blocker(self)
         __AudioHub.play_dialogue(
             _refuse_clicking,
             null,

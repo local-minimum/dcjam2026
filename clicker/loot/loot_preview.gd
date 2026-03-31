@@ -70,8 +70,10 @@ func _on_gui_input(event: InputEvent) -> void:
 
 func quick_equip() -> void:
     if _weapon != null:
+        print_debug("Quick equipping weapon %s" % [_weapon])
         __GlobalGameState.weapon = _weapon
     if _gear != null:
+        print_debug("Quick equipping gear %s" % [_gear])
         __GlobalGameState.set_gear(_gear)
 
     hide()

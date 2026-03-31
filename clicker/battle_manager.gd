@@ -91,6 +91,11 @@ func _handle_player_death(phase: int) -> void:
         set_process(false)
 
 func _handle_change_weapon(weapon: Weapon) -> void:
+    if weapon == null:
+        push_warning("Unequipping weapon")
+        _player_next_attack_msec = Time.get_ticks_msec() + 1000
+        return
+
     _player_next_attack_msec = Time.get_ticks_msec() + roundi(weapon.cooldown() * 1000)
 
 func _handle_change_ability_level(ability_id: String, lvl: int) -> void:
@@ -98,7 +103,7 @@ func _handle_change_ability_level(ability_id: String, lvl: int) -> void:
         return
 
     var health_deficit: float = minf(0.0, __GlobalGameState.health - __GlobalGameState.max_health)
-    print_debug("Deficit %s (%s/%s)" % [health_deficit, __GlobalGameState.health, __GlobalGameState.max_health])
+    print_debug("Health Deficit %s (%s/%s)" % [health_deficit, __GlobalGameState.health, __GlobalGameState.max_health])
     match lvl:
         -1,0:
             __GlobalGameState.max_health = 20.
@@ -114,6 +119,8 @@ func _handle_change_ability_level(ability_id: String, lvl: int) -> void:
             __GlobalGameState.max_health = 300.
 
     __GlobalGameState.health = __GlobalGameState.max_health + health_deficit
+
+    print_debug("New health is %s / %s" % [__GlobalGameState.health, __GlobalGameState.max_health])
 
     __SignalBus.on_player_max_health_changed.emit()
 
@@ -201,7 +208,10 @@ func _calc_base_defence(all_gear: Array[Gear]) -> int:
 
 func _process(_delta: float) -> void:
     if Time.get_ticks_msec() >= _player_next_attack_msec:
-        var dmg: int = __GlobalGameState.weapon.attack()
+        if __GlobalGameState.weapon == null:
+            push_warning("Player lacks weapon, this should not have happened")
+
+        var dmg: int = __GlobalGameState.weapon.attack() if __GlobalGameState.weapon != null else 0
         _player_next_attack_msec = Time.get_ticks_msec() + weapon_cooldown
 
 

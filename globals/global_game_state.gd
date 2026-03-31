@@ -111,6 +111,7 @@ func reset_day_progress() -> void:
 
     _silence_emits = true
 
+    max_health = 0.0
     boredome = 0.0
     xp = 0.0
     max_xp = 10.0
@@ -119,3 +120,4 @@ func reset_day_progress() -> void:
     _gear.clear()
 
     _silence_emits = false
+    print_debug("Reset day progress, including xp and health")

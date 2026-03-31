@@ -67,6 +67,7 @@
 [ext_resource type="Script" uid="uid://c50eh21gdu5cn" path="res://sound_track_manager.gd" id="63_ra4rb"]
 [ext_resource type="Script" uid="uid://baylsupfim5dn" path="res://horror/dev_ready_horror.gd" id="64_56gn1"]
 [ext_resource type="Script" uid="uid://beht0oihcg27w" path="res://phase_transition.gd" id="65_jo4nb"]
+[ext_resource type="Script" uid="uid://dvcajf5fcrlk7" path="res://clicker/dev_console_free_from_intro.gd" id="66_6qn5j"]
 [ext_resource type="Shader" uid="uid://cutdt6mffm4do" path="res://horror/dissolve.gdshader" id="66_avmo2"]
 [ext_resource type="Script" uid="uid://c40ulppy5imka" path="res://clicker/clicker_dialogue_manager.gd" id="68_vyqle"]
 
@@ -550,7 +551,7 @@ layout_mode = 1
 
 [node name="DevConsole" parent="." unique_id=540056483 node_paths=PackedStringArray("commands") instance=ExtResource("14_215e1")]
 hide_in_build = true
-commands = [NodePath("Gain XP Command"), NodePath("Loot Command"), NodePath("Game Speed Command"), NodePath("Ready Horror Command")]
+commands = [NodePath("Gain XP Command"), NodePath("Loot Command"), NodePath("Game Speed Command"), NodePath("Ready Horror Command"), NodePath("Free From Intro Command")]
 
 [node name="Gain XP Command" type="Node" parent="DevConsole" unique_id=705109122]
 script = ExtResource("15_7sc4i")
@@ -575,6 +576,12 @@ script = ExtResource("64_56gn1")
 command = Array[String](["ready-horror"])
 description = "Cause game to trigger horror transition"
 
+[node name="Free From Intro Command" type="Node" parent="DevConsole" unique_id=1116210304 node_paths=PackedStringArray("dialogue_manager")]
+script = ExtResource("66_6qn5j")
+dialogue_manager = NodePath("../../Clicker Dialogue Manager")
+command = Array[String](["free"])
+description = "Remove dialoge players cinematic block of player"
+
 [node name="SoundTrackManager" type="Node" parent="." unique_id=2037367065]
 script = ExtResource("63_ra4rb")
 clicker_tracks = Array[String](["res://clicker/music/before-a.mp3", "res://clicker/music/before-b.mp3", "res://clicker/music/before-c.mp3"])
@@ -595,7 +602,7 @@ expand_mode = 1
 script = ExtResource("65_jo4nb")
 _split_container = NodePath("../HSplitContainer")
 _subviewport = NodePath("../HSplitContainer/Viewport Side/SubViewportContainer/SubViewport")
-_unloading_nodes = [NodePath("../HSplitContainer/Viewport Side/SubViewportContainer/SubViewport/Dungeon"), NodePath("../HSplitContainer/Viewport Side/Battle UI"), NodePath("../HSplitContainer/Viewport Side/Player Health UI"), NodePath("../HSplitContainer/Viewport Side/BattleTextsSpawner"), NodePath("../HSplitContainer/Sidebar"), NodePath("../ClickerXPRules"), NodePath("../Loot And Inventory"), NodePath("../DevConsole/Loot Command"), NodePath("../DevConsole/Gain XP Command"), NodePath("../DevConsole/Ready Horror Command"), NodePath("../Clicker Dialogue Manager"), NodePath("../HSplitContainer/Viewport Side/Quest UI")]
+_unloading_nodes = [NodePath("../HSplitContainer/Viewport Side/SubViewportContainer/SubViewport/Dungeon"), NodePath("../HSplitContainer/Viewport Side/Battle UI"), NodePath("../HSplitContainer/Viewport Side/Player Health UI"), NodePath("../HSplitContainer/Viewport Side/BattleTextsSpawner"), NodePath("../HSplitContainer/Sidebar"), NodePath("../ClickerXPRules"), NodePath("../Loot And Inventory"), NodePath("../DevConsole/Loot Command"), NodePath("../DevConsole/Gain XP Command"), NodePath("../DevConsole/Ready Horror Command"), NodePath("../Clicker Dialogue Manager"), NodePath("../HSplitContainer/Viewport Side/Quest UI"), NodePath("../DevConsole/Free From Intro Command")]
 _transition_duration = 1.0
 _horror_dungeon_scene = "res://horror/horror_dungeon.tscn"
 _horror_panel_scene = "res://horror/horror_sidebar.tscn"

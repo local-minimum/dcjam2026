@@ -109,6 +109,8 @@ func _handle_health_changed(new_health: float, prev_health: float) -> void:
         var player: PhysicsGridPlayerController = PhysicsGridPlayerController.last_connected_player
         player.add_cinematic_blocker(self)
 
+        __AudioHub.clear_all_dialogues()
+
         __AudioHub.play_dialogue(
             _first_death if __GlobalGameState.deaths == 0 else _repeat_death,
             _restart_after_death_dialogue,

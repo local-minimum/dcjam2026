@@ -1,19 +1,37 @@
 extends Node
 class_name ClickerDialogueManager
 
-@export_file_path("*.mp3") var _first_view_path: String
+@export_file_path("*.mp3") var _awake: String
+@export_file_path("*.mp3") var _repeat_awake: String
+@export_file_path("*.mp3") var _awake_after_dispose: String
+@export_file_path("*.mp3") var _first_death: String
+@export_file_path("*.mp3") var _repeat_death: String
+
 @export_file_path("*.mp3") var _refuse_clicking: String
 @export_file_path("*.mp3") var _bored: String
 @export_file_path("*.mp3") var _fight: String
+@export_file_path("*.mp3") var _new_day_first_fight: String
 @export_file_path("*.mp3") var _healing: String
 @export_file_path("*.mp3") var _reheal_fail: String
+
 @export_file_path("*.mp3") var _gain_quest: String
 @export_file_path("*.mp3") var _first_dragon: String
+@export_file_path("*.mp3") var _first_dragon_without_quest: String
+@export_file_path("*.mp3") var _first_dragon_repeat: String
+@export_file_path("*.mp3") var _second_dragon: String
+@export_file_path("*.mp3") var _third_dragon: String
+@export_file_path("*.mp3") var _fourth_dragon: String
+
+@export_file_path("*.mp3") var _dispose_quest: String
+@export_file_path("*.mp3") var _complete_dispose_quest: String
+
 
 @export var _delay_first_dialogue: float = 1.0
 @export var _refuse_after_wait: float = 10.0
 @export var _boredom_threshold: float = 0.8
-@export var _steps_until_quest: int = 40
+@export var _steps_until_dragon_quest: int = 40
+@export var _steps_until_dispose_quest: int = 20
+@export var _delay_before_reset: float = 0.5
 
 func _enter_tree() -> void:
     if __SignalBus.on_change_xp.connect(_change_xp) != OK:
@@ -26,38 +44,100 @@ func _enter_tree() -> void:
         push_error("Failed to connect spot healing")
     if __SignalBus.on_healing_refused.connect(_handle_healing_refused, CONNECT_ONE_SHOT) != OK:
         push_error("Failed to connect healing refused")
+    if __SignalBus.on_player_health_changed.connect(_handle_health_changed) != OK:
+        push_error("Failed to connect health changed")
     if __SignalBus.on_physics_player_arrive_tile.connect(_handle_arrive_tile) != OK:
         push_error("Failed to connect arrive tile")
+    if __SignalBus.on_progress_quest.connect(_handle_progress_quest) != OK:
+        push_error("Failed to connect progress quest")
 
 
 var _player: PhysicsGridPlayerController
 
 func _ready() -> void:
-    _player = PhysicsGridPlayerController.last_connected_player
-    _player.add_cinematic_blocker(self)
-    __AudioHub.play_dialogue(
-        _first_view_path,
-        _time_refusal,
-        false,
-        true,
-        _delay_first_dialogue,
-    )
+    if __GlobalGameState.replay == 0:
+        _player = PhysicsGridPlayerController.last_connected_player
+        _player.add_cinematic_blocker(self)
+        __AudioHub.play_dialogue(
+            _awake,
+            _time_refusal,
+            false,
+            true,
+            _delay_first_dialogue,
+        )
+
+    else:
+        __GlobalGameState.reset_day_progress()
+
+        if __GlobalGameState.has_disposed_completed:
+            __AudioHub.play_dialogue(
+                _awake_after_dispose,
+                null,
+                true,
+                _delay_first_dialogue,
+            )
+
+        else:
+            __AudioHub.play_dialogue(
+                _repeat_awake,
+                null,
+                true,
+                _delay_first_dialogue,
+            )
 
 var _steps: int
-func _handle_arrive_tile(__player: PhysicsGridPlayerController, _coords: Vector3i) -> void:
+var _dragons: int
+func _handle_arrive_tile(player: PhysicsGridPlayerController, _coords: Vector3i) -> void:
+    if __GlobalGameState.health <= 0.0 || player.cinematic:
+        return
+
     _steps += 1
-    if _steps >= _steps_until_quest:
-        __SignalBus.on_physics_player_arrive_tile.disconnect(_handle_arrive_tile)
-
+    if !__GlobalGameState.has_gained_dragons_quest && _steps >= _steps_until_dragon_quest:
+        __GlobalGameState.has_gained_dragons_quest = true
         __AudioHub.play_dialogue(_gain_quest)
-        await get_tree().create_timer(8.0).timeout
 
-        __SignalBus.on_gain_quest.emit("dragons")
+        await get_tree().create_timer(12.0).timeout
+
+        __SignalBus.on_gain_quest.emit(Dragon.DRAGONS_QUEST_ID)
+
+    elif !__GlobalGameState .has_disposed_completed && _dragons == 4 && _steps >= _steps_until_dispose_quest:
+        __AudioHub.play_dialogue(_dispose_quest)
+
+        await get_tree().create_timer(12.0).timeout
+
+        __SignalBus.on_gain_quest.emit(Dragon.DISPOSE_QUEST_ID)
+
+func _handle_health_changed(new_health: float, prev_health: float) -> void:
+    if prev_health > 0.0 && new_health <= 0.0:
+        var player: PhysicsGridPlayerController = PhysicsGridPlayerController.last_connected_player
+        player.add_cinematic_blocker(self)
+
+        __AudioHub.clear_all_dialogues()
+
+        __AudioHub.play_dialogue(
+            _first_death if __GlobalGameState.deaths == 0 else _repeat_death,
+            _restart_after_death_dialogue,
+            false,
+            true,
+            0.5,
+        )
+
+func _restart_after_death_dialogue() -> void:
+    __GlobalGameState.deaths += 1
+    __GlobalGameState.replay += 1
+    __GlobalGameState.reset_day_progress()
+
+    await get_tree().create_timer(_delay_before_reset).timeout
+
+    get_tree().reload_current_scene()
+
 
 func _handle_healing_refused(_station: HealthStation) -> void:
+    print_debug("Dialogue Manager: Play healing refused clip")
     __AudioHub.play_dialogue(_reheal_fail)
 
 func _handle_healing_spotted(_station: HealthStation) -> void:
+    print_debug("Dialogue Manager: Play healing spotted clip")
     __AudioHub.play_dialogue(_healing)
 
 func _handle_change_boredom(boredom: float) -> void:
@@ -66,7 +146,8 @@ func _handle_change_boredom(boredom: float) -> void:
         __AudioHub.play_dialogue(_bored)
 
 func _first_fight(_data: EnemyData) -> void:
-    __AudioHub.play_dialogue(_fight)
+    if __GlobalGameState.health > 0.0:
+        __AudioHub.play_dialogue(_fight if __GlobalGameState.replay == 0 else _new_day_first_fight)
 
 var _has_gained_xp: bool
 func _change_xp(new_xp: float, prev_xp: float) -> void:
@@ -75,6 +156,9 @@ func _change_xp(new_xp: float, prev_xp: float) -> void:
         __SignalBus.on_change_xp.disconnect(_change_xp)
 
 func _time_refusal() -> void:
+    if !is_instance_valid(_player) || __GlobalGameState.health <= 0:
+        return
+
     _player.remove_cinematic_blocker(self)
     await get_tree().create_timer(_refuse_after_wait).timeout
     if !_has_gained_xp:
@@ -89,3 +173,47 @@ func _time_refusal() -> void:
         await get_tree().create_timer(10.0).timeout
 
         __SignalBus.on_gain_bonus_autoclickers.emit(1)
+
+func _handle_progress_quest(quest_id: String, step: int) -> void:
+    if quest_id == Dragon.DRAGONS_QUEST_ID:
+        _dragons = step
+
+        match step:
+            1:
+                if __GlobalGameState.has_gained_dragons_quest && __GlobalGameState.replay > 0:
+                    __AudioHub.play_dialogue(_first_dragon_repeat)
+
+                elif !__GlobalGameState.has_gained_dragons_quest:
+                    __GlobalGameState.has_gained_dragons_quest = true
+                    __AudioHub.play_dialogue(_first_dragon_without_quest)
+
+                else:
+                    __GlobalGameState.has_gained_dragons_quest = true
+                    __AudioHub.play_dialogue(_first_dragon)
+            2:
+                __AudioHub.play_dialogue(_second_dragon)
+            3:
+                __AudioHub.play_dialogue(_third_dragon)
+            4:
+                __AudioHub.play_dialogue(_fourth_dragon)
+                _steps = 0
+
+    if quest_id == Dragon.DISPOSE_QUEST_ID:
+        if step == 1:
+            var player: PhysicsGridPlayerController = PhysicsGridPlayerController.last_connected_player
+            player.add_cinematic_blocker(self)
+
+            __AudioHub.play_dialogue(
+                _complete_dispose_quest,
+                _groundhog_next_day,
+                false,
+                true,
+            )
+
+func _groundhog_next_day() -> void:
+    __GlobalGameState.replay += 1
+    __GlobalGameState.reset_day_progress()
+
+    await get_tree().create_timer(_delay_before_reset).timeout
+
+    get_tree().reload_current_scene()

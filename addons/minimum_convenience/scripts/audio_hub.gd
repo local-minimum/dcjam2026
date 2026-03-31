@@ -40,12 +40,15 @@ func _ready() -> void:
     @warning_ignore_start("return_value_discarded")
     for _i: int in range(_config.sfx_players):
         _create_player(Bus.SFX, _sfx_available)
+    print_debug("[Audio Hub] %s SFX players added to %s" % [_config.sfx_players, _sfx_available])
 
     for _i: int in range(_config.dialogue_players):
         _create_player(Bus.DIALGUE, _dialogue_available, _dialogue_running, true)
+    print_debug("[Audio Hub] %s dialogue players added to %s" % [_config.dialogue_players, _dialogue_available])
 
     for _i: int in range(_config.music_players):
         _create_player(Bus.MUSIC, _music_available, _music_running)
+    print_debug("[Audio Hub] %s music player added to %s" % [_config.music_players, _music_available])
     @warning_ignore_restore("return_value_discarded")
 
 func is_busy(bus: Bus) -> bool:
@@ -69,7 +72,7 @@ func _create_player(
     bus: Bus,
     available_players: Array[AudioStreamPlayer],
     runnig_players: Variant = null,
-    append: bool = true,
+    make_available: bool = true,
 ) -> AudioStreamPlayer:
     var player: AudioStreamPlayer = AudioStreamPlayer.new()
     player.name = "Player %s on %s" % [available_players.size(), bus]
@@ -80,7 +83,7 @@ func _create_player(
     if player.finished.connect(_handle_player_finished.bind(player, available_players, runnig_players, bus)) != OK:
         push_error("Failed to connect to finished reads available for new player on bus '%s'" % bus)
 
-    if append:
+    if make_available:
         available_players.append(player)
 
     return player
@@ -91,8 +94,12 @@ func _handle_player_finished(player: AudioStreamPlayer, available: Array[AudioSt
     if running is Array[AudioStreamPlayer]:
         var runnig_players: Array[AudioStreamPlayer] = running
         runnig_players.erase(player)
+        print_debug("[Audio Hub] Remaining running %s" % [runnig_players])
+    elif running != null:
+        push_warning("Player %s has no way to remove it from %s running players" % [player, running])
 
     available.append(player)
+    print_debug("[Audio Hub] New status for %s: Available %s / Running %s" % [Bus.find_key(bus), available, running])
 
     _check_oneshot_callbacks(player, bus)
 
@@ -125,6 +132,7 @@ func play_dialogue(
         _end_dialogue_players()
 
     if enqueue && dialogue_busy:
+        print_debug("[Audio Hub] Dialog busy %s putting %s in queue" % [_dialogue_playing, sound_resource_path])
         _enqueue_stream(
             Bus.DIALGUE,
             sound_resource_path,
@@ -154,6 +162,7 @@ func _delay_play(player: AudioStreamPlayer, delay_start: float) -> void:
     if delay_start:
         await get_tree().create_timer(delay_start).timeout
 
+    print_debug("[Audio Hub] started playing %s after delay %s" % [player, delay_start])
     player.play()
 
 func _end_dialogue_players() -> void:
@@ -163,7 +172,7 @@ func _end_dialogue_players() -> void:
         if !_dialogue_available.has(player):
             _dialogue_available.append(player)
 
-    _dialogue_available.clear()
+    _dialogue_running.clear()
 
 var pause_dialogues: bool:
     set(value):
@@ -187,6 +196,8 @@ func clear_all_dialogues() -> void:
     for player: AudioStreamPlayer in _dialogue_running:
         _clear_callbacks(player)
         player.stop()
+        _dialogue_available.append(player)
+    _dialogue_running.clear()
 
 ## Synchroniously starts an array of tracks
 ## If crossfade is less than 0, it doesn't end playing tracks
@@ -356,12 +367,14 @@ func _check_oneshot_callbacks(player: AudioStreamPlayer, bus: Bus) -> void:
         callback.call()
 
     print_debug("[Audio Hub] Player %s checks for queued in %s if '%s' is false (%s)" % [player.name, _queue, Bus.find_key(bus), is_busy(bus)])
-    if !is_busy(bus) && _queue.has(bus):
+    if !is_busy(bus) && !(_queue.get(bus, []) as Array).is_empty():
         var queued: Variant = _queue[bus].pop_front()
         print_debug("[Audio Hub] Playes queued stream %s for bus %s" % [queued, Bus.find_key(bus)])
         if queued is Callable:
             var callback: Callable = queued
             callback.call()
+    else:
+        print_debug("[Audio Hub] Either queue was busy %s or there was no queue %s" % [is_busy(bus), _queue.get(bus, [])])
 
 func _clear_bus_queue(bus: Bus) -> void:
     if _queue.has(bus):

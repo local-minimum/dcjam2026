@@ -38,5 +38,6 @@ func _activate() -> void:
 
 func _on_healing_spotting_area_entered(area: Area3D) -> void:
     var player: PhysicsGridPlayerController = PhysicsGridPlayerController.find_in_tree(area)
-    if player == null:
+    if player != null:
+        print_debug("Healing area spotted")
         __SignalBus.on_player_spot_healing.emit(self)

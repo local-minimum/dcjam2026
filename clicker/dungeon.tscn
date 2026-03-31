@@ -7,7 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://bui680ugvj0rj" path="res://clicker/enemy.tscn" id="4_yrdjv"]
 [ext_resource type="PackedScene" uid="uid://b8ce50tuokndq" path="res://clicker/models/wall.blend" id="5_w13no"]
 [ext_resource type="PackedScene" uid="uid://df4j8gscil84h" path="res://clicker/models/wall_corner.blend" id="6_qsdn1"]
+[ext_resource type="PackedScene" uid="uid://b3vfstytefmpx" path="res://clicker/models/dragon.blend" id="8_jorcj"]
 [ext_resource type="PackedScene" uid="uid://cruxk6l5jm7l1" path="res://clicker/models/wall_portal.blend" id="8_qsdn1"]
+[ext_resource type="Script" uid="uid://dombw6pswxxfq" path="res://clicker/models/dragon.gd" id="9_l3xlb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sufut"]
 size = Vector3(75.727066, 99.23596, 0.263)
@@ -17,6 +19,12 @@ size = Vector2(2.5, 2.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yrdjv"]
 albedo_color = Color(0.31925523, 0.31925526, 0.31925526, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_l3xlb"]
+height = 0.5
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l3xlb"]
+size = Vector3(1.6708984, 1.7143555, 2.041504)
 
 [node name="Dungeon" type="Node3D" unique_id=1143420985 node_paths=PackedStringArray("collision_system", "player")]
 script = ExtResource("1_6pvhc")
@@ -1105,6 +1113,22 @@ surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 7.5, 0, -17.5)
 mesh = SubResource("QuadMesh_sufut")
 surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape/Floor45" unique_id=284583298]
+transform = Transform3D(0.2067507, -8.553389e-08, 0.9783937, -0.9783937, 2.5636666e-08, 0.2067507, -4.2766946e-08, -1, -7.838542e-08, -2.7326183, -0.3438568, 0.24501441)
+mesh = SubResource("CylinderMesh_l3xlb")
+
+[node name="dragon" parent="Walls And Floors/Cubicle Landscape/Floor45/MeshInstance3D" unique_id=421680519 instance=ExtResource("8_jorcj")]
+transform = Transform3D(-0.62608683, 0, 0.7797533, -6.81682e-08, -1, -5.473425e-08, 0.7797533, -8.742278e-08, 0.62608683, -0.075381756, -0.2535128, 0.0052700043)
+script = ExtResource("9_l3xlb")
+
+[node name="trigger area" type="Area3D" parent="Walls And Floors/Cubicle Landscape/Floor45/MeshInstance3D/dragon" unique_id=1164094524]
+collision_mask = 512
+input_ray_pickable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls And Floors/Cubicle Landscape/Floor45/MeshInstance3D/dragon/trigger area" unique_id=530802044]
+transform = Transform3D(1.0000011, 0, -1.7881393e-07, 0, 1, 0, 1.7881393e-07, 0, 1.0000011, 0.33544922, 0.39233398, 0.055909157)
+shape = SubResource("BoxShape3D_l3xlb")
 
 [node name="Floor46" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=175470951]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 7.5, 0, -20)
@@ -2364,16 +2388,16 @@ mesh = SubResource("QuadMesh_sufut")
 surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
 
 [node name="Enemy" parent="." unique_id=286162732 instance=ExtResource("4_yrdjv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 0, -7.5)
 
 [node name="Enemy2" parent="." unique_id=1378578119 instance=ExtResource("4_yrdjv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -5)
 
 [node name="Enemy3" parent="." unique_id=1288023106 instance=ExtResource("4_yrdjv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 0)
 
 [node name="Enemy4" parent="." unique_id=1300790365 instance=ExtResource("4_yrdjv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
 
 [node name="wall_portal" parent="." unique_id=1883095524 instance=ExtResource("8_qsdn1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.75)
@@ -2389,5 +2413,7 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 5, 0
 
 [node name="wall_portal3" parent="." unique_id=1132704022 instance=ExtResource("8_qsdn1")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.25, 0, 0)
+
+[connection signal="area_entered" from="Walls And Floors/Cubicle Landscape/Floor45/MeshInstance3D/dragon/trigger area" to="Walls And Floors/Cubicle Landscape/Floor45/MeshInstance3D/dragon" method="_on_trigger_area_area_entered"]
 
 [editable path="Walls And Floors/Health Station"]

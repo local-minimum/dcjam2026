@@ -117,11 +117,17 @@ func _handle_change_ability_level(ability_id: String, lvl: int) -> void:
 
     __SignalBus.on_player_max_health_changed.emit()
 
+var weapon_cooldown: int:
+    get():
+        if __GlobalGameState.weapon:
+            return roundi(__GlobalGameState.weapon.cooldown() * 1000)
+        return 1000
+
 func _handle_enemy_join_battle(enemy_data: EnemyData) -> void:
     if _enemies.is_empty():
         _gained_loot_cred = 0
         set_process(true)
-        _player_next_attack_msec = Time.get_ticks_msec() + roundi(__GlobalGameState.weapon.cooldown() * 1000)
+        _player_next_attack_msec = Time.get_ticks_msec() + weapon_cooldown
 
     var e: Enemy = Enemy.new(enemy_data)
     if _enemies.size() < _max_enemies_active:
@@ -196,7 +202,8 @@ func _calc_base_defence(all_gear: Array[Gear]) -> int:
 func _process(_delta: float) -> void:
     if Time.get_ticks_msec() >= _player_next_attack_msec:
         var dmg: int = __GlobalGameState.weapon.attack()
-        _player_next_attack_msec = Time.get_ticks_msec() + roundi(__GlobalGameState.weapon.cooldown() * 1000)
+        _player_next_attack_msec = Time.get_ticks_msec() + weapon_cooldown
+
 
         #print_debug("Player attacks with %s for %s" % [_player_weapon, dmg])
 

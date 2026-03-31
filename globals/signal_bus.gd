@@ -28,6 +28,7 @@ signal on_change_weapon(weapon: Weapon)
 signal on_change_gear(slot: Gear.Base, gear: Gear)
 
 signal on_gain_quest(quest_id: String)
+signal on_progress_quest(quest_id: String, step: int)
 
 signal on_ready_horror()
 signal on_horror_loaded()

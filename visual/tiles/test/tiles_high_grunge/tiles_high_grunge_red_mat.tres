@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://l1qka8ips3gh"]
 
-[ext_resource type="Shader" uid="uid://cjso02no5cy8s" path="res://visual/tiles/base_tile_shader.gdshader" id="1_t7kf7"]
+[ext_resource type="Shader" uid="uid://cjso02no5cy8s" path="res://visual/common/base_PBR_shader.gdshader" id="1_t7kf7"]
 [ext_resource type="Texture2D" uid="uid://cissx04jm214g" path="res://visual/tiles/test/tiles_high_grunge/tiles_high_grunge_baseColor.png" id="2_gyeb5"]
 [ext_resource type="Texture2D" uid="uid://caeqho18rhmp2" path="res://visual/tiles/test/tiles_high_grunge/tiles_high_grunge_normal.png" id="3_2dkfk"]
 [ext_resource type="Texture2D" uid="uid://cxu7qwa01sjv1" path="res://visual/tiles/test/tiles_high_grunge/tiles_high_grunge_occlusionRoughnessMetallic.png" id="4_0igpq"]

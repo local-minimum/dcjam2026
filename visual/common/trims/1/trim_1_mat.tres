@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://doubdvy88wgr7"]
+
+[ext_resource type="Shader" uid="uid://cjso02no5cy8s" path="res://visual/common/base_PBR_shader.gdshader" id="1_apf0s"]
+[ext_resource type="Texture2D" uid="uid://c7nym4265eqon" path="res://visual/common/trims/1/trim_1_baseColor.png" id="2_n8x33"]
+[ext_resource type="Texture2D" uid="uid://dg6de8ytmussa" path="res://visual/common/trims/1/trim1_normal.png" id="3_6vlps"]
+[ext_resource type="Texture2D" uid="uid://cpoki2yen0285" path="res://visual/common/trims/1/trim1_occlusionRoughnessMetallic.png" id="4_qatva"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_apf0s")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("2_n8x33")
+shader_parameter/texture_orm = ExtResource("4_qatva")
+shader_parameter/texture_normal = ExtResource("3_6vlps")
+shader_parameter/normal_scale = 1.0

@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://b31jydn3i0u4j"]
 
-[ext_resource type="Shader" uid="uid://cjso02no5cy8s" path="res://visual/tiles/base_tile_shader.gdshader" id="1_rj3sb"]
+[ext_resource type="Shader" uid="uid://cjso02no5cy8s" path="res://visual/common/base_PBR_shader.gdshader" id="1_rj3sb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_eidof"]
 render_priority = 0

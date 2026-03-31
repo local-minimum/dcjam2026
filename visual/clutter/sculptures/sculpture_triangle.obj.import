@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b0vlo73s2fd38"
+path="res://.godot/imported/sculpture_triangle.obj-8d9987c961a0adb3d773db010d15019e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/sculpture_triangle.obj-8d9987c961a0adb3d773db010d15019e.mesh"]
+
+source_file="res://visual/clutter/sculptures/sculpture_triangle.obj"
+dest_files=["res://.godot/imported/sculpture_triangle.obj-8d9987c961a0adb3d773db010d15019e.mesh", "res://.godot/imported/sculpture_triangle.obj-8d9987c961a0adb3d773db010d15019e.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(3, 3, 3)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

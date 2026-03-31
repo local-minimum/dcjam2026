@@ -1,6 +1,9 @@
 [gd_scene format=4 uid="uid://dch5u7micaf0v"]
 
-[ext_resource type="Shader" uid="uid://cjso02no5cy8s" path="res://visual/tiles/base_tile_shader.gdshader" id="1_qahwi"]
+[ext_resource type="Shader" uid="uid://cjso02no5cy8s" path="res://visual/common/base_PBR_shader.gdshader" id="1_qahwi"]
+[ext_resource type="ArrayMesh" uid="uid://b0vlo73s2fd38" path="res://visual/clutter/sculptures/sculpture_triangle.obj" id="2_udm7l"]
+[ext_resource type="Material" uid="uid://doubdvy88wgr7" path="res://visual/common/trims/1/trim_1_mat.tres" id="3_lara0"]
+[ext_resource type="ArrayMesh" uid="uid://ceb8oy4go2no4" path="res://visual/clutter/sculptures/sculpture_walk.obj" id="4_lara0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_urtwg"]
 render_priority = 0
@@ -620,3 +623,15 @@ mesh = SubResource("ArrayMesh_gagwy")
 [node name="MeshInstance3D6" type="MeshInstance3D" parent="Balcony" unique_id=1093594557]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 4, -0.1, -30)
 mesh = SubResource("ArrayMesh_gagwy")
+
+[node name="Clutter" type="Node3D" parent="." unique_id=573047545]
+
+[node name="SculptureTriangle" type="MeshInstance3D" parent="Clutter" unique_id=1256534983]
+transform = Transform3D(-1.0000001, 0, 0, 0, 1, 0, 0, 0, -1.0000001, -4.060279, 0, -28.419989)
+mesh = ExtResource("2_udm7l")
+surface_material_override/0 = ExtResource("3_lara0")
+
+[node name="SculptureWalk" type="MeshInstance3D" parent="." unique_id=1758989187]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.097229, -4.7683716e-07, -28.388567)
+mesh = ExtResource("4_lara0")
+surface_material_override/0 = ExtResource("3_lara0")

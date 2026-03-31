@@ -9,9 +9,14 @@ const STEP_HEIGHT_MAG: float = 0.3
 @export var _step_target: Marker3D
 @export var _adjacent_target: LegIKTarget
 @export var _opposite_target: LegIKTarget
+@export var offset_pos: Vector3
 
 var is_stepping: bool = false
 var _step_tween: Tween
+
+
+func _ready() -> void:
+    position = _root.global_position + offset_pos
 
 
 func step() -> void:

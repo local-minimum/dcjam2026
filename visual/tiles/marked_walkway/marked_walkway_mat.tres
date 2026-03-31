@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cd57u0b6pdjlj"]
+
+[ext_resource type="Shader" uid="uid://cjso02no5cy8s" path="res://visual/tiles/base_tile_shader.gdshader" id="1_6xyyx"]
+[ext_resource type="Texture2D" uid="uid://dydy3p8wg76kl" path="res://visual/tiles/marked_walkway/marked_walkway_baseColor.png" id="2_37y5s"]
+[ext_resource type="Texture2D" uid="uid://eflyjxhpstfw" path="res://visual/tiles/marked_walkway/marked_walkway_normal.png" id="3_h1dbw"]
+[ext_resource type="Texture2D" uid="uid://drjokb1oxbljr" path="res://visual/tiles/marked_walkway/marked_walkway_occlusionRoughnessMetallic.png" id="4_pmlef"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_6xyyx")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("2_37y5s")
+shader_parameter/texture_orm = ExtResource("4_pmlef")
+shader_parameter/texture_normal = ExtResource("3_h1dbw")
+shader_parameter/normal_scale = 1.0

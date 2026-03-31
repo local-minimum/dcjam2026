@@ -14,7 +14,7 @@ class Command:
 #var _arrival_tolerance: float = 0.1
 
 const MOVE_SPEED: float = 2.5
-const TURN_SPEED: float = 2.5
+const TURN_SPEED: float = 2.0
 const STEP_DISTANCE: float = 0.75
 const STEP_TARGET_OFFSET: float = 15.0
 const GROUND_OFFSET: float = 0.1
@@ -40,6 +40,9 @@ const GRID_SIZE: float = 1.0
 var _command_queue: Array[Command] = []
 var _current_command: Command = null
 var _target_value: float = 0.0
+
+
+
 
 
 func _process(delta: float) -> void:

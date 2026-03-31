@@ -53,7 +53,7 @@ func _handle_arrive_tile(__player: PhysicsGridPlayerController, _coords: Vector3
         __SignalBus.on_physics_player_arrive_tile.disconnect(_handle_arrive_tile)
 
         __AudioHub.play_dialogue(_gain_quest)
-        await get_tree().create_timer(8.0).timeout
+        await get_tree().create_timer(12.0).timeout
 
         __SignalBus.on_gain_quest.emit(Dragon.DRAGONS_QUEST_ID)
 

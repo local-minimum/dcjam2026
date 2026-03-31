@@ -87,7 +87,10 @@ func _ready() -> void:
 
 var _steps: int
 var _dragons: int
-func _handle_arrive_tile(__player: PhysicsGridPlayerController, _coords: Vector3i) -> void:
+func _handle_arrive_tile(player: PhysicsGridPlayerController, _coords: Vector3i) -> void:
+    if __GlobalGameState.health <= 0.0 || player.cinematic:
+        return
+
     _steps += 1
     if !__GlobalGameState.has_gained_dragons_quest && _steps >= _steps_until_dragon_quest:
         __GlobalGameState.has_gained_dragons_quest = true
@@ -143,7 +146,8 @@ func _handle_change_boredom(boredom: float) -> void:
         __AudioHub.play_dialogue(_bored)
 
 func _first_fight(_data: EnemyData) -> void:
-    __AudioHub.play_dialogue(_fight if __GlobalGameState.replay == 0 else _new_day_first_fight)
+    if __GlobalGameState.health > 0.0:
+        __AudioHub.play_dialogue(_fight if __GlobalGameState.replay == 0 else _new_day_first_fight)
 
 var _has_gained_xp: bool
 func _change_xp(new_xp: float, prev_xp: float) -> void:
@@ -152,6 +156,9 @@ func _change_xp(new_xp: float, prev_xp: float) -> void:
         __SignalBus.on_change_xp.disconnect(_change_xp)
 
 func _time_refusal() -> void:
+    if !is_instance_valid(_player) || __GlobalGameState.health <= 0:
+        return
+
     _player.remove_cinematic_blocker(self)
     await get_tree().create_timer(_refuse_after_wait).timeout
     if !_has_gained_xp:

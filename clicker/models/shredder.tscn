@@ -1,0 +1,128 @@
+[gd_scene format=3 uid="uid://1u7yq3idj1i"]
+
+[ext_resource type="PackedScene" uid="uid://cbxki0yx0bya3" path="res://clicker/models/shredder.blend" id="1_klkoa"]
+[ext_resource type="Script" uid="uid://cx7tn4defqcr1" path="res://clicker/models/shredder.gd" id="1_rfjye"]
+[ext_resource type="PackedScene" uid="uid://b3vfstytefmpx" path="res://clicker/models/dragon.blend" id="3_eftcx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rfjye"]
+size = Vector3(1.5214844, 1.2854004, 1.5996704)
+
+[sub_resource type="Animation" id="Animation_eftcx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dragon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.33102322, 0.9494629, 1.25)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("dragon:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.35038227, -0.8330828, 0.30241844)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("dragon:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_rkkkj"]
+resource_name = "Shred"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dragon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.55, 0.95, 1.15, 1.31, 1.49, 1.67, 1.89, 2.1, 2.32, 2.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.33102322, 0.9494629, 1.25), Vector3(0.12997837, 0.95339483, 0.44178408), Vector3(-0.016236067, 0.5597534, 0.16583598), Vector3(0.030761003, 0.5597534, 0.16583598), Vector3(-0.00085520744, 0.5597534, 0.118106484), Vector3(-0.03686595, 0.6383667, 0.06232035), Vector3(-0.011719465, 0.6383667, 0.12713969), Vector3(-0.011719465, 0.5059204, 0.13885844), Vector3(-0.011719465, 0.39398193, 0.11651957), Vector3(-0.011719465, 0.29533005, 0.0018039942), Vector3(-0.003567934, 0.29533005, -0.30001265)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("dragon:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.55, 0.95, 1.15, 1.31, 1.49, 1.67, 1.89, 2.1, 2.32, 2.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.35038227, -0.8330828, 0.30241844), Vector3(0.14016654, -1.2719743, 0.12133342), Vector3(-0.01271759, -1.5911683, -0.010364764), Vector3(-0.014666998, -1.5898131, -0.10926265), Vector3(-0.016350368, -1.5883868, -0.20116735), Vector3(-0.10665061, -1.5731095, -0.9270099), Vector3(-0.03435385, -1.5243646, -1.3988883), Vector3(-0.029197017, -1.5209618, -1.5058943), Vector3(0.0033682566, -1.513143, -2.093734), Vector3(0.050730478, -1.5431862, -3.1075335), Vector3(0.050730474, -1.5762776, -3.1075335)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("dragon:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q6ese"]
+_data = {
+&"RESET": SubResource("Animation_eftcx"),
+&"Shred": SubResource("Animation_rkkkj")
+}
+
+[node name="Shredder" type="Node3D" unique_id=1014609165 node_paths=PackedStringArray("_shredder_axis_one", "_shredder_axis_two", "_focus", "_anim", "_dragon")]
+script = ExtResource("1_rfjye")
+_shredder_axis_one = NodePath("shredder/Shredder")
+_shredder_axis_two = NodePath("shredder/Shredder_001")
+_focus = NodePath("shredder/Focus")
+_anim = NodePath("AnimationPlayer")
+_dragon = NodePath("dragon")
+
+[node name="shredder" parent="." unique_id=2026112509 instance=ExtResource("1_klkoa")]
+
+[node name="Shredder_001" parent="shredder" index="2" unique_id=1272350493]
+transform = Transform3D(-1, 0, -3.8941437e-07, 0, 1, 0, 3.8941437e-07, 0, -1, -0.0032642037, 0.4465452, 0.3237439)
+
+[node name="Focus" type="Node3D" parent="shredder" unique_id=1501701171]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5265193, 0.20883179)
+
+[node name="Trigger Area" type="Area3D" parent="." unique_id=817739354]
+collision_mask = 512
+input_ray_pickable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trigger Area" unique_id=1092717182]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02734375, 0.6468506, 0.2998352)
+shape = SubResource("BoxShape3D_rfjye")
+
+[node name="dragon" parent="." unique_id=421680519 instance=ExtResource("3_eftcx")]
+transform = Transform3D(0.5664217, -0.44280523, -0.6950465, 0.27973402, 0.89661795, -0.3432568, 0.77518684, -4.470349e-08, 0.63173157, 0.33102322, 0.9494629, 1.25)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1624615737]
+libraries/ = SubResource("AnimationLibrary_q6ese")
+next/Shred = &"Shred"
+
+[connection signal="area_entered" from="Trigger Area" to="." method="_on_trigger_area_area_entered"]
+
+[editable path="shredder"]

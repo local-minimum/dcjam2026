@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://iuctck7ne3ic"
-path="res://.godot/imported/monster_old.glb-c271a2ada0c32510395f1f1844b7c525.scn"
+path="res://.godot/imported/monster_old.glb-d198eb5492dbdd0ff4f8394f0455b97e.scn"
 
 [deps]
 
-source_file="res://horror/monster/monster_old.glb"
-dest_files=["res://.godot/imported/monster_old.glb-c271a2ada0c32510395f1f1844b7c525.scn"]
+source_file="res://horror/monster/TEMP/monster_old.glb"
+dest_files=["res://.godot/imported/monster_old.glb-d198eb5492dbdd0ff4f8394f0455b97e.scn"]
 
 [params]
 

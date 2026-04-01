@@ -78,6 +78,7 @@ static func primary_direction(v: Vector3i) -> Vector3i:
 
     return Vector3i(0, 0, signi(v.z))
 
+## Returns the unit vector of the primary direction
 static func primary_directionf(v: Vector3) -> Vector3:
     var abs_x: float = absf(v.x)
     var abs_y: float = absf(v.y)

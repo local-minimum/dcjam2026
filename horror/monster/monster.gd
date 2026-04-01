@@ -21,7 +21,7 @@ class Command:
 #var _movement_target: Vector3 = Vector3(0.0, 0.0, 0.0)
 #var _arrival_tolerance: float = 0.1
 
-const MOVE_SPEED: float = 2.5
+const MOVE_SPEED: float = 2.0
 const TURN_SPEED: float = 2.0
 const STEP_DISTANCE: float = 0.75
 const STEP_TARGET_OFFSET: float = 15.0

@@ -1,7 +1,7 @@
 class_name LegIKTarget
 extends Marker3D
 
-const STEP_DISTANCE: float = 0.25
+#const STEP_DISTANCE: float = 0.25
 const STEP_TIME: float = 0.1
 const STEP_HEIGHT_MAG: float = 0.3
 

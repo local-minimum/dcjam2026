@@ -2,7 +2,7 @@ extends GridEntity
 class_name MonsterEntity
 
 @export var monster: Monster
-@export var red_light: OmniLight3D
+@export var light: OmniLight3D
 @export var obstacle_detector: RayCast3D
 
 const IGNORE_ANGLE_THRESHOLD: float = PI * 0.001

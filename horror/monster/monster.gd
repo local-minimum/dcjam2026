@@ -37,6 +37,8 @@ const WOBBLE_INTENSITY: float = 0.05
 @export var _step_rays: Array[RayCast3D]
 @export var _front_ray: RayCast3D
 
+@export var lookat_IK_target: Marker3D
+
 var _wobble_time: float = 0.0
 var _target_value: float = 0.0
 var _move_last_frame_pos: Vector3 = Vector3.ZERO

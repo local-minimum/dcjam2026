@@ -8,6 +8,8 @@ class_name MonsterEntity
 const IGNORE_ANGLE_THRESHOLD: float = PI * 0.001
 const IGNORE_MOVE_SQ_THRESHOLD: float = 0.1
 
+var _turn_to_cardinal: bool
+
 var monster_coordinates: Vector3i:
     get():
         return dungeon.get_closest_coordinates(monster.global_position)
@@ -22,6 +24,9 @@ class CoordinatesCommand:
         speed = s
         jitter = j
 
+    func _to_string() -> String:
+        return "<Coords %s Speed %s Jitter %s>" % [coords, speed, jitter]
+
 class PositionCommand:
     var pos: Vector3
     var speed: float
@@ -29,6 +34,9 @@ class PositionCommand:
     func _init(p: Vector3, s: float) -> void:
         pos = p
         speed = s
+
+    func _to_string() -> String:
+        return "<Pos %s Speed>" % [pos, speed]
 
 var _coords_queue: Array[CoordinatesCommand]
 var _pos_queue: Array[PositionCommand]
@@ -39,15 +47,19 @@ func _enter_tree() -> void:
         push_error("Failed to connect to monster idle")
 
 func _handle_monster_idle() -> void:
+    if _turn_to_cardinal:
+        _align_rotation_with_cardinals()
+        return
+
     if _pop_pos_queue():
         return
 
     if !_coords_queue.is_empty():
         var command: CoordinatesCommand = _coords_queue.pop_front()
         var target: Vector3 = dungeon.get_global_grid_position_from_coordinates(command.coords)
-        move_to_position(target, command.speed, 3, command.jitter)
+        move_to_position(target, command.speed, command.jitter)
 
-func handle_detect_player_noise(noise_area: NoiseArea) -> void:
+func handle_detect_player_noise(_noise_area: NoiseArea) -> void:
     pass
 
 func move_to_coordinates(coords: Vector3i, speed: float = 1.0, jitter: float = 0.2) -> void:
@@ -68,22 +80,26 @@ func move_to_coordinates(coords: Vector3i, speed: float = 1.0, jitter: float = 0
     if steps.size() > 1:
         for c: Vector3i in steps.slice(1):
             _coords_queue.append(CoordinatesCommand.new(c, speed, jitter))
-    print_debug("Generated commands: %s from %s" % [_coords_queue, steps])
+    #print_debug("Generated commands: %s from %s" % [_coords_queue, steps])
     var target: Vector3 = dungeon.get_global_grid_position_from_coordinates(steps[0])
-    move_to_position(target, speed, 3, jitter)
-
+    move_to_position(target, speed, jitter)
 
 func move_to_position(
     pos: Vector3,
     speed: float = 1.0,
-    resolution: int = 3,
     jitter: float = 0.0,
 ) -> void:
-    print_debug("Move with jitter %s" % [jitter])
+    _turn_to_cardinal = false
+    #print_debug("Move with jitter %s" % [jitter])
     monster.clear_queue()
     _pos_queue.clear()
     var monster_pos: Vector3 = monster.global_position
-    resolution = maxi(1, resolution)
+    var resolution: int = clampi(
+        ceili(((monster_pos - pos) / dungeon.grid_size).length() * 0.5),
+        1,
+        4,
+    )
+
     for idx: int in resolution:
         var ref_pos: Vector3 = monster_pos.lerp(pos, (idx + 1.0) / float(resolution))
         var s: float = speed
@@ -98,13 +114,12 @@ func move_to_position(
             s,
         ))
 
-    print_debug("Generated position commands %s" % [_pos_queue])
+    #print_debug("Generated position commands %s" % [_pos_queue])
     if !_pop_pos_queue():
         push_warning("There was nothing to do")
 
 func _pop_pos_queue() -> bool:
     if _pos_queue.is_empty():
-        print_debug("Position Move completed")
         return false
 
     var command: PositionCommand = _pos_queue.pop_front()
@@ -112,14 +127,28 @@ func _pop_pos_queue() -> bool:
     # WTF: Why does this work and not the expected directions???
     var angle: float = monster.basis.x.signed_angle_to(-local_pos, monster.basis.y)
 
+    var had_instruction: bool = false
     if absf(angle) > IGNORE_MOVE_SQ_THRESHOLD:
-        print_debug("Asking monster to turn %s" % [angle])
+        #print_debug("Asking monster to turn %s" % [angle])
         monster.queue_turn(angle, command.speed, false)
-    else:
-        print_debug("No need to turn for %s" % [angle])
+        had_instruction = true
 
     if command.pos.distance_squared_to(monster.global_position) > IGNORE_MOVE_SQ_THRESHOLD:
         monster.queue_move(command.pos.distance_to(monster.global_position), command.speed, false)
-    else:
-        print_debug("No need to walk %s -> %s" % [monster.global_position, command.pos])
+        had_instruction = true
+
+    if !had_instruction:
+        push_warning("There was no movement needed from %s" % [command])
+        _align_rotation_with_cardinals()
+        return true
+
+    _turn_to_cardinal = _pos_queue.is_empty() && _coords_queue.is_empty()
     return true
+
+func _align_rotation_with_cardinals() -> void:
+    _turn_to_cardinal = false
+    var direction: Vector3 = VectorUtils.primary_directionf(monster.global_basis.z)
+    var local_direction: Vector3 = monster.to_local(monster.global_position + direction)
+    var angle: float = monster.basis.z.signed_angle_to(local_direction, monster.basis.y)
+
+    monster.queue_turn(angle, 1.0, true)

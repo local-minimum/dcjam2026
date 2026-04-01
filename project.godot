@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="DCJAM2026"
-run/main_scene="uid://dmfjlovtm3r5k"
+run/main_scene="uid://dg118006wksbo"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -38,6 +38,7 @@ layout/style_directory={}
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/mode=4
 window/stretch/mode="canvas_items"
 
 [editor_plugins]

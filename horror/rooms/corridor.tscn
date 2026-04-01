@@ -2,7 +2,6 @@
 
 [ext_resource type="Material" uid="uid://cd57u0b6pdjlj" path="res://visual/tiles/marked_walkway/marked_walkway_mat.tres" id="1_v3rd6"]
 [ext_resource type="Script" uid="uid://pq54prborom3" path="res://horror/triggers.gd" id="5_abhsr"]
-[ext_resource type="PackedScene" uid="uid://dbbbvw47dto45" path="res://horror/monster/monster.tscn" id="6_uyvyw"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_xmlox"]
 _surfaces = [{
@@ -349,11 +348,9 @@ omni_attenuation = 2.935
 libraries/ = SubResource("AnimationLibrary_dffvr")
 autoplay = &"flash"
 
-[node name="Triggers" type="Node3D" parent="." unique_id=1066317152 node_paths=PackedStringArray("keith", "keith_light")]
+[node name="Triggers" type="Node3D" parent="." unique_id=1066317152]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -17)
 script = ExtResource("5_abhsr")
-keith = NodePath("../Monster")
-keith_light = NodePath("../Monster/RedLight2")
 keith_scare_sfx_path = "uid://bt4jw627jua1r"
 
 [node name="Area3D" type="Area3D" parent="Triggers" unique_id=1065119730]
@@ -363,15 +360,5 @@ collision_mask = 512
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Triggers/Area3D" unique_id=1329166246]
 shape = SubResource("BoxShape3D_uyvyw")
-
-[node name="Monster" parent="." unique_id=1082106793 instance=ExtResource("6_uyvyw")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18, 0, -16)
-
-[node name="RedLight2" type="OmniLight3D" parent="Monster" unique_id=426046651]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1.5709311, 0)
-visible = false
-light_color = Color(0.99999994, 0.17606175, 0.107509546, 1)
-omni_range = 1.6038629
-omni_attenuation = 2.935
 
 [connection signal="body_entered" from="Triggers/Area3D" to="Triggers" method="_on_area_3d_body_entered"]

@@ -84,6 +84,8 @@ func _enter_tree() -> void:
         if area.body_entered.connect(_handle_something_entered) != OK:
             push_error("Failed to connect body entered")
 
+func _ready() -> void:
+    __SignalBus.on_entity_join_level.emit(self)
 
 func _is_self(n: Node3D) -> bool:
     return NodeUtils.is_parent(entity_root, n)

@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://vbs5gbbsn6tv" path="res://addons/minimum_convenience/scripts/captured_mouse_eventer.gd" id="4_ppim7"]
 [ext_resource type="Script" uid="uid://x6uxf7lr5f1b" path="res://core/entities/physics_controller_steps_caster.gd" id="5_2et68"]
 [ext_resource type="Script" uid="uid://cbaspepqt0vih" path="res://core/entities/grid_entity.gd" id="6_nh3x3"]
+[ext_resource type="Script" uid="uid://ba388j08hikib" path="res://horror/noise_area.gd" id="7_e1biv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_reoop"]
 radius = 0.3
@@ -50,6 +51,10 @@ height = 1.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aoiyr"]
 size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_03p0g"]
+height = 2.0549316
+radius = 0.79833984
 
 [node name="Player3d" type="CharacterBody3D" unique_id=942295760 node_paths=PackedStringArray("_camera", "_freelook_cam", "_gridded_controller", "grid_entity", "look_target", "_captured_pointer_eventer", "stepper", "_forward", "_left", "_right", "_backward", "_debug_shapes")]
 collision_layer = 512
@@ -176,3 +181,15 @@ input_ray_pickable = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="GridEntity Collision Area" unique_id=1721867353]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8227693, 0)
 shape = SubResource("CapsuleShape3D_reoop")
+
+[node name="Noise Area" type="Area3D" parent="." unique_id=1857138332 node_paths=PackedStringArray("player")]
+collision_layer = 512
+collision_mask = 0
+input_ray_pickable = false
+monitoring = false
+script = ExtResource("7_e1biv")
+player = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Noise Area" unique_id=1891615445]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0211182, 0)
+shape = SubResource("CylinderShape3D_03p0g")

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d2ehytl3kps4d" path="res://horror/monster/TEMP/temp_monster_level.gd" id="1_agkej"]
 [ext_resource type="Material" uid="uid://bttodiouk0rae" path="res://horror/monster/TEMP/TEMP_checker_mat.tres" id="1_n4lit"]
-[ext_resource type="PackedScene" uid="uid://dbbbvw47dto45" path="res://horror/monster/monster.tscn" id="2_bujxq"]
+[ext_resource type="PackedScene" uid="uid://dbbbvw47dto45" path="res://horror/monster/monster_old.tscn" id="2_bujxq"]
 [ext_resource type="Script" uid="uid://cbaspepqt0vih" path="res://core/entities/grid_entity.gd" id="2_wrf78"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_n4lit"]

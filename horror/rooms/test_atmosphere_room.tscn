@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dydy3p8wg76kl" path="res://visual/tiles/marked_walkway/marked_walkway_baseColor.png" id="9_gff1q"]
 [ext_resource type="Texture2D" uid="uid://eflyjxhpstfw" path="res://visual/tiles/marked_walkway/marked_walkway_normal.png" id="10_n5jq8"]
 [ext_resource type="Texture2D" uid="uid://drjokb1oxbljr" path="res://visual/tiles/marked_walkway/marked_walkway_occlusionRoughnessMetallic.png" id="11_quj6t"]
-[ext_resource type="PackedScene" uid="uid://dbbbvw47dto45" path="res://horror/monster/monster.tscn" id="12_p2c4x"]
+[ext_resource type="PackedScene" uid="uid://dbbbvw47dto45" path="res://horror/monster/monster_old.tscn" id="12_p2c4x"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4828v"]
 

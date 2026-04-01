@@ -4,18 +4,18 @@ extends Node3D
 
 var _keith_run_triggered: bool = false
 
-var _monster_entity: MonsterEntity
+var monster_entity: MonsterEntity
 
-var keith: Monster:
+var dungeon: Dungeon:
     get():
-        if _monster_entity != null:
-            return _monster_entity.monster
-        return null
+        if dungeon == null:
+            dungeon = Dungeon.find_dungeon_in_tree(self)
+        return dungeon
 
 var keith_light: OmniLight3D:
     get():
-        if _monster_entity != null:
-            return _monster_entity.red_light
+        if monster_entity != null:
+            return monster_entity.red_light
         return null
 
 @export_file("*.mp3") var keith_scare_sfx_path: String
@@ -26,15 +26,18 @@ func _enter_tree() -> void:
 
 func _handle_entity_join_level(entity: GridEntity) -> void:
     if entity.type == GridEntity.EntityType.ENEMY && entity is MonsterEntity:
-        _monster_entity = entity
+        monster_entity = entity
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-    if keith == null:
+    if monster_entity == null:
         return
 
-    if body is CharacterBody3D and not _keith_run_triggered:
+    var player: PhysicsGridPlayerController = PhysicsGridPlayerController.find_in_tree(body)
+    if player != null && !_keith_run_triggered:
         _keith_run_triggered = true
-        keith.queue_move(20)
+
+        monster_entity.move_to_coordinates(dungeon.get_closest_coordinates(player.global_position))
+
         await get_tree().create_timer(4.0).timeout
         if keith_light != null:
             keith_light.show()

@@ -73,6 +73,7 @@ _data = {
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uyvyw"]
+size = Vector3(1.4106445, 1, 4.2579346)
 
 [node name="Corridor" type="Node3D" unique_id=353704301]
 
@@ -357,8 +358,10 @@ keith_scare_sfx_path = "uid://bt4jw627jua1r"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, 1)
 collision_layer = 512
 collision_mask = 512
+input_ray_pickable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Triggers/Area3D" unique_id=1329166246]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20532227, 0, 0.04071045)
 shape = SubResource("BoxShape3D_uyvyw")
 
 [connection signal="body_entered" from="Triggers/Area3D" to="Triggers" method="_on_area_3d_body_entered"]

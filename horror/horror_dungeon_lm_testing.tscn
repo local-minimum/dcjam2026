@@ -25,7 +25,7 @@ reflected_light_source = 2
 [sub_resource type="BoxShape3D" id="BoxShape3D_eidof"]
 size = Vector3(75.727066, 99.23596, 0.263)
 
-[node name="HorrorLevel" type="Node3D" unique_id=1143420985 node_paths=PackedStringArray("collision_system", "player")]
+[node name="HorrorLevel2" type="Node3D" unique_id=1143420985 node_paths=PackedStringArray("collision_system", "player")]
 script = ExtResource("1_3h5fl")
 grid_size = Vector3(2, 4, 2)
 collision_system = NodePath("Collision System")

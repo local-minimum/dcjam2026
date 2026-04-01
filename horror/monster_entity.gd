@@ -38,6 +38,7 @@ class PositionCommand:
     func _to_string() -> String:
         return "<Pos %s Speed>" % [pos, speed]
 
+var _turn_to_cardinal_after_move: bool
 var _coords_queue: Array[CoordinatesCommand]
 var _pos_queue: Array[PositionCommand]
 
@@ -57,12 +58,17 @@ func _handle_monster_idle() -> void:
     if !_coords_queue.is_empty():
         var command: CoordinatesCommand = _coords_queue.pop_front()
         var target: Vector3 = dungeon.get_global_grid_position_from_coordinates(command.coords)
-        move_to_position(target, command.speed, command.jitter)
+        move_to_position(target, command.speed, command.jitter, _turn_to_cardinal_after_move)
 
 func handle_detect_player_noise(_noise_area: NoiseArea) -> void:
     pass
 
-func move_to_coordinates(coords: Vector3i, speed: float = 1.0, jitter: float = 0.0) -> void:
+func move_to_coordinates(
+    coords: Vector3i,
+    speed: float = 1.0,
+    jitter: float = 0.0,
+    align_cardinal: bool = true,
+) -> void:
     _coords_queue.clear()
 
     var steps: Array[Vector3i] = []
@@ -82,13 +88,15 @@ func move_to_coordinates(coords: Vector3i, speed: float = 1.0, jitter: float = 0
             _coords_queue.append(CoordinatesCommand.new(c, speed, jitter))
     #print_debug("Generated commands: %s from %s" % [_coords_queue, steps])
     var target: Vector3 = dungeon.get_global_grid_position_from_coordinates(steps[0])
-    move_to_position(target, speed, jitter)
+    move_to_position(target, speed, jitter, align_cardinal)
 
 func move_to_position(
     pos: Vector3,
     speed: float = 1.0,
     jitter: float = 0.0,
+    align_to_cardinal_after_move: bool = true,
 ) -> void:
+    _turn_to_cardinal_after_move = align_to_cardinal_after_move
     _turn_to_cardinal = false
     #print_debug("Move with jitter %s" % [jitter])
     monster.clear_queue()
@@ -123,7 +131,6 @@ func _pop_pos_queue() -> bool:
         return false
 
     var command: PositionCommand = _pos_queue.pop_front()
-    var local_pos: Vector3 = monster.to_local(command.pos)
 
     var angle: float = monster.global_basis.z.signed_angle_to(
         command.pos - monster.global_position,
@@ -144,7 +151,7 @@ func _pop_pos_queue() -> bool:
         _align_rotation_with_cardinals()
         return true
 
-    _turn_to_cardinal = _pos_queue.is_empty() && _coords_queue.is_empty()
+    _turn_to_cardinal = _turn_to_cardinal_after_move && _pos_queue.is_empty() && _coords_queue.is_empty()
     return true
 
 func _align_rotation_with_cardinals() -> void:

@@ -7,7 +7,12 @@ enum CommandType { MOVE, TURN }
 class Command:
     var type: CommandType
     var value: float
+    var speed_factor: float
 
+    func _init(t: CommandType, v: float, sf: float) -> void:
+        type = t
+        value = v
+        speed_factor = sf
 
 #var navigation_enabled: bool = false
 #var _movement_target: Vector3 = Vector3(0.0, 0.0, 0.0)
@@ -42,9 +47,6 @@ var _current_command: Command = null
 var _target_value: float = 0.0
 
 
-
-
-
 func _process(delta: float) -> void:
     ## WARNING - temporary controller for testing enemy with keyboard- remove
     #var dir: float = Input.get_axis("ui_down", 'ui_up')
@@ -60,38 +62,40 @@ func _process(delta: float) -> void:
         _current_command = _command_queue.pop_front()
         _target_value = _current_command.value
 
+    var move_speed: float = MOVE_SPEED * (_current_command.speed_factor if _current_command != null else 1.0)
+    var turn_speed: float = TURN_SPEED * (_current_command.speed_factor if _current_command != null else 1.0)
     if _current_command:
-        match _current_command.type:         
+        match _current_command.type:
             CommandType.MOVE:
-                var step: float = MOVE_SPEED * delta
+                var step: float = move_speed * delta
                 if _target_value > step:
                     dir = 1.0
                     _target_value -= step
                 else:
-                    dir = _target_value / (MOVE_SPEED * delta) # final small adjustment
+                    dir = _target_value / (move_speed * delta) # final small adjustment
                     _current_command = null
                     #_snap_to_grid()
 
             CommandType.TURN:
-                var step: float = TURN_SPEED * delta
+                var step: float = turn_speed * delta
                 var rotation_dir: float = signf(_target_value)
                 if absf(_target_value) > step:
                     a_dir = rotation_dir
                     _target_value -= step * rotation_dir
                 else:
-                    a_dir = _target_value / (TURN_SPEED * delta)
+                    a_dir = _target_value / (turn_speed * delta)
                     _current_command = null
                     _snap_to_grid()
 
     if dir != 0:
-        translate(Vector3(0.0, 0.0, dir) * MOVE_SPEED * delta)
+        translate(Vector3(0.0, 0.0, dir) * move_speed * delta)
     if a_dir != 0:
-        rotate_object_local(Vector3.UP, a_dir * TURN_SPEED * delta)
+        rotate_object_local(Vector3.UP, a_dir * turn_speed * delta)
 
     # Rotate body based upon avg normal dir of legs
     var plane_1: Plane = Plane(
-        _BL_ik_target.global_position, 
-        _FL_ik_target.global_position, 
+        _BL_ik_target.global_position,
+        _FL_ik_target.global_position,
         _FR_ik_target.global_position
     )
     var plane_2: Plane = Plane(
@@ -116,8 +120,9 @@ func _process(delta: float) -> void:
 
     var current_quat: Quaternion = transform.basis.get_rotation_quaternion()
     var target_quat: Quaternion = target_basis.get_rotation_quaternion()
-    var final_quat: Quaternion = current_quat.slerp(target_quat, MOVE_SPEED * delta)
-    #var final_quat: Quaternion = current_quat.slerp(target_quat * wobble_quat, MOVE_SPEED * delta)
+    # This uses move speed because if moving faster angle needs to correct faster
+    var final_quat: Quaternion = current_quat.slerp(target_quat, move_speed * delta)
+    #var final_quat: Quaternion = current_quat.slerp(target_quat * wobble_quat, move_speed * delta)
 
     var s: Vector3 = scale
     transform.basis = Basis(final_quat)
@@ -125,7 +130,7 @@ func _process(delta: float) -> void:
 
     # Translate body horizontally to the desired ground offset
     var avg_pos: Vector3 = (
-        _FL_ik_target.position + 
+        _FL_ik_target.position +
         _FR_ik_target.position +
         _BL_ik_target.position +
         _BR_ik_target.position
@@ -133,14 +138,14 @@ func _process(delta: float) -> void:
 
     var target_pos: Vector3 = avg_pos + transform.basis.y * GROUND_OFFSET
     var distance: float = transform.basis.y.dot(target_pos - position)
-    var vertical_speed: float = MOVE_SPEED * 2.0
+    var vertical_speed: float = move_speed * 2.0
 
     #if distance > 0.15 or distance < -0.15:
         #vertical_speed *= 2.0
     #if distance > 0.2 or distance < -0.2:
         #position += transform.basis.y * (distance - 0.2)
         #distance = 0.2
-        
+
     position = lerp(position, position + transform.basis.y * distance, (vertical_speed) * delta)
 
 
@@ -194,16 +199,12 @@ func _basis_from_normal(normal: Vector3) -> Basis:
 
 #region PUBLIC API
 ## Queue a forward movement in meters
-func queue_move(distance: float) -> void:
-    var command: Command = Command.new()
-    command.type = CommandType.MOVE
-    command.value = distance
+func queue_move(distance: float, speed_factor: float = 1.0) -> void:
+    var command: Command = Command.new(CommandType.MOVE, distance, speed_factor)
     _command_queue.append(command)
 
 ## Queue a turn in degrees, can be negative.
-func queue_turn(degrees: float) -> void:
-    var command: Command = Command.new()
-    command.type = CommandType.TURN
-    command.value = deg_to_rad(degrees)
+func queue_turn(degrees: float, speed_factor: float = 1.0) -> void:
+    var command: Command = Command.new(CommandType.TURN, deg_to_rad(degrees), speed_factor)
     _command_queue.append(command)
-#endregion 
+#endregion

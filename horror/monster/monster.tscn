@@ -3,6 +3,12 @@
 [ext_resource type="PackedScene" uid="uid://iuctck7ne3ic" path="res://horror/monster/monster_v1.glb" id="1_rgwrv"]
 [ext_resource type="Script" uid="uid://core866w8qx1y" path="res://horror/monster/monster.gd" id="2_oqs4p"]
 [ext_resource type="Script" uid="uid://cxpcy8u870pnk" path="res://horror/monster/leg_ik_target.gd" id="3_kva6l"]
+[ext_resource type="Script" uid="uid://coyy55f6s8jis" path="res://horror/monster_entity.gd" id="4_3x67h"]
+[ext_resource type="Script" uid="uid://dum5myfa27x5d" path="res://horror/monster/detection_area.gd" id="5_cxboi"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_3x67h"]
+height = 1.4943848
+radius = 0.83203125
 
 [node name="Monster" unique_id=1082106793 node_paths=PackedStringArray("_FL_ik_target", "_FR_ik_target", "_BL_ik_target", "_BR_ik_target", "_ik_targets", "_step_target_container", "_step_targets", "_step_rays", "_front_ray") instance=ExtResource("1_rgwrv")]
 script = ExtResource("2_oqs4p")
@@ -16,10 +22,10 @@ _step_targets = [NodePath("Armature/StepTargets/LegFLRayCast/LegFLStepTarget"), 
 _step_rays = [NodePath("Armature/StepTargets/LegFLRayCast"), NodePath("Armature/StepTargets/LegFRRayCast"), NodePath("Armature/StepTargets/LegBLRayCast"), NodePath("Armature/StepTargets/LegBRRayCast")]
 _front_ray = NodePath("Armature/FrontRay")
 
-[node name="Armature" parent="." index="0" unique_id=253096244]
+[node name="Armature" parent="." index="0" unique_id=1374124274]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
 
-[node name="LegFLTwoBoneIK" type="TwoBoneIK3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(1030592306) index="1" unique_id=391264738]
+[node name="LegFLTwoBoneIK" type="TwoBoneIK3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(2103657072) index="1" unique_id=391264738]
 setting_count = 1
 settings/0/target_node = NodePath("../../IKTargets/LegFLIKTarget")
 settings/0/pole_node = NodePath("../../Poles/LegFLPole")
@@ -33,7 +39,7 @@ settings/0/end_bone = 2
 settings/0/use_virtual_end = false
 settings/0/extend_end_bone = false
 
-[node name="LegFRTwoBoneIK" type="TwoBoneIK3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(1030592306) index="2" unique_id=692486199]
+[node name="LegFRTwoBoneIK" type="TwoBoneIK3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(2103657072) index="2" unique_id=692486199]
 setting_count = 1
 settings/0/target_node = NodePath("../../IKTargets/LegFRIKTarget")
 settings/0/pole_node = NodePath("../../Poles/LegFRPole")
@@ -47,7 +53,7 @@ settings/0/end_bone = 5
 settings/0/use_virtual_end = false
 settings/0/extend_end_bone = false
 
-[node name="LegBLTwoBoneIK" type="TwoBoneIK3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(1030592306) index="3" unique_id=2062038172]
+[node name="LegBLTwoBoneIK" type="TwoBoneIK3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(2103657072) index="3" unique_id=2062038172]
 setting_count = 1
 settings/0/target_node = NodePath("../../IKTargets/LegBLIKTarget")
 settings/0/pole_node = NodePath("../../Poles/LegBLPole")
@@ -61,7 +67,7 @@ settings/0/end_bone = 11
 settings/0/use_virtual_end = false
 settings/0/extend_end_bone = false
 
-[node name="LegBRTwoBoneIK" type="TwoBoneIK3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(1030592306) index="4" unique_id=1490883692]
+[node name="LegBRTwoBoneIK" type="TwoBoneIK3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(2103657072) index="4" unique_id=1490883692]
 setting_count = 1
 settings/0/target_node = NodePath("../../IKTargets/LegBRIKTarget")
 settings/0/pole_node = NodePath("../../Poles/LegBRPole")
@@ -165,3 +171,32 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 1, -0.5)
 [node name="FrontRay" type="RayCast3D" parent="Armature" index="4" unique_id=57388095]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1, 0)
 target_position = Vector3(0, -1.5, 0)
+
+[node name="MonsterEntity" type="Node" parent="." index="1" unique_id=1775009649 node_paths=PackedStringArray("monster", "red_light", "entity_root", "detection_areas")]
+script = ExtResource("4_3x67h")
+monster = NodePath("..")
+red_light = NodePath("../RedLight2")
+type = 2
+entity_root = NodePath("..")
+detection_areas = [NodePath("../Detection Area")]
+metadata/_custom_type_script = "uid://coyy55f6s8jis"
+
+[node name="Detection Area" type="Area3D" parent="." index="2" unique_id=1250371086 node_paths=PackedStringArray("monster_entity")]
+collision_layer = 1024
+collision_mask = 1536
+input_ray_pickable = false
+script = ExtResource("5_cxboi")
+monster_entity = NodePath("../MonsterEntity")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Detection Area" index="0" unique_id=668660315]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.74523926, 0)
+shape = SubResource("CylinderShape3D_3x67h")
+
+[node name="RedLight2" type="OmniLight3D" parent="." index="3" unique_id=794853687]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1.5709311, 0)
+visible = false
+light_color = Color(0.99999994, 0.17606175, 0.107509546, 1)
+omni_range = 1.6038629
+omni_attenuation = 2.935
+
+[connection signal="area_entered" from="Detection Area" to="Detection Area" method="_on_area_entered"]

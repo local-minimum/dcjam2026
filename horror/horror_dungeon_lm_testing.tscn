@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://dvpgd21g47m5h"]
+
+[ext_resource type="Script" uid="uid://5nd45w6q42kq" path="res://core/dungeon.gd" id="1_3h5fl"]
+[ext_resource type="PackedScene" uid="uid://b6svyccqvk55" path="res://horror/player_3d_horror.tscn" id="2_amtaw"]
+[ext_resource type="Script" uid="uid://c20jt2s5o513v" path="res://horror/horror_collision_resolver.gd" id="3_3h5fl"]
+[ext_resource type="PackedScene" uid="uid://miqvvv57y7jw" path="res://horror/rooms/foyer.tscn" id="4_p6hyn"]
+[ext_resource type="PackedScene" uid="uid://b31jydn3i0u4j" path="res://horror/rooms/library.tscn" id="5_3is8g"]
+[ext_resource type="PackedScene" uid="uid://d0hjjxkgu2bv4" path="res://horror/rooms/cubicles.tscn" id="6_dq44g"]
+[ext_resource type="PackedScene" uid="uid://dch5u7micaf0v" path="res://horror/rooms/atrium.tscn" id="7_d14hc"]
+[ext_resource type="PackedScene" uid="uid://7ufpontbryf2" path="res://horror/rooms/outside.tscn" id="8_5w0qh"]
+[ext_resource type="PackedScene" uid="uid://dhdjfsnd5kuvn" path="res://horror/rooms/corridor.tscn" id="9_6vbrn"]
+[ext_resource type="PackedScene" uid="uid://crdkc5mx8cs5l" path="res://horror/rooms/monster_room.tscn" id="10_0rgsw"]
+[ext_resource type="PackedScene" uid="uid://dbbbvw47dto45" path="res://horror/monster/monster.tscn" id="11_amtaw"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_75gv8"]
+
+[sub_resource type="Sky" id="Sky_gagwy"]
+sky_material = SubResource("ProceduralSkyMaterial_75gv8")
+
+[sub_resource type="Environment" id="Environment_ifq1x"]
+background_mode = 2
+sky = SubResource("Sky_gagwy")
+reflected_light_source = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eidof"]
+size = Vector3(75.727066, 99.23596, 0.263)
+
+[node name="HorrorLevel" type="Node3D" unique_id=1143420985 node_paths=PackedStringArray("collision_system", "player")]
+script = ExtResource("1_3h5fl")
+grid_size = Vector3(2, 4, 2)
+collision_system = NodePath("Collision System")
+player = NodePath("Player")
+_invoke_cinematic_on_ready = false
+metadata/_custom_type_script = "uid://5nd45w6q42kq"
+
+[node name="Misc" type="Node3D" parent="." unique_id=1253155253]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Misc" unique_id=850651614]
+environment = SubResource("Environment_ifq1x")
+
+[node name="Floor Collision" type="StaticBody3D" parent="Misc" unique_id=1355826590]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -3.75, 0, -18.75)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Misc/Floor Collision" unique_id=1782019905]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.128643, 18.659729, -0.13185121)
+shape = SubResource("BoxShape3D_eidof")
+
+[node name="Player" parent="." unique_id=942295760 instance=ExtResource("2_amtaw")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, -16)
+
+[node name="Collision System" type="Node" parent="." unique_id=1467278961]
+script = ExtResource("3_3h5fl")
+
+[node name="Floors" type="Node3D" parent="." unique_id=2053274620]
+
+[node name="Foyer" parent="." unique_id=248408387 instance=ExtResource("4_p6hyn")]
+
+[node name="Library" parent="." unique_id=1536973768 instance=ExtResource("5_3is8g")]
+
+[node name="Cubicles" parent="." unique_id=1279492692 instance=ExtResource("6_dq44g")]
+
+[node name="Atrium" parent="." unique_id=1315631618 instance=ExtResource("7_d14hc")]
+
+[node name="Outside" parent="." unique_id=1686640705 instance=ExtResource("8_5w0qh")]
+
+[node name="Corridor" parent="." unique_id=353704301 instance=ExtResource("9_6vbrn")]
+
+[node name="MonsterRoom" parent="." unique_id=507186414 instance=ExtResource("10_0rgsw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, -21)
+
+[node name="Monster" parent="." unique_id=1082106793 instance=ExtResource("11_amtaw")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18, 0, -16)

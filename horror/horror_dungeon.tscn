@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bcjd42hnh7if4"]
 
 [ext_resource type="Script" uid="uid://5nd45w6q42kq" path="res://core/dungeon.gd" id="1_rtw18"]
-[ext_resource type="Script" uid="uid://dfqjle1xd7utg" path="res://clicker/battle/entity_collision_join_battle.gd" id="2_4oo4h"]
 [ext_resource type="PackedScene" uid="uid://b6svyccqvk55" path="res://horror/player_3d_horror.tscn" id="5_eidof"]
 [ext_resource type="PackedScene" uid="uid://b31jydn3i0u4j" path="res://horror/rooms/library.tscn" id="6_eidof"]
 [ext_resource type="PackedScene" uid="uid://d0hjjxkgu2bv4" path="res://horror/rooms/cubicles.tscn" id="7_bifnm"]
@@ -9,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://dhdjfsnd5kuvn" path="res://horror/rooms/corridor.tscn" id="9_75gv8"]
 [ext_resource type="PackedScene" uid="uid://7ufpontbryf2" path="res://horror/rooms/outside.tscn" id="9_nn07l"]
 [ext_resource type="PackedScene" uid="uid://crdkc5mx8cs5l" path="res://horror/rooms/monster_room.tscn" id="10_75gv8"]
+[ext_resource type="Script" uid="uid://c20jt2s5o513v" path="res://horror/horror_collision_resolver.gd" id="11_1m84d"]
+[ext_resource type="PackedScene" uid="uid://dbbbvw47dto45" path="res://horror/monster/monster.tscn" id="11_gagwy"]
 [ext_resource type="PackedScene" uid="uid://miqvvv57y7jw" path="res://horror/rooms/foyer.tscn" id="16_ijayo"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_75gv8"]
@@ -47,9 +48,6 @@ shape = SubResource("BoxShape3D_eidof")
 [node name="Player" parent="." unique_id=942295760 instance=ExtResource("5_eidof")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, -16)
 
-[node name="Collision System" type="Node" parent="." unique_id=1467278961]
-script = ExtResource("2_4oo4h")
-
 [node name="Floors" type="Node3D" parent="." unique_id=2053274620]
 
 [node name="Foyer" parent="." unique_id=248408387 instance=ExtResource("16_ijayo")]
@@ -66,3 +64,9 @@ script = ExtResource("2_4oo4h")
 
 [node name="MonsterRoom" parent="." unique_id=507186414 instance=ExtResource("10_75gv8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, -21)
+
+[node name="Monster" parent="." unique_id=1082106793 instance=ExtResource("11_gagwy")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18, 0, -16)
+
+[node name="Collision System" type="Node" parent="." unique_id=1364647128]
+script = ExtResource("11_1m84d")

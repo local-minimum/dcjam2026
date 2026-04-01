@@ -23,6 +23,7 @@ signal on_level_paused(paused: bool)
 signal on_physics_player_ready(player: PhysicsGridPlayerController)
 signal on_physics_player_removed(player: PhysicsGridPlayerController)
 signal on_physics_player_arrive_tile(player: PhysicsGridPlayerController, to_coords: Vector3i)
+signal on_entity_join_level(entity: GridEntity)
 
 ## DEPRECATED: This is not used with the physics based system (yet)
 signal on_update_entity_orientation(

@@ -1,6 +1,7 @@
 class_name Monster
 extends Node3D
 
+signal on_idle
 
 enum CommandType { MOVE, TURN }
 
@@ -8,11 +9,13 @@ class Command:
     var type: CommandType
     var value: float
     var speed_factor: float
+    var snap: bool
 
-    func _init(t: CommandType, v: float, sf: float) -> void:
+    func _init(t: CommandType, v: float, sf: float, s: bool) -> void:
         type = t
         value = v
         speed_factor = sf
+        snap = s
 
 #var navigation_enabled: bool = false
 #var _movement_target: Vector3 = Vector3(0.0, 0.0, 0.0)
@@ -23,7 +26,7 @@ const TURN_SPEED: float = 2.0
 const STEP_DISTANCE: float = 0.75
 const STEP_TARGET_OFFSET: float = 15.0
 const GROUND_OFFSET: float = 0.1
-const GRID_SIZE: float = 1.0
+const SPATIAL_SNAP_RESOLUTION: float = 1.0
 
 #const WOBBLE_SPEED: float = 8.0
 #const WOBBLE_INTENSITY: float = 0.05
@@ -43,9 +46,15 @@ const GRID_SIZE: float = 1.0
 
 
 var _command_queue: Array[Command] = []
-var _current_command: Command = null
-var _target_value: float = 0.0
+var _current_command: Command = null:
+    set(value):
+        var had_command: bool = _current_command != null
+        _current_command = value
 
+        if _command_queue.is_empty() && had_command && value == null:
+            on_idle.emit()
+
+var _target_value: float = 0.0
 
 func _process(delta: float) -> void:
     ## WARNING - temporary controller for testing enemy with keyboard- remove
@@ -73,8 +82,11 @@ func _process(delta: float) -> void:
                     _target_value -= step
                 else:
                     dir = _target_value / (move_speed * delta) # final small adjustment
+                    if _current_command.snap:
+                        _snap_position()
+
                     _current_command = null
-                    #_snap_to_grid()
+
 
             CommandType.TURN:
                 var step: float = turn_speed * delta
@@ -84,11 +96,12 @@ func _process(delta: float) -> void:
                     _target_value -= step * rotation_dir
                 else:
                     a_dir = _target_value / (turn_speed * delta)
+                    if _current_command.snap:
+                        _snap_rotation()
                     _current_command = null
-                    _snap_to_grid()
 
     if dir != 0:
-        translate(Vector3(0.0, 0.0, dir) * move_speed * delta)
+        translate(Vector3(0.0, 0.0, dir * move_speed * delta))
     if a_dir != 0:
         rotate_object_local(Vector3.UP, a_dir * turn_speed * delta)
 
@@ -166,18 +179,21 @@ func _physics_process(_delta: float) -> void:
     _previous_pos = self.global_position
 
 
-func _snap_to_grid() -> void:
+func _snap_position() -> void:
     var snapped_pos: Vector3 = Vector3(
-        roundf(global_position.x / GRID_SIZE) * GRID_SIZE,
+        roundf(global_position.x / SPATIAL_SNAP_RESOLUTION) * SPATIAL_SNAP_RESOLUTION,
         global_position.y,
-        roundf(global_position.z / GRID_SIZE) * GRID_SIZE
+        roundf(global_position.z / SPATIAL_SNAP_RESOLUTION) * SPATIAL_SNAP_RESOLUTION
         )
-
-    var current_euler: Vector3 = transform.basis.get_euler()
-    var snapped_y_rot: float = roundf(current_euler.y / (PI / 2.0)) * (PI / 2.0)
 
     global_position.x = snapped_pos.x
     global_position.z = snapped_pos.z
+
+func _snap_rotation() -> void:
+    var current_euler: Vector3 = transform.basis.get_euler()
+    var snapped_y_rot: float = roundf(current_euler.y / (PI / 2.0)) * (PI / 2.0)
+
+
     var s = scale
     transform.basis = Basis(Quaternion.from_euler(Vector3(current_euler.x, snapped_y_rot, current_euler.z)))
     scale = s
@@ -199,12 +215,20 @@ func _basis_from_normal(normal: Vector3) -> Basis:
 
 #region PUBLIC API
 ## Queue a forward movement in meters
-func queue_move(distance: float, speed_factor: float = 1.0) -> void:
-    var command: Command = Command.new(CommandType.MOVE, distance, speed_factor)
+func queue_move(distance: float, speed_factor: float = 1.0, snap: bool = false) -> void:
+    var command: Command = Command.new(CommandType.MOVE, distance, speed_factor, snap)
     _command_queue.append(command)
 
-## Queue a turn in degrees, can be negative.
-func queue_turn(degrees: float, speed_factor: float = 1.0) -> void:
-    var command: Command = Command.new(CommandType.TURN, deg_to_rad(degrees), speed_factor)
+## Queue a turn in radians relative his own up axis, can be negative.
+func queue_turn(radians: float, speed_factor: float = 1.0, snap: bool = true) -> void:
+    var command: Command = Command.new(CommandType.TURN, radians, speed_factor, snap)
     _command_queue.append(command)
+
+func clear_queue(snap_rotation: bool = false) -> void:
+    if _current_command != null && snap_rotation && _current_command.type == CommandType.TURN:
+        _snap_rotation()
+
+    _current_command = null
+    _target_value = 0.0
+    _command_queue.clear()
 #endregion

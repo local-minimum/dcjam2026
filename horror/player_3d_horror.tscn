@@ -182,14 +182,16 @@ input_ray_pickable = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8227693, 0)
 shape = SubResource("CapsuleShape3D_reoop")
 
-[node name="Noise Area" type="Area3D" parent="." unique_id=1857138332 node_paths=PackedStringArray("player")]
+[node name="Noise Area" type="Area3D" parent="." unique_id=1857138332 node_paths=PackedStringArray("player", "shape")]
 collision_layer = 512
 collision_mask = 0
 input_ray_pickable = false
 monitoring = false
 script = ExtResource("7_e1biv")
 player = NodePath("..")
+shape = NodePath("CollisionShape3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Noise Area" unique_id=1891615445]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0211182, 0)
 shape = SubResource("CylinderShape3D_03p0g")
+debug_color = Color(0.84313726, 0.07058824, 0.34509805, 0.81960785)

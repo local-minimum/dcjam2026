@@ -62,7 +62,7 @@ func _handle_monster_idle() -> void:
 func handle_detect_player_noise(_noise_area: NoiseArea) -> void:
     pass
 
-func move_to_coordinates(coords: Vector3i, speed: float = 1.0, jitter: float = 0.2) -> void:
+func move_to_coordinates(coords: Vector3i, speed: float = 1.0, jitter: float = 0.0) -> void:
     _coords_queue.clear()
 
     var steps: Array[Vector3i] = []
@@ -124,9 +124,11 @@ func _pop_pos_queue() -> bool:
 
     var command: PositionCommand = _pos_queue.pop_front()
     var local_pos: Vector3 = monster.to_local(command.pos)
-    # WTF: Why does this work and not the expected directions???
-    var angle: float = monster.basis.x.signed_angle_to(-local_pos, monster.basis.y)
 
+    var angle: float = monster.global_basis.z.signed_angle_to(
+        command.pos - monster.global_position,
+        monster.global_basis.y
+    )
     var had_instruction: bool = false
     if absf(angle) > IGNORE_MOVE_SQ_THRESHOLD:
         #print_debug("Asking monster to turn %s" % [angle])
@@ -148,7 +150,7 @@ func _pop_pos_queue() -> bool:
 func _align_rotation_with_cardinals() -> void:
     _turn_to_cardinal = false
     var direction: Vector3 = VectorUtils.primary_directionf(monster.global_basis.z)
-    var local_direction: Vector3 = monster.to_local(monster.global_position + direction)
-    var angle: float = monster.basis.z.signed_angle_to(local_direction, monster.basis.y)
+
+    var angle: float = monster.global_basis.z.signed_angle_to(direction, monster.global_basis.y)
 
     monster.queue_turn(angle, 1.0, true)

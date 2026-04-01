@@ -1,6 +1,8 @@
 extends Node3D
 
-## All temp to test
+@export_file("*.mp3") var keith_scare_sfx_path: String
+@export_range(0.5, 2.0) var speed: float = 1.0
+@export_range(0.0, 0.25) var jitter: float = 0.0
 
 var _keith_run_triggered: bool = false
 
@@ -18,8 +20,6 @@ var keith_light: OmniLight3D:
             return monster_entity.red_light
         return null
 
-@export_file("*.mp3") var keith_scare_sfx_path: String
-
 func _enter_tree() -> void:
     if __SignalBus.on_entity_join_level.connect(_handle_entity_join_level) != OK:
         push_error("Failed to connect entity join level")
@@ -36,7 +36,11 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
     if player != null && !_keith_run_triggered:
         _keith_run_triggered = true
 
-        monster_entity.move_to_coordinates(dungeon.get_closest_coordinates(player.global_position))
+        monster_entity.move_to_coordinates(
+            dungeon.get_closest_coordinates(player.global_position),
+            speed,
+            jitter,
+        )
 
         await get_tree().create_timer(4.0).timeout
         if keith_light != null:

@@ -18,27 +18,30 @@ class CoordinatesCommand:
     var coords: Vector3i
     var speed: float
     var jitter: float
+    var align: bool
 
-    func _init(c: Vector3i, s: float = 1.0, j: float = 0.0) -> void:
+    func _init(c: Vector3i, s: float = 1.0, j: float = 0.0, a: bool = false) -> void:
         coords = c
         speed = s
         jitter = j
+        align = a
 
     func _to_string() -> String:
-        return "<Coords %s Speed %s Jitter %s>" % [coords, speed, jitter]
+        return "<Coords %s Speed %s Jitter %s%s>" % [coords, speed, jitter, " Align" if align else ""]
 
 class PositionCommand:
     var pos: Vector3
     var speed: float
+    var align: bool
 
-    func _init(p: Vector3, s: float) -> void:
+    func _init(p: Vector3, s: float, a: bool) -> void:
         pos = p
         speed = s
+        align = a
 
     func _to_string() -> String:
-        return "<Pos %s Speed>" % [pos, speed]
+        return "<Pos %s Speed%s>" % [pos, speed, " Align" if align else ""]
 
-var _turn_to_cardinal_after_move: bool
 var _coords_queue: Array[CoordinatesCommand]
 var _pos_queue: Array[PositionCommand]
 
@@ -58,21 +61,62 @@ func _handle_monster_idle() -> void:
     if !_coords_queue.is_empty():
         var command: CoordinatesCommand = _coords_queue.pop_front()
         var target: Vector3 = dungeon.get_global_grid_position_from_coordinates(command.coords)
-        move_to_position(target, command.speed, command.jitter, _turn_to_cardinal_after_move)
+        move_to_position(target, command.speed, command.jitter, command.align)
 
 func handle_detect_player_noise(_noise_area: NoiseArea) -> void:
     pass
+
+func move_through_coordinates(
+    coords: Array[Vector3i],
+    speed: float = 1.0,
+    jitter: float = 0.0,
+    align_after: bool = false
+) -> void:
+    var had_result: bool = false
+    var mcoords: Vector3i = monster_coordinates
+
+    for idx in coords.size():
+        had_result = _move_from_to_coordinates(
+            mcoords,
+            coords[idx],
+            speed,
+            jitter,
+            align_after if idx + 1 == coords.size() else false,
+            idx == 0 || !had_result,
+        ) || had_result
+
+        mcoords = coords[idx]
 
 func move_to_coordinates(
     coords: Vector3i,
     speed: float = 1.0,
     jitter: float = 0.0,
     align_cardinal: bool = true,
-) -> void:
-    _coords_queue.clear()
+    clear_queue: bool = true,
+) -> bool:
+    var mcoords: Vector3i = monster_coordinates if _coords_queue.is_empty() else _coords_queue[-1].coords
+    return _move_from_to_coordinates(
+        mcoords,
+        coords,
+        speed,
+        jitter,
+        align_cardinal,
+        clear_queue,
+    )
+
+func _move_from_to_coordinates(
+    mcoords: Vector3i,
+    coords: Vector3i,
+    speed: float = 1.0,
+    jitter: float = 0.0,
+    align_cardinal: bool = true,
+    clear_queue: bool = true,
+) -> bool:
+    if clear_queue:
+        _coords_queue.clear()
 
     var steps: Array[Vector3i] = []
-    var mcoords: Vector3i = monster_coordinates
+
     var delta: Vector3i = coords - mcoords
 
     while delta != Vector3i.ZERO:
@@ -83,20 +127,33 @@ func move_to_coordinates(
         delta -= major_delta
         mcoords += major_delta
 
-    if steps.size() > 1:
-        for c: Vector3i in steps.slice(1):
-            _coords_queue.append(CoordinatesCommand.new(c, speed, jitter))
-    #print_debug("Generated commands: %s from %s" % [_coords_queue, steps])
-    var target: Vector3 = dungeon.get_global_grid_position_from_coordinates(steps[0])
-    move_to_position(target, speed, jitter, align_cardinal)
+    var has_result: bool = false
+
+    if clear_queue && _coords_queue.is_empty() && !steps.is_empty():
+        var target: Vector3 = dungeon.get_global_grid_position_from_coordinates(steps[0])
+        move_to_position(target, speed, jitter, align_cardinal if steps.size() == 1 else false)
+        steps = steps.slice(1)
+        has_result = true
+
+    var idx: int = 0
+    for c: Vector3i in steps:
+        _coords_queue.append(CoordinatesCommand.new(
+            c,
+            speed,
+            jitter,
+            align_cardinal if idx + 1 == steps.size() else false
+        ))
+        idx += 1
+        has_result = true
+
+    return has_result
 
 func move_to_position(
     pos: Vector3,
     speed: float = 1.0,
     jitter: float = 0.0,
-    align_to_cardinal_after_move: bool = true,
+    align: bool = true,
 ) -> void:
-    _turn_to_cardinal_after_move = align_to_cardinal_after_move
     _turn_to_cardinal = false
     #print_debug("Move with jitter %s" % [jitter])
     monster.clear_queue()
@@ -120,6 +177,7 @@ func move_to_position(
         _pos_queue.append(PositionCommand.new(
             ref_pos,
             s,
+            align if idx + 1 == resolution else false,
         ))
 
     #print_debug("Generated position commands %s" % [_pos_queue])
@@ -151,7 +209,7 @@ func _pop_pos_queue() -> bool:
         _align_rotation_with_cardinals()
         return true
 
-    _turn_to_cardinal = _turn_to_cardinal_after_move && _pos_queue.is_empty() && _coords_queue.is_empty()
+    _turn_to_cardinal = command.align && _pos_queue.is_empty() && _coords_queue.is_empty()
     return true
 
 func _align_rotation_with_cardinals() -> void:

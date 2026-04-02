@@ -62,10 +62,11 @@ var move_speed: float = 2.5:
 
 @onready var _previous_pos: Vector3 = self.global_position
 
+var _resting_look_target: Vector3
 
 func _ready() -> void:
     move_speed = move_speed # Force IK targets to set step_time - redundancy as both much change
-
+    _resting_look_target = to_local(lookat_IK_target.global_position)
 
 func _process(delta: float) -> void:
     var dir: float = 0.0
@@ -237,12 +238,7 @@ func _basis_from_normal(normal: Vector3) -> Basis:
     return _basis
 
 func reset_leg_ik_targets() -> void:
-    for leg: LegIKTarget in [
-        _FL_ik_target,
-        _FR_ik_target,
-        _BL_ik_target,
-        _BR_ik_target,
-    ]:
+    for leg: LegIKTarget in _ik_targets:
         leg.reset_position()
 
 #region PUBLIC API
@@ -269,6 +265,7 @@ func teleport(pos: Vector3, global_rot: Vector3 = Vector3.ZERO) -> void:
     global_rotation = global_rot
     _command_queue.clear()
     reset_leg_ik_targets()
+    lookat_IK_target.global_position = to_global(_resting_look_target)
     _current_command = null
 
 #endregion

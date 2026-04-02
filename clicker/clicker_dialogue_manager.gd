@@ -191,6 +191,7 @@ func _change_xp(new_xp: float, prev_xp: float) -> void:
 
 func _time_refusal() -> void:
     if !is_instance_valid(_player) || __GlobalGameState.health <= 0:
+        push_warning("Something wrong player is %s and health is %s" % [_player, __GlobalGameState.health])
         return
 
     _player.remove_cinematic_blocker(self)

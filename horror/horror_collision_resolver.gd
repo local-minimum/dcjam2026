@@ -25,6 +25,8 @@ func _handle(player: PhysicsGridPlayerController, monster_entity: MonsterEntity)
         _after_look_towards(player, monster_entity)
 
 func _after_look_towards(player: PhysicsGridPlayerController, monster_entity: MonsterEntity) -> void:
+    __GlobalGameState.keith_kills += 1
+
     await get_tree().create_timer(1.0).timeout
 
     var tween: Tween = create_tween()
@@ -40,6 +42,7 @@ func _after_look_towards(player: PhysicsGridPlayerController, monster_entity: Mo
 
     monster_entity.on_monster_idle.connect(
         func () -> void:
+
             monster_entity.monster.teleport(Vector3.ZERO + 0.2 * Vector3.UP)
 
             await get_tree().create_timer(0.5).timeout

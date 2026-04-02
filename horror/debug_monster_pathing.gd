@@ -5,6 +5,11 @@ extends Node3D
 @export var coords_points: Array[Node3D]
 @export var pos_points: Array[Node3D]
 
+@export var enabled: bool:
+    set(value):
+        set_process(value)
+        enabled = value
+
 var _entity: MonsterEntity
 
 func _enter_tree() -> void:
@@ -16,6 +21,8 @@ func _enter_tree() -> void:
 
     for pt: Node3D in pos_points:
         pt.hide()
+
+    set_process(enabled)
 
 func _process(_delta: float) -> void:
     if _entity == null || dungeon == null:

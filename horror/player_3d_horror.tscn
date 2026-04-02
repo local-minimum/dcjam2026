@@ -251,6 +251,10 @@ input_ray_pickable = false
 monitoring = false
 script = ExtResource("7_e1biv")
 player = NodePath("..")
+max_radius = 15.0
+grow_speed = 3.0
+shrink_speed = 4.0
+before_shrink_delay_msec = 1500
 shape = NodePath("CollisionShape3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Noise Area" unique_id=1891615445]

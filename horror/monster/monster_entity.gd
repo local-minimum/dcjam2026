@@ -3,6 +3,9 @@ class_name MonsterEntity
 
 @export var monster: Monster
 @export var light: OmniLight3D
+
+@export var hunt_speed_factor: float = 1.5
+
 @export var obstacle_detector: RayCast3D
 
 const IGNORE_ANGLE_THRESHOLD: float = PI * 0.001
@@ -40,7 +43,7 @@ class PositionCommand:
         align = a
 
     func _to_string() -> String:
-        return "<Pos %s Speed%s>" % [pos, speed, " Align" if align else ""]
+        return "<Pos %s Speed %s%s>" % [pos, speed, " Align" if align else ""]
 
 var _coords_queue: Array[CoordinatesCommand]
 var _pos_queue: Array[PositionCommand]
@@ -51,6 +54,10 @@ func _enter_tree() -> void:
         push_error("Failed to connect to monster idle")
 
 func _handle_monster_idle() -> void:
+    print_debug("Monster Idle: Noise: %s, Turn Cardinal: %s Pos Queue: %s Coords Queue: %s" % [
+        _tracked_noise, _turn_to_cardinal, _pos_queue, _coords_queue,
+    ])
+
     if _turn_to_cardinal:
         _align_rotation_with_cardinals()
         return
@@ -58,13 +65,37 @@ func _handle_monster_idle() -> void:
     if _pop_pos_queue():
         return
 
+    if _tracked_noise != null:
+        _create_movement_plan(_tracked_noise)
+        return
+
     if !_coords_queue.is_empty():
         var command: CoordinatesCommand = _coords_queue.pop_front()
         var target: Vector3 = dungeon.get_global_grid_position_from_coordinates(command.coords)
         move_to_position(target, command.speed, command.jitter, command.align)
 
-func handle_detect_player_noise(_noise_area: NoiseArea) -> void:
-    pass
+var _tracked_noise: NoiseArea
+
+func handle_detect_player_noise(noise_area: NoiseArea) -> void:
+    print_debug("%s detected player noise %s" % [self, noise_area])
+    _pos_queue.clear()
+    _coords_queue.clear()
+    _tracked_noise = noise_area
+    _create_movement_plan(noise_area)
+
+func handle_loose_player_noise(noise_area: NoiseArea) -> void:
+    if _tracked_noise == noise_area:
+        print_debug("%s lost track of player noise, investigating last position" % [self])
+        _tracked_noise = null
+        _create_movement_plan(noise_area)
+
+func _create_movement_plan(area: NoiseArea) -> void:
+    var target_pos: Vector3 = area.player.global_position
+    move_to_coordinates(
+        dungeon.get_closest_coordinates(target_pos),
+        hunt_speed_factor,
+        0.1
+    )
 
 func move_through_coordinates(
     coords: Array[Vector3i],

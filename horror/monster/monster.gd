@@ -78,7 +78,7 @@ func _process(delta: float) -> void:
 
     #var move_speed: float = MOVE_SPEED * (_current_command.speed_factor if _current_command != null else 1.0)
     var turn_speed: float = TURN_SPEED * (_current_command.speed_factor if _current_command != null else 1.0)
-    
+
     if _current_command:
         match _current_command.type:
             CommandType.MOVE:
@@ -88,7 +88,7 @@ func _process(delta: float) -> void:
                     if _current_command.snap:
                         _snap_position()
                     _current_command = null
-                        
+
             CommandType.TURN:
                 var step: float = turn_speed * delta
                 var rotation_dir: float = signf(_target_value)
@@ -107,13 +107,13 @@ func _process(delta: float) -> void:
     if a_dir != 0:
         rotate_object_local(Vector3.UP, a_dir * turn_speed * delta)
 
-    if _current_command and _current_command.type == CommandType.MOVE:          
+    if _current_command and _current_command.type == CommandType.MOVE:
             var frame_vector: Vector3 = self.global_position - _move_last_frame_pos
             var distance_this_frame: float = frame_vector.length()
-            
+
             _target_value -= distance_this_frame
             _move_last_frame_pos = self.global_position
-            
+
             if _target_value <= 0:
                 if _current_command.snap:
                     _snap_position()
@@ -138,7 +138,7 @@ func _process(delta: float) -> void:
         var collision_point: Vector3 = _front_ray.get_collision_point()
         var proximity: float = 1.0 - (_front_ray.global_position.distance_to(collision_point) / _front_ray.target_position.length())
         average_normal = average_normal.lerp(-wall_normal, proximity * 2.0).normalized()
-        
+
         if not _traversing_onto_wall:
             _traversing_onto_wall = true
     else:
@@ -156,7 +156,7 @@ func _process(delta: float) -> void:
 
     var current_quat: Quaternion = transform.basis.get_rotation_quaternion()
     var target_quat: Quaternion = target_basis.get_rotation_quaternion()
-    
+
     # This uses move speed because if moving faster angle needs to correct faster
     #var final_quat: Quaternion = current_quat.slerp(target_quat, move_speed * delta)
     var final_quat: Quaternion = current_quat.slerp(target_quat * wobble_quat, move_speed * delta)

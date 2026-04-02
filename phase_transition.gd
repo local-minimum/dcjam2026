@@ -1,4 +1,7 @@
 extends TextureRect
+class_name PhaseTransition
+
+enum Phase { WAITING, ERROR, LOAD_DUNGEON, LOAD_PANEL, WAITING_TO_FINALIZE, DONE }
 
 @export var _split_container: HSplitContainer
 @export var _subviewport: SubViewport
@@ -13,10 +16,12 @@ extends TextureRect
 @export_file_path("*.tscn") var _horror_dungeon_scene: String
 @export_file_path("*.tscn") var _horror_panel_scene: String
 
+var phase: Phase = Phase.WAITING
 var _player_coords: Vector3i
 var _player_orientation: Quaternion
 var _waiting_for_resting_player: bool
 var _player: PhysicsGridPlayerController
+var _may_transition: bool
 
 func _enter_tree() -> void:
     if __SignalBus.on_ready_horror.connect(_handle_ready_horror) != OK:
@@ -26,10 +31,14 @@ func _enter_tree() -> void:
     if __SignalBus.on_horror_failed.connect(_handle_horror_fail) != OK:
         push_error("failed to connect horror failed")
 
-func _ready() -> void:
     hide()
 
-var _may_transition: bool
+func _ready() -> void:
+    if __GlobalGameState.keith_kills > 0:
+        await get_tree().create_timer(2.0).timeout
+        __SignalBus.on_ready_horror.emit()
+        await get_tree().create_timer(0.5).timeout
+        __SignalBus.on_transition_to_horror.emit()
 
 func _handle_horror_fail() -> void:
     _overlay_label.text = "You Died"
@@ -37,12 +46,17 @@ func _handle_horror_fail() -> void:
     _overlay_label.modulate = Color.WHITE
     show()
     await get_tree().create_timer(5.0).timeout
+    __GlobalGameState.reset_day_progress()
     get_tree().reload_current_scene()
 
 func _handle_transition_to_horror() -> void:
+    #print_debug("May finalize horror transition")
     _may_transition = true
 
 func _handle_ready_horror() -> void:
+    #print_debug("Ready horror invoked")
+    var shader_mat: ShaderMaterial = material
+    shader_mat.set_shader_parameter("intensity", 0.0)
     _may_transition = false
     _player = PhysicsGridPlayerController.last_connected_player
     _player.add_cinematic_blocker(self)
@@ -54,11 +68,8 @@ func _handle_ready_horror() -> void:
 
     set_process(true)
 
-enum Phase { WAITING, ERROR, LOAD_DUNGEON, LOAD_PANEL, WAITING_TO_FINALIZE, DONE }
-
-var phase: Phase = Phase.WAITING
-
 func _ready_transition() -> void:
+    #print_debug("Horror transition starts with screenshot")
     _waiting_for_resting_player = false
 
     _player_coords = _player.dungeon.get_closest_coordinates(_player.global_position)
@@ -74,10 +85,12 @@ func _snapshot() -> void:
     var img: Image = get_viewport().get_texture().get_image()
     var tex: ImageTexture = ImageTexture.create_from_image(img)
     texture = tex
+    #print_debug("Non-horror screenshot established")
 
 func _unload_conent() -> void:
     for node: Node in _unloading_nodes:
-        node.queue_free()
+        if is_instance_valid(node):
+            node.queue_free()
 
 func _load_horror_dungeon() -> void:
     if ResourceLoader.load_threaded_request(_horror_dungeon_scene, "PackedScene") != OK:
@@ -100,7 +113,7 @@ func _check_loading_next_scene(path: String) -> Variant:
 
     match ResourceLoader.load_threaded_get_status(path, progress):
         ResourceLoader.ThreadLoadStatus.THREAD_LOAD_LOADED:
-            print_debug("Packed scene '%s' loaded" % [path])
+            print_debug("Packed horror scene '%s' loaded" % [path])
             return ResourceLoader.load_threaded_get(path)
 
         ResourceLoader.ThreadLoadStatus.THREAD_LOAD_FAILED:
@@ -147,6 +160,7 @@ func _process(_delta: float) -> void:
                     if _may_transition:
                         _finalize()
                     else:
+                        #print_debug("Horror transition waiting to finalize")
                         phase = Phase.WAITING_TO_FINALIZE
                 else:
                     push_error("Horror panel '%s' isn't a control!" % [_horror_panel_scene])
@@ -158,6 +172,7 @@ func _process(_delta: float) -> void:
                 _finalize()
 
         Phase.ERROR:
+            push_error("Horror transition encountered an error state")
             set_process(false)
 
 func _panic() -> void:
@@ -173,6 +188,7 @@ func _panic() -> void:
     get_tree().quit(100)
 
 func _finalize() -> void:
+    #print_debug("Horror transition finalization")
     phase = Phase.DONE
     set_process(false)
 
@@ -182,6 +198,7 @@ func _finalize() -> void:
     var tween: Tween = create_tween()
     var shader_mat: ShaderMaterial = material
 
+    #print_debug("Horror starting tween of screenshot")
 
     tween.tween_method(
         func (progress: float) -> void:
@@ -197,4 +214,6 @@ func _finalize() -> void:
     __SignalBus.on_horror_loaded.emit()
 
     hide()
+
+    print_debug("Horror loaded complete remove blocker from %s" % [PhysicsGridPlayerController.last_connected_player])
     PhysicsGridPlayerController.last_connected_player.remove_cinematic_blocker(self)

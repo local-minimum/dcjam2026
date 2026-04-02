@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bd8mehmih7yxi"
-path.s3tc="res://.godot/imported/metal_crosshatch_occlusionRoughnessMetallic.png-1e2ad37ed05bfa753cc4f5741a60c972.s3tc.ctex"
+uid="uid://bytx7wacrg7na"
+path.s3tc="res://.godot/imported/metal_crosshatch_normal.png-a2dc887f1d8569bd715c53926d2bb53f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://visual/tiles/U_metal_crosshatch/metal_crosshatch_occlusionRoughnessMetallic.png"
-dest_files=["res://.godot/imported/metal_crosshatch_occlusionRoughnessMetallic.png-1e2ad37ed05bfa753cc4f5741a60c972.s3tc.ctex"]
+source_file="res://visual/tiles/metal_crosshatch/metal_crosshatch_normal.png"
+dest_files=["res://.godot/imported/metal_crosshatch_normal.png-a2dc887f1d8569bd715c53926d2bb53f.s3tc.ctex"]
 
 [params]
 
@@ -22,12 +22,12 @@ compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
-compress/normal_map=0
+compress/normal_map=1
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=0
-roughness/src_normal=""
+roughness/mode=1
+roughness/src_normal="res://visual/tiles/U_metal_crosshatch/metal_crosshatch_normal.png"
 process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2

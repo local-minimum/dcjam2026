@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://h2agvkpoi3xh"
-path.s3tc="res://.godot/imported/metal_crosshatch_baseColor.png-ade553b284ba8bf9cf5643f2da70d411.s3tc.ctex"
+uid="uid://bd8mehmih7yxi"
+path.s3tc="res://.godot/imported/metal_crosshatch_occlusionRoughnessMetallic.png-22383fed18e50a68a091a709200520a2.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://visual/tiles/U_metal_crosshatch/metal_crosshatch_baseColor.png"
-dest_files=["res://.godot/imported/metal_crosshatch_baseColor.png-ade553b284ba8bf9cf5643f2da70d411.s3tc.ctex"]
+source_file="res://visual/tiles/metal_crosshatch/metal_crosshatch_occlusionRoughnessMetallic.png"
+dest_files=["res://.godot/imported/metal_crosshatch_occlusionRoughnessMetallic.png-22383fed18e50a68a091a709200520a2.s3tc.ctex"]
 
 [params]
 

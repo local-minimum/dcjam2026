@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7crmysoya6hm"
-path.s3tc="res://.godot/imported/concrete_quad_tiles_normal.png-637ab9f6c3874ae6ba406d86eeb5d0a1.s3tc.ctex"
+uid="uid://c5k2gm87yrvum"
+path.s3tc="res://.godot/imported/concrete_quad_tiles_occlusionRoughnessMetallic.png-16212d82fa467fc70238bc039f5f32da.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://visual/tiles/U_concrete_quad/concrete_quad_tiles_normal.png"
-dest_files=["res://.godot/imported/concrete_quad_tiles_normal.png-637ab9f6c3874ae6ba406d86eeb5d0a1.s3tc.ctex"]
+source_file="res://visual/tiles/concrete_quad/concrete_quad_tiles_occlusionRoughnessMetallic.png"
+dest_files=["res://.godot/imported/concrete_quad_tiles_occlusionRoughnessMetallic.png-16212d82fa467fc70238bc039f5f32da.s3tc.ctex"]
 
 [params]
 
@@ -22,12 +22,12 @@ compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
-compress/normal_map=1
+compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=1
-roughness/src_normal="res://visual/tiles/U_concrete_ceiling/concrete_ceiling_tiles_normal.png"
+roughness/mode=0
+roughness/src_normal=""
 process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2

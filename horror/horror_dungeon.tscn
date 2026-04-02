@@ -9,7 +9,7 @@
 [ext_resource type="Material" uid="uid://ds3vui401epi3" path="res://visual/tiles/U_tiles_low_grunge/tiles_low_grunge.tres" id="7_nekqp"]
 [ext_resource type="Material" uid="uid://dja2wwno4f7n5" path="res://visual/tiles/U_concrete_block/concrete_block_mat.tres" id="8_u0uk3"]
 [ext_resource type="PackedScene" uid="uid://dch5u7micaf0v" path="res://horror/rooms/atrium.tscn" id="8_urtwg"]
-[ext_resource type="Material" uid="uid://cjmi6owuephcb" path="res://visual/tiles/U_concrete_quad/concrete_quad_mat.tres" id="9_8byix"]
+[ext_resource type="Material" uid="uid://cjmi6owuephcb" path="res://visual/tiles/concrete_quad/concrete_quad_mat.tres" id="9_8byix"]
 [ext_resource type="PackedScene" uid="uid://dhdjfsnd5kuvn" path="res://horror/rooms/corridor.tscn" id="9_75gv8"]
 [ext_resource type="PackedScene" uid="uid://7ufpontbryf2" path="res://horror/rooms/outside.tscn" id="9_nn07l"]
 [ext_resource type="Material" uid="uid://c5fkh61jegi8x" path="res://visual/tiles/U_grated_power/grated_power_mat.tres" id="10_8byix"]
@@ -24,7 +24,7 @@
 [ext_resource type="Material" uid="uid://cea78fiul6b7u" path="res://visual/tiles/U_patterned_metal/patterned_metal_mat.tres" id="16_qbjs5"]
 [ext_resource type="Material" uid="uid://dk4b0e2hwh8we" path="res://visual/tiles/reinforced_skylight/reinforced_skylight_mat.tres" id="17_ycola"]
 [ext_resource type="Material" uid="uid://bsectc0of4coe" path="res://visual/tiles/ridged_light_panel/ridged_light_panel.tres" id="18_5uiqq"]
-[ext_resource type="Material" uid="uid://ct3x3guwn3w5l" path="res://visual/tiles/U_metal_crosshatch/metal_crosshatch_mat.tres" id="18_us24g"]
+[ext_resource type="Material" uid="uid://ct3x3guwn3w5l" path="res://visual/tiles/metal_crosshatch/metal_crosshatch_mat.tres" id="18_us24g"]
 [ext_resource type="Material" uid="uid://dwxmtibrfqa81" path="res://visual/tiles/ridged_panel/ridged_panel_mat.tres" id="19_bl6jb"]
 [ext_resource type="Material" uid="uid://dthac5i013v1p" path="res://visual/tiles/U_scratched_white_panel/scratched_white_panel_mat.tres" id="20_qbjs5"]
 

@@ -312,8 +312,113 @@ mesh = SubResource("ArrayMesh_oht3r")
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 12, -0.1, -7)
 mesh = SubResource("ArrayMesh_oht3r")
 
+[node name="MeshInstance3D33" type="MeshInstance3D" parent="Floor" unique_id=1233819988]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 8, 4.1, -13)
+mesh = SubResource("ArrayMesh_oht3r")
+
+[node name="Ceiling" type="Node3D" parent="." unique_id=1985609055]
+
+[node name="MeshInstance3D26" type="MeshInstance3D" parent="Ceiling" unique_id=747972086]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 8, 4.1, -9)
+mesh = SubResource("ArrayMesh_oht3r")
+
+[node name="MeshInstance3D27" type="MeshInstance3D" parent="Ceiling" unique_id=661271531]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 8, 4.1, -11)
+mesh = SubResource("ArrayMesh_oht3r")
+
+[node name="MeshInstance3D28" type="MeshInstance3D" parent="Ceiling" unique_id=436381438]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 6, 4.1, -11)
+mesh = SubResource("ArrayMesh_oht3r")
+
+[node name="MeshInstance3D29" type="MeshInstance3D" parent="Ceiling" unique_id=384405279]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 6, 4.1, -9)
+mesh = SubResource("ArrayMesh_oht3r")
+
+[node name="MeshInstance3D30" type="MeshInstance3D" parent="Ceiling" unique_id=783070033]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 10, 4.1, -9)
+mesh = SubResource("ArrayMesh_oht3r")
+
+[node name="MeshInstance3D31" type="MeshInstance3D" parent="Ceiling" unique_id=755898764]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 10, 4.1, -11)
+mesh = SubResource("ArrayMesh_oht3r")
+
+[node name="MeshInstance3D32" type="MeshInstance3D" parent="Ceiling" unique_id=1576797556]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 10, 4.1, -13)
+mesh = SubResource("ArrayMesh_oht3r")
+
+[node name="MeshInstance3D34" type="MeshInstance3D" parent="Ceiling" unique_id=2025148540]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 6, 4.1, -13)
+mesh = SubResource("ArrayMesh_oht3r")
+
+[node name="MeshInstance3D35" type="MeshInstance3D" parent="Ceiling" unique_id=427370970]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 4, 4.1, -11)
+mesh = SubResource("ArrayMesh_oht3r")
+
+[node name="MeshInstance3D36" type="MeshInstance3D" parent="Ceiling" unique_id=992208933]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 4, 4.1, -9)
+mesh = SubResource("ArrayMesh_oht3r")
+
+[node name="MeshInstance3D37" type="MeshInstance3D" parent="Ceiling" unique_id=1253989259]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 4, 4.1, -13)
+mesh = SubResource("ArrayMesh_oht3r")
+
+[node name="MeshInstance3D38" type="MeshInstance3D" parent="Ceiling" unique_id=561001404]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 12, 4.1, -11)
+mesh = SubResource("ArrayMesh_oht3r")
+
+[node name="MeshInstance3D39" type="MeshInstance3D" parent="Ceiling" unique_id=1257522977]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 12, 4.1, -9)
+mesh = SubResource("ArrayMesh_oht3r")
+
+[node name="MeshInstance3D40" type="MeshInstance3D" parent="Ceiling" unique_id=1208630731]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 12, 4.1, -13)
+mesh = SubResource("ArrayMesh_oht3r")
+
+[node name="MeshInstance3D41" type="MeshInstance3D" parent="Ceiling" unique_id=868742943]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 10, 4.1, -15)
+mesh = SubResource("ArrayMesh_oht3r")
+
+[node name="MeshInstance3D42" type="MeshInstance3D" parent="Ceiling" unique_id=1339471015]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 8, 4.1, -15)
+mesh = SubResource("ArrayMesh_oht3r")
+
+[node name="MeshInstance3D43" type="MeshInstance3D" parent="Ceiling" unique_id=1912234280]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 6, 4.1, -15)
+mesh = SubResource("ArrayMesh_oht3r")
+
+[node name="MeshInstance3D44" type="MeshInstance3D" parent="Ceiling" unique_id=1561163809]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 4, 4.1, -15)
+mesh = SubResource("ArrayMesh_oht3r")
+
+[node name="MeshInstance3D45" type="MeshInstance3D" parent="Ceiling" unique_id=5262997]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 12, 4.1, -15)
+mesh = SubResource("ArrayMesh_oht3r")
+
+[node name="MeshInstance3D46" type="MeshInstance3D" parent="Ceiling" unique_id=1785330696]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 10, 4.1, -7)
+mesh = SubResource("ArrayMesh_oht3r")
+
+[node name="MeshInstance3D47" type="MeshInstance3D" parent="Ceiling" unique_id=885168062]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 8, 4.1, -7)
+mesh = SubResource("ArrayMesh_oht3r")
+
+[node name="MeshInstance3D48" type="MeshInstance3D" parent="Ceiling" unique_id=2089318707]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 6, 4.1, -7)
+mesh = SubResource("ArrayMesh_oht3r")
+
+[node name="MeshInstance3D49" type="MeshInstance3D" parent="Ceiling" unique_id=1894900767]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 4, 4.1, -7)
+mesh = SubResource("ArrayMesh_oht3r")
+
+[node name="MeshInstance3D50" type="MeshInstance3D" parent="Ceiling" unique_id=834173096]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 12, 4.1, -7)
+mesh = SubResource("ArrayMesh_oht3r")
+
 [node name="Lights" type="Node3D" parent="." unique_id=343589909]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Lights" unique_id=206082353]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 3, -11)
-omni_range = 4.7932043
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 3.4406796, -11)
+light_color = Color(1, 0.67175984, 0.65214735, 1)
+light_volumetric_fog_energy = 2.5
+omni_range = 8.295764
+omni_shadow_mode = 0

@@ -17,8 +17,8 @@ render_priority = 0
 shader = ExtResource("2_fh01v")
 shader_parameter/albedo = Color(1, 1, 1, 1)
 shader_parameter/texture_albedo = ExtResource("3_txewa")
-shader_parameter/texture_orm = ExtResource("5_t5o50")
 shader_parameter/texture_normal = ExtResource("4_rqa7t")
+shader_parameter/texture_orm = ExtResource("5_t5o50")
 shader_parameter/normal_scale = 1.0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_38vg6"]
@@ -59,8 +59,8 @@ render_priority = 0
 shader = ExtResource("2_fh01v")
 shader_parameter/albedo = Color(1, 1, 1, 1)
 shader_parameter/texture_albedo = ExtResource("3_4lu8w")
-shader_parameter/texture_orm = ExtResource("5_txewa")
 shader_parameter/texture_normal = ExtResource("4_vsqcf")
+shader_parameter/texture_orm = ExtResource("5_txewa")
 shader_parameter/normal_scale = 1.0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_sxuba"]
@@ -96,6 +96,15 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_sxuba")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_txewa"]
+emission_enabled = true
+emission = Color(0.93256766, 0.36151567, 0, 1)
+emission_energy_multiplier = 300.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_rqa7t"]
+material = SubResource("StandardMaterial3D_txewa")
+size = Vector2(0.5, 10)
+
 [sub_resource type="BoxMesh" id="BoxMesh_lara0"]
 size = Vector3(10, 116, 10)
 
@@ -122,6 +131,63 @@ mesh = SubResource("ArrayMesh_k2m3g")
 [node name="SkyScaperLeft" type="MeshInstance3D" parent="." unique_id=1186014361]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60, -20, -130)
 mesh = SubResource("ArrayMesh_t5o50")
+
+[node name="EmissiveLight1" type="MeshInstance3D" parent="SkyScaperLeft" unique_id=950262536]
+transform = Transform3D(-4.371139e-08, -4.371139e-08, -1, -1, 1.9106855e-15, 4.371139e-08, 0, 1, -4.371139e-08, 0.39297867, 60.90176, 5.6549377)
+mesh = SubResource("PlaneMesh_rqa7t")
+
+[node name="EmissiveLight2" type="MeshInstance3D" parent="SkyScaperLeft" unique_id=1075666551]
+transform = Transform3D(1.9106855e-15, 1, 0, -1, 1.9106855e-15, 4.371139e-08, 4.371139e-08, 0, 1, 5.4553604, 60.90176, 0.6835327)
+mesh = SubResource("PlaneMesh_rqa7t")
+
+[node name="EmissiveLight3" type="MeshInstance3D" parent="SkyScaperLeft" unique_id=1881206045]
+transform = Transform3D(-4.371139e-08, -4.371139e-08, -1, -1, 1.9106855e-15, 4.371139e-08, 0, 1, -4.371139e-08, 0.39297867, 8.90176, 5.6549377)
+mesh = SubResource("PlaneMesh_rqa7t")
+
+[node name="EmissiveLight4" type="MeshInstance3D" parent="SkyScaperLeft" unique_id=1910178971]
+transform = Transform3D(1.9106855e-15, 1, 0, -1, 1.9106855e-15, 4.371139e-08, 4.371139e-08, 0, 1, 5.4553604, 8.90176, 0.6835327)
+mesh = SubResource("PlaneMesh_rqa7t")
+
+[node name="EmissiveLight5" type="MeshInstance3D" parent="SkyScaperLeft" unique_id=1492507331]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.109134674, 66.32303, 5.6549377)
+mesh = SubResource("PlaneMesh_rqa7t")
+
+[node name="EmissiveLight6" type="MeshInstance3D" parent="SkyScaperLeft" unique_id=936900929]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.109134674, 74.32303, 5.6549377)
+mesh = SubResource("PlaneMesh_rqa7t")
+
+[node name="EmissiveLight7" type="MeshInstance3D" parent="SkyScaperLeft" unique_id=1729645774]
+transform = Transform3D(0.43301412, 0.9013871, -3.9400884e-08, -1.51613e-15, -4.371139e-08, -1, -0.9013871, 0.43301412, -1.892765e-08, 5.3686104, 66.32303, -0.032928467)
+mesh = SubResource("PlaneMesh_rqa7t")
+
+[node name="EmissiveLight8" type="MeshInstance3D" parent="SkyScaperLeft" unique_id=1496158051]
+transform = Transform3D(0.43301412, 0.9013871, -3.9400884e-08, -1.51613e-15, -4.371139e-08, -1, -0.9013871, 0.43301412, -1.892765e-08, 5.3686104, 74.32303, -0.032928467)
+mesh = SubResource("PlaneMesh_rqa7t")
+
+[node name="EmissiveLight9" type="MeshInstance3D" parent="SkyScaperLeft" unique_id=701715979]
+transform = Transform3D(-4.371139e-08, -4.371139e-08, -1, -1, 1.9106855e-15, 4.371139e-08, 0, 1, -4.371139e-08, 0.39297867, 81.901764, 5.6549377)
+mesh = SubResource("PlaneMesh_rqa7t")
+
+[node name="EmissiveLight10" type="MeshInstance3D" parent="SkyScaperLeft" unique_id=1636215225]
+transform = Transform3D(1.9106855e-15, 1, 0, -1, 1.9106855e-15, 4.371139e-08, 4.371139e-08, 0, 1, 5.4553604, 81.901764, 0.6835327)
+mesh = SubResource("PlaneMesh_rqa7t")
+
+[node name="EmissiveLight11" type="MeshInstance3D" parent="SkyScaperLeft" unique_id=1955954576]
+transform = Transform3D(-4.371139e-08, -4.371139e-08, -1, -1, 1.9106855e-15, 4.371139e-08, 0, 1, -4.371139e-08, 0.39297867, 83.901764, 5.6549377)
+mesh = SubResource("PlaneMesh_rqa7t")
+
+[node name="EmissiveLight12" type="MeshInstance3D" parent="SkyScaperLeft" unique_id=1023114086]
+transform = Transform3D(1.9106855e-15, 1, 0, -1, 1.9106855e-15, 4.371139e-08, 4.371139e-08, 0, 1, 5.4553604, 83.901764, 0.6835327)
+mesh = SubResource("PlaneMesh_rqa7t")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="SkyScaperLeft" unique_id=1989048099]
+transform = Transform3D(0.841803, -0.12352623, 0.5254608, -6.5296555e-09, 0.97346324, 0.22884345, -0.5397849, -0.1926411, 0.81946427, 14.233322, 43.38515, 24.992943)
+light_color = Color(0.9877643, 0.37781388, 3.85046e-07, 1)
+light_energy = 16.0
+light_volumetric_fog_energy = 16.0
+spot_range = 40.0
+spot_attenuation = -1.0
+spot_angle = 50.0
 
 [node name="SkyScraperMiddle" type="Node3D" parent="." unique_id=1519745753]
 

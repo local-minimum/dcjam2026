@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://miqvvv57y7jw"]
 
 [ext_resource type="Shader" uid="uid://cjso02no5cy8s" path="res://visual/common/base_PBR_shader.gdshader" id="1_ned21"]
+[ext_resource type="Material" uid="uid://dk4b0e2hwh8we" path="res://visual/tiles/reinforced_skylight/reinforced_skylight_mat.tres" id="2_oui7f"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_eidof"]
 render_priority = 0
@@ -38,6 +39,37 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_tshes")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_xth7g"]
+_surfaces = [{
+"aabb": AABB(-1, -0.1, -1, 2, 0.32027102, 2),
+"format": 34896613377,
+"index_count": 108,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAADAAIAAwAFAAAABQABAAAABAAGAAMABgAFAAMAAgAHAAQABwAGAAQAAQAHAAIABgAIAAUABQAJAAEABQAIAAkABgAKAAgABwAKAAYAAQALAAcABwALAAoAAQAJAAsACgAMAAgACAANAAkACAAMAA0ACQAOAAsACQANAA4ACwAPAAoACgAPAAwACwAOAA8AEAAOAA0AEQAMAA8AEgAPAA4AEQAPABIAEgAOABAAEwAMABEAEQASABMAEwANAAwAEwASABAAEAANABMA"),
+"name": "light_1_low",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("AAAAAAAAAAAAANyf//8AAAAAAAD//wAA//8AAAAAAAD//wAA//8AAAAA3J8AAAAA///cnwAAAAD//9yf//8AAHDi//+OHQAAjh3//44dAABw4v//cOIAAI4d//9w4gAA9MD///TAAAD0wP//Cj8AAAo///8KPwAACj////TAAAD0wAPCCj8AAAo/A8L0wAAACj8Dwgo/AAD0wAPC9MAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_y2lb5"]
+_surfaces = [{
+"aabb": AABB(-1, -0.1, -1, 2, 0.32027102, 2),
+"attribute_data": PackedByteArray("QACe/lwAvv9AAL7/XACe/kAAkvZcALP3QACz91wAkvZcALv9QACb/FwAm/xAALv9XAC4+0AAmPpcAJj6QAC4+0AAlfhgAbX5QAC1+WABlfh7PgYUzh925M4fOi97Pqr/7B4GFEAAduRAADov7B6q/wpeBhRdP3bkXT86Lwpeqv+ZfQYU7F525OxeOi+Zfar/e36q/02dQWlNndjge35vSuS9qv+33EFpt9zY4OS9b0pr/G9Kmd3Y4JndQWlr/Kr/Ar1vSi+e2OAvnkFpAr2q/5rcshAC17IQmtzrWQLX61kg1lgSiNBYEiDWkFuI0JBbs8d4SbPHQAB7fnhJe35AAAbPPgtuyT4LBs92VG7JdlQU4xATfN0QExTjSVx83Ulc"),
+"format": 34896613399,
+"index_count": 108,
+"index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQACAAJAAoACwAJAAgADAANAA4ADwANAAwAEAARABIAEwARABAAFAAVABYAFwAVABQAGAAZABoAGwAZABgAHAAdAB4AHwAdABwAIAAhACIAIwAhACAAJAAlACYAJwAlACQAKAApACoAKwApACgALAAtAC4ALwAtACwAMAAxADIAMwAxADAANAA1ADYANgA1ADcAOAA5ADoAOgA5ADsAPAA9AD4APgA9AD8AQABBAEIAQgBBAEMARABFAEYARgBFAEcA"),
+"material": ExtResource("2_oui7f"),
+"name": "light_1_low",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 72,
+"vertex_data": PackedByteArray("AAAAAAAAVNUAANyf//9U1QAAAAD//1TVAADcnwAAVNX//wAAAAD//wAA3J8AAP//AAAAAAAA/////9yfAAD/////AAD//1TV///cnwAAVNX//wAAAABU1f//3J///1TVAAAAAP///7///9yf////v///AAD///+/AADcn////78AAAAA////v///AAAAAP+/AAAAAAAA/7///wAA////vwAA3J///zryjh3//44dOvKOHf//cOI68gAA3J8AADryAADcnwAAZeFw4v//jh1l4Y4d//+OHWXh///cnwAAZeH//9yfAABNwnDi//9w4k3CcOL//44dTcL//9yf//9Nwv//3J///xfLjh3//3DiF8tw4v//cOIXywAA3J///xfLjh3//3Di/78KP///Cj//vwo////0wP+/jh3//44d/7+OHf//jh1U1fTA//8KP1TVCj///wo/VNVw4v//jh1U1XDi//+OHf+/9MD///TA/7/0wP//Cj//v3Di//9w4v+/cOL//3DiVNUKP///9MBU1fTA///0wFTVjh3//3DiVNUKPwPC9MCqKgo////0wKoqCj8Dwgo/qioKP///Cj+qKvTAA8IKP6oq9MD//wo/qir0wAPC9MCqKvTA///0wKoqCj8DwvTAAAAKPwPCCj8AAPTAA8L0wAAA9MADwgo/AAD0wAPC9MAAAPTA///0wAAACj8DwvTAAAAKP///9MAAAAo/A8IKP/8/Cj///wo//z/0wAPCCj//P/TA//8KP/8/VNVU1VTVVNVU1VTVVNVU1f+//7//v/+//7//v/+//7+qqlRVqqpUVaqqVFWqqlRV/3//f/9//3//f/9//3//fwAA/38AAP9/AAD/fwAA/38JcgS5CXIEuQlyBLkJcgS55M4aMeTOGjHkzhox5M4aMevV9Wrr1fVq69X1auvV9WoUoxSjFKMUoxSjFKMUoxSj////f/7//3////9//v//f6qqqqqpqqqqqqqqqqmqqqr+//9/////f/7//3////9/qqqpqqqqqqqqqqmqqqqqqqqqVFWqqlRVqqpUVaqqVFVUVaqqVFWqqlRVqqpUVaqq/3//v/9//7//f/+//3//v/8//7//P/+//z//v/8//7//f/9//3//f/9//3//f/9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_xth7g")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ned21"]
 size = Vector3(14.189697, 4.194458, 0.25531006)
@@ -398,8 +430,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 3, 1)
 mesh = SubResource("ArrayMesh_4828v")
 
 [node name="MeshInstance3D108" type="MeshInstance3D" parent="Wall" unique_id=1098429507]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 1)
-mesh = SubResource("ArrayMesh_4828v")
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 3, 1)
+mesh = SubResource("ArrayMesh_y2lb5")
 
 [node name="MeshInstance3D109" type="MeshInstance3D" parent="Wall" unique_id=199440633]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 3, 1)
@@ -416,6 +448,127 @@ mesh = SubResource("ArrayMesh_4828v")
 [node name="MeshInstance3D112" type="MeshInstance3D" parent="Wall" unique_id=1088154518]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, 1)
 mesh = SubResource("ArrayMesh_4828v")
+
+[node name="Ceiling" type="Node3D" parent="." unique_id=2015042897]
+
+[node name="MeshInstance3D64" type="MeshInstance3D" parent="Ceiling" unique_id=1691187881]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2, 4.1, -6)
+mesh = SubResource("ArrayMesh_4828v")
+
+[node name="MeshInstance3D65" type="MeshInstance3D" parent="Ceiling" unique_id=169522828]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -4, 4.1, -6)
+mesh = SubResource("ArrayMesh_4828v")
+
+[node name="MeshInstance3D66" type="MeshInstance3D" parent="Ceiling" unique_id=218298693]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -6, 4.1, -6)
+mesh = SubResource("ArrayMesh_4828v")
+
+[node name="MeshInstance3D67" type="MeshInstance3D" parent="Ceiling" unique_id=1230108421]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 4, 4.1, -6)
+mesh = SubResource("ArrayMesh_4828v")
+
+[node name="MeshInstance3D70" type="MeshInstance3D" parent="Ceiling" unique_id=219309777]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 6, 4.1, -6)
+mesh = SubResource("ArrayMesh_4828v")
+
+[node name="MeshInstance3D68" type="MeshInstance3D" parent="Ceiling" unique_id=492129915]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2, 4.1, -6)
+mesh = SubResource("ArrayMesh_4828v")
+
+[node name="MeshInstance3D69" type="MeshInstance3D" parent="Ceiling" unique_id=1334086251]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 4.1, -6)
+mesh = SubResource("ArrayMesh_4828v")
+
+[node name="MeshInstance3D71" type="MeshInstance3D" parent="Ceiling" unique_id=866062224]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2, 4.1, -4)
+mesh = SubResource("ArrayMesh_4828v")
+
+[node name="MeshInstance3D72" type="MeshInstance3D" parent="Ceiling" unique_id=301082932]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -4, 4.1, -4)
+mesh = SubResource("ArrayMesh_4828v")
+
+[node name="MeshInstance3D73" type="MeshInstance3D" parent="Ceiling" unique_id=1770304708]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -6, 4.1, -4)
+mesh = SubResource("ArrayMesh_4828v")
+
+[node name="MeshInstance3D74" type="MeshInstance3D" parent="Ceiling" unique_id=1594998510]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 4, 4.1, -4)
+mesh = SubResource("ArrayMesh_4828v")
+
+[node name="MeshInstance3D75" type="MeshInstance3D" parent="Ceiling" unique_id=2056891523]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 6, 4.1, -4)
+mesh = SubResource("ArrayMesh_4828v")
+
+[node name="MeshInstance3D76" type="MeshInstance3D" parent="Ceiling" unique_id=296034110]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2, 4.1, -4)
+mesh = SubResource("ArrayMesh_4828v")
+
+[node name="MeshInstance3D77" type="MeshInstance3D" parent="Ceiling" unique_id=1771305839]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 4.1, -4)
+mesh = SubResource("ArrayMesh_4828v")
+
+[node name="MeshInstance3D78" type="MeshInstance3D" parent="Ceiling" unique_id=732706923]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2, 4.1, -2)
+mesh = SubResource("ArrayMesh_4828v")
+
+[node name="MeshInstance3D79" type="MeshInstance3D" parent="Ceiling" unique_id=323687651]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -4, 4.1, -2)
+mesh = SubResource("ArrayMesh_4828v")
+
+[node name="MeshInstance3D80" type="MeshInstance3D" parent="Ceiling" unique_id=663459222]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -6, 4.1, -2)
+mesh = SubResource("ArrayMesh_4828v")
+
+[node name="MeshInstance3D81" type="MeshInstance3D" parent="Ceiling" unique_id=698302371]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 4, 4.1, -2)
+mesh = SubResource("ArrayMesh_4828v")
+
+[node name="MeshInstance3D82" type="MeshInstance3D" parent="Ceiling" unique_id=1584924779]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 6, 4.1, -2)
+mesh = SubResource("ArrayMesh_4828v")
+
+[node name="MeshInstance3D83" type="MeshInstance3D" parent="Ceiling" unique_id=1521121053]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2, 4.1, -2)
+mesh = SubResource("ArrayMesh_4828v")
+
+[node name="MeshInstance3D84" type="MeshInstance3D" parent="Ceiling" unique_id=138692654]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 4.1, -2)
+mesh = SubResource("ArrayMesh_4828v")
+
+[node name="MeshInstance3D85" type="MeshInstance3D" parent="Ceiling" unique_id=849423255]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2, 4.1, 0)
+mesh = SubResource("ArrayMesh_4828v")
+
+[node name="MeshInstance3D86" type="MeshInstance3D" parent="Ceiling" unique_id=1197838861]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -4, 4.1, 0)
+mesh = SubResource("ArrayMesh_4828v")
+
+[node name="MeshInstance3D87" type="MeshInstance3D" parent="Ceiling" unique_id=586566117]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -6, 4.1, 0)
+mesh = SubResource("ArrayMesh_4828v")
+
+[node name="MeshInstance3D88" type="MeshInstance3D" parent="Ceiling" unique_id=127422134]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 4, 4.1, 0)
+mesh = SubResource("ArrayMesh_4828v")
+
+[node name="MeshInstance3D89" type="MeshInstance3D" parent="Ceiling" unique_id=1967775339]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 6, 4.1, 0)
+mesh = SubResource("ArrayMesh_4828v")
+
+[node name="MeshInstance3D90" type="MeshInstance3D" parent="Ceiling" unique_id=649482526]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2, 4.1, 0)
+mesh = SubResource("ArrayMesh_4828v")
+
+[node name="MeshInstance3D91" type="MeshInstance3D" parent="Ceiling" unique_id=320578991]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 4.1, 0)
+mesh = SubResource("ArrayMesh_4828v")
+
+[node name="Lights" type="Node3D" parent="." unique_id=2044354537]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights" unique_id=1692690388]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.2511096, 0)
+light_color = Color(1, 0.7576778, 0.6788598, 1)
+omni_range = 7.0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1297039157]
 

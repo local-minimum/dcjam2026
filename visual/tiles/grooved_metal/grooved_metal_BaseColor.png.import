@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://co6nacyihnyb4"
-path.s3tc="res://.godot/imported/metal_vent_baseColor.png-ca08254b1c0d072401ad6b5678066f0d.s3tc.ctex"
+uid="uid://vhj14tbt8kyf"
+path.s3tc="res://.godot/imported/grooved_metal_BaseColor.png-7870997c19957d67d2641326130e1377.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://visual/tiles/U_metal_vent/metal_vent_baseColor.png"
-dest_files=["res://.godot/imported/metal_vent_baseColor.png-ca08254b1c0d072401ad6b5678066f0d.s3tc.ctex"]
+source_file="res://visual/tiles/grooved_metal/grooved_metal_BaseColor.png"
+dest_files=["res://.godot/imported/grooved_metal_BaseColor.png-7870997c19957d67d2641326130e1377.s3tc.ctex"]
 
 [params]
 

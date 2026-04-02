@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://by3jq3p65noa3"
-path.s3tc="res://.godot/imported/tiles_base_DefaultMaterial_OcclusionRoughnessMetallic.png-ace487a3bdf42e0088e1abecc56304ae.s3tc.ctex"
+uid="uid://jvndw7v8rj0d"
+path.s3tc="res://.godot/imported/grated_power_floor_baseColor.png-3ce45a4fba607ed0ddbf974a64111297.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://visual/tiles/U_grooved_metal/tiles_base_DefaultMaterial_OcclusionRoughnessMetallic.png"
-dest_files=["res://.godot/imported/tiles_base_DefaultMaterial_OcclusionRoughnessMetallic.png-ace487a3bdf42e0088e1abecc56304ae.s3tc.ctex"]
+source_file="res://visual/tiles/grated_power/grated_power_floor_baseColor.png"
+dest_files=["res://.godot/imported/grated_power_floor_baseColor.png-3ce45a4fba607ed0ddbf974a64111297.s3tc.ctex"]
 
 [params]
 

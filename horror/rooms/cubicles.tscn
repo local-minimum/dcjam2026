@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://d0hjjxkgu2bv4"]
 
+[ext_resource type="Material" uid="uid://fau8q5cosjxj" path="res://visual/tiles/metal_vent/metal_vent_mat.tres" id="2_cjv2e"]
 [ext_resource type="Material" uid="uid://dthac5i013v1p" path="res://visual/tiles/scratched_white_panel/scratched_white_panel_mat.tres" id="2_covnm"]
 [ext_resource type="Material" uid="uid://dja2wwno4f7n5" path="res://visual/tiles/concrete_block/concrete_block_mat.tres" id="2_qbuh3"]
 [ext_resource type="Material" uid="uid://cjmi6owuephcb" path="res://visual/tiles/concrete_quad/concrete_quad_mat.tres" id="3_qbuh3"]
@@ -34,6 +35,37 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_xmlox")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_li7r3"]
+_surfaces = [{
+"aabb": AABB(-1, -0.1, -1, 2, 0.291153, 2),
+"format": 34896613377,
+"index_count": 96,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAADAAIAAwAFAAAABQABAAAABAAGAAMABgAFAAMAAgAHAAQABwAGAAQAAQAHAAIABgAIAAUABQAJAAEABQAIAAkAAQAJAAoAAQAKAAcABwALAAYABgALAAgABwAKAAsACQAMAAoACgAMAA0ADQAOAAoADQAMAA4ACgAOAAsADAAJAA8ADgAMAA8ACAAPAAkAEAALAA4ACwAQAAgADgAPABAAEQAPAAgAEAAPABEACAAQABEA"),
+"name": "grate_1_low",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 18,
+"vertex_data": PackedByteArray("AAAAAAAAAAAAANmv//8AAAAAAAD//wAA//8AAAAAAAD//wAA//8AAAAA2a8AAAAA///ZrwAAAAD//9mv//8AAA3j///xHAAA8Rz///EcAADxHP//DeMAAA3j//8N4wAA4S///+EvAADhL///HdAAAP9///8d0AAA/3///+EvAAAd0P//HdAAAB3Q///hLwAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_aejem"]
+_surfaces = [{
+"aabb": AABB(-1, -0.1, -1, 2, 0.291153, 2),
+"attribute_data": PackedByteArray("iAC+/0AA5/yIAOf8QAC+/4gA2PBAAAHuiAAB7kAA2PBAAHT1iABL+EAAS/iIAHT1QAAt+YgABfxAAAX8iAAt+RcDuvFAAJL0QAC68RcDkvSAPvYD0R8149EfayCAPqr/816q/6J9ayCifTXj8172A+8e9gNAADXjQABrIO8eqv9iP6r/EV5rIBFeNeNiP/YDBZKq/6Okf0+jpAztBZLhPIR+4TwjkUWehH6q/yORDO0jkX9PhaWq/yS4f08kuAzthaXhPKTLqv8GuUWepMvhPAa5f08GuQzthsxOmb7/vv+GzL7/vv9OmYbM/DG+/2yYhsxsmL7//DE="),
+"format": 34896613399,
+"index_count": 96,
+"index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQACAAJAAoACwAJAAgADAANAA4ADwANAAwAEAARABIAEwARABAAFAAVABYAFwAVABQAGAAZABoAGwAZABgAHAAdAB4AHwAdABwAIAAhACIAIwAhACAAJAAlACYAJwAlACQAKAApACoAKwAqACkALAApACgALQAuAC8AMAAuAC0AMQAyADMANAAzADIANQAyADEANgA3ADgAOQA3ADYAOgA7ADwAPQA7ADoA"),
+"material": ExtResource("2_cjv2e"),
+"name": "grate_1_low",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 62,
+"vertex_data": PackedByteArray("AAAAAAAAVNUAANmv//9U1QAAAAD//1TVAADZrwAAVNX//wAAAAD//wAA2a8AAP//AAAAAAAA/////9mvAAD/////AAD//1TV///ZrwAAVNX//wAAAABU1f//2a///1TVAAAAAP///7///9mv////v///AAD///+/AADZr////78AAAAA//9U1f//AAAAAFTVAAAAAAAAVNX//wAA//9U1QAA2a////308Rz///Ec/fTxHP//DeP99AAA2a8AAP30AADZrwAA2d4N4///8RzZ3vEc///xHNne///ZrwAA2d7//9mvAAB5wQ3j//8N43nBDeP///EcecH//9mv//95wf//2a////jM8Rz//w3j+MwN4///DeP4zAAA2a////jM8Rz//w3j/7/hL///4S//v+Ev//8d0P+/8Rz///Ec/78N4///8RxU1f9////hL1TV8Rz///EcVNXhL///4S9U1R3Q///hL1TVDeP///Ec//8d0P//HdD//x3Q///hL///DeP//w3j///xHP//DeNU1f9///8d0FTVDeP//w3jVNUd0P//HdBU1eEv//8d0FTV/3///x3Q///hL///4S////9////hL///4S///x3Q//8d0P//HdD///9////hL///HdD//+Ev////f///HdD//1RVqqpUVaqqVFWqqlRVqqr/P/+//z//v/8//7//P/+/qiqqKqoqqiqqKqoqqiqqKv////////////////////+qKlTVqipU1aoqVNWqKlTVrnRWuq50VrqudFa6rnRWutiv2K/Yr9iv2K/Yr9iv2K833BtuN9wbbjfcG2433BtuOtvEJDrbxCQ628QkOtvEJP7//3/+//9//v//f/7//3+qqqmqqqqpqqmqqqqpqqqqqqqpqv9//7//f/+//3//v/9//7+qqqmqqqqpqqqqqaqqqqmqqqqpqv9//7//f/+//3//v/9//7//f/+//3//v/9//7//f/+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_li7r3")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_cjv2e"]
 _surfaces = [{
@@ -362,6 +394,10 @@ mesh = SubResource("ArrayMesh_r0gp2")
 [node name="MeshInstance3D97" type="MeshInstance3D" parent="Wall" unique_id=1579123503]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 1, -25)
 mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D109" type="MeshInstance3D" parent="Wall" unique_id=576477173]
+transform = Transform3D(8.742278e-08, 4.3711392e-08, 1, 1, 4.3711385e-08, -8.742278e-08, -4.371139e-08, 1, -4.371139e-08, 14, 1, -25)
+mesh = SubResource("ArrayMesh_aejem")
 
 [node name="MeshInstance3D156" type="MeshInstance3D" parent="Wall" unique_id=189227545]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 17, 1, -24)

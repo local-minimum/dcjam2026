@@ -1,5 +1,5 @@
 class_name Monster
-extends Node3D
+extends MovingEntityBase
 
 signal on_idle
 
@@ -236,6 +236,14 @@ func _basis_from_normal(normal: Vector3) -> Basis:
 
     return _basis
 
+func reset_leg_ik_targets() -> void:
+    for leg: LegIKTarget in [
+        _FL_ik_target,
+        _FR_ik_target,
+        _BL_ik_target,
+        _BR_ik_target,
+    ]:
+        leg.reset_position()
 
 #region PUBLIC API
 ## Queue a forward movement in meters
@@ -255,4 +263,11 @@ func clear_queue(snap_rotation: bool = false) -> void:
     _current_command = null
     _target_value = 0.0
     _command_queue.clear()
+
+func teleport(pos: Vector3) -> void:
+    global_position = pos
+    _command_queue.clear()
+    reset_leg_ik_targets()
+    _current_command = null
+
 #endregion

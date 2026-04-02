@@ -24,15 +24,7 @@ shader_parameter/normal_scale = 1.0
 height = 1.4943848
 radius = 0.83203125
 
-[sub_resource type="Animation" id="Animation_42r8p"]
-resource_name = "kill_player"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_x6woe"]
-_data = {
-&"kill_player": SubResource("Animation_42r8p")
-}
-
-[node name="Monster" unique_id=81421229 node_paths=PackedStringArray("_FL_ik_target", "_FR_ik_target", "_BL_ik_target", "_BR_ik_target", "_ik_targets", "_step_target_container", "_step_targets", "_step_rays", "_front_ray", "lookat_IK_target") instance=ExtResource("1_42r8p")]
+[node name="Monster" unique_id=81421229 node_paths=PackedStringArray("_FL_ik_target", "_FR_ik_target", "_BL_ik_target", "_BR_ik_target", "_ik_targets", "_step_target_container", "_step_targets", "_step_rays", "_front_ray", "lookat_IK_target", "grid_entity") instance=ExtResource("1_42r8p")]
 script = ExtResource("2_x6woe")
 _FL_ik_target = NodePath("Armature/IKTargets/LegFLIKTarget")
 _FR_ik_target = NodePath("Armature/IKTargets/LegFRIKTarget")
@@ -44,6 +36,7 @@ _step_targets = [NodePath("Armature/StepTargets/LegFLRayCast/LegFLStepTarget"), 
 _step_rays = [NodePath("Armature/StepTargets/LegFLRayCast"), NodePath("Armature/StepTargets/LegFRRayCast"), NodePath("Armature/StepTargets/LegBLRayCast"), NodePath("Armature/StepTargets/LegBRRayCast")]
 _front_ray = NodePath("Armature/FrontRay")
 lookat_IK_target = NodePath("Armature/IKTargets/LookAtTarget")
+grid_entity = NodePath("MonsterEntity")
 
 [node name="MonsterEntity" type="Node" parent="." index="0" unique_id=1537029992 node_paths=PackedStringArray("monster", "monster_center", "light", "look_ray", "entity_root", "detection_areas")]
 script = ExtResource("3_rpytr")
@@ -236,7 +229,7 @@ input_ray_pickable = false
 script = ExtResource("9_tge75")
 monster_entity = NodePath("../MonsterEntity")
 monster_root = NodePath("..")
-animation_player = NodePath("../AnimationPlayer")
+animation_player = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Detection Area" index="0" unique_id=1018888953]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.74523926, 0)
@@ -249,19 +242,15 @@ light_color = Color(0.99999994, 0.17606175, 0.107509546, 1)
 omni_range = 1.6038629
 omni_attenuation = 2.935
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4" unique_id=763712480]
-libraries/ = SubResource("AnimationLibrary_x6woe")
-
-[node name="LookRayCast" type="RayCast3D" parent="." index="5" unique_id=1874556014]
+[node name="LookRayCast" type="RayCast3D" parent="." index="4" unique_id=1874556014]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.77190304, 0)
 enabled = false
 exclude_parent = false
 script = ExtResource("10_x6woe")
 metadata/_custom_type_script = "uid://b6h481h1w1e63"
 
-[node name="Approx Monster Center" type="Node3D" parent="." index="6" unique_id=599671727]
+[node name="Approx Monster Center" type="Node3D" parent="." index="5" unique_id=599671727]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.53863084, 0)
 
 [connection signal="area_entered" from="Detection Area" to="Detection Area" method="_on_area_entered"]
 [connection signal="area_exited" from="Detection Area" to="Detection Area" method="_on_area_exited"]
-[connection signal="body_entered" from="Detection Area" to="Detection Area" method="_on_body_entered"]

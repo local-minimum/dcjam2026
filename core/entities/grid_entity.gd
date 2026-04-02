@@ -96,10 +96,12 @@ func _handle_something_entered(other: Node3D) -> void:
 
     var other_entity: MovingEntityBase = MovingEntityBase.find_in_tree(other)
     if other_entity != null:
-        dungeon.collision_system.resolve_collision(self, other_entity.grid_entity)
+        if other is not Area3D || other_entity.grid_entity.detection_areas.has(other):
+            dungeon.collision_system.resolve_collision(self, other_entity.grid_entity)
         return
 
     var other_player: PhysicsGridPlayerController = PhysicsGridPlayerController.find_in_tree(other)
     if other_player != null:
-        dungeon.collision_system.resolve_collision(self, other_player.grid_entity)
+        if other is not Area3D || other_player.grid_entity.detection_areas.has(other):
+            dungeon.collision_system.resolve_collision(self, other_player.grid_entity)
         return

@@ -15,6 +15,16 @@ class_name MonsterEntity
 const IGNORE_ANGLE_THRESHOLD: float = PI * 0.001
 const IGNORE_MOVE_SQ_THRESHOLD: float = 0.1
 
+signal on_monster_idle()
+
+var disabled: bool:
+    set(value):
+        if value:
+            monster.clear_queue(false)
+            _coords_queue.clear()
+            _pos_queue.clear()
+        disabled = value
+
 var _turn_to_cardinal: bool
 
 var monster_coordinates: Vector3i:
@@ -62,6 +72,10 @@ func _enter_tree() -> void:
         push_error("Failed to connect to monster idle")
 
 func _handle_monster_idle() -> void:
+    if disabled:
+        on_monster_idle.emit()
+        return
+
     #print_debug("Monster Idle: Noise: %s, Turn Cardinal: %s Pos Queue: %s Coords Queue: %s" % [
         #_tracked_noise, _turn_to_cardinal, _pos_queue, _coords_queue,
     #])
@@ -82,9 +96,15 @@ func _handle_monster_idle() -> void:
         var target: Vector3 = dungeon.get_global_grid_position_from_coordinates(command.coords)
         move_to_position(target, command.speed, command.jitter, command.align)
 
+    else:
+        on_monster_idle.emit()
+
 var _tracked_noise: NoiseArea
 
 func handle_detect_player_noise(noise_area: NoiseArea) -> void:
+    if disabled:
+        return
+
     #print_debug("%s detected player noise %s" % [self, noise_area])
     var busy: bool = !_pos_queue.is_empty() || !_coords_queue.is_empty()
     #_pos_queue.clear()
@@ -94,6 +114,9 @@ func handle_detect_player_noise(noise_area: NoiseArea) -> void:
         _create_movement_plan(noise_area)
 
 func handle_loose_player_noise(noise_area: NoiseArea) -> void:
+    if disabled:
+        return
+
     if _tracked_noise == noise_area:
         #print_debug("%s lost track of player noise, investigating last position" % [self])
         _tracked_noise = null
@@ -358,6 +381,19 @@ func move_to_position(
     #print_debug("Hunt Plan Generated position commands %s" % [_pos_queue])
     if !_pop_pos_queue():
         push_warning("There was nothing to do")
+
+func queue_look_at(target: Node3D, speed: float = 1.0, clear_queue: bool = true) -> void:
+    if clear_queue:
+        monster.clear_queue()
+
+    var angle: float = monster.global_basis.z.signed_angle_to(
+        target.global_position - monster.global_position,
+        monster.global_basis.y
+    )
+
+    if absf(angle) > IGNORE_MOVE_SQ_THRESHOLD:
+        #print_debug("Asking monster to turn %s" % [angle])
+        monster.queue_turn(angle, speed, false)
 
 func _pop_pos_queue() -> bool:
     if _pos_queue.is_empty():

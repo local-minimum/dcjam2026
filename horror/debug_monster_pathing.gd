@@ -29,6 +29,7 @@ func _process(_delta: float) -> void:
         if pt_idx < pos_points.size():
             pos_points[pt_idx].show()
             pos_points[pt_idx].global_position = p.pos
+            pos_points[pt_idx].scale = Vector3.ONE * (1.0 + 0.1 * pt_idx)
             pt_idx += 1
 
         current = dungeon.get_closest_coordinates(p.pos)

@@ -100,7 +100,7 @@ func handle_loose_player_noise(noise_area: NoiseArea) -> void:
         _create_movement_plan(noise_area)
 
 func _clear_distance(from: Vector3i, direction: Vector3i) -> int:
-    print_debug("Hunt plan testing cast from %s in direction %s" % [from, direction])
+    #print_debug("Hunt plan testing cast from %s in direction %s" % [from, direction])
     look_ray.global_position = dungeon.get_global_grid_position_from_coordinates(from) + Vector3.UP * look_elevation_m
     var target: Vector3 = look_ray.global_position + Vector3(direction) * dungeon.grid_size * max_tiles_distance_plan
 
@@ -110,7 +110,7 @@ func _clear_distance(from: Vector3i, direction: Vector3i) -> int:
         var intersect: Vector3 = look_ray.get_collision_point()
         var intersect_coords: Vector3i = dungeon.get_closest_coordinates(intersect)
         #print_debug("Hunt plan cast %s direction %s (%s -> %s) reached %s hit %s after %s dist" % [from, direction, look_ray.global_position, target, intersect_coords, look_ray.get_collider(), VectorUtils.manhattan_distance(from, intersect_coords)])
-        print_debug("Hunt plan hit %s after %s dist" % [look_ray.get_collider(), VectorUtils.manhattan_distance(from, intersect_coords)])
+        #print_debug("Hunt plan hit %s after %s dist" % [look_ray.get_collider(), VectorUtils.manhattan_distance(from, intersect_coords)])
         return VectorUtils.manhattan_distance(from, intersect_coords)
 
     return max_tiles_distance_plan
@@ -230,7 +230,7 @@ func _create_movement_plan(area: NoiseArea) -> void:
     move_through_coordinates(
         coords,
         hunt_speed_factor,
-        0,
+        0.0,
         true,
     )
 
@@ -332,23 +332,30 @@ func move_to_position(
         2,
         8,
     )
+    var dist_jitter_thresholds = (pos - monster_pos).abs() * 0.1
+    dist_jitter_thresholds.y = 0
 
     for idx: int in resolution:
         var ref_pos: Vector3 = monster_pos.lerp(pos, (idx + 1.0) / float(resolution))
+        #print_debug("Hunt Plan pos %s = %s (%s -> %s)" % [idx, ref_pos, monster_pos, pos])
         var s: float = speed
         if jitter > 0 && idx + 1 < resolution:
             s += randf_range(-jitter, jitter) * speed
             var offset: Vector3 = dungeon.grid_size * randf_range(-jitter, jitter)
-            offset.y = 0
+            offset.y = clampf(offset.y, -dist_jitter_thresholds.y, dist_jitter_thresholds.y)
+            offset.x = clampf(offset.x, -dist_jitter_thresholds.x, dist_jitter_thresholds.x)
+            offset.z = clampf(offset.z, -dist_jitter_thresholds.z, dist_jitter_thresholds.z)
+
             ref_pos += offset
 
+            #print_debug("Hunt Plan -> %s jitter %s" % [ref_pos, offset])
         _pos_queue.append(PositionCommand.new(
             ref_pos,
             s,
             align if idx + 1 == resolution else false,
         ))
 
-    #print_debug("Generated position commands %s" % [_pos_queue])
+    #print_debug("Hunt Plan Generated position commands %s" % [_pos_queue])
     if !_pop_pos_queue():
         push_warning("There was nothing to do")
 
@@ -367,6 +374,9 @@ func _pop_pos_queue() -> bool:
         #print_debug("Asking monster to turn %s" % [angle])
         monster.queue_turn(angle, command.speed, false)
         had_instruction = true
+        if absf(angle) > PI / 4:
+            _pos_queue.push_front(command)
+            return true
 
     if command.pos.distance_squared_to(monster.global_position) > IGNORE_MOVE_SQ_THRESHOLD:
         monster.queue_move(command.pos.distance_to(monster.global_position), command.speed, false)

@@ -8,6 +8,7 @@ extends TextureRect
 @export var _transition_duration: float = 2.0
 @export var _transition_prep_animator: AnimationPlayer
 @export var _transition_animation: String
+@export var _overlay_label: Label
 
 @export_file_path("*.tscn") var _horror_dungeon_scene: String
 @export_file_path("*.tscn") var _horror_panel_scene: String
@@ -19,14 +20,24 @@ var _player: PhysicsGridPlayerController
 
 func _enter_tree() -> void:
     if __SignalBus.on_ready_horror.connect(_handle_ready_horror) != OK:
-        push_error()
+        push_error("failed to connect ready horror")
     if __SignalBus.on_transition_to_horror.connect(_handle_transition_to_horror) != OK:
-        push_error()
+        push_error("failed to connect transition to horror")
+    if __SignalBus.on_horror_failed.connect(_handle_horror_fail) != OK:
+        push_error("failed to connect horror failed")
 
 func _ready() -> void:
     hide()
 
 var _may_transition: bool
+
+func _handle_horror_fail() -> void:
+    _overlay_label.text = "You Died"
+    _overlay_label.show()
+    _overlay_label.modulate = Color.WHITE
+    show()
+    await get_tree().create_timer(5.0).timeout
+    get_tree().reload_current_scene()
 
 func _handle_transition_to_horror() -> void:
     _may_transition = true

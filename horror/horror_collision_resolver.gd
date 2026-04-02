@@ -38,6 +38,10 @@ func _after_look_towards(player: PhysicsGridPlayerController, monster_entity: Mo
 
     await get_tree().create_timer(1.0).timeout
 
+    if posmod(__GlobalGameState.keith_kills, 3) == 0:
+        _kill_player(player, monster_entity)
+        return
+
     monster_entity.monster.queue_move(2.0)
 
     monster_entity.on_monster_idle.connect(
@@ -56,3 +60,7 @@ func _after_look_towards(player: PhysicsGridPlayerController, monster_entity: Mo
             ,
         CONNECT_ONE_SHOT,
     )
+
+func _kill_player(player: PhysicsGridPlayerController, monster_entity: MonsterEntity) -> void:
+    monster_entity.monster.queue_move(0.5)
+    __SignalBus.on_horror_failed.emit()

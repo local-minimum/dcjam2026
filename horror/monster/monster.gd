@@ -264,8 +264,9 @@ func clear_queue(snap_rotation: bool = false) -> void:
     _target_value = 0.0
     _command_queue.clear()
 
-func teleport(pos: Vector3) -> void:
+func teleport(pos: Vector3, global_rot: Vector3 = Vector3.ZERO) -> void:
     global_position = pos
+    global_rotation = global_rot
     _command_queue.clear()
     reset_leg_ik_targets()
     _current_command = null

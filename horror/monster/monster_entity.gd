@@ -17,13 +17,13 @@ const IGNORE_MOVE_SQ_THRESHOLD: float = 0.1
 
 signal on_monster_idle()
 
-var disabled: bool:
-    set(value):
-        if value:
-            monster.clear_queue(false)
-            _coords_queue.clear()
-            _pos_queue.clear()
-        disabled = value
+var disabled_player_interactions: bool
+
+func clear_queues_and_noise() -> void:
+    _tracked_noise = null
+    monster.clear_queue(false)
+    _coords_queue.clear()
+    _pos_queue.clear()
 
 var _turn_to_cardinal: bool
 
@@ -72,13 +72,9 @@ func _enter_tree() -> void:
         push_error("Failed to connect to monster idle")
 
 func _handle_monster_idle() -> void:
-    if disabled:
-        on_monster_idle.emit()
-        return
-
-    #print_debug("Monster Idle: Noise: %s, Turn Cardinal: %s Pos Queue: %s Coords Queue: %s" % [
-        #_tracked_noise, _turn_to_cardinal, _pos_queue, _coords_queue,
-    #])
+    print_debug("Monster Idle: Noise: %s, Turn Cardinal: %s Pos Queue: %s Coords Queue: %s" % [
+        _tracked_noise, _turn_to_cardinal, _pos_queue, _coords_queue,
+    ])
 
     if _turn_to_cardinal:
         _align_rotation_with_cardinals()
@@ -97,12 +93,13 @@ func _handle_monster_idle() -> void:
         move_to_position(target, command.speed, command.jitter, command.align)
 
     else:
+        print_debug("Monster IDLE")
         on_monster_idle.emit()
 
 var _tracked_noise: NoiseArea
 
 func handle_detect_player_noise(noise_area: NoiseArea) -> void:
-    if disabled:
+    if disabled_player_interactions:
         return
 
     #print_debug("%s detected player noise %s" % [self, noise_area])
@@ -114,7 +111,7 @@ func handle_detect_player_noise(noise_area: NoiseArea) -> void:
         _create_movement_plan(noise_area)
 
 func handle_loose_player_noise(noise_area: NoiseArea) -> void:
-    if disabled:
+    if disabled_player_interactions:
         return
 
     if _tracked_noise == noise_area:
@@ -382,7 +379,7 @@ func move_to_position(
     if !_pop_pos_queue():
         push_warning("There was nothing to do")
 
-func queue_look_at(target: Node3D, speed: float = 1.0, clear_queue: bool = true) -> void:
+func queue_look_at(target: Node3D, speed: float = 1.0, clear_queue: bool = true) -> bool:
     if clear_queue:
         monster.clear_queue()
 
@@ -394,6 +391,9 @@ func queue_look_at(target: Node3D, speed: float = 1.0, clear_queue: bool = true)
     if absf(angle) > IGNORE_MOVE_SQ_THRESHOLD:
         #print_debug("Asking monster to turn %s" % [angle])
         monster.queue_turn(angle, speed, false)
+        return true
+
+    return false
 
 func _pop_pos_queue() -> bool:
     if _pos_queue.is_empty():
@@ -420,7 +420,6 @@ func _pop_pos_queue() -> bool:
 
     if !had_instruction:
         push_warning("There was no movement needed from %s" % [command])
-        _align_rotation_with_cardinals()
         return true
 
     _turn_to_cardinal = command.align && _pos_queue.is_empty() && _coords_queue.is_empty()

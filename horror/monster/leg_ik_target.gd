@@ -21,7 +21,11 @@ func _ready() -> void:
     reset_position()
 
 func reset_position() -> void:
-    position = _root.global_position + offset_pos
+    if _step_tween != null && _step_tween.is_running():
+        _step_tween.kill()
+
+    is_stepping = false
+    global_position = _root.global_position + offset_pos
 
 
 func step() -> void:

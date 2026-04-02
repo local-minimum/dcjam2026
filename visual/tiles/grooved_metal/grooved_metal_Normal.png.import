@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3j8k6pdvr1eq"
-path.s3tc="res://.godot/imported/patterned_metal_floor_normal.png-3aa015079cc44ead58b75198ef8dc3c6.s3tc.ctex"
+uid="uid://cnxqo7sk3qite"
+path.s3tc="res://.godot/imported/grooved_metal_Normal.png-c181f5a4151788f1f66cdb478dfcba27.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://visual/tiles/U_patterned_metal/patterned_metal_floor_normal.png"
-dest_files=["res://.godot/imported/patterned_metal_floor_normal.png-3aa015079cc44ead58b75198ef8dc3c6.s3tc.ctex"]
+source_file="res://visual/tiles/grooved_metal/grooved_metal_Normal.png"
+dest_files=["res://.godot/imported/grooved_metal_Normal.png-c181f5a4151788f1f66cdb478dfcba27.s3tc.ctex"]
 
 [params]
 
@@ -27,7 +27,7 @@ compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=1
-roughness/src_normal="res://visual/tiles/U_patterned_metal_floor/patterned_metal_floor_normal.png"
+roughness/src_normal="res://visual/tiles/grooved_metal/grooved_metal_Normal.png"
 process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2

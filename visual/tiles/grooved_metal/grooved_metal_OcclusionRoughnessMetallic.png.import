@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://by3jq3p65noa3"
-path.s3tc="res://.godot/imported/tiles_base_DefaultMaterial_OcclusionRoughnessMetallic.png-c4094daf1dd37a35ec566d3a53f379c7.s3tc.ctex"
+uid="uid://bfe6lyuybmo4d"
+path.s3tc="res://.godot/imported/grooved_metal_OcclusionRoughnessMetallic.png-6210c098c0178a9bd08f3efdb8e87feb.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://visual/tiles/grooved_metal/tiles_base_DefaultMaterial_OcclusionRoughnessMetallic.png"
-dest_files=["res://.godot/imported/tiles_base_DefaultMaterial_OcclusionRoughnessMetallic.png-c4094daf1dd37a35ec566d3a53f379c7.s3tc.ctex"]
+source_file="res://visual/tiles/grooved_metal/grooved_metal_OcclusionRoughnessMetallic.png"
+dest_files=["res://.godot/imported/grooved_metal_OcclusionRoughnessMetallic.png-6210c098c0178a9bd08f3efdb8e87feb.s3tc.ctex"]
 
 [params]
 

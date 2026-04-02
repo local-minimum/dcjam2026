@@ -601,10 +601,6 @@ mesh = SubResource("ArrayMesh_oy75m")
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.999, 3, -8)
 mesh = SubResource("ArrayMesh_oy75m")
 
-[node name="MeshInstance3D116" type="MeshInstance3D" parent="Wall" unique_id=1022332974]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.999, 1, -12)
-mesh = SubResource("ArrayMesh_oy75m")
-
 [node name="MeshInstance3D117" type="MeshInstance3D" parent="Wall" unique_id=1496545067]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.999, 1, -10)
 mesh = SubResource("ArrayMesh_oy75m")

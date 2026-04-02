@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6gknxuykwje6"
-path.s3tc="res://.godot/imported/patterned_metal_floor_occlusionRoughnessMetallic.png-533d1cb14f31368c86234f2b18a9d32e.s3tc.ctex"
+uid="uid://c3j8k6pdvr1eq"
+path.s3tc="res://.godot/imported/patterned_metal_floor_normal.png-9cbb9f3021c0a2dc6a6532d28a04c002.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://visual/tiles/U_patterned_metal/patterned_metal_floor_occlusionRoughnessMetallic.png"
-dest_files=["res://.godot/imported/patterned_metal_floor_occlusionRoughnessMetallic.png-533d1cb14f31368c86234f2b18a9d32e.s3tc.ctex"]
+source_file="res://visual/tiles/patterned_metal/patterned_metal_floor_normal.png"
+dest_files=["res://.godot/imported/patterned_metal_floor_normal.png-9cbb9f3021c0a2dc6a6532d28a04c002.s3tc.ctex"]
 
 [params]
 
@@ -22,12 +22,12 @@ compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
-compress/normal_map=0
+compress/normal_map=1
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=0
-roughness/src_normal=""
+roughness/mode=1
+roughness/src_normal="res://visual/tiles/U_patterned_metal_floor/patterned_metal_floor_normal.png"
 process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2

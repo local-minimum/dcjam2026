@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bujrwkkhlfsuv"
-path.s3tc="res://.godot/imported/grooved_metal_DefaultMaterial_Normal.png-7cc6415f8e50f8427cf72cccca1fb945.s3tc.ctex"
+uid="uid://c6gknxuykwje6"
+path.s3tc="res://.godot/imported/patterned_metal_floor_occlusionRoughnessMetallic.png-01f696286e34abf1ee85e285895a544e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://visual/tiles/grooved_metal/grooved_metal_DefaultMaterial_Normal.png"
-dest_files=["res://.godot/imported/grooved_metal_DefaultMaterial_Normal.png-7cc6415f8e50f8427cf72cccca1fb945.s3tc.ctex"]
+source_file="res://visual/tiles/patterned_metal/patterned_metal_floor_occlusionRoughnessMetallic.png"
+dest_files=["res://.godot/imported/patterned_metal_floor_occlusionRoughnessMetallic.png-01f696286e34abf1ee85e285895a544e.s3tc.ctex"]
 
 [params]
 
@@ -22,19 +22,19 @@ compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
-compress/normal_map=1
+compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=1
-roughness/src_normal="res://visual/tiles/U_grooved_metal/grooved_metal_DefaultMaterial_Normal.png"
+roughness/mode=0
+roughness/src_normal=""
 process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2
 process/channel_remap/alpha=3
 process/fix_alpha_border=true
 process/premult_alpha=false
-process/normal_map_invert_y=true
+process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0

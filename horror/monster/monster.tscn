@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dnin7c4s8olv8" path="res://horror/monster/monster_occlusionRoughnessMetallic.png" id="7_sqwxh"]
 [ext_resource type="Script" uid="uid://cxpcy8u870pnk" path="res://horror/monster/leg_ik_target.gd" id="8_d3vgi"]
 [ext_resource type="Script" uid="uid://dum5myfa27x5d" path="res://horror/detection_area.gd" id="9_tge75"]
+[ext_resource type="Script" uid="uid://b6h481h1w1e63" path="res://core/entities/look_ray_cast.gd" id="10_x6woe"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_v3ikl"]
 render_priority = 0
@@ -44,9 +45,11 @@ _step_rays = [NodePath("Armature/StepTargets/LegFLRayCast"), NodePath("Armature/
 _front_ray = NodePath("Armature/FrontRay")
 lookat_IK_target = NodePath("Armature/IKTargets/LookAtTarget")
 
-[node name="MonsterEntity" type="Node" parent="." index="0" unique_id=1537029992 node_paths=PackedStringArray("monster", "entity_root", "detection_areas")]
+[node name="MonsterEntity" type="Node" parent="." index="0" unique_id=1537029992 node_paths=PackedStringArray("monster", "light", "look_ray", "entity_root", "detection_areas")]
 script = ExtResource("3_rpytr")
 monster = NodePath("..")
+light = NodePath("../Light")
+look_ray = NodePath("../LookRayCast")
 type = 2
 entity_root = NodePath("..")
 detection_areas = [NodePath("../Detection Area")]
@@ -243,6 +246,13 @@ omni_attenuation = 2.935
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4" unique_id=763712480]
 libraries/ = SubResource("AnimationLibrary_x6woe")
+
+[node name="LookRayCast" type="RayCast3D" parent="." index="5" unique_id=1874556014]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.77190304, 0)
+enabled = false
+collision_mask = 513
+script = ExtResource("10_x6woe")
+metadata/_custom_type_script = "uid://b6h481h1w1e63"
 
 [connection signal="area_entered" from="Detection Area" to="Detection Area" method="_on_area_entered"]
 [connection signal="area_exited" from="Detection Area" to="Detection Area" method="_on_area_exited"]

@@ -6,7 +6,10 @@ class_name MonsterEntity
 
 @export var hunt_speed_factor: float = 1.5
 
-@export var obstacle_detector: RayCast3D
+@export var look_ray: LookRayCast
+@export var max_tiles_distance_plan: int = 6
+@export var look_elevation_m: float = 1.5
+@export var max_hunt_plan_depth: int = 4
 
 const IGNORE_ANGLE_THRESHOLD: float = PI * 0.001
 const IGNORE_MOVE_SQ_THRESHOLD: float = 0.1
@@ -89,12 +92,112 @@ func handle_loose_player_noise(noise_area: NoiseArea) -> void:
         _tracked_noise = null
         _create_movement_plan(noise_area)
 
+func _clear_distance(from: Vector3i, direction: Vector3i) -> int:
+    look_ray.global_position = dungeon.get_global_grid_position_from_coordinates(from) + Vector3.UP * look_elevation_m
+    var target: Vector3 = look_ray.to_local(
+        look_ray.global_position + Vector3(direction) * dungeon.grid_size * max_tiles_distance_plan
+    )
+    look_ray.target_position = target
+    look_ray.force_raycast_update()
+    if look_ray.is_colliding():
+        var intersect: Vector3 = look_ray.get_collision_point()
+        var target_coords: Vector3i = dungeon.get_closest_coordinates(intersect)
+        return VectorUtils.manhattan_distance(from, target_coords)
+    return max_tiles_distance_plan
+
+func _check_valid_intermediary(
+    my_coords: Vector3i,
+    component: Vector3i,
+    direction: Vector3i,
+    coords: Array[Vector3i],
+    visited: Array[Vector3i],
+) -> bool:
+    var cast_distance: int = _clear_distance(my_coords, direction)
+
+    if cast_distance > 0:
+        var step: Vector3i = component.clampi(-cast_distance, cast_distance)
+        if step == Vector3i.ZERO:
+            step = direction
+
+        var intermediary = my_coords + step
+        if visited.has(intermediary):
+            return false
+
+        coords.append(intermediary)
+        visited.append(intermediary)
+        my_coords = intermediary
+        return true
+
+    return false
+
 func _create_movement_plan(area: NoiseArea) -> void:
-    var target_pos: Vector3 = area.player.global_position
-    move_to_coordinates(
-        dungeon.get_closest_coordinates(target_pos),
+    var my_coords: Vector3i = monster_coordinates
+    var target_coords: Vector3i = dungeon.get_closest_coordinates(area.player.global_position)
+    var coords: Array[Vector3i]
+    var visited: Array[Vector3i]
+
+    while my_coords != target_coords && coords.size() < max_hunt_plan_depth:
+        visited.append(my_coords)
+
+        var delta: Vector3i = target_coords - my_coords
+        var primary: Vector3i = VectorUtils.primary_direction(delta).abs()
+        var primary_component: Vector3i = delta * primary
+        if _check_valid_intermediary(
+            my_coords,
+            primary_component,
+            primary,
+            coords,
+            visited,
+        ):
+            continue
+
+        var minor_component: Vector3i = delta - primary_component
+        var minor: Vector3i = VectorUtils.primary_direction(minor_component)
+
+        if minor == Vector3i.ZERO:
+            # Get one orthogonal
+            minor = Vector3i(primary.z, 0, primary.x)
+
+        if _check_valid_intermediary(
+            my_coords,
+            minor_component,
+            minor,
+            coords,
+            visited
+        ):
+            continue
+
+        minor *= -1
+        minor_component = minor
+
+        if _check_valid_intermediary(
+            my_coords,
+            minor_component,
+            minor,
+            coords,
+            visited
+        ):
+            continue
+
+        primary *= -1
+        primary_component = primary
+
+        if _check_valid_intermediary(
+            my_coords,
+            primary_component,
+            primary,
+            coords,
+            visited,
+        ):
+            continue
+
+        break
+
+    move_through_coordinates(
+        coords,
         hunt_speed_factor,
-        0.1
+        0.1,
+        true,
     )
 
 func move_through_coordinates(

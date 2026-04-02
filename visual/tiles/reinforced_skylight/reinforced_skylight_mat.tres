@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dk4b0e2hwh8we"]
+
+[ext_resource type="Shader" uid="uid://cjso02no5cy8s" path="res://visual/common/base_PBR_shader.gdshader" id="1_81jsr"]
+[ext_resource type="Texture2D" uid="uid://bomxej8i35hyy" path="res://visual/tiles/reinforced_skylight/reinforced_skylight_baseColor.png" id="2_2bjtm"]
+[ext_resource type="Texture2D" uid="uid://dmy2sxs8kp0pi" path="res://visual/tiles/reinforced_skylight/reinforced_skylight_normal.png" id="3_ghqg0"]
+[ext_resource type="Texture2D" uid="uid://dsmirvh7vc5kb" path="res://visual/tiles/reinforced_skylight/reinforced_skylight_occlusionRoughnessMetallic.png" id="4_2kc58"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_81jsr")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("2_2bjtm")
+shader_parameter/texture_normal = ExtResource("3_ghqg0")
+shader_parameter/texture_orm = ExtResource("4_2kc58")
+shader_parameter/normal_scale = 1.0

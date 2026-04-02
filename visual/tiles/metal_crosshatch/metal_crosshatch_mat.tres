@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://ct3x3guwn3w5l"]
+
+[ext_resource type="Shader" uid="uid://cjso02no5cy8s" path="res://visual/common/base_PBR_shader.gdshader" id="1_jgo7w"]
+[ext_resource type="Texture2D" uid="uid://h2agvkpoi3xh" path="res://visual/tiles/metal_crosshatch/metal_crosshatch_baseColor.png" id="2_a2aex"]
+[ext_resource type="Texture2D" uid="uid://bytx7wacrg7na" path="res://visual/tiles/metal_crosshatch/metal_crosshatch_normal.png" id="3_feuy5"]
+[ext_resource type="Texture2D" uid="uid://bd8mehmih7yxi" path="res://visual/tiles/metal_crosshatch/metal_crosshatch_occlusionRoughnessMetallic.png" id="4_0ab64"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_jgo7w")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("2_a2aex")
+shader_parameter/texture_normal = ExtResource("3_feuy5")
+shader_parameter/texture_orm = ExtResource("4_0ab64")
+shader_parameter/normal_scale = 1.0

@@ -3,8 +3,8 @@ render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_burley, specular_sc
 
 uniform vec4 albedo : source_color = vec4(1.0, 1.0, 1.0, 1.0);
 uniform sampler2D texture_albedo : source_color, filter_linear_mipmap, repeat_enable;
-uniform sampler2D texture_orm : hint_roughness_g, filter_linear_mipmap, repeat_enable;
 uniform sampler2D texture_normal : hint_roughness_normal, filter_linear_mipmap, repeat_enable;
+uniform sampler2D texture_orm : hint_roughness_g, filter_linear_mipmap, repeat_enable;
 uniform float normal_scale : hint_range(-16.0, 16.0) = 1.0;
 
 void fragment() {

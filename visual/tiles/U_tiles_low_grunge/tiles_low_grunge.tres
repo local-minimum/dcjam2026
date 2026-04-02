@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://ds3vui401epi3"]
+
+[ext_resource type="Shader" uid="uid://cjso02no5cy8s" path="res://visual/common/base_PBR_shader.gdshader" id="1_5rajd"]
+[ext_resource type="Texture2D" uid="uid://ceoiuv6gnnlho" path="res://visual/tiles/U_tiles_low_grunge/tiles_grungy_baseColor.png" id="2_rtyud"]
+[ext_resource type="Texture2D" uid="uid://b51map26xi61q" path="res://visual/tiles/U_tiles_low_grunge/tiles_grungy_normal.png" id="3_vee6i"]
+[ext_resource type="Texture2D" uid="uid://i2uqofdu5lxa" path="res://visual/tiles/U_tiles_low_grunge/tiles_grungy_occlusionRoughnessMetallic.png" id="4_x6e43"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_5rajd")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("2_rtyud")
+shader_parameter/texture_normal = ExtResource("3_vee6i")
+shader_parameter/texture_orm = ExtResource("4_x6e43")
+shader_parameter/normal_scale = 1.0

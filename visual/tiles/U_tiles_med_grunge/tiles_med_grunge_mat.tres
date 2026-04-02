@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bvwh461dswan5"]
+
+[ext_resource type="Texture2D" uid="uid://b0s21rrgycq" path="res://visual/tiles/U_tiles_med_grunge/tiles_med_grunge_baseColor.png" id="1_ctqs5"]
+[ext_resource type="Texture2D" uid="uid://286s0pu8pmxs" path="res://visual/tiles/U_tiles_med_grunge/tiles_med_grunge_normal.png" id="2_f5mh3"]
+[ext_resource type="Texture2D" uid="uid://dk2vh4fmaxar1" path="res://visual/tiles/U_tiles_med_grunge/tiles_med_grunge_occlusionRoughnessMetallic.png" id="3_swc67"]
+
+[resource]
+render_priority = 0
+shader = null
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("1_ctqs5")
+shader_parameter/texture_normal = ExtResource("2_f5mh3")
+shader_parameter/texture_orm = ExtResource("3_swc67")
+shader_parameter/normal_scale = 1.0

@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://crdkc5mx8cs5l"]
 
-[ext_resource type="Material" uid="uid://l1qka8ips3gh" path="res://visual/tiles/test/tiles_high_grunge/tiles_high_grunge_red_mat.tres" id="2_ufkhn"]
+[ext_resource type="Material" uid="uid://l1qka8ips3gh" path="res://visual/tiles/tiles_high_grunge/tiles_high_grunge_red_mat.tres" id="2_ufkhn"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_xmlox"]
 _surfaces = [{

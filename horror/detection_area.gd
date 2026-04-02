@@ -12,19 +12,3 @@ func _on_area_entered(area: Area3D) -> void:
 func _on_area_exited(area: Area3D) -> void:
     if area is NoiseArea:
         monster_entity.handle_loose_player_noise(area)
-
-func _on_body_entered(player: PhysicsGridPlayerController) -> void:
-    if player == null:
-        return
-
-    player.add_cinematic_blocker(self)
-    player.animation_player.play("get_killed")
-    animation_player.play("kill_player")
-    set_deferred("monitoring", false)
-
-    await get_tree().create_timer(1.0).timeout
-
-    var tween: Tween = create_tween()
-    #tween.set_parallel()
-    tween.tween_property(monster_root.lookat_IK_target, "position", player.camera.position, 0.5)
-    #tween.tween_property(monster_root, "position",  player.camera.position, 1.0)

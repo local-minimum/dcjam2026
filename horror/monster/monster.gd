@@ -1,5 +1,5 @@
 class_name Monster
-extends Node3D
+extends MovingEntityBase
 
 signal on_idle
 
@@ -62,10 +62,11 @@ var move_speed: float = 2.5:
 
 @onready var _previous_pos: Vector3 = self.global_position
 
+var _resting_look_target: Vector3
 
 func _ready() -> void:
     move_speed = move_speed # Force IK targets to set step_time - redundancy as both much change
-
+    _resting_look_target = to_local(lookat_IK_target.global_position)
 
 func _process(delta: float) -> void:
     var dir: float = 0.0
@@ -236,6 +237,9 @@ func _basis_from_normal(normal: Vector3) -> Basis:
 
     return _basis
 
+func reset_leg_ik_targets() -> void:
+    for leg: LegIKTarget in _ik_targets:
+        leg.reset_position()
 
 #region PUBLIC API
 ## Queue a forward movement in meters
@@ -255,4 +259,13 @@ func clear_queue(snap_rotation: bool = false) -> void:
     _current_command = null
     _target_value = 0.0
     _command_queue.clear()
+
+func teleport(pos: Vector3, global_rot: Vector3 = Vector3.ZERO) -> void:
+    global_position = pos
+    global_rotation = global_rot
+    _command_queue.clear()
+    reset_leg_ik_targets()
+    lookat_IK_target.global_position = to_global(_resting_look_target)
+    _current_command = null
+
 #endregion

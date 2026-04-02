@@ -61,8 +61,12 @@ func _enter_tree() -> void:
 var _player: PhysicsGridPlayerController
 
 func _ready() -> void:
-    if __GlobalGameState.replay == 0:
-        _player = PhysicsGridPlayerController.last_connected_player
+    _player = PhysicsGridPlayerController.last_connected_player
+
+    if __GlobalGameState.keith_kills > 0:
+        _player.add_cinematic_blocker(self)
+
+    elif __GlobalGameState.replay == 0:
         _player.add_cinematic_blocker(self)
         __AudioHub.play_dialogue(
             _awake,

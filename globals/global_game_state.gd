@@ -121,3 +121,5 @@ func reset_day_progress() -> void:
 
     _silence_emits = false
     print_debug("Reset day progress, including xp and health")
+
+var keith_kills: int

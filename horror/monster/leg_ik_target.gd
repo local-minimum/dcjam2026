@@ -18,22 +18,29 @@ var _step_tween: Tween
 
 
 func _ready() -> void:
-    position = _root.global_position + offset_pos
+    reset_position()
+
+func reset_position() -> void:
+    if _step_tween != null && _step_tween.is_running():
+        _step_tween.kill()
+
+    is_stepping = false
+    global_position = _root.global_position + offset_pos
 
 
 func step() -> void:
     if not is_stepping and not _adjacent_target.is_stepping:
         is_stepping = true
         _opposite_target.step()
-        
+
         var target_pos: Vector3 = _step_target.global_position
         var half_step: Vector3 = (global_position + target_pos) / 2
-        
+
         _step_tween = create_tween()
         _step_tween.tween_property(
-            self, 
-            "global_position", 
-            half_step + (_root.basis.y * STEP_HEIGHT_MAG), 
+            self,
+            "global_position",
+            half_step + (_root.basis.y * STEP_HEIGHT_MAG),
             step_time
         )
         _step_tween.tween_property(self, "global_position", target_pos, step_time)

@@ -651,7 +651,7 @@ clicker_soft_volumes = Array[float]([1.0, 0.0, 0.0])
 clicker_medium_volumes = Array[float]([1.0, 1.0, 0.0])
 clicker_intense_volumes = Array[float]([1.0, 1.0, 1.0])
 
-[node name="Break Through Screen Grab Target" type="TextureRect" parent="." unique_id=1884846982 node_paths=PackedStringArray("_split_container", "_subviewport", "_unloading_nodes", "_transition_prep_animator")]
+[node name="Break Through Screen Grab Target" type="TextureRect" parent="." unique_id=1884846982 node_paths=PackedStringArray("_split_container", "_subviewport", "_unloading_nodes", "_transition_prep_animator", "_overlay_label")]
 material = SubResource("ShaderMaterial_vyqle")
 layout_mode = 1
 anchors_preset = 15
@@ -668,6 +668,7 @@ _unloading_nodes = [NodePath("../HSplitContainer/Viewport Side/SubViewportContai
 _transition_duration = 1.0
 _transition_prep_animator = NodePath("AnimationPlayer")
 _transition_animation = "Lost"
+_overlay_label = NodePath("Connection Lost Label")
 _horror_dungeon_scene = "res://horror/horror_dungeon.tscn"
 _horror_panel_scene = "res://horror/horror_sidebar.tscn"
 

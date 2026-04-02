@@ -44,7 +44,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
         return
 
     var player: PhysicsGridPlayerController = PhysicsGridPlayerController.find_in_tree(body)
-    if player != null && !_keith_run_triggered:
+    if player != null && !monster_entity.hunting  && !_keith_run_triggered:
         _keith_run_triggered = true
 
         if intermediary_positions.is_empty():
@@ -69,15 +69,15 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
                 speed,
                 jitter,
             )
-        
+
         # Possible lighting trigger
         assert(not lights_cascade_sfx_path.is_empty())
         __AudioHub.play_sfx(lights_cascade_sfx_path)
-        
+
         for i: int in range(6):
             await get_tree().create_timer(LIGHT_TIMINGS[i]).timeout
             red_lights[i].show()
-            
+
         var tween: Tween = create_tween()
         tween.set_parallel(true)
         for light: OmniLight3D in red_lights:
@@ -85,7 +85,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
             tween.tween_property(light, "light_energy", 1.0, 3.0)
             tween.tween_property(light, "light_volumetric_fog_energy", 1.0, 3.0)
         # lighting trigger end
-        
+
         await get_tree().create_timer(4.0).timeout
 
         if keith_light != null:

@@ -94,6 +94,8 @@ var camera: Camera3D:
         show_debug_shapes = value
         _sync_debug_shape_visibilities()
 
+@export var animation_player: AnimationPlayer
+
 var _cam_slide_tween: Tween
 
 var _translation_stack: Array[Movement.MovementType]

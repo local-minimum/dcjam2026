@@ -1,17 +1,38 @@
-[gd_scene format=3 uid="uid://dbbbvw47dto45"]
+[gd_scene format=3 uid="uid://c6rss8nj21trk"]
 
-[ext_resource type="PackedScene" uid="uid://iuctck7ne3ic" path="res://horror/monster/monster_v1.glb" id="1_rgwrv"]
-[ext_resource type="Script" uid="uid://core866w8qx1y" path="res://horror/monster/monster.gd" id="2_oqs4p"]
-[ext_resource type="Script" uid="uid://cxpcy8u870pnk" path="res://horror/monster/leg_ik_target.gd" id="3_kva6l"]
-[ext_resource type="Script" uid="uid://coyy55f6s8jis" path="res://horror/monster_entity.gd" id="4_3x67h"]
-[ext_resource type="Script" uid="uid://dum5myfa27x5d" path="res://horror/monster/detection_area.gd" id="5_cxboi"]
+[ext_resource type="PackedScene" uid="uid://dxg4tgd3fwdi3" path="res://horror/monster/monster.glb" id="1_42r8p"]
+[ext_resource type="Script" uid="uid://core866w8qx1y" path="res://horror/monster/monster.gd" id="2_x6woe"]
+[ext_resource type="Script" uid="uid://coyy55f6s8jis" path="res://horror/monster/monster_entity.gd" id="3_rpytr"]
+[ext_resource type="Shader" uid="uid://cjso02no5cy8s" path="res://visual/common/base_PBR_shader.gdshader" id="4_gsvwr"]
+[ext_resource type="Texture2D" uid="uid://bgi2fi4dp2fjv" path="res://horror/monster/monster_baseColor.png" id="5_knwew"]
+[ext_resource type="Texture2D" uid="uid://gj8ylqhn81pl" path="res://horror/monster/monster_normal.png" id="6_gxaji"]
+[ext_resource type="Texture2D" uid="uid://dnin7c4s8olv8" path="res://horror/monster/monster_occlusionRoughnessMetallic.png" id="7_sqwxh"]
+[ext_resource type="Script" uid="uid://cxpcy8u870pnk" path="res://horror/monster/leg_ik_target.gd" id="8_d3vgi"]
+[ext_resource type="Script" uid="uid://dum5myfa27x5d" path="res://horror/detection_area.gd" id="9_tge75"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_3x67h"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v3ikl"]
+render_priority = 0
+shader = ExtResource("4_gsvwr")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("5_knwew")
+shader_parameter/texture_orm = ExtResource("7_sqwxh")
+shader_parameter/texture_normal = ExtResource("6_gxaji")
+shader_parameter/normal_scale = 1.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_b45h2"]
 height = 1.4943848
 radius = 0.83203125
 
-[node name="Monster" unique_id=1082106793 node_paths=PackedStringArray("_FL_ik_target", "_FR_ik_target", "_BL_ik_target", "_BR_ik_target", "_ik_targets", "_step_target_container", "_step_targets", "_step_rays", "_front_ray") instance=ExtResource("1_rgwrv")]
-script = ExtResource("2_oqs4p")
+[sub_resource type="Animation" id="Animation_42r8p"]
+resource_name = "kill_player"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x6woe"]
+_data = {
+&"kill_player": SubResource("Animation_42r8p")
+}
+
+[node name="Monster" unique_id=81421229 node_paths=PackedStringArray("_FL_ik_target", "_FR_ik_target", "_BL_ik_target", "_BR_ik_target", "_ik_targets", "_step_target_container", "_step_targets", "_step_rays", "_front_ray", "lookat_IK_target") instance=ExtResource("1_42r8p")]
+script = ExtResource("2_x6woe")
 _FL_ik_target = NodePath("Armature/IKTargets/LegFLIKTarget")
 _FR_ik_target = NodePath("Armature/IKTargets/LegFRIKTarget")
 _BL_ik_target = NodePath("Armature/IKTargets/LegBLIKTarget")
@@ -21,11 +42,23 @@ _step_target_container = NodePath("Armature/StepTargets")
 _step_targets = [NodePath("Armature/StepTargets/LegFLRayCast/LegFLStepTarget"), NodePath("Armature/StepTargets/LegFRRayCast/LegFRStepTarget"), NodePath("Armature/StepTargets/LegBLRayCast/LegBLStepTarget"), NodePath("Armature/StepTargets/LegBRRayCast/LegBRStepTarget")]
 _step_rays = [NodePath("Armature/StepTargets/LegFLRayCast"), NodePath("Armature/StepTargets/LegFRRayCast"), NodePath("Armature/StepTargets/LegBLRayCast"), NodePath("Armature/StepTargets/LegBRRayCast")]
 _front_ray = NodePath("Armature/FrontRay")
+lookat_IK_target = NodePath("Armature/IKTargets/LookAtTarget")
 
-[node name="Armature" parent="." index="0" unique_id=1374124274]
+[node name="MonsterEntity" type="Node" parent="." index="0" unique_id=1537029992 node_paths=PackedStringArray("monster", "entity_root", "detection_areas")]
+script = ExtResource("3_rpytr")
+monster = NodePath("..")
+type = 2
+entity_root = NodePath("..")
+detection_areas = [NodePath("../Detection Area")]
+metadata/_custom_type_script = "uid://coyy55f6s8jis"
+
+[node name="Armature" parent="." index="1" unique_id=1656805238]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
 
-[node name="LegFLTwoBoneIK" type="TwoBoneIK3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(2103657072) index="1" unique_id=391264738]
+[node name="MonsterMesh" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(929942363) index="0" unique_id=1370141522]
+surface_material_override/0 = SubResource("ShaderMaterial_v3ikl")
+
+[node name="LegFLTwoBoneIK" type="TwoBoneIK3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(929942363) index="1" unique_id=881946253]
 setting_count = 1
 settings/0/target_node = NodePath("../../IKTargets/LegFLIKTarget")
 settings/0/pole_node = NodePath("../../Poles/LegFLPole")
@@ -39,7 +72,7 @@ settings/0/end_bone = 2
 settings/0/use_virtual_end = false
 settings/0/extend_end_bone = false
 
-[node name="LegFRTwoBoneIK" type="TwoBoneIK3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(2103657072) index="2" unique_id=692486199]
+[node name="LegFRTwoBoneIK" type="TwoBoneIK3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(929942363) index="2" unique_id=1309212373]
 setting_count = 1
 settings/0/target_node = NodePath("../../IKTargets/LegFRIKTarget")
 settings/0/pole_node = NodePath("../../Poles/LegFRPole")
@@ -53,7 +86,7 @@ settings/0/end_bone = 5
 settings/0/use_virtual_end = false
 settings/0/extend_end_bone = false
 
-[node name="LegBLTwoBoneIK" type="TwoBoneIK3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(2103657072) index="3" unique_id=2062038172]
+[node name="LegBLTwoBoneIK" type="TwoBoneIK3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(929942363) index="3" unique_id=542290211]
 setting_count = 1
 settings/0/target_node = NodePath("../../IKTargets/LegBLIKTarget")
 settings/0/pole_node = NodePath("../../Poles/LegBLPole")
@@ -67,7 +100,7 @@ settings/0/end_bone = 11
 settings/0/use_virtual_end = false
 settings/0/extend_end_bone = false
 
-[node name="LegBRTwoBoneIK" type="TwoBoneIK3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(2103657072) index="4" unique_id=1490883692]
+[node name="LegBRTwoBoneIK" type="TwoBoneIK3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(929942363) index="4" unique_id=309921307]
 setting_count = 1
 settings/0/target_node = NodePath("../../IKTargets/LegBRIKTarget")
 settings/0/pole_node = NodePath("../../Poles/LegBRPole")
@@ -81,122 +114,136 @@ settings/0/end_bone = 8
 settings/0/use_virtual_end = false
 settings/0/extend_end_bone = false
 
-[node name="IKTargets" type="Node3D" parent="Armature" index="1" unique_id=1476821793]
+[node name="LookAtJacobianIK" type="JacobianIK3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(929942363) index="5" unique_id=1058827412]
+setting_count = 1
+settings/0/target_node = NodePath("../../IKTargets/LookAtTarget")
+settings/0/root_bone_name = "LookAt"
+settings/0/root_bone = 16
+settings/0/end_bone_name = "LookAt_leaf"
+settings/0/end_bone = 17
+settings/0/extend_end_bone = false
+settings/0/joint_count = 2
+settings/0/joints/0/rotation_axis = 3
+settings/0/joints/0/limitation = null
+settings/0/joints/1/rotation_axis = 3
+settings/0/joints/1/limitation = null
 
-[node name="LegFLIKTarget" type="Marker3D" parent="Armature/IKTargets" index="0" unique_id=1448175345 node_paths=PackedStringArray("_root", "_step_target", "_adjacent_target", "_opposite_target")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0, 0.5)
+[node name="IKTargets" type="Node3D" parent="Armature" index="1" unique_id=2107767001]
+
+[node name="LegFLIKTarget" type="Marker3D" parent="Armature/IKTargets" index="0" unique_id=2020137594 node_paths=PackedStringArray("_root", "_step_target", "_adjacent_target", "_opposite_target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0, 0.6645293)
 top_level = true
-script = ExtResource("3_kva6l")
+script = ExtResource("8_d3vgi")
 _root = NodePath("../../..")
 _step_target = NodePath("../../StepTargets/LegFLRayCast/LegFLStepTarget")
 _adjacent_target = NodePath("../LegFRIKTarget")
 _opposite_target = NodePath("../LegBRIKTarget")
 offset_pos = Vector3(-0.45, 0, 0.5)
 
-[node name="LegFRIKTarget" type="Marker3D" parent="Armature/IKTargets" index="1" unique_id=801089604 node_paths=PackedStringArray("_root", "_step_target", "_adjacent_target", "_opposite_target")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 0, 0.5)
+[node name="LegFRIKTarget" type="Marker3D" parent="Armature/IKTargets" index="1" unique_id=1506901193 node_paths=PackedStringArray("_root", "_step_target", "_adjacent_target", "_opposite_target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 0, 0.6645293)
 top_level = true
-script = ExtResource("3_kva6l")
+script = ExtResource("8_d3vgi")
 _root = NodePath("../../..")
 _step_target = NodePath("../../StepTargets/LegFRRayCast/LegFRStepTarget")
 _adjacent_target = NodePath("../LegFLIKTarget")
 _opposite_target = NodePath("../LegBLIKTarget")
 offset_pos = Vector3(0.45, 0, 0.5)
 
-[node name="LegBLIKTarget" type="Marker3D" parent="Armature/IKTargets" index="2" unique_id=553422170 node_paths=PackedStringArray("_root", "_step_target", "_adjacent_target", "_opposite_target")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0, -0.5)
+[node name="LegBLIKTarget" type="Marker3D" parent="Armature/IKTargets" index="2" unique_id=177860758 node_paths=PackedStringArray("_root", "_step_target", "_adjacent_target", "_opposite_target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0, -0.26181507)
 top_level = true
-script = ExtResource("3_kva6l")
+script = ExtResource("8_d3vgi")
 _root = NodePath("../../..")
 _step_target = NodePath("../../StepTargets/LegBLRayCast/LegBLStepTarget")
 _adjacent_target = NodePath("../LegBRIKTarget")
 _opposite_target = NodePath("../LegFRIKTarget")
 offset_pos = Vector3(-0.45, 0, -0.5)
 
-[node name="LegBRIKTarget" type="Marker3D" parent="Armature/IKTargets" index="3" unique_id=701894150 node_paths=PackedStringArray("_root", "_step_target", "_adjacent_target", "_opposite_target")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 0, -0.5)
+[node name="LegBRIKTarget" type="Marker3D" parent="Armature/IKTargets" index="3" unique_id=1978189775 node_paths=PackedStringArray("_root", "_step_target", "_adjacent_target", "_opposite_target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 0, -0.26205772)
 top_level = true
-script = ExtResource("3_kva6l")
+script = ExtResource("8_d3vgi")
 _root = NodePath("../../..")
 _step_target = NodePath("../../StepTargets/LegBRRayCast/LegBRStepTarget")
 _adjacent_target = NodePath("../LegBLIKTarget")
 _opposite_target = NodePath("../LegFLIKTarget")
 offset_pos = Vector3(0.45, 0, -0.5)
 
-[node name="StepTargets" type="Node3D" parent="Armature" index="2" unique_id=1149284409]
+[node name="LookAtTarget" type="Marker3D" parent="Armature/IKTargets" index="4" unique_id=305705288]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1)
 
-[node name="LegFLRayCast" type="RayCast3D" parent="Armature/StepTargets" index="0" unique_id=1809616656]
-transform = Transform3D(0.7071067, 0.1227878, -0.6963642, 0, 0.9848077, 0.17364818, 0.7071067, -0.1227878, 0.6963642, -0.42, 0.75, 0.47)
+[node name="StepTargets" type="Node3D" parent="Armature" index="2" unique_id=210429473]
+
+[node name="LegFLRayCast" type="RayCast3D" parent="Armature/StepTargets" index="0" unique_id=1648908414]
+transform = Transform3D(0.7071067, 0.1227878, -0.6963642, 0, 0.9848077, 0.17364818, 0.7071067, -0.1227878, 0.6963642, -0.388, 0.694, 0.604)
 target_position = Vector3(0, -2, 0)
 
-[node name="LegFLStepTarget" type="Marker3D" parent="Armature/StepTargets/LegFLRayCast" index="0" unique_id=372936407]
+[node name="LegFLStepTarget" type="Marker3D" parent="Armature/StepTargets/LegFLRayCast" index="0" unique_id=1390485273]
 transform = Transform3D(0.70842326, -8.0518425e-05, 0.7057879, 0.060934674, 0.99627304, -0.06104854, -0.70315254, 0.086255156, 0.7057879, 0, -0.5, 0)
 
-[node name="LegFRRayCast" type="RayCast3D" parent="Armature/StepTargets" index="1" unique_id=1116327571]
-transform = Transform3D(0.6963642, -0.1227878, -0.7071067, 0.17364818, 0.9848077, 0, 0.6963642, -0.1227878, 0.7071067, 0.42, 0.75, 0.47)
+[node name="LegFRRayCast" type="RayCast3D" parent="Armature/StepTargets" index="1" unique_id=648268212]
+transform = Transform3D(0.6963642, -0.1227878, -0.7071067, 0.17364818, 0.9848077, 0, 0.6963642, -0.1227878, 0.7071067, 0.388, 0.694, 0.604)
 target_position = Vector3(0, -2, 0)
 hit_back_faces = false
 
-[node name="LegFRStepTarget" type="Marker3D" parent="Armature/StepTargets/LegFRRayCast" index="0" unique_id=1707293443]
+[node name="LegFRStepTarget" type="Marker3D" parent="Armature/StepTargets/LegFRRayCast" index="0" unique_id=1987846861]
 transform = Transform3D(0.70842326, -8.0518425e-05, 0.7057879, 0.060934674, 0.99627304, -0.06104854, -0.70315254, 0.086255156, 0.7057879, 0, -0.5, 0)
 
-[node name="LegBLRayCast" type="RayCast3D" parent="Armature/StepTargets" index="2" unique_id=90906874]
-transform = Transform3D(0.7071067, 0.1227878, 0.6963642, 0, 0.9848077, -0.17364818, -0.7071067, 0.1227878, 0.6963642, -0.42, 0.75, -0.47)
+[node name="LegBLRayCast" type="RayCast3D" parent="Armature/StepTargets" index="2" unique_id=1849786562]
+transform = Transform3D(0.7071067, 0.1227878, 0.6963642, 0, 0.9848077, -0.17364818, -0.7071067, 0.1227878, 0.6963642, -0.38, 0.75, -0.2)
 target_position = Vector3(0, -2, 0)
 
-[node name="LegBLStepTarget" type="Marker3D" parent="Armature/StepTargets/LegBLRayCast" index="0" unique_id=106038171]
+[node name="LegBLStepTarget" type="Marker3D" parent="Armature/StepTargets/LegBLRayCast" index="0" unique_id=1150699153]
 transform = Transform3D(0.70842326, -8.0518425e-05, -0.7057879, 0.060934674, 0.99627304, 0.06104854, 0.70315254, -0.086255156, 0.7057879, 0, -0.5, 0)
 
-[node name="LegBRRayCast" type="RayCast3D" parent="Armature/StepTargets" index="3" unique_id=1799688343]
-transform = Transform3D(0.6963642, -0.1227878, 0.7071067, 0.17364818, 0.9848077, 0, -0.6963642, 0.1227878, 0.7071067, 0.42, 0.75, -0.47)
+[node name="LegBRRayCast" type="RayCast3D" parent="Armature/StepTargets" index="3" unique_id=1222547764]
+transform = Transform3D(0.6963642, -0.1227878, 0.7071067, 0.17364818, 0.9848077, 0, -0.6963642, 0.1227878, 0.7071067, 0.388, 0.694, -0.20195569)
 target_position = Vector3(0, -2, 0)
 
-[node name="LegBRStepTarget" type="Marker3D" parent="Armature/StepTargets/LegBRRayCast" index="0" unique_id=880733027]
-transform = Transform3D(0.70315254, 0.086255156, -0.7057879, -0.060934674, 0.99627304, 0.06104854, 0.70842326, 8.0518425e-05, 0.7057879, 0, -0.5, 0)
+[node name="LegBRStepTarget" type="Marker3D" parent="Armature/StepTargets/LegBRRayCast" index="0" unique_id=74806975]
+transform = Transform3D(0.7031525, 0.08625515, -0.7057879, -0.06093467, 0.996273, 0.06104854, 0.70842326, 8.05147e-05, 0.7057879, 0, -0.49999997, 0)
 
-[node name="Poles" type="Node3D" parent="Armature" index="3" unique_id=2027321094]
+[node name="Poles" type="Node3D" parent="Armature" index="3" unique_id=358863016]
 
-[node name="LegFLPole" type="Marker3D" parent="Armature/Poles" index="0" unique_id=1565702801]
+[node name="LegFLPole" type="Marker3D" parent="Armature/Poles" index="0" unique_id=2044853748]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 1, 0.5)
 
-[node name="LegFRPole" type="Marker3D" parent="Armature/Poles" index="1" unique_id=1354716591]
+[node name="LegFRPole" type="Marker3D" parent="Armature/Poles" index="1" unique_id=1928439849]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 1, 0.5)
 
-[node name="LegBLPole" type="Marker3D" parent="Armature/Poles" index="2" unique_id=1328073643]
+[node name="LegBLPole" type="Marker3D" parent="Armature/Poles" index="2" unique_id=227413863]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 1, -0.5)
 
-[node name="LegBRPole" type="Marker3D" parent="Armature/Poles" index="3" unique_id=2065928129]
+[node name="LegBRPole" type="Marker3D" parent="Armature/Poles" index="3" unique_id=1733313340]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 1, -0.5)
 
-[node name="FrontRay" type="RayCast3D" parent="Armature" index="4" unique_id=57388095]
+[node name="FrontRay" type="RayCast3D" parent="Armature" index="4" unique_id=1979064461]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1, 0)
 target_position = Vector3(0, -1.5, 0)
 
-[node name="MonsterEntity" type="Node" parent="." index="1" unique_id=1775009649 node_paths=PackedStringArray("monster", "red_light", "entity_root", "detection_areas")]
-script = ExtResource("4_3x67h")
-monster = NodePath("..")
-red_light = NodePath("../RedLight2")
-type = 2
-entity_root = NodePath("..")
-detection_areas = [NodePath("../Detection Area")]
-metadata/_custom_type_script = "uid://coyy55f6s8jis"
-
-[node name="Detection Area" type="Area3D" parent="." index="2" unique_id=1250371086 node_paths=PackedStringArray("monster_entity")]
+[node name="Detection Area" type="Area3D" parent="." index="2" unique_id=1440010991 node_paths=PackedStringArray("monster_entity", "monster_root", "animation_player")]
 collision_layer = 1024
 collision_mask = 1536
 input_ray_pickable = false
-script = ExtResource("5_cxboi")
+script = ExtResource("9_tge75")
 monster_entity = NodePath("../MonsterEntity")
+monster_root = NodePath("..")
+animation_player = NodePath("../AnimationPlayer")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Detection Area" index="0" unique_id=668660315]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Detection Area" index="0" unique_id=1018888953]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.74523926, 0)
-shape = SubResource("CylinderShape3D_3x67h")
+shape = SubResource("CylinderShape3D_b45h2")
 
-[node name="RedLight2" type="OmniLight3D" parent="." index="3" unique_id=794853687]
+[node name="Light" type="OmniLight3D" parent="." index="3" unique_id=1394661634]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1.5709311, 0)
 visible = false
 light_color = Color(0.99999994, 0.17606175, 0.107509546, 1)
 omni_range = 1.6038629
 omni_attenuation = 2.935
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4" unique_id=763712480]
+libraries/ = SubResource("AnimationLibrary_x6woe")
+
 [connection signal="area_entered" from="Detection Area" to="Detection Area" method="_on_area_entered"]
+[connection signal="body_entered" from="Detection Area" to="Detection Area" method="_on_body_entered"]

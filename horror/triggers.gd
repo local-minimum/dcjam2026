@@ -21,7 +21,7 @@ var dungeon: Dungeon:
 var keith_light: OmniLight3D:
     get():
         if monster_entity != null:
-            return monster_entity.red_light
+            return monster_entity.light
         return null
 
 func _enter_tree() -> void:

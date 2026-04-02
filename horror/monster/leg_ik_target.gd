@@ -1,9 +1,11 @@
 class_name LegIKTarget
 extends Marker3D
 
-const STEP_DISTANCE: float = 0.25
-const STEP_TIME: float = 0.1
+#const STEP_DISTANCE: float = 0.25
+#const STEP_TIME: float = 0.1
 const STEP_HEIGHT_MAG: float = 0.3
+
+var step_time: float = 0.1
 
 @export var _root: Monster
 @export var _step_target: Marker3D
@@ -32,7 +34,7 @@ func step() -> void:
             self, 
             "global_position", 
             half_step + (_root.basis.y * STEP_HEIGHT_MAG), 
-            STEP_TIME
+            step_time
         )
-        _step_tween.tween_property(self, "global_position", target_pos, STEP_TIME)
+        _step_tween.tween_property(self, "global_position", target_pos, step_time)
         _step_tween.tween_callback(func() -> void: is_stepping = false)

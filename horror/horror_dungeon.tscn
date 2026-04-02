@@ -8,8 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://dhdjfsnd5kuvn" path="res://horror/rooms/corridor.tscn" id="9_75gv8"]
 [ext_resource type="PackedScene" uid="uid://7ufpontbryf2" path="res://horror/rooms/outside.tscn" id="9_nn07l"]
 [ext_resource type="PackedScene" uid="uid://crdkc5mx8cs5l" path="res://horror/rooms/monster_room.tscn" id="10_75gv8"]
+[ext_resource type="PackedScene" uid="uid://c6rss8nj21trk" path="res://horror/monster/monster.tscn" id="10_gagwy"]
 [ext_resource type="Script" uid="uid://c20jt2s5o513v" path="res://horror/horror_collision_resolver.gd" id="11_1m84d"]
-[ext_resource type="PackedScene" uid="uid://dbbbvw47dto45" path="res://horror/monster/monster.tscn" id="11_gagwy"]
 [ext_resource type="PackedScene" uid="uid://miqvvv57y7jw" path="res://horror/rooms/foyer.tscn" id="16_ijayo"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_75gv8"]
@@ -65,7 +65,7 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0
 [node name="MonsterRoom" parent="." unique_id=507186414 instance=ExtResource("10_75gv8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, -21)
 
-[node name="Monster" parent="." unique_id=1082106793 instance=ExtResource("11_gagwy")]
+[node name="Monster" parent="." unique_id=81421229 instance=ExtResource("10_gagwy")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18, 0, -16)
 
 [node name="Collision System" type="Node" parent="." unique_id=1364647128]

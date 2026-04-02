@@ -100,6 +100,7 @@ func handle_loose_player_noise(noise_area: NoiseArea) -> void:
         _create_movement_plan(noise_area)
 
 func _clear_distance(from: Vector3i, direction: Vector3i) -> int:
+    print_debug("Hunt plan testing cast from %s in direction %s" % [from, direction])
     look_ray.global_position = dungeon.get_global_grid_position_from_coordinates(from) + Vector3.UP * look_elevation_m
     var target: Vector3 = look_ray.global_position + Vector3(direction) * dungeon.grid_size * max_tiles_distance_plan
 
@@ -109,7 +110,9 @@ func _clear_distance(from: Vector3i, direction: Vector3i) -> int:
         var intersect: Vector3 = look_ray.get_collision_point()
         var intersect_coords: Vector3i = dungeon.get_closest_coordinates(intersect)
         #print_debug("Hunt plan cast %s direction %s (%s -> %s) reached %s hit %s after %s dist" % [from, direction, look_ray.global_position, target, intersect_coords, look_ray.get_collider(), VectorUtils.manhattan_distance(from, intersect_coords)])
+        print_debug("Hunt plan hit %s after %s dist" % [look_ray.get_collider(), VectorUtils.manhattan_distance(from, intersect_coords)])
         return VectorUtils.manhattan_distance(from, intersect_coords)
+
     return max_tiles_distance_plan
 
 func _check_valid_intermediary(
@@ -152,8 +155,8 @@ func _create_movement_plan(area: NoiseArea) -> void:
         visited.append(my_coords)
 
         var delta: Vector3i = target_coords - my_coords
-        var primary: Vector3i = VectorUtils.primary_direction(delta).abs()
-        var primary_component: Vector3i = delta * primary
+        var primary: Vector3i = VectorUtils.primary_direction(delta)
+        var primary_component: Vector3i = delta * primary.abs()
         if _check_valid_intermediary(
             my_coords,
             primary_component,

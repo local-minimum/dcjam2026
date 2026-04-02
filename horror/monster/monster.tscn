@@ -255,6 +255,7 @@ libraries/ = SubResource("AnimationLibrary_x6woe")
 [node name="LookRayCast" type="RayCast3D" parent="." index="5" unique_id=1874556014]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.77190304, 0)
 enabled = false
+exclude_parent = false
 script = ExtResource("10_x6woe")
 metadata/_custom_type_script = "uid://b6h481h1w1e63"
 

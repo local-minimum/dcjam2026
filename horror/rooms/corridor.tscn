@@ -38,6 +38,37 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_xmlox")
 
+[sub_resource type="ArrayMesh" id="ArrayMesh_mhacm"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -0.1, 2, 2, 0.2),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAwABAAAAAQAEAAIAAQADAAQAAgAEAAUABAADAAYABAAGAAUABwADAAAAAgAHAAAABgADAAcABQAHAAIABQAGAAcA"),
+"name": "Mesh",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAAAAAAAAAP////8AAAAAAAD//wAAAAD//wAAAAD///////8AAP//AAD//wAA/////wAAAAD//wAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_uyvyw"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -0.1, 2, 2, 0.2),
+"attribute_data": PackedByteArray("ZeYAAP///////wAAZeb/////AAAAAP//AAAAAP////8AAAAAmRn//5kZAAAAAP//AAAAAP///////wAAAAD///////8AAGXm//9l5gAA/////wAAAACZGf//mRkAAAAA"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQACAAJAAoACwAJAAgADAANAA4ADwANAAwAEAARABIAEwARABAAFAAVABYAFwAVABQA"),
+"material": ExtResource("3_abhsr"),
+"name": "Mesh",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAAAA/z8AAP//////PwAAAAD///8/AAD//wAA/z///wAAAAD//wAA//8AAP//AAAAAAAA////////AAD/////AAD///8//////wAA/z///wAAAAD/P/////////8/AAAAAP///n/////////+f///AAD///5/AAD//////n8AAAAA////////AAAAAP//AAAAAAAA/////wAA//////////////8/AAD//wAA/z//////AAD/PwAA//////8//3////9/////f////3///////3////9/////f////3//fwAA/38AAP9/AAD/fwAA/3////9/////f////3////9//z//f/8//3//P/9//z////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_mhacm")
+
 [sub_resource type="ArrayMesh" id="ArrayMesh_abhsr"]
 _surfaces = [{
 "aabb": AABB(-1, -1, -0.1, 2, 2, 0.2),
@@ -109,37 +140,6 @@ _data = {
 &"RESET": SubResource("Animation_ap2dw"),
 &"flash": SubResource("Animation_4828v")
 }
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_mhacm"]
-_surfaces = [{
-"aabb": AABB(-1, -1, -0.1, 2, 2, 0.2),
-"format": 34896613377,
-"index_count": 36,
-"index_data": PackedByteArray("AAABAAIAAwABAAAAAQAEAAIAAQADAAQAAgAEAAUABAADAAYABAAGAAUABwADAAAAAgAHAAAABgADAAcABQAHAAIABQAGAAcA"),
-"name": "Mesh",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 8,
-"vertex_data": PackedByteArray("AAAAAAAAAAAAAP////8AAAAAAAD//wAAAAD//wAAAAD///////8AAP//AAD//wAA/////wAAAAD//wAAAAAAAA==")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_uyvyw"]
-_surfaces = [{
-"aabb": AABB(-1, -1, -0.1, 2, 2, 0.2),
-"attribute_data": PackedByteArray("ZeYAAP///////wAAZeb/////AAAAAP//AAAAAP////8AAAAAmRn//5kZAAAAAP//AAAAAP///////wAAAAD///////8AAGXm//9l5gAA/////wAAAACZGf//mRkAAAAA"),
-"format": 34896613399,
-"index_count": 36,
-"index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQACAAJAAoACwAJAAgADAANAA4ADwANAAwAEAARABIAEwARABAAFAAVABYAFwAVABQA"),
-"material": ExtResource("3_abhsr"),
-"name": "Mesh",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 24,
-"vertex_data": PackedByteArray("AAAAAAAA/z8AAP//////PwAAAAD///8/AAD//wAA/z///wAAAAD//wAA//8AAP//AAAAAAAA////////AAD/////AAD///8//////wAA/z///wAAAAD/P/////////8/AAAAAP///n/////////+f///AAD///5/AAD//////n8AAAAA////////AAAAAP//AAAAAAAA/////wAA//////////////8/AAD//wAA/z//////AAD/PwAA//////8//3////9/////f////3///////3////9/////f////3//fwAA/38AAP9/AAD/fwAA/3////9/////f////3////9//z//f/8//3//P/9//z////9/////f////3////9/")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_mhacm")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uyvyw"]
 size = Vector3(1.4106445, 1, 4.2579346)
@@ -312,6 +312,98 @@ mesh = SubResource("ArrayMesh_ap2dw")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 1, -15)
 mesh = SubResource("ArrayMesh_ap2dw")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall" unique_id=1422226823]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -10, 3, -17)
+mesh = SubResource("ArrayMesh_uyvyw")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Wall" unique_id=775824668]
+transform = Transform3D(4.371139e-08, -1, -8.742278e-08, -1, -4.371139e-08, 0, -3.821371e-15, 8.742278e-08, -1, -12, 3, -17)
+mesh = SubResource("ArrayMesh_uyvyw")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Wall" unique_id=1430996380]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -14, 3, -17)
+mesh = SubResource("ArrayMesh_uyvyw")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Wall" unique_id=1160612534]
+transform = Transform3D(4.371139e-08, -1, -8.742278e-08, -1, -4.371139e-08, 0, -3.821371e-15, 8.742278e-08, -1, -16, 3, -17)
+mesh = SubResource("ArrayMesh_uyvyw")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="Wall" unique_id=1378725383]
+transform = Transform3D(4.371139e-08, -1, -8.742278e-08, -1, -4.371139e-08, 0, -3.821371e-15, 8.742278e-08, -1, -20, 3, -17)
+mesh = SubResource("ArrayMesh_uyvyw")
+
+[node name="MeshInstance3D20" type="MeshInstance3D" parent="Wall" unique_id=2114226118]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -22, 3, -17)
+mesh = SubResource("ArrayMesh_uyvyw")
+
+[node name="MeshInstance3D22" type="MeshInstance3D" parent="Wall" unique_id=1215899736]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -24, 3, -17)
+mesh = SubResource("ArrayMesh_uyvyw")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Wall" unique_id=1908597971]
+transform = Transform3D(4.371139e-08, -1, -8.742278e-08, -1, -4.371139e-08, 0, -3.821371e-15, 8.742278e-08, -1, -8, 3, -17)
+mesh = SubResource("ArrayMesh_uyvyw")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Wall" unique_id=1378814105]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -6, 3, -17)
+mesh = SubResource("ArrayMesh_uyvyw")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Wall" unique_id=1536874055]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -18, 3, -17)
+mesh = SubResource("ArrayMesh_uyvyw")
+
+[node name="MeshInstance3D29" type="MeshInstance3D" parent="Wall" unique_id=807201689]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -10, 3, -15)
+mesh = SubResource("ArrayMesh_uyvyw")
+
+[node name="MeshInstance3D30" type="MeshInstance3D" parent="Wall" unique_id=922004867]
+transform = Transform3D(4.371139e-08, -1, -8.742278e-08, -1, -4.371139e-08, 0, -3.821371e-15, 8.742278e-08, -1, -12, 3, -15)
+mesh = SubResource("ArrayMesh_uyvyw")
+
+[node name="MeshInstance3D31" type="MeshInstance3D" parent="Wall" unique_id=1590232630]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -14, 3, -15)
+mesh = SubResource("ArrayMesh_uyvyw")
+
+[node name="MeshInstance3D32" type="MeshInstance3D" parent="Wall" unique_id=1176468733]
+transform = Transform3D(4.371139e-08, -1, -8.742278e-08, -1, -4.371139e-08, 0, -3.821371e-15, 8.742278e-08, -1, -16, 3, -15)
+mesh = SubResource("ArrayMesh_uyvyw")
+
+[node name="MeshInstance3D33" type="MeshInstance3D" parent="Wall" unique_id=1182974442]
+transform = Transform3D(4.371139e-08, -1, -8.742278e-08, -1, -4.371139e-08, 0, -3.821371e-15, 8.742278e-08, -1, -20, 3, -15)
+mesh = SubResource("ArrayMesh_uyvyw")
+
+[node name="MeshInstance3D34" type="MeshInstance3D" parent="Wall" unique_id=1444968333]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -22, 3, -15)
+mesh = SubResource("ArrayMesh_uyvyw")
+
+[node name="MeshInstance3D35" type="MeshInstance3D" parent="Wall" unique_id=543501171]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -24, 3, -15)
+mesh = SubResource("ArrayMesh_uyvyw")
+
+[node name="MeshInstance3D36" type="MeshInstance3D" parent="Wall" unique_id=2011538648]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -26, 3, -15)
+mesh = SubResource("ArrayMesh_uyvyw")
+
+[node name="MeshInstance3D37" type="MeshInstance3D" parent="Wall" unique_id=96488779]
+transform = Transform3D(1.9106855e-15, -4.371139e-08, -1, -1, -4.371139e-08, 0, -4.371139e-08, 1, -4.371139e-08, -27, 3, -16)
+mesh = SubResource("ArrayMesh_uyvyw")
+
+[node name="MeshInstance3D38" type="MeshInstance3D" parent="Wall" unique_id=1815174484]
+transform = Transform3D(4.371139e-08, -1, -8.742278e-08, -1, -4.371139e-08, 0, -3.821371e-15, 8.742278e-08, -1, -8, 3, -15)
+mesh = SubResource("ArrayMesh_uyvyw")
+
+[node name="MeshInstance3D39" type="MeshInstance3D" parent="Wall" unique_id=2049533755]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -6, 3, -15)
+mesh = SubResource("ArrayMesh_uyvyw")
+
+[node name="MeshInstance3D40" type="MeshInstance3D" parent="Wall" unique_id=313380356]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -18, 3, -15)
+mesh = SubResource("ArrayMesh_uyvyw")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Wall" unique_id=611624370]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -26, 3, -17)
+mesh = SubResource("ArrayMesh_uyvyw")
+
 [node name="Floor" type="Node3D" parent="." unique_id=1136335272]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=457774102]
@@ -385,7 +477,7 @@ mesh = SubResource("ArrayMesh_dffvr")
 [node name="Lights" type="Node3D" parent="." unique_id=2028252896]
 
 [node name="RedLight" type="OmniLight3D" parent="Lights" unique_id=1288919036]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 1.6709311, -16)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 1.6709311, -16)
 light_color = Color(0.99999994, 0.17606175, 0.107509546, 1)
 omni_range = 1.6038629
 omni_attenuation = 2.935
@@ -394,105 +486,60 @@ omni_attenuation = 2.935
 libraries/ = SubResource("AnimationLibrary_dffvr")
 autoplay = &"flash"
 
-[node name="RidgedLight1" type="Node3D" parent="Lights" unique_id=899174043]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1, -15)
+[node name="RedLight1" type="OmniLight3D" parent="Lights" unique_id=1275492616]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 3, -16)
+visible = false
+light_color = Color(0.83301014, 0.11727414, 0.14770189, 1)
+light_energy = 2.0
+light_volumetric_fog_energy = 5.0
+omni_range = 3.0
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Lights/RidgedLight1" unique_id=1422226823]
-transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -2, 2, -2)
-mesh = SubResource("ArrayMesh_uyvyw")
+[node name="RedLight2" type="OmniLight3D" parent="Lights" unique_id=1463810440]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 3, -16)
+visible = false
+light_color = Color(0.83301014, 0.11727414, 0.14770189, 1)
+light_energy = 2.0
+light_volumetric_fog_energy = 5.0
+omni_range = 3.5
 
-[node name="MeshInstance3D6" type="MeshInstance3D" parent="Lights/RidgedLight1" unique_id=775824668]
-transform = Transform3D(4.371139e-08, -1, -8.742278e-08, -1, -4.371139e-08, 0, -3.821371e-15, 8.742278e-08, -1, -4, 2, -2)
-mesh = SubResource("ArrayMesh_uyvyw")
+[node name="RedLight3" type="OmniLight3D" parent="Lights" unique_id=1216726429]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 3, -16)
+visible = false
+light_color = Color(0.83301014, 0.11727414, 0.14770189, 1)
+light_energy = 2.0
+light_volumetric_fog_energy = 5.0
+omni_range = 3.5
 
-[node name="MeshInstance3D7" type="MeshInstance3D" parent="Lights/RidgedLight1" unique_id=1430996380]
-transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -6, 2, -2)
-mesh = SubResource("ArrayMesh_uyvyw")
+[node name="RedLight4" type="OmniLight3D" parent="Lights" unique_id=470954590]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 3, -16)
+visible = false
+light_color = Color(0.83301014, 0.11727414, 0.14770189, 1)
+light_energy = 2.0
+light_volumetric_fog_energy = 5.0
+omni_range = 3.5
 
-[node name="MeshInstance3D8" type="MeshInstance3D" parent="Lights/RidgedLight1" unique_id=1160612534]
-transform = Transform3D(4.371139e-08, -1, -8.742278e-08, -1, -4.371139e-08, 0, -3.821371e-15, 8.742278e-08, -1, -8, 2, -2)
-mesh = SubResource("ArrayMesh_uyvyw")
+[node name="RedLight5" type="OmniLight3D" parent="Lights" unique_id=607268102]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 3, -16)
+visible = false
+light_color = Color(0.83301014, 0.11727414, 0.14770189, 1)
+light_energy = 2.0
+light_volumetric_fog_energy = 5.0
+omni_range = 3.5
 
-[node name="MeshInstance3D9" type="MeshInstance3D" parent="Lights/RidgedLight1" unique_id=1378725383]
-transform = Transform3D(4.371139e-08, -1, -8.742278e-08, -1, -4.371139e-08, 0, -3.821371e-15, 8.742278e-08, -1, -12, 2, -2)
-mesh = SubResource("ArrayMesh_uyvyw")
+[node name="RedLight6" type="OmniLight3D" parent="Lights" unique_id=585405135]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 3, -16)
+visible = false
+light_color = Color(0.83301014, 0.11727414, 0.14770189, 1)
+light_energy = 2.0
+light_volumetric_fog_energy = 5.0
+omni_range = 3.5
 
-[node name="MeshInstance3D10" type="MeshInstance3D" parent="Lights/RidgedLight1" unique_id=2114226118]
-transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -14, 2, -2)
-mesh = SubResource("ArrayMesh_uyvyw")
-
-[node name="MeshInstance3D21" type="MeshInstance3D" parent="Lights/RidgedLight1" unique_id=1215899736]
-transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -16, 2, -2)
-mesh = SubResource("ArrayMesh_uyvyw")
-
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="Lights/RidgedLight1" unique_id=1908597971]
-transform = Transform3D(4.371139e-08, -1, -8.742278e-08, -1, -4.371139e-08, 0, -3.821371e-15, 8.742278e-08, -1, 0, 2, -2)
-mesh = SubResource("ArrayMesh_uyvyw")
-
-[node name="MeshInstance3D5" type="MeshInstance3D" parent="Lights/RidgedLight1" unique_id=1378814105]
-transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 2, 2, -2)
-mesh = SubResource("ArrayMesh_uyvyw")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Lights/RidgedLight1" unique_id=1536874055]
-transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -10, 2, -2)
-mesh = SubResource("ArrayMesh_uyvyw")
-
-[node name="MeshInstance3D11" type="MeshInstance3D" parent="Lights/RidgedLight1" unique_id=807201689]
-transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -2, 2, 0)
-mesh = SubResource("ArrayMesh_uyvyw")
-
-[node name="MeshInstance3D12" type="MeshInstance3D" parent="Lights/RidgedLight1" unique_id=922004867]
-transform = Transform3D(4.371139e-08, -1, -8.742278e-08, -1, -4.371139e-08, 0, -3.821371e-15, 8.742278e-08, -1, -4, 2, 0)
-mesh = SubResource("ArrayMesh_uyvyw")
-
-[node name="MeshInstance3D13" type="MeshInstance3D" parent="Lights/RidgedLight1" unique_id=1590232630]
-transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -6, 2, 0)
-mesh = SubResource("ArrayMesh_uyvyw")
-
-[node name="MeshInstance3D14" type="MeshInstance3D" parent="Lights/RidgedLight1" unique_id=1176468733]
-transform = Transform3D(4.371139e-08, -1, -8.742278e-08, -1, -4.371139e-08, 0, -3.821371e-15, 8.742278e-08, -1, -8, 2, 0)
-mesh = SubResource("ArrayMesh_uyvyw")
-
-[node name="MeshInstance3D15" type="MeshInstance3D" parent="Lights/RidgedLight1" unique_id=1182974442]
-transform = Transform3D(4.371139e-08, -1, -8.742278e-08, -1, -4.371139e-08, 0, -3.821371e-15, 8.742278e-08, -1, -12, 2, 0)
-mesh = SubResource("ArrayMesh_uyvyw")
-
-[node name="MeshInstance3D16" type="MeshInstance3D" parent="Lights/RidgedLight1" unique_id=1444968333]
-transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -14, 2, 0)
-mesh = SubResource("ArrayMesh_uyvyw")
-
-[node name="MeshInstance3D22" type="MeshInstance3D" parent="Lights/RidgedLight1" unique_id=543501171]
-transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -16, 2, 0)
-mesh = SubResource("ArrayMesh_uyvyw")
-
-[node name="MeshInstance3D20" type="MeshInstance3D" parent="Lights/RidgedLight1" unique_id=2011538648]
-transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -18, 2, 0)
-mesh = SubResource("ArrayMesh_uyvyw")
-
-[node name="MeshInstance3D23" type="MeshInstance3D" parent="Lights/RidgedLight1" unique_id=96488779]
-transform = Transform3D(1.9106855e-15, -4.371139e-08, -1, -1, -4.371139e-08, 0, -4.371139e-08, 1, -4.371139e-08, -19, 2, -1)
-mesh = SubResource("ArrayMesh_uyvyw")
-
-[node name="MeshInstance3D17" type="MeshInstance3D" parent="Lights/RidgedLight1" unique_id=1815174484]
-transform = Transform3D(4.371139e-08, -1, -8.742278e-08, -1, -4.371139e-08, 0, -3.821371e-15, 8.742278e-08, -1, 0, 2, 0)
-mesh = SubResource("ArrayMesh_uyvyw")
-
-[node name="MeshInstance3D18" type="MeshInstance3D" parent="Lights/RidgedLight1" unique_id=2049533755]
-transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 2, 2, 0)
-mesh = SubResource("ArrayMesh_uyvyw")
-
-[node name="MeshInstance3D19" type="MeshInstance3D" parent="Lights/RidgedLight1" unique_id=313380356]
-transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -10, 2, 0)
-mesh = SubResource("ArrayMesh_uyvyw")
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="Lights/RidgedLight1" unique_id=611624370]
-transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -18, 2, -2)
-mesh = SubResource("ArrayMesh_uyvyw")
-
-[node name="Triggers" type="Node3D" parent="." unique_id=1066317152]
+[node name="Triggers" type="Node3D" parent="." unique_id=1066317152 node_paths=PackedStringArray("red_lights")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -17)
 script = ExtResource("5_abhsr")
 keith_scare_sfx_path = "uid://bt4jw627jua1r"
+lights_cascade_sfx_path = "uid://17jtf5w2rh4g"
+red_lights = [NodePath("../Lights/RedLight6"), NodePath("../Lights/RedLight5"), NodePath("../Lights/RedLight4"), NodePath("../Lights/RedLight3"), NodePath("../Lights/RedLight2"), NodePath("../Lights/RedLight1")]
 
 [node name="Area3D" type="Area3D" parent="Triggers" unique_id=1065119730]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, 1)

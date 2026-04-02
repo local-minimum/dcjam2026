@@ -1,12 +1,19 @@
 extends Node3D
 
 enum MoveEnding { TRIGGER_COORDINATES, PLAYER_COORDINATES, LAST_INTERMEDIARY }
+
+const LIGHT_TIMINGS: Array[float] = [0.135, 0.937, 0.928, 0.945, 0.937, 0.933]
+
 @export_file("*.mp3") var keith_scare_sfx_path: String
+@export_file("*.wav") var lights_cascade_sfx_path: String
+
 @export var intermediary_positions: Array[Node3D]
 @export var ending: MoveEnding = MoveEnding.PLAYER_COORDINATES
 
 @export_range(0.5, 2.0) var speed: float = 1.0
 @export_range(0.0, 0.25) var jitter: float = 0.0
+
+@export var red_lights: Array[OmniLight3D]
 
 var _keith_run_triggered: bool = false
 
@@ -62,11 +69,28 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
                 speed,
                 jitter,
             )
-
+        
+        # Possible lighting trigger
+        assert(not lights_cascade_sfx_path.is_empty())
+        __AudioHub.play_sfx(lights_cascade_sfx_path)
+        
+        for i: int in range(6):
+            await get_tree().create_timer(LIGHT_TIMINGS[i]).timeout
+            red_lights[i].show()
+            
+        var tween: Tween = create_tween()
+        tween.set_parallel(true)
+        for light: OmniLight3D in red_lights:
+            tween.tween_property(light, "light_color", Color(1.0, 1.0, 1.0), 3.0)
+            tween.tween_property(light, "light_energy", 1.0, 3.0)
+            tween.tween_property(light, "light_volumetric_fog_energy", 1.0, 3.0)
+        # lighting trigger end
+        
         await get_tree().create_timer(4.0).timeout
 
         if keith_light != null:
             keith_light.show()
 
-        if !keith_scare_sfx_path.is_empty():
-            __AudioHub.play_sfx(keith_scare_sfx_path)
+        # Perhaps only plays when / if caught? I really only used that for effect when demoing
+        #if !keith_scare_sfx_path.is_empty():
+            #__AudioHub.play_sfx(keith_scare_sfx_path)

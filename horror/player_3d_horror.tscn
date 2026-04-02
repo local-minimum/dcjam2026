@@ -118,7 +118,7 @@ _data = {
 }
 
 [node name="Player3d" type="CharacterBody3D" unique_id=942295760 node_paths=PackedStringArray("_camera", "_freelook_cam", "_gridded_controller", "grid_entity", "look_target", "_captured_pointer_eventer", "stepper", "_forward", "_left", "_right", "_backward", "_debug_shapes", "animation_player")]
-collision_layer = 0
+collision_layer = 512
 collision_mask = 1025
 input_ray_pickable = false
 script = ExtResource("1_ls8h1")

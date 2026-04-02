@@ -15,8 +15,8 @@ render_priority = 0
 shader = ExtResource("4_gsvwr")
 shader_parameter/albedo = Color(1, 1, 1, 1)
 shader_parameter/texture_albedo = ExtResource("5_knwew")
-shader_parameter/texture_orm = ExtResource("7_sqwxh")
 shader_parameter/texture_normal = ExtResource("6_gxaji")
+shader_parameter/texture_orm = ExtResource("7_sqwxh")
 shader_parameter/normal_scale = 1.0
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_b45h2"]
@@ -51,13 +51,13 @@ type = 2
 entity_root = NodePath("..")
 detection_areas = [NodePath("../Detection Area")]
 
-[node name="Armature" parent="." index="1" unique_id=358135840]
+[node name="Armature" parent="." index="1" unique_id=1656805238]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
 
-[node name="MonsterMesh" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(1238384954) index="0" unique_id=812699318]
+[node name="MonsterMesh" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(929942363) index="0" unique_id=1370141522]
 surface_material_override/0 = SubResource("ShaderMaterial_v3ikl")
 
-[node name="LegFLTwoBoneIK" type="TwoBoneIK3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(1238384954) index="1" unique_id=881946253]
+[node name="LegFLTwoBoneIK" type="TwoBoneIK3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(929942363) index="1" unique_id=881946253]
 setting_count = 1
 settings/0/target_node = NodePath("../../IKTargets/LegFLIKTarget")
 settings/0/pole_node = NodePath("../../Poles/LegFLPole")
@@ -71,7 +71,7 @@ settings/0/end_bone = 2
 settings/0/use_virtual_end = false
 settings/0/extend_end_bone = false
 
-[node name="LegFRTwoBoneIK" type="TwoBoneIK3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(1238384954) index="2" unique_id=1309212373]
+[node name="LegFRTwoBoneIK" type="TwoBoneIK3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(929942363) index="2" unique_id=1309212373]
 setting_count = 1
 settings/0/target_node = NodePath("../../IKTargets/LegFRIKTarget")
 settings/0/pole_node = NodePath("../../Poles/LegFRPole")
@@ -85,7 +85,7 @@ settings/0/end_bone = 5
 settings/0/use_virtual_end = false
 settings/0/extend_end_bone = false
 
-[node name="LegBLTwoBoneIK" type="TwoBoneIK3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(1238384954) index="3" unique_id=542290211]
+[node name="LegBLTwoBoneIK" type="TwoBoneIK3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(929942363) index="3" unique_id=542290211]
 setting_count = 1
 settings/0/target_node = NodePath("../../IKTargets/LegBLIKTarget")
 settings/0/pole_node = NodePath("../../Poles/LegBLPole")
@@ -99,7 +99,7 @@ settings/0/end_bone = 11
 settings/0/use_virtual_end = false
 settings/0/extend_end_bone = false
 
-[node name="LegBRTwoBoneIK" type="TwoBoneIK3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(1238384954) index="4" unique_id=309921307]
+[node name="LegBRTwoBoneIK" type="TwoBoneIK3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(929942363) index="4" unique_id=309921307]
 setting_count = 1
 settings/0/target_node = NodePath("../../IKTargets/LegBRIKTarget")
 settings/0/pole_node = NodePath("../../Poles/LegBRPole")
@@ -113,7 +113,7 @@ settings/0/end_bone = 8
 settings/0/use_virtual_end = false
 settings/0/extend_end_bone = false
 
-[node name="LookAtJacobianIK" type="JacobianIK3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(1238384954) index="5" unique_id=1058827412]
+[node name="LookAtJacobianIK" type="JacobianIK3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(929942363) index="5" unique_id=1058827412]
 setting_count = 1
 settings/0/target_node = NodePath("../../IKTargets/LookAtTarget")
 settings/0/root_bone_name = "LookAt"

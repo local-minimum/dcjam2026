@@ -382,10 +382,14 @@ func _enqueue_stream(bus: Bus, sound_resource_path: String, on_finish: Variant, 
 func _check_oneshot_callbacks(player: AudioStreamPlayer, bus: Bus) -> void:
     var callbacks: Array = _oneshots.get(player, [])
     _oneshots[player] = []
+    print_debug("[Audio Hub] Player %s had callbacks %s" % [player, callbacks])
 
     for callback: Callable in callbacks:
-        if is_instance_valid(callback):
+        var obj: Object = callback.get_object()
+        if obj == null || is_instance_valid(obj):
             callback.call()
+        else:
+            push_warning("Callback %s no longer valid for %s" % [callback, player])
 
     print_debug("[Audio Hub] Player %s checks for queued in %s if '%s' is false (%s)" % [player.name, _queue, Bus.find_key(bus), is_busy(bus)])
     if !is_busy(bus) && !(_queue.get(bus, []) as Array).is_empty():

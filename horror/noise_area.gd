@@ -3,9 +3,9 @@ class_name NoiseArea
 
 @export var player: PhysicsGridPlayerController
 @export var min_radius: float = 1.5
-@export var max_radius: float = 20.0
-@export var grow_speed: float = 0.25
-@export var shrink_speed: float = 0.75
+@export var max_radius: float = 40.0
+@export var grow_speed: float = 0.75
+@export var shrink_speed: float = .5
 @export var before_shrink_delay_msec: int = 750
 @export var shape: CollisionShape3D
 
@@ -46,30 +46,40 @@ func _process(delta: float) -> void:
     match _phase:
         Phase.GROWING:
             if still:
+                #print_debug("GROW -> WAIT SHRINK")
                 _shrink_after_msec = Time.get_ticks_msec() + before_shrink_delay_msec
                 _phase = Phase.WAITING_TO_SHRINK
             else:
+                #print_debug("GROW")
                 _radius = clampf(_radius + delta * grow_speed, min_radius, max_radius)
                 _set_radius(_radius)
 
         Phase.RESTING:
             if still && _radius > min_radius:
+                #print_debug("REST -> WAIT SHRINK")
                 _shrink_after_msec = Time.get_ticks_msec() + before_shrink_delay_msec
                 _phase = Phase.WAITING_TO_SHRINK
             elif !still:
+                #print_debug("REST -> GROW")
                 _phase = Phase.GROWING
 
         Phase.WAITING_TO_SHRINK:
-            if Time.get_ticks_msec() > _shrink_after_msec:
+            if !still:
+                _phase = Phase.GROWING
+            elif Time.get_ticks_msec() > _shrink_after_msec:
+                #print_debug("WAIT -> SHRINK")
                 _phase = Phase.SHRINKING
 
         Phase.SHRINKING:
             if still:
+                #print_debug("SHRINK")
                 _radius = clampf(_radius - delta * shrink_speed, min_radius, max_radius)
                 _set_radius(_radius)
 
                 if _radius <= min_radius:
+                    #print_debug("SHRINK -> REST")
                     _phase = Phase.RESTING
 
             else:
                 _phase = Phase.GROWING
+                #print_debug("SHRINK -> GROW")

@@ -4,9 +4,9 @@ class_name NoiseArea
 @export var player: PhysicsGridPlayerController
 @export var min_radius: float = 1.5
 @export var max_radius: float = 20.0
-@export var grow_speed: float = 0.5
-@export var shrink_speed: float = 2.0
-@export var before_shrink_delay_msec: int = 500
+@export var grow_speed: float = 0.25
+@export var shrink_speed: float = 0.75
+@export var before_shrink_delay_msec: int = 750
 @export var shape: CollisionShape3D
 
 enum Phase { RESTING, GROWING, WAITING_TO_SHRINK, SHRINKING }

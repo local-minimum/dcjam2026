@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dbbbvw47dto45"]
+[gd_scene format=3 uid="uid://cqskjfxmtlqyn"]
 
 [ext_resource type="PackedScene" uid="uid://iuctck7ne3ic" path="res://horror/monster/TEMP/monster_old.glb" id="1_jm3ki"]
 [ext_resource type="Script" uid="uid://core866w8qx1y" path="res://horror/monster/monster.gd" id="2_pgyk3"]

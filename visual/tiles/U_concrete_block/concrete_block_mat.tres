@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dja2wwno4f7n5"]
+
+[ext_resource type="Shader" uid="uid://cjso02no5cy8s" path="res://visual/common/base_PBR_shader.gdshader" id="1_k3544"]
+[ext_resource type="Texture2D" uid="uid://bvod0hpdtumgp" path="res://visual/tiles/U_concrete_block/concrete_block_wall_baseColor.png" id="2_te6jc"]
+[ext_resource type="Texture2D" uid="uid://dkebldqxuv7xd" path="res://visual/tiles/U_concrete_block/concrete_block_wall_normal.png" id="3_qg4lb"]
+[ext_resource type="Texture2D" uid="uid://0bvb4kdh5ssu" path="res://visual/tiles/U_concrete_block/concrete_block_wall_occlusionRoughnessMetallic.png" id="4_isd5r"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_k3544")
+shader_parameter/albedo = Color(1, 0.98333335, 0.95, 1)
+shader_parameter/texture_albedo = ExtResource("2_te6jc")
+shader_parameter/texture_normal = ExtResource("3_qg4lb")
+shader_parameter/texture_orm = ExtResource("4_isd5r")
+shader_parameter/normal_scale = 1.0

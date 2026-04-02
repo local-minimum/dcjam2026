@@ -12,6 +12,11 @@ class_name NoiseArea
 enum Phase { RESTING, GROWING, WAITING_TO_SHRINK, SHRINKING }
 var _phase: Phase = Phase.RESTING
 
+func _enter_tree() -> void:
+    if __SignalBus.on_physics_player_arrive_tile.connect(func (_p: Variant, coords: Vector3i) -> void:
+        print_debug("Hunt plan player at %s" % [coords])) != OK:
+            push_error("failed to log player")
+
 func _ready() -> void:
     _radius = min_radius
     _set_radius(_radius)

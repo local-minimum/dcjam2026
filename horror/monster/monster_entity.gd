@@ -2,6 +2,7 @@ extends GridEntity
 class_name MonsterEntity
 
 @export var monster: Monster
+@export var monster_center: Node3D
 @export var light: OmniLight3D
 
 @export var hunt_speed_factor: float = 1.5
@@ -18,7 +19,11 @@ var _turn_to_cardinal: bool
 
 var monster_coordinates: Vector3i:
     get():
-        return dungeon.get_closest_coordinates(monster.global_position)
+        return dungeon.get_closest_coordinates(monster_center.global_position)
+
+var hunting: bool:
+    get():
+        return _tracked_noise != null
 
 class CoordinatesCommand:
     var coords: Vector3i
@@ -57,9 +62,9 @@ func _enter_tree() -> void:
         push_error("Failed to connect to monster idle")
 
 func _handle_monster_idle() -> void:
-    print_debug("Monster Idle: Noise: %s, Turn Cardinal: %s Pos Queue: %s Coords Queue: %s" % [
-        _tracked_noise, _turn_to_cardinal, _pos_queue, _coords_queue,
-    ])
+    #print_debug("Monster Idle: Noise: %s, Turn Cardinal: %s Pos Queue: %s Coords Queue: %s" % [
+        #_tracked_noise, _turn_to_cardinal, _pos_queue, _coords_queue,
+    #])
 
     if _turn_to_cardinal:
         _align_rotation_with_cardinals()
@@ -80,29 +85,31 @@ func _handle_monster_idle() -> void:
 var _tracked_noise: NoiseArea
 
 func handle_detect_player_noise(noise_area: NoiseArea) -> void:
-    print_debug("%s detected player noise %s" % [self, noise_area])
-    _pos_queue.clear()
+    #print_debug("%s detected player noise %s" % [self, noise_area])
+    var busy: bool = !_pos_queue.is_empty() || !_coords_queue.is_empty()
+    #_pos_queue.clear()
     _coords_queue.clear()
     _tracked_noise = noise_area
-    _create_movement_plan(noise_area)
+    if !busy:
+        _create_movement_plan(noise_area)
 
 func handle_loose_player_noise(noise_area: NoiseArea) -> void:
     if _tracked_noise == noise_area:
-        print_debug("%s lost track of player noise, investigating last position" % [self])
+        #print_debug("%s lost track of player noise, investigating last position" % [self])
         _tracked_noise = null
         _create_movement_plan(noise_area)
 
 func _clear_distance(from: Vector3i, direction: Vector3i) -> int:
     look_ray.global_position = dungeon.get_global_grid_position_from_coordinates(from) + Vector3.UP * look_elevation_m
-    var target: Vector3 = look_ray.to_local(
-        look_ray.global_position + Vector3(direction) * dungeon.grid_size * max_tiles_distance_plan
-    )
-    look_ray.target_position = target
+    var target: Vector3 = look_ray.global_position + Vector3(direction) * dungeon.grid_size * max_tiles_distance_plan
+
+    look_ray.target_position = look_ray.to_local(target)
     look_ray.force_raycast_update()
     if look_ray.is_colliding():
         var intersect: Vector3 = look_ray.get_collision_point()
-        var target_coords: Vector3i = dungeon.get_closest_coordinates(intersect)
-        return VectorUtils.manhattan_distance(from, target_coords)
+        var intersect_coords: Vector3i = dungeon.get_closest_coordinates(intersect)
+        #print_debug("Hunt plan cast %s direction %s (%s -> %s) reached %s hit %s after %s dist" % [from, direction, look_ray.global_position, target, intersect_coords, look_ray.get_collider(), VectorUtils.manhattan_distance(from, intersect_coords)])
+        return VectorUtils.manhattan_distance(from, intersect_coords)
     return max_tiles_distance_plan
 
 func _check_valid_intermediary(
@@ -120,7 +127,11 @@ func _check_valid_intermediary(
             step = direction
 
         var intermediary = my_coords + step
-        if visited.has(intermediary):
+        while visited.has(intermediary):
+            if cast_distance > 1:
+                cast_distance -= 1
+                step  = component.clampi(-cast_distance, cast_distance)
+                intermediary = my_coords + step
             return false
 
         coords.append(intermediary)
@@ -135,8 +146,9 @@ func _create_movement_plan(area: NoiseArea) -> void:
     var target_coords: Vector3i = dungeon.get_closest_coordinates(area.player.global_position)
     var coords: Array[Vector3i]
     var visited: Array[Vector3i]
+    var best_solution: Array[Vector3i]
 
-    while my_coords != target_coords && coords.size() < max_hunt_plan_depth:
+    while my_coords != target_coords && coords.size() < max_hunt_plan_depth && visited.size() < 25:
         visited.append(my_coords)
 
         var delta: Vector3i = target_coords - my_coords
@@ -149,6 +161,7 @@ func _create_movement_plan(area: NoiseArea) -> void:
             coords,
             visited,
         ):
+            my_coords = coords[-1]
             continue
 
         var minor_component: Vector3i = delta - primary_component
@@ -165,6 +178,7 @@ func _create_movement_plan(area: NoiseArea) -> void:
             coords,
             visited
         ):
+            my_coords = coords[-1]
             continue
 
         minor *= -1
@@ -177,6 +191,7 @@ func _create_movement_plan(area: NoiseArea) -> void:
             coords,
             visited
         ):
+            my_coords = coords[-1]
             continue
 
         primary *= -1
@@ -189,14 +204,30 @@ func _create_movement_plan(area: NoiseArea) -> void:
             coords,
             visited,
         ):
+            my_coords = coords[-1]
             continue
 
-        break
+        if best_solution.is_empty():
+            best_solution.append_array(coords)
+
+        if coords.size() > 0:
+            coords = coords.slice(0, -1)
+            my_coords = monster_coordinates if coords.is_empty() else coords[-1]
+        else:
+            break
+
+    if coords.is_empty() || !best_solution.is_empty() && VectorUtils.manhattan_distance(coords[-1], target_coords) > VectorUtils.manhattan_distance(best_solution[-1], target_coords):
+        #print_debug("First hunt plan %s better than %s %s->%s" % [best_solution, coords, monster_coordinates, target_coords])
+        coords = best_solution
+
+    #print_debug("Hunt plan: %s target at %s -> %s " % [coords, monster_coordinates, target_coords])
+    if coords.is_empty():
+        return
 
     move_through_coordinates(
         coords,
         hunt_speed_factor,
-        0.1,
+        0,
         true,
     )
 
@@ -295,8 +326,8 @@ func move_to_position(
     var monster_pos: Vector3 = monster.global_position
     var resolution: int = clampi(
         ceili(((monster_pos - pos) / dungeon.grid_size).length() * 0.5),
-        1,
-        4,
+        2,
+        8,
     )
 
     for idx: int in resolution:

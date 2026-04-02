@@ -45,11 +45,16 @@ _step_rays = [NodePath("Armature/StepTargets/LegFLRayCast"), NodePath("Armature/
 _front_ray = NodePath("Armature/FrontRay")
 lookat_IK_target = NodePath("Armature/IKTargets/LookAtTarget")
 
-[node name="MonsterEntity" type="Node" parent="." index="0" unique_id=1537029992 node_paths=PackedStringArray("monster", "light", "look_ray", "entity_root", "detection_areas")]
+[node name="MonsterEntity" type="Node" parent="." index="0" unique_id=1537029992 node_paths=PackedStringArray("monster", "monster_center", "light", "look_ray", "entity_root", "detection_areas")]
 script = ExtResource("3_rpytr")
 monster = NodePath("..")
+monster_center = NodePath("../Approx Monster Center")
 light = NodePath("../Light")
+hunt_speed_factor = 1.0
 look_ray = NodePath("../LookRayCast")
+max_tiles_distance_plan = 7
+look_elevation_m = 1.0
+max_hunt_plan_depth = 5
 type = 2
 entity_root = NodePath("..")
 detection_areas = [NodePath("../Detection Area")]
@@ -250,9 +255,11 @@ libraries/ = SubResource("AnimationLibrary_x6woe")
 [node name="LookRayCast" type="RayCast3D" parent="." index="5" unique_id=1874556014]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.77190304, 0)
 enabled = false
-collision_mask = 513
 script = ExtResource("10_x6woe")
 metadata/_custom_type_script = "uid://b6h481h1w1e63"
+
+[node name="Approx Monster Center" type="Node3D" parent="." index="6" unique_id=599671727]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.53863084, 0)
 
 [connection signal="area_entered" from="Detection Area" to="Detection Area" method="_on_area_entered"]
 [connection signal="area_exited" from="Detection Area" to="Detection Area" method="_on_area_exited"]

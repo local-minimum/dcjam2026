@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://crdkc5mx8cs5l" path="res://horror/rooms/monster_room.tscn" id="10_0rgsw"]
 [ext_resource type="PackedScene" uid="uid://dbbbvw47dto45" path="res://horror/monster/monster.tscn" id="11_amtaw"]
 [ext_resource type="Script" uid="uid://pq54prborom3" path="res://horror/triggers.gd" id="12_ammku"]
+[ext_resource type="Script" uid="uid://dtjl3ge83ldsx" path="res://horror/debug_monster_pathing.gd" id="13_p6hyn"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_75gv8"]
 
@@ -29,9 +30,25 @@ size = Vector3(75.727066, 99.23596, 0.263)
 [sub_resource type="BoxShape3D" id="BoxShape3D_p6hyn"]
 size = Vector3(3.477539, 1, 2)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3is8g"]
+transparency = 1
+albedo_color = Color(1, 0.12941177, 1, 0.6784314)
+
+[sub_resource type="BoxMesh" id="BoxMesh_dq44g"]
+material = SubResource("StandardMaterial3D_3is8g")
+size = Vector3(0.3, 0.3, 0.3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d14hc"]
+albedo_color = Color(0, 0.7137255, 0.7176471, 0.8627451)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_5w0qh"]
+material = SubResource("StandardMaterial3D_d14hc")
+radius = 0.05
+height = 1.0
+
 [node name="HorrorLevel2" type="Node3D" unique_id=1143420985 node_paths=PackedStringArray("collision_system", "player")]
 script = ExtResource("1_3h5fl")
-grid_size = Vector3(2, 4, 2)
+grid_size = Vector3(2, 8, 2)
 collision_system = NodePath("Collision System")
 player = NodePath("Player")
 _invoke_cinematic_on_ready = false
@@ -100,5 +117,111 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -7)
 
 [node name="Intermediary 3" type="Node3D" parent="Triggers" unique_id=1273287252]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.75, 0, 1)
+
+[node name="Debug Monster Pathing" type="Node3D" parent="." unique_id=585191794 node_paths=PackedStringArray("dungeon", "monster", "coords_points", "pos_points")]
+script = ExtResource("13_p6hyn")
+dungeon = NodePath("..")
+monster = NodePath("../Monster")
+coords_points = [NodePath("Coords Tracker 1"), NodePath("Coords Tracker 2"), NodePath("Coords Tracker 3"), NodePath("Coords Tracker 4"), NodePath("Coords Tracker 5"), NodePath("Coords Tracker 6"), NodePath("Coords Tracker 7"), NodePath("Coords Tracker 8"), NodePath("Coords Tracker 9"), NodePath("Coords Tracker 10"), NodePath("Coords Tracker 11"), NodePath("Coords Tracker 12"), NodePath("Coords Tracker 13"), NodePath("Coords Tracker 14"), NodePath("Coords Tracker 15"), NodePath("Coords Tracker 16"), NodePath("Coords Tracker 17"), NodePath("Coords Tracker 18"), NodePath("Coords Tracker 19"), NodePath("Coords Tracker 20"), NodePath("Coords Tracker 21"), NodePath("Coords Tracker 22"), NodePath("Coords Tracker 23"), NodePath("Coords Tracker 24"), NodePath("Coords Tracker 25")]
+pos_points = [NodePath("Pos Tracker 1"), NodePath("Pos Tracker 2"), NodePath("Pos Tracker 3"), NodePath("Pos Tracker 4"), NodePath("Pos Tracker 5"), NodePath("Pos Tracker 6"), NodePath("Pos Tracker 7"), NodePath("Pos Tracker 8")]
+
+[node name="Coords Tracker 1" type="MeshInstance3D" parent="Debug Monster Pathing" unique_id=204255577]
+mesh = SubResource("BoxMesh_dq44g")
+
+[node name="Coords Tracker 2" type="MeshInstance3D" parent="Debug Monster Pathing" unique_id=1556017465]
+mesh = SubResource("BoxMesh_dq44g")
+
+[node name="Coords Tracker 3" type="MeshInstance3D" parent="Debug Monster Pathing" unique_id=1130299094]
+mesh = SubResource("BoxMesh_dq44g")
+
+[node name="Coords Tracker 4" type="MeshInstance3D" parent="Debug Monster Pathing" unique_id=2111867619]
+mesh = SubResource("BoxMesh_dq44g")
+
+[node name="Coords Tracker 5" type="MeshInstance3D" parent="Debug Monster Pathing" unique_id=877699289]
+mesh = SubResource("BoxMesh_dq44g")
+
+[node name="Coords Tracker 6" type="MeshInstance3D" parent="Debug Monster Pathing" unique_id=1014334999]
+mesh = SubResource("BoxMesh_dq44g")
+
+[node name="Coords Tracker 7" type="MeshInstance3D" parent="Debug Monster Pathing" unique_id=333857238]
+mesh = SubResource("BoxMesh_dq44g")
+
+[node name="Coords Tracker 8" type="MeshInstance3D" parent="Debug Monster Pathing" unique_id=1640323806]
+mesh = SubResource("BoxMesh_dq44g")
+
+[node name="Coords Tracker 9" type="MeshInstance3D" parent="Debug Monster Pathing" unique_id=1558774547]
+mesh = SubResource("BoxMesh_dq44g")
+
+[node name="Coords Tracker 10" type="MeshInstance3D" parent="Debug Monster Pathing" unique_id=1691489314]
+mesh = SubResource("BoxMesh_dq44g")
+
+[node name="Coords Tracker 11" type="MeshInstance3D" parent="Debug Monster Pathing" unique_id=1740225315]
+mesh = SubResource("BoxMesh_dq44g")
+
+[node name="Coords Tracker 12" type="MeshInstance3D" parent="Debug Monster Pathing" unique_id=419878420]
+mesh = SubResource("BoxMesh_dq44g")
+
+[node name="Coords Tracker 13" type="MeshInstance3D" parent="Debug Monster Pathing" unique_id=1953371271]
+mesh = SubResource("BoxMesh_dq44g")
+
+[node name="Coords Tracker 14" type="MeshInstance3D" parent="Debug Monster Pathing" unique_id=1452881955]
+mesh = SubResource("BoxMesh_dq44g")
+
+[node name="Coords Tracker 15" type="MeshInstance3D" parent="Debug Monster Pathing" unique_id=1881147471]
+mesh = SubResource("BoxMesh_dq44g")
+
+[node name="Coords Tracker 16" type="MeshInstance3D" parent="Debug Monster Pathing" unique_id=1491716429]
+mesh = SubResource("BoxMesh_dq44g")
+
+[node name="Coords Tracker 17" type="MeshInstance3D" parent="Debug Monster Pathing" unique_id=1925690297]
+mesh = SubResource("BoxMesh_dq44g")
+
+[node name="Coords Tracker 18" type="MeshInstance3D" parent="Debug Monster Pathing" unique_id=1349604786]
+mesh = SubResource("BoxMesh_dq44g")
+
+[node name="Coords Tracker 19" type="MeshInstance3D" parent="Debug Monster Pathing" unique_id=1581873680]
+mesh = SubResource("BoxMesh_dq44g")
+
+[node name="Coords Tracker 20" type="MeshInstance3D" parent="Debug Monster Pathing" unique_id=1460476746]
+mesh = SubResource("BoxMesh_dq44g")
+
+[node name="Coords Tracker 21" type="MeshInstance3D" parent="Debug Monster Pathing" unique_id=1054679388]
+mesh = SubResource("BoxMesh_dq44g")
+
+[node name="Coords Tracker 22" type="MeshInstance3D" parent="Debug Monster Pathing" unique_id=483215277]
+mesh = SubResource("BoxMesh_dq44g")
+
+[node name="Coords Tracker 23" type="MeshInstance3D" parent="Debug Monster Pathing" unique_id=987529953]
+mesh = SubResource("BoxMesh_dq44g")
+
+[node name="Coords Tracker 24" type="MeshInstance3D" parent="Debug Monster Pathing" unique_id=842524160]
+mesh = SubResource("BoxMesh_dq44g")
+
+[node name="Coords Tracker 25" type="MeshInstance3D" parent="Debug Monster Pathing" unique_id=1289220420]
+mesh = SubResource("BoxMesh_dq44g")
+
+[node name="Pos Tracker 1" type="MeshInstance3D" parent="Debug Monster Pathing" unique_id=739347724]
+mesh = SubResource("CapsuleMesh_5w0qh")
+
+[node name="Pos Tracker 2" type="MeshInstance3D" parent="Debug Monster Pathing" unique_id=756617303]
+mesh = SubResource("CapsuleMesh_5w0qh")
+
+[node name="Pos Tracker 3" type="MeshInstance3D" parent="Debug Monster Pathing" unique_id=32688648]
+mesh = SubResource("CapsuleMesh_5w0qh")
+
+[node name="Pos Tracker 4" type="MeshInstance3D" parent="Debug Monster Pathing" unique_id=1564629043]
+mesh = SubResource("CapsuleMesh_5w0qh")
+
+[node name="Pos Tracker 5" type="MeshInstance3D" parent="Debug Monster Pathing" unique_id=2068735980]
+mesh = SubResource("CapsuleMesh_5w0qh")
+
+[node name="Pos Tracker 6" type="MeshInstance3D" parent="Debug Monster Pathing" unique_id=2109048625]
+mesh = SubResource("CapsuleMesh_5w0qh")
+
+[node name="Pos Tracker 7" type="MeshInstance3D" parent="Debug Monster Pathing" unique_id=1265521544]
+mesh = SubResource("CapsuleMesh_5w0qh")
+
+[node name="Pos Tracker 8" type="MeshInstance3D" parent="Debug Monster Pathing" unique_id=634165118]
+mesh = SubResource("CapsuleMesh_5w0qh")
 
 [connection signal="body_entered" from="Triggers/Area3D" to="Triggers" method="_on_area_3d_body_entered"]

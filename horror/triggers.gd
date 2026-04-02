@@ -44,7 +44,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
         return
 
     var player: PhysicsGridPlayerController = PhysicsGridPlayerController.find_in_tree(body)
-    if player != null && !_keith_run_triggered:
+    if player != null && !monster_entity.hunting  && !_keith_run_triggered:
         _keith_run_triggered = true
 
         if intermediary_positions.is_empty():

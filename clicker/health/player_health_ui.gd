@@ -19,7 +19,7 @@ func _health_changed(new_health: float, prev_health: float) -> void:
         _health_timer.start()
     else:
         _damage_bar.value = new_health
-    
+
     value = new_health
 
 

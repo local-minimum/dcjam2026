@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://cxpcy8u870pnk" path="res://horror/monster/leg_ik_target.gd" id="8_d3vgi"]
 [ext_resource type="Script" uid="uid://dum5myfa27x5d" path="res://horror/detection_area.gd" id="9_tge75"]
 [ext_resource type="Script" uid="uid://b6h481h1w1e63" path="res://core/entities/look_ray_cast.gd" id="10_x6woe"]
+[ext_resource type="AudioStream" uid="uid://b4quwy8mnd2k8" path="res://horror/poems/test.mp3" id="11_rpytr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_v3ikl"]
 render_priority = 0
@@ -52,13 +53,13 @@ type = 2
 entity_root = NodePath("..")
 detection_areas = [NodePath("../Detection Area")]
 
-[node name="Armature" parent="." index="1" unique_id=1656805238]
+[node name="Armature" parent="." index="1" unique_id=358135840]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
 
-[node name="MonsterMesh" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(929942363) index="0" unique_id=1370141522]
+[node name="MonsterMesh" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(1238384954) index="0" unique_id=812699318]
 surface_material_override/0 = SubResource("ShaderMaterial_v3ikl")
 
-[node name="LegFLTwoBoneIK" type="TwoBoneIK3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(929942363) index="1" unique_id=881946253]
+[node name="LegFLTwoBoneIK" type="TwoBoneIK3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(1238384954) index="1" unique_id=881946253]
 setting_count = 1
 settings/0/target_node = NodePath("../../IKTargets/LegFLIKTarget")
 settings/0/pole_node = NodePath("../../Poles/LegFLPole")
@@ -72,7 +73,7 @@ settings/0/end_bone = 2
 settings/0/use_virtual_end = false
 settings/0/extend_end_bone = false
 
-[node name="LegFRTwoBoneIK" type="TwoBoneIK3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(929942363) index="2" unique_id=1309212373]
+[node name="LegFRTwoBoneIK" type="TwoBoneIK3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(1238384954) index="2" unique_id=1309212373]
 setting_count = 1
 settings/0/target_node = NodePath("../../IKTargets/LegFRIKTarget")
 settings/0/pole_node = NodePath("../../Poles/LegFRPole")
@@ -86,7 +87,7 @@ settings/0/end_bone = 5
 settings/0/use_virtual_end = false
 settings/0/extend_end_bone = false
 
-[node name="LegBLTwoBoneIK" type="TwoBoneIK3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(929942363) index="3" unique_id=542290211]
+[node name="LegBLTwoBoneIK" type="TwoBoneIK3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(1238384954) index="3" unique_id=542290211]
 setting_count = 1
 settings/0/target_node = NodePath("../../IKTargets/LegBLIKTarget")
 settings/0/pole_node = NodePath("../../Poles/LegBLPole")
@@ -100,7 +101,7 @@ settings/0/end_bone = 11
 settings/0/use_virtual_end = false
 settings/0/extend_end_bone = false
 
-[node name="LegBRTwoBoneIK" type="TwoBoneIK3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(929942363) index="4" unique_id=309921307]
+[node name="LegBRTwoBoneIK" type="TwoBoneIK3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(1238384954) index="4" unique_id=309921307]
 setting_count = 1
 settings/0/target_node = NodePath("../../IKTargets/LegBRIKTarget")
 settings/0/pole_node = NodePath("../../Poles/LegBRPole")
@@ -114,7 +115,7 @@ settings/0/end_bone = 8
 settings/0/use_virtual_end = false
 settings/0/extend_end_bone = false
 
-[node name="LookAtJacobianIK" type="JacobianIK3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(929942363) index="5" unique_id=1058827412]
+[node name="LookAtJacobianIK" type="JacobianIK3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(1238384954) index="5" unique_id=1058827412]
 setting_count = 1
 settings/0/target_node = NodePath("../../IKTargets/LookAtTarget")
 settings/0/root_bone_name = "LookAt"
@@ -222,14 +223,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 1, -0.5)
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1, 0)
 target_position = Vector3(0, -1.5, 0)
 
-[node name="Detection Area" type="Area3D" parent="." index="2" unique_id=1440010991 node_paths=PackedStringArray("monster_entity", "monster_root", "animation_player")]
+[node name="Detection Area" type="Area3D" parent="." index="2" unique_id=1440010991 node_paths=PackedStringArray("monster_entity", "monster_root", "speaker")]
 collision_layer = 1024
 collision_mask = 1536
 input_ray_pickable = false
 script = ExtResource("9_tge75")
 monster_entity = NodePath("../MonsterEntity")
 monster_root = NodePath("..")
-animation_player = NodePath("")
+speaker = NodePath("../AudioStreamPlayer3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Detection Area" index="0" unique_id=1018888953]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.74523926, 0)
@@ -251,6 +252,14 @@ metadata/_custom_type_script = "uid://b6h481h1w1e63"
 
 [node name="Approx Monster Center" type="Node3D" parent="." index="5" unique_id=599671727]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.53863084, 0)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="6" unique_id=1321377429]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7355927, 0)
+stream = ExtResource("11_rpytr")
+volume_db = 5.0
+autoplay = true
+max_distance = 22.0
+bus = &"Dialogue"
 
 [connection signal="area_entered" from="Detection Area" to="Detection Area" method="_on_area_entered"]
 [connection signal="area_exited" from="Detection Area" to="Detection Area" method="_on_area_exited"]

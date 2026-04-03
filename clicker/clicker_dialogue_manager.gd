@@ -123,6 +123,7 @@ func _handle_change_ability_level(ability_id: String, lvl: int) -> void:
 
 var _steps: int
 var _dragons: int
+
 func _handle_arrive_tile(player: PhysicsGridPlayerController, _coords: Vector3i) -> void:
     if __GlobalGameState.health <= 0.0 || player.cinematic:
         return
@@ -159,6 +160,7 @@ func _handle_health_changed(new_health: float, prev_health: float) -> void:
         )
 
 func _restart_after_death_dialogue() -> void:
+    __AudioHub.clear_all_dialogues()
     __GlobalGameState.deaths += 1
     __GlobalGameState.replay += 1
     __GlobalGameState.reset_day_progress()
@@ -257,6 +259,7 @@ func _handle_progress_quest(quest_id: String, step: int) -> void:
             )
 
 func _groundhog_next_day() -> void:
+    __AudioHub.clear_all_dialogues()
     __GlobalGameState.replay += 1
     __GlobalGameState.reset_day_progress()
 

@@ -107,6 +107,54 @@ shape = SubResource("BoxShape3D_l3xlb")
 transform = Transform3D(-0.62608695, -6.816821e-08, 0.77975345, 0, -1, -8.742278e-08, 0.77975345, -5.4734254e-08, 0.62608695, -0.051303864, -0.2535128, 0.055480003)
 mesh = SubResource("CylinderMesh_l3xlb")
 
+[node name="dragon3" parent="Interactables" unique_id=491939050 instance=ExtResource("8_jorcj")]
+transform = Transform3D(-0.7293986, -1.7723313e-15, 0.68408895, 0, 1, 0, -0.68408895, -1.1952048e-16, -0.7293986, 6.2047377, 0.50024414, -25.683002)
+script = ExtResource("9_l3xlb")
+
+[node name="trigger area" type="Area3D" parent="Interactables/dragon3" unique_id=716907318]
+collision_mask = 512
+input_ray_pickable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactables/dragon3/trigger area" unique_id=976590730]
+transform = Transform3D(1.0000011, 0, -1.7881393e-07, 0, 1, 0, 1.7881393e-07, 0, 1.0000011, 0.33544922, 0.39233398, 0.055909157)
+shape = SubResource("BoxShape3D_l3xlb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Interactables/dragon3" unique_id=1030232866]
+transform = Transform3D(-0.62608695, -6.816821e-08, 0.77975345, 0, -1, -8.742278e-08, 0.77975345, -5.4734254e-08, 0.62608695, -0.051303864, -0.2535128, 0.055480003)
+mesh = SubResource("CylinderMesh_l3xlb")
+
+[node name="dragon4" parent="Interactables" unique_id=1582355424 instance=ExtResource("8_jorcj")]
+transform = Transform3D(-0.9981909, -1.3043559e-15, -0.060125202, 0, 1, 0, 0.060125202, 1.2058605e-15, -0.9981909, -11.676061, 0.50024414, -8.277172)
+script = ExtResource("9_l3xlb")
+
+[node name="trigger area" type="Area3D" parent="Interactables/dragon4" unique_id=1103699797]
+collision_mask = 512
+input_ray_pickable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactables/dragon4/trigger area" unique_id=316460256]
+transform = Transform3D(1.0000011, 0, -1.7881393e-07, 0, 1, 0, 1.7881393e-07, 0, 1.0000011, 0.33544922, 0.39233398, 0.055909157)
+shape = SubResource("BoxShape3D_l3xlb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Interactables/dragon4" unique_id=1121849401]
+transform = Transform3D(-0.62608695, -6.816821e-08, 0.77975345, 0, -1, -8.742278e-08, 0.77975345, -5.4734254e-08, 0.62608695, -0.051303864, -0.2535128, 0.055480003)
+mesh = SubResource("CylinderMesh_l3xlb")
+
+[node name="dragon2" parent="Interactables" unique_id=965239500 instance=ExtResource("8_jorcj")]
+transform = Transform3D(-0.55639714, -1.6997594e-15, 0.8309165, 0, 1, 0, -0.8309165, -5.160055e-16, -0.55639714, -19.886333, 0.5, -27.787323)
+script = ExtResource("9_l3xlb")
+
+[node name="trigger area" type="Area3D" parent="Interactables/dragon2" unique_id=1903916816]
+collision_mask = 512
+input_ray_pickable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactables/dragon2/trigger area" unique_id=231000410]
+transform = Transform3D(1.0000011, 0, -1.7881393e-07, 0, 1, 0, 1.7881393e-07, 0, 1.0000011, 0.33544922, 0.39233398, 0.055909157)
+shape = SubResource("BoxShape3D_l3xlb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Interactables/dragon2" unique_id=914086384]
+transform = Transform3D(-0.62608695, -6.816821e-08, 0.77975345, 0, -1, -8.742278e-08, 0.77975345, -5.4734254e-08, 0.62608695, -0.051303864, -0.2535128, 0.055480003)
+mesh = SubResource("CylinderMesh_l3xlb")
+
 [node name="Health Station" parent="Interactables" unique_id=847146449 instance=ExtResource("4_1pa7v")]
 transform = Transform3D(0.14546137, 0, -0.9893638, 0, 1, 0, 0.9893638, 0, 0.14546137, 6, 0, -6)
 
@@ -251,13 +299,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -4)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -6)
 
 [node name="bORE2" parent="Enemies" unique_id=626243242 instance=ExtResource("14_24q6l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 2, -12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, -12)
 
 [node name="Buckley 600" parent="Enemies" unique_id=1649458648 instance=ExtResource("17_kkodl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -4)
 
 [node name="Buckley 601" parent="Enemies" unique_id=54481226 instance=ExtResource("17_kkodl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, -8)
 
 [node name="Buckley 900" parent="Enemies" unique_id=202651353 instance=ExtResource("18_xkxrh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -16)
@@ -329,6 +377,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, -21)
 script = ExtResource("2_sufut")
 
 [connection signal="area_entered" from="Interactables/dragon/trigger area" to="Interactables/dragon" method="_on_trigger_area_area_entered"]
+[connection signal="area_entered" from="Interactables/dragon3/trigger area" to="Interactables/dragon3" method="_on_trigger_area_area_entered"]
+[connection signal="area_entered" from="Interactables/dragon4/trigger area" to="Interactables/dragon4" method="_on_trigger_area_area_entered"]
+[connection signal="area_entered" from="Interactables/dragon2/trigger area" to="Interactables/dragon2" method="_on_trigger_area_area_entered"]
 
 [editable path="Interactables/Health Station"]
 [editable path="Interactables/Health Station5"]

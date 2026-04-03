@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://dfqjle1xd7utg" path="res://clicker/battle/entity_collision_join_battle.gd" id="2_sufut"]
 [ext_resource type="PackedScene" uid="uid://dfe2ewygagnw0" path="res://clicker/player_3d.tscn" id="3_sufut"]
 [ext_resource type="PackedScene" uid="uid://dbknfpibyx65f" path="res://clicker/health/health_station.tscn" id="4_1pa7v"]
-[ext_resource type="PackedScene" uid="uid://bui680ugvj0rj" path="res://clicker/enemy.tscn" id="4_yrdjv"]
+[ext_resource type="PackedScene" uid="uid://bui680ugvj0rj" path="res://clicker/test_enemy.tscn" id="4_yrdjv"]
 [ext_resource type="PackedScene" uid="uid://b8ce50tuokndq" path="res://clicker/models/wall.blend" id="5_w13no"]
 [ext_resource type="PackedScene" uid="uid://df4j8gscil84h" path="res://clicker/models/wall_corner.blend" id="6_qsdn1"]
 [ext_resource type="PackedScene" uid="uid://1u7yq3idj1i" path="res://clicker/models/shredder.tscn" id="7_qmmos"]

@@ -397,9 +397,27 @@ func _check_oneshot_callbacks(player: AudioStreamPlayer, bus: Bus) -> void:
         print_debug("[Audio Hub] Playes queued stream %s for bus %s" % [queued, Bus.find_key(bus)])
         if queued is Callable:
             var callback: Callable = queued
-            callback.call()
+            var obj: Object = callback.get_object()
+            if obj == null || is_instance_valid(obj):
+                callback.call()
     else:
         print_debug("[Audio Hub] Either queue was busy %s or there was no queue %s" % [is_busy(bus), _queue.get(bus, [])])
+
+func clear_callbacks(bus: Bus) -> void:
+    match bus:
+        Bus.DIALGUE:
+            for player: AudioStreamPlayer in _dialogue_running:
+                if _oneshots.has(player):
+                    _oneshots.erase(player)
+        Bus.SFX:
+            for player: AudioStreamPlayer in _oneshots:
+                if !_music_running.has(player) && !_dialogue_running.has(player):
+                    _oneshots.erase(player)
+
+        Bus.MUSIC:
+            for player: AudioStreamPlayer in _music_running:
+                if _oneshots.has(player):
+                    _oneshots.erase(player)
 
 func _clear_bus_queue(bus: Bus) -> void:
     if _queue.has(bus):

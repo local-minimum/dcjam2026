@@ -34,7 +34,7 @@ static func parse_die_string(die_string: String) -> Array[Array]:
         var count_s: String = d_match.get_string(1)
         var count: int = 1 if count_s.is_empty() else int(count_s)
         var die: Array[int] = []
-        die.append_array(range(int(d_match.get_string(2))))
+        die.append_array(range(1, int(d_match.get_string(2)) + 1))
 
         if d_match.get_group_count() == 3:
             var mod_s: String = d_match.get_string(3)

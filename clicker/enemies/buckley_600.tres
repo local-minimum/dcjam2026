@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://bj5mu0avpqibh"]
+
+[ext_resource type="Texture2D" uid="uid://dcumf0qjqw373" path="res://clicker/thumbnails/robots/1_normal_128.png" id="1_j8cis"]
+[ext_resource type="Script" uid="uid://csfgoet4qt0pt" path="res://clicker/enemy_data.gd" id="2_pfyci"]
+
+[resource]
+script = ExtResource("2_pfyci")
+portrait = ExtResource("1_j8cis")
+monster_name = "Buckley 600"
+attacks = Array[String](["4D4"])
+defence = "D4"
+max_health = 20.0
+loot_value = 15
+metadata/_custom_type_script = "uid://csfgoet4qt0pt"

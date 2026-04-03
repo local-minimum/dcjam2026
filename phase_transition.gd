@@ -92,6 +92,9 @@ func _unload_conent() -> void:
         if is_instance_valid(node):
             node.queue_free()
 
+    __AudioHub.clear_callbacks(AudioHub.Bus.DIALGUE)
+    __AudioHub.clear_callbacks(AudioHub.Bus.SFX)
+
 func _load_horror_dungeon() -> void:
     if ResourceLoader.load_threaded_request(_horror_dungeon_scene, "PackedScene") != OK:
         push_error("Failed to load horror dungeon scene '%s'" % [_horror_dungeon_scene])

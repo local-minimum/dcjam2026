@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://be43lmimqh8kr"]
+
+[ext_resource type="Texture2D" uid="uid://cylt24b6outw4" path="res://clicker/thumbnails/robots/2_normal_128.png" id="1_gtdd5"]
+[ext_resource type="Script" uid="uid://csfgoet4qt0pt" path="res://clicker/enemy_data.gd" id="2_28lhn"]
+
+[resource]
+script = ExtResource("2_28lhn")
+portrait = ExtResource("1_gtdd5")
+monster_name = "Ingomatic v2"
+attacks = Array[String](["3D6", "2D8+3"])
+attack_interval_msec = 3000
+defence = "2D6-2"
+max_health = 15.0
+loot_value = 19
+metadata/_custom_type_script = "uid://csfgoet4qt0pt"

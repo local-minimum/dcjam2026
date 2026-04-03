@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://c36hlhemww4y"]
+
+[ext_resource type="Texture2D" uid="uid://c8caemagald6j" path="res://clicker/thumbnails/robots/3_elite_128.png" id="1_voxto"]
+[ext_resource type="Script" uid="uid://csfgoet4qt0pt" path="res://clicker/enemy_data.gd" id="2_c7lj5"]
+
+[resource]
+script = ExtResource("2_c7lj5")
+portrait = ExtResource("1_voxto")
+monster_name = "Gold-i-Raptor"
+attacks = Array[String](["3D6+2"])
+attack_interval_msec = 1000
+defence = "D10-2"
+max_health = 20.0
+loot_value = 32
+metadata/_custom_type_script = "uid://csfgoet4qt0pt"

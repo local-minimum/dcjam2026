@@ -46,6 +46,11 @@ class_name SplitTextureProgressBars
 var _noise: Array[float]
 
 func _adjust_bars(delta: float = 1.0) -> void:
+    if value == 0:
+        for bar: TextureProgressBar in bars:
+            bar.value = value
+        return
+
     var idx: int = 0
     for bar: TextureProgressBar in bars:
         if value_noise > 0.0:

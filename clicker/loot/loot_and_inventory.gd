@@ -52,7 +52,7 @@ func _handle_battle_end(credits: int) -> void:
     var active_weapon_value: int = __GlobalGameState.weapon.score
     var gear_value: int = __GlobalGameState.get_average_gear_score()
     var gear_or_weapon_rng_value: int = active_weapon_value + gear_value + 25
-    var make_weapon_threshold: int = gear_value + 10
+    var make_weapon_threshold: int = gear_value + 5
 
     print_debug("[Loot] Active Weapon (%s) and Avg Gear (%s) credits %s" % [active_weapon_value, gear_value, credits])
     var weapons: Array[Weapon] = []

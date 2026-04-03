@@ -61,6 +61,6 @@ func _after_look_towards(player: PhysicsGridPlayerController, monster_entity: Mo
         CONNECT_ONE_SHOT,
     )
 
-func _kill_player(player: PhysicsGridPlayerController, monster_entity: MonsterEntity) -> void:
+func _kill_player(_player: PhysicsGridPlayerController, monster_entity: MonsterEntity) -> void:
     monster_entity.monster.queue_move(0.5)
     __SignalBus.on_horror_failed.emit()

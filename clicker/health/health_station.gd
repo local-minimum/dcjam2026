@@ -7,6 +7,9 @@ class_name HealthStation
 const _DEACTIVATION_COUNT: int = 3
 static var _inactive_stations: Array[HealthStation]
 
+func _exit_tree() -> void:
+    _inactive_stations.erase(self)
+
 var inactive: bool:
     get():
         return _inactive_stations.has(self)

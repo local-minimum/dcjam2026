@@ -1,10 +1,10 @@
-[gd_scene format=3 uid="uid://duogbl26qoj0h"]
+[gd_scene format=3 uid="uid://3l50ujv48a6q"]
 
-[ext_resource type="ArrayMesh" uid="uid://qheai8ukvscv" path="res://clicker/models/exclamation.obj" id="1_uqlgm"]
+[ext_resource type="ArrayMesh" uid="uid://qheai8ukvscv" path="res://clicker/models/exclamation.obj" id="1_k66hk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_whmmn"]
 transparency = 1
-albedo_color = Color(0.45882353, 0.9098039, 0.85490197, 0.5372549)
+albedo_color = Color(0.75835365, 0.6160817, 0.41618428, 0.69411767)
 metallic = 0.5
 metallic_specular = 0.77
 roughness = 0.26
@@ -14,7 +14,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Marker/Exclamation:rotation")
+tracks/0/path = NodePath("Marker II/Exclamation:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -26,7 +26,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Marker/Exclamation:position")
+tracks/1/path = NodePath("Marker II/Exclamation:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -43,7 +43,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Marker/Exclamation:rotation")
+tracks/0/path = NodePath("Marker II/Exclamation:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -55,7 +55,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Marker/Exclamation:position")
+tracks/1/path = NodePath("Marker II/Exclamation:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -71,11 +71,11 @@ _data = {
 &"spin": SubResource("Animation_veu27")
 }
 
-[node name="Marker" type="Node3D" unique_id=1119820133]
+[node name="Marker II" type="Node3D" unique_id=1119820133]
 
 [node name="Exclamation" type="MeshInstance3D" parent="." unique_id=963625418]
-transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
-mesh = ExtResource("1_uqlgm")
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
+mesh = ExtResource("1_k66hk")
 surface_material_override/0 = SubResource("StandardMaterial3D_whmmn")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=231883572]

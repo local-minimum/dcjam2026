@@ -83,6 +83,7 @@ func _ready() -> void:
                 _awake_after_dispose,
                 null,
                 true,
+                false,
                 _delay_first_dialogue,
             )
 
@@ -91,6 +92,7 @@ func _ready() -> void:
                 _repeat_awake,
                 null,
                 true,
+                false,
                 _delay_first_dialogue,
             )
 
@@ -210,8 +212,8 @@ func _time_refusal() -> void:
         __AudioHub.play_dialogue(
             _refuse_clicking,
             null,
-            false,
             true,
+            false,
         )
 
         await get_tree().create_timer(10.0).timeout

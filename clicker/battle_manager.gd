@@ -106,17 +106,17 @@ func _handle_change_ability_level(ability_id: String, lvl: int) -> void:
     print_debug("Health Deficit %s (%s/%s)" % [health_deficit, __GlobalGameState.health, __GlobalGameState.max_health])
     match lvl:
         -1,0:
-            __GlobalGameState.max_health = 20.
+            __GlobalGameState.max_health = 40.
         1:
-            __GlobalGameState.max_health = 70.
+            __GlobalGameState.max_health = 90.
         2:
-            __GlobalGameState.max_health = 120.
+            __GlobalGameState.max_health = 160.
         3:
-            __GlobalGameState.max_health = 220.
+            __GlobalGameState.max_health = 260.
         4:
-            __GlobalGameState.max_health = 270.
-        5:
             __GlobalGameState.max_health = 300.
+        5:
+            __GlobalGameState.max_health = 330.
 
     __GlobalGameState.health = __GlobalGameState.max_health + health_deficit
 

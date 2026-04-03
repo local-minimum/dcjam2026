@@ -1,0 +1,390 @@
+[gd_scene format=3 uid="uid://ksxuclgif6c1"]
+
+[ext_resource type="PackedScene" uid="uid://b0e0rvd3dfopu" path="res://clicker/xp/xp_button.tscn" id="1_pcfco"]
+[ext_resource type="Script" uid="uid://bgdnhr86vy5ne" path="res://core/2d/split_texture_progressbars.gd" id="2_v41bt"]
+[ext_resource type="Script" uid="uid://bsgeqwfcrwlhy" path="res://clicker/boredom/boredom_manager.gd" id="7_rso4y"]
+[ext_resource type="Script" uid="uid://bal5t10rmus64" path="res://clicker/abilitities_manager.gd" id="8_sv61h"]
+[ext_resource type="Resource" uid="uid://bmpmueriggevp" path="res://clicker/abilities/agression_ordinary.tres" id="9_rr58i"]
+[ext_resource type="Resource" uid="uid://d28gn2rveyp1y" path="res://clicker/abilities/agression_poor.tres" id="10_5xm4y"]
+[ext_resource type="Resource" uid="uid://cfnnvn7ut0dtk" path="res://clicker/abilities/agression_fancy.tres" id="11_ch64f"]
+[ext_resource type="Resource" uid="uid://dyk8fm68xjdqq" path="res://clicker/abilities/agression_chaotic.tres" id="12_5o71d"]
+[ext_resource type="Resource" uid="uid://dw6lrf5an38xg" path="res://clicker/abilities/agression_cardboard.tres" id="13_tps5p"]
+[ext_resource type="Resource" uid="uid://c87w6f8d4e802" path="res://clicker/abilities/agression_plastic.tres" id="14_kct4v"]
+[ext_resource type="Resource" uid="uid://cq636ry35us33" path="res://clicker/abilities/agression_brass.tres" id="15_nw66e"]
+[ext_resource type="Resource" uid="uid://mgtjimd7x1dv" path="res://clicker/abilities/agression_aluminum.tres" id="16_wj2bw"]
+[ext_resource type="Resource" uid="uid://ca4j3sqqad1rk" path="res://clicker/abilities/agression_titanium.tres" id="17_iqgtd"]
+[ext_resource type="Resource" uid="uid://bq0wdavkbg1au" path="res://clicker/abilities/agression_plasma_baton.tres" id="18_ujp0g"]
+[ext_resource type="Resource" uid="uid://dn8foh3kgta5p" path="res://clicker/abilities/agression_plasma_swords.tres" id="19_g1sln"]
+[ext_resource type="Resource" uid="uid://732w02hi7f3u" path="res://clicker/abilities/agression_laser_gun.tres" id="20_3yht8"]
+[ext_resource type="Resource" uid="uid://c4tcus8oljh2c" path="res://clicker/abilities/agression_plasma_uzi.tres" id="21_h3vgi"]
+[ext_resource type="Resource" uid="uid://dyg4vh0d0ggxu" path="res://clicker/abilities/agression_laser_rifle.tres" id="22_hanng"]
+[ext_resource type="Resource" uid="uid://7l7cp2w07pxx" path="res://clicker/abilities/agression_rail_guns.tres" id="23_eivvm"]
+[ext_resource type="Resource" uid="uid://p1v2jt43krjt" path="res://clicker/abilities/appearance_soiled.tres" id="24_7bj7q"]
+[ext_resource type="Resource" uid="uid://by3yrux0h1xja" path="res://clicker/abilities/appearance_basic.tres" id="25_oia1y"]
+[ext_resource type="Resource" uid="uid://dcvaghfxwvsib" path="res://clicker/abilities/appearance_fancy.tres" id="26_yn8s4"]
+[ext_resource type="Resource" uid="uid://cuhujnow1lh1p" path="res://clicker/abilities/appearance_royal.tres" id="27_ttemj"]
+[ext_resource type="Resource" uid="uid://de5e7merv8tqt" path="res://clicker/abilities/appearance_impossible.tres" id="28_0vgpx"]
+[ext_resource type="Resource" uid="uid://biiceahtxp57d" path="res://clicker/abilities/appearance_cardboard.tres" id="29_85j68"]
+[ext_resource type="Resource" uid="uid://df7cvo3up8mlt" path="res://clicker/abilities/appearance_plastic.tres" id="30_a65op"]
+[ext_resource type="Resource" uid="uid://br813yeror8bu" path="res://clicker/abilities/appearance_brass.tres" id="31_cy8ch"]
+[ext_resource type="Resource" uid="uid://41360xnp21fo" path="res://clicker/abilities/appearance_aluminum.tres" id="32_w0jc0"]
+[ext_resource type="Resource" uid="uid://byy8djgdai0" path="res://clicker/abilities/appearance_obsidian.tres" id="33_qh8jo"]
+[ext_resource type="Resource" uid="uid://d3js5rmf1rpk" path="res://clicker/abilities/click_hard.tres" id="34_l87eh"]
+[ext_resource type="PackedScene" uid="uid://ctchufnwaro7b" path="res://clicker/clicker_ability_button.tscn" id="35_f3ofs"]
+[ext_resource type="Resource" uid="uid://fuk8h78kio6" path="res://clicker/abilities/mental.tres" id="36_1knou"]
+[ext_resource type="Resource" uid="uid://c208p6knl8gu2" path="res://clicker/abilities/mental_smarts.tres" id="37_u8mkj"]
+[ext_resource type="Resource" uid="uid://3gmnrhfplofm" path="res://clicker/abilities/mental_memory_palace.tres" id="38_yj6wb"]
+[ext_resource type="Resource" uid="uid://ie2phil58tny" path="res://clicker/abilities/mental_multi_tasking.tres" id="39_ew8rc"]
+[ext_resource type="Resource" uid="uid://cb466h3c61gqf" path="res://clicker/abilities/agression.tres" id="40_t5jte"]
+[ext_resource type="Resource" uid="uid://cd0ty3rasequ4" path="res://clicker/abilities/appearance.tres" id="41_nlxhl"]
+[ext_resource type="Resource" uid="uid://drp8oybvi57m1" path="res://clicker/abilities/appearance_masochism.tres" id="42_8ojew"]
+[ext_resource type="Resource" uid="uid://sle6175akmfa" path="res://clicker/abilities/appearance_nursing.tres" id="43_840wa"]
+[ext_resource type="Resource" uid="uid://tb56tghp7fsp" path="res://clicker/abilities/appearance_fashionista.tres" id="44_1xf0l"]
+[ext_resource type="Resource" uid="uid://c7fxk8piyplae" path="res://clicker/abilities/appearance_mix_and_match.tres" id="45_swsrb"]
+[ext_resource type="Texture2D" uid="uid://cwnthnv701tbf" path="res://clicker/secret_panel.png" id="46_ly5fm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pcfco"]
+bg_color = Color(0.1584723, 0.15847233, 0.15847224, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 16
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 16
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ovi15"]
+bg_color = Color(0.64325774, 0.58907086, 0.54970324, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 15
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iggiw"]
+bg_color = Color(0.9326139, 0, 0.42978147, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 15
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6wkqi"]
+bg_color = Color(0.64325774, 0.58907086, 0.54970324, 1)
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 15
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ivphy"]
+bg_color = Color(0.9326139, 0, 0.42978147, 1)
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 15
+corner_detail = 1
+
+[node name="Sidebar" type="ColorRect" unique_id=597927285]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1479.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+color = Color(0.27067962, 0.5022886, 0.64632124, 1)
+
+[node name="Clicker Content" type="MarginContainer" parent="." unique_id=1541089891]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Clicker Content" unique_id=206795445]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="Clicker Content/VBoxContainer" unique_id=382925762]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="XP Button" parent="Clicker Content/VBoxContainer" unique_id=1599280232 instance=ExtResource("1_pcfco")]
+layout_mode = 2
+
+[node name="Boredom" type="Control" parent="Clicker Content/VBoxContainer" unique_id=167539634 node_paths=PackedStringArray("bars")]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_vertical = 0
+tooltip_text = "Boredom decreases efficiency of XP gain. Explore, adventure and fight to combat it!"
+script = ExtResource("2_v41bt")
+bars = [NodePath("BoredomProgressBarUpper"), NodePath("BoredomProgressBarLower")]
+step = 0.1
+value_noise = 0.1
+value_noise_speed = 0.01
+live = true
+
+[node name="BoredomBarBackground" type="Panel" parent="Clicker Content/VBoxContainer/Boredom" unique_id=467712322]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pcfco")
+
+[node name="BoredomProgressBarUpper" type="ProgressBar" parent="Clicker Content/VBoxContainer/Boredom" unique_id=1535930310]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_ovi15")
+theme_override_styles/fill = SubResource("StyleBoxFlat_iggiw")
+show_percentage = false
+
+[node name="BoredomProgressBarLower" type="ProgressBar" parent="Clicker Content/VBoxContainer/Boredom" unique_id=1170939365]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 20.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_6wkqi")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ivphy")
+show_percentage = false
+
+[node name="BoredomLabel" type="Label" parent="Clicker Content/VBoxContainer/Boredom" unique_id=983392085]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 2.0
+offset_right = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.8666667)
+theme_override_colors/font_shadow_color = Color(0.101960786, 0.101960786, 0.101960786, 0.3372549)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 32
+text = "BOREDOM"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="BoredomManager" type="Node" parent="Clicker Content/VBoxContainer/Boredom" unique_id=156615065 node_paths=PackedStringArray("_ui")]
+script = ExtResource("7_rso4y")
+_ui = NodePath("..")
+_change_to_velocity_factor = 0.7
+_velocity_decay_over_time = 0.4
+
+[node name="HSeparator" type="HSeparator" parent="Clicker Content/VBoxContainer" unique_id=1918784816]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Clicker Content/VBoxContainer" unique_id=1072059304]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Clicker Content/VBoxContainer/ScrollContainer" unique_id=552064747]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_right = 48
+theme_override_constants/margin_bottom = 0
+
+[node name="AbilititiesManager" type="VBoxContainer" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer" unique_id=1954119371]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("8_sv61h")
+_ab_ordinary = ExtResource("9_rr58i")
+_ab_poor = ExtResource("10_5xm4y")
+_ab_fancy = ExtResource("11_ch64f")
+_ab_chaotic = ExtResource("12_5o71d")
+_ab_cardboard = ExtResource("13_tps5p")
+_ab_plastic = ExtResource("14_kct4v")
+_ab_brass = ExtResource("15_nw66e")
+_ab_aluminum = ExtResource("16_wj2bw")
+_ab_titanium = ExtResource("17_iqgtd")
+_ab_plasma_baton = ExtResource("18_ujp0g")
+_ab_plasma_sword = ExtResource("19_g1sln")
+_ab_laser_gun = ExtResource("20_3yht8")
+_ab_plasma_uzi = ExtResource("21_h3vgi")
+_ab_laser_rifle = ExtResource("22_hanng")
+_ab_rail_gun = ExtResource("23_eivvm")
+_ab_g_soiled = ExtResource("24_7bj7q")
+_ab_g_basic = ExtResource("25_oia1y")
+_ab_g_fancy = ExtResource("26_yn8s4")
+_ab_g_royal = ExtResource("27_ttemj")
+_ab_g_impossible = ExtResource("28_0vgpx")
+_ab_g_cardboard = ExtResource("29_85j68")
+_ab_g_plastic = ExtResource("30_a65op")
+_ab_g_brass = ExtResource("31_cy8ch")
+_ab_g_aluminum = ExtResource("32_w0jc0")
+_ab_g_obsidian = ExtResource("33_qh8jo")
+_ab_click_hard = ExtResource("34_l87eh")
+_clicker_button_scene = ExtResource("35_f3ofs")
+
+[node name="Mental" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=324514739 instance=ExtResource("35_f3ofs")]
+layout_mode = 2
+ability = ExtResource("36_1knou")
+
+[node name="Mental Smarts" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=1010927676 instance=ExtResource("35_f3ofs")]
+layout_mode = 2
+ability = ExtResource("37_u8mkj")
+
+[node name="Mental Memory Palace" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=1193497479 instance=ExtResource("35_f3ofs")]
+layout_mode = 2
+ability = ExtResource("38_yj6wb")
+
+[node name="Mental Multi-Tasking" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=279484787 instance=ExtResource("35_f3ofs")]
+layout_mode = 2
+ability = ExtResource("39_ew8rc")
+
+[node name="Agression" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=103738663 instance=ExtResource("35_f3ofs")]
+layout_mode = 2
+ability = ExtResource("40_t5jte")
+
+[node name="Ordinary Weapons" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=2018874666 instance=ExtResource("35_f3ofs")]
+layout_mode = 2
+ability = ExtResource("9_rr58i")
+
+[node name="Poor Weapons" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=62459420 instance=ExtResource("35_f3ofs")]
+layout_mode = 2
+ability = ExtResource("10_5xm4y")
+
+[node name="Fancy Weapons" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=400108295 instance=ExtResource("35_f3ofs")]
+layout_mode = 2
+ability = ExtResource("11_ch64f")
+
+[node name="Chaotic Weapons" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=128351103 instance=ExtResource("35_f3ofs")]
+layout_mode = 2
+ability = ExtResource("12_5o71d")
+
+[node name="Cardboard Weapons" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=1993649628 instance=ExtResource("35_f3ofs")]
+layout_mode = 2
+ability = ExtResource("13_tps5p")
+
+[node name="Plastic Weapons" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=870156641 instance=ExtResource("35_f3ofs")]
+layout_mode = 2
+ability = ExtResource("14_kct4v")
+
+[node name="Brass Weapons" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=1522276042 instance=ExtResource("35_f3ofs")]
+layout_mode = 2
+ability = ExtResource("15_nw66e")
+
+[node name="Aluminum Weapons" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=1553326309 instance=ExtResource("35_f3ofs")]
+layout_mode = 2
+ability = ExtResource("16_wj2bw")
+
+[node name="Titanium Weapons" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=1443151520 instance=ExtResource("35_f3ofs")]
+layout_mode = 2
+ability = ExtResource("17_iqgtd")
+
+[node name="Plasma Baton" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=1857612183 instance=ExtResource("35_f3ofs")]
+layout_mode = 2
+ability = ExtResource("18_ujp0g")
+
+[node name="Plasma Sword" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=1025169090 instance=ExtResource("35_f3ofs")]
+layout_mode = 2
+ability = ExtResource("19_g1sln")
+
+[node name="Laser Gun" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=507578552 instance=ExtResource("35_f3ofs")]
+layout_mode = 2
+ability = ExtResource("20_3yht8")
+
+[node name="Plasma Uzi" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=1359812505 instance=ExtResource("35_f3ofs")]
+layout_mode = 2
+ability = ExtResource("21_h3vgi")
+
+[node name="Laser Rifle" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=287697983 instance=ExtResource("35_f3ofs")]
+layout_mode = 2
+ability = ExtResource("22_hanng")
+
+[node name="Rail Gun" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=1267532992 instance=ExtResource("35_f3ofs")]
+layout_mode = 2
+ability = ExtResource("23_eivvm")
+
+[node name="Appearance" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=1912892315 instance=ExtResource("35_f3ofs")]
+layout_mode = 2
+ability = ExtResource("41_nlxhl")
+
+[node name="Masochism" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=2068224100 instance=ExtResource("35_f3ofs")]
+layout_mode = 2
+ability = ExtResource("42_8ojew")
+
+[node name="Nursing" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=2134928613 instance=ExtResource("35_f3ofs")]
+layout_mode = 2
+ability = ExtResource("43_840wa")
+
+[node name="Soiled Clothes" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=1859923173 instance=ExtResource("35_f3ofs")]
+layout_mode = 2
+ability = ExtResource("24_7bj7q")
+
+[node name="Basic Clothes" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=1039190059 instance=ExtResource("35_f3ofs")]
+layout_mode = 2
+ability = ExtResource("25_oia1y")
+
+[node name="Fancy Clothes" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=1636633062 instance=ExtResource("35_f3ofs")]
+layout_mode = 2
+ability = ExtResource("26_yn8s4")
+
+[node name="Royal Clothes" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=80827176 instance=ExtResource("35_f3ofs")]
+layout_mode = 2
+ability = ExtResource("27_ttemj")
+
+[node name="Impossible Clothes" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=1307682307 instance=ExtResource("35_f3ofs")]
+layout_mode = 2
+ability = ExtResource("28_0vgpx")
+
+[node name="Cardboard Clothes" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=935244969 instance=ExtResource("35_f3ofs")]
+layout_mode = 2
+ability = ExtResource("29_85j68")
+
+[node name="Plastic Clothes" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=1018437602 instance=ExtResource("35_f3ofs")]
+layout_mode = 2
+ability = ExtResource("30_a65op")
+
+[node name="Brass Clothes" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=1164136614 instance=ExtResource("35_f3ofs")]
+layout_mode = 2
+ability = ExtResource("31_cy8ch")
+
+[node name="Aluminum Clothes" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=960894967 instance=ExtResource("35_f3ofs")]
+layout_mode = 2
+ability = ExtResource("32_w0jc0")
+
+[node name="Obsidian Clothes" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=2030229561 instance=ExtResource("35_f3ofs")]
+layout_mode = 2
+ability = ExtResource("33_qh8jo")
+
+[node name="Fashionista" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=2067191552 instance=ExtResource("35_f3ofs")]
+layout_mode = 2
+ability = ExtResource("44_1xf0l")
+
+[node name="Mix and Match" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=602775478 instance=ExtResource("35_f3ofs")]
+layout_mode = 2
+ability = ExtResource("45_swsrb")
+
+[node name="Secrets Protector" type="TextureRect" parent="." unique_id=1431310683]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("46_ly5fm")
+expand_mode = 1

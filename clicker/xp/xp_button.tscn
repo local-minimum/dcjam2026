@@ -2,23 +2,40 @@
 
 [ext_resource type="Script" uid="uid://vc1pvngry5qw" path="res://clicker/xp/xp_button.gd" id="1_07bva"]
 [ext_resource type="Texture2D" uid="uid://8qnqvakqmrcx" path="res://clicker/xp/xp_button_bg.png" id="1_te0py"]
-[ext_resource type="Texture2D" uid="uid://hqls202v3tpf" path="res://clicker/xp/xp_button_progrss_bar_bg.png" id="2_07bva"]
 [ext_resource type="FontFile" uid="uid://dctop3skfnx1l" path="res://fonts/monoton/Monoton-Regular.ttf" id="3_5jdtb"]
-[ext_resource type="Texture2D" uid="uid://5iq0rlr6mok3" path="res://clicker/xp/xp_button_progrss_bar_top.png" id="3_8n5ww"]
-[ext_resource type="Texture2D" uid="uid://c3k0odemmqaxo" path="res://clicker/xp/xp_button_progrss_bar.png" id="4_5jdtb"]
+[ext_resource type="FontFile" uid="uid://vrrmdx83skor" path="res://addons/dialogic/Example Assets/Fonts/Roboto-Regular.ttf" id="4_ok2p6"]
 [ext_resource type="PackedScene" uid="uid://due2c5pqr6l1n" path="res://clicker/xp/auto_clicker.tscn" id="6_8n5ww"]
 
-[node name="XP Button" type="Control" unique_id=1599280232 node_paths=PackedStringArray("_xp_count_label", "_xp_speed_label", "_progress_bar", "_autoclickers")]
-custom_minimum_size = Vector2(428, 60)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dggxj"]
+bg_color = Color(0.9340804, 0.9340805, 0.93408036, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.15847227, 0.15847233, 0.15847221, 1)
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ok2p6"]
+bg_color = Color(1, 0.83137256, 0.2901961, 1)
+border_color = Color(0.15847227, 0.15847233, 0.15847221, 1)
+
+[node name="XP Button" type="Control" unique_id=1599280232 node_paths=PackedStringArray("_xp_count_label", "_xp_speed_label", "_progress_bar", "_autoclickers", "_button_texture")]
+custom_minimum_size = Vector2(428, 100)
 layout_mode = 3
 anchors_preset = 0
+offset_right = 428.0
+offset_bottom = 76.0
 mouse_default_cursor_shape = 2
 script = ExtResource("1_07bva")
 _xp_count_label = NodePath("MarginContainer/VBoxContainer/XP Row/Total XP")
 _xp_speed_label = NodePath("MarginContainer/VBoxContainer/XP Row/XP Gain Speed")
-_progress_bar = NodePath("MarginContainer/VBoxContainer/TextureProgressBar")
+_progress_bar = NodePath("MarginContainer/VBoxContainer/XPBar")
 _speed_history_msec = 1500
 _autoclickers = [NodePath("Top Clickers/AutoClicker"), NodePath("Top Clickers/AutoClicker2"), NodePath("Top Clickers/AutoClicker3"), NodePath("Top Clickers/AutoClicker4"), NodePath("Top Clickers/AutoClicker5"), NodePath("Top Clickers/AutoClicker6"), NodePath("Top Clickers/AutoClicker7"), NodePath("Top Clickers/AutoClicker8"), NodePath("Top Clickers/AutoClicker9"), NodePath("Top Clickers/AutoClicker10"), NodePath("Top Clickers/AutoClicker11")]
+_button_texture = NodePath("XP Background Texture")
 
 [node name="XP Background Texture" type="TextureRect" parent="." unique_id=466219434]
 layout_mode = 1
@@ -31,20 +48,25 @@ texture = ExtResource("1_te0py")
 
 [node name="Button Title" type="Label" parent="." unique_id=1579821044]
 layout_mode = 1
-anchors_preset = 2
+anchors_preset = -1
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = -1.5370784
-offset_top = -3.1870728
-offset_right = 52.27585
-offset_bottom = 44.812927
-grow_vertical = 0
+offset_left = 1.0
+offset_top = -0.5
+offset_right = 101.0
+offset_bottom = 68.5
+grow_horizontal = 2
+grow_vertical = 2
 rotation = -1.5707964
-theme_override_colors/font_color = Color(0.80784315, 0.80784315, 0.80784315, 0.81960785)
-theme_override_colors/font_shadow_color = Color(0.23137255, 0.23137255, 0.23137255, 0.65882355)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.10374347, 0.103743546, 0.103743516, 0.65882355)
+theme_override_colors/font_outline_color = Color(0.0056611504, 0.0056611514, 0.00566115, 1)
+theme_override_constants/outline_size = 12
 theme_override_fonts/font = ExtResource("3_5jdtb")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 44
 text = "XP"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1130478227]
 layout_mode = 1
@@ -53,43 +75,52 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 44
+theme_override_constants/margin_left = 63
 theme_override_constants/margin_top = 6
-theme_override_constants/margin_right = 8
+theme_override_constants/margin_right = 13
 theme_override_constants/margin_bottom = 6
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1669639518]
 layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 9
 alignment = 1
 
 [node name="XP Row" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=140439770]
 layout_mode = 2
-theme_override_constants/separation = 12
+alignment = 1
 
 [node name="Total XP" type="Label" parent="MarginContainer/VBoxContainer/XP Row" unique_id=387248530]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.7
-theme_override_fonts/font = ExtResource("3_5jdtb")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("4_ok2p6")
+theme_override_font_sizes/font_size = 32
 text = "100 xp"
 horizontal_alignment = 1
 
 [node name="XP Gain Speed" type="Label" parent="MarginContainer/VBoxContainer/XP Row" unique_id=842280862]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("3_5jdtb")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("4_ok2p6")
+theme_override_font_sizes/font_size = 32
 text = "1.25 xp / s"
 horizontal_alignment = 1
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/VBoxContainer" unique_id=949286864]
+[node name="XPBar" type="ProgressBar" parent="MarginContainer/VBoxContainer" unique_id=574368856]
+custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 6
-value = 25.0
+mouse_filter = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_dggxj")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ok2p6")
+value = 100.0
 rounded = true
-texture_under = ExtResource("2_07bva")
-texture_over = ExtResource("3_8n5ww")
-texture_progress = ExtResource("4_5jdtb")
+show_percentage = false
 
 [node name="Top Clickers" type="HBoxContainer" parent="." unique_id=559432681]
 custom_minimum_size = Vector2(0, 24)

@@ -2,9 +2,6 @@
 
 [ext_resource type="Environment" uid="uid://cab2e1qcby00n" path="res://clicker/clicker_environment.tres" id="1_80nbo"]
 [ext_resource type="PackedScene" uid="uid://bufrvjcwdgi7q" path="res://clicker/dungeon.tscn" id="2_e2o6t"]
-[ext_resource type="PackedScene" uid="uid://b0e0rvd3dfopu" path="res://clicker/xp/xp_button.tscn" id="3_fc0e3"]
-[ext_resource type="Texture2D" uid="uid://cwnthnv701tbf" path="res://clicker/secret_panel.png" id="3_feb5d"]
-[ext_resource type="PackedScene" uid="uid://ctchufnwaro7b" path="res://clicker/clicker_ability_button.tscn" id="4_7jktm"]
 [ext_resource type="Texture2D" uid="uid://bj23l1l07x67h" path="res://clicker/health/player_health_bg.png" id="6_hb5m1"]
 [ext_resource type="Texture2D" uid="uid://ca2yywbtyo5uv" path="res://clicker/battle/enemy_unknown.png" id="7_87ddb"]
 [ext_resource type="Resource" uid="uid://c208p6knl8gu2" path="res://clicker/abilities/mental_smarts.tres" id="7_iotsf"]
@@ -13,57 +10,22 @@
 [ext_resource type="Texture2D" uid="uid://b5fmrl4b8wotb" path="res://clicker/health/player_health.png" id="8_qhcbd"]
 [ext_resource type="Resource" uid="uid://ie2phil58tny" path="res://clicker/abilities/mental_multi_tasking.tres" id="9_215e1"]
 [ext_resource type="Script" uid="uid://cs23uil2d5u6p" path="res://clicker/health/player_health_ui.gd" id="9_x5p1p"]
-[ext_resource type="Resource" uid="uid://cb466h3c61gqf" path="res://clicker/abilities/agression.tres" id="10_7sc4i"]
-[ext_resource type="Resource" uid="uid://cd0ty3rasequ4" path="res://clicker/abilities/appearance.tres" id="11_80cx4"]
 [ext_resource type="Script" uid="uid://bt10ci7pn81qq" path="res://clicker/battle/battle_texts_spawner.gd" id="11_r62pu"]
-[ext_resource type="Script" uid="uid://bal5t10rmus64" path="res://clicker/abilitities_manager.gd" id="12_f1jbl"]
 [ext_resource type="Script" uid="uid://bygrk7a3mcgx7" path="res://clicker_xp_rules.gd" id="13_lc2xo"]
-[ext_resource type="Script" uid="uid://bgdnhr86vy5ne" path="res://core/2d/split_texture_progressbars.gd" id="13_lwlx3"]
-[ext_resource type="Texture2D" uid="uid://dcyv0yvo5fsqf" path="res://clicker/boredom/boredom_bg.png" id="13_m28ev"]
 [ext_resource type="PackedScene" uid="uid://c0qmcq36iacog" path="res://addons/minimum_dev_console/scenes/example_dev_console.tscn" id="14_215e1"]
-[ext_resource type="Texture2D" uid="uid://bjlvrgc8gi3oo" path="res://clicker/boredom/boredom_lower.png" id="14_lwlx3"]
-[ext_resource type="Texture2D" uid="uid://cveoocfew04et" path="res://clicker/boredom/boredom_cover.png" id="15_0de7l"]
 [ext_resource type="Script" uid="uid://dikj7ouqdoq0m" path="res://clicker/dev_console_xp.gd" id="15_7sc4i"]
 [ext_resource type="Script" uid="uid://d2lm4ukdo8cux" path="res://clicker/quest_ui.gd" id="15_xoeau"]
 [ext_resource type="Script" uid="uid://3kvqfeoh3qbc" path="res://clicker/battle_manager.gd" id="16_80cx4"]
-[ext_resource type="Texture2D" uid="uid://8qlicmfc7c77" path="res://clicker/boredom/boredom_upper.png" id="16_87ddb"]
+[ext_resource type="PackedScene" uid="uid://ksxuclgif6c1" path="res://clicker/ui/clicker_sidebar.tscn" id="16_082n1"]
 [ext_resource type="Script" uid="uid://cxwcyqew8etn4" path="res://clicker/battle/battle_ui.gd" id="16_e8heu"]
-[ext_resource type="Script" uid="uid://bsgeqwfcrwlhy" path="res://clicker/boredom/boredom_manager.gd" id="18_0de7l"]
 [ext_resource type="PackedScene" uid="uid://cjvexujnvp0lw" path="res://clicker/battle/enemy_ui.tscn" id="18_rvswv"]
 [ext_resource type="Resource" uid="uid://drp8oybvi57m1" path="res://clicker/abilities/appearance_masochism.tres" id="19_qhcbd"]
-[ext_resource type="Resource" uid="uid://bmpmueriggevp" path="res://clicker/abilities/agression_ordinary.tres" id="20_vaj68"]
-[ext_resource type="Resource" uid="uid://d28gn2rveyp1y" path="res://clicker/abilities/agression_poor.tres" id="21_i2p71"]
-[ext_resource type="Resource" uid="uid://cfnnvn7ut0dtk" path="res://clicker/abilities/agression_fancy.tres" id="22_xa8c5"]
-[ext_resource type="Resource" uid="uid://dyk8fm68xjdqq" path="res://clicker/abilities/agression_chaotic.tres" id="23_5b14r"]
-[ext_resource type="Resource" uid="uid://dw6lrf5an38xg" path="res://clicker/abilities/agression_cardboard.tres" id="24_bnpwn"]
-[ext_resource type="Resource" uid="uid://c87w6f8d4e802" path="res://clicker/abilities/agression_plastic.tres" id="25_36jdj"]
-[ext_resource type="Resource" uid="uid://cq636ry35us33" path="res://clicker/abilities/agression_brass.tres" id="26_xfvwf"]
-[ext_resource type="Resource" uid="uid://mgtjimd7x1dv" path="res://clicker/abilities/agression_aluminum.tres" id="27_dhpj7"]
-[ext_resource type="Resource" uid="uid://ca4j3sqqad1rk" path="res://clicker/abilities/agression_titanium.tres" id="28_7knny"]
-[ext_resource type="Resource" uid="uid://bq0wdavkbg1au" path="res://clicker/abilities/agression_plasma_baton.tres" id="29_082n1"]
-[ext_resource type="Resource" uid="uid://dn8foh3kgta5p" path="res://clicker/abilities/agression_plasma_swords.tres" id="30_xex6t"]
-[ext_resource type="Resource" uid="uid://732w02hi7f3u" path="res://clicker/abilities/agression_laser_gun.tres" id="31_aa0lp"]
-[ext_resource type="Resource" uid="uid://c4tcus8oljh2c" path="res://clicker/abilities/agression_plasma_uzi.tres" id="32_iu0sx"]
-[ext_resource type="Resource" uid="uid://dyg4vh0d0ggxu" path="res://clicker/abilities/agression_laser_rifle.tres" id="33_4v2jo"]
-[ext_resource type="Resource" uid="uid://7l7cp2w07pxx" path="res://clicker/abilities/agression_rail_guns.tres" id="34_l1i01"]
 [ext_resource type="PackedScene" uid="uid://3heqxlultjpy" path="res://clicker/loot/loot_and_inventory.tscn" id="39_eu6ph"]
 [ext_resource type="Script" uid="uid://dpr1k74riep1o" path="res://clicker/dev_console_loot.gd" id="44_kq12w"]
-[ext_resource type="Resource" uid="uid://sle6175akmfa" path="res://clicker/abilities/appearance_nursing.tres" id="44_mljfx"]
-[ext_resource type="Resource" uid="uid://byy8djgdai0" path="res://clicker/abilities/appearance_obsidian.tres" id="45_mc3al"]
-[ext_resource type="Resource" uid="uid://p1v2jt43krjt" path="res://clicker/abilities/appearance_soiled.tres" id="45_qpefm"]
-[ext_resource type="Resource" uid="uid://by3yrux0h1xja" path="res://clicker/abilities/appearance_basic.tres" id="46_tb2lt"]
-[ext_resource type="Resource" uid="uid://dcvaghfxwvsib" path="res://clicker/abilities/appearance_fancy.tres" id="47_cfc7e"]
-[ext_resource type="Resource" uid="uid://cuhujnow1lh1p" path="res://clicker/abilities/appearance_royal.tres" id="48_gh0px"]
 [ext_resource type="Resource" uid="uid://d3js5rmf1rpk" path="res://clicker/abilities/click_hard.tres" id="49_6qn5j"]
-[ext_resource type="Resource" uid="uid://de5e7merv8tqt" path="res://clicker/abilities/appearance_impossible.tres" id="49_v33yl"]
-[ext_resource type="Resource" uid="uid://biiceahtxp57d" path="res://clicker/abilities/appearance_cardboard.tres" id="50_3gvs5"]
-[ext_resource type="Resource" uid="uid://fuk8h78kio6" path="res://clicker/abilities/mental.tres" id="50_xoeau"]
-[ext_resource type="Resource" uid="uid://df7cvo3up8mlt" path="res://clicker/abilities/appearance_plastic.tres" id="51_mc3al"]
-[ext_resource type="Resource" uid="uid://br813yeror8bu" path="res://clicker/abilities/appearance_brass.tres" id="52_bqa6y"]
-[ext_resource type="Resource" uid="uid://41360xnp21fo" path="res://clicker/abilities/appearance_aluminum.tres" id="53_du4n2"]
 [ext_resource type="Resource" uid="uid://c7fxk8piyplae" path="res://clicker/abilities/appearance_mix_and_match.tres" id="55_bqa6y"]
 [ext_resource type="Resource" uid="uid://tb56tghp7fsp" path="res://clicker/abilities/appearance_fashionista.tres" id="55_du4n2"]
-[ext_resource type="Script" path="res://clicker/dev_console_damage.gd" id="63_baljx"]
+[ext_resource type="Script" uid="uid://6wo0m40nhvd5" path="res://clicker/dev_console_damage.gd" id="63_baljx"]
 [ext_resource type="Script" uid="uid://cypvqaxbcaqeh" path="res://core/dev_console_commands/dev_speed.gd" id="63_ple6s"]
 [ext_resource type="Script" uid="uid://c50eh21gdu5cn" path="res://sound_track_manager.gd" id="63_ra4rb"]
 [ext_resource type="Script" uid="uid://baylsupfim5dn" path="res://horror/dev_ready_horror.gd" id="64_56gn1"]
@@ -329,278 +291,8 @@ layout_mode = 2
 text = "Dispose of Dragons"
 label_settings = SubResource("LabelSettings_6qn5j")
 
-[node name="Sidebar" type="ColorRect" parent="HSplitContainer" unique_id=1457495423]
+[node name="Sidebar" parent="HSplitContainer" unique_id=597927285 instance=ExtResource("16_082n1")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.3
-color = Color(1, 0.20784314, 1, 1)
-
-[node name="Clicker Content" type="MarginContainer" parent="HSplitContainer/Sidebar" unique_id=1641450040]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 6
-theme_override_constants/margin_top = 6
-theme_override_constants/margin_right = 6
-theme_override_constants/margin_bottom = 6
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Sidebar/Clicker Content" unique_id=919007821]
-layout_mode = 2
-
-[node name="Spacer" type="Control" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer" unique_id=774188937]
-custom_minimum_size = Vector2(0, 10)
-layout_mode = 2
-
-[node name="XP Button" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer" unique_id=1599280232 instance=ExtResource("3_fc0e3")]
-layout_mode = 2
-
-[node name="Boredom" type="Control" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer" unique_id=324893593 node_paths=PackedStringArray("bars")]
-custom_minimum_size = Vector2(0, 20)
-layout_mode = 2
-tooltip_text = "Boredom decreases efficiency of XP gain. Explore, adventure and fight to combat it!"
-script = ExtResource("13_lwlx3")
-bars = [NodePath("Progress Lower"), NodePath("Progress Upper")]
-step = 0.1
-value_noise = 0.1
-value_noise_speed = 0.01
-live = true
-
-[node name="Progress Lower" type="TextureProgressBar" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/Boredom" unique_id=951254857]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-step = 0.1
-texture_under = ExtResource("13_m28ev")
-texture_progress = ExtResource("14_lwlx3")
-
-[node name="Progress Upper" type="TextureProgressBar" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/Boredom" unique_id=1324662167]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-step = 0.1
-texture_over = ExtResource("15_0de7l")
-texture_progress = ExtResource("16_87ddb")
-
-[node name="Label" type="Label" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/Boredom" unique_id=1076582240]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0.7882353, 0.7882353, 0.7882353, 0.6666667)
-theme_override_colors/font_shadow_color = Color(0.101960786, 0.101960786, 0.101960786, 0.3372549)
-text = "BOREDOM"
-horizontal_alignment = 1
-vertical_alignment = 1
-uppercase = true
-
-[node name="BoredomManager" type="Node" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/Boredom" unique_id=462340935 node_paths=PackedStringArray("_ui")]
-script = ExtResource("18_0de7l")
-_ui = NodePath("..")
-_change_to_velocity_factor = 0.7
-_velocity_decay_over_time = 0.4
-
-[node name="HSeparator" type="HSeparator" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer" unique_id=1228020230]
-layout_mode = 2
-
-[node name="ScrollContainer" type="ScrollContainer" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer" unique_id=46873957]
-layout_mode = 2
-size_flags_vertical = 3
-horizontal_scroll_mode = 0
-
-[node name="AbilititiesManager" type="VBoxContainer" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer" unique_id=1989865175]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-script = ExtResource("12_f1jbl")
-_ab_ordinary = ExtResource("20_vaj68")
-_ab_poor = ExtResource("21_i2p71")
-_ab_fancy = ExtResource("22_xa8c5")
-_ab_chaotic = ExtResource("23_5b14r")
-_ab_cardboard = ExtResource("24_bnpwn")
-_ab_plastic = ExtResource("25_36jdj")
-_ab_brass = ExtResource("26_xfvwf")
-_ab_aluminum = ExtResource("27_dhpj7")
-_ab_titanium = ExtResource("28_7knny")
-_ab_plasma_baton = ExtResource("29_082n1")
-_ab_plasma_sword = ExtResource("30_xex6t")
-_ab_laser_gun = ExtResource("31_aa0lp")
-_ab_plasma_uzi = ExtResource("32_iu0sx")
-_ab_laser_rifle = ExtResource("33_4v2jo")
-_ab_rail_gun = ExtResource("34_l1i01")
-_ab_g_soiled = ExtResource("45_qpefm")
-_ab_g_basic = ExtResource("46_tb2lt")
-_ab_g_fancy = ExtResource("47_cfc7e")
-_ab_g_royal = ExtResource("48_gh0px")
-_ab_g_impossible = ExtResource("49_v33yl")
-_ab_g_cardboard = ExtResource("50_3gvs5")
-_ab_g_plastic = ExtResource("51_mc3al")
-_ab_g_brass = ExtResource("52_bqa6y")
-_ab_g_aluminum = ExtResource("53_du4n2")
-_ab_g_obsidian = ExtResource("45_mc3al")
-_ab_click_hard = ExtResource("49_6qn5j")
-_clicker_button_scene = ExtResource("4_7jktm")
-
-[node name="Mental" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=324514739 instance=ExtResource("4_7jktm")]
-layout_mode = 2
-ability = ExtResource("50_xoeau")
-
-[node name="Mental Smarts" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=466467596 instance=ExtResource("4_7jktm")]
-layout_mode = 2
-ability = ExtResource("7_iotsf")
-
-[node name="Mental Memory Palace" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=1620446177 instance=ExtResource("4_7jktm")]
-layout_mode = 2
-ability = ExtResource("8_lc2xo")
-
-[node name="Mental Multi-Tasking" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=1949463060 instance=ExtResource("4_7jktm")]
-layout_mode = 2
-ability = ExtResource("9_215e1")
-
-[node name="Agression" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=941157657 instance=ExtResource("4_7jktm")]
-layout_mode = 2
-ability = ExtResource("10_7sc4i")
-
-[node name="Ordinary Weapons" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=788992411 instance=ExtResource("4_7jktm")]
-layout_mode = 2
-ability = ExtResource("20_vaj68")
-
-[node name="Poor Weapons" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=305227785 instance=ExtResource("4_7jktm")]
-layout_mode = 2
-ability = ExtResource("21_i2p71")
-
-[node name="Fancy Weapons" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=939722134 instance=ExtResource("4_7jktm")]
-layout_mode = 2
-ability = ExtResource("22_xa8c5")
-
-[node name="Chaotic Weapons" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=1503964633 instance=ExtResource("4_7jktm")]
-layout_mode = 2
-ability = ExtResource("23_5b14r")
-
-[node name="Cardboard Weapons" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=860980824 instance=ExtResource("4_7jktm")]
-layout_mode = 2
-ability = ExtResource("24_bnpwn")
-
-[node name="Plastic Weapons" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=563105052 instance=ExtResource("4_7jktm")]
-layout_mode = 2
-ability = ExtResource("25_36jdj")
-
-[node name="Brass Weapons" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=237344758 instance=ExtResource("4_7jktm")]
-layout_mode = 2
-ability = ExtResource("26_xfvwf")
-
-[node name="Aluminum Weapons" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=1671876638 instance=ExtResource("4_7jktm")]
-layout_mode = 2
-ability = ExtResource("27_dhpj7")
-
-[node name="Titanium Weapons" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=2030502592 instance=ExtResource("4_7jktm")]
-layout_mode = 2
-ability = ExtResource("28_7knny")
-
-[node name="Plasma Baton" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=1912325238 instance=ExtResource("4_7jktm")]
-layout_mode = 2
-ability = ExtResource("29_082n1")
-
-[node name="Plasma Sword" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=1882151423 instance=ExtResource("4_7jktm")]
-layout_mode = 2
-ability = ExtResource("30_xex6t")
-
-[node name="Laser Gun" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=2039520738 instance=ExtResource("4_7jktm")]
-layout_mode = 2
-ability = ExtResource("31_aa0lp")
-
-[node name="Plasma Uzi" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=1896045292 instance=ExtResource("4_7jktm")]
-layout_mode = 2
-ability = ExtResource("32_iu0sx")
-
-[node name="Laser Rifle" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=514403116 instance=ExtResource("4_7jktm")]
-layout_mode = 2
-ability = ExtResource("33_4v2jo")
-
-[node name="Rail Gun" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=1774850543 instance=ExtResource("4_7jktm")]
-layout_mode = 2
-ability = ExtResource("34_l1i01")
-
-[node name="Appearance" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=1919510791 instance=ExtResource("4_7jktm")]
-layout_mode = 2
-ability = ExtResource("11_80cx4")
-
-[node name="Masochism" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=313034514 instance=ExtResource("4_7jktm")]
-layout_mode = 2
-ability = ExtResource("19_qhcbd")
-
-[node name="Nursing" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=390587771 instance=ExtResource("4_7jktm")]
-layout_mode = 2
-ability = ExtResource("44_mljfx")
-
-[node name="Soiled Clothes" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=1331812516 instance=ExtResource("4_7jktm")]
-layout_mode = 2
-ability = ExtResource("45_qpefm")
-
-[node name="Basic Clothes" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=1461720758 instance=ExtResource("4_7jktm")]
-layout_mode = 2
-ability = ExtResource("46_tb2lt")
-
-[node name="Fancy Clothes" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=2038175876 instance=ExtResource("4_7jktm")]
-layout_mode = 2
-ability = ExtResource("47_cfc7e")
-
-[node name="Royal Clothes" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=1370718471 instance=ExtResource("4_7jktm")]
-layout_mode = 2
-ability = ExtResource("48_gh0px")
-
-[node name="Impossible Clothes" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=208556750 instance=ExtResource("4_7jktm")]
-layout_mode = 2
-ability = ExtResource("49_v33yl")
-
-[node name="Cardboard Clothes" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=138921893 instance=ExtResource("4_7jktm")]
-layout_mode = 2
-ability = ExtResource("50_3gvs5")
-
-[node name="Plastic Clothes" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=1135065481 instance=ExtResource("4_7jktm")]
-layout_mode = 2
-ability = ExtResource("51_mc3al")
-
-[node name="Brass Clothes" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=1889002583 instance=ExtResource("4_7jktm")]
-layout_mode = 2
-ability = ExtResource("52_bqa6y")
-
-[node name="Aluminum Clothes" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=1206230007 instance=ExtResource("4_7jktm")]
-layout_mode = 2
-ability = ExtResource("53_du4n2")
-
-[node name="Obsidian Clothes" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=687809529 instance=ExtResource("4_7jktm")]
-layout_mode = 2
-ability = ExtResource("45_mc3al")
-
-[node name="Fashionista" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=1374770239 instance=ExtResource("4_7jktm")]
-layout_mode = 2
-ability = ExtResource("55_du4n2")
-
-[node name="Mix and Match" parent="HSplitContainer/Sidebar/Clicker Content/VBoxContainer/ScrollContainer/AbilititiesManager" unique_id=347076597 instance=ExtResource("4_7jktm")]
-layout_mode = 2
-ability = ExtResource("55_bqa6y")
-
-[node name="Secrets Protector" type="TextureRect" parent="HSplitContainer/Sidebar" unique_id=1288201195]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_feb5d")
-expand_mode = 1
 
 [node name="ClickerXPRules" type="Node" parent="." unique_id=44132690]
 script = ExtResource("13_lc2xo")
@@ -669,7 +361,7 @@ expand_mode = 1
 script = ExtResource("65_jo4nb")
 _split_container = NodePath("../HSplitContainer")
 _subviewport = NodePath("../HSplitContainer/Viewport Side/SubViewportContainer/SubViewport")
-_unloading_nodes = [NodePath("../HSplitContainer/Viewport Side/SubViewportContainer/SubViewport/Dungeon"), NodePath("../HSplitContainer/Viewport Side/Battle UI"), NodePath("../HSplitContainer/Viewport Side/Player Health UI"), NodePath("../HSplitContainer/Viewport Side/BattleTextsSpawner"), NodePath("../HSplitContainer/Sidebar"), NodePath("../ClickerXPRules"), NodePath("../Loot And Inventory"), NodePath("../DevConsole/Loot Command"), NodePath("../DevConsole/Gain XP Command"), NodePath("../DevConsole/Ready Horror Command"), NodePath("../Clicker Dialogue Manager"), NodePath("../HSplitContainer/Viewport Side/Quest UI"), NodePath("../DevConsole/Free From Intro Command")]
+_unloading_nodes = [NodePath("../HSplitContainer/Viewport Side/SubViewportContainer/SubViewport/Dungeon"), NodePath("../HSplitContainer/Viewport Side/Battle UI"), NodePath("../HSplitContainer/Viewport Side/Player Health UI"), NodePath("../HSplitContainer/Viewport Side/BattleTextsSpawner"), null, NodePath("../ClickerXPRules"), NodePath("../Loot And Inventory"), NodePath("../DevConsole/Loot Command"), NodePath("../DevConsole/Gain XP Command"), NodePath("../DevConsole/Ready Horror Command"), NodePath("../Clicker Dialogue Manager"), NodePath("../HSplitContainer/Viewport Side/Quest UI"), NodePath("../DevConsole/Free From Intro Command")]
 _transition_duration = 1.0
 _transition_prep_animator = NodePath("AnimationPlayer")
 _transition_animation = "Lost"

@@ -1,26 +1,25 @@
-@tool
 extends Control
 class_name SplitTextureProgressBars
 
-@export var bars: Array[TextureProgressBar]
+@export var bars: Array[ProgressBar]
 
 @export var min_value: float:
     set(value):
-        for bar: TextureProgressBar in bars:
+        for bar: ProgressBar in bars:
             bar.min_value = value
 
         min_value = value
 
 @export var max_value: float = 100.0:
     set(value):
-        for bar: TextureProgressBar in bars:
+        for bar: ProgressBar in bars:
             bar.max_value = value
 
         max_value = value
 
 @export var step: float = 1.0:
     set(value):
-        for bar: TextureProgressBar in bars:
+        for bar: ProgressBar in bars:
             bar.step = value
 
         step = value
@@ -47,12 +46,12 @@ var _noise: Array[float]
 
 func _adjust_bars(delta: float = 1.0) -> void:
     if value == 0:
-        for bar: TextureProgressBar in bars:
+        for bar: ProgressBar in bars:
             bar.value = value
         return
 
     var idx: int = 0
-    for bar: TextureProgressBar in bars:
+    for bar: ProgressBar in bars:
         if value_noise > 0.0:
             if idx >= _noise.size():
                 _noise.append(randf_range(-value_noise, value_noise))

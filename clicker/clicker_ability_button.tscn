@@ -4,12 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://bjrt4u6iulpjm" path="res://clicker/clicker_ability_level_done.png" id="2_1l0q3"]
 [ext_resource type="Texture2D" uid="uid://de6wc7j5ks4f5" path="res://clicker/clicker_ability_level_not_done.png" id="3_y8mex"]
 [ext_resource type="Texture2D" uid="uid://b2ehx14a2sii3" path="res://clicker/clicker_ability_button.png" id="4_1uqpj"]
+[ext_resource type="Texture2D" uid="uid://d08irex16meun" path="res://clicker/clicker_ability_icon_brian.png" id="5_3rb54"]
 [ext_resource type="Texture2D" uid="uid://3dlwlcapmkrh" path="res://clicker/clicker_ability_button_frame.png" id="6_o7e2m"]
 
 [node name="Clicker Ability Button" type="Control" unique_id=324514739 node_paths=PackedStringArray("icon", "title", "level_icons", "cooldown", "buy_cost")]
 custom_minimum_size = Vector2(200, 30)
 layout_mode = 3
 anchors_preset = 0
+offset_right = 200.0
+offset_bottom = 30.0
 mouse_default_cursor_shape = 2
 script = ExtResource("1_3rb54")
 icon = NodePath("Clicker Ability Button Icon")
@@ -26,6 +29,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 42.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_1uqpj")
@@ -36,6 +40,7 @@ layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
 grow_vertical = 2
+texture = ExtResource("5_3rb54")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=466675392]
 layout_mode = 1
@@ -54,6 +59,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(6.016344e-08, 0.29937273, 0.3003368, 1)
 theme_override_font_sizes/font_size = 12
+text = "Mental Gymnastics"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=952486386]
 layout_mode = 2
@@ -109,13 +115,12 @@ size_flags_horizontal = 8
 size_flags_vertical = 0
 
 [node name="Buy Cost" type="Label" parent="MarginContainer" unique_id=892338515]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 theme_override_colors/font_color = Color(0.5451722, 0.06735026, 0.1375876, 1)
 theme_override_font_sizes/font_size = 8
-text = "10000 xp"
+text = "10xp"
 horizontal_alignment = 2
 
 [node name="Clicker Ability Button Frame" type="TextureRect" parent="." unique_id=553969726]
@@ -123,6 +128,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 42.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("6_o7e2m")

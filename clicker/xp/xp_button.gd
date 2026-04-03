@@ -2,11 +2,14 @@ extends Control
 
 @export var _xp_count_label: Label
 @export var _xp_speed_label: Label
-@export var _progress_bar: TextureProgressBar
+@export var _progress_bar: ProgressBar
 @export var _speed_history_msec: int = 5000
 @export var _autoclickers: Array[AutoClicker]
+@export var _button_texture: TextureRect
 
 var _player_dead: bool
+var _click_tween: Tween
+
 
 class GainInfo:
     var time: int
@@ -93,6 +96,13 @@ func _click(efficiency: float = 1.0) -> void:
     var gain: float = __GlobalGameState.xp_click_value * efficiency * (1.0 - __GlobalGameState.boredome)
     __GlobalGameState.xp += gain
     _gain_history.append(GainInfo.new(Time.get_ticks_msec(), gain))
+    
+    if _click_tween and _click_tween.is_running():
+        return
+    else:
+        _click_tween = create_tween()
+        _click_tween.tween_property(_button_texture, "modulate", Color(0.75, 0.75, 0.75, 1.0), 0.032)
+        _click_tween.tween_property(_button_texture, "modulate", Color(1.0, 1.0, 1.0, 1.0), 0.032)
 
 var _update_freq_msec: int = 200
 var _next_update_msec: int

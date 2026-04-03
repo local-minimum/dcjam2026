@@ -1,0 +1,18 @@
+[gd_resource type="ORMMaterial3D" format=3 uid="uid://diwb8tjymr6wb"]
+
+[ext_resource type="Texture2D" uid="uid://un8xvs6515wq" path="res://visual/tiles/bookcase_stylised/bookcase_stylised_albedo.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://bbkr7mckw3af3" path="res://visual/tiles/bookcase_stylised/bookcase_stylised_orm.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://capfwjwpgrv0p" path="res://visual/tiles/bookcase_stylised/bookcase_stylised_normal.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://d0fxaynu35lwj" path="res://visual/tiles/bookcase_stylised/bookcase_stylised_heightmap.png" id="4"]
+
+[resource]
+albedo_texture = ExtResource("1")
+orm_texture = ExtResource("2")
+normal_enabled = true
+normal_scale = 3.0
+normal_texture = ExtResource("3")
+heightmap_enabled = true
+heightmap_deep_parallax = true
+heightmap_min_layers = 8
+heightmap_max_layers = 32
+heightmap_texture = ExtResource("4")

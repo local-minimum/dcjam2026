@@ -62,8 +62,6 @@ shape = SubResource("BoxShape3D_eidof")
 
 [node name="Player" parent="." unique_id=942295760 instance=ExtResource("5_eidof")]
 
-[node name="Floors" type="Node3D" parent="." unique_id=2053274620]
-
 [node name="Foyer" parent="." unique_id=248408387 instance=ExtResource("16_ijayo")]
 
 [node name="Library" parent="." unique_id=1536973768 instance=ExtResource("6_eidof")]

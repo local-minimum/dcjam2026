@@ -1,14 +1,20 @@
 [gd_resource type="Environment" format=3 uid="uid://cab2e1qcby00n"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ily8i"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+[ext_resource type="Texture2D" uid="uid://d5f2oe4677q5" path="res://visual/common/sky_34_2k.png" id="1_k1d67"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_k1d67"]
+panorama = ExtResource("1_k1d67")
+energy_multiplier = 2.0
 
 [sub_resource type="Sky" id="Sky_k1d67"]
-sky_material = SubResource("ProceduralSkyMaterial_ily8i")
+sky_material = SubResource("PanoramaSkyMaterial_k1d67")
 
 [resource]
 background_mode = 2
+background_color = Color(1, 1, 1, 1)
 sky = SubResource("Sky_k1d67")
+reflected_light_source = 2
 tonemap_mode = 2
-glow_enabled = true
+sdfgi_enabled = true
+sdfgi_use_occlusion = true
+adjustment_enabled = true

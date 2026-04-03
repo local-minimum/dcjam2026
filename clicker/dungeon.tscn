@@ -1,6 +1,7 @@
-[gd_scene format=4 uid="uid://bufrvjcwdgi7q"]
+[gd_scene format=3 uid="uid://bufrvjcwdgi7q"]
 
 [ext_resource type="Script" uid="uid://5nd45w6q42kq" path="res://core/dungeon.gd" id="1_6pvhc"]
+[ext_resource type="Environment" uid="uid://cab2e1qcby00n" path="res://clicker/clicker_environment.tres" id="2_eppcp"]
 [ext_resource type="Script" uid="uid://dfqjle1xd7utg" path="res://clicker/battle/entity_collision_join_battle.gd" id="2_sufut"]
 [ext_resource type="PackedScene" uid="uid://dfe2ewygagnw0" path="res://clicker/player_3d.tscn" id="3_sufut"]
 [ext_resource type="PackedScene" uid="uid://dbknfpibyx65f" path="res://clicker/health/health_station.tscn" id="4_1pa7v"]
@@ -9,18 +10,21 @@
 [ext_resource type="PackedScene" uid="uid://df4j8gscil84h" path="res://clicker/models/wall_corner.blend" id="6_qsdn1"]
 [ext_resource type="PackedScene" uid="uid://1u7yq3idj1i" path="res://clicker/models/shredder.tscn" id="7_qmmos"]
 [ext_resource type="PackedScene" uid="uid://b3vfstytefmpx" path="res://clicker/models/dragon.blend" id="8_jorcj"]
-[ext_resource type="Shader" uid="uid://cjso02no5cy8s" path="res://visual/common/base_PBR_shader.gdshader" id="8_n41ta"]
 [ext_resource type="PackedScene" uid="uid://cruxk6l5jm7l1" path="res://clicker/models/wall_portal.blend" id="8_qsdn1"]
-[ext_resource type="Texture2D" uid="uid://cuxkeulgvmbr2" path="res://visual/tiles/stylised_wood_planks/stylised_wooden_planks_baseColor.png" id="9_i6glv"]
 [ext_resource type="Script" uid="uid://dombw6pswxxfq" path="res://clicker/models/dragon.gd" id="9_l3xlb"]
-[ext_resource type="Texture2D" uid="uid://bhej3dgk4n270" path="res://visual/tiles/stylised_wood_planks/stylised_wooden_planks_normal.png" id="10_02l0h"]
-[ext_resource type="Texture2D" uid="uid://ow7owanmhg2b" path="res://visual/tiles/stylised_wood_planks/stylised_wooden_planks_occlusionRoughnessMetallic.png" id="11_wbro4"]
 [ext_resource type="PackedScene" uid="uid://ctar0x0es8uc6" path="res://clicker/models/sideboard.blend" id="12_sm5ll"]
 [ext_resource type="ArrayMesh" uid="uid://b0vlo73s2fd38" path="res://visual/clutter/sculptures/sculpture_triangle.obj" id="13_hm7ry"]
 [ext_resource type="ArrayMesh" uid="uid://ceb8oy4go2no4" path="res://visual/clutter/sculptures/sculpture_walk.obj" id="14_eppcp"]
+[ext_resource type="PackedScene" uid="uid://c7kajudkcl2pl" path="res://clicker/rooms/library_clicker.tscn" id="16_5fxv6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sufut"]
 size = Vector3(75.727066, 99.23596, 0.263)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l3xlb"]
+size = Vector3(1.6708984, 1.7143555, 2.041504)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_l3xlb"]
+height = 0.5
 
 [sub_resource type="QuadMesh" id="QuadMesh_sufut"]
 size = Vector2(2.5, 2.5)
@@ -28,70 +32,79 @@ size = Vector2(2.5, 2.5)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yrdjv"]
 albedo_color = Color(0.31925523, 0.31925526, 0.31925526, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_24q6l"]
-render_priority = 0
-shader = ExtResource("8_n41ta")
-shader_parameter/albedo = Color(1, 1, 1, 1)
-shader_parameter/texture_albedo = ExtResource("9_i6glv")
-shader_parameter/texture_normal = ExtResource("10_02l0h")
-shader_parameter/texture_orm = ExtResource("11_wbro4")
-shader_parameter/normal_scale = 1.0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_2upc0"]
-_surfaces = [{
-"aabb": AABB(-1, -1, -0.1, 2, 2, 0.2),
-"attribute_data": PackedByteArray("ZeYAAP///////wAAZeb/////AAAAAP//AAAAAP////8AAAAAmRn//5kZAAAAAP//AAAAAP///////wAAAAD///////8AAGXm//9l5gAA/////wAAAACZGf//mRkAAAAA"),
-"format": 34896613399,
-"index_count": 36,
-"index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQACAAJAAoACwAJAAgADAANAA4ADwANAAwAEAARABIAEwARABAAFAAVABYAFwAVABQA"),
-"material": SubResource("ShaderMaterial_24q6l"),
-"name": "Mesh",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 24,
-"vertex_data": PackedByteArray("AAAAAAAA/z8AAP//////PwAAAAD///8/AAD//wAA/z///wAAAAD//wAA//8AAP//AAAAAAAA////////AAD/////AAD///8//////wAA/z///wAAAAD/P/////////8/AAAAAP///n/////////+f///AAD///5/AAD//////n8AAAAA////////AAAAAP//AAAAAAAA/////wAA//////////////8/AAD//wAA/z//////AAD/PwAA//////8//3////9/////f////3///////3////9/////f////3//fwAA/38AAP9/AAD/fwAA/3////9/////f////3////9//z//f/8//3//P/9//z////9/////f////3////9/")
-}]
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_l3xlb"]
-height = 0.5
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_l3xlb"]
-size = Vector3(1.6708984, 1.7143555, 2.041504)
-
-[node name="Dungeon" type="Node3D" unique_id=1143420985 node_paths=PackedStringArray("collision_system", "player")]
+[node name="ClickerLevel" type="Node3D" unique_id=1143420985 node_paths=PackedStringArray("collision_system", "player")]
 script = ExtResource("1_6pvhc")
-grid_size = Vector3(2.5, 4.5, 2.5)
+grid_size = Vector3(2, 8, 2)
 collision_system = NodePath("Collision System")
-player = NodePath("Player3d")
+player = NodePath("Player")
 _invoke_cinematic_on_ready = false
 metadata/_custom_type_script = "uid://5nd45w6q42kq"
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1203206045]
+[node name="Misc" type="Node3D" parent="." unique_id=2058052252]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Misc" unique_id=1203206045]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Collision System" type="Node" parent="." unique_id=1467278961]
-script = ExtResource("2_sufut")
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Misc" unique_id=786907947]
+environment = ExtResource("2_eppcp")
 
-[node name="Player3d" parent="." unique_id=942295760 instance=ExtResource("3_sufut")]
-
-[node name="Walls And Floors" type="Node3D" parent="." unique_id=1436493536]
-
-[node name="Floor Collision" type="StaticBody3D" parent="Walls And Floors" unique_id=1804325127]
+[node name="Floor Collision" type="StaticBody3D" parent="Misc" unique_id=1804325127]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -3.75, 0, -18.75)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls And Floors/Floor Collision" unique_id=357102592]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Misc/Floor Collision" unique_id=357102592]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.128643, 18.659729, -0.13185121)
 shape = SubResource("BoxShape3D_sufut")
 
-[node name="Health Station" parent="Walls And Floors" unique_id=847146449 instance=ExtResource("4_1pa7v")]
+[node name="Player" parent="." unique_id=942295760 instance=ExtResource("3_sufut")]
+
+[node name="Interactables" type="Node3D" parent="." unique_id=1041109397]
+
+[node name="dragon" parent="Interactables" unique_id=421680519 instance=ExtResource("8_jorcj")]
+transform = Transform3D(0.63346183, 0, 0.7737739, 0, 1, 0, -0.7737739, -1.7763568e-15, 0.63346183, 4.756953, 0.49852723, -17.230986)
+script = ExtResource("9_l3xlb")
+
+[node name="trigger area" type="Area3D" parent="Interactables/dragon" unique_id=1164094524]
+collision_mask = 512
+input_ray_pickable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactables/dragon/trigger area" unique_id=530802044]
+transform = Transform3D(1.0000011, 0, -1.7881393e-07, 0, 1, 0, 1.7881393e-07, 0, 1.0000011, 0.33544922, 0.39233398, 0.055909157)
+shape = SubResource("BoxShape3D_l3xlb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Interactables/dragon" unique_id=284583298]
+transform = Transform3D(-0.62608695, -6.816821e-08, 0.77975345, 0, -1, -8.742278e-08, 0.77975345, -5.4734254e-08, 0.62608695, -0.051303864, -0.2535128, 0.055480003)
+mesh = SubResource("CylinderMesh_l3xlb")
+
+[node name="Health Station" parent="Interactables" unique_id=847146449 instance=ExtResource("4_1pa7v")]
 transform = Transform3D(0.14546137, 0, -0.9893638, 0, 1, 0, 0.9893638, 0, 0.14546137, 7.908676, 0, -7.6862793)
 
-[node name="Healing Trigger" parent="Walls And Floors/Health Station" index="0" unique_id=97075159]
+[node name="Healing Trigger" parent="Interactables/Health Station" index="0" unique_id=97075159]
 transform = Transform3D(0.5421189, 0, -0.84030175, 0, 1, 0, 0.84030175, 0, 0.5421189, 0, 0, 0)
 
-[node name="Healing Spotting" parent="Walls And Floors/Health Station" index="1" unique_id=15656062]
+[node name="Healing Spotting" parent="Interactables/Health Station" index="1" unique_id=15656062]
 transform = Transform3D(0.9773459, 0, -0.21164894, 0, 1, 0, 0.21164894, 0, 0.9773459, 0, 0, 0)
+
+[node name="Shredder" parent="Interactables" unique_id=1014609165 instance=ExtResource("7_qmmos")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 2.5, 0, 2.875)
+
+[node name="Enemies" type="Node3D" parent="." unique_id=930926840]
+
+[node name="Enemy" parent="Enemies" unique_id=286162732 instance=ExtResource("4_yrdjv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 0, -7.5)
+
+[node name="Enemy2" parent="Enemies" unique_id=1378578119 instance=ExtResource("4_yrdjv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -5)
+
+[node name="Enemy3" parent="Enemies" unique_id=1288023106 instance=ExtResource("4_yrdjv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 0)
+
+[node name="Enemy4" parent="Enemies" unique_id=1300790365 instance=ExtResource("4_yrdjv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+
+[node name="Library" parent="." unique_id=1536973768 instance=ExtResource("16_5fxv6")]
+
+[node name="Walls And Floors" type="Node3D" parent="." unique_id=1436493536]
 
 [node name="Foyaer" type="Node3D" parent="Walls And Floors" unique_id=1211992558]
 
@@ -312,323 +325,6 @@ transform = Transform3D(-1, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -1, -5, 
 
 [node name="wall_corner3" parent="Walls And Floors/Foyaer" unique_id=161458740 instance=ExtResource("6_qsdn1")]
 transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 8.75, 0, -7.5)
-
-[node name="Shredder" parent="Walls And Floors/Foyaer" unique_id=1014609165 instance=ExtResource("7_qmmos")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 2.5, 0, 2.875)
-
-[node name="Library" type="Node3D" parent="Walls And Floors" unique_id=267323684]
-
-[node name="Floor20" type="MeshInstance3D" parent="Walls And Floors/Library" unique_id=1191625710]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2.5, 0, -10)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor21" type="MeshInstance3D" parent="Walls And Floors/Library" unique_id=874935858]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2.5, 0, -12.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor22" type="MeshInstance3D" parent="Walls And Floors/Library" unique_id=131331374]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2.5, 0, -15)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor23" type="MeshInstance3D" parent="Walls And Floors/Library" unique_id=1255459115]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -5, 0, -15)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor24" type="MeshInstance3D" parent="Walls And Floors/Library" unique_id=134829558]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -5, 0, -12.5)
-mesh = SubResource("ArrayMesh_2upc0")
-
-[node name="Floor25" type="MeshInstance3D" parent="Walls And Floors/Library" unique_id=593891084]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -5, 0, -10)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor26" type="MeshInstance3D" parent="Walls And Floors/Library" unique_id=1126449030]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -7.5, 0, -10)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor27" type="MeshInstance3D" parent="Walls And Floors/Library" unique_id=1656106106]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -7.5, 0, -12.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor28" type="MeshInstance3D" parent="Walls And Floors/Library" unique_id=1901728647]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -7.5, 0, -15)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor29" type="MeshInstance3D" parent="Walls And Floors/Library" unique_id=232921982]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -10, 0, -15)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor30" type="MeshInstance3D" parent="Walls And Floors/Library" unique_id=2062125615]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -10, 0, -12.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor31" type="MeshInstance3D" parent="Walls And Floors/Library" unique_id=1042209135]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -10, 0, -10)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor32" type="MeshInstance3D" parent="Walls And Floors/Library" unique_id=450827303]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -10, 0, -7.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor33" type="MeshInstance3D" parent="Walls And Floors/Library" unique_id=1758217189]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -7.5, 0, -7.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor34" type="MeshInstance3D" parent="Walls And Floors/Library" unique_id=634682201]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -7.5, 0, -5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor35" type="MeshInstance3D" parent="Walls And Floors/Library" unique_id=597317680]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -10, 0, -5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor36" type="MeshInstance3D" parent="Walls And Floors/Library" unique_id=1239171773]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -12.5, 0, -5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor37" type="MeshInstance3D" parent="Walls And Floors/Library" unique_id=1102250797]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -12.5, 0, -7.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor38" type="MeshInstance3D" parent="Walls And Floors/Library" unique_id=875008422]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -12.5, 0, -10)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor39" type="MeshInstance3D" parent="Walls And Floors/Library" unique_id=1931918757]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -12.5, 0, -12.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor40" type="MeshInstance3D" parent="Walls And Floors/Library" unique_id=1824702295]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -12.5, 0, -15)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor41" type="MeshInstance3D" parent="Walls And Floors/Library" unique_id=1925647718]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -15, 0, -15)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor42" type="MeshInstance3D" parent="Walls And Floors/Library" unique_id=790802734]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -15, 0, -12.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor43" type="MeshInstance3D" parent="Walls And Floors/Library" unique_id=394909386]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -15, 0, -10)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor44" type="MeshInstance3D" parent="Walls And Floors/Library" unique_id=354162003]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -15, 0, -7.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor45" type="MeshInstance3D" parent="Walls And Floors/Library" unique_id=718024844]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -15, 0, -5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor46" type="MeshInstance3D" parent="Walls And Floors/Library" unique_id=1432062065]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -17.5, 0, -5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor47" type="MeshInstance3D" parent="Walls And Floors/Library" unique_id=509692420]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -17.5, 0, -7.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor48" type="MeshInstance3D" parent="Walls And Floors/Library" unique_id=764537029]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -17.5, 0, -10)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor49" type="MeshInstance3D" parent="Walls And Floors/Library" unique_id=1427644361]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -17.5, 0, -12.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor50" type="MeshInstance3D" parent="Walls And Floors/Library" unique_id=347927091]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -17.5, 0, -15)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor51" type="MeshInstance3D" parent="Walls And Floors/Library" unique_id=1656354904]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -20, 0, -5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor52" type="MeshInstance3D" parent="Walls And Floors/Library" unique_id=326569352]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -20, 0, -7.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor53" type="MeshInstance3D" parent="Walls And Floors/Library" unique_id=1919169281]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -20, 0, -10)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor54" type="MeshInstance3D" parent="Walls And Floors/Library" unique_id=1287777224]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -20, 0, -12.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor55" type="MeshInstance3D" parent="Walls And Floors/Library" unique_id=287431260]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -20, 0, -15)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor56" type="MeshInstance3D" parent="Walls And Floors/Library" unique_id=1626302704]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -22.5, 0, -5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor57" type="MeshInstance3D" parent="Walls And Floors/Library" unique_id=1921327445]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -22.5, 0, -7.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor58" type="MeshInstance3D" parent="Walls And Floors/Library" unique_id=1780860681]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -22.5, 0, -10)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor59" type="MeshInstance3D" parent="Walls And Floors/Library" unique_id=1944883424]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -22.5, 0, -12.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor60" type="MeshInstance3D" parent="Walls And Floors/Library" unique_id=1869281601]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -22.5, 0, -15)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="wall18" parent="Walls And Floors/Library" unique_id=1924661103 instance=ExtResource("5_w13no")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -5, 0, -16.25)
-
-[node name="wall19" parent="Walls And Floors/Library" unique_id=199592870 instance=ExtResource("5_w13no")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -7.5, 0, -16.25)
-
-[node name="wall20" parent="Walls And Floors/Library" unique_id=1254076598 instance=ExtResource("5_w13no")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -10, 0, -16.25)
-
-[node name="wall21" parent="Walls And Floors/Library" unique_id=130000532 instance=ExtResource("5_w13no")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -12.5, 0, -16.25)
-
-[node name="wall22" parent="Walls And Floors/Library" unique_id=842743298 instance=ExtResource("5_w13no")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -15, 0, -16.25)
-
-[node name="wall23" parent="Walls And Floors/Library" unique_id=1610316201 instance=ExtResource("5_w13no")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -17.5, 0, -16.25)
-
-[node name="wall32" parent="Walls And Floors/Library" unique_id=937381322 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -23.75, 0, -12.5)
-
-[node name="wall33" parent="Walls And Floors/Library" unique_id=258971842 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -23.75, 0, -10)
-
-[node name="wall34" parent="Walls And Floors/Library" unique_id=89891593 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -23.75, 0, -7.5)
-
-[node name="wall35" parent="Walls And Floors/Library" unique_id=1954661270 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -1.25, 0, -12.5)
-
-[node name="wall36" parent="Walls And Floors/Library" unique_id=2143493858 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -1.25, 0, -10)
-
-[node name="wall37" parent="Walls And Floors/Library" unique_id=301084218 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -8.75, 0, -12.5)
-
-[node name="wall38" parent="Walls And Floors/Library" unique_id=1915889249 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -8.75, 0, -10)
-
-[node name="wall39" parent="Walls And Floors/Library" unique_id=1678649377 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -8.75, 0, -7.5)
-
-[node name="wall40" parent="Walls And Floors/Library" unique_id=1126736484 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -11.25, 0, -12.5)
-
-[node name="wall41" parent="Walls And Floors/Library" unique_id=386696792 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -11.25, 0, -10)
-
-[node name="wall42" parent="Walls And Floors/Library" unique_id=2019481303 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -11.25, 0, -7.5)
-
-[node name="wall43" parent="Walls And Floors/Library" unique_id=994521869 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -16.25, 0, -12.5)
-
-[node name="wall44" parent="Walls And Floors/Library" unique_id=854394089 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -16.25, 0, -10)
-
-[node name="wall45" parent="Walls And Floors/Library" unique_id=1458698415 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -16.25, 0, -7.5)
-
-[node name="wall46" parent="Walls And Floors/Library" unique_id=1585292982 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -18.75, 0, -12.5)
-
-[node name="wall47" parent="Walls And Floors/Library" unique_id=643871588 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -18.75, 0, -10)
-
-[node name="wall48" parent="Walls And Floors/Library" unique_id=1227493572 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -18.75, 0, -7.5)
-
-[node name="wall25" parent="Walls And Floors/Library" unique_id=1765375470 instance=ExtResource("5_w13no")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -7.5, 0, -3.75)
-
-[node name="wall26" parent="Walls And Floors/Library" unique_id=1152617565 instance=ExtResource("5_w13no")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -10, 0, -3.75)
-
-[node name="wall27" parent="Walls And Floors/Library" unique_id=1966735015 instance=ExtResource("5_w13no")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -12.5, 0, -3.75)
-
-[node name="wall28" parent="Walls And Floors/Library" unique_id=539643213 instance=ExtResource("5_w13no")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -15, 0, -3.75)
-
-[node name="wall29" parent="Walls And Floors/Library" unique_id=642488421 instance=ExtResource("5_w13no")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -17.5, 0, -3.75)
-
-[node name="wall30" parent="Walls And Floors/Library" unique_id=1038203244 instance=ExtResource("5_w13no")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -20, 0, -3.75)
-
-[node name="wall31" parent="Walls And Floors/Library" unique_id=1061662151 instance=ExtResource("5_w13no")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -22.5, 0, -3.75)
-
-[node name="wall24" parent="Walls And Floors/Library" unique_id=1042997235 instance=ExtResource("5_w13no")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -22.5, 0, -16.25)
-
-[node name="wall_corner2" parent="Walls And Floors/Library" unique_id=235654208 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, -2.5, 0, -16.25)
-
-[node name="wall_corner3" parent="Walls And Floors/Library" unique_id=616623462 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -23.75, 0, -15)
-
-[node name="wall_corner4" parent="Walls And Floors/Library" unique_id=592692470 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(-4.371138e-08, 0, -1, 0, 1, 0, 1, 0, -4.371138e-08, -23.75, 0, -5)
-
-[node name="wall_portal" parent="Walls And Floors/Library" unique_id=1757948885 instance=ExtResource("8_qsdn1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -16.25)
-
-[node name="wall_portal2" parent="Walls And Floors/Library" unique_id=2122526181 instance=ExtResource("8_qsdn1")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.25, 0, -15)
 
 [node name="Lounge" type="Node3D" parent="Walls And Floors" unique_id=1390729805]
 
@@ -1129,7 +825,7 @@ mesh = SubResource("QuadMesh_sufut")
 surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
 
 [node name="Floor36" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=1288518231]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.5, 0, -17.5)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.4986763, 0, -17.5)
 mesh = SubResource("QuadMesh_sufut")
 surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
 
@@ -1167,22 +863,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 7.5, 0, -17.5)
 mesh = SubResource("QuadMesh_sufut")
 surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape/Floor45" unique_id=284583298]
-transform = Transform3D(0.2067507, -8.553389e-08, 0.9783937, -0.9783937, 2.5636666e-08, 0.2067507, -4.2766946e-08, -1, -7.838542e-08, -2.7326183, -0.3438568, 0.24501441)
-mesh = SubResource("CylinderMesh_l3xlb")
-
-[node name="dragon" parent="Walls And Floors/Cubicle Landscape/Floor45/MeshInstance3D" unique_id=421680519 instance=ExtResource("8_jorcj")]
-transform = Transform3D(-0.62608683, 0, 0.7797533, -6.81682e-08, -1, -5.473425e-08, 0.7797533, -8.742278e-08, 0.62608683, -0.075381756, -0.2535128, 0.0052700043)
-script = ExtResource("9_l3xlb")
-
-[node name="trigger area" type="Area3D" parent="Walls And Floors/Cubicle Landscape/Floor45/MeshInstance3D/dragon" unique_id=1164094524]
-collision_mask = 512
-input_ray_pickable = false
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls And Floors/Cubicle Landscape/Floor45/MeshInstance3D/dragon/trigger area" unique_id=530802044]
-transform = Transform3D(1.0000011, 0, -1.7881393e-07, 0, 1, 0, 1.7881393e-07, 0, 1.0000011, 0.33544922, 0.39233398, 0.055909157)
-shape = SubResource("BoxShape3D_l3xlb")
 
 [node name="Floor46" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=175470951]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 7.5, 0, -20)
@@ -2441,18 +2121,6 @@ transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -
 mesh = SubResource("QuadMesh_sufut")
 surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
 
-[node name="Enemy" parent="." unique_id=286162732 instance=ExtResource("4_yrdjv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 0, -7.5)
-
-[node name="Enemy2" parent="." unique_id=1378578119 instance=ExtResource("4_yrdjv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -5)
-
-[node name="Enemy3" parent="." unique_id=1288023106 instance=ExtResource("4_yrdjv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 0)
-
-[node name="Enemy4" parent="." unique_id=1300790365 instance=ExtResource("4_yrdjv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
-
 [node name="wall_portal" parent="." unique_id=1883095524 instance=ExtResource("8_qsdn1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.75)
 
@@ -2479,6 +2147,322 @@ mesh = ExtResource("13_hm7ry")
 transform = Transform3D(0.016946416, 0, -0.9998564, 0, 1, 0, 0.9998564, 0, 0.016946416, -2.4293823, 0.024633849, -8.031372)
 mesh = ExtResource("14_eppcp")
 
-[connection signal="area_entered" from="Walls And Floors/Cubicle Landscape/Floor45/MeshInstance3D/dragon/trigger area" to="Walls And Floors/Cubicle Landscape/Floor45/MeshInstance3D/dragon" method="_on_trigger_area_area_entered"]
+[node name="Collision System" type="Node" parent="." unique_id=1467278961]
+script = ExtResource("2_sufut")
 
-[editable path="Walls And Floors/Health Station"]
+[node name="OLD_NODES" type="Node3D" parent="." unique_id=1843782472]
+visible = false
+
+[node name="Library" type="Node3D" parent="OLD_NODES" unique_id=267323684]
+
+[node name="Floor20" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=1191625710]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2.5, 0, -10)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor21" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=874935858]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2.5, 0, -12.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor22" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=131331374]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2.5, 0, -15)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor23" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=1255459115]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -5, 0, -15)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor25" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=593891084]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -5, 0, -10)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor26" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=1126449030]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -7.5, 0, -10)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor27" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=1656106106]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -7.5, 0, -12.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor28" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=1901728647]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -7.5, 0, -15)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor29" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=232921982]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -10, 0, -15)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor30" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=2062125615]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -10, 0, -12.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor31" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=1042209135]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -10, 0, -10)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor32" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=450827303]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -10, 0, -7.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor33" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=1758217189]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -7.5, 0, -7.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor34" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=634682201]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -7.5, 0, -5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor35" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=597317680]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -10, 0, -5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor36" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=1239171773]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -12.5, 0, -5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor37" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=1102250797]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -12.5, 0, -7.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor38" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=875008422]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -12.5, 0, -10)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor39" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=1931918757]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -12.5, 0, -12.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor40" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=1824702295]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -12.5, 0, -15)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor41" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=1925647718]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -15, 0, -15)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor42" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=790802734]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -15, 0, -12.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor43" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=394909386]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -15, 0, -10)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor44" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=354162003]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -15, 0, -7.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor45" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=718024844]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -15, 0, -5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor46" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=1432062065]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -17.5, 0, -5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor47" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=509692420]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -17.5, 0, -7.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor48" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=764537029]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -17.5, 0, -10)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor49" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=1427644361]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -17.5, 0, -12.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor50" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=347927091]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -17.5, 0, -15)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor51" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=1656354904]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -20, 0, -5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor52" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=326569352]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -20, 0, -7.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor53" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=1919169281]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -20, 0, -10)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor54" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=1287777224]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -20, 0, -12.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor55" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=287431260]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -20, 0, -15)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor56" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=1626302704]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -22.5, 0, -5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor57" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=1921327445]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -22.5, 0, -7.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor58" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=1780860681]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -22.5, 0, -10)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor59" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=1944883424]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -22.5, 0, -12.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor60" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=1869281601]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -22.5, 0, -15)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="wall18" parent="OLD_NODES/Library" unique_id=1924661103 instance=ExtResource("5_w13no")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -5, 0, -16.25)
+
+[node name="wall19" parent="OLD_NODES/Library" unique_id=199592870 instance=ExtResource("5_w13no")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -7.5, 0, -16.25)
+
+[node name="wall20" parent="OLD_NODES/Library" unique_id=1254076598 instance=ExtResource("5_w13no")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -10, 0, -16.25)
+
+[node name="wall21" parent="OLD_NODES/Library" unique_id=130000532 instance=ExtResource("5_w13no")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -12.5, 0, -16.25)
+
+[node name="wall22" parent="OLD_NODES/Library" unique_id=842743298 instance=ExtResource("5_w13no")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -15, 0, -16.25)
+
+[node name="wall23" parent="OLD_NODES/Library" unique_id=1610316201 instance=ExtResource("5_w13no")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -17.5, 0, -16.25)
+
+[node name="wall32" parent="OLD_NODES/Library" unique_id=937381322 instance=ExtResource("5_w13no")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -23.75, 0, -12.5)
+
+[node name="wall33" parent="OLD_NODES/Library" unique_id=258971842 instance=ExtResource("5_w13no")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -23.75, 0, -10)
+
+[node name="wall34" parent="OLD_NODES/Library" unique_id=89891593 instance=ExtResource("5_w13no")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -23.75, 0, -7.5)
+
+[node name="wall35" parent="OLD_NODES/Library" unique_id=1954661270 instance=ExtResource("5_w13no")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -1.25, 0, -12.5)
+
+[node name="wall36" parent="OLD_NODES/Library" unique_id=2143493858 instance=ExtResource("5_w13no")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -1.25, 0, -10)
+
+[node name="wall37" parent="OLD_NODES/Library" unique_id=301084218 instance=ExtResource("5_w13no")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -8.75, 0, -12.5)
+
+[node name="wall38" parent="OLD_NODES/Library" unique_id=1915889249 instance=ExtResource("5_w13no")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -8.75, 0, -10)
+
+[node name="wall39" parent="OLD_NODES/Library" unique_id=1678649377 instance=ExtResource("5_w13no")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -8.75, 0, -7.5)
+
+[node name="wall40" parent="OLD_NODES/Library" unique_id=1126736484 instance=ExtResource("5_w13no")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -11.25, 0, -12.5)
+
+[node name="wall41" parent="OLD_NODES/Library" unique_id=386696792 instance=ExtResource("5_w13no")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -11.25, 0, -10)
+
+[node name="wall42" parent="OLD_NODES/Library" unique_id=2019481303 instance=ExtResource("5_w13no")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -11.25, 0, -7.5)
+
+[node name="wall43" parent="OLD_NODES/Library" unique_id=994521869 instance=ExtResource("5_w13no")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -16.25, 0, -12.5)
+
+[node name="wall44" parent="OLD_NODES/Library" unique_id=854394089 instance=ExtResource("5_w13no")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -16.25, 0, -10)
+
+[node name="wall45" parent="OLD_NODES/Library" unique_id=1458698415 instance=ExtResource("5_w13no")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -16.25, 0, -7.5)
+
+[node name="wall46" parent="OLD_NODES/Library" unique_id=1585292982 instance=ExtResource("5_w13no")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -18.75, 0, -12.5)
+
+[node name="wall47" parent="OLD_NODES/Library" unique_id=643871588 instance=ExtResource("5_w13no")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -18.75, 0, -10)
+
+[node name="wall48" parent="OLD_NODES/Library" unique_id=1227493572 instance=ExtResource("5_w13no")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -18.75, 0, -7.5)
+
+[node name="wall25" parent="OLD_NODES/Library" unique_id=1765375470 instance=ExtResource("5_w13no")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -7.5, 0, -3.75)
+
+[node name="wall26" parent="OLD_NODES/Library" unique_id=1152617565 instance=ExtResource("5_w13no")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -10, 0, -3.75)
+
+[node name="wall27" parent="OLD_NODES/Library" unique_id=1966735015 instance=ExtResource("5_w13no")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -12.5, 0, -3.75)
+
+[node name="wall28" parent="OLD_NODES/Library" unique_id=539643213 instance=ExtResource("5_w13no")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -15, 0, -3.75)
+
+[node name="wall29" parent="OLD_NODES/Library" unique_id=642488421 instance=ExtResource("5_w13no")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -17.5, 0, -3.75)
+
+[node name="wall30" parent="OLD_NODES/Library" unique_id=1038203244 instance=ExtResource("5_w13no")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -20, 0, -3.75)
+
+[node name="wall31" parent="OLD_NODES/Library" unique_id=1061662151 instance=ExtResource("5_w13no")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -22.5, 0, -3.75)
+
+[node name="wall24" parent="OLD_NODES/Library" unique_id=1042997235 instance=ExtResource("5_w13no")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -22.5, 0, -16.25)
+
+[node name="wall_corner2" parent="OLD_NODES/Library" unique_id=235654208 instance=ExtResource("6_qsdn1")]
+transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, -2.5, 0, -16.25)
+
+[node name="wall_corner3" parent="OLD_NODES/Library" unique_id=616623462 instance=ExtResource("6_qsdn1")]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -23.75, 0, -15)
+
+[node name="wall_corner4" parent="OLD_NODES/Library" unique_id=592692470 instance=ExtResource("6_qsdn1")]
+transform = Transform3D(-4.371138e-08, 0, -1, 0, 1, 0, 1, 0, -4.371138e-08, -23.75, 0, -5)
+
+[node name="wall_portal" parent="OLD_NODES/Library" unique_id=1757948885 instance=ExtResource("8_qsdn1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -16.25)
+
+[node name="wall_portal2" parent="OLD_NODES/Library" unique_id=2122526181 instance=ExtResource("8_qsdn1")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.25, 0, -15)
+
+[connection signal="area_entered" from="Interactables/dragon/trigger area" to="Interactables/dragon" method="_on_trigger_area_area_entered"]
+
+[editable path="Interactables/Health Station"]

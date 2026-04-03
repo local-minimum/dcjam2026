@@ -13,6 +13,7 @@ sky_material = SubResource("PanoramaSkyMaterial_k1d67")
 background_mode = 2
 background_color = Color(1, 1, 1, 1)
 sky = SubResource("Sky_k1d67")
+sky_rotation = Vector3(0, 2.5411994, 0)
 reflected_light_source = 2
 tonemap_mode = 2
 sdfgi_enabled = true

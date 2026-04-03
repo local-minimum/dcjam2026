@@ -4,7 +4,7 @@ extends Node
 @export var _multi_tasking: ClickerAbilityData
 @export var _smarts: ClickerAbilityData
 
-@export var _memory_palace_levels: Array[int] = [10, 50, 100, 200, 1000, 10000, 100000]
+@export var _memory_palace_levels: Array[int] = [20, 70, 130, 240, 1100, 11000, 120000]
 @export var _multi_tasking_levels: Array[int] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 @export var _smarts_levels: Array[int] = [1, 2, 4, 8, 16, 32, 64]
 

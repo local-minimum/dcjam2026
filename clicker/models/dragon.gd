@@ -8,6 +8,9 @@ const DISPOSE_QUEST_ID: String = "dispose-dragons"
 
 static var _dragons_found: int = 0
 
+static func reset_dragons_found() -> void:
+    _dragons_found = 0
+
 var consumed: bool
 func _on_trigger_area_area_entered(area: Area3D) -> void:
     if consumed:

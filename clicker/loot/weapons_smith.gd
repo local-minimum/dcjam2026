@@ -169,13 +169,10 @@ func assign_icon(weapon: Weapon, size: String = "128") -> bool:
         push_error("There's no folder name for %s's base" % [weapon])
         return false
 
-    var path: String = ("%s/%s/%s_%s_%s_%s.png" % [
+    var path: String = ("%s/%s/%s" % [
         _ICON_RES_ROOT,
         folder,
-        Weapon.Base.find_key(weapon.get_base()),
-        Weapon.Quality.find_key(weapon.get_quality()),
-        Weapon.Mat.find_key(weapon.get_mat()),
-        size,
+        weapon.get_image_filename(size),
     ]).to_lower()
 
     var icon: Texture2D = load(path)

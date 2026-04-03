@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://gymwyj1tdt2u" path="res://core/entities/moving_entity_base.gd" id="1_j8upp"]
 [ext_resource type="Script" uid="uid://cdamg3aelw5yy" path="res://clicker/stationary_enemy.gd" id="2_pxpk6"]
 [ext_resource type="Resource" uid="uid://b8j1yn4hsyefl" path="res://clicker/enemies/buckley_900.tres" id="3_j8upp"]
+[ext_resource type="PackedScene" uid="uid://cjupamq565bgs" path="res://clicker/enemies/marker_lvl3.tscn" id="4_pxpk6"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_1pa7v"]
 height = 2.6958008
@@ -26,3 +27,5 @@ data = ExtResource("3_j8upp")
 type = 2
 entity_root = NodePath("..")
 detection_areas = [NodePath("../Detection Area")]
+
+[node name="Marker III" parent="." unique_id=1119820133 instance=ExtResource("4_pxpk6")]

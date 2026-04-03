@@ -107,6 +107,8 @@ func increase_ability_level(ability_id: String) -> void:
 var _silence_emits: bool
 
 func reset_day_progress() -> void:
+    Dragon.reset_dragons_found()
+
     _unlocked_clicker_abilities.clear()
 
     _silence_emits = true

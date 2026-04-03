@@ -5,23 +5,32 @@
 [ext_resource type="Script" uid="uid://dfqjle1xd7utg" path="res://clicker/battle/entity_collision_join_battle.gd" id="2_sufut"]
 [ext_resource type="PackedScene" uid="uid://dfe2ewygagnw0" path="res://clicker/player_3d.tscn" id="3_sufut"]
 [ext_resource type="PackedScene" uid="uid://dbknfpibyx65f" path="res://clicker/health/health_station.tscn" id="4_1pa7v"]
-[ext_resource type="PackedScene" uid="uid://bui680ugvj0rj" path="res://clicker/test_enemy.tscn" id="4_yrdjv"]
-[ext_resource type="PackedScene" uid="uid://b8ce50tuokndq" path="res://clicker/models/wall.blend" id="5_w13no"]
-[ext_resource type="PackedScene" uid="uid://df4j8gscil84h" path="res://clicker/models/wall_corner.blend" id="6_qsdn1"]
 [ext_resource type="PackedScene" uid="uid://1u7yq3idj1i" path="res://clicker/models/shredder.tscn" id="7_qmmos"]
 [ext_resource type="PackedScene" uid="uid://b3vfstytefmpx" path="res://clicker/models/dragon.blend" id="8_jorcj"]
-[ext_resource type="PackedScene" uid="uid://cruxk6l5jm7l1" path="res://clicker/models/wall_portal.blend" id="8_qsdn1"]
 [ext_resource type="Script" uid="uid://dombw6pswxxfq" path="res://clicker/models/dragon.gd" id="9_l3xlb"]
 [ext_resource type="PackedScene" uid="uid://cc57vppgoo5yt" path="res://clicker/rooms/foyer_clicker.tscn" id="9_ltlon"]
 [ext_resource type="PackedScene" uid="uid://dtk2ojsopxo8u" path="res://clicker/rooms/cubicles_clicker.tscn" id="11_n41ta"]
+[ext_resource type="PackedScene" uid="uid://4kypb7erth4s" path="res://clicker/enemies/buckley_500.tscn" id="11_wbro4"]
+[ext_resource type="PackedScene" uid="uid://cp1smxbjpbolo" path="res://clicker/enemies/tintron_mk1.tscn" id="12_24q6l"]
 [ext_resource type="PackedScene" uid="uid://ctar0x0es8uc6" path="res://clicker/models/sideboard.blend" id="12_sm5ll"]
+[ext_resource type="PackedScene" uid="uid://bxsolwwd7avg6" path="res://clicker/enemies/ironosaurus.tscn" id="13_2upc0"]
 [ext_resource type="ArrayMesh" uid="uid://b0vlo73s2fd38" path="res://visual/clutter/sculptures/sculpture_triangle.obj" id="13_hm7ry"]
+[ext_resource type="PackedScene" uid="uid://dy8nc6drfd83y" path="res://clicker/enemies/b_ore.tscn" id="14_24q6l"]
 [ext_resource type="ArrayMesh" uid="uid://ceb8oy4go2no4" path="res://visual/clutter/sculptures/sculpture_walk.obj" id="14_eppcp"]
 [ext_resource type="PackedScene" uid="uid://c1kmuoujwaipa" path="res://clicker/rooms/atrium_clicker.tscn" id="14_i6glv"]
 [ext_resource type="PackedScene" uid="uid://cgl7x0ttstr4c" path="res://clicker/rooms/corridor_clicker.tscn" id="15_02l0h"]
+[ext_resource type="PackedScene" uid="uid://dhvl02rm22akm" path="res://clicker/enemies/tintron_mk2.tscn" id="15_4ftrl"]
 [ext_resource type="PackedScene" uid="uid://c7kajudkcl2pl" path="res://clicker/rooms/library_clicker.tscn" id="16_5fxv6"]
+[ext_resource type="PackedScene" uid="uid://dt7wtsdjt4iuq" path="res://clicker/enemies/ingomatic_v2.tscn" id="16_irgg2"]
 [ext_resource type="PackedScene" uid="uid://dscg0fk4fioab" path="res://clicker/rooms/outside_clicker.tscn" id="16_wbro4"]
 [ext_resource type="PackedScene" uid="uid://cnm0mmuj8qs82" path="res://clicker/rooms/padded_cell_clicker.tscn" id="17_24q6l"]
+[ext_resource type="PackedScene" uid="uid://ba0pshnkbqejx" path="res://clicker/enemies/buckley_600.tscn" id="17_kkodl"]
+[ext_resource type="PackedScene" uid="uid://dwe51gg6lfa0k" path="res://clicker/enemies/buckley_900.tscn" id="18_xkxrh"]
+[ext_resource type="PackedScene" uid="uid://b1x8k8a5vndoq" path="res://clicker/enemies/d_ore.tscn" id="19_5s7a7"]
+[ext_resource type="PackedScene" uid="uid://jj6xxf1ur6sm" path="res://clicker/enemies/goldiraptor.tscn" id="20_fivls"]
+[ext_resource type="PackedScene" uid="uid://ihuyeodrof8q" path="res://clicker/enemies/c_ore.tscn" id="21_xkxrh"]
+[ext_resource type="PackedScene" uid="uid://bk1novtq2fqjb" path="res://clicker/enemies/brassodon.tscn" id="22_5s7a7"]
+[ext_resource type="PackedScene" uid="uid://8caxly5htdpe" path="res://clicker/enemies/ingomatic_v3.tscn" id="23_fivls"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sufut"]
 size = Vector3(75.727066, 99.23596, 0.263)
@@ -32,11 +41,14 @@ size = Vector3(1.6708984, 1.7143555, 2.041504)
 [sub_resource type="CylinderMesh" id="CylinderMesh_l3xlb"]
 height = 0.5
 
-[sub_resource type="QuadMesh" id="QuadMesh_sufut"]
-size = Vector2(2.5, 2.5)
+[sub_resource type="BoxShape3D" id="BoxShape3D_kkodl"]
+size = Vector3(3.975174, 3.0374146, 3.8685493)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yrdjv"]
-albedo_color = Color(0.31925523, 0.31925526, 0.31925526, 1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_4ftrl"]
+size = Vector3(3.8717346, 3.0374146, 3.7676163)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_irgg2"]
+size = Vector3(2.056305, 3.0374146, 3.9189835)
 
 [node name="ClickerLevel" type="Node3D" unique_id=1143420985 node_paths=PackedStringArray("collision_system", "player")]
 script = ExtResource("1_6pvhc")
@@ -80,7 +92,7 @@ mesh = ExtResource("14_eppcp")
 [node name="Interactables" type="Node3D" parent="." unique_id=1041109397]
 
 [node name="dragon" parent="Interactables" unique_id=421680519 instance=ExtResource("8_jorcj")]
-transform = Transform3D(0.5834562, 1.7158289e-15, -0.81214464, 0, 1, 0, 0.81214464, 4.597551e-16, 0.5834562, 6.6888876, 0.5, -11.241912)
+transform = Transform3D(-0.19917981, -1.3764798e-15, 0.97996294, 0, 1, 0, -0.97996294, -1.1228298e-15, -0.19917981, 8.077395, 0.5, -9.738616)
 script = ExtResource("9_l3xlb")
 
 [node name="trigger area" type="Area3D" parent="Interactables/dragon" unique_id=1164094524]
@@ -95,34 +107,256 @@ shape = SubResource("BoxShape3D_l3xlb")
 transform = Transform3D(-0.62608695, -6.816821e-08, 0.77975345, 0, -1, -8.742278e-08, 0.77975345, -5.4734254e-08, 0.62608695, -0.051303864, -0.2535128, 0.055480003)
 mesh = SubResource("CylinderMesh_l3xlb")
 
+[node name="dragon3" parent="Interactables" unique_id=491939050 instance=ExtResource("8_jorcj")]
+transform = Transform3D(-0.7293986, -1.7723313e-15, 0.68408895, 0, 1, 0, -0.68408895, -1.1952048e-16, -0.7293986, 6.2047377, 0.50024414, -25.683002)
+script = ExtResource("9_l3xlb")
+
+[node name="trigger area" type="Area3D" parent="Interactables/dragon3" unique_id=716907318]
+collision_mask = 512
+input_ray_pickable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactables/dragon3/trigger area" unique_id=976590730]
+transform = Transform3D(1.0000011, 0, -1.7881393e-07, 0, 1, 0, 1.7881393e-07, 0, 1.0000011, 0.33544922, 0.39233398, 0.055909157)
+shape = SubResource("BoxShape3D_l3xlb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Interactables/dragon3" unique_id=1030232866]
+transform = Transform3D(-0.62608695, -6.816821e-08, 0.77975345, 0, -1, -8.742278e-08, 0.77975345, -5.4734254e-08, 0.62608695, -0.051303864, -0.2535128, 0.055480003)
+mesh = SubResource("CylinderMesh_l3xlb")
+
+[node name="dragon4" parent="Interactables" unique_id=1582355424 instance=ExtResource("8_jorcj")]
+transform = Transform3D(-0.9981909, -1.3043559e-15, -0.060125202, 0, 1, 0, 0.060125202, 1.2058605e-15, -0.9981909, -11.676061, 0.50024414, -8.277172)
+script = ExtResource("9_l3xlb")
+
+[node name="trigger area" type="Area3D" parent="Interactables/dragon4" unique_id=1103699797]
+collision_mask = 512
+input_ray_pickable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactables/dragon4/trigger area" unique_id=316460256]
+transform = Transform3D(1.0000011, 0, -1.7881393e-07, 0, 1, 0, 1.7881393e-07, 0, 1.0000011, 0.33544922, 0.39233398, 0.055909157)
+shape = SubResource("BoxShape3D_l3xlb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Interactables/dragon4" unique_id=1121849401]
+transform = Transform3D(-0.62608695, -6.816821e-08, 0.77975345, 0, -1, -8.742278e-08, 0.77975345, -5.4734254e-08, 0.62608695, -0.051303864, -0.2535128, 0.055480003)
+mesh = SubResource("CylinderMesh_l3xlb")
+
+[node name="dragon2" parent="Interactables" unique_id=965239500 instance=ExtResource("8_jorcj")]
+transform = Transform3D(-0.55639714, -1.6997594e-15, 0.8309165, 0, 1, 0, -0.8309165, -5.160055e-16, -0.55639714, -19.886333, 0.5, -27.787323)
+script = ExtResource("9_l3xlb")
+
+[node name="trigger area" type="Area3D" parent="Interactables/dragon2" unique_id=1903916816]
+collision_mask = 512
+input_ray_pickable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactables/dragon2/trigger area" unique_id=231000410]
+transform = Transform3D(1.0000011, 0, -1.7881393e-07, 0, 1, 0, 1.7881393e-07, 0, 1.0000011, 0.33544922, 0.39233398, 0.055909157)
+shape = SubResource("BoxShape3D_l3xlb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Interactables/dragon2" unique_id=914086384]
+transform = Transform3D(-0.62608695, -6.816821e-08, 0.77975345, 0, -1, -8.742278e-08, 0.77975345, -5.4734254e-08, 0.62608695, -0.051303864, -0.2535128, 0.055480003)
+mesh = SubResource("CylinderMesh_l3xlb")
+
 [node name="Health Station" parent="Interactables" unique_id=847146449 instance=ExtResource("4_1pa7v")]
 transform = Transform3D(0.14546137, 0, -0.9893638, 0, 1, 0, 0.9893638, 0, 0.14546137, 6, 0, -6)
 
 [node name="Healing Trigger" parent="Interactables/Health Station" index="0" unique_id=97075159]
 transform = Transform3D(0.5421189, 0, -0.84030175, 0, 1, 0, 0.84030175, 0, 0.5421189, 0, 0, 0)
 
+[node name="CollisionShape3D" parent="Interactables/Health Station/Healing Trigger" index="0" unique_id=925421835]
+transform = Transform3D(0.75000733, 0, -0.6614297, 0, 1, 0, 0.6614297, 0, 0.75000733, 0.070466995, 1.4695084, -0.016103268)
+
 [node name="Healing Spotting" parent="Interactables/Health Station" index="1" unique_id=15656062]
 transform = Transform3D(0.9773459, 0, -0.21164894, 0, 1, 0, 0.21164894, 0, 0.9773459, 0, 0, 0)
+
+[node name="CollisionShape3D" parent="Interactables/Health Station/Healing Spotting" index="0" unique_id=1475420285]
+transform = Transform3D(0.99782187, 0, 0.06597829, 0, 1, 0, -0.06597829, 0, 0.99782187, 1.087501, 1.5087588, 0.9524865)
+shape = SubResource("BoxShape3D_kkodl")
 
 [node name="healinglamp" parent="Interactables/Health Station" index="2" unique_id=560483784]
 transform = Transform3D(0.4893064, 0, 0.87211233, 0, 1, 0, -0.87211233, 0, 0.4893064, -0.5139223, 0, -0.38706565)
 
+[node name="Health Station5" parent="Interactables" unique_id=1313802590 instance=ExtResource("4_1pa7v")]
+transform = Transform3D(0.970863, 0, -0.23963504, 0, 1, 0, 0.23963504, 0, 0.970863, 17.794235, 0, -6.1490173)
+
+[node name="Healing Trigger" parent="Interactables/Health Station5" index="0" unique_id=97075159]
+transform = Transform3D(0.5421189, 0, -0.84030175, 0, 1, 0, 0.84030175, 0, 0.5421189, 0, 0, 0)
+
+[node name="CollisionShape3D" parent="Interactables/Health Station5/Healing Trigger" index="0" unique_id=925421835]
+transform = Transform3D(0.9882659, 0, -0.15274441, 0, 1, 0, 0.15274441, 0, 0.9882659, 0.17186022, 1.4695084, -0.18262291)
+
+[node name="Healing Spotting" parent="Interactables/Health Station5" index="1" unique_id=15656062]
+transform = Transform3D(0.9773459, 0, -0.21164894, 0, 1, 0, 0.21164894, 0, 0.9773459, 0, 0, 0)
+
+[node name="CollisionShape3D" parent="Interactables/Health Station5/Healing Spotting" index="0" unique_id=1475420285]
+transform = Transform3D(0.9050208, 0, 0.42536932, 0, 1, 0, -0.42536932, 0, 0.9050208, 1.4998455, 1.5087588, 0.4320774)
+shape = SubResource("BoxShape3D_kkodl")
+
+[node name="healinglamp" parent="Interactables/Health Station5" index="2" unique_id=560483784]
+transform = Transform3D(0.4893064, 0, 0.87211233, 0, 1, 0, -0.87211233, 0, 0.4893064, -0.5139223, 0, -0.38706565)
+
+[node name="Health Station2" parent="Interactables" unique_id=1714655084 instance=ExtResource("4_1pa7v")]
+transform = Transform3D(-0.929545, 0, 0.36870876, 0, 1, 0, -0.36870876, 0, -0.929545, 4.0583496, 0, -13.91214)
+
+[node name="Healing Trigger" parent="Interactables/Health Station2" index="0" unique_id=97075159]
+transform = Transform3D(0.5421189, 0, -0.84030175, 0, 1, 0, 0.84030175, 0, 0.5421189, 0, 0, 0)
+
+[node name="CollisionShape3D" parent="Interactables/Health Station2/Healing Trigger" index="0" unique_id=925421835]
+transform = Transform3D(0.97832143, 0, -0.20709217, 0, 1, 0, 0.20709217, 0, 0.97832143, 0.12687206, 1.4695084, -0.06437111)
+
+[node name="Healing Spotting" parent="Interactables/Health Station2" index="1" unique_id=15656062]
+transform = Transform3D(0.9773459, 0, -0.21164894, 0, 1, 0, 0.21164894, 0, 0.9773459, 0, 0, 0)
+
+[node name="CollisionShape3D" parent="Interactables/Health Station2/Healing Spotting" index="0" unique_id=1475420285]
+transform = Transform3D(0.5629925, 0, -0.8264619, 0, 1, 0, 0.8264619, 0, 0.5629925, 1.5226359, 1.5087588, 0.35808277)
+shape = SubResource("BoxShape3D_4ftrl")
+
+[node name="healinglamp" parent="Interactables/Health Station2" index="2" unique_id=560483784]
+transform = Transform3D(0.4893064, 0, 0.87211233, 0, 1, 0, -0.87211233, 0, 0.4893064, -0.5139223, 0, -0.38706565)
+
+[node name="Health Station4" parent="Interactables" unique_id=731632618 instance=ExtResource("4_1pa7v")]
+transform = Transform3D(-0.75696087, 0, -0.65346014, 0, 1, 0, 0.65346014, 0, -0.75696087, -17.94165, 0, -7.91214)
+
+[node name="Healing Trigger" parent="Interactables/Health Station4" index="0" unique_id=97075159]
+transform = Transform3D(0.5421189, 0, -0.84030175, 0, 1, 0, 0.84030175, 0, 0.5421189, 0, 0, 0)
+
+[node name="CollisionShape3D" parent="Interactables/Health Station4/Healing Trigger" index="0" unique_id=925421835]
+transform = Transform3D(0.27505013, 0, -0.9614299, 0, 1, 0, 0.9614299, 0, 0.27505013, 0.12687302, 1.4695084, -0.06437206)
+
+[node name="Healing Spotting" parent="Interactables/Health Station4" index="1" unique_id=15656062]
+transform = Transform3D(0.9773459, 0, -0.21164894, 0, 1, 0, 0.21164894, 0, 0.9773459, 0, 0, 0)
+
+[node name="CollisionShape3D" parent="Interactables/Health Station4/Healing Spotting" index="0" unique_id=1475420285]
+transform = Transform3D(0.8938024, 0, -0.44846112, 0, 1, 0, 0.44846112, 0, 0.8938024, 0.8285723, 1.5087588, 0.39424896)
+shape = SubResource("BoxShape3D_4ftrl")
+
+[node name="healinglamp" parent="Interactables/Health Station4" index="2" unique_id=560483784]
+transform = Transform3D(0.4893064, 0, 0.87211233, 0, 1, 0, -0.87211233, 0, 0.4893064, -0.5139223, 0, -0.38706565)
+
+[node name="Health Station6" parent="Interactables" unique_id=1696266179 instance=ExtResource("4_1pa7v")]
+transform = Transform3D(0.238415, 0, 0.9711634, 0, 1, 0, -0.9711634, 0, 0.238415, -27.912819, 0, -27.944725)
+
+[node name="Healing Trigger" parent="Interactables/Health Station6" index="0" unique_id=97075159]
+transform = Transform3D(0.5421189, 0, -0.84030175, 0, 1, 0, 0.84030175, 0, 0.5421189, 0, 0, 0)
+
+[node name="CollisionShape3D" parent="Interactables/Health Station6/Healing Trigger" index="0" unique_id=925421835]
+transform = Transform3D(-0.33163428, 0, -0.9434081, 0, 1, 0, 0.9434081, 0, -0.33163428, 0.12687302, 1.4695084, -0.06437302)
+
+[node name="Healing Spotting" parent="Interactables/Health Station6" index="1" unique_id=15656062]
+transform = Transform3D(0.9773459, 0, -0.21164894, 0, 1, 0, 0.21164894, 0, 0.9773459, 0, 0, 0)
+
+[node name="CollisionShape3D" parent="Interactables/Health Station6/Healing Spotting" index="0" unique_id=1475420285]
+transform = Transform3D(0.90136445, 0, 0.43306145, 0, 1, 0, -0.43306145, 0, 0.90136445, 1.2398024, 1.5087588, 0.43215942)
+shape = SubResource("BoxShape3D_4ftrl")
+
+[node name="healinglamp" parent="Interactables/Health Station6" index="2" unique_id=560483784]
+transform = Transform3D(0.4893064, 0, 0.87211233, 0, 1, 0, -0.87211233, 0, 0.4893064, -0.5139223, 0, -0.38706565)
+
+[node name="Health Station3" parent="Interactables" unique_id=2020262230 instance=ExtResource("4_1pa7v")]
+transform = Transform3D(-0.9641, 0, 0.26553935, 0, 1, 0, -0.26553935, 0, -0.9641, 6.2644653, 0, -29.84803)
+
+[node name="Healing Trigger" parent="Interactables/Health Station3" index="0" unique_id=97075159]
+transform = Transform3D(0.5421189, 0, -0.84030175, 0, 1, 0, 0.84030175, 0, 0.5421189, 0, 0, 0)
+
+[node name="CollisionShape3D" parent="Interactables/Health Station3/Healing Trigger" index="0" unique_id=925421835]
+transform = Transform3D(0.29637492, 0, 0.9550717, 0, 1, 0, -0.9550717, 0, 0.29637492, 0.14731216, 1.4695084, -0.11800766)
+
+[node name="Healing Spotting" parent="Interactables/Health Station3" index="1" unique_id=15656062]
+transform = Transform3D(0.9773459, 0, -0.21164894, 0, 1, 0, 0.21164894, 0, 0.9773459, 0, 0, 0)
+
+[node name="CollisionShape3D" parent="Interactables/Health Station3/Healing Spotting" index="0" unique_id=1475420285]
+transform = Transform3D(0.46269077, 0, -0.8865168, 0, 1, 0, 0.8865168, 0, 0.46269077, 1.2495546, 1.5087588, -0.5321331)
+shape = SubResource("BoxShape3D_irgg2")
+
+[node name="healinglamp" parent="Interactables/Health Station3" index="2" unique_id=560483784]
+transform = Transform3D(0.4893064, 0, 0.87211233, 0, 1, 0, -0.87211233, 0, 0.4893064, -0.5139223, 0, -0.38706565)
+
 [node name="Shredder" parent="Interactables" unique_id=1014609165 instance=ExtResource("7_qmmos")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 3)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 2.3843231)
 
 [node name="Enemies" type="Node3D" parent="." unique_id=930926840]
 
-[node name="Enemy" parent="Enemies" unique_id=286162732 instance=ExtResource("4_yrdjv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 0, -7.5)
+[node name="Buckley 500" parent="Enemies" unique_id=286162732 instance=ExtResource("11_wbro4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -1)
 
-[node name="Enemy2" parent="Enemies" unique_id=1378578119 instance=ExtResource("4_yrdjv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -5)
+[node name="TinTron Mk 1" parent="Enemies" unique_id=1004711397 instance=ExtResource("12_24q6l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -6)
 
-[node name="Enemy3" parent="Enemies" unique_id=1288023106 instance=ExtResource("4_yrdjv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 0)
+[node name="Ironosaurus" parent="Enemies" unique_id=1671207812 instance=ExtResource("13_2upc0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
 
-[node name="Enemy4" parent="Enemies" unique_id=1300790365 instance=ExtResource("4_yrdjv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+[node name="Buckley 501" parent="Enemies" unique_id=1504957118 instance=ExtResource("11_wbro4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -8)
+
+[node name="bORE" parent="Enemies" unique_id=1968096298 instance=ExtResource("14_24q6l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -8)
+
+[node name="TinTron Mk 2" parent="Enemies" unique_id=270388462 instance=ExtResource("15_4ftrl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -12)
+
+[node name="TinTron Mk 2 1" parent="Enemies" unique_id=36433640 instance=ExtResource("15_4ftrl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -4)
+
+[node name="Ingomatic v2" parent="Enemies" unique_id=1005232335 instance=ExtResource("16_irgg2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -6)
+
+[node name="bORE2" parent="Enemies" unique_id=626243242 instance=ExtResource("14_24q6l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, -12)
+
+[node name="Buckley 600" parent="Enemies" unique_id=1649458648 instance=ExtResource("17_kkodl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -4)
+
+[node name="Buckley 601" parent="Enemies" unique_id=54481226 instance=ExtResource("17_kkodl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, -8)
+
+[node name="Buckley 900" parent="Enemies" unique_id=202651353 instance=ExtResource("18_xkxrh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -16)
+
+[node name="a-dORE" parent="Enemies" unique_id=1993373237 instance=ExtResource("19_5s7a7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -36)
+
+[node name="Goldiraptor" parent="Enemies" unique_id=334218574 instance=ExtResource("20_fivls")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, -32)
+
+[node name="TinTron Mk 3" parent="Enemies" unique_id=871539255 instance=ExtResource("15_4ftrl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -16)
+
+[node name="Ingomatic v3" parent="Enemies" unique_id=797911691 instance=ExtResource("16_irgg2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -24)
+
+[node name="Ingomatic v4" parent="Enemies" unique_id=1555273118 instance=ExtResource("16_irgg2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -24)
+
+[node name="Buckley 901" parent="Enemies" unique_id=1412132424 instance=ExtResource("18_xkxrh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -30)
+
+[node name="cORE" parent="Enemies" unique_id=2134893892 instance=ExtResource("21_xkxrh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -18)
+
+[node name="Brassodon" parent="Enemies" unique_id=738115456 instance=ExtResource("22_5s7a7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, -16)
+
+[node name="Brassodon2" parent="Enemies" unique_id=867607441 instance=ExtResource("22_5s7a7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -12)
+
+[node name="Ingomatic v5" parent="Enemies" unique_id=175371527 instance=ExtResource("23_fivls")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, -6)
+
+[node name="Ingomatic v6" parent="Enemies" unique_id=1470329711 instance=ExtResource("16_irgg2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -14)
+
+[node name="Buckley 502" parent="Enemies" unique_id=2055195107 instance=ExtResource("11_wbro4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -14)
+
+[node name="Ironosaurus2" parent="Enemies" unique_id=77761123 instance=ExtResource("13_2upc0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -12)
+
+[node name="bORE3" parent="Enemies" unique_id=382203718 instance=ExtResource("14_24q6l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0)
+
+[node name="bORE4" parent="Enemies" unique_id=2048500192 instance=ExtResource("14_24q6l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 2)
+
+[node name="Buckley 602" parent="Enemies" unique_id=1396538564 instance=ExtResource("17_kkodl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 2)
 
 [node name="Foyer" parent="." unique_id=248408387 instance=ExtResource("9_ltlon")]
 
@@ -142,2344 +376,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, -21)
 [node name="Collision System" type="Node" parent="." unique_id=1467278961]
 script = ExtResource("2_sufut")
 
-[node name="OLD_NODES" type="Node3D" parent="." unique_id=1843782472]
-visible = false
-
-[node name="Library" type="Node3D" parent="OLD_NODES" unique_id=267323684]
-
-[node name="Floor20" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=1191625710]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2.5, 0, -10)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor21" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=874935858]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2.5, 0, -12.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor22" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=131331374]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2.5, 0, -15)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor23" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=1255459115]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -5, 0, -15)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor25" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=593891084]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -5, 0, -10)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor26" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=1126449030]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -7.5, 0, -10)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor27" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=1656106106]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -7.5, 0, -12.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor28" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=1901728647]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -7.5, 0, -15)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor29" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=232921982]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -10, 0, -15)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor30" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=2062125615]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -10, 0, -12.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor31" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=1042209135]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -10, 0, -10)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor32" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=450827303]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -10, 0, -7.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor33" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=1758217189]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -7.5, 0, -7.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor34" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=634682201]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -7.5, 0, -5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor35" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=597317680]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -10, 0, -5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor36" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=1239171773]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -12.5, 0, -5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor37" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=1102250797]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -12.5, 0, -7.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor38" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=875008422]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -12.5, 0, -10)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor39" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=1931918757]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -12.5, 0, -12.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor40" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=1824702295]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -12.5, 0, -15)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor41" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=1925647718]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -15, 0, -15)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor42" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=790802734]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -15, 0, -12.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor43" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=394909386]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -15, 0, -10)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor44" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=354162003]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -15, 0, -7.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor45" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=718024844]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -15, 0, -5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor46" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=1432062065]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -17.5, 0, -5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor47" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=509692420]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -17.5, 0, -7.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor48" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=764537029]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -17.5, 0, -10)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor49" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=1427644361]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -17.5, 0, -12.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor50" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=347927091]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -17.5, 0, -15)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor51" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=1656354904]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -20, 0, -5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor52" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=326569352]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -20, 0, -7.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor53" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=1919169281]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -20, 0, -10)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor54" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=1287777224]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -20, 0, -12.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor55" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=287431260]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -20, 0, -15)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor56" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=1626302704]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -22.5, 0, -5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor57" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=1921327445]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -22.5, 0, -7.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor58" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=1780860681]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -22.5, 0, -10)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor59" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=1944883424]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -22.5, 0, -12.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor60" type="MeshInstance3D" parent="OLD_NODES/Library" unique_id=1869281601]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -22.5, 0, -15)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="wall18" parent="OLD_NODES/Library" unique_id=1924661103 instance=ExtResource("5_w13no")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -5, 0, -16.25)
-
-[node name="wall19" parent="OLD_NODES/Library" unique_id=199592870 instance=ExtResource("5_w13no")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -7.5, 0, -16.25)
-
-[node name="wall20" parent="OLD_NODES/Library" unique_id=1254076598 instance=ExtResource("5_w13no")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -10, 0, -16.25)
-
-[node name="wall21" parent="OLD_NODES/Library" unique_id=130000532 instance=ExtResource("5_w13no")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -12.5, 0, -16.25)
-
-[node name="wall22" parent="OLD_NODES/Library" unique_id=842743298 instance=ExtResource("5_w13no")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -15, 0, -16.25)
-
-[node name="wall23" parent="OLD_NODES/Library" unique_id=1610316201 instance=ExtResource("5_w13no")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -17.5, 0, -16.25)
-
-[node name="wall32" parent="OLD_NODES/Library" unique_id=937381322 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -23.75, 0, -12.5)
-
-[node name="wall33" parent="OLD_NODES/Library" unique_id=258971842 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -23.75, 0, -10)
-
-[node name="wall34" parent="OLD_NODES/Library" unique_id=89891593 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -23.75, 0, -7.5)
-
-[node name="wall35" parent="OLD_NODES/Library" unique_id=1954661270 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -1.25, 0, -12.5)
-
-[node name="wall36" parent="OLD_NODES/Library" unique_id=2143493858 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -1.25, 0, -10)
-
-[node name="wall37" parent="OLD_NODES/Library" unique_id=301084218 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -8.75, 0, -12.5)
-
-[node name="wall38" parent="OLD_NODES/Library" unique_id=1915889249 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -8.75, 0, -10)
-
-[node name="wall39" parent="OLD_NODES/Library" unique_id=1678649377 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -8.75, 0, -7.5)
-
-[node name="wall40" parent="OLD_NODES/Library" unique_id=1126736484 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -11.25, 0, -12.5)
-
-[node name="wall41" parent="OLD_NODES/Library" unique_id=386696792 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -11.25, 0, -10)
-
-[node name="wall42" parent="OLD_NODES/Library" unique_id=2019481303 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -11.25, 0, -7.5)
-
-[node name="wall43" parent="OLD_NODES/Library" unique_id=994521869 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -16.25, 0, -12.5)
-
-[node name="wall44" parent="OLD_NODES/Library" unique_id=854394089 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -16.25, 0, -10)
-
-[node name="wall45" parent="OLD_NODES/Library" unique_id=1458698415 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -16.25, 0, -7.5)
-
-[node name="wall46" parent="OLD_NODES/Library" unique_id=1585292982 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -18.75, 0, -12.5)
-
-[node name="wall47" parent="OLD_NODES/Library" unique_id=643871588 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -18.75, 0, -10)
-
-[node name="wall48" parent="OLD_NODES/Library" unique_id=1227493572 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -18.75, 0, -7.5)
-
-[node name="wall25" parent="OLD_NODES/Library" unique_id=1765375470 instance=ExtResource("5_w13no")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -7.5, 0, -3.75)
-
-[node name="wall26" parent="OLD_NODES/Library" unique_id=1152617565 instance=ExtResource("5_w13no")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -10, 0, -3.75)
-
-[node name="wall27" parent="OLD_NODES/Library" unique_id=1966735015 instance=ExtResource("5_w13no")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -12.5, 0, -3.75)
-
-[node name="wall28" parent="OLD_NODES/Library" unique_id=539643213 instance=ExtResource("5_w13no")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -15, 0, -3.75)
-
-[node name="wall29" parent="OLD_NODES/Library" unique_id=642488421 instance=ExtResource("5_w13no")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -17.5, 0, -3.75)
-
-[node name="wall30" parent="OLD_NODES/Library" unique_id=1038203244 instance=ExtResource("5_w13no")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -20, 0, -3.75)
-
-[node name="wall31" parent="OLD_NODES/Library" unique_id=1061662151 instance=ExtResource("5_w13no")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -22.5, 0, -3.75)
-
-[node name="wall24" parent="OLD_NODES/Library" unique_id=1042997235 instance=ExtResource("5_w13no")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -22.5, 0, -16.25)
-
-[node name="wall_corner2" parent="OLD_NODES/Library" unique_id=235654208 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, -2.5, 0, -16.25)
-
-[node name="wall_corner3" parent="OLD_NODES/Library" unique_id=616623462 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -23.75, 0, -15)
-
-[node name="wall_corner4" parent="OLD_NODES/Library" unique_id=592692470 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(-4.371138e-08, 0, -1, 0, 1, 0, 1, 0, -4.371138e-08, -23.75, 0, -5)
-
-[node name="wall_portal" parent="OLD_NODES/Library" unique_id=1757948885 instance=ExtResource("8_qsdn1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -16.25)
-
-[node name="wall_portal2" parent="OLD_NODES/Library" unique_id=2122526181 instance=ExtResource("8_qsdn1")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.25, 0, -15)
-
-[node name="Hallways" type="Node3D" parent="OLD_NODES/Library" unique_id=1568302248]
-
-[node name="Floor20" type="MeshInstance3D" parent="OLD_NODES/Library/Hallways" unique_id=63842090]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, -10)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor32" type="MeshInstance3D" parent="OLD_NODES/Library/Hallways" unique_id=1233719495]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.5, 0, -10)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor33" type="MeshInstance3D" parent="OLD_NODES/Library/Hallways" unique_id=494526318]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.5, 0, -12.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor21" type="MeshInstance3D" parent="OLD_NODES/Library/Hallways" unique_id=1643072615]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, -12.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor22" type="MeshInstance3D" parent="OLD_NODES/Library/Hallways" unique_id=1682288989]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, -15)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor23" type="MeshInstance3D" parent="OLD_NODES/Library/Hallways" unique_id=1529602729]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, -17.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor24" type="MeshInstance3D" parent="OLD_NODES/Library/Hallways" unique_id=2092559604]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2.5, 0, -17.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor25" type="MeshInstance3D" parent="OLD_NODES/Library/Hallways" unique_id=1171187654]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -5, 0, -17.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor26" type="MeshInstance3D" parent="OLD_NODES/Library/Hallways" unique_id=1874995267]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -7.5, 0, -17.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor27" type="MeshInstance3D" parent="OLD_NODES/Library/Hallways" unique_id=1794577122]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -7.5, 0, -20)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor28" type="MeshInstance3D" parent="OLD_NODES/Library/Hallways" unique_id=1888792350]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -5, 0, -20)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor29" type="MeshInstance3D" parent="OLD_NODES/Library/Hallways" unique_id=1599064727]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -7.5, 0, -22.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor30" type="MeshInstance3D" parent="OLD_NODES/Library/Hallways" unique_id=1482803313]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -7.5, 0, -25)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor31" type="MeshInstance3D" parent="OLD_NODES/Library/Hallways" unique_id=1798378420]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -7.5, 0, -27.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor34" type="MeshInstance3D" parent="OLD_NODES/Library/Hallways" unique_id=1555284616]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -7.5, 0, -30)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor35" type="MeshInstance3D" parent="OLD_NODES/Library/Hallways" unique_id=1809781810]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -7.5, 0, -32.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor36" type="MeshInstance3D" parent="OLD_NODES/Library/Hallways" unique_id=1320422384]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -7.5, 0, -35)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor37" type="MeshInstance3D" parent="OLD_NODES/Library/Hallways" unique_id=856604266]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -10, 0, -35)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor38" type="MeshInstance3D" parent="OLD_NODES/Library/Hallways" unique_id=301499174]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -12.5, 0, -35)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor45" type="MeshInstance3D" parent="OLD_NODES/Library/Hallways" unique_id=104568825]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -12.5, 0, -37.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor46" type="MeshInstance3D" parent="OLD_NODES/Library/Hallways" unique_id=1268860214]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -12.5, 0, -40)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor47" type="MeshInstance3D" parent="OLD_NODES/Library/Hallways" unique_id=1726728027]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -12.5, 0, -42.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor48" type="MeshInstance3D" parent="OLD_NODES/Library/Hallways" unique_id=568212882]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -12.5, 0, -45)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor49" type="MeshInstance3D" parent="OLD_NODES/Library/Hallways" unique_id=1102091687]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -10, 0, -45)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor50" type="MeshInstance3D" parent="OLD_NODES/Library/Hallways" unique_id=282188919]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -7.5, 0, -45)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor51" type="MeshInstance3D" parent="OLD_NODES/Library/Hallways" unique_id=419827406]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -5, 0, -45)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor52" type="MeshInstance3D" parent="OLD_NODES/Library/Hallways" unique_id=2004589328]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -2.5, 0, -45)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor53" type="MeshInstance3D" parent="OLD_NODES/Library/Hallways" unique_id=1642782907]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -2.5, 0, -47.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor54" type="MeshInstance3D" parent="OLD_NODES/Library/Hallways" unique_id=1225478097]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 0, 0, -47.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor55" type="MeshInstance3D" parent="OLD_NODES/Library/Hallways" unique_id=1562008746]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 2.5, 0, -47.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor39" type="MeshInstance3D" parent="OLD_NODES/Library/Hallways" unique_id=1096472655]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -15, 0, -35)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor40" type="MeshInstance3D" parent="OLD_NODES/Library/Hallways" unique_id=1377359026]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -17.5, 0, -35)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor41" type="MeshInstance3D" parent="OLD_NODES/Library/Hallways" unique_id=1801266385]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -20, 0, -35)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor42" type="MeshInstance3D" parent="OLD_NODES/Library/Hallways" unique_id=845759785]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -22.5, 0, -35)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor43" type="MeshInstance3D" parent="OLD_NODES/Library/Hallways" unique_id=873987339]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -20, 0, -37.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor44" type="MeshInstance3D" parent="OLD_NODES/Library/Hallways" unique_id=13970952]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -22.5, 0, -37.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="wall32" parent="OLD_NODES/Library/Hallways" unique_id=911884305 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -23.75, 0, -35)
-
-[node name="wall33" parent="OLD_NODES/Library/Hallways" unique_id=1182415106 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -23.75, 0, -37.5)
-
-[node name="Foyaer" type="Node3D" parent="OLD_NODES" unique_id=1211992558]
-
-[node name="Floor4" type="MeshInstance3D" parent="OLD_NODES/Foyaer" unique_id=2039176991]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor5" type="MeshInstance3D" parent="OLD_NODES/Foyaer" unique_id=1921313422]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.5, 0, 0)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor28" type="MeshInstance3D" parent="OLD_NODES/Foyaer" unique_id=1950675129]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.5, 0, 2.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor6" type="MeshInstance3D" parent="OLD_NODES/Foyaer" unique_id=935488582]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.5, 0, -2.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor7" type="MeshInstance3D" parent="OLD_NODES/Foyaer" unique_id=52422112]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, -2.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor8" type="MeshInstance3D" parent="OLD_NODES/Foyaer" unique_id=1125240697]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, -5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor19" type="MeshInstance3D" parent="OLD_NODES/Foyaer" unique_id=1693698095]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, -7.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor20" type="MeshInstance3D" parent="OLD_NODES/Foyaer" unique_id=1323760841]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.5, 0, -7.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor21" type="MeshInstance3D" parent="OLD_NODES/Foyaer" unique_id=537842763]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 5, 0, -7.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor22" type="MeshInstance3D" parent="OLD_NODES/Foyaer" unique_id=1651461884]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 7.5, 0, -7.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor23" type="MeshInstance3D" parent="OLD_NODES/Foyaer" unique_id=234249191]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 7.5, 0, -5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor24" type="MeshInstance3D" parent="OLD_NODES/Foyaer" unique_id=1116684544]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2.5, 0, -5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor25" type="MeshInstance3D" parent="OLD_NODES/Foyaer" unique_id=1003464138]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -5, 0, -5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor26" type="MeshInstance3D" parent="OLD_NODES/Foyaer" unique_id=218373129]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -5, 0, -7.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor27" type="MeshInstance3D" parent="OLD_NODES/Foyaer" unique_id=231846042]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2.5, 0, -7.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor9" type="MeshInstance3D" parent="OLD_NODES/Foyaer" unique_id=246685582]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.5, 0, -5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor10" type="MeshInstance3D" parent="OLD_NODES/Foyaer" unique_id=1021414969]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 5, 0, -5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor11" type="MeshInstance3D" parent="OLD_NODES/Foyaer" unique_id=1938889835]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 5, 0, -2.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor12" type="MeshInstance3D" parent="OLD_NODES/Foyaer" unique_id=1798033736]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 5, 0, 0)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor13" type="MeshInstance3D" parent="OLD_NODES/Foyaer" unique_id=453077025]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 7.5, 0, 0)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor14" type="MeshInstance3D" parent="OLD_NODES/Foyaer" unique_id=347139001]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 7.5, 0, -2.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor15" type="MeshInstance3D" parent="OLD_NODES/Foyaer" unique_id=771627040]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2.5, 0, -2.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor16" type="MeshInstance3D" parent="OLD_NODES/Foyaer" unique_id=574326762]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2.5, 0, 0)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor17" type="MeshInstance3D" parent="OLD_NODES/Foyaer" unique_id=1470246926]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -5, 0, 0)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor18" type="MeshInstance3D" parent="OLD_NODES/Foyaer" unique_id=1828506188]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -5, 0, -2.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="wall" parent="OLD_NODES/Foyaer" unique_id=637882489 instance=ExtResource("5_w13no")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 1.25)
-
-[node name="wall14" parent="OLD_NODES/Foyaer" unique_id=1316867731 instance=ExtResource("5_w13no")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 1.25)
-
-[node name="wall15" parent="OLD_NODES/Foyaer" unique_id=655483420 instance=ExtResource("5_w13no")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 1.25)
-
-[node name="wall19" parent="OLD_NODES/Foyaer" unique_id=731055394 instance=ExtResource("5_w13no")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 3.75)
-
-[node name="wall16" parent="OLD_NODES/Foyaer" unique_id=1345537991 instance=ExtResource("5_w13no")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.25)
-
-[node name="wall6" parent="OLD_NODES/Foyaer" unique_id=1214987448 instance=ExtResource("5_w13no")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -8.75)
-
-[node name="wall8" parent="OLD_NODES/Foyaer" unique_id=1406365554 instance=ExtResource("5_w13no")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -8.75)
-
-[node name="wall9" parent="OLD_NODES/Foyaer" unique_id=1207005513 instance=ExtResource("5_w13no")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -8.75)
-
-[node name="wall10" parent="OLD_NODES/Foyaer" unique_id=663074505 instance=ExtResource("5_w13no")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, -8.75)
-
-[node name="wall7" parent="OLD_NODES/Foyaer" unique_id=67022329 instance=ExtResource("5_w13no")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -8.75)
-
-[node name="wall4" parent="OLD_NODES/Foyaer" unique_id=1810175388 instance=ExtResource("5_w13no")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.25, 0, -2.5)
-
-[node name="wall18" parent="OLD_NODES/Foyaer" unique_id=739572098 instance=ExtResource("5_w13no")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -2.5, 0, -3.75)
-
-[node name="wall5" parent="OLD_NODES/Foyaer" unique_id=317176947 instance=ExtResource("5_w13no")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.25, 0, -5)
-
-[node name="wall17" parent="OLD_NODES/Foyaer" unique_id=1500112213 instance=ExtResource("5_w13no")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.75, 0, -5)
-
-[node name="wall12" parent="OLD_NODES/Foyaer" unique_id=1588809322 instance=ExtResource("5_w13no")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.75, 0, -2.5)
-
-[node name="wall13" parent="OLD_NODES/Foyaer" unique_id=1119273989 instance=ExtResource("5_w13no")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.75, 0, -5)
-
-[node name="wall3" parent="OLD_NODES/Foyaer" unique_id=5617618 instance=ExtResource("5_w13no")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 1.25)
-
-[node name="wall11" parent="OLD_NODES/Foyaer" unique_id=1534133223 instance=ExtResource("5_w13no")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 1.25)
-
-[node name="wall2" parent="OLD_NODES/Foyaer" unique_id=1388026502 instance=ExtResource("5_w13no")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6.25, 0, 0)
-
-[node name="wall_corner" parent="OLD_NODES/Foyaer" unique_id=521801219 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6.25, 0, 0)
-
-[node name="wall_corner4" parent="OLD_NODES/Foyaer" unique_id=1642379557 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 8.75, 0, 0)
-
-[node name="wall_corner5" parent="OLD_NODES/Foyaer" unique_id=1765366823 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.75, 0, 0)
-
-[node name="wall_corner11" parent="OLD_NODES/Foyaer" unique_id=2073332998 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.75, 0, 2.5)
-
-[node name="wall_corner12" parent="OLD_NODES/Foyaer" unique_id=2117564961 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.25, 0, 2.5)
-
-[node name="wall_corner7" parent="OLD_NODES/Foyaer" unique_id=1924851658 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.75, 0, -7.5)
-
-[node name="wall_corner6" parent="OLD_NODES/Foyaer" unique_id=837417891 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, -3.75)
-
-[node name="wall_corner2" parent="OLD_NODES/Foyaer" unique_id=1079104464 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -6.25, 0, -7.5)
-
-[node name="wall_corner9" parent="OLD_NODES/Foyaer" unique_id=1505416822 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -1.25, 0, -7.5)
-
-[node name="wall_corner10" parent="OLD_NODES/Foyaer" unique_id=934865964 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -1.25, 0, -2.5)
-
-[node name="wall_corner8" parent="OLD_NODES/Foyaer" unique_id=1010556426 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(-1, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -1, -5, 0, -3.75)
-
-[node name="wall_corner3" parent="OLD_NODES/Foyaer" unique_id=161458740 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 8.75, 0, -7.5)
-
-[node name="wall_portal" parent="OLD_NODES/Foyaer" unique_id=1883095524 instance=ExtResource("8_qsdn1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.75)
-
-[node name="wall_portal2" parent="OLD_NODES/Foyaer" unique_id=1611987920 instance=ExtResource("8_qsdn1")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.25, 0, -5)
-
-[node name="wall_portal4" parent="OLD_NODES/Foyaer" unique_id=572102747 instance=ExtResource("8_qsdn1")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.75, 0, -2.5)
-
-[node name="wall_portal5" parent="OLD_NODES/Foyaer" unique_id=273993381 instance=ExtResource("8_qsdn1")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 5, 0, -3.75)
-
-[node name="wall_portal3" parent="OLD_NODES/Foyaer" unique_id=1132704022 instance=ExtResource("8_qsdn1")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.25, 0, 0)
-
-[node name="Cubicle Landscape" type="Node3D" parent="OLD_NODES" unique_id=234184771]
-
-[node name="Floor32" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=1809689216]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 5, 0, -10)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor33" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=927080771]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 5, 0, -12.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor34" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=2127763254]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 5, 0, -15)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor35" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=1777740964]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 5, 0, -17.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor36" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=1288518231]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.4986763, 0, -17.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor38" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=616651315]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 5, 0, -20)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor39" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=1362103882]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.5, 0, -20)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor40" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=1369170991]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 5, 0, -22.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor42" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=1557576723]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 7.5, 0, -10)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor43" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=1843108369]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 7.5, 0, -12.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor44" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=1738618379]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 7.5, 0, -15)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor45" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=1551388050]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 7.5, 0, -17.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor46" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=175470951]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 7.5, 0, -20)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor47" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=1799220082]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 7.5, 0, -22.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor48" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=1976160008]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 10, 0, -10)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor49" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=1513361400]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 10, 0, -12.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor50" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=1353624226]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 10, 0, -15)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor51" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=125359514]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 10, 0, -17.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor52" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=1690466505]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 10, 0, -20)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor53" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=1997660506]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 10, 0, -22.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor54" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=776581917]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 12.5, 0, -10)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor55" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=1439104483]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 12.5, 0, -12.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor56" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=892733857]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 12.5, 0, -15)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor57" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=640566770]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 12.5, 0, -17.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor58" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=23214940]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 12.5, 0, -20)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor59" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=1881826338]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 12.5, 0, -22.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor77" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=1648689557]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 12.5, 0, -25)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor78" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=669868396]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 12.5, 0, -27.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor79" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=876506166]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 15, 0, -27.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor80" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=47186974]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 15, 0, -25)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor81" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=2048949031]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 17.5, 0, -25)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor82" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=419033122]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 17.5, 0, -27.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor83" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=773476227]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 17.5, 0, -30)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor84" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=1052450831]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 15, 0, -30)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor85" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=1127699066]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 15, 0, -32.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor86" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=416289845]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 15, 0, -35)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor87" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=1377758660]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 17.5, 0, -35)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor88" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=908258877]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 17.5, 0, -32.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor89" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=1401630076]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 12.5, 0, -32.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor90" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=827615545]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 12.5, 0, -35)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor91" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=1819291087]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 12.5, 0, -30)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor60" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=1955310678]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 15, 0, -10)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor66" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=494391542]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 10, 0, -7.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor67" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=1092805692]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 12.5, 0, -7.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor68" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=1406365067]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 15, 0, -7.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor61" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=1288157381]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 15, 0, -12.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor62" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=456511848]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 15, 0, -15)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor63" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=545539622]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 15, 0, -17.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor64" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=794549083]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 15, 0, -20)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor65" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=190557302]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 15, 0, -22.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor69" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=250396126]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 17.5, 0, -22.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor70" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=442835332]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 17.5, 0, -20)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor71" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=1317076870]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 17.5, 0, -17.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor72" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=122584831]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 17.5, 0, -15)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor73" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=1853430747]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 17.5, 0, -12.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor75" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=6315445]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 17.5, 0, -10)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor76" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=78229318]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 17.5, 0, -7.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor41" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=893701925]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.5, 0, -22.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor37" type="MeshInstance3D" parent="OLD_NODES/Cubicle Landscape" unique_id=929755027]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.5, 0, -15)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="wall15" parent="OLD_NODES/Cubicle Landscape" unique_id=1186826394 instance=ExtResource("5_w13no")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -13.75)
-
-[node name="wall16" parent="OLD_NODES/Cubicle Landscape" unique_id=769883579 instance=ExtResource("5_w13no")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, -13.75)
-
-[node name="wall23" parent="OLD_NODES/Cubicle Landscape" unique_id=725737256 instance=ExtResource("5_w13no")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, -16.25)
-
-[node name="wall28" parent="OLD_NODES/Cubicle Landscape" unique_id=543874056 instance=ExtResource("5_w13no")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 12.5, 0, -21.25)
-
-[node name="wall29" parent="OLD_NODES/Cubicle Landscape" unique_id=1725689504 instance=ExtResource("5_w13no")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 15, 0, -21.25)
-
-[node name="wall30" parent="OLD_NODES/Cubicle Landscape" unique_id=165203385 instance=ExtResource("5_w13no")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 15, 0, -16.25)
-
-[node name="wall31" parent="OLD_NODES/Cubicle Landscape" unique_id=704128639 instance=ExtResource("5_w13no")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 12.5, 0, -13.75)
-
-[node name="wall32" parent="OLD_NODES/Cubicle Landscape" unique_id=1055765216 instance=ExtResource("5_w13no")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 12.5, 0, -8.75)
-
-[node name="wall33" parent="OLD_NODES/Cubicle Landscape" unique_id=247195010 instance=ExtResource("5_w13no")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 15, 0, -8.75)
-
-[node name="wall34" parent="OLD_NODES/Cubicle Landscape" unique_id=1864773965 instance=ExtResource("5_w13no")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 10, 0, -6.25)
-
-[node name="wall35" parent="OLD_NODES/Cubicle Landscape" unique_id=490213860 instance=ExtResource("5_w13no")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 12.5, 0, -6.25)
-
-[node name="wall36" parent="OLD_NODES/Cubicle Landscape" unique_id=344618058 instance=ExtResource("5_w13no")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 15, 0, -6.25)
-
-[node name="wall37" parent="OLD_NODES/Cubicle Landscape" unique_id=1381954253 instance=ExtResource("5_w13no")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 17.5, 0, -6.25)
-
-[node name="wall38" parent="OLD_NODES/Cubicle Landscape" unique_id=1191518131 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 18.75, 0, -10)
-
-[node name="wall39" parent="OLD_NODES/Cubicle Landscape" unique_id=1076095879 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 18.75, 0, -12.5)
-
-[node name="wall40" parent="OLD_NODES/Cubicle Landscape" unique_id=2134965905 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 18.75, 0, -15)
-
-[node name="wall41" parent="OLD_NODES/Cubicle Landscape" unique_id=1351297709 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 18.75, 0, -17.5)
-
-[node name="wall42" parent="OLD_NODES/Cubicle Landscape" unique_id=1567099309 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 18.75, 0, -20)
-
-[node name="wall44" parent="OLD_NODES/Cubicle Landscape" unique_id=1615290751 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 18.75, 0, -25)
-
-[node name="wall45" parent="OLD_NODES/Cubicle Landscape" unique_id=1516708650 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 18.75, 0, -27.5)
-
-[node name="wall46" parent="OLD_NODES/Cubicle Landscape" unique_id=1924456715 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 18.75, 0, -30)
-
-[node name="wall47" parent="OLD_NODES/Cubicle Landscape" unique_id=1167974399 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 18.75, 0, -32.5)
-
-[node name="wall49" parent="OLD_NODES/Cubicle Landscape" unique_id=212223955 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 11.25, 0, -35)
-
-[node name="wall50" parent="OLD_NODES/Cubicle Landscape" unique_id=1006957782 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 11.25, 0, -32.5)
-
-[node name="wall51" parent="OLD_NODES/Cubicle Landscape" unique_id=312762006 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 11.25, 0, -30)
-
-[node name="wall48" parent="OLD_NODES/Cubicle Landscape" unique_id=1994755475 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 18.75, 0, -35)
-
-[node name="wall43" parent="OLD_NODES/Cubicle Landscape" unique_id=1254031646 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 18.75, 0, -22.5)
-
-[node name="wall25" parent="OLD_NODES/Cubicle Landscape" unique_id=812523920 instance=ExtResource("5_w13no")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.25, 0, -20)
-
-[node name="wall17" parent="OLD_NODES/Cubicle Landscape" unique_id=1383158121 instance=ExtResource("5_w13no")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, -23.75)
-
-[node name="wall21" parent="OLD_NODES/Cubicle Landscape" unique_id=389192185 instance=ExtResource("5_w13no")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.75, 0, -10)
-
-[node name="wall22" parent="OLD_NODES/Cubicle Landscape" unique_id=1551013686 instance=ExtResource("5_w13no")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.75, 0, -10)
-
-[node name="wall18" parent="OLD_NODES/Cubicle Landscape" unique_id=1995645701 instance=ExtResource("5_w13no")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -16.25)
-
-[node name="wall19" parent="OLD_NODES/Cubicle Landscape" unique_id=513377575 instance=ExtResource("5_w13no")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -21.25)
-
-[node name="wall20" parent="OLD_NODES/Cubicle Landscape" unique_id=533975281 instance=ExtResource("5_w13no")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -23.75)
-
-[node name="wall24" parent="OLD_NODES/Cubicle Landscape" unique_id=360294445 instance=ExtResource("5_w13no")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -23.75)
-
-[node name="wall26" parent="OLD_NODES/Cubicle Landscape" unique_id=1374767275 instance=ExtResource("5_w13no")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -23.75)
-
-[node name="wall27" parent="OLD_NODES/Cubicle Landscape" unique_id=94687748 instance=ExtResource("5_w13no")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -23.75)
-
-[node name="wall_corner2" parent="OLD_NODES/Cubicle Landscape" unique_id=266440137 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 3.75, 0, -20)
-
-[node name="wall_corner6" parent="OLD_NODES/Cubicle Landscape" unique_id=860255806 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 8.75, 0, -12.5)
-
-[node name="wall_corner7" parent="OLD_NODES/Cubicle Landscape" unique_id=1597634797 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(-2.1855693e-07, 0, -1, 0, 1, 0, 1, 0, -2.1855693e-07, 8.75, 0, -17.5)
-
-[node name="wall_corner21" parent="OLD_NODES/Cubicle Landscape" unique_id=2057767568 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(-2.1855693e-07, 0, -1, 0, 1, 0, 1, 0, -2.1855693e-07, 13.75, 0, -25)
-
-[node name="wall_corner22" parent="OLD_NODES/Cubicle Landscape" unique_id=832572255 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(-2.1855693e-07, 0, -1, 0, 1, 0, 1, 0, -2.1855693e-07, 11.25, 0, -25)
-
-[node name="wall_corner11" parent="OLD_NODES/Cubicle Landscape" unique_id=2111080127 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(-2.1855693e-07, 0, -1, 0, 1, 0, 1, 0, -2.1855693e-07, 11.25, 0, -17.5)
-
-[node name="wall_corner12" parent="OLD_NODES/Cubicle Landscape" unique_id=346079370 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 11.25, 0, -20)
-
-[node name="wall_corner23" parent="OLD_NODES/Cubicle Landscape" unique_id=161210526 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(-1, 0, 2.6226832e-07, 0, 1, 0, -2.6226832e-07, 0, -1, 15, 0, -28.75)
-
-[node name="wall_corner24" parent="OLD_NODES/Cubicle Landscape" unique_id=456766595 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, 17.5, 0, -28.75)
-
-[node name="wall_corner25" parent="OLD_NODES/Cubicle Landscape" unique_id=1617838002 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(-1, 0, 2.6226832e-07, 0, 1, 0, -2.6226832e-07, 0, -1, 12.5, 0, -36.25)
-
-[node name="wall_corner26" parent="OLD_NODES/Cubicle Landscape" unique_id=1545706426 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, 17.5, 0, -36.25)
-
-[node name="wall_corner13" parent="OLD_NODES/Cubicle Landscape" unique_id=1937306123 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(-2.1855693e-07, 0, -1, 0, 1, 0, 1, 0, -2.1855693e-07, 11.25, 0, -10)
-
-[node name="wall_corner14" parent="OLD_NODES/Cubicle Landscape" unique_id=95074515 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 11.25, 0, -12.5)
-
-[node name="wall_corner15" parent="OLD_NODES/Cubicle Landscape" unique_id=1823663930 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(-2.1855693e-07, 0, -1, 0, 1, 0, 1, 0, -2.1855693e-07, 16.25, 0, -10)
-
-[node name="wall_corner19" parent="OLD_NODES/Cubicle Landscape" unique_id=224611892 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(-2.1855693e-07, 0, -1, 0, 1, 0, 1, 0, -2.1855693e-07, 18.75, 0, -7.5)
-
-[node name="wall_corner16" parent="OLD_NODES/Cubicle Landscape" unique_id=1668173400 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 16.25, 0, -12.5)
-
-[node name="wall_corner17" parent="OLD_NODES/Cubicle Landscape" unique_id=853566023 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(-2.1855693e-07, 0, -1, 0, 1, 0, 1, 0, -2.1855693e-07, 16.25, 0, -17.5)
-
-[node name="wall_corner18" parent="OLD_NODES/Cubicle Landscape" unique_id=1816450105 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 16.25, 0, -20)
-
-[node name="wall_corner20" parent="OLD_NODES/Cubicle Landscape" unique_id=949319927 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, 17.5, 0, -23.75)
-
-[node name="wall_corner8" parent="OLD_NODES/Cubicle Landscape" unique_id=1637321791 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, 7.5, 0, -21.25)
-
-[node name="wall_corner9" parent="OLD_NODES/Cubicle Landscape" unique_id=1735606669 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 1.25, 0, -22.5)
-
-[node name="wall_corner10" parent="OLD_NODES/Cubicle Landscape" unique_id=1331324177 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 1.25, 0, -17.5)
-
-[node name="wall_corner3" parent="OLD_NODES/Cubicle Landscape" unique_id=1280114946 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 3.75, 0, -12.5)
-
-[node name="wall_corner4" parent="OLD_NODES/Cubicle Landscape" unique_id=2028164151 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(-4.371138e-08, 0, -1, 0, 1, 0, 1, 0, -4.371138e-08, 3.75, 0, -17.5)
-
-[node name="wall_corner5" parent="OLD_NODES/Cubicle Landscape" unique_id=1231145231 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(-4.371138e-08, 0, -1, 0, 1, 0, 1, 0, -4.371138e-08, 1.25, 0, -15)
-
-[node name="wall_portal5" parent="OLD_NODES/Cubicle Landscape" unique_id=544716455 instance=ExtResource("8_qsdn1")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 5, 0, -13.75)
-
-[node name="wall_portal6" parent="OLD_NODES/Cubicle Landscape" unique_id=592977563 instance=ExtResource("8_qsdn1")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 15, 0, -13.75)
-
-[node name="wall_portal7" parent="OLD_NODES/Cubicle Landscape" unique_id=2079383732 instance=ExtResource("8_qsdn1")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 12.5, 0, -16.25)
-
-[node name="wall_portal8" parent="OLD_NODES/Cubicle Landscape" unique_id=732900146 instance=ExtResource("8_qsdn1")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 8.75, 0, -20)
-
-[node name="wall_portal9" parent="OLD_NODES/Cubicle Landscape" unique_id=1362919211 instance=ExtResource("8_qsdn1")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 13.75, 0, -27.5)
-
-[node name="wall_portal10" parent="OLD_NODES/Cubicle Landscape" unique_id=902291503 instance=ExtResource("8_qsdn1")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 11.25, 0, -27.5)
-
-[node name="wall_portal11" parent="OLD_NODES/Cubicle Landscape" unique_id=70063411 instance=ExtResource("8_qsdn1")]
-transform = Transform3D(-1, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -1, 15, 0, -36.25)
-
-[node name="Atrium" type="Node3D" parent="OLD_NODES" unique_id=1153892398]
-
-[node name="wall_corner9" parent="OLD_NODES/Atrium" unique_id=607854869 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(-1, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -1, -2.5, 0, -18.75)
-
-[node name="wall_corner16" parent="OLD_NODES/Atrium" unique_id=1061782733 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -3.75, 0, -20)
-
-[node name="wall_corner17" parent="OLD_NODES/Atrium" unique_id=1980042767 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(-2.1855693e-07, 0, -1, 0, 1, 0, 1, 0, -2.1855693e-07, -6.25, 0, -22.5)
-
-[node name="wall_corner10" parent="OLD_NODES/Atrium" unique_id=1451118849 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(-4.371138e-08, 0, -1, 0, 1, 0, 1, 0, -4.371138e-08, -11.25, 0, -37.5)
-
-[node name="wall_corner14" parent="OLD_NODES/Atrium" unique_id=980816802 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(-4.371138e-08, 0, -1, 0, 1, 0, 1, 0, -4.371138e-08, -1.25, 0, -45)
-
-[node name="wall_corner15" parent="OLD_NODES/Atrium" unique_id=1007452828 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(-1, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -1, 0, 0, -46.25)
-
-[node name="wall_corner13" parent="OLD_NODES/Atrium" unique_id=1189097373 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -11.25, 0, -42.5)
-
-[node name="wall_corner11" parent="OLD_NODES/Atrium" unique_id=734606195 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, -7.5, 0, -36.25)
-
-[node name="wall_corner12" parent="OLD_NODES/Atrium" unique_id=1678443472 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 11.25, 0, -45)
-
-[node name="wall18" parent="OLD_NODES/Atrium" unique_id=1960648105 instance=ExtResource("5_w13no")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -18.75)
-
-[node name="wall21" parent="OLD_NODES/Atrium" unique_id=1873976565 instance=ExtResource("5_w13no")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.25, 0, -25)
-
-[node name="wall22" parent="OLD_NODES/Atrium" unique_id=182257658 instance=ExtResource("5_w13no")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.25, 0, -27.5)
-
-[node name="wall30" parent="OLD_NODES/Atrium" unique_id=1203162146 instance=ExtResource("5_w13no")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.25, 0, -30)
-
-[node name="wall23" parent="OLD_NODES/Atrium" unique_id=928955906 instance=ExtResource("5_w13no")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -11.25, 0, -40)
-
-[node name="wall31" parent="OLD_NODES/Atrium" unique_id=1671770423 instance=ExtResource("5_w13no")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -10, 0, -43.75)
-
-[node name="wall35" parent="OLD_NODES/Atrium" unique_id=553615465 instance=ExtResource("5_w13no")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2.5, 0, -46.25)
-
-[node name="wall36" parent="OLD_NODES/Atrium" unique_id=1479507115 instance=ExtResource("5_w13no")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 5, 0, -46.25)
-
-[node name="wall37" parent="OLD_NODES/Atrium" unique_id=926826882 instance=ExtResource("5_w13no")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 7.5, 0, -46.25)
-
-[node name="wall38" parent="OLD_NODES/Atrium" unique_id=1500707644 instance=ExtResource("5_w13no")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 10, 0, -46.25)
-
-[node name="wall33" parent="OLD_NODES/Atrium" unique_id=1913440275 instance=ExtResource("5_w13no")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -5, 0, -43.75)
-
-[node name="wall34" parent="OLD_NODES/Atrium" unique_id=586791775 instance=ExtResource("5_w13no")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -2.5, 0, -43.75)
-
-[node name="wall24" parent="OLD_NODES/Atrium" unique_id=208313082 instance=ExtResource("5_w13no")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.25, 0, -32.5)
-
-[node name="wall29" parent="OLD_NODES/Atrium" unique_id=1978563239 instance=ExtResource("5_w13no")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -10, 0, -36.25)
-
-[node name="wall25" parent="OLD_NODES/Atrium" unique_id=314663841 instance=ExtResource("5_w13no")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 11.25, 0, -37.5)
-
-[node name="wall26" parent="OLD_NODES/Atrium" unique_id=1005343433 instance=ExtResource("5_w13no")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 11.25, 0, -40)
-
-[node name="wall27" parent="OLD_NODES/Atrium" unique_id=867578529 instance=ExtResource("5_w13no")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 11.25, 0, -42.5)
-
-[node name="wall_portal" parent="OLD_NODES/Atrium" unique_id=467504715 instance=ExtResource("8_qsdn1")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -5, 0, -21.25)
-
-[node name="wall_portal3" parent="OLD_NODES/Atrium" unique_id=1269738213 instance=ExtResource("8_qsdn1")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.25, 0, -35)
-
-[node name="wall_portal2" parent="OLD_NODES/Atrium" unique_id=161847663 instance=ExtResource("8_qsdn1")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -7.5, 0, -43.75)
-
-[node name="Floor43" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=1024121086]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -5, 0, -22.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor44" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=1168897987]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -5, 0, -25)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor45" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=1243599490]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -5, 0, -27.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor46" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=1795486742]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -2.5, 0, -20)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor47" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=1233272911]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -2.5, 0, -22.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor48" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=390250432]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -2.5, 0, -25)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor49" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=1218792832]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 0, 0, -20)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor50" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=987348522]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 0, 0, -22.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor51" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=1465877463]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 0, 0, -25)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor52" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=1424332832]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -2.5, 0, -27.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor53" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=976463298]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -2.5, 0, -30)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor54" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=1468889452]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -2.5, 0, -32.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor55" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=1560702945]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 0, 0, -27.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor56" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=1760675551]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 0, 0, -30)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor57" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=2046094311]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 0, 0, -32.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor58" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=300343275]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 2.5, 0, -25)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor59" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=1851644095]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 2.5, 0, -27.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor60" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=1296973020]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 2.5, 0, -30)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor61" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=1737071698]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 5, 0, -25)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor62" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=523575606]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 5, 0, -27.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor63" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=432603395]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 5, 0, -30)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor64" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=1790547282]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 7.5, 0, -25)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor65" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=952053220]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 7.5, 0, -27.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor66" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=1369183936]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 7.5, 0, -30)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor67" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=163760669]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 10, 0, -25)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor68" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=2031349175]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 10, 0, -27.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor69" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=642606205]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 10, 0, -30)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor70" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=469701450]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 7.5, 0, -32.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor71" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=735227464]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 7.5, 0, -35)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor72" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=1959941291]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 7.5, 0, -37.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor73" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=867334540]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 10, 0, -32.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor74" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=197057318]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 10, 0, -35)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor75" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=1763603478]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 10, 0, -37.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor76" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=1082112472]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 2.5, 0, -32.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor77" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=296030067]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 2.5, 0, -35)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor78" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=1950138839]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 2.5, 0, -37.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor79" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=1802399250]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 5, 0, -32.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor80" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=376756892]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 5, 0, -35)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor81" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=627405693]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 5, 0, -37.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor82" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=683866499]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 2.5, 0, -40)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor83" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=1560250438]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 2.5, 0, -42.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor84" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=1596108425]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 2.5, 0, -45)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor112" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=2019065024]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 0, 0, -45)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor113" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=676107731]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 0, 0, -42.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor114" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=2033520013]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -2.5, 0, -42.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor85" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=401784496]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 5, 0, -40)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor86" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=845569312]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 5, 0, -42.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor87" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=1161675290]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 5, 0, -45)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor88" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=1029024967]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 7.5, 0, -40)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor89" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=1272830489]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 7.5, 0, -42.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor90" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=266047232]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 7.5, 0, -45)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor91" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=710415913]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 10, 0, -40)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor92" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=1133586414]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 10, 0, -42.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor93" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=531324165]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 10, 0, -45)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor94" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=1084248686]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -2.5, 0, -35)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor106" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=599421505]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -5, 0, -30)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor107" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=758667395]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -5, 0, -32.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor108" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=1025735759]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -5, 0, -35)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor109" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=783800954]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -5, 0, -37.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor110" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=1069105042]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -5, 0, -40)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor111" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=2014088601]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -5, 0, -42.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor95" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=1653711314]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -2.5, 0, -37.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor96" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=747489881]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -2.5, 0, -40)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor97" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=890089768]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 0, 0, -35)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor98" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=1261271078]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 0, 0, -37.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor99" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=2107486191]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 0, 0, -40)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor100" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=941871694]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -10, 0, -37.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor101" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=1857023431]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -10, 0, -40)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor102" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=1329238525]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -10, 0, -42.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor103" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=1505609935]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -7.5, 0, -37.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor104" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=325221642]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -7.5, 0, -40)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor105" type="MeshInstance3D" parent="OLD_NODES/Atrium" unique_id=511339840]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -7.5, 0, -42.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Lounge" type="Node3D" parent="OLD_NODES" unique_id=1390729805]
-
-[node name="Floor27" type="MeshInstance3D" parent="OLD_NODES/Lounge" unique_id=1445487784]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -20, 0, -17.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor28" type="MeshInstance3D" parent="OLD_NODES/Lounge" unique_id=1441411304]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -22.5, 0, -17.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor29" type="MeshInstance3D" parent="OLD_NODES/Lounge" unique_id=377550746]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -17.5, 0, -17.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor30" type="MeshInstance3D" parent="OLD_NODES/Lounge" unique_id=1102199676]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -15, 0, -17.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor31" type="MeshInstance3D" parent="OLD_NODES/Lounge" unique_id=197061234]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -12.5, 0, -17.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor32" type="MeshInstance3D" parent="OLD_NODES/Lounge" unique_id=396111366]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -10, 0, -17.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor33" type="MeshInstance3D" parent="OLD_NODES/Lounge" unique_id=1956616374]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -20, 0, -20)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor34" type="MeshInstance3D" parent="OLD_NODES/Lounge" unique_id=658642239]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -22.5, 0, -20)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor35" type="MeshInstance3D" parent="OLD_NODES/Lounge" unique_id=140350527]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -17.5, 0, -20)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor36" type="MeshInstance3D" parent="OLD_NODES/Lounge" unique_id=70558727]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -15, 0, -20)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor37" type="MeshInstance3D" parent="OLD_NODES/Lounge" unique_id=274179281]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -12.5, 0, -20)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor38" type="MeshInstance3D" parent="OLD_NODES/Lounge" unique_id=1284601341]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -10, 0, -20)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor39" type="MeshInstance3D" parent="OLD_NODES/Lounge" unique_id=1728229526]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -20, 0, -22.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor40" type="MeshInstance3D" parent="OLD_NODES/Lounge" unique_id=64372473]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -22.5, 0, -22.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor42" type="MeshInstance3D" parent="OLD_NODES/Lounge" unique_id=413641358]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -15, 0, -22.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor43" type="MeshInstance3D" parent="OLD_NODES/Lounge" unique_id=314829020]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -12.5, 0, -22.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor44" type="MeshInstance3D" parent="OLD_NODES/Lounge" unique_id=1575197582]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -10, 0, -22.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor45" type="MeshInstance3D" parent="OLD_NODES/Lounge" unique_id=1442609517]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -20, 0, -25)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor46" type="MeshInstance3D" parent="OLD_NODES/Lounge" unique_id=55544452]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -22.5, 0, -25)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor47" type="MeshInstance3D" parent="OLD_NODES/Lounge" unique_id=1722975869]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -17.5, 0, -25)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor48" type="MeshInstance3D" parent="OLD_NODES/Lounge" unique_id=878078347]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -15, 0, -25)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor49" type="MeshInstance3D" parent="OLD_NODES/Lounge" unique_id=1022878676]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -12.5, 0, -25)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor50" type="MeshInstance3D" parent="OLD_NODES/Lounge" unique_id=767626588]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -10, 0, -25)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor51" type="MeshInstance3D" parent="OLD_NODES/Lounge" unique_id=123945030]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -20, 0, -27.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor52" type="MeshInstance3D" parent="OLD_NODES/Lounge" unique_id=809946298]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -22.5, 0, -27.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor53" type="MeshInstance3D" parent="OLD_NODES/Lounge" unique_id=1587883121]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -17.5, 0, -27.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor54" type="MeshInstance3D" parent="OLD_NODES/Lounge" unique_id=1036484924]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -15, 0, -27.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor55" type="MeshInstance3D" parent="OLD_NODES/Lounge" unique_id=1333126887]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -12.5, 0, -27.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor56" type="MeshInstance3D" parent="OLD_NODES/Lounge" unique_id=1363842340]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -10, 0, -27.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor57" type="MeshInstance3D" parent="OLD_NODES/Lounge" unique_id=1559670085]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -20, 0, -30)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor58" type="MeshInstance3D" parent="OLD_NODES/Lounge" unique_id=1503769044]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -22.5, 0, -30)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor59" type="MeshInstance3D" parent="OLD_NODES/Lounge" unique_id=2030956775]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -17.5, 0, -30)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor60" type="MeshInstance3D" parent="OLD_NODES/Lounge" unique_id=1899941483]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -15, 0, -30)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor61" type="MeshInstance3D" parent="OLD_NODES/Lounge" unique_id=1393515644]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -12.5, 0, -30)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor62" type="MeshInstance3D" parent="OLD_NODES/Lounge" unique_id=816925795]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -10, 0, -30)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor63" type="MeshInstance3D" parent="OLD_NODES/Lounge" unique_id=916373505]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -20, 0, -32.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor64" type="MeshInstance3D" parent="OLD_NODES/Lounge" unique_id=1251113971]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -22.5, 0, -32.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor65" type="MeshInstance3D" parent="OLD_NODES/Lounge" unique_id=893598973]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -17.5, 0, -32.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor66" type="MeshInstance3D" parent="OLD_NODES/Lounge" unique_id=1224511143]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -15, 0, -32.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor67" type="MeshInstance3D" parent="OLD_NODES/Lounge" unique_id=831111864]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -12.5, 0, -32.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor68" type="MeshInstance3D" parent="OLD_NODES/Lounge" unique_id=1562598276]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -10, 0, -32.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="wall_corner3" parent="OLD_NODES/Lounge" unique_id=316520334 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(-4.371138e-08, 0, -1, 0, 1, 0, 1, 0, -4.371138e-08, -8.75, 0, -17.5)
-
-[node name="wall_corner4" parent="OLD_NODES/Lounge" unique_id=7803384 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(1, 0, 7.1054274e-15, 0, 1, 0, -7.1054274e-15, 0, 1, -10, 0, -33.75)
-
-[node name="wall_corner6" parent="OLD_NODES/Lounge" unique_id=205137988 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(1, 0, 7.1054274e-15, 0, 1, 0, -7.1054274e-15, 0, 1, -10, 0, -26.25)
-
-[node name="wall_corner11" parent="OLD_NODES/Lounge" unique_id=1164294825 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, -16.25, 0, -32.5)
-
-[node name="wall_corner5" parent="OLD_NODES/Lounge" unique_id=71696521 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, -23.75, 0, -32.5)
-
-[node name="wall_corner7" parent="OLD_NODES/Lounge" unique_id=1028424748 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, -18.75, 0, -22.5)
-
-[node name="wall_corner8" parent="OLD_NODES/Lounge" unique_id=550114142 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(-1, 0, -8.7422784e-08, 0, 1, 0, 8.7422784e-08, 0, -1, -17.5, 0, -21.25)
-
-[node name="wall_corner9" parent="OLD_NODES/Lounge" unique_id=517303863 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(1.3113417e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113417e-07, -16.25, 0, -22.5)
-
-[node name="wall_corner10" parent="OLD_NODES/Lounge" unique_id=119023898 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -17.5, 0, -23.75)
-
-[node name="wall32" parent="OLD_NODES/Lounge" unique_id=479889278 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -23.75, 0, -30)
-
-[node name="wall33" parent="OLD_NODES/Lounge" unique_id=1312302645 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -23.75, 0, -27.5)
-
-[node name="wall34" parent="OLD_NODES/Lounge" unique_id=1215405878 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -23.75, 0, -25)
-
-[node name="wall41" parent="OLD_NODES/Lounge" unique_id=972084677 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -23.75, 0, -22.5)
-
-[node name="wall42" parent="OLD_NODES/Lounge" unique_id=1010881332 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -23.75, 0, -20)
-
-[node name="wall43" parent="OLD_NODES/Lounge" unique_id=1670245756 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -23.75, 0, -17.5)
-
-[node name="wall44" parent="OLD_NODES/Lounge" unique_id=1724950066 instance=ExtResource("5_w13no")]
-transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -17.489265, 0, -33.76412)
-
-[node name="wall47" parent="OLD_NODES/Lounge" unique_id=1168056492 instance=ExtResource("5_w13no")]
-transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -22.489265, 0, -33.76412)
-
-[node name="wall45" parent="OLD_NODES/Lounge" unique_id=1970237118 instance=ExtResource("5_w13no")]
-transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -14.989265, 0, -33.76412)
-
-[node name="wall46" parent="OLD_NODES/Lounge" unique_id=819859055 instance=ExtResource("5_w13no")]
-transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -12.489265, 0, -33.76412)
-
-[node name="wall48" parent="OLD_NODES/Lounge" unique_id=2141052347 instance=ExtResource("5_w13no")]
-transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -12.489265, 0, -26.264118)
-
-[node name="wall35" parent="OLD_NODES/Lounge" unique_id=1213478432 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -8.75, 0, -32.5)
-
-[node name="wall36" parent="OLD_NODES/Lounge" unique_id=1793059448 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -8.75, 0, -30)
-
-[node name="wall37" parent="OLD_NODES/Lounge" unique_id=1610213014 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -8.75, 0, -27.5)
-
-[node name="wall38" parent="OLD_NODES/Lounge" unique_id=1569274471 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -8.75, 0, -25)
-
-[node name="wall40" parent="OLD_NODES/Lounge" unique_id=896380447 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -8.75, 0, -20)
-
-[node name="wall_portal" parent="OLD_NODES/Lounge" unique_id=1655415486 instance=ExtResource("8_qsdn1")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -8.75, 0, -22.5)
-
-[node name="wall_portal2" parent="OLD_NODES/Lounge" unique_id=416386433 instance=ExtResource("8_qsdn1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -33.75)
-
-[node name="XXX" type="Node3D" parent="OLD_NODES/Lounge" unique_id=5407410]
-
-[node name="wall_corner5" parent="OLD_NODES/Lounge/XXX" unique_id=1379362647 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(1.3113417e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113417e-07, -23.75, 0, -40)
-
-[node name="wall_corner6" parent="OLD_NODES/Lounge/XXX" unique_id=364696473 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -20, 0, -38.75)
-
-[node name="wall_corner7" parent="OLD_NODES/Lounge/XXX" unique_id=1783441910 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -18.75, 0, -37.5)
-
-[node name="wall_corner8" parent="OLD_NODES/Lounge/XXX" unique_id=2094919214 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -13.75, 0, -37.5)
-
-[node name="wall_corner9" parent="OLD_NODES/Lounge/XXX" unique_id=1978215878 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(-2.1855693e-07, 0, 1, 0, 1, 0, -1, 0, -2.1855693e-07, -13.75, 0, -45)
-
-[node name="wall_corner10" parent="OLD_NODES/Lounge/XXX" unique_id=1457434226 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(-1, 0, -2.6226832e-07, 0, 1, 0, 2.6226832e-07, 0, -1, -22.5, 0, -46.25)
-
-[node name="wall_corner14" parent="OLD_NODES/Lounge/XXX" unique_id=329927158 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(-2.1855692e-07, 0, 1, 0, 1, 0, -1, 0, -2.1855692e-07, -16.25, 0, -50)
-
-[node name="wall_corner15" parent="OLD_NODES/Lounge/XXX" unique_id=1123222242 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(-2.1855692e-07, 0, 1, 0, 1, 0, -1, 0, -2.1855692e-07, -11.25, 0, -55)
-
-[node name="wall_corner16" parent="OLD_NODES/Lounge/XXX" unique_id=1140990833 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(1.3113414e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113414e-07, -8.75, 0, -47.5)
-
-[node name="wall_corner12" parent="OLD_NODES/Lounge/XXX" unique_id=1596856151 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(-1, 0, -2.6226832e-07, 0, 1, 0, 2.6226832e-07, 0, -1, -22.5, 0, -56.25)
-
-[node name="wall_corner11" parent="OLD_NODES/Lounge/XXX" unique_id=765602001 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(1, 0, 3.496911e-07, 0, 1, 0, -3.496911e-07, 0, 1, -5, 0, -46.25)
-
-[node name="wall_corner13" parent="OLD_NODES/Lounge/XXX" unique_id=1579366047 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(-3.934025e-07, 0, 1, 0, 1, 0, -1, 0, -3.934025e-07, -3.75, 0, -55)
-
-[node name="wall32" parent="OLD_NODES/Lounge/XXX" unique_id=1762204980 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -23.75, 0, -42.5)
-
-[node name="wall38" parent="OLD_NODES/Lounge/XXX" unique_id=144328536 instance=ExtResource("5_w13no")]
-transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -20, 0, -46.25)
-
-[node name="wall46" parent="OLD_NODES/Lounge/XXX" unique_id=246534867 instance=ExtResource("5_w13no")]
-transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -20, 0, -56.25)
-
-[node name="wall47" parent="OLD_NODES/Lounge/XXX" unique_id=686953432 instance=ExtResource("5_w13no")]
-transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -17.5, 0, -56.25)
-
-[node name="wall48" parent="OLD_NODES/Lounge/XXX" unique_id=1144957062 instance=ExtResource("5_w13no")]
-transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -15, 0, -56.25)
-
-[node name="wall49" parent="OLD_NODES/Lounge/XXX" unique_id=2024778801 instance=ExtResource("5_w13no")]
-transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -12.5, 0, -56.25)
-
-[node name="wall50" parent="OLD_NODES/Lounge/XXX" unique_id=2040804310 instance=ExtResource("5_w13no")]
-transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -10, 0, -56.25)
-
-[node name="wall51" parent="OLD_NODES/Lounge/XXX" unique_id=103035539 instance=ExtResource("5_w13no")]
-transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -7.5, 0, -56.25)
-
-[node name="wall56" parent="OLD_NODES/Lounge/XXX" unique_id=640981640 instance=ExtResource("5_w13no")]
-transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -20, 0, -51.25)
-
-[node name="wall57" parent="OLD_NODES/Lounge/XXX" unique_id=1885519525 instance=ExtResource("5_w13no")]
-transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -17.5, 0, -51.25)
-
-[node name="wall58" parent="OLD_NODES/Lounge/XXX" unique_id=1990680882 instance=ExtResource("5_w13no")]
-transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -15, 0, -51.25)
-
-[node name="wall60" parent="OLD_NODES/Lounge/XXX" unique_id=287350365 instance=ExtResource("5_w13no")]
-transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -10, 0, -51.25)
-
-[node name="wall61" parent="OLD_NODES/Lounge/XXX" unique_id=566071999 instance=ExtResource("5_w13no")]
-transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -7.5, 0, -51.25)
-
-[node name="wall52" parent="OLD_NODES/Lounge/XXX" unique_id=65656569 instance=ExtResource("5_w13no")]
-transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -5, 0, -56.25)
-
-[node name="wall42" parent="OLD_NODES/Lounge/XXX" unique_id=1088028709 instance=ExtResource("5_w13no")]
-transform = Transform3D(-2.1855695e-07, 0, 1, 0, 1, 0, -1, 0, -2.1855695e-07, -23.75, 0, -47.5)
-
-[node name="wall43" parent="OLD_NODES/Lounge/XXX" unique_id=883537861 instance=ExtResource("5_w13no")]
-transform = Transform3D(-2.1855695e-07, 0, 1, 0, 1, 0, -1, 0, -2.1855695e-07, -23.75, 0, -50)
-
-[node name="wall53" parent="OLD_NODES/Lounge/XXX" unique_id=75751293 instance=ExtResource("5_w13no")]
-transform = Transform3D(-2.1855695e-07, 0, 1, 0, 1, 0, -1, 0, -2.1855695e-07, -3.75, 0, -52.5)
-
-[node name="wall54" parent="OLD_NODES/Lounge/XXX" unique_id=2110598 instance=ExtResource("5_w13no")]
-transform = Transform3D(-2.1855695e-07, 0, 1, 0, 1, 0, -1, 0, -2.1855695e-07, -3.75, 0, -50)
-
-[node name="wall55" parent="OLD_NODES/Lounge/XXX" unique_id=1053835566 instance=ExtResource("5_w13no")]
-transform = Transform3D(-2.1855695e-07, 0, 1, 0, 1, 0, -1, 0, -2.1855695e-07, -3.75, 0, -47.5)
-
-[node name="wall44" parent="OLD_NODES/Lounge/XXX" unique_id=1381842930 instance=ExtResource("5_w13no")]
-transform = Transform3D(-2.1855695e-07, 0, 1, 0, 1, 0, -1, 0, -2.1855695e-07, -23.75, 0, -52.5)
-
-[node name="wall45" parent="OLD_NODES/Lounge/XXX" unique_id=1968517971 instance=ExtResource("5_w13no")]
-transform = Transform3D(-2.1855695e-07, 0, 1, 0, 1, 0, -1, 0, -2.1855695e-07, -23.75, 0, -55)
-
-[node name="wall39" parent="OLD_NODES/Lounge/XXX" unique_id=1113936446 instance=ExtResource("5_w13no")]
-transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -12.5, 0, -46.25)
-
-[node name="wall40" parent="OLD_NODES/Lounge/XXX" unique_id=254532315 instance=ExtResource("5_w13no")]
-transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -10, 0, -46.25)
-
-[node name="wall41" parent="OLD_NODES/Lounge/XXX" unique_id=464708089 instance=ExtResource("5_w13no")]
-transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -7.5, 0, -46.25)
-
-[node name="wall37" parent="OLD_NODES/Lounge/XXX" unique_id=1581518501 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -23.75, 0, -45)
-
-[node name="wall35" parent="OLD_NODES/Lounge/XXX" unique_id=984440607 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -13.75, 0, -40)
-
-[node name="wall36" parent="OLD_NODES/Lounge/XXX" unique_id=898798105 instance=ExtResource("5_w13no")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -13.75, 0, -42.5)
-
-[node name="wall33" parent="OLD_NODES/Lounge/XXX" unique_id=1129259421 instance=ExtResource("5_w13no")]
-transform = Transform3D(-1, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -1, -17.5, 0, -36.25)
-
-[node name="wall34" parent="OLD_NODES/Lounge/XXX" unique_id=1743590303 instance=ExtResource("5_w13no")]
-transform = Transform3D(-1, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -1, -15, 0, -36.25)
-
-[node name="wall_portal2" parent="OLD_NODES/Lounge/XXX" unique_id=10981420 instance=ExtResource("8_qsdn1")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -12.5, 0, -51.25)
-
-[node name="wall_portal3" parent="OLD_NODES/Lounge/XXX" unique_id=826264642 instance=ExtResource("8_qsdn1")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -22.5, 0, -38.75)
-
-[node name="Floor44" type="MeshInstance3D" parent="OLD_NODES/Lounge/XXX" unique_id=1632979295]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -22.5, 0, -40)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor45" type="MeshInstance3D" parent="OLD_NODES/Lounge/XXX" unique_id=1387218024]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -22.5, 0, -42.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor46" type="MeshInstance3D" parent="OLD_NODES/Lounge/XXX" unique_id=309749903]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -22.5, 0, -45)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor47" type="MeshInstance3D" parent="OLD_NODES/Lounge/XXX" unique_id=1483242040]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -20, 0, -40)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor48" type="MeshInstance3D" parent="OLD_NODES/Lounge/XXX" unique_id=627832612]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -20, 0, -42.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor49" type="MeshInstance3D" parent="OLD_NODES/Lounge/XXX" unique_id=520820110]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -20, 0, -45)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor50" type="MeshInstance3D" parent="OLD_NODES/Lounge/XXX" unique_id=55980812]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -17.5, 0, -40)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor51" type="MeshInstance3D" parent="OLD_NODES/Lounge/XXX" unique_id=196641358]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -17.5, 0, -42.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor52" type="MeshInstance3D" parent="OLD_NODES/Lounge/XXX" unique_id=1425547306]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -17.5, 0, -45)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor53" type="MeshInstance3D" parent="OLD_NODES/Lounge/XXX" unique_id=945006150]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -15, 0, -40)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor88" type="MeshInstance3D" parent="OLD_NODES/Lounge/XXX" unique_id=860983514]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -15, 0, -37.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor89" type="MeshInstance3D" parent="OLD_NODES/Lounge/XXX" unique_id=678725922]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -17.5, 0, -37.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor54" type="MeshInstance3D" parent="OLD_NODES/Lounge/XXX" unique_id=113076268]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -15, 0, -42.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor55" type="MeshInstance3D" parent="OLD_NODES/Lounge/XXX" unique_id=1299397920]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -15, 0, -45)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor56" type="MeshInstance3D" parent="OLD_NODES/Lounge/XXX" unique_id=2009067591]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -22.5, 0, -47.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor57" type="MeshInstance3D" parent="OLD_NODES/Lounge/XXX" unique_id=1245402434]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -22.5, 0, -50)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor58" type="MeshInstance3D" parent="OLD_NODES/Lounge/XXX" unique_id=76708521]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -22.5, 0, -52.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor59" type="MeshInstance3D" parent="OLD_NODES/Lounge/XXX" unique_id=303594514]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -20, 0, -47.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor60" type="MeshInstance3D" parent="OLD_NODES/Lounge/XXX" unique_id=1340592592]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -20, 0, -50)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor61" type="MeshInstance3D" parent="OLD_NODES/Lounge/XXX" unique_id=1749517716]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -20, 0, -52.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor62" type="MeshInstance3D" parent="OLD_NODES/Lounge/XXX" unique_id=1483859245]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -22.5, 0, -55)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor63" type="MeshInstance3D" parent="OLD_NODES/Lounge/XXX" unique_id=2063387030]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -20, 0, -55)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor64" type="MeshInstance3D" parent="OLD_NODES/Lounge/XXX" unique_id=1775199818]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -17.5, 0, -47.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor65" type="MeshInstance3D" parent="OLD_NODES/Lounge/XXX" unique_id=1315054848]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -17.5, 0, -50)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor66" type="MeshInstance3D" parent="OLD_NODES/Lounge/XXX" unique_id=1404879132]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -17.5, 0, -52.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor67" type="MeshInstance3D" parent="OLD_NODES/Lounge/XXX" unique_id=916744971]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -15, 0, -47.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor68" type="MeshInstance3D" parent="OLD_NODES/Lounge/XXX" unique_id=1325649319]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -15, 0, -50)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor69" type="MeshInstance3D" parent="OLD_NODES/Lounge/XXX" unique_id=1989762841]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -15, 0, -52.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor70" type="MeshInstance3D" parent="OLD_NODES/Lounge/XXX" unique_id=1206334709]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -17.5, 0, -55)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor71" type="MeshInstance3D" parent="OLD_NODES/Lounge/XXX" unique_id=266261654]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -15, 0, -55)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor72" type="MeshInstance3D" parent="OLD_NODES/Lounge/XXX" unique_id=1586428055]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -12.5, 0, -47.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor73" type="MeshInstance3D" parent="OLD_NODES/Lounge/XXX" unique_id=1403799520]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -12.5, 0, -50)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor74" type="MeshInstance3D" parent="OLD_NODES/Lounge/XXX" unique_id=1576346236]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -12.5, 0, -52.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor75" type="MeshInstance3D" parent="OLD_NODES/Lounge/XXX" unique_id=1857687496]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -10, 0, -47.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor76" type="MeshInstance3D" parent="OLD_NODES/Lounge/XXX" unique_id=873381691]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -10, 0, -50)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor77" type="MeshInstance3D" parent="OLD_NODES/Lounge/XXX" unique_id=713790636]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -10, 0, -52.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor78" type="MeshInstance3D" parent="OLD_NODES/Lounge/XXX" unique_id=1127256324]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -12.5, 0, -55)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor79" type="MeshInstance3D" parent="OLD_NODES/Lounge/XXX" unique_id=1591766386]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -10, 0, -55)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor80" type="MeshInstance3D" parent="OLD_NODES/Lounge/XXX" unique_id=414545930]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -7.5, 0, -47.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor81" type="MeshInstance3D" parent="OLD_NODES/Lounge/XXX" unique_id=832922902]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -7.5, 0, -50)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor82" type="MeshInstance3D" parent="OLD_NODES/Lounge/XXX" unique_id=2100786699]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -7.5, 0, -52.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor83" type="MeshInstance3D" parent="OLD_NODES/Lounge/XXX" unique_id=1411557352]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -5, 0, -47.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor84" type="MeshInstance3D" parent="OLD_NODES/Lounge/XXX" unique_id=644287979]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -5, 0, -50)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor85" type="MeshInstance3D" parent="OLD_NODES/Lounge/XXX" unique_id=396053734]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -5, 0, -52.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor86" type="MeshInstance3D" parent="OLD_NODES/Lounge/XXX" unique_id=1485724296]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -7.5, 0, -55)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor87" type="MeshInstance3D" parent="OLD_NODES/Lounge/XXX" unique_id=983300546]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -5, 0, -55)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
 [connection signal="area_entered" from="Interactables/dragon/trigger area" to="Interactables/dragon" method="_on_trigger_area_area_entered"]
+[connection signal="area_entered" from="Interactables/dragon3/trigger area" to="Interactables/dragon3" method="_on_trigger_area_area_entered"]
+[connection signal="area_entered" from="Interactables/dragon4/trigger area" to="Interactables/dragon4" method="_on_trigger_area_area_entered"]
+[connection signal="area_entered" from="Interactables/dragon2/trigger area" to="Interactables/dragon2" method="_on_trigger_area_area_entered"]
 
 [editable path="Interactables/Health Station"]
+[editable path="Interactables/Health Station5"]
+[editable path="Interactables/Health Station2"]
+[editable path="Interactables/Health Station4"]
+[editable path="Interactables/Health Station6"]
+[editable path="Interactables/Health Station3"]

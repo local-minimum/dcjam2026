@@ -3,10 +3,10 @@ class_name GearSmith
 
 var _base_costs: Dictionary[Gear.Base, int] = {
     Gear.Base.LOWER_BODY: 2,
-    Gear.Base.UPPER_BODY: 5,
-    Gear.Base.FEET: 10,
-    Gear.Base.HANDS: 20,
-    Gear.Base.HEAD: 30,
+    Gear.Base.UPPER_BODY: 3,
+    Gear.Base.FEET: 5,
+    Gear.Base.HANDS: 8,
+    Gear.Base.HEAD: 13,
 }
 
 var _material_costs: Dictionary[Gear.Mat, int] = {

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cdamg3aelw5yy" path="res://clicker/stationary_enemy.gd" id="1_0yifl"]
 [ext_resource type="Script" uid="uid://csfgoet4qt0pt" path="res://clicker/enemy_data.gd" id="2_88guo"]
 [ext_resource type="Texture2D" uid="uid://xm8uxyimqfnb" path="res://clicker/thumbnails/robots/1_rusty_128.png" id="2_q222v"]
+[ext_resource type="PackedScene" uid="uid://duogbl26qoj0h" path="res://clicker/enemies/marker.tscn" id="4_whmmn"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_1pa7v"]
 height = 2.6958008
@@ -34,3 +35,5 @@ data = SubResource("Resource_3gtn2")
 type = 2
 entity_root = NodePath("..")
 detection_areas = [NodePath("../Detection Area")]
+
+[node name="Marker" parent="." unique_id=1119820133 instance=ExtResource("4_whmmn")]

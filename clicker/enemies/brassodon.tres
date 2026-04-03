@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://cyodfq5isl86"]
+
+[ext_resource type="Texture2D" uid="uid://b5445y6od6krb" path="res://clicker/thumbnails/robots/3_normal_128.png" id="1_bkags"]
+[ext_resource type="Script" uid="uid://csfgoet4qt0pt" path="res://clicker/enemy_data.gd" id="2_um4p5"]
+
+[resource]
+script = ExtResource("2_um4p5")
+portrait = ExtResource("1_bkags")
+monster_name = "Brass-o-don"
+attacks = Array[String](["3D4+2"])
+attack_interval_msec = 1000
+defence = "D6-2"
+max_health = 15.0
+loot_value = 18
+metadata/_custom_type_script = "uid://csfgoet4qt0pt"

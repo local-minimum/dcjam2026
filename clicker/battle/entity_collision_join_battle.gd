@@ -14,5 +14,5 @@ func _add_enemy_to_battle(e: StationaryEnemy) -> bool:
         return false
 
     __SignalBus.on_enemy_join_battle.emit(e.data)
-    e.entity_root.queue_free()
+    e.deactivate()
     return true

@@ -94,6 +94,7 @@ mesh = ExtResource("14_eppcp")
 [node name="dragon" parent="Interactables" unique_id=421680519 instance=ExtResource("8_jorcj")]
 transform = Transform3D(-0.19917981, -1.3764798e-15, 0.97996294, 0, 1, 0, -0.97996294, -1.1228298e-15, -0.19917981, 8.077395, 0.5, -9.738616)
 script = ExtResource("9_l3xlb")
+focus_time = 3.0
 
 [node name="trigger area" type="Area3D" parent="Interactables/dragon" unique_id=1164094524]
 collision_mask = 512
@@ -110,6 +111,7 @@ mesh = SubResource("CylinderMesh_l3xlb")
 [node name="dragon3" parent="Interactables" unique_id=491939050 instance=ExtResource("8_jorcj")]
 transform = Transform3D(-0.7293986, -1.7723313e-15, 0.68408895, 0, 1, 0, -0.68408895, -1.1952048e-16, -0.7293986, 6.2047377, 0.50024414, -25.683002)
 script = ExtResource("9_l3xlb")
+focus_time = 3.0
 
 [node name="trigger area" type="Area3D" parent="Interactables/dragon3" unique_id=716907318]
 collision_mask = 512
@@ -126,6 +128,7 @@ mesh = SubResource("CylinderMesh_l3xlb")
 [node name="dragon4" parent="Interactables" unique_id=1582355424 instance=ExtResource("8_jorcj")]
 transform = Transform3D(-0.9981909, -1.3043559e-15, -0.060125202, 0, 1, 0, 0.060125202, 1.2058605e-15, -0.9981909, -11.676061, 0.50024414, -8.277172)
 script = ExtResource("9_l3xlb")
+focus_time = 3.0
 
 [node name="trigger area" type="Area3D" parent="Interactables/dragon4" unique_id=1103699797]
 collision_mask = 512
@@ -142,6 +145,7 @@ mesh = SubResource("CylinderMesh_l3xlb")
 [node name="dragon2" parent="Interactables" unique_id=965239500 instance=ExtResource("8_jorcj")]
 transform = Transform3D(-0.55639714, -1.6997594e-15, 0.8309165, 0, 1, 0, -0.8309165, -5.160055e-16, -0.55639714, -19.886333, 0.5, -27.787323)
 script = ExtResource("9_l3xlb")
+focus_time = 3.0
 
 [node name="trigger area" type="Area3D" parent="Interactables/dragon2" unique_id=1903916816]
 collision_mask = 512
@@ -275,7 +279,7 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0
 [node name="Enemies" type="Node3D" parent="." unique_id=930926840]
 
 [node name="Buckley 500" parent="Enemies" unique_id=286162732 instance=ExtResource("11_wbro4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
 
 [node name="TinTron Mk 1" parent="Enemies" unique_id=1004711397 instance=ExtResource("12_24q6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -6)

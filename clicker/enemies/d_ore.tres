@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://8cbreuegdfox"]
+
+[ext_resource type="Texture2D" uid="uid://b407lput5welh" path="res://clicker/thumbnails/robots/5_elite_128.png" id="1_abb6i"]
+[ext_resource type="Script" uid="uid://csfgoet4qt0pt" path="res://clicker/enemy_data.gd" id="2_xdaad"]
+
+[resource]
+script = ExtResource("2_xdaad")
+portrait = ExtResource("1_abb6i")
+monster_name = "a-dORE"
+attacks = Array[String](["2D12+2", "3D6"])
+defence = "3D4"
+max_health = 30.0
+loot_value = 30
+metadata/_custom_type_script = "uid://csfgoet4qt0pt"

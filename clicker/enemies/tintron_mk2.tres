@@ -6,8 +6,8 @@
 [resource]
 script = ExtResource("2_r7spf")
 portrait = ExtResource("1_m1gql")
-monster_name = "Tin-Tron Mk 2"
+monster_name = "Tin-Tron Mk II"
 attacks = Array[String](["D8+1", "D8", "D8", "D10"])
-max_health = 10.0
+max_health = 15.0
 loot_value = 16
 metadata/_custom_type_script = "uid://csfgoet4qt0pt"

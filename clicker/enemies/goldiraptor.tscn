@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://jj6xxf1ur6sm"]
+
+[ext_resource type="Script" uid="uid://gymwyj1tdt2u" path="res://core/entities/moving_entity_base.gd" id="1_s3g25"]
+[ext_resource type="Script" uid="uid://cdamg3aelw5yy" path="res://clicker/stationary_enemy.gd" id="2_lswls"]
+[ext_resource type="Resource" uid="uid://c36hlhemww4y" path="res://clicker/enemies/goldiraptor.tres" id="3_s3g25"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_1pa7v"]
+height = 2.6958008
+radius = 0.93603516
+
+[node name="Goldiraptor" type="Node3D" unique_id=286162732 node_paths=PackedStringArray("grid_entity")]
+script = ExtResource("1_s3g25")
+grid_entity = NodePath("Enemy Entity")
+
+[node name="Detection Area" type="Area3D" parent="." unique_id=1663056151]
+collision_layer = 1024
+collision_mask = 512
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Detection Area" unique_id=1844869498]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5979004, 0)
+shape = SubResource("CylinderShape3D_1pa7v")
+
+[node name="Enemy Entity" type="Node" parent="." unique_id=1113681814 node_paths=PackedStringArray("entity_root", "detection_areas")]
+script = ExtResource("2_lswls")
+data = ExtResource("3_s3g25")
+type = 2
+entity_root = NodePath("..")
+detection_areas = [NodePath("../Detection Area")]

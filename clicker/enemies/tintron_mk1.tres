@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_yxqm6")
 portrait = ExtResource("1_wdinq")
-monster_name = "Tin-Tron Mk 1"
+monster_name = "Tin-Tron Mk I"
 attacks = Array[String](["D6+1", "D6", "D6", "D8"])
 defence = "D4-1"
 max_health = 10.0

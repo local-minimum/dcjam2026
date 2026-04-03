@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_um4p5")
 portrait = ExtResource("1_bkags")
-monster_name = "Brass-o-don"
+monster_name = "Brass-o-Don"
 attacks = Array[String](["3D4+2"])
 attack_interval_msec = 1000
 defence = "D6-2"

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://be481cjdw8iya"]
+
+[ext_resource type="Texture2D" uid="uid://dg07f6eg7hgq5" path="res://clicker/thumbnails/robots/3_rusty_128.png" id="1_4pgnr"]
+[ext_resource type="Script" uid="uid://csfgoet4qt0pt" path="res://clicker/enemy_data.gd" id="2_tvldh"]
+
+[resource]
+script = ExtResource("2_tvldh")
+portrait = ExtResource("1_4pgnr")
+monster_name = "Ironosaurus"
+attacks = Array[String](["2D4+1"])
+attack_interval_msec = 1000
+defence = "D4-2"
+max_health = 10.0
+loot_value = 10
+metadata/_custom_type_script = "uid://csfgoet4qt0pt"

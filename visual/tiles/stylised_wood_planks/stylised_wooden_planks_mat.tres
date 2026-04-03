@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://b3o8kvs1bk15l"]
+
+[ext_resource type="Shader" uid="uid://cxakfuw35muos" path="res://visual/common/base_stylised_shader.gdshader" id="1_lfw84"]
+[ext_resource type="Texture2D" uid="uid://cuxkeulgvmbr2" path="res://visual/tiles/stylised_wood_planks/stylised_wooden_planks_baseColor.png" id="1_ogp4n"]
+[ext_resource type="Texture2D" uid="uid://bhej3dgk4n270" path="res://visual/tiles/stylised_wood_planks/stylised_wooden_planks_normal.png" id="2_lfw84"]
+[ext_resource type="Texture2D" uid="uid://ow7owanmhg2b" path="res://visual/tiles/stylised_wood_planks/stylised_wooden_planks_occlusionRoughnessMetallic.png" id="3_hvhk5"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_lfw84")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("1_ogp4n")
+shader_parameter/texture_normal = ExtResource("2_lfw84")
+shader_parameter/texture_orm = ExtResource("3_hvhk5")
+shader_parameter/normal_scale = 3.0

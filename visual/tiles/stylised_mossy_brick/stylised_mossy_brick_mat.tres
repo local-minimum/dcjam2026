@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cu3hlmljkqk22"]
+
+[ext_resource type="Shader" uid="uid://cxakfuw35muos" path="res://visual/common/base_stylised_shader.gdshader" id="1_hi4ny"]
+[ext_resource type="Texture2D" uid="uid://yb13t7mgnlur" path="res://visual/tiles/stylised_mossy_brick/mossy_brick_stylised_albedo.png" id="2_57j5b"]
+[ext_resource type="Texture2D" uid="uid://dhoydfe5fu675" path="res://visual/tiles/stylised_mossy_brick/mossy_brick_stylised_normal.png" id="3_hlnna"]
+[ext_resource type="Texture2D" uid="uid://pae5u563xb7r" path="res://visual/tiles/stylised_mossy_brick/mossy_brick_stylised_orm.png" id="4_61qvd"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_hi4ny")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("2_57j5b")
+shader_parameter/texture_normal = ExtResource("3_hlnna")
+shader_parameter/texture_orm = ExtResource("4_61qvd")
+shader_parameter/normal_scale = 1.000000807500001

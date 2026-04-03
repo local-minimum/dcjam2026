@@ -722,3 +722,4 @@ _dispose_quest = "res://clicker/dialogue/gain_dispose_quest.mp3"
 _complete_dispose_quest = "res://clicker/dialogue/complete_dispose_quest.mp3"
 _signal_lost = "res://clicker/dialogue/click_hard.mp3"
 _click_hard_ability = ExtResource("49_6qn5j")
+_steps_until_dragon_quest = 70

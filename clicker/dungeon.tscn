@@ -108,7 +108,7 @@ transform = Transform3D(0.9773459, 0, -0.21164894, 0, 1, 0, 0.21164894, 0, 0.977
 transform = Transform3D(0.4893064, 0, 0.87211233, 0, 1, 0, -0.87211233, 0, 0.4893064, -0.5139223, 0, -0.38706565)
 
 [node name="Shredder" parent="Interactables" unique_id=1014609165 instance=ExtResource("7_qmmos")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 3)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 2.3843231)
 
 [node name="Enemies" type="Node3D" parent="." unique_id=930926840]
 

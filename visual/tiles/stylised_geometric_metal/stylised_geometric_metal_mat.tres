@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://ca3jquhtlsk3d"]
+
+[ext_resource type="Shader" uid="uid://cxakfuw35muos" path="res://visual/common/base_stylised_shader.gdshader" id="1_b4yiq"]
+[ext_resource type="Texture2D" uid="uid://cjr0h8w5vq1sb" path="res://visual/tiles/stylised_geometric_metal/stylised_geometric_metal_albedo.png" id="2_u54uj"]
+[ext_resource type="Texture2D" uid="uid://d0fxd4bwa7hb" path="res://visual/tiles/stylised_geometric_metal/stylised_geometric_metal_normal.png" id="3_iq22m"]
+[ext_resource type="Texture2D" uid="uid://qnqpl5m2sspy" path="res://visual/tiles/stylised_geometric_metal/stylised_geometric_metal_orm.png" id="4_7iyxp"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_b4yiq")
+shader_parameter/albedo = Color(0.9779369, 0.97793704, 0.9779369, 1)
+shader_parameter/texture_albedo = ExtResource("2_u54uj")
+shader_parameter/texture_normal = ExtResource("3_iq22m")
+shader_parameter/texture_orm = ExtResource("4_7iyxp")
+shader_parameter/normal_scale = 3.0

@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dtj6oh3w7ikhg"]
+
+[ext_resource type="Shader" uid="uid://cxakfuw35muos" path="res://visual/common/base_stylised_shader.gdshader" id="1_5kp3c"]
+[ext_resource type="Texture2D" uid="uid://djmujlyvqee3r" path="res://visual/tiles/stylised_bolted_panels/stylised_bolted_panels_albedo.png" id="2_ahf3n"]
+[ext_resource type="Texture2D" uid="uid://c5ymhvtvv0l6v" path="res://visual/tiles/stylised_bolted_panels/stylised_bolted_panels_normal.png" id="3_h7iou"]
+[ext_resource type="Texture2D" uid="uid://b8fdio7e8vapn" path="res://visual/tiles/stylised_bolted_panels/stylised_bolted_panels_orm.png" id="4_atnbi"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_5kp3c")
+shader_parameter/albedo = Color(0.8992584, 0.8992584, 0.8992584, 1)
+shader_parameter/texture_albedo = ExtResource("2_ahf3n")
+shader_parameter/texture_normal = ExtResource("3_h7iou")
+shader_parameter/texture_orm = ExtResource("4_atnbi")
+shader_parameter/normal_scale = 3.0

@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://c7kajudkcl2pl"]
 
-[ext_resource type="Material" uid="uid://diwb8tjymr6wb" path="res://visual/tiles/bookcase_stylised/bookcase_stylised.tres" id="1_6bk4q"]
+[ext_resource type="Material" uid="uid://diwb8tjymr6wb" path="res://visual/tiles/stylised_bookcase/bookcase_stylised_mat.tres" id="1_6bk4q"]
 [ext_resource type="Material" uid="uid://b3o8kvs1bk15l" path="res://visual/tiles/stylised_wood_planks/stylised_wooden_planks_mat.tres" id="2_6bk4q"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_tshes"]

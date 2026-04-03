@@ -80,7 +80,7 @@ mesh = ExtResource("14_eppcp")
 [node name="Interactables" type="Node3D" parent="." unique_id=1041109397]
 
 [node name="dragon" parent="Interactables" unique_id=421680519 instance=ExtResource("8_jorcj")]
-transform = Transform3D(-0.773774, -1.776357e-15, 0.6334619, 0, 1, 0, -0.6334619, 1.8352615e-22, -0.773774, 5.6888876, 0.5, -12.241912)
+transform = Transform3D(0.5834562, 1.7158289e-15, -0.81214464, 0, 1, 0, 0.81214464, 4.597551e-16, 0.5834562, 6.6888876, 0.5, -11.241912)
 script = ExtResource("9_l3xlb")
 
 [node name="trigger area" type="Area3D" parent="Interactables/dragon" unique_id=1164094524]

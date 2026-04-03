@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://un8xvs6515wq"
-path.s3tc="res://.godot/imported/bookcase_stylised_albedo.png-cb5d67e1d51b1b0e3f589d4732ce18e4.s3tc.ctex"
+uid="uid://b8fdio7e8vapn"
+path.s3tc="res://.godot/imported/stylised_bolted_panels_orm.png-aab0eb97ccdae091d90755afc99856bc.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://visual/tiles/bookcase_stylised/bookcase_stylised_albedo.png"
-dest_files=["res://.godot/imported/bookcase_stylised_albedo.png-cb5d67e1d51b1b0e3f589d4732ce18e4.s3tc.ctex"]
+source_file="res://visual/tiles/stylised_bolted_panels/stylised_bolted_panels_orm.png"
+dest_files=["res://.godot/imported/stylised_bolted_panels_orm.png-aab0eb97ccdae091d90755afc99856bc.s3tc.ctex"]
 
 [params]
 

@@ -26,6 +26,7 @@ class_name ClickerDialogueManager
 @export_file_path("*.mp3") var _complete_dispose_quest: String
 
 @export_file_path("*.mp3") var _signal_lost: String
+@export_file_path("*.mp3") var _horror_music: String
 
 @export var _click_hard_ability: ClickerAbilityData
 
@@ -104,6 +105,8 @@ var _started_click_through: bool
 func _handle_change_ability_level(ability_id: String, lvl: int) -> void:
     if !_started_click_through && _click_hard_ability != null && ability_id == _click_hard_ability.id && lvl > 0:
         _started_click_through = true
+
+        __AudioHub.play_music(_horror_music, 2.0)
 
         await get_tree().create_timer(_delay_before_signal_loss).timeout
 

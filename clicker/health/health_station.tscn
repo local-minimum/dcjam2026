@@ -10,9 +10,44 @@ size = Vector3(2.185913, 2.9274902, 1.8946838)
 [sub_resource type="BoxShape3D" id="BoxShape3D_4mqyu"]
 size = Vector3(5.05011, 3.0374146, 4.7764435)
 
-[node name="Health Station" type="Node3D" unique_id=847146449]
+[sub_resource type="Curve" id="Curve_27wr5"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.19883043, 0.25661194), -0.56749696, -0.56749696, 0, 0, Vector2(0.7660819, 0.36347395), 0.8913854, 0.8913854, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_jdx1i"]
+texture_mode = 1
+curve = SubResource("Curve_27wr5")
+
+[sub_resource type="Gradient" id="Gradient_fns87"]
+offsets = PackedFloat32Array(0, 0.34539473, 0.8618421, 1)
+colors = PackedColorArray(0.14767182, 0.14767179, 0.14767179, 0.76862746, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.35686275)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_vy6xt"]
+gradient = SubResource("Gradient_fns87")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_27wr5"]
+lifetime_randomness = 0.25
+emission_shape = 1
+emission_sphere_radius = 0.5
+gravity = Vector3(0, -2, 0)
+color_ramp = SubResource("GradientTexture1D_vy6xt")
+alpha_curve = SubResource("CurveTexture_jdx1i")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jdx1i"]
+transparency = 1
+disable_fog = true
+disable_specular_occlusion = true
+albedo_color = Color(0.8714537, 0.38848522, 0.44055703, 1)
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_fns87"]
+material = SubResource("StandardMaterial3D_jdx1i")
+size = Vector2(0.03, 0.12)
+
+[node name="Health Station" type="Node3D" unique_id=847146449 node_paths=PackedStringArray("_particles")]
 script = ExtResource("1_58lu1")
 _nursing_ability = ExtResource("2_ew0ap")
+_particles = NodePath("healinglamp/Lamp Rain")
 
 [node name="Healing Trigger" type="Area3D" parent="." unique_id=97075159]
 collision_mask = 512
@@ -32,6 +67,13 @@ shape = SubResource("BoxShape3D_4mqyu")
 
 [node name="healinglamp" parent="." unique_id=560483784 instance=ExtResource("3_27wr5")]
 transform = Transform3D(0.48930633, 0, 0.872112, 0, 1, 0, -0.872112, 0, 0.48930633, -0.5139223, 0, -0.38706565)
+
+[node name="Lamp Rain" type="GPUParticles3D" parent="healinglamp" unique_id=743671606]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0061697066, 1.5659258, 0.68748254)
+amount = 16
+lifetime = 1.1
+process_material = SubResource("ParticleProcessMaterial_27wr5")
+draw_pass_1 = SubResource("QuadMesh_fns87")
 
 [connection signal="area_entered" from="Healing Trigger" to="." method="_on_area_3d_area_entered"]
 [connection signal="area_entered" from="Healing Spotting" to="." method="_on_healing_spotting_area_entered"]

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://gymwyj1tdt2u" path="res://core/entities/moving_entity_base.gd" id="1_snqky"]
 [ext_resource type="Script" uid="uid://cdamg3aelw5yy" path="res://clicker/stationary_enemy.gd" id="2_57xo8"]
 [ext_resource type="Resource" uid="uid://be481cjdw8iya" path="res://clicker/enemies/ironosaurus.tres" id="3_snqky"]
+[ext_resource type="PackedScene" uid="uid://duogbl26qoj0h" path="res://clicker/enemies/marker.tscn" id="4_57xo8"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_1pa7v"]
 height = 2.6958008
@@ -20,9 +21,12 @@ collision_mask = 512
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5979004, 0)
 shape = SubResource("CylinderShape3D_1pa7v")
 
-[node name="Enemy Entity" type="Node" parent="." unique_id=1113681814 node_paths=PackedStringArray("entity_root", "detection_areas")]
+[node name="Enemy Entity" type="Node" parent="." unique_id=1113681814 node_paths=PackedStringArray("_collision", "entity_root", "detection_areas")]
 script = ExtResource("2_57xo8")
 data = ExtResource("3_snqky")
+_collision = NodePath("../Detection Area/CollisionShape3D")
 type = 2
 entity_root = NodePath("..")
 detection_areas = [NodePath("../Detection Area")]
+
+[node name="Marker" parent="." unique_id=1119820133 instance=ExtResource("4_57xo8")]

@@ -215,3 +215,11 @@ func _to_string() -> String:
     return "<%s %s %s (%s) %s>" % [
         Quality.find_key(_quality), Mat.find_key(_mat), Base.find_key(_base), score, _make_die(),
     ]
+
+func get_image_filename(suffix: String) -> String:
+    return ("%s_%s_%s_%s.png" % [
+        Base.find_key(_base) if _base != Base.RAIL_GUN else "railgun",
+        Quality.find_key(_quality),
+        Mat.find_key(_mat),
+        suffix,
+    ]).to_lower()

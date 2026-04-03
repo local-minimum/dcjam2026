@@ -458,3 +458,4 @@ _signal_lost = "res://clicker/dialogue/click_hard.mp3"
 _click_hard_ability = ExtResource("49_6qn5j")
 
 [connection signal="timeout" from="HSplitContainer/Viewport Side/PlayerHealthBar/HealthTimer" to="HSplitContainer/Viewport Side/PlayerHealthBar" method="_on_health_timer_timeout"]
+_steps_until_dragon_quest = 70

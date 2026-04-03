@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dt75e4m7q8b7m"
-path="res://.godot/imported/plasma_uzi_chaos_plastic_256.png-5e657a8547a722ffb4fdac4769001add.ctex"
+uid="uid://cwkslkonds5f"
+path="res://.godot/imported/plasma_uzi_chaotic_brass_128.png-3d8058c0db3627a4b0542759d5f595e4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://clicker/thumbnails/uzi/plasma_uzi_chaos_plastic_256.png"
-dest_files=["res://.godot/imported/plasma_uzi_chaos_plastic_256.png-5e657a8547a722ffb4fdac4769001add.ctex"]
+source_file="res://clicker/thumbnails/uzi/plasma_uzi_chaotic_brass_128.png"
+dest_files=["res://.godot/imported/plasma_uzi_chaotic_brass_128.png-3d8058c0db3627a4b0542759d5f595e4.ctex"]
 
 [params]
 

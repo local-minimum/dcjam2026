@@ -131,18 +131,18 @@ func _handle_arrive_tile(player: PhysicsGridPlayerController, _coords: Vector3i)
     _steps += 1
     if !__GlobalGameState.has_gained_dragons_quest && _steps >= _steps_until_dragon_quest:
         __GlobalGameState.has_gained_dragons_quest = true
-        __AudioHub.play_dialogue(_gain_quest)
-
-        await get_tree().create_timer(12.0).timeout
-
-        __SignalBus.on_gain_quest.emit(Dragon.DRAGONS_QUEST_ID)
+        __AudioHub.play_dialogue(
+            _gain_quest,
+            func () -> void:
+                __SignalBus.on_gain_quest.emit(Dragon.DRAGONS_QUEST_ID)
+        )
 
     elif !__GlobalGameState .has_disposed_completed && _dragons == 4 && _steps >= _steps_until_dispose_quest:
-        __AudioHub.play_dialogue(_dispose_quest)
-
-        await get_tree().create_timer(12.0).timeout
-
-        __SignalBus.on_gain_quest.emit(Dragon.DISPOSE_QUEST_ID)
+        __AudioHub.play_dialogue(
+            _dispose_quest,
+            func () -> void:
+                __SignalBus.on_gain_quest.emit(Dragon.DISPOSE_QUEST_ID)
+        )
 
 func _handle_health_changed(new_health: float, prev_health: float) -> void:
     if prev_health > 0.0 && new_health <= 0.0:

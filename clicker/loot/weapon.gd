@@ -58,17 +58,17 @@ func _modify_die_sides_by_quality(sides: Array[int]) -> void:
 func _base_to_die_string() -> String:
     match _base:
         Base.PLASMA_BATON:
-            return "D4"
-        Base.PLASMA_SWORD:
             return "D6"
-        Base.LASER_GUN:
+        Base.PLASMA_SWORD:
             return "D8"
-        Base.PLASMA_UZI:
+        Base.LASER_GUN:
             return "D10"
-        Base.LASER_RIFLE:
+        Base.PLASMA_UZI:
             return "D12"
+        Base.LASER_RIFLE:
+            return "2D8"
         Base.RAIL_GUN:
-            return "D20"
+            return "2D12"
 
     push_error("Base %s not known" % [Base.find_key(_base)])
     return ""

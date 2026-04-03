@@ -51,20 +51,28 @@ func _handle_battle_end(credits: int) -> void:
 
     var active_weapon_value: int = __GlobalGameState.weapon.score
     var gear_value: int = __GlobalGameState.get_average_gear_score()
+    var gear_or_weapon_rng_value: int = active_weapon_value + gear_value + 25
+    var make_weapon_threshold: int = gear_value + 10
 
-    print_debug("Creating Loot: Active Weapon (%s) and Avg Gear (%s)" % [active_weapon_value, gear_value])
+    print_debug("[Loot] Active Weapon (%s) and Avg Gear (%s) credits %s" % [active_weapon_value, gear_value, credits])
     var weapons: Array[Weapon] = []
     var gears: Array[Gear] = []
 
     for idx: int in _loot_previews.size():
         if credits <= 0:
             _loot_previews[idx].hide()
-
-        if randi_range(0, active_weapon_value + gear_value) < gear_value:
-            var use_credits: int = mini(credits, roundi(active_weapon_value * 1.5))
+            continue
+        print_debug("[Loot] Weapon bias rng(%s) < %s" % [gear_or_weapon_rng_value, make_weapon_threshold])
+        if randi_range(0, gear_or_weapon_rng_value) < make_weapon_threshold:
+            var use_credits: int = clampi(
+                roundi(active_weapon_value * 1.5),
+                roundi(credits * float(idx + 1.0) / (1.5 + _loot_previews.size())),
+                mini(credits, roundi(credits * float(idx + 2.0) / _loot_previews.size())),
+            )
             if idx == _loot_previews.size() - 1:
                 use_credits = mini(credits, roundi(active_weapon_value * 2.5))
 
+            print_debug("[Loot] Asking for %s weapon vs current %s" % [use_credits, active_weapon_value])
             var weapon = _weapons_smith.create_weapon(use_credits)
 
             var dupe: bool = false
@@ -82,11 +90,18 @@ func _handle_battle_end(credits: int) -> void:
                 _loot_previews[idx].preview_weapon(weapon)
                 _loot_previews[idx].show()
                 _loot_previews[idx].loot_and_inventory = self
+
+                make_weapon_threshold = maxi(make_weapon_threshold - 1, 10)
         else:
-            var use_credits: int = mini(credits, roundi(gear_value * 2.0))
+            var use_credits: int = clampi(
+                roundi(gear_value * 1.5),
+                roundi(credits * float(idx + 1.0) / (1.5 + _loot_previews.size())),
+                mini(credits, roundi(credits * float(idx + 2.0) / _loot_previews.size())),
+            )
             if idx == _loot_previews.size() - 1:
                 use_credits = mini(credits, roundi(gear_value * 2.5))
 
+            print_debug("[Loot] Asking for %s gear" % use_credits)
             var gear = _gear_smith.create_gear(use_credits)
             var dupe: bool = false
             for other: Gear in gears:
@@ -103,6 +118,7 @@ func _handle_battle_end(credits: int) -> void:
                 _loot_previews[idx].show()
                 _loot_previews[idx].loot_and_inventory = self
 
+                make_weapon_threshold = mini(make_weapon_threshold + 1, gear_or_weapon_rng_value - 15)
     _loot_root.show()
     show()
 

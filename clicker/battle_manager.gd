@@ -142,7 +142,8 @@ func _handle_enemy_join_battle(enemy_data: EnemyData) -> void:
         _ui.add_enemy_ui(e)
     else:
         _enemy_queue.append(e)
-        _ui.queing_enemies = true
+        if _enemy_queue.size() == 1:
+            _ui.queue_enemy(e.monster_portrait)
 
 func _get_mix_and_match_mult() -> int:
     match __GlobalGameState.get_current_ability_level(_mix_and_match_ability.id):
@@ -249,7 +250,10 @@ func _process(_delta: float) -> void:
                     _enemy_queue.remove_at(0)
                     _enemies.append(e)
                     _ui.add_enemy_ui(e)
-                    _ui.queing_enemies = !_enemy_queue.is_empty()
+                    if _enemy_queue.is_empty():
+                        _ui.hide_enemy_queue()
+                    else:
+                        _ui.queue_enemy(_enemy_queue[0].monster_portrait)
 
                 elif _enemies.is_empty():
                     __SignalBus.on_battle_end.emit(_gained_loot_cred)

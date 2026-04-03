@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://cy4be1r5xgrg"]
+
+[ext_resource type="Texture2D" uid="uid://do16to33fc0yr" path="res://clicker/thumbnails/robots/2_rusty_128.png" id="1_wdinq"]
+[ext_resource type="Script" uid="uid://csfgoet4qt0pt" path="res://clicker/enemy_data.gd" id="2_yxqm6"]
+
+[resource]
+script = ExtResource("2_yxqm6")
+portrait = ExtResource("1_wdinq")
+monster_name = "Tin-Tron Mk I"
+attacks = Array[String](["D6+1", "D6", "D6", "D8"])
+defence = "D4-1"
+max_health = 10.0
+loot_value = 9
+metadata/_custom_type_script = "uid://csfgoet4qt0pt"

@@ -99,12 +99,16 @@ func _process(delta: float) -> void:
         return
 
     if Time.get_ticks_msec() > _decay_after:
-        _boredom_velocity *= (1.0 - _velocity_decay_over_time * delta)
+        if _in_battle:
+            if _boredom_velocity > 0:
+                _boredom_velocity *= (1.0 - _velocity_decay_over_time * delta)
+        else:
+            _boredom_velocity *= (1.0 - _velocity_decay_over_time * delta)
 
-    _boredom = clamp(_boredom + _boredom_velocity, -_hidden_overshoots, 1.0 + _hidden_overshoots)
-    if _boredom <= -_hidden_overshoots:
+    _boredom = clamp(_boredom + _boredom_velocity * delta, -_hidden_overshoots, 1.0 + _hidden_overshoots)
+    if _boredom <= -_hidden_overshoots && _boredom_velocity < 0:
         _boredom_velocity = 0.0
-    elif _boredom >= 1.0 + _hidden_overshoots:
+    elif _boredom >= 1.0 + _hidden_overshoots && _boredom_velocity > 0:
         _boredom_velocity = 0.0
 
     #print_debug(_boredom)

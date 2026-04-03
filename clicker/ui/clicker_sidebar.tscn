@@ -44,7 +44,7 @@
 [ext_resource type="Texture2D" uid="uid://cwnthnv701tbf" path="res://clicker/secret_panel.png" id="46_ly5fm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pcfco"]
-bg_color = Color(0.1584723, 0.15847233, 0.15847224, 1)
+bg_color = Color(0.15686275, 0.15686275, 0.15686275, 1)
 corner_radius_top_left = 7
 corner_radius_top_right = 16
 corner_radius_bottom_right = 7
@@ -94,9 +94,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 6
-theme_override_constants/margin_top = 6
-theme_override_constants/margin_right = 6
+theme_override_constants/margin_left = 13
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 13
 theme_override_constants/margin_bottom = 6
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Clicker Content" unique_id=206795445]
@@ -109,7 +109,7 @@ layout_mode = 2
 [node name="XP Button" parent="Clicker Content/VBoxContainer" unique_id=1599280232 instance=ExtResource("1_pcfco")]
 layout_mode = 2
 
-[node name="Boredom" type="Control" parent="Clicker Content/VBoxContainer" unique_id=167539634 node_paths=PackedStringArray("bars")]
+[node name="Boredom" type="Control" parent="Clicker Content/VBoxContainer" unique_id=167539634 node_paths=PackedStringArray("bars", "_boredom_bg")]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_vertical = 0
@@ -120,6 +120,7 @@ step = 0.1
 value_noise = 0.1
 value_noise_speed = 0.01
 live = true
+_boredom_bg = NodePath("BoredomBarBackground")
 
 [node name="BoredomBarBackground" type="Panel" parent="Clicker Content/VBoxContainer/Boredom" unique_id=467712322]
 layout_mode = 1
@@ -201,14 +202,15 @@ horizontal_scroll_mode = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_right = 48
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 0
 
 [node name="AbilititiesManager" type="VBoxContainer" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer" unique_id=1954119371]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_constants/separation = 8
 script = ExtResource("8_sv61h")
 _ab_ordinary = ExtResource("9_rr58i")
 _ab_poor = ExtResource("10_5xm4y")
@@ -241,142 +243,177 @@ _clicker_button_scene = ExtResource("35_f3ofs")
 [node name="Mental" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=324514739 instance=ExtResource("35_f3ofs")]
 layout_mode = 2
 ability = ExtResource("36_1knou")
+affordable_color = Color(0.42327625, 0.86139107, 0, 1)
 
 [node name="Mental Smarts" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=1010927676 instance=ExtResource("35_f3ofs")]
 layout_mode = 2
 ability = ExtResource("37_u8mkj")
+affordable_color = Color(0.42327625, 0.86139107, 0, 1)
 
 [node name="Mental Memory Palace" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=1193497479 instance=ExtResource("35_f3ofs")]
 layout_mode = 2
 ability = ExtResource("38_yj6wb")
+affordable_color = Color(0.42327625, 0.86139107, 0, 1)
 
 [node name="Mental Multi-Tasking" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=279484787 instance=ExtResource("35_f3ofs")]
 layout_mode = 2
 ability = ExtResource("39_ew8rc")
+affordable_color = Color(0.42327625, 0.86139107, 0, 1)
 
-[node name="Agression" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=103738663 instance=ExtResource("35_f3ofs")]
+[node name="Aggression" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=103738663 instance=ExtResource("35_f3ofs")]
 layout_mode = 2
 ability = ExtResource("40_t5jte")
+affordable_color = Color(0.42327625, 0.86139107, 0, 1)
 
 [node name="Ordinary Weapons" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=2018874666 instance=ExtResource("35_f3ofs")]
 layout_mode = 2
 ability = ExtResource("9_rr58i")
+affordable_color = Color(0.42327625, 0.86139107, 0, 1)
 
 [node name="Poor Weapons" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=62459420 instance=ExtResource("35_f3ofs")]
 layout_mode = 2
 ability = ExtResource("10_5xm4y")
+affordable_color = Color(0.42327625, 0.86139107, 0, 1)
 
 [node name="Fancy Weapons" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=400108295 instance=ExtResource("35_f3ofs")]
 layout_mode = 2
 ability = ExtResource("11_ch64f")
+affordable_color = Color(0.42327625, 0.86139107, 0, 1)
 
 [node name="Chaotic Weapons" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=128351103 instance=ExtResource("35_f3ofs")]
 layout_mode = 2
 ability = ExtResource("12_5o71d")
+affordable_color = Color(0.42327625, 0.86139107, 0, 1)
 
 [node name="Cardboard Weapons" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=1993649628 instance=ExtResource("35_f3ofs")]
 layout_mode = 2
 ability = ExtResource("13_tps5p")
+affordable_color = Color(0.42327625, 0.86139107, 0, 1)
 
 [node name="Plastic Weapons" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=870156641 instance=ExtResource("35_f3ofs")]
 layout_mode = 2
 ability = ExtResource("14_kct4v")
+affordable_color = Color(0.42327625, 0.86139107, 0, 1)
 
 [node name="Brass Weapons" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=1522276042 instance=ExtResource("35_f3ofs")]
 layout_mode = 2
 ability = ExtResource("15_nw66e")
+affordable_color = Color(0.42327625, 0.86139107, 0, 1)
 
 [node name="Aluminum Weapons" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=1553326309 instance=ExtResource("35_f3ofs")]
 layout_mode = 2
 ability = ExtResource("16_wj2bw")
+affordable_color = Color(0.42327625, 0.86139107, 0, 1)
 
 [node name="Titanium Weapons" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=1443151520 instance=ExtResource("35_f3ofs")]
 layout_mode = 2
 ability = ExtResource("17_iqgtd")
+affordable_color = Color(0.42327625, 0.86139107, 0, 1)
 
 [node name="Plasma Baton" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=1857612183 instance=ExtResource("35_f3ofs")]
 layout_mode = 2
 ability = ExtResource("18_ujp0g")
+affordable_color = Color(0.42327625, 0.86139107, 0, 1)
 
 [node name="Plasma Sword" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=1025169090 instance=ExtResource("35_f3ofs")]
 layout_mode = 2
 ability = ExtResource("19_g1sln")
+affordable_color = Color(0.42327625, 0.86139107, 0, 1)
 
 [node name="Laser Gun" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=507578552 instance=ExtResource("35_f3ofs")]
 layout_mode = 2
 ability = ExtResource("20_3yht8")
+affordable_color = Color(0.42327625, 0.86139107, 0, 1)
 
 [node name="Plasma Uzi" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=1359812505 instance=ExtResource("35_f3ofs")]
 layout_mode = 2
 ability = ExtResource("21_h3vgi")
+affordable_color = Color(0.42327625, 0.86139107, 0, 1)
 
 [node name="Laser Rifle" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=287697983 instance=ExtResource("35_f3ofs")]
 layout_mode = 2
 ability = ExtResource("22_hanng")
+affordable_color = Color(0.42327625, 0.86139107, 0, 1)
 
 [node name="Rail Gun" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=1267532992 instance=ExtResource("35_f3ofs")]
 layout_mode = 2
 ability = ExtResource("23_eivvm")
+affordable_color = Color(0.42327625, 0.86139107, 0, 1)
 
 [node name="Appearance" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=1912892315 instance=ExtResource("35_f3ofs")]
 layout_mode = 2
 ability = ExtResource("41_nlxhl")
+affordable_color = Color(0.42327625, 0.86139107, 0, 1)
 
 [node name="Masochism" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=2068224100 instance=ExtResource("35_f3ofs")]
 layout_mode = 2
 ability = ExtResource("42_8ojew")
+affordable_color = Color(0.42327625, 0.86139107, 0, 1)
 
 [node name="Nursing" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=2134928613 instance=ExtResource("35_f3ofs")]
 layout_mode = 2
 ability = ExtResource("43_840wa")
+affordable_color = Color(0.42327625, 0.86139107, 0, 1)
 
 [node name="Soiled Clothes" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=1859923173 instance=ExtResource("35_f3ofs")]
 layout_mode = 2
 ability = ExtResource("24_7bj7q")
+affordable_color = Color(0.42327625, 0.86139107, 0, 1)
 
 [node name="Basic Clothes" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=1039190059 instance=ExtResource("35_f3ofs")]
 layout_mode = 2
 ability = ExtResource("25_oia1y")
+affordable_color = Color(0.42327625, 0.86139107, 0, 1)
 
 [node name="Fancy Clothes" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=1636633062 instance=ExtResource("35_f3ofs")]
 layout_mode = 2
 ability = ExtResource("26_yn8s4")
+affordable_color = Color(0.42327625, 0.86139107, 0, 1)
 
 [node name="Royal Clothes" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=80827176 instance=ExtResource("35_f3ofs")]
 layout_mode = 2
 ability = ExtResource("27_ttemj")
+affordable_color = Color(0.42327625, 0.86139107, 0, 1)
 
 [node name="Impossible Clothes" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=1307682307 instance=ExtResource("35_f3ofs")]
 layout_mode = 2
 ability = ExtResource("28_0vgpx")
+affordable_color = Color(0.42327625, 0.86139107, 0, 1)
 
 [node name="Cardboard Clothes" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=935244969 instance=ExtResource("35_f3ofs")]
 layout_mode = 2
 ability = ExtResource("29_85j68")
+affordable_color = Color(0.42327625, 0.86139107, 0, 1)
 
 [node name="Plastic Clothes" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=1018437602 instance=ExtResource("35_f3ofs")]
 layout_mode = 2
 ability = ExtResource("30_a65op")
+affordable_color = Color(0.42327625, 0.86139107, 0, 1)
 
 [node name="Brass Clothes" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=1164136614 instance=ExtResource("35_f3ofs")]
 layout_mode = 2
 ability = ExtResource("31_cy8ch")
+affordable_color = Color(0.42327625, 0.86139107, 0, 1)
 
 [node name="Aluminum Clothes" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=960894967 instance=ExtResource("35_f3ofs")]
 layout_mode = 2
 ability = ExtResource("32_w0jc0")
+affordable_color = Color(0.42327625, 0.86139107, 0, 1)
 
 [node name="Obsidian Clothes" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=2030229561 instance=ExtResource("35_f3ofs")]
 layout_mode = 2
 ability = ExtResource("33_qh8jo")
+affordable_color = Color(0.42327625, 0.86139107, 0, 1)
 
 [node name="Fashionista" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=2067191552 instance=ExtResource("35_f3ofs")]
 layout_mode = 2
 ability = ExtResource("44_1xf0l")
+affordable_color = Color(0.42327625, 0.86139107, 0, 1)
 
 [node name="Mix and Match" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=602775478 instance=ExtResource("35_f3ofs")]
 layout_mode = 2
 ability = ExtResource("45_swsrb")
+affordable_color = Color(0.42327625, 0.86139107, 0, 1)
 
 [node name="Secrets Protector" type="TextureRect" parent="." unique_id=1431310683]
 visible = false

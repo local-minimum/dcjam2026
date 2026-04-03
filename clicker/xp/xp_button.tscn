@@ -12,7 +12,7 @@ border_width_left = 3
 border_width_top = 3
 border_width_right = 3
 border_width_bottom = 3
-border_color = Color(0.15847227, 0.15847233, 0.15847221, 1)
+border_color = Color(0.15686275, 0.15686275, 0.15686275, 1)
 expand_margin_left = 3.0
 expand_margin_top = 3.0
 expand_margin_right = 3.0
@@ -22,7 +22,7 @@ expand_margin_bottom = 3.0
 bg_color = Color(1, 0.83137256, 0.2901961, 1)
 border_color = Color(0.15847227, 0.15847233, 0.15847221, 1)
 
-[node name="XP Button" type="Control" unique_id=1599280232 node_paths=PackedStringArray("_xp_count_label", "_xp_speed_label", "_progress_bar", "_autoclickers", "_button_texture")]
+[node name="XP Button" type="Control" unique_id=1599280232 node_paths=PackedStringArray("_xp_count_label", "_xp_speed_label", "_xp_bar", "_autoclickers", "_button_texture")]
 custom_minimum_size = Vector2(428, 100)
 layout_mode = 3
 anchors_preset = 0
@@ -32,7 +32,7 @@ mouse_default_cursor_shape = 2
 script = ExtResource("1_07bva")
 _xp_count_label = NodePath("MarginContainer/VBoxContainer/XP Row/Total XP")
 _xp_speed_label = NodePath("MarginContainer/VBoxContainer/XP Row/XP Gain Speed")
-_progress_bar = NodePath("MarginContainer/VBoxContainer/XPBar")
+_xp_bar = NodePath("MarginContainer/VBoxContainer/XPBar")
 _speed_history_msec = 1500
 _autoclickers = [NodePath("Top Clickers/AutoClicker"), NodePath("Top Clickers/AutoClicker2"), NodePath("Top Clickers/AutoClicker3"), NodePath("Top Clickers/AutoClicker4"), NodePath("Top Clickers/AutoClicker5"), NodePath("Top Clickers/AutoClicker6"), NodePath("Top Clickers/AutoClicker7"), NodePath("Top Clickers/AutoClicker8"), NodePath("Top Clickers/AutoClicker9"), NodePath("Top Clickers/AutoClicker10"), NodePath("Top Clickers/AutoClicker11")]
 _button_texture = NodePath("XP Background Texture")

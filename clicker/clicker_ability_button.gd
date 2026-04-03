@@ -17,8 +17,8 @@ class_name ClickerAbilityButton
 
 @export var unrevealed_icon_tint: Color = Color.BLACK
 @export var disabled_tint: Color = Color.DARK_GRAY
-@export var too_costly_color: Color = Color.DARK_VIOLET
-@export var affordable_color: Color = Color.LAWN_GREEN
+@export var too_costly_color: Color = Color(1.0, 0.0, 0.0, 1.0)
+@export var affordable_color: Color = Color(0.42, 0.86, 0.0, 1.0)
 
 @warning_ignore_start("unused_private_class_variable")
 @export_tool_button("Sync") var _sync_btn: Callable = sync_all

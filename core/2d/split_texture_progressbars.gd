@@ -41,8 +41,11 @@ class_name SplitTextureProgressBars
         live = value
         set_process(value && value_noise > 0.0)
         _adjust_bars()
+        
+@export var _boredom_bg: Panel
 
 var _noise: Array[float]
+var _boredom_high_tween: Tween
 
 func _adjust_bars(delta: float = 1.0) -> void:
     if value == 0:
@@ -61,6 +64,23 @@ func _adjust_bars(delta: float = 1.0) -> void:
         else:
             bar.value = value
         idx += 1
+        
+        if bar.value >= (bar.max_value * 0.9):
+            _flash_boredom_bar()
+
+
+func _flash_boredom_bar() -> void:
+    if _boredom_high_tween and _boredom_high_tween.is_running():
+        return
+    if _boredom_high_tween:
+        _boredom_high_tween.kill()
+    
+    var stylebox: StyleBox = _boredom_bg.get_theme_stylebox("panel")
+
+    _boredom_high_tween = create_tween()
+    _boredom_high_tween.tween_property(stylebox, "bg_color", Color(1.0, 0.0, 0.0, 1.0), 0.32)
+    _boredom_high_tween.tween_property(stylebox, "bg_color", Color(0.157, 0.157, 0.157), 0.32)
+
 
 func _process(delta: float) -> void:
     _adjust_bars(delta)

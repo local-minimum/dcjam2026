@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_4hcdl")
 id = "agression"
-title = "Agression"
+title = "Aggression"
 costs = Array[int]([100])
 descriptions = Array[String](["Improve weapon stats"])
 metadata/_custom_type_script = "uid://bt1vi716f5csr"

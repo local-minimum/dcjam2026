@@ -2,12 +2,9 @@
 
 [ext_resource type="Environment" uid="uid://cab2e1qcby00n" path="res://clicker/clicker_environment.tres" id="1_80nbo"]
 [ext_resource type="PackedScene" uid="uid://bufrvjcwdgi7q" path="res://clicker/dungeon.tscn" id="2_e2o6t"]
-[ext_resource type="Texture2D" uid="uid://bj23l1l07x67h" path="res://clicker/health/player_health_bg.png" id="6_hb5m1"]
 [ext_resource type="Texture2D" uid="uid://ca2yywbtyo5uv" path="res://clicker/battle/enemy_unknown.png" id="7_87ddb"]
 [ext_resource type="Resource" uid="uid://c208p6knl8gu2" path="res://clicker/abilities/mental_smarts.tres" id="7_iotsf"]
-[ext_resource type="Texture2D" uid="uid://3g7a1qgy4jjc" path="res://clicker/health/player_health_fg.png" id="7_x5p1p"]
 [ext_resource type="Resource" uid="uid://3gmnrhfplofm" path="res://clicker/abilities/mental_memory_palace.tres" id="8_lc2xo"]
-[ext_resource type="Texture2D" uid="uid://b5fmrl4b8wotb" path="res://clicker/health/player_health.png" id="8_qhcbd"]
 [ext_resource type="Resource" uid="uid://ie2phil58tny" path="res://clicker/abilities/mental_multi_tasking.tres" id="9_215e1"]
 [ext_resource type="Script" uid="uid://cs23uil2d5u6p" path="res://clicker/health/player_health_ui.gd" id="9_x5p1p"]
 [ext_resource type="Script" uid="uid://bt10ci7pn81qq" path="res://clicker/battle/battle_texts_spawner.gd" id="11_r62pu"]
@@ -43,6 +40,22 @@ HSplitContainer/icons/touch_dragger = null
 
 [sub_resource type="World3D" id="World3D_e2o6t"]
 environment = ExtResource("1_80nbo")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xfvwf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dhpj7"]
+bg_color = Color(0.75338984, 2.382472e-06, 5.7756904e-07, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xfvwf"]
+bg_color = Color(0.08468998, 0.08468991, 0.08468992, 0.8627451)
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+shadow_color = Color(0, 0, 0, 0.83137256)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7knny"]
+bg_color = Color(0.8717348, 0.732245, 7.70092e-07, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_6qn5j"]
 font_size = 42
@@ -147,7 +160,7 @@ grow_vertical = 2
 theme = SubResource("Theme_4scmg")
 split_offsets = PackedInt32Array(-3)
 dragging_enabled = false
-dragger_visibility = 1
+dragger_visibility = 2
 split_offset = -3
 
 [node name="Viewport Side" type="Control" parent="HSplitContainer" unique_id=454983271]
@@ -170,7 +183,7 @@ handle_input_locally = false
 msaa_3d = 3
 use_debanding = true
 use_occlusion_culling = true
-size = Vector2i(1469, 1080)
+size = Vector2i(1473, 1080)
 render_target_update_mode = 4
 
 [node name="Dungeon" parent="HSplitContainer/Viewport Side/SubViewportContainer/SubViewport" unique_id=1143420985 instance=ExtResource("2_e2o6t")]
@@ -224,7 +237,33 @@ texture = ExtResource("7_87ddb")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="Player Health UI" type="TextureProgressBar" parent="HSplitContainer/Viewport Side" unique_id=544018918]
+[node name="PlayerHealthBar" type="ProgressBar" parent="HSplitContainer/Viewport Side" unique_id=164962735 node_paths=PackedStringArray("_damage_bar", "_health_timer")]
+z_index = 1
+custom_minimum_size = Vector2(40, 240)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -42.0
+offset_top = -542.0
+offset_right = -2.0
+offset_bottom = -2.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxEmpty_xfvwf")
+theme_override_styles/fill = SubResource("StyleBoxFlat_dhpj7")
+step = 0.1
+value = 50.0
+fill_mode = 3
+show_percentage = false
+script = ExtResource("9_x5p1p")
+_damage_bar = NodePath("PlayerDamageBar")
+_health_timer = NodePath("HealthTimer")
+
+[node name="PlayerDamageBar" type="ProgressBar" parent="HSplitContainer/Viewport Side/PlayerHealthBar" unique_id=317828110]
+z_index = -1
 custom_minimum_size = Vector2(40, 240)
 layout_mode = 1
 anchors_preset = 3
@@ -233,16 +272,19 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -40.0
-offset_top = -240.0
+offset_top = -540.0
 grow_horizontal = 0
 grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_xfvwf")
+theme_override_styles/fill = SubResource("StyleBoxFlat_7knny")
 step = 0.1
 value = 100.0
 fill_mode = 3
-texture_under = ExtResource("6_hb5m1")
-texture_over = ExtResource("7_x5p1p")
-texture_progress = ExtResource("8_qhcbd")
-script = ExtResource("9_x5p1p")
+show_percentage = false
+
+[node name="HealthTimer" type="Timer" parent="HSplitContainer/Viewport Side/PlayerHealthBar" unique_id=520823884]
+wait_time = 0.5
+one_shot = true
 
 [node name="BattleTextsSpawner" type="Control" parent="HSplitContainer/Viewport Side" unique_id=824109206]
 layout_mode = 1
@@ -304,6 +346,7 @@ _smarts = ExtResource("7_iotsf")
 layout_mode = 1
 
 [node name="DevConsole" parent="." unique_id=540056483 node_paths=PackedStringArray("commands") instance=ExtResource("14_215e1")]
+visible = false
 hide_in_build = true
 commands = [NodePath("Gain XP Command"), NodePath("Loot Command"), NodePath("Game Speed Command"), NodePath("Ready Horror Command"), NodePath("Free From Intro Command"), NodePath("Damage Command")]
 
@@ -361,7 +404,7 @@ expand_mode = 1
 script = ExtResource("65_jo4nb")
 _split_container = NodePath("../HSplitContainer")
 _subviewport = NodePath("../HSplitContainer/Viewport Side/SubViewportContainer/SubViewport")
-_unloading_nodes = [NodePath("../HSplitContainer/Viewport Side/SubViewportContainer/SubViewport/Dungeon"), NodePath("../HSplitContainer/Viewport Side/Battle UI"), NodePath("../HSplitContainer/Viewport Side/Player Health UI"), NodePath("../HSplitContainer/Viewport Side/BattleTextsSpawner"), null, NodePath("../ClickerXPRules"), NodePath("../Loot And Inventory"), NodePath("../DevConsole/Loot Command"), NodePath("../DevConsole/Gain XP Command"), NodePath("../DevConsole/Ready Horror Command"), NodePath("../Clicker Dialogue Manager"), NodePath("../HSplitContainer/Viewport Side/Quest UI"), NodePath("../DevConsole/Free From Intro Command")]
+_unloading_nodes = [NodePath("../HSplitContainer/Viewport Side/SubViewportContainer/SubViewport/Dungeon"), NodePath("../HSplitContainer/Viewport Side/Battle UI"), null, NodePath("../HSplitContainer/Viewport Side/BattleTextsSpawner"), null, NodePath("../ClickerXPRules"), NodePath("../Loot And Inventory"), NodePath("../DevConsole/Loot Command"), NodePath("../DevConsole/Gain XP Command"), NodePath("../DevConsole/Ready Horror Command"), NodePath("../Clicker Dialogue Manager"), NodePath("../HSplitContainer/Viewport Side/Quest UI"), NodePath("../DevConsole/Free From Intro Command")]
 _transition_duration = 1.0
 _transition_prep_animator = NodePath("AnimationPlayer")
 _transition_animation = "Lost"
@@ -414,3 +457,5 @@ _dispose_quest = "res://clicker/dialogue/gain_dispose_quest.mp3"
 _complete_dispose_quest = "res://clicker/dialogue/complete_dispose_quest.mp3"
 _signal_lost = "res://clicker/dialogue/click_hard.mp3"
 _click_hard_ability = ExtResource("49_6qn5j")
+
+[connection signal="timeout" from="HSplitContainer/Viewport Side/PlayerHealthBar/HealthTimer" to="HSplitContainer/Viewport Side/PlayerHealthBar" method="_on_health_timer_timeout"]

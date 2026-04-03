@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c7f4dbcj8gipf"]
+
+[ext_resource type="Texture2D" uid="uid://dddv3i3hxbhbx" path="res://visual/buildings/skyscraper_left/DefaultMaterial_baseColor.png" id="1_1ikq2"]
+
+[resource]
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("1_1ikq2")
+metallic = 1.0
+anisotropy_enabled = true
+stencil_flags = 2
+stencil_outline_thickness = 0.6

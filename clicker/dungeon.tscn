@@ -21,7 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://cgl7x0ttstr4c" path="res://clicker/rooms/corridor_clicker.tscn" id="15_02l0h"]
 [ext_resource type="PackedScene" uid="uid://c7kajudkcl2pl" path="res://clicker/rooms/library_clicker.tscn" id="16_5fxv6"]
 [ext_resource type="PackedScene" uid="uid://dscg0fk4fioab" path="res://clicker/rooms/outside_clicker.tscn" id="16_wbro4"]
-[ext_resource type="PackedScene" uid="uid://cnm0mmuj8qs82" path="res://clicker/rooms/monster_room_clicker.tscn" id="17_24q6l"]
+[ext_resource type="PackedScene" uid="uid://cnm0mmuj8qs82" path="res://clicker/rooms/padded_cell_clicker.tscn" id="17_24q6l"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sufut"]
 size = Vector3(75.727066, 99.23596, 0.263)
@@ -136,7 +136,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
 
 [node name="Corridor" parent="." unique_id=353704301 instance=ExtResource("15_02l0h")]
 
-[node name="NonMonsterRoom" parent="." unique_id=507186414 instance=ExtResource("17_24q6l")]
+[node name="PaddedCell" parent="." unique_id=507186414 instance=ExtResource("17_24q6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, -21)
 
 [node name="Collision System" type="Node" parent="." unique_id=1467278961]

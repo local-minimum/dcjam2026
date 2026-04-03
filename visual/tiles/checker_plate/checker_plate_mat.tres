@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://b0w1s1ufqtf5q"]
+
+[ext_resource type="Shader" uid="uid://cxakfuw35muos" path="res://visual/common/base_stylised_shader.gdshader" id="1_4km4p"]
+[ext_resource type="Texture2D" uid="uid://do0scjsvw3u4r" path="res://visual/tiles/checker_plate/checker_plate_baseColor.png" id="2_8j83l"]
+[ext_resource type="Texture2D" uid="uid://02ptbcxqn0a1" path="res://visual/tiles/checker_plate/checker_plate_normal.png" id="3_wbtsh"]
+[ext_resource type="Texture2D" uid="uid://nldsur080j6n" path="res://visual/tiles/checker_plate/checker_plate_occlusionRoughnessMetallic.png" id="4_01ecn"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_4km4p")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("2_8j83l")
+shader_parameter/texture_normal = ExtResource("3_wbtsh")
+shader_parameter/texture_orm = ExtResource("4_01ecn")
+shader_parameter/normal_scale = 3.0

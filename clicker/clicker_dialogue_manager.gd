@@ -167,10 +167,20 @@ func _restart_after_death_dialogue() -> void:
 
 
 func _handle_healing_refused(_station: HealthStation) -> void:
+    if _player.cinematic:
+        if __SignalBus.on_healing_refused.connect(_handle_healing_refused, CONNECT_ONE_SHOT) != OK:
+            push_error("Failed to connect healing refused")
+        return
+
     print_debug("Dialogue Manager: Play healing refused clip")
     __AudioHub.play_dialogue(_reheal_fail)
 
 func _handle_healing_spotted(_station: HealthStation) -> void:
+    if _player.cinematic:
+        if __SignalBus.on_player_spot_healing.connect(_handle_healing_spotted, CONNECT_ONE_SHOT) != OK:
+            push_error("Failed to connect spot healing")
+        return
+
     print_debug("Dialogue Manager: Play healing spotted clip")
     __AudioHub.play_dialogue(_healing)
 

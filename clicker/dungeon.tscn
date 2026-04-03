@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://b3vfstytefmpx" path="res://clicker/models/dragon.blend" id="8_jorcj"]
 [ext_resource type="PackedScene" uid="uid://cruxk6l5jm7l1" path="res://clicker/models/wall_portal.blend" id="8_qsdn1"]
 [ext_resource type="Script" uid="uid://dombw6pswxxfq" path="res://clicker/models/dragon.gd" id="9_l3xlb"]
+[ext_resource type="PackedScene" uid="uid://cc57vppgoo5yt" path="res://clicker/rooms/foyer_clicker.tscn" id="9_ltlon"]
 [ext_resource type="PackedScene" uid="uid://ctar0x0es8uc6" path="res://clicker/models/sideboard.blend" id="12_sm5ll"]
 [ext_resource type="ArrayMesh" uid="uid://b0vlo73s2fd38" path="res://visual/clutter/sculptures/sculpture_triangle.obj" id="13_hm7ry"]
 [ext_resource type="ArrayMesh" uid="uid://ceb8oy4go2no4" path="res://visual/clutter/sculptures/sculpture_walk.obj" id="14_eppcp"]
@@ -85,8 +86,11 @@ transform = Transform3D(0.5421189, 0, -0.84030175, 0, 1, 0, 0.84030175, 0, 0.542
 [node name="Healing Spotting" parent="Interactables/Health Station" index="1" unique_id=15656062]
 transform = Transform3D(0.9773459, 0, -0.21164894, 0, 1, 0, 0.21164894, 0, 0.9773459, 0, 0, 0)
 
+[node name="healinglamp" parent="Interactables/Health Station" index="2" unique_id=560483784]
+transform = Transform3D(0.4893064, 0, 0.87211233, 0, 1, 0, -0.87211233, 0, 0.4893064, 0.84784365, 0, 1.5339756)
+
 [node name="Shredder" parent="Interactables" unique_id=1014609165 instance=ExtResource("7_qmmos")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 2.5, 0, 2.875)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 3)
 
 [node name="Enemies" type="Node3D" parent="." unique_id=930926840]
 
@@ -102,229 +106,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 0)
 [node name="Enemy4" parent="Enemies" unique_id=1300790365 instance=ExtResource("4_yrdjv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
 
+[node name="Foyer" parent="." unique_id=248408387 instance=ExtResource("9_ltlon")]
+
 [node name="Library" parent="." unique_id=1536973768 instance=ExtResource("16_5fxv6")]
 
 [node name="Walls And Floors" type="Node3D" parent="." unique_id=1436493536]
-
-[node name="Foyaer" type="Node3D" parent="Walls And Floors" unique_id=1211992558]
-
-[node name="Floor4" type="MeshInstance3D" parent="Walls And Floors/Foyaer" unique_id=2039176991]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor5" type="MeshInstance3D" parent="Walls And Floors/Foyaer" unique_id=1921313422]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.5, 0, 0)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor28" type="MeshInstance3D" parent="Walls And Floors/Foyaer" unique_id=1950675129]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.5, 0, 2.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor6" type="MeshInstance3D" parent="Walls And Floors/Foyaer" unique_id=935488582]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.5, 0, -2.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor7" type="MeshInstance3D" parent="Walls And Floors/Foyaer" unique_id=52422112]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, -2.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor8" type="MeshInstance3D" parent="Walls And Floors/Foyaer" unique_id=1125240697]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, -5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor19" type="MeshInstance3D" parent="Walls And Floors/Foyaer" unique_id=1693698095]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, -7.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor20" type="MeshInstance3D" parent="Walls And Floors/Foyaer" unique_id=1323760841]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.5, 0, -7.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor21" type="MeshInstance3D" parent="Walls And Floors/Foyaer" unique_id=537842763]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 5, 0, -7.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor22" type="MeshInstance3D" parent="Walls And Floors/Foyaer" unique_id=1651461884]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 7.5, 0, -7.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor23" type="MeshInstance3D" parent="Walls And Floors/Foyaer" unique_id=234249191]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 7.5, 0, -5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor24" type="MeshInstance3D" parent="Walls And Floors/Foyaer" unique_id=1116684544]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2.5, 0, -5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor25" type="MeshInstance3D" parent="Walls And Floors/Foyaer" unique_id=1003464138]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -5, 0, -5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor26" type="MeshInstance3D" parent="Walls And Floors/Foyaer" unique_id=218373129]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -5, 0, -7.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor27" type="MeshInstance3D" parent="Walls And Floors/Foyaer" unique_id=231846042]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2.5, 0, -7.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor9" type="MeshInstance3D" parent="Walls And Floors/Foyaer" unique_id=246685582]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.5, 0, -5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor10" type="MeshInstance3D" parent="Walls And Floors/Foyaer" unique_id=1021414969]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 5, 0, -5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor11" type="MeshInstance3D" parent="Walls And Floors/Foyaer" unique_id=1938889835]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 5, 0, -2.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor12" type="MeshInstance3D" parent="Walls And Floors/Foyaer" unique_id=1798033736]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 5, 0, 0)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor13" type="MeshInstance3D" parent="Walls And Floors/Foyaer" unique_id=453077025]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 7.5, 0, 0)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor14" type="MeshInstance3D" parent="Walls And Floors/Foyaer" unique_id=347139001]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 7.5, 0, -2.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor15" type="MeshInstance3D" parent="Walls And Floors/Foyaer" unique_id=771627040]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2.5, 0, -2.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor16" type="MeshInstance3D" parent="Walls And Floors/Foyaer" unique_id=574326762]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2.5, 0, 0)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor17" type="MeshInstance3D" parent="Walls And Floors/Foyaer" unique_id=1470246926]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -5, 0, 0)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor18" type="MeshInstance3D" parent="Walls And Floors/Foyaer" unique_id=1828506188]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -5, 0, -2.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="wall" parent="Walls And Floors/Foyaer" unique_id=637882489 instance=ExtResource("5_w13no")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 1.25)
-
-[node name="wall14" parent="Walls And Floors/Foyaer" unique_id=1316867731 instance=ExtResource("5_w13no")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 1.25)
-
-[node name="wall15" parent="Walls And Floors/Foyaer" unique_id=655483420 instance=ExtResource("5_w13no")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 1.25)
-
-[node name="wall19" parent="Walls And Floors/Foyaer" unique_id=731055394 instance=ExtResource("5_w13no")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 3.75)
-
-[node name="wall16" parent="Walls And Floors/Foyaer" unique_id=1345537991 instance=ExtResource("5_w13no")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.25)
-
-[node name="wall6" parent="Walls And Floors/Foyaer" unique_id=1214987448 instance=ExtResource("5_w13no")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -8.75)
-
-[node name="wall8" parent="Walls And Floors/Foyaer" unique_id=1406365554 instance=ExtResource("5_w13no")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -8.75)
-
-[node name="wall9" parent="Walls And Floors/Foyaer" unique_id=1207005513 instance=ExtResource("5_w13no")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -8.75)
-
-[node name="wall10" parent="Walls And Floors/Foyaer" unique_id=663074505 instance=ExtResource("5_w13no")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, -8.75)
-
-[node name="wall7" parent="Walls And Floors/Foyaer" unique_id=67022329 instance=ExtResource("5_w13no")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -8.75)
-
-[node name="wall4" parent="Walls And Floors/Foyaer" unique_id=1810175388 instance=ExtResource("5_w13no")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.25, 0, -2.5)
-
-[node name="wall18" parent="Walls And Floors/Foyaer" unique_id=739572098 instance=ExtResource("5_w13no")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -2.5, 0, -3.75)
-
-[node name="wall5" parent="Walls And Floors/Foyaer" unique_id=317176947 instance=ExtResource("5_w13no")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.25, 0, -5)
-
-[node name="wall17" parent="Walls And Floors/Foyaer" unique_id=1500112213 instance=ExtResource("5_w13no")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.75, 0, -5)
-
-[node name="wall12" parent="Walls And Floors/Foyaer" unique_id=1588809322 instance=ExtResource("5_w13no")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.75, 0, -2.5)
-
-[node name="wall13" parent="Walls And Floors/Foyaer" unique_id=1119273989 instance=ExtResource("5_w13no")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.75, 0, -5)
-
-[node name="wall3" parent="Walls And Floors/Foyaer" unique_id=5617618 instance=ExtResource("5_w13no")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 1.25)
-
-[node name="wall11" parent="Walls And Floors/Foyaer" unique_id=1534133223 instance=ExtResource("5_w13no")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 1.25)
-
-[node name="wall2" parent="Walls And Floors/Foyaer" unique_id=1388026502 instance=ExtResource("5_w13no")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6.25, 0, 0)
-
-[node name="wall_corner" parent="Walls And Floors/Foyaer" unique_id=521801219 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6.25, 0, 0)
-
-[node name="wall_corner4" parent="Walls And Floors/Foyaer" unique_id=1642379557 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 8.75, 0, 0)
-
-[node name="wall_corner5" parent="Walls And Floors/Foyaer" unique_id=1765366823 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.75, 0, 0)
-
-[node name="wall_corner11" parent="Walls And Floors/Foyaer" unique_id=2073332998 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.75, 0, 2.5)
-
-[node name="wall_corner12" parent="Walls And Floors/Foyaer" unique_id=2117564961 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.25, 0, 2.5)
-
-[node name="wall_corner7" parent="Walls And Floors/Foyaer" unique_id=1924851658 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.75, 0, -7.5)
-
-[node name="wall_corner6" parent="Walls And Floors/Foyaer" unique_id=837417891 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, -3.75)
-
-[node name="wall_corner2" parent="Walls And Floors/Foyaer" unique_id=1079104464 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -6.25, 0, -7.5)
-
-[node name="wall_corner9" parent="Walls And Floors/Foyaer" unique_id=1505416822 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -1.25, 0, -7.5)
-
-[node name="wall_corner10" parent="Walls And Floors/Foyaer" unique_id=934865964 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -1.25, 0, -2.5)
-
-[node name="wall_corner8" parent="Walls And Floors/Foyaer" unique_id=1010556426 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(-1, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -1, -5, 0, -3.75)
-
-[node name="wall_corner3" parent="Walls And Floors/Foyaer" unique_id=161458740 instance=ExtResource("6_qsdn1")]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 8.75, 0, -7.5)
 
 [node name="Lounge" type="Node3D" parent="Walls And Floors" unique_id=1390729805]
 
@@ -1086,11 +872,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
 
 [node name="Floor76" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=78229318]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 17.5, 0, -7.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
-
-[node name="Floor74" type="MeshInstance3D" parent="Walls And Floors/Cubicle Landscape" unique_id=1851942452]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.5)
 mesh = SubResource("QuadMesh_sufut")
 surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
 
@@ -2121,30 +1902,15 @@ transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -
 mesh = SubResource("QuadMesh_sufut")
 surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
 
-[node name="wall_portal" parent="." unique_id=1883095524 instance=ExtResource("8_qsdn1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.75)
-
-[node name="wall_portal2" parent="." unique_id=1611987920 instance=ExtResource("8_qsdn1")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.25, 0, -5)
-
-[node name="wall_portal4" parent="." unique_id=572102747 instance=ExtResource("8_qsdn1")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.75, 0, -2.5)
-
-[node name="wall_portal5" parent="." unique_id=273993381 instance=ExtResource("8_qsdn1")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 5, 0, -3.75)
-
-[node name="wall_portal3" parent="." unique_id=1132704022 instance=ExtResource("8_qsdn1")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.25, 0, 0)
-
 [node name="sideboard" parent="." unique_id=1737767895 instance=ExtResource("12_sm5ll")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 8.218872, 0, -2.7341309)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6.4856634, 0, -2.0275226)
 
 [node name="SculptureTriangle" type="MeshInstance3D" parent="." unique_id=248872972]
-transform = Transform3D(-0.076597214, 0, -0.9970621, 0, 1, 0, 0.9970621, 0, -0.076597214, 3.1411438, -0.00048824548, -4.8501587)
+transform = Transform3D(-0.076597214, 0, -0.9970621, 0, 1, 0, 0.9970621, 0, -0.076597214, 2.3989048, -0.00048824548, -4.8501587)
 mesh = ExtResource("13_hm7ry")
 
 [node name="SculptureWalk" type="MeshInstance3D" parent="." unique_id=459975525]
-transform = Transform3D(0.016946416, 0, -0.9998564, 0, 1, 0, 0.9998564, 0, 0.016946416, -2.4293823, 0.024633849, -8.031372)
+transform = Transform3D(0.016946416, 0, -0.9998564, 0, 1, 0, 0.9998564, 0, 0.016946416, -1.9434199, 0.024633849, -6.031372)
 mesh = ExtResource("14_eppcp")
 
 [node name="Collision System" type="Node" parent="." unique_id=1467278961]
@@ -2462,6 +2228,241 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -16.25)
 
 [node name="wall_portal2" parent="OLD_NODES/Library" unique_id=2122526181 instance=ExtResource("8_qsdn1")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.25, 0, -15)
+
+[node name="Foyaer" type="Node3D" parent="OLD_NODES" unique_id=1211992558]
+
+[node name="Floor4" type="MeshInstance3D" parent="OLD_NODES/Foyaer" unique_id=2039176991]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor5" type="MeshInstance3D" parent="OLD_NODES/Foyaer" unique_id=1921313422]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.5, 0, 0)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor28" type="MeshInstance3D" parent="OLD_NODES/Foyaer" unique_id=1950675129]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.5, 0, 2.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor6" type="MeshInstance3D" parent="OLD_NODES/Foyaer" unique_id=935488582]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.5, 0, -2.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor7" type="MeshInstance3D" parent="OLD_NODES/Foyaer" unique_id=52422112]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, -2.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor8" type="MeshInstance3D" parent="OLD_NODES/Foyaer" unique_id=1125240697]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, -5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor19" type="MeshInstance3D" parent="OLD_NODES/Foyaer" unique_id=1693698095]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, -7.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor20" type="MeshInstance3D" parent="OLD_NODES/Foyaer" unique_id=1323760841]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.5, 0, -7.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor21" type="MeshInstance3D" parent="OLD_NODES/Foyaer" unique_id=537842763]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 5, 0, -7.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor22" type="MeshInstance3D" parent="OLD_NODES/Foyaer" unique_id=1651461884]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 7.5, 0, -7.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor23" type="MeshInstance3D" parent="OLD_NODES/Foyaer" unique_id=234249191]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 7.5, 0, -5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor24" type="MeshInstance3D" parent="OLD_NODES/Foyaer" unique_id=1116684544]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2.5, 0, -5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor25" type="MeshInstance3D" parent="OLD_NODES/Foyaer" unique_id=1003464138]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -5, 0, -5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor26" type="MeshInstance3D" parent="OLD_NODES/Foyaer" unique_id=218373129]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -5, 0, -7.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor27" type="MeshInstance3D" parent="OLD_NODES/Foyaer" unique_id=231846042]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2.5, 0, -7.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor9" type="MeshInstance3D" parent="OLD_NODES/Foyaer" unique_id=246685582]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.5, 0, -5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor10" type="MeshInstance3D" parent="OLD_NODES/Foyaer" unique_id=1021414969]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 5, 0, -5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor11" type="MeshInstance3D" parent="OLD_NODES/Foyaer" unique_id=1938889835]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 5, 0, -2.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor12" type="MeshInstance3D" parent="OLD_NODES/Foyaer" unique_id=1798033736]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 5, 0, 0)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor13" type="MeshInstance3D" parent="OLD_NODES/Foyaer" unique_id=453077025]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 7.5, 0, 0)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor14" type="MeshInstance3D" parent="OLD_NODES/Foyaer" unique_id=347139001]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 7.5, 0, -2.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor15" type="MeshInstance3D" parent="OLD_NODES/Foyaer" unique_id=771627040]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2.5, 0, -2.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor16" type="MeshInstance3D" parent="OLD_NODES/Foyaer" unique_id=574326762]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2.5, 0, 0)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor17" type="MeshInstance3D" parent="OLD_NODES/Foyaer" unique_id=1470246926]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -5, 0, 0)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="Floor18" type="MeshInstance3D" parent="OLD_NODES/Foyaer" unique_id=1828506188]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -5, 0, -2.5)
+mesh = SubResource("QuadMesh_sufut")
+surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+
+[node name="wall" parent="OLD_NODES/Foyaer" unique_id=637882489 instance=ExtResource("5_w13no")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 1.25)
+
+[node name="wall14" parent="OLD_NODES/Foyaer" unique_id=1316867731 instance=ExtResource("5_w13no")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 1.25)
+
+[node name="wall15" parent="OLD_NODES/Foyaer" unique_id=655483420 instance=ExtResource("5_w13no")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 1.25)
+
+[node name="wall19" parent="OLD_NODES/Foyaer" unique_id=731055394 instance=ExtResource("5_w13no")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 3.75)
+
+[node name="wall16" parent="OLD_NODES/Foyaer" unique_id=1345537991 instance=ExtResource("5_w13no")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.25)
+
+[node name="wall6" parent="OLD_NODES/Foyaer" unique_id=1214987448 instance=ExtResource("5_w13no")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -8.75)
+
+[node name="wall8" parent="OLD_NODES/Foyaer" unique_id=1406365554 instance=ExtResource("5_w13no")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -8.75)
+
+[node name="wall9" parent="OLD_NODES/Foyaer" unique_id=1207005513 instance=ExtResource("5_w13no")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -8.75)
+
+[node name="wall10" parent="OLD_NODES/Foyaer" unique_id=663074505 instance=ExtResource("5_w13no")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, -8.75)
+
+[node name="wall7" parent="OLD_NODES/Foyaer" unique_id=67022329 instance=ExtResource("5_w13no")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -8.75)
+
+[node name="wall4" parent="OLD_NODES/Foyaer" unique_id=1810175388 instance=ExtResource("5_w13no")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.25, 0, -2.5)
+
+[node name="wall18" parent="OLD_NODES/Foyaer" unique_id=739572098 instance=ExtResource("5_w13no")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -2.5, 0, -3.75)
+
+[node name="wall5" parent="OLD_NODES/Foyaer" unique_id=317176947 instance=ExtResource("5_w13no")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.25, 0, -5)
+
+[node name="wall17" parent="OLD_NODES/Foyaer" unique_id=1500112213 instance=ExtResource("5_w13no")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.75, 0, -5)
+
+[node name="wall12" parent="OLD_NODES/Foyaer" unique_id=1588809322 instance=ExtResource("5_w13no")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.75, 0, -2.5)
+
+[node name="wall13" parent="OLD_NODES/Foyaer" unique_id=1119273989 instance=ExtResource("5_w13no")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.75, 0, -5)
+
+[node name="wall3" parent="OLD_NODES/Foyaer" unique_id=5617618 instance=ExtResource("5_w13no")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 1.25)
+
+[node name="wall11" parent="OLD_NODES/Foyaer" unique_id=1534133223 instance=ExtResource("5_w13no")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 1.25)
+
+[node name="wall2" parent="OLD_NODES/Foyaer" unique_id=1388026502 instance=ExtResource("5_w13no")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6.25, 0, 0)
+
+[node name="wall_corner" parent="OLD_NODES/Foyaer" unique_id=521801219 instance=ExtResource("6_qsdn1")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6.25, 0, 0)
+
+[node name="wall_corner4" parent="OLD_NODES/Foyaer" unique_id=1642379557 instance=ExtResource("6_qsdn1")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 8.75, 0, 0)
+
+[node name="wall_corner5" parent="OLD_NODES/Foyaer" unique_id=1765366823 instance=ExtResource("6_qsdn1")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.75, 0, 0)
+
+[node name="wall_corner11" parent="OLD_NODES/Foyaer" unique_id=2073332998 instance=ExtResource("6_qsdn1")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.75, 0, 2.5)
+
+[node name="wall_corner12" parent="OLD_NODES/Foyaer" unique_id=2117564961 instance=ExtResource("6_qsdn1")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.25, 0, 2.5)
+
+[node name="wall_corner7" parent="OLD_NODES/Foyaer" unique_id=1924851658 instance=ExtResource("6_qsdn1")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.75, 0, -7.5)
+
+[node name="wall_corner6" parent="OLD_NODES/Foyaer" unique_id=837417891 instance=ExtResource("6_qsdn1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, -3.75)
+
+[node name="wall_corner2" parent="OLD_NODES/Foyaer" unique_id=1079104464 instance=ExtResource("6_qsdn1")]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -6.25, 0, -7.5)
+
+[node name="wall_corner9" parent="OLD_NODES/Foyaer" unique_id=1505416822 instance=ExtResource("6_qsdn1")]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -1.25, 0, -7.5)
+
+[node name="wall_corner10" parent="OLD_NODES/Foyaer" unique_id=934865964 instance=ExtResource("6_qsdn1")]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -1.25, 0, -2.5)
+
+[node name="wall_corner8" parent="OLD_NODES/Foyaer" unique_id=1010556426 instance=ExtResource("6_qsdn1")]
+transform = Transform3D(-1, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -1, -5, 0, -3.75)
+
+[node name="wall_corner3" parent="OLD_NODES/Foyaer" unique_id=161458740 instance=ExtResource("6_qsdn1")]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 8.75, 0, -7.5)
+
+[node name="wall_portal" parent="OLD_NODES/Foyaer" unique_id=1883095524 instance=ExtResource("8_qsdn1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.75)
+
+[node name="wall_portal2" parent="OLD_NODES/Foyaer" unique_id=1611987920 instance=ExtResource("8_qsdn1")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.25, 0, -5)
+
+[node name="wall_portal4" parent="OLD_NODES/Foyaer" unique_id=572102747 instance=ExtResource("8_qsdn1")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.75, 0, -2.5)
+
+[node name="wall_portal5" parent="OLD_NODES/Foyaer" unique_id=273993381 instance=ExtResource("8_qsdn1")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 5, 0, -3.75)
+
+[node name="wall_portal3" parent="OLD_NODES/Foyaer" unique_id=1132704022 instance=ExtResource("8_qsdn1")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.25, 0, 0)
 
 [connection signal="area_entered" from="Interactables/dragon/trigger area" to="Interactables/dragon" method="_on_trigger_area_area_entered"]
 

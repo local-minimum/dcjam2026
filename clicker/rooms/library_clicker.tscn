@@ -2,7 +2,6 @@
 
 [ext_resource type="Material" uid="uid://diwb8tjymr6wb" path="res://visual/tiles/bookcase_stylised/bookcase_stylised.tres" id="1_6bk4q"]
 [ext_resource type="Material" uid="uid://b3o8kvs1bk15l" path="res://visual/tiles/stylised_wood_planks/stylised_wooden_planks_mat.tres" id="2_6bk4q"]
-[ext_resource type="Material" uid="uid://cjmi6owuephcb" path="res://visual/tiles/concrete_quad/concrete_quad_mat.tres" id="3_ypwwl"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_tshes"]
 _surfaces = [{
@@ -73,7 +72,6 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQACAAJAAoACwAJAAgADAANAA4ADwANAAwAEAARABIAEwARABAAFAAVABYAFwAVABQA"),
-"material": ExtResource("3_ypwwl"),
 "name": "Mesh",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),

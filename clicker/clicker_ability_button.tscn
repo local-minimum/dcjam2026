@@ -3,39 +3,41 @@
 [ext_resource type="Script" uid="uid://b87gu4m0recy4" path="res://clicker/clicker_ability_button.gd" id="1_3rb54"]
 [ext_resource type="Texture2D" uid="uid://bjrt4u6iulpjm" path="res://clicker/clicker_ability_level_done.png" id="2_1l0q3"]
 [ext_resource type="Texture2D" uid="uid://de6wc7j5ks4f5" path="res://clicker/clicker_ability_level_not_done.png" id="3_y8mex"]
-[ext_resource type="Texture2D" uid="uid://b2ehx14a2sii3" path="res://clicker/clicker_ability_button.png" id="4_1uqpj"]
-[ext_resource type="Texture2D" uid="uid://3dlwlcapmkrh" path="res://clicker/clicker_ability_button_frame.png" id="6_o7e2m"]
+[ext_resource type="Texture2D" uid="uid://d08irex16meun" path="res://clicker/clicker_ability_icon_brian.png" id="5_3rb54"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3rb54"]
+bg_color = Color(0.7666196, 0.76661956, 0.76661944, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.16206557, 0.1620656, 0.16206548, 1)
 
 [node name="Clicker Ability Button" type="Control" unique_id=324514739 node_paths=PackedStringArray("icon", "title", "level_icons", "cooldown", "buy_cost")]
-custom_minimum_size = Vector2(200, 30)
+custom_minimum_size = Vector2(200, 60)
 layout_mode = 3
 anchors_preset = 0
+offset_right = 379.0
+offset_bottom = 62.0
 mouse_default_cursor_shape = 2
 script = ExtResource("1_3rb54")
 icon = NodePath("Clicker Ability Button Icon")
-title = NodePath("MarginContainer/Ability Title")
-level_icons = [NodePath("MarginContainer/HBoxContainer/Level Icon 1"), NodePath("MarginContainer/HBoxContainer/Level Icon 2"), NodePath("MarginContainer/HBoxContainer/Level Icon 3"), NodePath("MarginContainer/HBoxContainer/Level Icon 4"), NodePath("MarginContainer/HBoxContainer/Level Icon 5"), NodePath("MarginContainer/HBoxContainer/Level Icon 6"), NodePath("MarginContainer/HBoxContainer/Level Icon 7")]
+title = NodePath("MarginContainer/VBoxContainer/HBoxContainer2/Ability Title")
+level_icons = [NodePath("MarginContainer/VBoxContainer/HBoxContainer/Level Icon 1"), NodePath("MarginContainer/VBoxContainer/HBoxContainer/Level Icon 2"), NodePath("MarginContainer/VBoxContainer/HBoxContainer/Level Icon 3"), NodePath("MarginContainer/VBoxContainer/HBoxContainer/Level Icon 4"), NodePath("MarginContainer/VBoxContainer/HBoxContainer/Level Icon 5"), NodePath("MarginContainer/VBoxContainer/HBoxContainer/Level Icon 6"), NodePath("MarginContainer/VBoxContainer/HBoxContainer/Level Icon 7")]
 obtained_level_image = ExtResource("2_1l0q3")
 available_level_image = ExtResource("3_y8mex")
-cooldown = NodePath("MarginContainer/Cool Down Progress")
+cooldown = NodePath("MarginContainer/VBoxContainer/HBoxContainer2/Cool Down Progress")
 buy_cost = NodePath("MarginContainer/Buy Cost")
 affordable_color = Color(0.08539287, 0.21558788, 2.4065375e-08, 1)
 
-[node name="Clicker Ability Button BG" type="TextureRect" parent="." unique_id=1195493081]
+[node name="Panel" type="Panel" parent="." unique_id=836276944]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_1uqpj")
-
-[node name="Clicker Ability Button Icon" type="TextureRect" parent="." unique_id=1418097927]
-custom_minimum_size = Vector2(30, 0)
-layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3rb54")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=466675392]
 layout_mode = 1
@@ -44,88 +46,107 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 44
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 7
 
-[node name="Ability Title" type="Label" parent="MarginContainer" unique_id=1059197341]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1498137591]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=905725253]
+layout_mode = 2
+
+[node name="Ability Title" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1059197341]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-theme_override_colors/font_color = Color(6.016344e-08, 0.29937273, 0.3003368, 1)
-theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(4.5242905e-06, 0.73302096, 0.74177426, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "Mental Gymnastics"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=952486386]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 8
-
-[node name="Level Icon 1" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=281310407]
-visible = false
-custom_minimum_size = Vector2(12, 12)
-layout_mode = 2
-texture = ExtResource("3_y8mex")
-
-[node name="Level Icon 2" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=363436506]
-visible = false
-custom_minimum_size = Vector2(12, 12)
-layout_mode = 2
-texture = ExtResource("3_y8mex")
-
-[node name="Level Icon 3" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=438917008]
-visible = false
-custom_minimum_size = Vector2(12, 12)
-layout_mode = 2
-texture = ExtResource("3_y8mex")
-
-[node name="Level Icon 4" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=692896353]
-visible = false
-custom_minimum_size = Vector2(12, 12)
-layout_mode = 2
-texture = ExtResource("3_y8mex")
-
-[node name="Level Icon 5" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=267961161]
-visible = false
-custom_minimum_size = Vector2(12, 12)
-layout_mode = 2
-texture = ExtResource("3_y8mex")
-
-[node name="Level Icon 6" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=2080844910]
-visible = false
-custom_minimum_size = Vector2(12, 12)
-layout_mode = 2
-texture = ExtResource("3_y8mex")
-
-[node name="Level Icon 7" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=574303938]
-visible = false
-custom_minimum_size = Vector2(12, 12)
-layout_mode = 2
-texture = ExtResource("3_y8mex")
-
-[node name="Cool Down Progress" type="TextureRect" parent="MarginContainer" unique_id=179703597]
+[node name="Cool Down Progress" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=179703597]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 
-[node name="Buy Cost" type="Label" parent="MarginContainer" unique_id=892338515]
-visible = false
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=952486386]
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_constants/separation = 4
+
+[node name="Level Icon 1" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=281310407]
+texture_filter = 1
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("3_y8mex")
+
+[node name="Level Icon 2" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=363436506]
+texture_filter = 1
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("3_y8mex")
+
+[node name="Level Icon 3" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=438917008]
+texture_filter = 1
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("3_y8mex")
+
+[node name="Level Icon 4" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=692896353]
+texture_filter = 1
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("3_y8mex")
+
+[node name="Level Icon 5" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=267961161]
+texture_filter = 1
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("3_y8mex")
+
+[node name="Level Icon 6" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=2080844910]
+texture_filter = 1
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("3_y8mex")
+
+[node name="Level Icon 7" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=574303938]
+texture_filter = 1
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("3_y8mex")
+
+[node name="Buy Cost" type="Label" parent="MarginContainer" unique_id=892338515]
+layout_mode = 2
+size_flags_horizontal = 10
 size_flags_vertical = 8
-theme_override_colors/font_color = Color(0.5451722, 0.06735026, 0.1375876, 1)
-theme_override_font_sizes/font_size = 8
-text = "10000 xp"
+theme_override_colors/font_color = Color(0.8838862, 0.16502202, 0.2576907, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 40
+text = "10xp"
 horizontal_alignment = 2
 
-[node name="Clicker Ability Button Frame" type="TextureRect" parent="." unique_id=553969726]
+[node name="Clicker Ability Button Icon" type="TextureRect" parent="." unique_id=1418097927]
+visible = false
+custom_minimum_size = Vector2(30, 0)
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 9
 anchor_bottom = 1.0
-grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("6_o7e2m")
+texture = ExtResource("5_3rb54")
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

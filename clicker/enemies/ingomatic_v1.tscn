@@ -21,9 +21,10 @@ collision_mask = 512
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5979004, 0)
 shape = SubResource("CylinderShape3D_1pa7v")
 
-[node name="Enemy Entity" type="Node" parent="." unique_id=1113681814 node_paths=PackedStringArray("entity_root", "detection_areas")]
+[node name="Enemy Entity" type="Node" parent="." unique_id=1113681814 node_paths=PackedStringArray("_collision", "entity_root", "detection_areas")]
 script = ExtResource("2_a6arq")
 data = ExtResource("3_15404")
+_collision = NodePath("../Detection Area/CollisionShape3D")
 type = 2
 entity_root = NodePath("..")
 detection_areas = [NodePath("../Detection Area")]

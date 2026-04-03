@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://gymwyj1tdt2u" path="res://core/entities/moving_entity_base.gd" id="1_8xso5"]
 [ext_resource type="Script" uid="uid://cdamg3aelw5yy" path="res://clicker/stationary_enemy.gd" id="2_2y1ls"]
 [ext_resource type="Resource" uid="uid://fok2gywfy180" path="res://clicker/enemies/tintron_mk3.tres" id="3_8xso5"]
+[ext_resource type="PackedScene" uid="uid://duogbl26qoj0h" path="res://clicker/enemies/marker.tscn" id="4_2y1ls"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_1pa7v"]
 height = 2.6958008
@@ -26,3 +27,5 @@ data = ExtResource("3_8xso5")
 type = 2
 entity_root = NodePath("..")
 detection_areas = [NodePath("../Detection Area")]
+
+[node name="Marker" parent="." unique_id=1119820133 instance=ExtResource("4_2y1ls")]

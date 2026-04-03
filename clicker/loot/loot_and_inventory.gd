@@ -51,7 +51,7 @@ func _handle_battle_end(credits: int) -> void:
 
     var active_weapon_value: int = __GlobalGameState.weapon.score
     var gear_value: int = __GlobalGameState.get_average_gear_score()
-    var gear_or_weapon_rng_value: int = active_weapon_value + gear_value + 20
+    var gear_or_weapon_rng_value: int = active_weapon_value + gear_value + 25
     var make_weapon_threshold: int = gear_value + 10
 
     print_debug("[Loot] Active Weapon (%s) and Avg Gear (%s) credits %s" % [active_weapon_value, gear_value, credits])
@@ -62,7 +62,7 @@ func _handle_battle_end(credits: int) -> void:
         if credits <= 0:
             _loot_previews[idx].hide()
             continue
-
+        print_debug("[Loot] Weapon bias rng(%s) < %s" % [gear_or_weapon_rng_value, make_weapon_threshold])
         if randi_range(0, gear_or_weapon_rng_value) < make_weapon_threshold:
             var use_credits: int = clampi(
                 roundi(active_weapon_value * 1.5),
@@ -118,7 +118,7 @@ func _handle_battle_end(credits: int) -> void:
                 _loot_previews[idx].show()
                 _loot_previews[idx].loot_and_inventory = self
 
-                make_weapon_threshold = mini(make_weapon_threshold + 1, gear_or_weapon_rng_value - 10)
+                make_weapon_threshold = mini(make_weapon_threshold + 1, gear_or_weapon_rng_value - 15)
     _loot_root.show()
     show()
 

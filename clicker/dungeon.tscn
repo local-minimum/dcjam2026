@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bufrvjcwdgi7q"]
+[gd_scene format=4 uid="uid://bufrvjcwdgi7q"]
 
 [ext_resource type="Script" uid="uid://5nd45w6q42kq" path="res://core/dungeon.gd" id="1_6pvhc"]
 [ext_resource type="Script" uid="uid://dfqjle1xd7utg" path="res://clicker/battle/entity_collision_join_battle.gd" id="2_sufut"]
@@ -9,8 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://df4j8gscil84h" path="res://clicker/models/wall_corner.blend" id="6_qsdn1"]
 [ext_resource type="PackedScene" uid="uid://1u7yq3idj1i" path="res://clicker/models/shredder.tscn" id="7_qmmos"]
 [ext_resource type="PackedScene" uid="uid://b3vfstytefmpx" path="res://clicker/models/dragon.blend" id="8_jorcj"]
+[ext_resource type="Shader" uid="uid://cjso02no5cy8s" path="res://visual/common/base_PBR_shader.gdshader" id="8_n41ta"]
 [ext_resource type="PackedScene" uid="uid://cruxk6l5jm7l1" path="res://clicker/models/wall_portal.blend" id="8_qsdn1"]
+[ext_resource type="Texture2D" uid="uid://cuxkeulgvmbr2" path="res://visual/tiles/stylised_wood_planks/stylised_wooden_planks_baseColor.png" id="9_i6glv"]
 [ext_resource type="Script" uid="uid://dombw6pswxxfq" path="res://clicker/models/dragon.gd" id="9_l3xlb"]
+[ext_resource type="Texture2D" uid="uid://bhej3dgk4n270" path="res://visual/tiles/stylised_wood_planks/stylised_wooden_planks_normal.png" id="10_02l0h"]
+[ext_resource type="Texture2D" uid="uid://ow7owanmhg2b" path="res://visual/tiles/stylised_wood_planks/stylised_wooden_planks_occlusionRoughnessMetallic.png" id="11_wbro4"]
 [ext_resource type="PackedScene" uid="uid://ctar0x0es8uc6" path="res://clicker/models/sideboard.blend" id="12_sm5ll"]
 [ext_resource type="ArrayMesh" uid="uid://b0vlo73s2fd38" path="res://visual/clutter/sculptures/sculpture_triangle.obj" id="13_hm7ry"]
 [ext_resource type="ArrayMesh" uid="uid://ceb8oy4go2no4" path="res://visual/clutter/sculptures/sculpture_walk.obj" id="14_eppcp"]
@@ -23,6 +27,30 @@ size = Vector2(2.5, 2.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yrdjv"]
 albedo_color = Color(0.31925523, 0.31925526, 0.31925526, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_24q6l"]
+render_priority = 0
+shader = ExtResource("8_n41ta")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("9_i6glv")
+shader_parameter/texture_normal = ExtResource("10_02l0h")
+shader_parameter/texture_orm = ExtResource("11_wbro4")
+shader_parameter/normal_scale = 1.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_2upc0"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -0.1, 2, 2, 0.2),
+"attribute_data": PackedByteArray("ZeYAAP///////wAAZeb/////AAAAAP//AAAAAP////8AAAAAmRn//5kZAAAAAP//AAAAAP///////wAAAAD///////8AAGXm//9l5gAA/////wAAAACZGf//mRkAAAAA"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQACAAJAAoACwAJAAgADAANAA4ADwANAAwAEAARABIAEwARABAAFAAVABYAFwAVABQA"),
+"material": SubResource("ShaderMaterial_24q6l"),
+"name": "Mesh",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAAAA/z8AAP//////PwAAAAD///8/AAD//wAA/z///wAAAAD//wAA//8AAP//AAAAAAAA////////AAD/////AAD///8//////wAA/z///wAAAAD/P/////////8/AAAAAP///n/////////+f///AAD///5/AAD//////n8AAAAA////////AAAAAP//AAAAAAAA/////wAA//////////////8/AAD//wAA/z//////AAD/PwAA//////8//3////9/////f////3///////3////9/////f////3//fwAA/38AAP9/AAD/fwAA/3////9/////f////3////9//z//f/8//3//P/9//z////9/////f////3////9/")
+}]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_l3xlb"]
 height = 0.5
@@ -312,8 +340,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
 
 [node name="Floor24" type="MeshInstance3D" parent="Walls And Floors/Library" unique_id=134829558]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -5, 0, -12.5)
-mesh = SubResource("QuadMesh_sufut")
-surface_material_override/0 = SubResource("StandardMaterial3D_yrdjv")
+mesh = SubResource("ArrayMesh_2upc0")
 
 [node name="Floor25" type="MeshInstance3D" parent="Walls And Floors/Library" unique_id=593891084]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -5, 0, -10)

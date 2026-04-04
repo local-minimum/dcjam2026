@@ -477,7 +477,7 @@ mesh = SubResource("ArrayMesh_abhsr")
 transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, -20, -0.1, -16)
 mesh = SubResource("ArrayMesh_abhsr")
 
-[node name="MeshInstance3D8" type="MeshInstance3D" parent="Floor" unique_id=815837237]
+[node name="Trigger Keith Start Pos" type="MeshInstance3D" parent="Floor" unique_id=815837237]
 transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, -22, -0.1, -16)
 mesh = SubResource("ArrayMesh_abhsr")
 
@@ -581,11 +581,12 @@ light_energy = 2.0
 light_volumetric_fog_energy = 5.0
 omni_range = 3.5
 
-[node name="Triggers" type="Node3D" parent="." unique_id=1066317152 node_paths=PackedStringArray("red_lights")]
+[node name="Triggers" type="Node3D" parent="." unique_id=1066317152 node_paths=PackedStringArray("spawn_keith_position", "red_lights")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -17)
 script = ExtResource("5_abhsr")
 keith_scare_sfx_path = "uid://bt4jw627jua1r"
 lights_cascade_sfx_path = "uid://17jtf5w2rh4g"
+spawn_keith_position = NodePath("../Floor/Trigger Keith Start Pos")
 red_lights = [NodePath("../Lights/RedLight6"), NodePath("../Lights/RedLight5"), NodePath("../Lights/RedLight4"), NodePath("../Lights/RedLight3"), NodePath("../Lights/RedLight2"), NodePath("../Lights/RedLight1")]
 
 [node name="Area3D" type="Area3D" parent="Triggers" unique_id=1065119730]

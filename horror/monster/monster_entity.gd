@@ -4,6 +4,7 @@ class_name MonsterEntity
 @export var monster: Monster
 @export var monster_center: Node3D
 @export var light: OmniLight3D
+@export var speaker: AudioStreamPlayer3D
 
 @export var hunt_speed_factor: float = 1.5
 
@@ -438,3 +439,13 @@ func _align_rotation_with_cardinals() -> void:
     var angle: float = monster.global_basis.z.signed_angle_to(direction, monster.global_basis.y)
 
     monster.queue_turn(angle, 1.0, true)
+
+func start_next_poem() -> void:
+    # TODO: Add stuff here
+    speaker.play()
+
+func pause_poem(pause: bool) -> void:
+    speaker.stream_paused = pause
+
+func silence() -> void:
+    speaker.stop()

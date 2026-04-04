@@ -1,6 +1,5 @@
 extends Node3D
 
-
 enum BodyType {
     FEM,
     MASC,
@@ -9,6 +8,7 @@ enum BodyType {
 
 
 @export_file("*.mp3") var menu_music_path: String
+@export_file("*.tscn") var game_path: String
 @export var title_label: Label
 @export var credits_label: Label
 @export var main_menu_container: VBoxContainer
@@ -16,9 +16,8 @@ enum BodyType {
 @export var body_selector_container: VBoxContainer
 @export var body_type_textures: Array[Texture2D]
 
-
 func _ready() -> void:
-    __AudioHub.play_music(menu_music_path)
+    __AudioHub.play_music(menu_music_path, 0.5)
 
 
 func _on_play_button_pressed() -> void:
@@ -44,8 +43,9 @@ func _on_back_button_pressed() -> void:
     main_menu_container.show()
     title_label.show()
     credits_label.show()
-    
-    
+
 func _body_type_button_pressed(type: BodyType) -> void:
-    print(type)
-    #__GlobalGameState.body_type = body_type_textures[type]
+    __GlobalGameState.start_new_game()
+    __GlobalGameState.body_type = body_type_textures[type]
+    var scene: PackedScene = load(game_path)
+    get_tree().change_scene_to_packed(scene)

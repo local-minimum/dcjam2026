@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dlv1vt3lm4mqn"]
+[gd_scene format=3 uid="uid://u2fviscw8c6w"]
 
 [ext_resource type="Environment" uid="uid://cab2e1qcby00n" path="res://clicker/clicker_environment.tres" id="1_ia0g5"]
 [ext_resource type="PackedScene" uid="uid://dscg0fk4fioab" path="res://clicker/rooms/outside_clicker.tscn" id="1_jwbto"]
@@ -68,6 +68,7 @@ _data = {
 [node name="StartMenu" type="Node3D" unique_id=1867207705 node_paths=PackedStringArray("title_label", "credits_label", "main_menu_container", "option_menu_container", "body_selector_container")]
 script = ExtResource("1_vpdu5")
 menu_music_path = "uid://dicixyad3t0vy"
+game_path = "uid://dmfjlovtm3r5k"
 title_label = NodePath("UICanvas/UI/MarginContainer/TitleLabel")
 credits_label = NodePath("UICanvas/UI/CreditsLabel")
 main_menu_container = NodePath("UICanvas/UI/MarginContainer/BtnsCentreContainer/MenuButtonsContainer")
@@ -227,7 +228,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 4
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = SubResource("StyleBoxFlat_ppfnh")
-text = "Feminine"
+text = "Type A"
 
 [node name="MascContainer" type="VBoxContainer" parent="UICanvas/UI/MarginContainer/BodySelectorContainer/HBoxContainer" unique_id=672133158]
 layout_mode = 2
@@ -245,7 +246,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 4
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = SubResource("StyleBoxFlat_ppfnh")
-text = "Masculine"
+text = "Type B"
 
 [node name="NonContainer" type="VBoxContainer" parent="UICanvas/UI/MarginContainer/BodySelectorContainer/HBoxContainer" unique_id=1705801687]
 layout_mode = 2
@@ -263,7 +264,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 4
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = SubResource("StyleBoxFlat_ppfnh")
-text = "Androgynous"
+text = "Type C"
 
 [node name="BackButton" type="Button" parent="UICanvas/UI/MarginContainer/BodySelectorContainer" unique_id=1224115449]
 layout_mode = 2

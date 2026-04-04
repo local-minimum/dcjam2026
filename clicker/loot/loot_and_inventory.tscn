@@ -1,13 +1,53 @@
 [gd_scene format=3 uid="uid://3heqxlultjpy"]
 
 [ext_resource type="Script" uid="uid://cfj01il1gpau3" path="res://clicker/loot/loot_and_inventory.gd" id="1_afi37"]
+[ext_resource type="FontFile" uid="uid://c7p84b460gfg8" path="res://fonts/fabian/FABIAN__.TTF" id="2_o2fb0"]
 [ext_resource type="PackedScene" uid="uid://rw40yloyksye" path="res://clicker/loot/loot_preview.tscn" id="2_yrt3n"]
-[ext_resource type="Texture2D" uid="uid://bkrvcm6p5i78q" path="res://clicker/loot/inventory_character.png" id="3_lbac6"]
 [ext_resource type="Script" uid="uid://d1lkn4se6hynh" path="res://clicker/loot/weapon_slot_ui.gd" id="4_hnr7w"]
+[ext_resource type="Texture2D" uid="uid://dgucxcb44c1wn" path="res://clicker/loot/inventory_skeleton.png" id="4_o2fb0"]
 [ext_resource type="Texture2D" uid="uid://b5lutg1qvwqnd" path="res://clicker/loot/equipment_slot.png" id="5_flcwp"]
 [ext_resource type="Script" uid="uid://bl33wdh2b41xo" path="res://clicker/loot/weapons_smith.gd" id="6_imme1"]
 [ext_resource type="Script" uid="uid://cgwptmq5mmsg7" path="res://clicker/loot/gear_slot_ui.gd" id="6_lbac6"]
 [ext_resource type="Script" uid="uid://jp8g8pd46146" path="res://clicker/loot/gear_smith.gd" id="7_yrt3n"]
+[ext_resource type="FontFile" uid="uid://vrrmdx83skor" path="res://addons/dialogic/Example Assets/Fonts/Roboto-Regular.ttf" id="8_0qedo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rgya6"]
+bg_color = Color(0.12955841, 0.1295585, 0.12955841, 0.5)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o2fb0"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_detail = 1
+expand_margin_top = 2.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0qedo"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rmru1"]
+bg_color = Color(0.15847227, 0.15847233, 0.15847221, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.40451086, 0.40451124, 0.4045111, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [sub_resource type="LabelSettings" id="LabelSettings_yrt3n"]
 font_size = 24
@@ -22,7 +62,7 @@ grow_vertical = 2
 color = Color(0.18120003, 0.18120006, 0.1812, 0.7490196)
 script = ExtResource("1_afi37")
 _loot_root = NodePath("Loot And Inventory/HBoxContainer/CenterContainer/Loot Panel")
-_loot_previews = [NodePath("Loot And Inventory/HBoxContainer/CenterContainer/Loot Panel/MarginContainer/VBoxContainer/Loot Preview"), NodePath("Loot And Inventory/HBoxContainer/CenterContainer/Loot Panel/MarginContainer/VBoxContainer/Loot Preview2"), NodePath("Loot And Inventory/HBoxContainer/CenterContainer/Loot Panel/MarginContainer/VBoxContainer/Loot Preview3")]
+_loot_previews = [NodePath("Loot And Inventory/HBoxContainer/CenterContainer/Loot Panel/MarginContainer/VBoxContainer/HBoxContainer/Loot Preview"), NodePath("Loot And Inventory/HBoxContainer/CenterContainer/Loot Panel/MarginContainer/VBoxContainer/HBoxContainer/Loot Preview2"), NodePath("Loot And Inventory/HBoxContainer/CenterContainer/Loot Panel/MarginContainer/VBoxContainer/HBoxContainer/Loot Preview3")]
 _weapons_smith = NodePath("Weapons Smith")
 _gear_smith = NodePath("Gear Smith")
 
@@ -31,11 +71,13 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -464.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Loot And Inventory" unique_id=615417505]
 layout_mode = 2
+theme_override_constants/separation = 43
 alignment = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="Loot And Inventory/HBoxContainer" unique_id=255210550]
@@ -43,38 +85,48 @@ layout_mode = 2
 
 [node name="Loot Panel" type="PanelContainer" parent="Loot And Inventory/HBoxContainer/CenterContainer" unique_id=791999901]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rgya6")
 
 [node name="MarginContainer" type="MarginContainer" parent="Loot And Inventory/HBoxContainer/CenterContainer/Loot Panel" unique_id=1253734802]
 layout_mode = 2
 theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 6
+theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 6
+theme_override_constants/margin_bottom = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Loot And Inventory/HBoxContainer/CenterContainer/Loot Panel/MarginContainer" unique_id=701664657]
 layout_mode = 2
+theme_override_constants/separation = 9
 
 [node name="Looting Title" type="Label" parent="Loot And Inventory/HBoxContainer/CenterContainer/Loot Panel/MarginContainer/VBoxContainer" unique_id=214669426]
 layout_mode = 2
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("2_o2fb0")
 theme_override_font_sizes/font_size = 46
-text = "PICK YOUR LOOT"
+text = "CHOOSE AN ITEM"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="Loot And Inventory/HBoxContainer/CenterContainer/Loot Panel/MarginContainer/VBoxContainer" unique_id=102132772]
 layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxFlat_o2fb0")
 
-[node name="Loot Preview" parent="Loot And Inventory/HBoxContainer/CenterContainer/Loot Panel/MarginContainer/VBoxContainer" unique_id=1447326071 instance=ExtResource("2_yrt3n")]
+[node name="HBoxContainer" type="HBoxContainer" parent="Loot And Inventory/HBoxContainer/CenterContainer/Loot Panel/MarginContainer/VBoxContainer" unique_id=500496704]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Loot Preview" parent="Loot And Inventory/HBoxContainer/CenterContainer/Loot Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1447326071 instance=ExtResource("2_yrt3n")]
 layout_mode = 2
 
-[node name="Loot Preview2" parent="Loot And Inventory/HBoxContainer/CenterContainer/Loot Panel/MarginContainer/VBoxContainer" unique_id=2141471518 instance=ExtResource("2_yrt3n")]
+[node name="Loot Preview2" parent="Loot And Inventory/HBoxContainer/CenterContainer/Loot Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=2141471518 instance=ExtResource("2_yrt3n")]
 layout_mode = 2
 
-[node name="Loot Preview3" parent="Loot And Inventory/HBoxContainer/CenterContainer/Loot Panel/MarginContainer/VBoxContainer" unique_id=1704816354 instance=ExtResource("2_yrt3n")]
+[node name="Loot Preview3" parent="Loot And Inventory/HBoxContainer/CenterContainer/Loot Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1704816354 instance=ExtResource("2_yrt3n")]
 layout_mode = 2
 
 [node name="Inventory Panel" type="PanelContainer" parent="Loot And Inventory/HBoxContainer" unique_id=694669563]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0qedo")
 
 [node name="MarginContainer" type="MarginContainer" parent="Loot And Inventory/HBoxContainer/Inventory Panel" unique_id=1648370281]
 layout_mode = 2
@@ -86,19 +138,22 @@ theme_override_constants/margin_bottom = 6
 [node name="Body" type="TextureRect" parent="Loot And Inventory/HBoxContainer/Inventory Panel/MarginContainer" unique_id=1954903018]
 custom_minimum_size = Vector2(300, 400)
 layout_mode = 2
-texture = ExtResource("3_lbac6")
+texture = ExtResource("4_o2fb0")
+expand_mode = 1
 
 [node name="Weapon Slot UI" type="TextureRect" parent="Loot And Inventory/HBoxContainer/Inventory Panel/MarginContainer/Body" unique_id=9567788]
+custom_minimum_size = Vector2(72, 72)
 layout_mode = 0
-offset_left = 8.0
-offset_top = 220.0
-offset_right = 72.0
-offset_bottom = 284.0
+offset_left = 19.0
+offset_top = 93.0
+offset_right = 91.0
+offset_bottom = 165.0
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("4_hnr7w")
 
 [node name="Frame" type="TextureRect" parent="Loot And Inventory/HBoxContainer/Inventory Panel/MarginContainer/Body/Weapon Slot UI" unique_id=174834100]
+texture_filter = 1
 custom_minimum_size = Vector2(72, 72)
 layout_mode = 1
 anchors_preset = 8
@@ -115,17 +170,19 @@ grow_vertical = 2
 texture = ExtResource("5_flcwp")
 
 [node name="Gear Slot Pants" type="TextureRect" parent="Loot And Inventory/HBoxContainer/Inventory Panel/MarginContainer/Body" unique_id=1004701635]
+custom_minimum_size = Vector2(72, 72)
 layout_mode = 0
-offset_left = 109.0
-offset_top = 238.0
-offset_right = 212.0
-offset_bottom = 337.0
+offset_left = 13.0
+offset_top = 321.0
+offset_right = 85.0
+offset_bottom = 393.0
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("6_lbac6")
 _slot = 3
 
 [node name="Frame" type="TextureRect" parent="Loot And Inventory/HBoxContainer/Inventory Panel/MarginContainer/Body/Gear Slot Pants" unique_id=328560688]
+texture_filter = 1
 custom_minimum_size = Vector2(72, 72)
 layout_mode = 1
 anchors_preset = 15
@@ -136,17 +193,19 @@ grow_vertical = 2
 texture = ExtResource("5_flcwp")
 
 [node name="Gear Slot Feet" type="TextureRect" parent="Loot And Inventory/HBoxContainer/Inventory Panel/MarginContainer/Body" unique_id=556436981]
+custom_minimum_size = Vector2(72, 72)
 layout_mode = 0
-offset_left = 38.0
-offset_top = 319.0
-offset_right = 119.0
-offset_bottom = 388.0
+offset_left = 13.0
+offset_top = 417.0
+offset_right = 85.0
+offset_bottom = 489.0
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("6_lbac6")
 _slot = 4
 
 [node name="Frame" type="TextureRect" parent="Loot And Inventory/HBoxContainer/Inventory Panel/MarginContainer/Body/Gear Slot Feet" unique_id=1243469243]
+texture_filter = 1
 custom_minimum_size = Vector2(72, 72)
 layout_mode = 1
 anchors_preset = 15
@@ -157,17 +216,19 @@ grow_vertical = 2
 texture = ExtResource("5_flcwp")
 
 [node name="Gear Slot Shirt" type="TextureRect" parent="Loot And Inventory/HBoxContainer/Inventory Panel/MarginContainer/Body" unique_id=1428866089]
+custom_minimum_size = Vector2(72, 72)
 layout_mode = 0
-offset_left = 105.0
-offset_top = 126.0
-offset_right = 205.0
-offset_bottom = 232.0
+offset_left = 201.0
+offset_top = 131.0
+offset_right = 273.0
+offset_bottom = 203.0
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("6_lbac6")
 _slot = 1
 
 [node name="Frame" type="TextureRect" parent="Loot And Inventory/HBoxContainer/Inventory Panel/MarginContainer/Body/Gear Slot Shirt" unique_id=1620272197]
+texture_filter = 1
 custom_minimum_size = Vector2(72, 72)
 layout_mode = 1
 anchors_preset = 15
@@ -178,16 +239,18 @@ grow_vertical = 2
 texture = ExtResource("5_flcwp")
 
 [node name="Gear Slot Hat" type="TextureRect" parent="Loot And Inventory/HBoxContainer/Inventory Panel/MarginContainer/Body" unique_id=1138623573]
+custom_minimum_size = Vector2(72, 72)
 layout_mode = 0
-offset_left = 123.0
-offset_top = 15.0
-offset_right = 205.0
-offset_bottom = 99.0
+offset_left = 201.0
+offset_top = 43.0
+offset_right = 273.0
+offset_bottom = 115.0
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("6_lbac6")
 
 [node name="Frame" type="TextureRect" parent="Loot And Inventory/HBoxContainer/Inventory Panel/MarginContainer/Body/Gear Slot Hat" unique_id=411828637]
+texture_filter = 1
 custom_minimum_size = Vector2(72, 72)
 layout_mode = 1
 anchors_preset = 15
@@ -199,16 +262,17 @@ texture = ExtResource("5_flcwp")
 
 [node name="Gear Slot Gloves" type="TextureRect" parent="Loot And Inventory/HBoxContainer/Inventory Panel/MarginContainer/Body" unique_id=890136866]
 layout_mode = 0
-offset_left = 225.0
-offset_top = 175.0
-offset_right = 294.0
-offset_bottom = 241.0
+offset_left = 212.0
+offset_top = 321.0
+offset_right = 281.0
+offset_bottom = 387.0
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("6_lbac6")
 _slot = 2
 
 [node name="Frame" type="TextureRect" parent="Loot And Inventory/HBoxContainer/Inventory Panel/MarginContainer/Body/Gear Slot Gloves" unique_id=1605579542]
+texture_filter = 1
 custom_minimum_size = Vector2(72, 72)
 layout_mode = 1
 anchors_preset = 15
@@ -224,16 +288,21 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -20.0
-offset_bottom = 31.0
+offset_left = -33.0
+offset_right = -3.0
+offset_bottom = 30.0
 grow_horizontal = 0
-text = "X"
+theme_override_fonts/font = ExtResource("8_0qedo")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_rmru1")
+text = " X "
 
 [node name="Label" type="Label" parent="Loot And Inventory/HBoxContainer/Inventory Panel/MarginContainer" unique_id=753945114]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-text = "Inventory"
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = " Inventory"
 label_settings = SubResource("LabelSettings_yrt3n")
 
 [node name="Weapons Smith" type="Node" parent="." unique_id=1965783852]

@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://dfk0j2p4xgbfi"]
+
+[ext_resource type="Script" uid="uid://cxwcyqew8etn4" path="res://clicker/battle/battle_ui.gd" id="1_eq0qe"]
+[ext_resource type="Script" uid="uid://3kvqfeoh3qbc" path="res://clicker/battle_manager.gd" id="2_257it"]
+[ext_resource type="Resource" uid="uid://drp8oybvi57m1" path="res://clicker/abilities/appearance_masochism.tres" id="3_pawoy"]
+[ext_resource type="Resource" uid="uid://tb56tghp7fsp" path="res://clicker/abilities/appearance_fashionista.tres" id="4_gsuvk"]
+[ext_resource type="Resource" uid="uid://c7fxk8piyplae" path="res://clicker/abilities/appearance_mix_and_match.tres" id="5_txgow"]
+[ext_resource type="PackedScene" uid="uid://cjvexujnvp0lw" path="res://clicker/battle/enemy_ui.tscn" id="6_ehaa6"]
+[ext_resource type="Texture2D" uid="uid://ca2yywbtyo5uv" path="res://clicker/battle/enemy_unknown.png" id="7_213nv"]
+
+[node name="Battle UI" type="HBoxContainer" unique_id=481575492 node_paths=PackedStringArray("_enemies", "_queing_enemies")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -644.0
+offset_top = 10.0
+offset_right = 728.0
+offset_bottom = 195.0
+grow_horizontal = 2
+theme_override_constants/separation = 82
+alignment = 1
+script = ExtResource("1_eq0qe")
+_enemies = [NodePath("Enemy UI"), NodePath("Enemy UI2"), NodePath("Enemy UI3"), NodePath("Enemy UI4"), NodePath("Enemy UI5"), NodePath("Enemy UI6")]
+_queing_enemies = NodePath("Queuing Enemies")
+
+[node name="Battle Manager" type="Node" parent="." unique_id=1664680186 node_paths=PackedStringArray("_ui")]
+script = ExtResource("2_257it")
+_ui = NodePath("..")
+_masochism_ability = ExtResource("3_pawoy")
+_fashionista_ability = ExtResource("4_gsuvk")
+_mix_and_match_ability = ExtResource("5_txgow")
+_max_enemies_active = 5
+
+[node name="Enemy UI" parent="." unique_id=1289570251 instance=ExtResource("6_ehaa6")]
+layout_mode = 2
+
+[node name="Enemy UI2" parent="." unique_id=235216720 instance=ExtResource("6_ehaa6")]
+layout_mode = 2
+
+[node name="Enemy UI3" parent="." unique_id=999490589 instance=ExtResource("6_ehaa6")]
+layout_mode = 2
+
+[node name="Enemy UI4" parent="." unique_id=939545311 instance=ExtResource("6_ehaa6")]
+layout_mode = 2
+
+[node name="Enemy UI5" parent="." unique_id=1290072042 instance=ExtResource("6_ehaa6")]
+layout_mode = 2
+
+[node name="Enemy UI6" parent="." unique_id=134579229 instance=ExtResource("6_ehaa6")]
+layout_mode = 2
+
+[node name="Queuing Enemies" type="TextureRect" parent="." unique_id=11058439]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+tooltip_text = "More enemies are eager to join"
+texture = ExtResource("7_213nv")
+expand_mode = 1
+stretch_mode = 4

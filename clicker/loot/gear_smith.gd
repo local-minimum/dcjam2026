@@ -145,7 +145,7 @@ func _base_to_icon_folder(base: Gear.Base) -> String:
             push_error("Unknown path to %s" % [Gear.Base.find_key(base)])
             return ""
 
-func assign_icon(gear: Gear, size: String = "128") -> bool:
+func assign_icon(gear: Gear, size: String = "256") -> bool:
     for cached: Gear in _icon_cache:
         if gear.is_same(cached):
             gear.icon = cached.icon

@@ -2,7 +2,7 @@
 
 [ext_resource type="Environment" uid="uid://cab2e1qcby00n" path="res://clicker/clicker_environment.tres" id="1_80nbo"]
 [ext_resource type="PackedScene" uid="uid://bufrvjcwdgi7q" path="res://clicker/dungeon.tscn" id="2_e2o6t"]
-[ext_resource type="Texture2D" uid="uid://ca2yywbtyo5uv" path="res://clicker/battle/enemy_unknown.png" id="7_87ddb"]
+[ext_resource type="PackedScene" uid="uid://dfk0j2p4xgbfi" path="res://clicker/ui/battle_ui.tscn" id="3_vaj68"]
 [ext_resource type="Resource" uid="uid://c208p6knl8gu2" path="res://clicker/abilities/mental_smarts.tres" id="7_iotsf"]
 [ext_resource type="Resource" uid="uid://3gmnrhfplofm" path="res://clicker/abilities/mental_memory_palace.tres" id="8_lc2xo"]
 [ext_resource type="Resource" uid="uid://ie2phil58tny" path="res://clicker/abilities/mental_multi_tasking.tres" id="9_215e1"]
@@ -12,16 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://c0qmcq36iacog" path="res://addons/minimum_dev_console/scenes/example_dev_console.tscn" id="14_215e1"]
 [ext_resource type="Script" uid="uid://dikj7ouqdoq0m" path="res://clicker/dev_console_xp.gd" id="15_7sc4i"]
 [ext_resource type="Script" uid="uid://d2lm4ukdo8cux" path="res://clicker/quest_ui.gd" id="15_xoeau"]
-[ext_resource type="Script" uid="uid://3kvqfeoh3qbc" path="res://clicker/battle_manager.gd" id="16_80cx4"]
 [ext_resource type="PackedScene" uid="uid://ksxuclgif6c1" path="res://clicker/ui/clicker_sidebar.tscn" id="16_082n1"]
-[ext_resource type="Script" uid="uid://cxwcyqew8etn4" path="res://clicker/battle/battle_ui.gd" id="16_e8heu"]
-[ext_resource type="PackedScene" uid="uid://cjvexujnvp0lw" path="res://clicker/battle/enemy_ui.tscn" id="18_rvswv"]
-[ext_resource type="Resource" uid="uid://drp8oybvi57m1" path="res://clicker/abilities/appearance_masochism.tres" id="19_qhcbd"]
 [ext_resource type="PackedScene" uid="uid://3heqxlultjpy" path="res://clicker/loot/loot_and_inventory.tscn" id="39_eu6ph"]
 [ext_resource type="Script" uid="uid://dpr1k74riep1o" path="res://clicker/dev_console_loot.gd" id="44_kq12w"]
 [ext_resource type="Resource" uid="uid://d3js5rmf1rpk" path="res://clicker/abilities/click_hard.tres" id="49_6qn5j"]
-[ext_resource type="Resource" uid="uid://c7fxk8piyplae" path="res://clicker/abilities/appearance_mix_and_match.tres" id="55_bqa6y"]
-[ext_resource type="Resource" uid="uid://tb56tghp7fsp" path="res://clicker/abilities/appearance_fashionista.tres" id="55_du4n2"]
 [ext_resource type="Script" uid="uid://6wo0m40nhvd5" path="res://clicker/dev_console_damage.gd" id="63_baljx"]
 [ext_resource type="Script" uid="uid://cypvqaxbcaqeh" path="res://core/dev_console_commands/dev_speed.gd" id="63_ple6s"]
 [ext_resource type="Script" uid="uid://c50eh21gdu5cn" path="res://sound_track_manager.gd" id="63_ra4rb"]
@@ -189,54 +183,16 @@ render_target_update_mode = 4
 
 [node name="Dungeon" parent="HSplitContainer/Viewport Side/SubViewportContainer/SubViewport" unique_id=1143420985 instance=ExtResource("2_e2o6t")]
 
-[node name="Battle UI" type="HBoxContainer" parent="HSplitContainer/Viewport Side" unique_id=164512167 node_paths=PackedStringArray("_enemies", "_queing_enemies")]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -505.75
-offset_top = 10.0
-offset_right = 505.75
-offset_bottom = 195.0
-grow_horizontal = 2
-alignment = 1
-script = ExtResource("16_e8heu")
-_enemies = [NodePath("Enemy UI"), NodePath("Enemy UI2"), NodePath("Enemy UI3"), NodePath("Enemy UI4"), NodePath("Enemy UI5"), NodePath("Enemy UI6")]
-_queing_enemies = NodePath("Queuing Enemies")
-
-[node name="Battle Manager" type="Node" parent="HSplitContainer/Viewport Side/Battle UI" unique_id=1063599184 node_paths=PackedStringArray("_ui")]
-script = ExtResource("16_80cx4")
-_ui = NodePath("..")
-_masochism_ability = ExtResource("19_qhcbd")
-_fashionista_ability = ExtResource("55_du4n2")
-_mix_and_match_ability = ExtResource("55_bqa6y")
-_max_enemies_active = 5
-
-[node name="Enemy UI" parent="HSplitContainer/Viewport Side/Battle UI" unique_id=1289570251 instance=ExtResource("18_rvswv")]
-layout_mode = 2
-
-[node name="Enemy UI2" parent="HSplitContainer/Viewport Side/Battle UI" unique_id=1806529435 instance=ExtResource("18_rvswv")]
-layout_mode = 2
-
-[node name="Enemy UI3" parent="HSplitContainer/Viewport Side/Battle UI" unique_id=1575408839 instance=ExtResource("18_rvswv")]
-layout_mode = 2
-
-[node name="Enemy UI4" parent="HSplitContainer/Viewport Side/Battle UI" unique_id=1269801102 instance=ExtResource("18_rvswv")]
-layout_mode = 2
-
-[node name="Enemy UI5" parent="HSplitContainer/Viewport Side/Battle UI" unique_id=735670171 instance=ExtResource("18_rvswv")]
-layout_mode = 2
-
-[node name="Enemy UI6" parent="HSplitContainer/Viewport Side/Battle UI" unique_id=1137036187 instance=ExtResource("18_rvswv")]
-layout_mode = 2
-
-[node name="Queuing Enemies" type="TextureRect" parent="HSplitContainer/Viewport Side/Battle UI" unique_id=950506935]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-tooltip_text = "More enemies are eager to join"
-texture = ExtResource("7_87ddb")
-expand_mode = 1
-stretch_mode = 4
+[node name="Battle UI" parent="HSplitContainer/Viewport Side" unique_id=481575492 instance=ExtResource("3_vaj68")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 1011.5
+offset_bottom = 185.0
+grow_horizontal = 1
 
 [node name="PlayerHealthBar" type="ProgressBar" parent="HSplitContainer/Viewport Side" unique_id=164962735 node_paths=PackedStringArray("_damage_bar", "_health_timer")]
 z_index = 1
@@ -309,10 +265,10 @@ end_color = Color(0.45882353, 0.45882353, 0.45882353, 0.29411766)
 [node name="Quest UI" type="VBoxContainer" parent="HSplitContainer/Viewport Side" unique_id=717770510 node_paths=PackedStringArray("dragon_quest_v1", "dragon_quest_v2", "dispose_quest")]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 0
-offset_left = 20.0
-offset_top = 270.0
-offset_right = 358.0
-offset_bottom = 364.0
+offset_left = 39.0
+offset_top = 359.0
+offset_right = 377.0
+offset_bottom = 505.0
 mouse_filter = 2
 script = ExtResource("15_xoeau")
 dragon_quest_v1 = NodePath("Dragon Quest")

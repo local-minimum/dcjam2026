@@ -39,7 +39,9 @@ func _animate_text(msg: String, start: Vector2, direction: Vector2, color: Color
     l.global_position = start
     l.text = msg
     l.add_theme_color_override("font_color", color)
-    l.add_theme_font_size_override("font_size", 24)
+    l.add_theme_color_override("font_outline", Color.BLACK)
+    l.add_theme_constant_override("outline_size", 6)
+    l.add_theme_font_size_override("font_size", 48)
 
     var tweener: Callable = func (progress: float) -> void:
         l.add_theme_color_override("font_color", color.lerp(end_color, progress))

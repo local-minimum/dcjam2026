@@ -283,7 +283,6 @@ grow_vertical = 2
 texture = ExtResource("5_flcwp")
 
 [node name="Close Button" type="Button" parent="Loot And Inventory/HBoxContainer/Inventory Panel/MarginContainer/Body" unique_id=2098959996]
-visible = false
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 1
 anchors_preset = 1

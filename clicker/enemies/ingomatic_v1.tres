@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://dlo8kgsd67sap"]
 
-[ext_resource type="Texture2D" uid="uid://do16to33fc0yr" path="res://clicker/thumbnails/robots/2_rusty_128.png" id="1_7salm"]
+[ext_resource type="Texture2D" uid="uid://bntk24xjtp8nt" path="res://clicker/thumbnails/robots/2_rusty_256.png" id="1_1folu"]
 [ext_resource type="Script" uid="uid://csfgoet4qt0pt" path="res://clicker/enemy_data.gd" id="2_udyxh"]
 
 [resource]
 script = ExtResource("2_udyxh")
-portrait = ExtResource("1_7salm")
+portrait = ExtResource("1_1folu")
 monster_name = "Ingomatic v1"
 attacks = Array[String](["3D4", "2D6-1"])
 attack_interval_msec = 3000

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://be481cjdw8iya"]
 
-[ext_resource type="Texture2D" uid="uid://dg07f6eg7hgq5" path="res://clicker/thumbnails/robots/3_rusty_128.png" id="1_4pgnr"]
+[ext_resource type="Texture2D" uid="uid://cj80oex77rtev" path="res://clicker/thumbnails/robots/3_rusty_256.png" id="1_4pgnr"]
 [ext_resource type="Script" uid="uid://csfgoet4qt0pt" path="res://clicker/enemy_data.gd" id="2_tvldh"]
 
 [resource]

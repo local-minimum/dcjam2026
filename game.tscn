@@ -13,7 +13,8 @@
 [ext_resource type="Script" uid="uid://dikj7ouqdoq0m" path="res://clicker/dev_console_xp.gd" id="15_7sc4i"]
 [ext_resource type="Script" uid="uid://d2lm4ukdo8cux" path="res://clicker/quest_ui.gd" id="15_xoeau"]
 [ext_resource type="PackedScene" uid="uid://ksxuclgif6c1" path="res://clicker/ui/clicker_sidebar.tscn" id="16_082n1"]
-[ext_resource type="PackedScene" uid="uid://wwcp3t7inmqj" path="res://pause_manager.tscn" id="26_i2p71"]
+[ext_resource type="Shader" uid="uid://11gufbev0t4g" path="res://cracks.gdshader" id="22_i2p71"]
+[ext_resource type="PackedScene" path="res://pause_manager.tscn" id="26_i2p71"]
 [ext_resource type="PackedScene" uid="uid://3heqxlultjpy" path="res://clicker/loot/loot_and_inventory.tscn" id="39_eu6ph"]
 [ext_resource type="Script" uid="uid://dpr1k74riep1o" path="res://clicker/dev_console_loot.gd" id="44_kq12w"]
 [ext_resource type="Resource" uid="uid://d3js5rmf1rpk" path="res://clicker/abilities/click_hard.tres" id="49_6qn5j"]
@@ -23,7 +24,6 @@
 [ext_resource type="Script" uid="uid://baylsupfim5dn" path="res://horror/dev_ready_horror.gd" id="64_56gn1"]
 [ext_resource type="Script" uid="uid://beht0oihcg27w" path="res://phase_transition.gd" id="65_jo4nb"]
 [ext_resource type="Script" uid="uid://dvcajf5fcrlk7" path="res://clicker/dev_console_free_from_intro.gd" id="66_6qn5j"]
-[ext_resource type="Shader" uid="uid://cutdt6mffm4do" path="res://horror/dissolve.gdshader" id="66_avmo2"]
 [ext_resource type="Script" uid="uid://c40ulppy5imka" path="res://clicker/clicker_dialogue_manager.gd" id="68_vyqle"]
 [ext_resource type="FontFile" uid="uid://cm51agl5qwtdc" path="res://fonts/husky-stash/HUSKYSTA.TTF" id="70_wj41c"]
 
@@ -58,8 +58,18 @@ font_color = Color(0.8328191, 0.0005648625, 0.83658105, 1)
 outline_size = 7
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vyqle"]
-shader = ExtResource("66_avmo2")
-shader_parameter/intensity = 0.0
+shader = ExtResource("22_i2p71")
+shader_parameter/disable = false
+shader_parameter/crack_depth = 2.236
+shader_parameter/crack_scale = 4.0
+shader_parameter/crack_zebra_scale = 2.1390001016025
+shader_parameter/crack_zebra_amp = 1.30000006175
+shader_parameter/crack_profile = 1.0
+shader_parameter/crack_slope = 45.8
+shader_parameter/crack_width = 0.6770000321575
+shader_parameter/refraction_offset = Vector2(25, 25)
+shader_parameter/reflection_offset = Vector2(1, 1)
+shader_parameter/reflection_color = Color(1, 1, 1, 0)
 
 [sub_resource type="LabelSettings" id="LabelSettings_baljx"]
 font = ExtResource("70_wj41c")
@@ -366,7 +376,7 @@ script = ExtResource("65_jo4nb")
 _split_container = NodePath("../HSplitContainer")
 _subviewport = NodePath("../HSplitContainer/Viewport Side/SubViewportContainer/SubViewport")
 _unloading_nodes = [NodePath("../HSplitContainer/Viewport Side/SubViewportContainer/SubViewport/Dungeon"), NodePath("../HSplitContainer/Viewport Side/Battle UI"), NodePath("../HSplitContainer/Sidebar"), NodePath("../HSplitContainer/Viewport Side/BattleTextsSpawner"), NodePath("../HSplitContainer/Viewport Side/Battle UI"), NodePath("../ClickerXPRules"), NodePath("../Loot And Inventory"), NodePath("../DevConsole/Loot Command"), NodePath("../DevConsole/Gain XP Command"), NodePath("../DevConsole/Ready Horror Command"), NodePath("../Clicker Dialogue Manager"), NodePath("../HSplitContainer/Viewport Side/Quest UI"), NodePath("../DevConsole/Free From Intro Command"), NodePath("../HSplitContainer/Viewport Side/PlayerHealthBar")]
-_transition_duration = 1.0
+_transition_duration = 5.0
 _transition_prep_animator = NodePath("AnimationPlayer")
 _transition_animation = "Lost"
 _overlay_label = NodePath("Connection Lost Label")

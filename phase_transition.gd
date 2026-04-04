@@ -85,6 +85,8 @@ func _snapshot() -> void:
     var img: Image = get_viewport().get_texture().get_image()
     var tex: ImageTexture = ImageTexture.create_from_image(img)
     texture = tex
+    var shader_mat: ShaderMaterial = material
+    shader_mat.set_shader_parameter("disable", true)
     #print_debug("Non-horror screenshot established")
 
 func _unload_conent() -> void:
@@ -201,11 +203,13 @@ func _finalize() -> void:
     var tween: Tween = create_tween()
     var shader_mat: ShaderMaterial = material
 
-    #print_debug("Horror starting tween of screenshot")
-
+    shader_mat.set_shader_parameter("disable", false)
     tween.tween_method(
         func (progress: float) -> void:
-            shader_mat.set_shader_parameter("intensity", progress),
+            shader_mat.set_shader_parameter("crack_zebra_scale", lerpf(0.0, 10.0, progress))
+            shader_mat.set_shader_parameter("crack_zebra_amp", lerpf(0.5, 2.5, progress))
+            shader_mat.set_shader_parameter("crack_width", lerpf(0.0, 0.7, progress * progress))
+            ,
         0.0,
         1.0,
         _transition_duration,

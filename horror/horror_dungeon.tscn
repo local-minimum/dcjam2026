@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://5nd45w6q42kq" path="res://core/dungeon.gd" id="1_rtw18"]
 [ext_resource type="PackedScene" uid="uid://c14d20qkixt2d" path="res://horror/dragon_key.tscn" id="2_1m84d"]
+[ext_resource type="Environment" uid="uid://byjp5qc66kefe" path="res://horror/horror_environment.tres" id="3_ap2dw"]
 [ext_resource type="PackedScene" uid="uid://b6svyccqvk55" path="res://horror/player_3d_horror.tscn" id="5_eidof"]
 [ext_resource type="PackedScene" uid="uid://b31jydn3i0u4j" path="res://horror/rooms/library.tscn" id="6_eidof"]
 [ext_resource type="PackedScene" uid="uid://d0hjjxkgu2bv4" path="res://horror/rooms/cubicles.tscn" id="7_bifnm"]
@@ -13,31 +14,6 @@
 [ext_resource type="Script" uid="uid://c20jt2s5o513v" path="res://horror/horror_collision_resolver.gd" id="11_1m84d"]
 [ext_resource type="PackedScene" uid="uid://ctvb11nb3xqb5" path="res://horror/rooms/keith_jail.tscn" id="13_oht3r"]
 [ext_resource type="PackedScene" uid="uid://miqvvv57y7jw" path="res://horror/rooms/foyer.tscn" id="16_ijayo"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_75gv8"]
-sky_top_color = Color(0.46553212, 0.20047715, 0.20187035, 1)
-sky_horizon_color = Color(0.20122847, 0, 0.0065072654, 1)
-ground_bottom_color = Color(0.28163177, 0.12071318, 0.07602442, 1)
-ground_horizon_color = Color(0.2259031, 0.028901953, 3.008172e-08, 1)
-
-[sub_resource type="Sky" id="Sky_gagwy"]
-sky_material = SubResource("ProceduralSkyMaterial_75gv8")
-
-[sub_resource type="Environment" id="Environment_ifq1x"]
-background_mode = 2
-sky = SubResource("Sky_gagwy")
-ambient_light_source = 3
-ambient_light_sky_contribution = 0.2
-reflected_light_source = 1
-tonemap_mode = 3
-ssao_enabled = true
-glow_enabled = true
-glow_levels/2 = 1.0
-glow_levels/3 = 1.0
-glow_levels/4 = 0.5
-glow_levels/5 = 0.2
-volumetric_fog_enabled = true
-volumetric_fog_ambient_inject = 1.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_eidof"]
 size = Vector3(75.727066, 99.23596, 0.263)
@@ -56,7 +32,7 @@ metadata/_custom_type_script = "uid://5nd45w6q42kq"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.641368, 0, -14)
 
 [node name="SpotLight3D" parent="Interactables/Dragon Key" index="0" unique_id=5359294]
-transform = Transform3D(0.99870807, -0.0056267087, 0.050489433, -0.05080196, -0.11061457, 0.99256414, 2.9802303e-08, -0.9938476, -0.11075757, 0, 1.1601533, 0)
+transform = Transform3D(0.99870795, -0.0056267087, 0.050489433, -0.05080195, -0.11061457, 0.99256414, 2.98023e-08, -0.9938476, -0.11075757, 0, 1.1601533, 0)
 
 [node name="Area3D" parent="Interactables/Dragon Key" index="3" unique_id=2087952680]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47469425, 0, 0)
@@ -65,7 +41,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47469425, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.597461, 0, -6)
 
 [node name="SpotLight3D" parent="Interactables/Dragon Key2" index="0" unique_id=5359294]
-transform = Transform3D(0.99870807, -0.0056267087, 0.050489433, -0.05080196, -0.11061457, 0.99256414, 2.9802303e-08, -0.9938476, -0.11075757, 0, 1.1601533, 0)
+transform = Transform3D(0.99870795, -0.0056267087, 0.050489433, -0.05080195, -0.11061457, 0.99256414, 2.98023e-08, -0.9938476, -0.11075757, 0, 1.1601533, 0)
 
 [node name="AnimationPlayer" parent="Interactables/Dragon Key2" index="2" unique_id=1381750830]
 root_node = NodePath("../../Dragon Key2")
@@ -77,7 +53,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4202175, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.544454, 0, -8)
 
 [node name="SpotLight3D" parent="Interactables/Dragon Key3" index="0" unique_id=5359294]
-transform = Transform3D(0.99870807, -0.0056267087, 0.050489433, -0.05080196, -0.11061457, 0.99256414, 2.9802303e-08, -0.9938476, -0.11075757, 0, 1.1601533, 0)
+transform = Transform3D(0.99870795, -0.0056267087, 0.050489433, -0.05080195, -0.11061457, 0.99256414, 2.98023e-08, -0.9938476, -0.11075757, 0, 1.1601533, 0)
 
 [node name="AnimationPlayer" parent="Interactables/Dragon Key3" index="2" unique_id=1381750830]
 root_node = NodePath("../../Dragon Key3")
@@ -89,7 +65,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.48708344, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.022394, -0.00017893314, -28.045038)
 
 [node name="SpotLight3D" parent="Interactables/Dragon Key4" index="0" unique_id=5359294]
-transform = Transform3D(0.99870807, -0.0056267087, 0.050489433, -0.05080196, -0.11061457, 0.99256414, 2.9802303e-08, -0.9938476, -0.11075757, 0, 1.1601533, 0)
+transform = Transform3D(0.99870795, -0.0056267087, 0.050489433, -0.05080195, -0.11061457, 0.99256414, 2.98023e-08, -0.9938476, -0.11075757, 0, 1.1601533, 0)
 
 [node name="AnimationPlayer" parent="Interactables/Dragon Key4" index="2" unique_id=1381750830]
 root_node = NodePath("../../Dragon Key4")
@@ -97,7 +73,7 @@ root_node = NodePath("../../Dragon Key4")
 [node name="Misc" type="Node3D" parent="." unique_id=1253155253]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Misc" unique_id=850651614]
-environment = SubResource("Environment_ifq1x")
+environment = ExtResource("3_ap2dw")
 
 [node name="Floor Collision" type="StaticBody3D" parent="Misc" unique_id=1355826590]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -3.75, 0, -18.75)

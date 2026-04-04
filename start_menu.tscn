@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dev14jdthimio" path="res://clicker/loot/inventory_female.png" id="2_v2mkm"]
 [ext_resource type="Texture2D" uid="uid://c8v5wabb8e5cd" path="res://clicker/loot/inventory_male.png" id="3_ppfnh"]
 [ext_resource type="Texture2D" uid="uid://dgucxcb44c1wn" path="res://clicker/loot/inventory_skeleton.png" id="4_7boi2"]
+[ext_resource type="Environment" uid="uid://byjp5qc66kefe" path="res://horror/horror_environment.tres" id="6_7boi2"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vpdu5"]
 
@@ -27,6 +28,19 @@ corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7boi2"]
+content_margin_top = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0, 0.20609033, 0.42741302, 1)
+shadow_color = Color(0, 0, 0, 0.892)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pgi0o"]
+bg_color = Color(9.9726916e-05, 0.4754079, 0.91854036, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_73a2t"]
+bg_color = Color(0.3623615, 0.6460767, 1, 0.795)
 
 [sub_resource type="Animation" id="Animation_ia0g5"]
 length = 0.001
@@ -65,7 +79,8 @@ _data = {
 &"animate_start_menu": SubResource("Animation_vpdu5")
 }
 
-[node name="StartMenu" type="Node3D" unique_id=1867207705 node_paths=PackedStringArray("title_label", "credits_label", "main_menu_container", "option_menu_container", "body_selector_container")]
+[node name="StartMenu" type="Node3D" unique_id=1867207705 node_paths=PackedStringArray("title_label", "credits_label", "main_menu_container", "option_menu_container", "body_selector_container", "adjustments_container", "brightness_slider", "contrast_slider", "saturation_slider")]
+process_mode = 3
 script = ExtResource("1_vpdu5")
 menu_music_path = "uid://cyph2xpgk4wat"
 game_path = "uid://dmfjlovtm3r5k"
@@ -74,7 +89,13 @@ credits_label = NodePath("UICanvas/UI/CreditsLabel")
 main_menu_container = NodePath("UICanvas/UI/MarginContainer/BtnsCentreContainer/MenuButtonsContainer")
 option_menu_container = NodePath("UICanvas/UI/MarginContainer/BtnsCentreContainer/OptionsButtonsContainer")
 body_selector_container = NodePath("UICanvas/UI/MarginContainer/BodySelectorContainer")
+adjustments_container = NodePath("UICanvas/UI/MarginContainer/AdjustmentsContainer")
 body_type_textures = Array[Texture2D]([ExtResource("2_v2mkm"), ExtResource("3_ppfnh"), ExtResource("4_7boi2")])
+clicker_env = ExtResource("1_ia0g5")
+horror_env = ExtResource("6_7boi2")
+brightness_slider = NodePath("UICanvas/UI/MarginContainer/AdjustmentsContainer/BrightnessSlider")
+contrast_slider = NodePath("UICanvas/UI/MarginContainer/AdjustmentsContainer/ContrastSlider")
+saturation_slider = NodePath("UICanvas/UI/MarginContainer/AdjustmentsContainer/SaturationSlider")
 
 [node name="UICanvas" type="CanvasLayer" parent="." unique_id=2144750330]
 
@@ -180,6 +201,19 @@ visible = false
 layout_mode = 2
 theme_override_constants/separation = 22
 
+[node name="AdjustmentsButton" type="Button" parent="UICanvas/UI/MarginContainer/BtnsCentreContainer/OptionsButtonsContainer" unique_id=681608768]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.6542321, 0.6542321, 0.654232, 1)
+theme_override_colors/font_hover_color = Color(0.22759944, 0.6840977, 0.99999994, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 120
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vpdu5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_pgi0o")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_v2mkm")
+text = "BRIGHTNESS"
+
 [node name="BackButton" type="Button" parent="UICanvas/UI/MarginContainer/BtnsCentreContainer/OptionsButtonsContainer" unique_id=1195477319]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -279,6 +313,76 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_pgi0o")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_v2mkm")
 text = "BACK"
 
+[node name="AdjustmentsContainer" type="VBoxContainer" parent="UICanvas/UI/MarginContainer" unique_id=2005413815]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 2
+
+[node name="BrightnessLabel" type="Label" parent="UICanvas/UI/MarginContainer/AdjustmentsContainer" unique_id=1505741531]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 90
+text = "BRIGHTNESS"
+horizontal_alignment = 1
+
+[node name="BrightnessSlider" type="HSlider" parent="UICanvas/UI/MarginContainer/AdjustmentsContainer" unique_id=954195610]
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxFlat_7boi2")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_pgi0o")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_73a2t")
+max_value = 2.0
+step = 0.01
+value = 1.0
+
+[node name="ContrastLabel" type="Label" parent="UICanvas/UI/MarginContainer/AdjustmentsContainer" unique_id=686827006]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 90
+text = "CONTRAST"
+horizontal_alignment = 1
+
+[node name="ContrastSlider" type="HSlider" parent="UICanvas/UI/MarginContainer/AdjustmentsContainer" unique_id=786363622]
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxFlat_7boi2")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_pgi0o")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_73a2t")
+max_value = 2.0
+step = 0.01
+value = 1.0
+
+[node name="SaturationLabel" type="Label" parent="UICanvas/UI/MarginContainer/AdjustmentsContainer" unique_id=433238072]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 90
+text = "SATURATION"
+horizontal_alignment = 1
+
+[node name="SaturationSlider" type="HSlider" parent="UICanvas/UI/MarginContainer/AdjustmentsContainer" unique_id=1819716342]
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxFlat_7boi2")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_pgi0o")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_73a2t")
+max_value = 2.0
+step = 0.01
+value = 1.0
+
+[node name="BackButton" type="Button" parent="UICanvas/UI/MarginContainer/AdjustmentsContainer" unique_id=737666273]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.6542321, 0.6542321, 0.654232, 1)
+theme_override_colors/font_hover_color = Color(0.22759944, 0.6840977, 0.99999994, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 58
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vpdu5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_pgi0o")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_v2mkm")
+text = "BACK"
+
 [node name="3D" type="Node3D" parent="." unique_id=1338561247]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="3D" unique_id=401209742]
@@ -296,6 +400,7 @@ autoplay = &"animate_start_menu"
 [connection signal="pressed" from="UICanvas/UI/MarginContainer/BtnsCentreContainer/MenuButtonsContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="UICanvas/UI/MarginContainer/BtnsCentreContainer/MenuButtonsContainer/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="UICanvas/UI/MarginContainer/BtnsCentreContainer/MenuButtonsContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="UICanvas/UI/MarginContainer/BtnsCentreContainer/OptionsButtonsContainer/AdjustmentsButton" to="." method="_on_adjustments_button_pressed"]
 [connection signal="pressed" from="UICanvas/UI/MarginContainer/BtnsCentreContainer/OptionsButtonsContainer/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="UICanvas/UI/MarginContainer/BodySelectorContainer/HBoxContainer/FemContainer/FemTexButton" to="." method="_body_type_button_pressed" binds= [0]]
 [connection signal="pressed" from="UICanvas/UI/MarginContainer/BodySelectorContainer/HBoxContainer/FemContainer/FemButton" to="." method="_body_type_button_pressed" binds= [0]]
@@ -304,3 +409,7 @@ autoplay = &"animate_start_menu"
 [connection signal="pressed" from="UICanvas/UI/MarginContainer/BodySelectorContainer/HBoxContainer/NonContainer/NonTexButton" to="." method="_body_type_button_pressed" binds= [2]]
 [connection signal="pressed" from="UICanvas/UI/MarginContainer/BodySelectorContainer/HBoxContainer/NonContainer/NonButton" to="." method="_body_type_button_pressed" binds= [2]]
 [connection signal="pressed" from="UICanvas/UI/MarginContainer/BodySelectorContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="value_changed" from="UICanvas/UI/MarginContainer/AdjustmentsContainer/BrightnessSlider" to="." method="_on_brightness_slider_value_changed"]
+[connection signal="value_changed" from="UICanvas/UI/MarginContainer/AdjustmentsContainer/ContrastSlider" to="." method="_on_contrast_slider_value_changed"]
+[connection signal="value_changed" from="UICanvas/UI/MarginContainer/AdjustmentsContainer/SaturationSlider" to="." method="_on_saturation_slider_value_changed"]
+[connection signal="pressed" from="UICanvas/UI/MarginContainer/AdjustmentsContainer/BackButton" to="." method="_on_back_button_pressed"]

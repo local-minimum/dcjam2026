@@ -48,4 +48,5 @@ func _body_type_button_pressed(type: BodyType) -> void:
     __GlobalGameState.start_new_game()
     __GlobalGameState.body_type = body_type_textures[type]
     var scene: PackedScene = load(game_path)
+    await get_tree().create_timer(0.1).timeout
     get_tree().change_scene_to_packed(scene)

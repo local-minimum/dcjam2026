@@ -10,7 +10,8 @@ config_version=5
 
 [application]
 
-config/name="DCJAM2026"
+config/name="Click-o-Calypse"
+config/version="0.1.0"
 run/main_scene="uid://u2fviscw8c6w"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"

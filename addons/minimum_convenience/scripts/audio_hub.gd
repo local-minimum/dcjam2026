@@ -63,6 +63,14 @@ func _ready() -> void:
     print_debug("[Audio Hub] %s music player added to %s" % [_config.music_players, _music_available])
     @warning_ignore_restore("return_value_discarded")
 
+func get_volume(bus: Bus) -> float:
+    var bus_idx: int = AudioServer.get_bus_index(_bus_name(bus))
+    return AudioServer.get_bus_volume_linear(bus_idx)
+
+func set_volume(bus: Bus, linear_volume: float) -> void:
+    var bus_idx: int = AudioServer.get_bus_index(_bus_name(bus))
+    return AudioServer.set_bus_volume_linear(bus_idx, linear_volume)
+
 func mute_bus(bus: Bus) -> void:
     var bus_idx: int = AudioServer.get_bus_index(_bus_name(bus))
     AudioServer.set_bus_volume_linear(bus_idx, 0.0)

@@ -64,7 +64,7 @@ func _on_adjustments_button_pressed() -> void:
     brightness_slider.value = clicker_env.get_adjustment_brightness()
     contrast_slider.value = clicker_env.get_adjustment_contrast()
     saturation_slider.value = clicker_env.get_adjustment_saturation()
-    
+
     title_label.hide()
     credits_label.hide()
     option_menu_container.hide()

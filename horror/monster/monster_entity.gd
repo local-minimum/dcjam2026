@@ -70,6 +70,12 @@ func _enter_tree() -> void:
     super._enter_tree()
     if monster != null && monster.on_idle.connect(_handle_monster_idle) != OK:
         push_error("Failed to connect to monster idle")
+    if __SignalBus.on_horror_outro_triggered.connect(_handle_horror_outro_triggered) != OK:
+        push_error("Failed to connect horror outro triggered")
+
+func _handle_horror_outro_triggered() -> void:
+    clear_queues_and_noise()
+    disabled_player_interactions = true
 
 func _handle_monster_idle() -> void:
     print_debug("Monster Idle: Noise: %s, Turn Cardinal: %s Pos Queue: %s Coords Queue: %s" % [

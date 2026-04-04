@@ -2,7 +2,7 @@ extends Node
 class_name DragonDoorManager
 
 @export_file("*.tscn") var game_done_path: String
-@export var door_mesh: MeshInstance3D
+@export var door_scene: DragonDoor
 @export var door_collider: CollisionShape3D
 @export var trigger_area_collider: Area3D
 @export var effect_lights: Array[Light3D]
@@ -36,14 +36,13 @@ func _on_dragon_door_trigger_area_entered(area: Area3D) -> void:
     __SignalBus.on_horror_outro_triggered.emit()
     trigger_area_collider.queue_free()
 
-    player.focus_on(door_mesh, 1.0, 0.5, 0.2)
+    player.focus_on(door_scene, 1.7, 0.5, 0.2)
 
     await get_tree().create_timer(2.0).timeout
 
-    # TODO: Add animations rather than disappear mesh
-    door_mesh.hide()
+    door_scene.open_door()
 
-    await get_tree().create_timer(1.0).timeout
+    await get_tree().create_timer(3.5).timeout
 
     for light: Light3D in effect_lights:
         light.show()

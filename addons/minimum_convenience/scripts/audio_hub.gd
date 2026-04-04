@@ -95,7 +95,7 @@ func _create_player(
     make_available: bool = true,
 ) -> AudioStreamPlayer:
     var player: AudioStreamPlayer = AudioStreamPlayer.new()
-    player.name = "Player %s on %s" % [available_players.size(), bus]
+    player.name = "Player %s on %s" % [available_players.size(), Bus.find_key(bus)]
 
     add_child(player)
     player.bus = _bus_name(bus)
@@ -144,6 +144,7 @@ func play_dialogue(
     enqueue: bool = true,
     silence_others: bool = false,
     delay_start: float = -1,
+    max_delay: float = -1,
 ) -> void:
     if sound_resource_path.is_empty():
         return
@@ -158,6 +159,7 @@ func play_dialogue(
             sound_resource_path,
             on_finish,
             delay_start,
+            max_delay,
         )
         return
 
@@ -351,9 +353,9 @@ static func _fade_player(
         await player.get_tree().create_timer(resolution).timeout
 
     player.volume_linear = to_linear
-    if on_complete is Callable:
-        var callback: Callable = on_complete
-        callback.call()
+    if on_complete is Callable && (on_complete.get_object() == null || is_instance_valid(on_complete.get_object())):
+        on_complete.call()
+
 
 func _end_music_players() -> void:
     for player: AudioStreamPlayer in _music_running:
@@ -368,9 +370,23 @@ func _end_music_players() -> void:
 var _oneshots: Dictionary[AudioStreamPlayer, Array]
 var _queue: Dictionary[Bus, Array]
 
-func _enqueue_stream(bus: Bus, sound_resource_path: String, on_finish: Variant, delay_start: float) -> void:
-    var queued: Callable = func () -> void:
-        play_dialogue(sound_resource_path, on_finish, false, false, delay_start)
+func _enqueue_stream(
+    bus: Bus,
+    sound_resource_path: String,
+    on_finish: Variant,
+    delay_start: float,
+    max_wait: float,
+) -> void:
+    var refuse_time: int = Time.get_ticks_msec() + roundi(1000 * max_wait) if max_wait > 0 else -1
+    var queued: Callable = func () -> bool:
+        if refuse_time < 0 || Time.get_ticks_msec() < refuse_time:
+            play_dialogue(sound_resource_path, on_finish, false, false, delay_start)
+            return true
+
+        else:
+            print_debug("[Audio Hub] Queed %s has waited too long calling %s as failed" % [sound_resource_path, on_finish])
+            _attempt_callback(on_finish, false)
+            return false
 
     if _queue.has(bus):
         _queue[bus].append(queued)
@@ -385,38 +401,65 @@ func _check_oneshot_callbacks(player: AudioStreamPlayer, bus: Bus) -> void:
     print_debug("[Audio Hub] Player %s had callbacks %s" % [player, callbacks])
 
     for callback: Callable in callbacks:
-        var obj: Object = callback.get_object()
-        if obj == null || is_instance_valid(obj):
-            callback.call()
-        else:
-            push_warning("Callback %s no longer valid for %s" % [callback, player])
+        _attempt_callback(callback, true)
 
-    print_debug("[Audio Hub] Player %s checks for queued in %s if '%s' is false (%s)" % [player.name, _queue, Bus.find_key(bus), is_busy(bus)])
+    _process_queue(bus)
+
+func _process_queue(bus: Bus) -> void:
+    print_debug("[Audio Hub] Checks for queued in %s if '%s' is busy (%s)" % [_queue, Bus.find_key(bus), is_busy(bus)])
     if !is_busy(bus) && !(_queue.get(bus, []) as Array).is_empty():
         var queued: Variant = _queue[bus].pop_front()
-        print_debug("[Audio Hub] Playes queued stream %s for bus %s" % [queued, Bus.find_key(bus)])
         if queued is Callable:
-            var callback: Callable = queued
-            var obj: Object = callback.get_object()
+            var queued_fn: Callable = queued
+            var obj: Object = queued_fn.get_object()
             if obj == null || is_instance_valid(obj):
-                callback.call()
+                if !queued_fn.call():
+                    print_debug("[Audio Hub] Refused %s because of queue time, processing next in %s: %s" % [queued_fn, Bus.find_key(bus), _queue.get(bus, [])])
+                    _process_queue(bus)
+                else:
+                    print_debug("[Audio Hub] Playes queued stream %s for bus %s" % [queued, Bus.find_key(bus)])
+            else:
+                push_warning("Queeued stream no longer valid object %s" % [queued_fn])
+        elif queued != null:
+            push_warning("Unexpected queued item in audio hub bus %s: %s" % [Bus.find_key(bus), queued])
     else:
         print_debug("[Audio Hub] Either queue was busy %s or there was no queue %s" % [is_busy(bus), _queue.get(bus, [])])
 
-func clear_callbacks(bus: Bus) -> void:
+func _attempt_callback(v: Variant, success: bool) -> void:
+    if v is Callable:
+        var c: Callable = v
+        if c.get_object() == null || is_instance_valid(c.get_object()):
+            c.call(success)
+        else:
+            print_debug("[Audio Hub] This is no longer a valid callback %s" % [c])
+    else:
+        print_debug("[Audio Hub] This is not a callback %s ignoring success (%s) call" % [v, success])
+
+func clear_callbacks(bus: Bus, call_as_failed: bool = false) -> void:
     match bus:
         Bus.DIALGUE:
             for player: AudioStreamPlayer in _dialogue_running:
                 if _oneshots.has(player):
+                    if call_as_failed:
+                        for c: Variant in _oneshots[player]:
+                            _attempt_callback(c, false)
+
                     _oneshots.erase(player)
         Bus.SFX:
             for player: AudioStreamPlayer in _oneshots:
                 if !_music_running.has(player) && !_dialogue_running.has(player):
+                    if call_as_failed:
+                        for c: Variant in _oneshots[player]:
+                            _attempt_callback(c, false)
                     _oneshots.erase(player)
 
         Bus.MUSIC:
             for player: AudioStreamPlayer in _music_running:
                 if _oneshots.has(player):
+                    if call_as_failed:
+                        for c: Variant in _oneshots[player]:
+                            _attempt_callback(c, false)
+
                     _oneshots.erase(player)
 
 func _clear_bus_queue(bus: Bus) -> void:

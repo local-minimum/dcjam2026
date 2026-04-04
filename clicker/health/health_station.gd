@@ -5,7 +5,7 @@ class_name HealthStation
 @export var _nursing_ability: ClickerAbilityData
 @export var _particles: GPUParticles3D
 
-const _DEACTIVATION_COUNT: int = 3
+const _DEACTIVATION_COUNT: int = 2
 static var _inactive_stations: Array[HealthStation]
 
 func _exit_tree() -> void:

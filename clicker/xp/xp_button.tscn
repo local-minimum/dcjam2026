@@ -34,7 +34,7 @@ _xp_count_label = NodePath("MarginContainer/VBoxContainer/XP Row/Total XP")
 _xp_speed_label = NodePath("MarginContainer/VBoxContainer/XP Row/XP Gain Speed")
 _xp_bar = NodePath("MarginContainer/VBoxContainer/XPBar")
 _speed_history_msec = 1500
-_autoclickers = [NodePath("Top Clickers/AutoClicker"), NodePath("Top Clickers/AutoClicker2"), NodePath("Top Clickers/AutoClicker3"), NodePath("Top Clickers/AutoClicker4"), NodePath("Top Clickers/AutoClicker5"), NodePath("Top Clickers/AutoClicker6"), NodePath("Top Clickers/AutoClicker7"), NodePath("Top Clickers/AutoClicker8"), NodePath("Top Clickers/AutoClicker9"), NodePath("Top Clickers/AutoClicker10"), NodePath("Top Clickers/AutoClicker11")]
+_autoclickers = [NodePath("Top Clickers/AutoClicker"), NodePath("Top Clickers/AutoClicker2"), NodePath("Top Clickers/AutoClicker3"), NodePath("Top Clickers/AutoClicker4"), NodePath("Top Clickers/AutoClicker5"), NodePath("Top Clickers/AutoClicker6"), NodePath("Top Clickers/AutoClicker7"), NodePath("Top Clickers/AutoClicker8"), NodePath("Top Clickers/AutoClicker9"), NodePath("Top Clickers/AutoClicker10"), NodePath("Top Clickers/AutoClicker11"), NodePath("Top Clickers/AutoClicker12"), NodePath("Top Clickers/AutoClicker13"), NodePath("Top Clickers/AutoClicker14"), NodePath("Top Clickers/AutoClicker15"), NodePath("Top Clickers/AutoClicker16"), NodePath("Top Clickers/AutoClicker17")]
 _button_texture = NodePath("XP Background Texture")
 
 [node name="XP Background Texture" type="TextureRect" parent="." unique_id=466219434]
@@ -164,6 +164,24 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="AutoClicker11" parent="Top Clickers" unique_id=980921772 instance=ExtResource("6_8n5ww")]
+layout_mode = 2
+
+[node name="AutoClicker12" parent="Top Clickers" unique_id=200784443 instance=ExtResource("6_8n5ww")]
+layout_mode = 2
+
+[node name="AutoClicker13" parent="Top Clickers" unique_id=354230575 instance=ExtResource("6_8n5ww")]
+layout_mode = 2
+
+[node name="AutoClicker14" parent="Top Clickers" unique_id=1459279712 instance=ExtResource("6_8n5ww")]
+layout_mode = 2
+
+[node name="AutoClicker15" parent="Top Clickers" unique_id=2032363513 instance=ExtResource("6_8n5ww")]
+layout_mode = 2
+
+[node name="AutoClicker16" parent="Top Clickers" unique_id=1109760746 instance=ExtResource("6_8n5ww")]
+layout_mode = 2
+
+[node name="AutoClicker17" parent="Top Clickers" unique_id=729273260 instance=ExtResource("6_8n5ww")]
 layout_mode = 2
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]

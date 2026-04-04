@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://b87gu4m0recy4" path="res://clicker/clicker_ability_button.gd" id="1_3rb54"]
 [ext_resource type="Texture2D" uid="uid://bjrt4u6iulpjm" path="res://clicker/clicker_ability_level_done.png" id="2_1l0q3"]
 [ext_resource type="Texture2D" uid="uid://de6wc7j5ks4f5" path="res://clicker/clicker_ability_level_not_done.png" id="3_y8mex"]
-[ext_resource type="Texture2D" uid="uid://d08irex16meun" path="res://clicker/clicker_ability_icon_brian.png" id="5_3rb54"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3rb54"]
 bg_color = Color(0.7666196, 0.76661956, 0.76661944, 1)
@@ -28,7 +27,7 @@ obtained_level_image = ExtResource("2_1l0q3")
 available_level_image = ExtResource("3_y8mex")
 cooldown = NodePath("MarginContainer/VBoxContainer/HBoxContainer2/Cool Down Progress")
 buy_cost = NodePath("MarginContainer/Buy Cost")
-affordable_color = Color(0.08539287, 0.21558788, 2.4065375e-08, 1)
+affordable_color = Color(0.42352942, 0.8627451, 0, 1)
 
 [node name="Panel" type="Panel" parent="." unique_id=836276944]
 layout_mode = 1
@@ -66,7 +65,6 @@ theme_override_colors/font_color = Color(4.5242905e-06, 0.73302096, 0.74177426, 
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 30
-text = "Mental Gymnastics"
 
 [node name="Cool Down Progress" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=179703597]
 custom_minimum_size = Vector2(16, 16)
@@ -80,6 +78,7 @@ size_flags_vertical = 4
 theme_override_constants/separation = 4
 
 [node name="Level Icon 1" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=281310407]
+visible = false
 texture_filter = 1
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
@@ -87,6 +86,7 @@ size_flags_vertical = 0
 texture = ExtResource("3_y8mex")
 
 [node name="Level Icon 2" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=363436506]
+visible = false
 texture_filter = 1
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
@@ -94,6 +94,7 @@ size_flags_vertical = 0
 texture = ExtResource("3_y8mex")
 
 [node name="Level Icon 3" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=438917008]
+visible = false
 texture_filter = 1
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
@@ -101,6 +102,7 @@ size_flags_vertical = 0
 texture = ExtResource("3_y8mex")
 
 [node name="Level Icon 4" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=692896353]
+visible = false
 texture_filter = 1
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
@@ -108,6 +110,7 @@ size_flags_vertical = 0
 texture = ExtResource("3_y8mex")
 
 [node name="Level Icon 5" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=267961161]
+visible = false
 texture_filter = 1
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
@@ -115,6 +118,7 @@ size_flags_vertical = 0
 texture = ExtResource("3_y8mex")
 
 [node name="Level Icon 6" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=2080844910]
+visible = false
 texture_filter = 1
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
@@ -122,6 +126,7 @@ size_flags_vertical = 0
 texture = ExtResource("3_y8mex")
 
 [node name="Level Icon 7" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=574303938]
+visible = false
 texture_filter = 1
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
@@ -129,6 +134,7 @@ size_flags_vertical = 0
 texture = ExtResource("3_y8mex")
 
 [node name="Buy Cost" type="Label" parent="MarginContainer" unique_id=892338515]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 8
@@ -146,7 +152,6 @@ layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
 grow_vertical = 2
-texture = ExtResource("5_3rb54")
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

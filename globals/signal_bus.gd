@@ -34,4 +34,6 @@ signal on_ready_horror()
 signal on_transition_to_horror()
 signal on_horror_loaded()
 signal on_horror_failed()
+
+signal on_collect_horror_key()
 @warning_ignore_restore("unused_signal")

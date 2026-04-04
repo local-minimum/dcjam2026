@@ -1,0 +1,143 @@
+[gd_scene format=3 uid="uid://c14d20qkixt2d"]
+
+[ext_resource type="Script" uid="uid://ctvagx0mwh20d" path="res://horror/dragon_key.gd" id="1_etyue"]
+[ext_resource type="ArrayMesh" uid="uid://gw5ew1lp4vl8" path="res://horror/key_dragon.obj" id="1_fthkt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oht3r"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ap2dw"]
+material = SubResource("StandardMaterial3D_oht3r")
+top_radius = 0.2
+bottom_radius = 0.2
+height = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ap2dw"]
+albedo_color = Color(0.4922648, 0.21900526, 0.3243011, 1)
+metallic = 0.9
+metallic_specular = 0.63
+roughness = 0.49
+emission_enabled = true
+emission = Color(0.86254096, 0.21780917, 0.36700034, 1)
+emission_energy_multiplier = 0.11
+
+[sub_resource type="Animation" id="Animation_etyue"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("KeyDragon:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("KeyDragon:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.3413368, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpotLight3D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.448771, 2.71388, -2.7110562)]
+}
+
+[sub_resource type="Animation" id="Animation_fthkt"]
+resource_name = "look at dragon"
+length = 9.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("KeyDragon:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3, 3.02, 6, 9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -6.2831855, 0), Vector3(0, 6.2831855, 0), Vector3(0, 0, 0), Vector3(0, 6.2831855, 0), Vector3(0, 12.566371, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("KeyDragon:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.72, 2.18, 3, 3.7200003, 5.1800003, 6, 6.7200003, 8.18, 9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.3413368, 0), Vector3(0, 0.3190769, 0), Vector3(0, 0.3795631, 0), Vector3(0, 0.3413368, 0), Vector3(0, 0.3190769, 0), Vector3(0, 0.3795631, 0), Vector3(0, 0.3413368, 0), Vector3(0, 0.3190769, 0), Vector3(0, 0.3795631, 0), Vector3(0, 0.3413368, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpotLight3D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3.9666667, 9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-1.448771, 2.71388, -2.7110562), Vector3(-1.4487715, -2.3923078, -2.7110562), Vector3(-1.448771, 2.71388, -2.7110562)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_etyue"]
+_data = {
+&"RESET": SubResource("Animation_etyue"),
+&"look at dragon": SubResource("Animation_fthkt")
+}
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_fthkt"]
+height = 1.411377
+radius = 0.7885742
+
+[node name="Dragon Key" type="MeshInstance3D" unique_id=123338660 node_paths=PackedStringArray("key", "col")]
+mesh = SubResource("CylinderMesh_ap2dw")
+script = ExtResource("1_etyue")
+key = NodePath("KeyDragon")
+col = NodePath("Area3D/CollisionShape3D")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=5359294]
+transform = Transform3D(0.9987086, -0.0056267087, 0.050489433, -0.050801985, -0.11061457, 0.99256414, 2.9802319e-08, -0.9938476, -0.11075757, 0, 1.1601533, 0)
+light_color = Color(0.9164029, 0.59696543, 0.67252475, 1)
+light_energy = 0.1
+spot_range = 1.8229766
+spot_angle = 32.26
+
+[node name="KeyDragon" type="MeshInstance3D" parent="." unique_id=883840036]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0.3413368, 0)
+mesh = ExtResource("1_fthkt")
+surface_material_override/0 = SubResource("StandardMaterial3D_ap2dw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1381750830]
+libraries/ = SubResource("AnimationLibrary_etyue")
+autoplay = &"look at dragon"
+
+[node name="Area3D" type="Area3D" parent="." unique_id=2087952680]
+collision_mask = 512
+input_ray_pickable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=777734582]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6866455, 0)
+shape = SubResource("CylinderShape3D_fthkt")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

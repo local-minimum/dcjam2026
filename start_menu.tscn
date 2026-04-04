@@ -1,0 +1,305 @@
+[gd_scene format=3 uid="uid://dlv1vt3lm4mqn"]
+
+[ext_resource type="Environment" uid="uid://cab2e1qcby00n" path="res://clicker/clicker_environment.tres" id="1_ia0g5"]
+[ext_resource type="PackedScene" uid="uid://dscg0fk4fioab" path="res://clicker/rooms/outside_clicker.tscn" id="1_jwbto"]
+[ext_resource type="Script" uid="uid://gnl47nw62lmc" path="res://start_menu.gd" id="1_vpdu5"]
+[ext_resource type="Texture2D" uid="uid://dev14jdthimio" path="res://clicker/loot/inventory_female.png" id="2_v2mkm"]
+[ext_resource type="Texture2D" uid="uid://c8v5wabb8e5cd" path="res://clicker/loot/inventory_male.png" id="3_ppfnh"]
+[ext_resource type="Texture2D" uid="uid://dgucxcb44c1wn" path="res://clicker/loot/inventory_skeleton.png" id="4_7boi2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vpdu5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ctwoq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v2mkm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ppfnh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7boi2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pgi0o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ppfnh"]
+content_margin_top = 4.0
+content_margin_bottom = 10.0
+bg_color = Color(0.13319641, 0.13319641, 0.13319638, 0.9882353)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="Animation" id="Animation_ia0g5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("3D/WorldEnvironment:environment:sky_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 2.5411994, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vpdu5"]
+resource_name = "animate_start_menu"
+length = 360.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("3D/WorldEnvironment:environment:sky_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 360),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.2831855, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v2mkm"]
+_data = {
+&"RESET": SubResource("Animation_ia0g5"),
+&"animate_start_menu": SubResource("Animation_vpdu5")
+}
+
+[node name="StartMenu" type="Node3D" unique_id=1867207705 node_paths=PackedStringArray("title_label", "credits_label", "main_menu_container", "option_menu_container", "body_selector_container")]
+script = ExtResource("1_vpdu5")
+menu_music_path = "uid://dicixyad3t0vy"
+title_label = NodePath("UICanvas/UI/MarginContainer/TitleLabel")
+credits_label = NodePath("UICanvas/UI/CreditsLabel")
+main_menu_container = NodePath("UICanvas/UI/MarginContainer/BtnsCentreContainer/MenuButtonsContainer")
+option_menu_container = NodePath("UICanvas/UI/MarginContainer/BtnsCentreContainer/OptionsButtonsContainer")
+body_selector_container = NodePath("UICanvas/UI/MarginContainer/BodySelectorContainer")
+body_type_textures = Array[Texture2D]([ExtResource("2_v2mkm"), ExtResource("3_ppfnh"), ExtResource("4_7boi2")])
+
+[node name="UICanvas" type="CanvasLayer" parent="." unique_id=2144750330]
+
+[node name="UI" type="Control" parent="UICanvas" unique_id=72771589]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CreditsLabel" type="Label" parent="UICanvas/UI" unique_id=699524925]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1241.0
+offset_top = -83.0
+offset_right = -46.0
+offset_bottom = -26.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 42
+text = "A game by Local_Minimum, Spilth, Ida-Sofia and Slippers for DCJAM2026"
+
+[node name="MarginContainer" type="MarginContainer" parent="UICanvas/UI" unique_id=581838392]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_top = 120
+theme_override_constants/margin_right = 120
+theme_override_constants/margin_bottom = 120
+
+[node name="TitleLabel" type="Label" parent="UICanvas/UI/MarginContainer" unique_id=1521226064]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 140
+text = "Click-O-Calypse"
+uppercase = true
+
+[node name="BtnsCentreContainer" type="CenterContainer" parent="UICanvas/UI/MarginContainer" unique_id=605906449]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="MenuButtonsContainer" type="VBoxContainer" parent="UICanvas/UI/MarginContainer/BtnsCentreContainer" unique_id=711338479]
+layout_mode = 2
+theme_override_constants/separation = 22
+
+[node name="PlayButton" type="Button" parent="UICanvas/UI/MarginContainer/BtnsCentreContainer/MenuButtonsContainer" unique_id=289115402]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.6542321, 0.6542321, 0.654232, 1)
+theme_override_colors/font_hover_color = Color(0.22759944, 0.6840977, 0.99999994, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 120
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vpdu5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ctwoq")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_v2mkm")
+text = "PLAY"
+
+[node name="OptionsButton" type="Button" parent="UICanvas/UI/MarginContainer/BtnsCentreContainer/MenuButtonsContainer" unique_id=2046381517]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.6542321, 0.6542321, 0.654232, 1)
+theme_override_colors/font_hover_color = Color(0.22759944, 0.6840977, 0.99999994, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 120
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vpdu5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ppfnh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_v2mkm")
+text = "OPTIONS"
+
+[node name="ExitButton" type="Button" parent="UICanvas/UI/MarginContainer/BtnsCentreContainer/MenuButtonsContainer" unique_id=336672710]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.6542321, 0.6542321, 0.654232, 1)
+theme_override_colors/font_hover_color = Color(0.22759944, 0.6840977, 0.99999994, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 120
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vpdu5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_7boi2")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_v2mkm")
+text = "EXIT"
+
+[node name="OptionsButtonsContainer" type="VBoxContainer" parent="UICanvas/UI/MarginContainer/BtnsCentreContainer" unique_id=1920039629]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 22
+
+[node name="BackButton" type="Button" parent="UICanvas/UI/MarginContainer/BtnsCentreContainer/OptionsButtonsContainer" unique_id=1195477319]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.6542321, 0.6542321, 0.654232, 1)
+theme_override_colors/font_hover_color = Color(0.22759944, 0.6840977, 0.99999994, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 120
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vpdu5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_pgi0o")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_v2mkm")
+text = "BACK"
+
+[node name="BodySelectorContainer" type="VBoxContainer" parent="UICanvas/UI/MarginContainer" unique_id=2101826038]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 53
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="UICanvas/UI/MarginContainer/BodySelectorContainer" unique_id=102348767]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 90
+text = "Choose your bodytype"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UICanvas/UI/MarginContainer/BodySelectorContainer" unique_id=208557630]
+layout_mode = 2
+theme_override_constants/separation = 55
+
+[node name="FemContainer" type="VBoxContainer" parent="UICanvas/UI/MarginContainer/BodySelectorContainer/HBoxContainer" unique_id=2038747581]
+layout_mode = 2
+
+[node name="FemTexButton" type="TextureButton" parent="UICanvas/UI/MarginContainer/BodySelectorContainer/HBoxContainer/FemContainer" unique_id=599827752]
+custom_minimum_size = Vector2(300, 525)
+layout_mode = 2
+texture_normal = ExtResource("2_v2mkm")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="FemButton" type="Button" parent="UICanvas/UI/MarginContainer/BodySelectorContainer/HBoxContainer/FemContainer" unique_id=716175113]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_ppfnh")
+text = "Feminine"
+
+[node name="MascContainer" type="VBoxContainer" parent="UICanvas/UI/MarginContainer/BodySelectorContainer/HBoxContainer" unique_id=672133158]
+layout_mode = 2
+
+[node name="MascTexButton" type="TextureButton" parent="UICanvas/UI/MarginContainer/BodySelectorContainer/HBoxContainer/MascContainer" unique_id=678161815]
+custom_minimum_size = Vector2(300, 525)
+layout_mode = 2
+texture_normal = ExtResource("3_ppfnh")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="MascButton" type="Button" parent="UICanvas/UI/MarginContainer/BodySelectorContainer/HBoxContainer/MascContainer" unique_id=1658282347]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_ppfnh")
+text = "Masculine"
+
+[node name="NonContainer" type="VBoxContainer" parent="UICanvas/UI/MarginContainer/BodySelectorContainer/HBoxContainer" unique_id=1705801687]
+layout_mode = 2
+
+[node name="NonTexButton" type="TextureButton" parent="UICanvas/UI/MarginContainer/BodySelectorContainer/HBoxContainer/NonContainer" unique_id=1758790038]
+custom_minimum_size = Vector2(300, 525)
+layout_mode = 2
+texture_normal = ExtResource("4_7boi2")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="NonButton" type="Button" parent="UICanvas/UI/MarginContainer/BodySelectorContainer/HBoxContainer/NonContainer" unique_id=32996396]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_ppfnh")
+text = "Androgynous"
+
+[node name="BackButton" type="Button" parent="UICanvas/UI/MarginContainer/BodySelectorContainer" unique_id=1224115449]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.6542321, 0.6542321, 0.654232, 1)
+theme_override_colors/font_hover_color = Color(0.22759944, 0.6840977, 0.99999994, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 58
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vpdu5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_pgi0o")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_v2mkm")
+text = "BACK"
+
+[node name="3D" type="Node3D" parent="." unique_id=1338561247]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="3D" unique_id=401209742]
+environment = ExtResource("1_ia0g5")
+
+[node name="Outside" parent="3D" unique_id=1686640705 instance=ExtResource("1_jwbto")]
+
+[node name="Camera3D" type="Camera3D" parent="3D" unique_id=945757877]
+transform = Transform3D(0.8660254, 0.35355335, 0.3535535, -0.08683261, 0.80271, -0.5900142, -0.49240237, 0.4802673, 0.7258673, 4, 0, -52)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1693846594]
+libraries/ = SubResource("AnimationLibrary_v2mkm")
+autoplay = &"animate_start_menu"
+
+[connection signal="pressed" from="UICanvas/UI/MarginContainer/BtnsCentreContainer/MenuButtonsContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="UICanvas/UI/MarginContainer/BtnsCentreContainer/MenuButtonsContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="UICanvas/UI/MarginContainer/BtnsCentreContainer/MenuButtonsContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="UICanvas/UI/MarginContainer/BtnsCentreContainer/OptionsButtonsContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="UICanvas/UI/MarginContainer/BodySelectorContainer/HBoxContainer/FemContainer/FemTexButton" to="." method="_body_type_button_pressed" binds= [0]]
+[connection signal="pressed" from="UICanvas/UI/MarginContainer/BodySelectorContainer/HBoxContainer/FemContainer/FemButton" to="." method="_body_type_button_pressed" binds= [0]]
+[connection signal="pressed" from="UICanvas/UI/MarginContainer/BodySelectorContainer/HBoxContainer/MascContainer/MascTexButton" to="." method="_body_type_button_pressed" binds= [1]]
+[connection signal="pressed" from="UICanvas/UI/MarginContainer/BodySelectorContainer/HBoxContainer/MascContainer/MascButton" to="." method="_body_type_button_pressed" binds= [1]]
+[connection signal="pressed" from="UICanvas/UI/MarginContainer/BodySelectorContainer/HBoxContainer/NonContainer/NonTexButton" to="." method="_body_type_button_pressed" binds= [2]]
+[connection signal="pressed" from="UICanvas/UI/MarginContainer/BodySelectorContainer/HBoxContainer/NonContainer/NonButton" to="." method="_body_type_button_pressed" binds= [2]]
+[connection signal="pressed" from="UICanvas/UI/MarginContainer/BodySelectorContainer/BackButton" to="." method="_on_back_button_pressed"]

@@ -3,7 +3,7 @@ class_name GriddedController
 
 @export var _player: PhysicsGridPlayerController
 
-@export_range(5, 15) var _translation_resolution: int = 6
+@export_range(1, 15) var _translation_resolution: int = 6
 @export_range(0, 1) var _translation_duration: float = 0.3
 @export_range(0, 1) var _rotation_duration: float = 0.25
 
@@ -134,7 +134,12 @@ func _attempt_gridded_translation(movement: Movement.MovementType, direction: Ve
     var planar_delta: Vector3 = Vector3(direction)
     direction = direction.normalized()
 
-    # print_debug("Attempting %s -> %s" % [_player.global_position, target])
+    #print_debug("Attempting translation %s (%s) -> %s (%s)" % [
+        #_player.global_position,
+        #_player.dungeon.get_closest_coordinates(_player.global_position),
+        #target,
+        #_player.dungeon.get_closest_coordinates(target),
+    #])
     var prev_data: Dictionary[PhysicsControllerStepCaster.StepData, Vector3] = {
             PhysicsControllerStepCaster.StepData.POINT: _player.global_position,
             PhysicsControllerStepCaster.StepData.CENTER_POINT: _player.global_position,
@@ -153,7 +158,7 @@ func _attempt_gridded_translation(movement: Movement.MovementType, direction: Ve
 
     for idx: int in resolution:
         var step_data:  Dictionary[PhysicsControllerStepCaster.StepData, Vector3]
-        var from: Vector3 = _player.global_position + planar_delta * float(idx + 1) / float(resolution)
+        var from: Vector3 = _player.global_position + planar_delta * float(idx) / float(resolution)
         from.y = y
         var cur_step: StepOutcome = _test_step(from, step_offset, step_data, fudge if idx == resolution - 1 else 0.0)
         match cur_step:

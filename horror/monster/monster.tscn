@@ -222,14 +222,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 1, -0.5)
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1, 0)
 target_position = Vector3(0, -1.5, 0)
 
-[node name="Detection Area" type="Area3D" parent="." index="2" unique_id=1440010991 node_paths=PackedStringArray("monster_entity", "monster_root", "animation_player")]
+[node name="Detection Area" type="Area3D" parent="." index="2" unique_id=1440010991 node_paths=PackedStringArray("monster_entity", "monster_root")]
 collision_layer = 1024
 collision_mask = 1536
 input_ray_pickable = false
 script = ExtResource("9_tge75")
 monster_entity = NodePath("../MonsterEntity")
 monster_root = NodePath("..")
-animation_player = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Detection Area" index="0" unique_id=1018888953]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.74523926, 0)

@@ -8,6 +8,17 @@ enum Quality { SOILED, BASIC, FANCY, ROYAL, IMPOSSIBLE }
 enum Mat { CARDBOARD, PLASTIC, BRASS, ALUMINUM, OBSIDIAN }
 enum Base { HEAD, UPPER_BODY, HANDS, LOWER_BODY, FEET }
 
+#const QUALITY_COL: Array[Color] = [
+    #Color("ffffff80"),
+    #Color("00ff0080"),
+    #Color("0000ff80"),
+    #Color("a600b280"),
+    #Color("ff6e0080")
+#]
+
+#func get_quality_col() -> Color:
+    #return QUALITY_COL[_quality]
+
 var _quality: Quality
 func get_quality() -> Quality:
     return _quality

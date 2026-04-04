@@ -122,6 +122,16 @@ func _handle_battle_end(credits: int) -> void:
     _loot_root.show()
     show()
 
+func _input(event: InputEvent) -> void:
+    if event.is_action_pressed(&"inventory"):
+        if !visible && !PhysicsGridPlayerController.last_connected_player_cinematic:
+            PhysicsGridPlayerController.last_connected_player.add_cinematic_blocker(self)
+            _loot_root.hide()
+            show()
+            print_debug("Show inv")
+        elif visible:
+            close_ui()
+
 func check_remaining_loot() -> void:
     for preview: LootPreviewUI in _loot_previews:
         if preview.visible:
@@ -130,9 +140,10 @@ func check_remaining_loot() -> void:
     close_ui()
 
 func close_ui() -> void:
+    _loot_root.hide()
+    await get_tree().create_timer(0.25).timeout
     PhysicsGridPlayerController.last_connected_player.remove_cinematic_blocker(self)
     hide()
-
 
 func _on_close_button_pressed() -> void:
     close_ui()

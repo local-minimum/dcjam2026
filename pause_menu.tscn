@@ -1,0 +1,332 @@
+[gd_scene format=3 uid="uid://bcafcj4cf1gi3"]
+
+[ext_resource type="Script" uid="uid://dpj0mgjjo5oen" path="res://pause_menu.gd" id="1_hdmo1"]
+[ext_resource type="Environment" uid="uid://cab2e1qcby00n" path="res://clicker/clicker_environment.tres" id="2_05uyy"]
+[ext_resource type="Environment" uid="uid://byjp5qc66kefe" path="res://horror/horror_environment.tres" id="3_p81d2"]
+[ext_resource type="PackedScene" uid="uid://u2fviscw8c6w" path="res://start_menu.tscn" id="4_p81d2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wyi4u"]
+bg_color = Color(0, 0, 0, 0.597)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_wyi4u"]
+color = Color(1, 1, 1, 1)
+thickness = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hdmo1"]
+content_margin_top = 4.0
+content_margin_bottom = 6.0
+bg_color = Color(0.011628052, 0.3225091, 0.5962577, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_05uyy"]
+content_margin_top = 4.0
+content_margin_bottom = 6.0
+bg_color = Color(0.0067027123, 0.24877259, 0.47038704, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p81d2"]
+content_margin_top = 4.0
+content_margin_bottom = 6.0
+bg_color = Color(0.08345052, 0.52189845, 0.9353623, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nwcfo"]
+content_margin_top = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0, 0.20609033, 0.42741302, 1)
+shadow_color = Color(0, 0, 0, 0.892)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pgi0o"]
+bg_color = Color(9.9726916e-05, 0.4754079, 0.91854036, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_73a2t"]
+bg_color = Color(0.3623615, 0.6460767, 1, 0.795)
+
+[node name="PauseMenu" type="Control" unique_id=1365061671 node_paths=PackedStringArray("menu_container", "gfx_container", "quit_container", "brightness_slider", "contrast_slider", "saturation_slider")]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hdmo1")
+menu_container = NodePath("CenterContainer/PanelContainer/MarginContainer/MenuContainer")
+gfx_container = NodePath("CenterContainer/PanelContainer/MarginContainer/GfxContainer")
+quit_container = NodePath("CenterContainer/PanelContainer/MarginContainer/QuitContainer")
+clicker_env = ExtResource("2_05uyy")
+horror_env = ExtResource("3_p81d2")
+brightness_slider = NodePath("CenterContainer/PanelContainer/MarginContainer/GfxContainer/BrightnessSlider")
+contrast_slider = NodePath("CenterContainer/PanelContainer/MarginContainer/GfxContainer/ContrastSlider")
+saturation_slider = NodePath("CenterContainer/PanelContainer/MarginContainer/GfxContainer/SaturationSlider")
+start_menu_scene = ExtResource("4_p81d2")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=289643786]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer" unique_id=1322960687]
+custom_minimum_size = Vector2(300, 354)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wyi4u")
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer" unique_id=869108009]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 14
+
+[node name="MenuContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer" unique_id=792150698]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/MenuContainer" unique_id=354494123]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 44
+text = "Pause Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/PanelContainer/MarginContainer/MenuContainer" unique_id=1669914715]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_wyi4u")
+
+[node name="ResumeBtn" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/MenuContainer" unique_id=2142099481]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_hdmo1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_05uyy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_p81d2")
+text = "Resume"
+
+[node name="GfxBtn" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/MenuContainer" unique_id=1546378493]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_hdmo1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_05uyy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_p81d2")
+text = "Graphics Settings"
+
+[node name="AudioBtn" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/MenuContainer" unique_id=597882716]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_hdmo1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_05uyy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_p81d2")
+disabled = true
+text = "Audio Settings"
+
+[node name="QuitBtn" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/MenuContainer" unique_id=106487410]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_hdmo1")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_05uyy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_p81d2")
+text = "Quit"
+
+[node name="GfxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer" unique_id=1163141520]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 11
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/GfxContainer" unique_id=1192450932]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 44
+text = "Graphics"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/PanelContainer/MarginContainer/GfxContainer" unique_id=2012984269]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_wyi4u")
+
+[node name="BrightnessLabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/GfxContainer" unique_id=1109770117]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 25
+text = "Brightness"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BrightnessSlider" type="HSlider" parent="CenterContainer/PanelContainer/MarginContainer/GfxContainer" unique_id=243278718]
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxFlat_nwcfo")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_pgi0o")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_73a2t")
+max_value = 2.0
+step = 0.01
+value = 1.0
+
+[node name="ContrastLabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/GfxContainer" unique_id=207258185]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 25
+text = "Contrast"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ContrastSlider" type="HSlider" parent="CenterContainer/PanelContainer/MarginContainer/GfxContainer" unique_id=1096047951]
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxFlat_nwcfo")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_pgi0o")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_73a2t")
+max_value = 2.0
+step = 0.01
+value = 1.0
+
+[node name="SaturationLabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/GfxContainer" unique_id=707568359]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 25
+text = "Saturation"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SaturationSlider" type="HSlider" parent="CenterContainer/PanelContainer/MarginContainer/GfxContainer" unique_id=1728548079]
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxFlat_nwcfo")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_pgi0o")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_73a2t")
+max_value = 2.0
+step = 0.01
+value = 1.0
+
+[node name="BackBtn" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/GfxContainer" unique_id=473174379]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_hdmo1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_05uyy")
+text = "Back"
+
+[node name="QuitContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer" unique_id=1301388274]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="WarningLabel1" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/QuitContainer" unique_id=1796825736]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 33
+text = "Are you sure 
+you wish to quit? "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuitMainMenubtn" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/QuitContainer" unique_id=1431193913]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_hdmo1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_05uyy")
+text = "Exit to Main Manu"
+
+[node name="QuitDesktopbtn" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/QuitContainer" unique_id=1173570460]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_hdmo1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_05uyy")
+text = "Exit to Desktop"
+
+[node name="BackBtn" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/QuitContainer" unique_id=1820687139]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_hdmo1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_05uyy")
+text = "Back"
+
+[node name="WarningLabel2" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/QuitContainer" unique_id=447462191]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 19
+text = "Your progress will not be saved."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/MenuContainer/ResumeBtn" to="." method="_on_resume_btn_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/MenuContainer/GfxBtn" to="." method="_on_gfx_btn_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/MenuContainer/QuitBtn" to="." method="_on_quit_btn_pressed"]
+[connection signal="value_changed" from="CenterContainer/PanelContainer/MarginContainer/GfxContainer/BrightnessSlider" to="." method="_on_brightness_slider_value_changed"]
+[connection signal="value_changed" from="CenterContainer/PanelContainer/MarginContainer/GfxContainer/ContrastSlider" to="." method="_on_contrast_slider_value_changed"]
+[connection signal="value_changed" from="CenterContainer/PanelContainer/MarginContainer/GfxContainer/SaturationSlider" to="." method="_on_saturation_slider_value_changed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/GfxContainer/BackBtn" to="." method="_on_back_btn_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/QuitContainer/QuitMainMenubtn" to="." method="_on_quit_main_menubtn_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/QuitContainer/QuitDesktopbtn" to="." method="_on_quit_desktopbtn_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/QuitContainer/BackBtn" to="." method="_on_back_btn_pressed"]

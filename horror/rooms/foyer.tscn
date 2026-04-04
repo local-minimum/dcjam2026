@@ -937,6 +937,7 @@ shape = SubResource("BoxShape3D_i06fa")
 
 [node name="DragonDoorManager" type="Node" parent="." unique_id=914619696 node_paths=PackedStringArray("door_mesh", "door_collider", "trigger_area_collider", "effect_lights", "look_target")]
 script = ExtResource("8_akkrm")
+game_done_path = "uid://cedti1u06j3wl"
 door_mesh = NodePath("../Wall/Dragon Key Door")
 door_collider = NodePath("../StaticBody3D/Dragon Door Collider")
 trigger_area_collider = NodePath("../DragonDoorTrigger")

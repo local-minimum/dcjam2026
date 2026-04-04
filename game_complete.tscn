@@ -19,6 +19,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qg72s")
+menu_path = "uid://u2fviscw8c6w"
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=756403187]
 layout_mode = 1
@@ -168,3 +169,18 @@ text = "000"
 label_settings = SubResource("LabelSettings_4xff7")
 horizontal_alignment = 2
 vertical_alignment = 2
+
+[node name="Menu Button" type="Button" parent="." unique_id=1731459986]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -196.0
+offset_top = -105.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Menu"
+
+[connection signal="pressed" from="Menu Button" to="." method="_on_menu_button_pressed"]

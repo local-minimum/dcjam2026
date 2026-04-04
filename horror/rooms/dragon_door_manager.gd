@@ -1,6 +1,7 @@
 extends Node
 class_name DragonDoorManager
 
+@export_file("*.tscn") var game_done_path: String
 @export var door_mesh: MeshInstance3D
 @export var door_collider: CollisionShape3D
 @export var trigger_area_collider: Area3D
@@ -55,4 +56,5 @@ func _on_dragon_door_trigger_area_entered(area: Area3D) -> void:
 
     await get_tree().create_timer(4.7).timeout
 
-    # TODO: Load credits or something
+    var scene: PackedScene = load(game_done_path)
+    get_tree().change_scene_to_packed(scene)

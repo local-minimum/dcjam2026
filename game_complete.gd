@@ -1,5 +1,6 @@
 extends Control
 
+@export_file("*.tscn") var menu_path
 @onready var steps_count: Label = $"CenterContainer/VBoxContainer/GridContainer/Steps Count"
 @onready var xp_count: Label = $"CenterContainer/VBoxContainer/GridContainer/XP Count"
 @onready var health_count: Label = $"CenterContainer/VBoxContainer/GridContainer/Health Count"
@@ -20,3 +21,8 @@ func _ready() -> void:
     robot_deaths_count.text = "%s" % __GlobalGameState.deaths
     replays_count.text = "%s" % (__GlobalGameState.replay + 1)
     keith_kills_count.text = "%s" % __GlobalGameState.keith_kills
+
+
+func _on_menu_button_pressed() -> void:
+    var scene: PackedScene = load(menu_path)
+    get_tree().change_scene_to_packed(scene)

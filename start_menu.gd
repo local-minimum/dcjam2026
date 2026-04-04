@@ -17,7 +17,7 @@ enum BodyType {
 @export var body_type_textures: Array[Texture2D]
 
 func _ready() -> void:
-    __AudioHub.play_music(menu_music_path)
+    __AudioHub.play_music(menu_music_path, 0.5)
 
 
 func _on_play_button_pressed() -> void:

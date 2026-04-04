@@ -33,13 +33,13 @@ func preview_gear(gear: Gear) -> void:
     var armours: Array[Gear] = [gear, __GlobalGameState.get_gear(gear.get_base())]
     var defences: Array[float] = []
     var dodges: Array[float] = []
-    
+
     for armour: Gear in armours:
         if not armour:
             defences.push_back(0.0)
             dodges.push_back(0.0)
             continue
-        
+
         var def_total: float = 0
         var rolls: int = 20
         for idx: int in rolls:
@@ -50,7 +50,7 @@ func preview_gear(gear: Gear) -> void:
 
     _description_top.text = "DEF:"
     var new_gear_def: float = snappedf(defences[0], 0.1)
-    
+
     if defences[0] > defences[1]:
         # String done this way to ensure rounding / flooring not done too early - this gives high accuracy
         var def_diff: float = snappedf(defences[0] - defences[1], 0.1)
@@ -61,7 +61,7 @@ func preview_gear(gear: Gear) -> void:
         var def_diff: float = snappedf(defences[1] - defences[0], 0.1)
         _value_top.text = str(new_gear_def, "(-", def_diff, ")")
         _value_top.modulate = Color.RED
-    
+
     _description_bottom.text = "DODGE:"
     var new_gear_dodge: float = gear.dodge_chance_percent()
 
@@ -88,7 +88,7 @@ func preview_weapon(weapon: Weapon) -> void:
 
     var weapons: Array[Weapon] = [weapon, __GlobalGameState.weapon]
     var dps: Array[float] = []
-    
+
     for wep: Weapon in weapons:
         var cd: float = wep.cooldown()
         var attack_total: float = 0
@@ -123,7 +123,7 @@ func _on_gui_input(event: InputEvent) -> void:
         var mevent: InputEventMouseButton = event
         if mevent.pressed && mevent.button_index == MOUSE_BUTTON_LEFT:
             quick_equip()
-            
+
             # WARNING: Is is to force one item per looting round, delete this and unhide close button
             # if we want to go back to a FFA on loot
             loot_and_inventory.close_ui()

@@ -47,15 +47,12 @@ func _after_look_towards(player: PhysicsGridPlayerController, monster_entity: Mo
     monster_entity.on_monster_idle.connect(
         func () -> void:
 
-            monster_entity.monster.teleport(Vector3.ZERO + 0.2 * Vector3.UP)
+            __SignalBus.on_jail_keith.emit()
 
             await get_tree().create_timer(0.5).timeout
 
             player.defocus_on(monster_entity.monster_center)
             player.remove_cinematic_blocker(self)
-
-            await get_tree().create_timer(1.0).timeout
-            monster_entity.disabled_player_interactions = false
 
             ,
         CONNECT_ONE_SHOT,

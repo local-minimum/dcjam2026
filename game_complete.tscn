@@ -1,0 +1,170 @@
+[gd_scene format=3 uid="uid://cedti1u06j3wl"]
+
+[ext_resource type="Script" uid="uid://btkc4b7e8udb2" path="res://game_complete.gd" id="1_qg72s"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4apke"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_qg72s"]
+font_size = 28
+
+[sub_resource type="LabelSettings" id="LabelSettings_4xff7"]
+font_size = 28
+
+[node name="After Play Screen" type="Control" unique_id=759958240]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qg72s")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=756403187]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=133128526]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1054991647]
+layout_mode = 2
+text = "Thank you for playing!"
+label_settings = SubResource("LabelSettings_4apke")
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer/VBoxContainer" unique_id=1142149246]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 4
+columns = 2
+
+[node name="Steps Label" type="Label" parent="CenterContainer/VBoxContainer/GridContainer" unique_id=992698102]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Steps Taken"
+label_settings = SubResource("LabelSettings_qg72s")
+vertical_alignment = 2
+
+[node name="Steps Count" type="Label" parent="CenterContainer/VBoxContainer/GridContainer" unique_id=1556140680]
+layout_mode = 2
+text = "000"
+label_settings = SubResource("LabelSettings_4xff7")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="XP Label" type="Label" parent="CenterContainer/VBoxContainer/GridContainer" unique_id=1445351189]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "XP Gained"
+label_settings = SubResource("LabelSettings_qg72s")
+vertical_alignment = 2
+
+[node name="XP Count" type="Label" parent="CenterContainer/VBoxContainer/GridContainer" unique_id=1040517930]
+layout_mode = 2
+text = "000"
+label_settings = SubResource("LabelSettings_4xff7")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Health Label" type="Label" parent="CenterContainer/VBoxContainer/GridContainer" unique_id=172993566]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Health Lost To Robots"
+label_settings = SubResource("LabelSettings_qg72s")
+vertical_alignment = 2
+
+[node name="Health Count" type="Label" parent="CenterContainer/VBoxContainer/GridContainer" unique_id=1505788816]
+layout_mode = 2
+text = "000"
+label_settings = SubResource("LabelSettings_4xff7")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Robots Label" type="Label" parent="CenterContainer/VBoxContainer/GridContainer" unique_id=1476077514]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Robots Encountered"
+label_settings = SubResource("LabelSettings_qg72s")
+vertical_alignment = 2
+
+[node name="Robots Count" type="Label" parent="CenterContainer/VBoxContainer/GridContainer" unique_id=1931004405]
+layout_mode = 2
+text = "000"
+label_settings = SubResource("LabelSettings_4xff7")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Gear Label" type="Label" parent="CenterContainer/VBoxContainer/GridContainer" unique_id=69036282]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Gear Looted"
+label_settings = SubResource("LabelSettings_qg72s")
+vertical_alignment = 2
+
+[node name="Gear Count" type="Label" parent="CenterContainer/VBoxContainer/GridContainer" unique_id=1719528084]
+layout_mode = 2
+text = "000"
+label_settings = SubResource("LabelSettings_4xff7")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Weapons Label" type="Label" parent="CenterContainer/VBoxContainer/GridContainer" unique_id=79187007]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Weapons Wielded"
+label_settings = SubResource("LabelSettings_qg72s")
+vertical_alignment = 2
+
+[node name="Weapons Count" type="Label" parent="CenterContainer/VBoxContainer/GridContainer" unique_id=1907893735]
+layout_mode = 2
+text = "000"
+label_settings = SubResource("LabelSettings_4xff7")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Robot Deaths Label" type="Label" parent="CenterContainer/VBoxContainer/GridContainer" unique_id=1174484416]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Died by Robot Hands"
+label_settings = SubResource("LabelSettings_qg72s")
+vertical_alignment = 2
+
+[node name="Robot Deaths Count" type="Label" parent="CenterContainer/VBoxContainer/GridContainer" unique_id=1380557834]
+layout_mode = 2
+text = "000"
+label_settings = SubResource("LabelSettings_4xff7")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Replays Label" type="Label" parent="CenterContainer/VBoxContainer/GridContainer" unique_id=1070093447]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Days in Robot World"
+label_settings = SubResource("LabelSettings_qg72s")
+vertical_alignment = 2
+
+[node name="Replays Count" type="Label" parent="CenterContainer/VBoxContainer/GridContainer" unique_id=17884954]
+layout_mode = 2
+text = "000"
+label_settings = SubResource("LabelSettings_4xff7")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Keith Kills Label" type="Label" parent="CenterContainer/VBoxContainer/GridContainer" unique_id=1281709098]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Times the Monster Got You"
+label_settings = SubResource("LabelSettings_qg72s")
+vertical_alignment = 2
+
+[node name="Keith Kills Count" type="Label" parent="CenterContainer/VBoxContainer/GridContainer" unique_id=1046781495]
+layout_mode = 2
+text = "000"
+label_settings = SubResource("LabelSettings_4xff7")
+horizontal_alignment = 2
+vertical_alignment = 2

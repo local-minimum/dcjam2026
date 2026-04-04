@@ -72,7 +72,6 @@ _debug_shapes = [NodePath("Debug Step CollisionPt"), NodePath("Player Collision 
 [node name="GriddedController" type="Node" parent="." unique_id=1745718286 node_paths=PackedStringArray("_player")]
 script = ExtResource("3_aoiyr")
 _player = NodePath("..")
-_translation_resolution = 10
 
 [node name="Player Collision Body" type="CollisionShape3D" parent="." unique_id=249778954]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)

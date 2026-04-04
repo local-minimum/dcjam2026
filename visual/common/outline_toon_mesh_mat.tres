@@ -1,12 +1,26 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://c7f4dbcj8gipf"]
 
-[ext_resource type="Texture2D" uid="uid://dddv3i3hxbhbx" path="res://visual/buildings/skyscraper_left/DefaultMaterial_baseColor.png" id="1_1ikq2"]
+[ext_resource type="Texture2D" uid="uid://cers7j0vnj60e" path="res://visual/common/Gradient Pallete.png" id="1_1ikq2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ikq2"]
+render_priority = 1
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+grow = true
+grow_amount = 0.6
+stencil_mode = 3
+stencil_flags = 1
+stencil_compare = 5
+metadata/_stencil_owned = true
 
 [resource]
+next_pass = SubResource("StandardMaterial3D_1ikq2")
 diffuse_mode = 3
 specular_mode = 1
 albedo_texture = ExtResource("1_1ikq2")
-metallic = 1.0
+roughness = 0.0
 anisotropy_enabled = true
+stencil_mode = 1
 stencil_flags = 2
 stencil_outline_thickness = 0.6

@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bkimeukobl4eb"
+path="res://.godot/imported/train_track_straight.obj-6df4e15f0a3942588919ce03304d23d8.mesh"
+
+[deps]
+
+files=["res://.godot/imported/train_track_straight.obj-6df4e15f0a3942588919ce03304d23d8.mesh"]
+
+source_file="res://visual/buildings/train/train_track_straight.obj"
+dest_files=["res://.godot/imported/train_track_straight.obj-6df4e15f0a3942588919ce03304d23d8.mesh", "res://.godot/imported/train_track_straight.obj-6df4e15f0a3942588919ce03304d23d8.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

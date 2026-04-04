@@ -32,6 +32,7 @@ func _on_dragon_door_trigger_area_entered(area: Area3D) -> void:
         return
 
     player.add_cinematic_blocker(self)
+    __SignalBus.on_toggle_freelook_camera.emit(false, FreeLookCam.ToggleCause.MOVEMENT)
 
     __SignalBus.on_horror_outro_triggered.emit()
     trigger_area_collider.queue_free()

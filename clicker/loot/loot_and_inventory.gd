@@ -51,6 +51,7 @@ func _ready() -> void:
     hide()
 
 func _handle_battle_end(credits: int) -> void:
+    __SignalBus.on_toggle_freelook_camera.emit(false, FreeLookCam.ToggleCause.MOVEMENT)
     PhysicsGridPlayerController.last_connected_player.add_cinematic_blocker(self)
 
     var active_weapon_value: int = __GlobalGameState.weapon.score
@@ -130,6 +131,7 @@ func _input(event: InputEvent) -> void:
     if event.is_action_pressed(&"inventory"):
         if !visible && !PhysicsGridPlayerController.last_connected_player_cinematic:
             PhysicsGridPlayerController.last_connected_player.add_cinematic_blocker(self)
+            __SignalBus.on_toggle_freelook_camera.emit(false, FreeLookCam.ToggleCause.MOVEMENT)
             _loot_root.hide()
             show()
             print_debug("Show inv")

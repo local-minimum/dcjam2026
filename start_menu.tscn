@@ -104,7 +104,7 @@ size_flags_vertical = 8
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 42
-text = "A game by Local_Minimum, Spilth, Ida-Sofia and Slippers for DCJAM2026"
+text = "A game by Local_Minimum, polymonic, Ida-Sofia and Slippers for DCJAM2026"
 
 [node name="MarginContainer" type="MarginContainer" parent="UICanvas/UI" unique_id=581838392]
 layout_mode = 1

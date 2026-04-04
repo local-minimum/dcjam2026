@@ -8,11 +8,13 @@ class_name MonsterEntity
 @export_file("*.mp3") var poems: Array[String]
 
 @export var hunt_speed_factor: float = 1.5
+@export var jail_after_idle_time: float = 5.0
 
 @export var look_ray: LookRayCast
 @export var max_tiles_distance_plan: int = 6
 @export var look_elevation_m: float = 1.5
 @export var max_hunt_plan_depth: int = 4
+
 
 const IGNORE_ANGLE_THRESHOLD: float = PI * 0.001
 const IGNORE_MOVE_SQ_THRESHOLD: float = 0.1
@@ -80,6 +82,10 @@ func _handle_horror_outro_triggered() -> void:
     clear_queues_and_noise()
     disabled_player_interactions = true
 
+var is_idle: bool:
+    get():
+        return monster.idle && _pos_queue.is_empty() && _coords_queue.is_empty() && _tracked_noise == null && !_turn_to_cardinal
+
 func _handle_monster_idle() -> void:
     print_debug("Monster Idle: Noise: %s, Turn Cardinal: %s Pos Queue: %s Coords Queue: %s" % [
         _tracked_noise, _turn_to_cardinal, _pos_queue, _coords_queue,
@@ -101,9 +107,25 @@ func _handle_monster_idle() -> void:
         var target: Vector3 = dungeon.get_global_grid_position_from_coordinates(command.coords)
         move_to_position(target, command.speed, command.jitter, command.align)
 
+    elif look_ray.sees_player(PhysicsGridPlayerController.last_connected_player):
+        var p: PhysicsGridPlayerController = PhysicsGridPlayerController.last_connected_player
+        move_to_coordinates(p.dungeon.get_closest_coordinates(p.global_position), hunt_speed_factor)
     else:
         print_debug("Monster IDLE")
         on_monster_idle.emit()
+        _check_autojail_from_idle()
+
+func _check_autojail_from_idle() -> void:
+    await get_tree().create_timer(jail_after_idle_time).timeout
+    if is_idle:
+        if look_ray.sees_player(PhysicsGridPlayerController.last_connected_player):
+            var p: PhysicsGridPlayerController = PhysicsGridPlayerController.last_connected_player
+            move_to_coordinates(p.dungeon.get_closest_coordinates(p.global_position), hunt_speed_factor)
+        else:
+            print_debug("Monster Keith goes to jail")
+            __SignalBus.on_jail_keith.emit()
+    else:
+        print_debug("Monster isn't idle")
 
 var _tracked_noise: NoiseArea
 

@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c1whf61bfa0qn"
+path="res://.godot/imported/bankers_lamp.obj-4f5da7cd53cffa8b46ee56eb02452972.mesh"
+
+[deps]
+
+files=["res://.godot/imported/bankers_lamp.obj-4f5da7cd53cffa8b46ee56eb02452972.mesh"]
+
+source_file="res://visual/clutter/bankers_lamp/bankers_lamp.obj"
+dest_files=["res://.godot/imported/bankers_lamp.obj-4f5da7cd53cffa8b46ee56eb02452972.mesh", "res://.godot/imported/bankers_lamp.obj-4f5da7cd53cffa8b46ee56eb02452972.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

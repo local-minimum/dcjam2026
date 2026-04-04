@@ -47,12 +47,12 @@ func _on_gui_input(event: InputEvent) -> void:
         var mevent: InputEventMouseButton = event
         if mevent.pressed && mevent.button_index == MOUSE_BUTTON_LEFT:
             _click()
-            
+
             # Flash warning that xp bar is full
             if __GlobalGameState.xp == __GlobalGameState.max_xp:
                 if _xp_full_tween:
                     _xp_full_tween.kill()
-                
+
                 var stylebox: StyleBox = _xp_bar.get_theme_stylebox("background")
                 _xp_full_tween = create_tween()
                 _xp_full_tween.tween_property(stylebox, "border_color", Color(1.0, 0.0, 0.0, 1.0), 0.32)
@@ -107,7 +107,7 @@ func _click(efficiency: float = 1.0) -> void:
     var gain: float = __GlobalGameState.xp_click_value * efficiency * (1.0 - __GlobalGameState.boredome)
     __GlobalGameState.xp += gain
     _gain_history.append(GainInfo.new(Time.get_ticks_msec(), gain))
-    
+
     if _click_tween and _click_tween.is_running():
         return
     else:

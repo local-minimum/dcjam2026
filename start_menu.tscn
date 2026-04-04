@@ -67,7 +67,7 @@ _data = {
 
 [node name="StartMenu" type="Node3D" unique_id=1867207705 node_paths=PackedStringArray("title_label", "credits_label", "main_menu_container", "option_menu_container", "body_selector_container")]
 script = ExtResource("1_vpdu5")
-menu_music_path = "uid://dicixyad3t0vy"
+menu_music_path = "uid://cyph2xpgk4wat"
 game_path = "uid://dmfjlovtm3r5k"
 title_label = NodePath("UICanvas/UI/MarginContainer/TitleLabel")
 credits_label = NodePath("UICanvas/UI/CreditsLabel")

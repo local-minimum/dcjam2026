@@ -331,7 +331,7 @@ description = "Change game speed"
 
 [node name="Ready Horror Command" type="Node" parent="DevConsole" unique_id=1158521928]
 script = ExtResource("64_56gn1")
-_horror_music = "res://horror/audio/Dungeon Crawler 2026 - After 1.mp3"
+_horror_music = "res://horror/audio/After.mp3"
 command = Array[String](["ready-horror"])
 description = "Cause game to trigger horror transition"
 

@@ -5,6 +5,7 @@ class_name MonsterEntity
 @export var monster_center: Node3D
 @export var light: OmniLight3D
 @export var speaker: AudioStreamPlayer3D
+@export_file("*.mp3") var poems: Array[String]
 
 @export var hunt_speed_factor: float = 1.5
 
@@ -16,6 +17,7 @@ class_name MonsterEntity
 const IGNORE_ANGLE_THRESHOLD: float = PI * 0.001
 const IGNORE_MOVE_SQ_THRESHOLD: float = 0.1
 
+static var _NEXT_POEM: int = 0
 signal on_monster_idle()
 
 var disabled_player_interactions: bool
@@ -441,11 +443,23 @@ func _align_rotation_with_cardinals() -> void:
     monster.queue_turn(angle, 1.0, true)
 
 func start_next_poem() -> void:
-    # TODO: Add stuff here
+    var poem: AudioStream = load(poems[_NEXT_POEM])
+    speaker.stream = poem
+    _NEXT_POEM = posmod(_NEXT_POEM + 1, poems.size())
     speaker.play()
+    if speaker.finished.connect(_sequence_next_poem, CONNECT_ONE_SHOT) != OK:
+        push_error("Failed to connect speaker finished")
 
 func pause_poem(pause: bool) -> void:
     speaker.stream_paused = pause
 
 func silence() -> void:
+    if speaker.finished.is_connected(_sequence_next_poem):
+        speaker.finished.disconnect(_sequence_next_poem)
+
     speaker.stop()
+
+func _sequence_next_poem() -> void:
+    await get_tree().create_timer(randf_range(1.0, 3.0)).timeout
+    if !speaker.playing:
+        start_next_poem()

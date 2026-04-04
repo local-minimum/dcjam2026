@@ -248,6 +248,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.77190304, 0)
 enabled = false
 exclude_parent = false
 script = ExtResource("10_x6woe")
+_far = 10.0
 metadata/_custom_type_script = "uid://b6h481h1w1e63"
 
 [node name="Approx Monster Center" type="Node3D" parent="." index="5" unique_id=599671727]

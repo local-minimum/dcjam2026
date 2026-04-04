@@ -52,6 +52,10 @@ var _current_command: Command = null:
         if _command_queue.is_empty() && had_command && value == null:
             on_idle.emit()
 
+var idle: bool:
+    get():
+        return _current_command == null
+
 var move_speed: float = 2.5:
     set(value):
         move_speed = value

@@ -188,6 +188,7 @@ func _handle_healing_refused(_station: HealthStation) -> void:
     __AudioHub.play_dialogue(
         _reheal_fail,
         func (success: bool) -> void:
+            print_debug("Healing refused got played %s" % [success])
             if !success:
                 if !__SignalBus.on_healing_refused.is_connected(_handle_healing_refused):
                     __SignalBus.on_healing_refused.connect(_handle_healing_refused, CONNECT_ONE_SHOT)
@@ -208,7 +209,9 @@ func _handle_healing_spotted(_station: HealthStation) -> void:
     __AudioHub.play_dialogue(
         _healing,
         func (success: bool) -> void:
+            print_debug("Audio hub says healing clipp processed %s" % success)
             if !success:
+                print_debug("Audio hub refused to play healing spodded readding it")
                 if !__SignalBus.on_player_spot_healing.is_connected(_handle_healing_spotted):
                     __SignalBus.on_player_spot_healing.connect(_handle_healing_spotted, CONNECT_ONE_SHOT)
             ,
@@ -269,14 +272,11 @@ func _time_refusal(success: float) -> void:
     if !_has_gained_xp:
         __AudioHub.play_dialogue(
             _refuse_clicking,
-            null,
+            func (_success: bool) -> void:
+                __SignalBus.on_gain_bonus_autoclickers.emit(1),
             true,
             false,
         )
-
-        await get_tree().create_timer(10.0).timeout
-
-        __SignalBus.on_gain_bonus_autoclickers.emit(1)
 
 func _handle_progress_quest(quest_id: String, step: int) -> void:
     if quest_id == Dragon.DRAGONS_QUEST_ID:

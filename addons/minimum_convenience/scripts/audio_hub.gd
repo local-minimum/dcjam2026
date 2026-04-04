@@ -95,7 +95,7 @@ func _create_player(
     make_available: bool = true,
 ) -> AudioStreamPlayer:
     var player: AudioStreamPlayer = AudioStreamPlayer.new()
-    player.name = "Player %s on %s" % [available_players.size(), bus]
+    player.name = "Player %s on %s" % [available_players.size(), Bus.find_key(bus)]
 
     add_child(player)
     player.bus = _bus_name(bus)
@@ -353,8 +353,8 @@ static func _fade_player(
         await player.get_tree().create_timer(resolution).timeout
 
     player.volume_linear = to_linear
-    if on_complete is Callable && is_instance_valid(on_complete) && is_instance_valid(on_complete.get_object()):
-        on_complete.call(true)
+    if on_complete is Callable && (on_complete.get_object() == null || is_instance_valid(on_complete.get_object())):
+        on_complete.call()
 
 
 func _end_music_players() -> void:
@@ -384,6 +384,7 @@ func _enqueue_stream(
             return true
 
         else:
+            print_debug("[Audio Hub] Queed %s has waited too long calling %s as failed" % [sound_resource_path, on_finish])
             _attempt_callback(on_finish, false)
             return false
 
@@ -405,24 +406,34 @@ func _check_oneshot_callbacks(player: AudioStreamPlayer, bus: Bus) -> void:
     _process_queue(bus)
 
 func _process_queue(bus: Bus) -> void:
-    print_debug("[Audio Hub] Checks for queued in %s if '%s' is false (%s)" % [_queue, Bus.find_key(bus), is_busy(bus)])
+    print_debug("[Audio Hub] Checks for queued in %s if '%s' is busy (%s)" % [_queue, Bus.find_key(bus), is_busy(bus)])
     if !is_busy(bus) && !(_queue.get(bus, []) as Array).is_empty():
         var queued: Variant = _queue[bus].pop_front()
-        print_debug("[Audio Hub] Playes queued stream %s for bus %s" % [queued, Bus.find_key(bus)])
         if queued is Callable:
             var queued_fn: Callable = queued
             var obj: Object = queued_fn.get_object()
             if obj == null || is_instance_valid(obj):
-                if queued_fn.call():
+                if !queued_fn.call():
+                    print_debug("[Audio Hub] Refused %s because of queue time, processing next in %s: %s" % [queued_fn, Bus.find_key(bus), _queue.get(bus, [])])
                     _process_queue(bus)
+                else:
+                    print_debug("[Audio Hub] Playes queued stream %s for bus %s" % [queued, Bus.find_key(bus)])
+            else:
+                push_warning("Queeued stream no longer valid object %s" % [queued_fn])
+        elif queued != null:
+            push_warning("Unexpected queued item in audio hub bus %s: %s" % [Bus.find_key(bus), queued])
     else:
         print_debug("[Audio Hub] Either queue was busy %s or there was no queue %s" % [is_busy(bus), _queue.get(bus, [])])
 
 func _attempt_callback(v: Variant, success: bool) -> void:
     if v is Callable:
         var c: Callable = v
-        if is_instance_valid(c) && is_instance_valid(c.get_object()):
+        if c.get_object() == null || is_instance_valid(c.get_object()):
             c.call(success)
+        else:
+            print_debug("[Audio Hub] This is no longer a valid callback %s" % [c])
+    else:
+        print_debug("[Audio Hub] This is not a callback %s ignoring success (%s) call" % [v, success])
 
 func clear_callbacks(bus: Bus, call_as_failed: bool = false) -> void:
     match bus:

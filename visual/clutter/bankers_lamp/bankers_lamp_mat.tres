@@ -1,0 +1,15 @@
+[gd_resource type="ORMMaterial3D" format=3 uid="uid://jfpwgs3wgopm"]
+
+[ext_resource type="Texture2D" uid="uid://buplyvo8m0td5" path="res://visual/clutter/bankers_lamp/bankers_lamp_BaseColor.png" id="1_u2yen"]
+[ext_resource type="Texture2D" uid="uid://rpyjgqw1rb35" path="res://visual/clutter/bankers_lamp/bankers_lamp_emission.png" id="2_4q3pp"]
+[ext_resource type="Texture2D" uid="uid://cpnr4m4qamwmp" path="res://visual/clutter/bankers_lamp/bankers_lamp_Normal.png" id="3_nxw7t"]
+[ext_resource type="Texture2D" uid="uid://fjdjamsv8daq" path="res://visual/clutter/bankers_lamp/bankers_lamp_OcclusionRoughnessMetallic.png" id="4_o48ms"]
+
+[resource]
+albedo_texture = ExtResource("1_u2yen")
+orm_texture = ExtResource("4_o48ms")
+emission_enabled = true
+emission_energy_multiplier = 6.35
+emission_texture = ExtResource("2_4q3pp")
+normal_enabled = true
+normal_texture = ExtResource("3_nxw7t")

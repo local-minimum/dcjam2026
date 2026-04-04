@@ -13,6 +13,9 @@ func _handle_count_steps(_player: PhysicsGridPlayerController, _coords: Vector3i
 func _handle_robot_encounter(_enemy_data: EnemyData) -> void:
     total_robots_encountered += 1
 
+
+var body_type: Texture2D
+
 var _gear: Dictionary[Gear.Base, Gear]
 
 func is_naked() -> bool:

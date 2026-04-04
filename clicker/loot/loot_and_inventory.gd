@@ -1,6 +1,7 @@
 extends ColorRect
 class_name LootAndInventory
 
+@export var _body_rect: TextureRect
 @export var _loot_root: Control
 @export var _loot_previews: Array[LootPreviewUI]
 @export var _weapons_smith: WeaponsSmith
@@ -9,6 +10,9 @@ class_name LootAndInventory
 @export var _start_gear_value: int = 1
 
 func _enter_tree() -> void:
+    if _body_rect != null && __GlobalGameState.body_type != null:
+        _body_rect.texture = __GlobalGameState.body_type
+
     if __SignalBus.on_battle_end.connect(_handle_battle_end) != OK:
         push_error("Failed to connect battle end")
 

@@ -53,7 +53,7 @@ corner_radius_bottom_left = 4
 font_size = 24
 shadow_color = Color(0.12156863, 0.12156863, 0.12156863, 0.8509804)
 
-[node name="Loot And Inventory" type="ColorRect" unique_id=1114366633 node_paths=PackedStringArray("_loot_root", "_loot_previews", "_weapons_smith", "_gear_smith")]
+[node name="Loot And Inventory" type="ColorRect" unique_id=1114366633 node_paths=PackedStringArray("_body_rect", "_loot_root", "_loot_previews", "_weapons_smith", "_gear_smith")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -61,6 +61,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.18120003, 0.18120006, 0.1812, 0.7490196)
 script = ExtResource("1_afi37")
+_body_rect = NodePath("Loot And Inventory/HBoxContainer/Inventory Panel/MarginContainer/Body")
 _loot_root = NodePath("Loot And Inventory/HBoxContainer/CenterContainer/Loot Panel")
 _loot_previews = [NodePath("Loot And Inventory/HBoxContainer/CenterContainer/Loot Panel/MarginContainer/VBoxContainer/HBoxContainer/Loot Preview"), NodePath("Loot And Inventory/HBoxContainer/CenterContainer/Loot Panel/MarginContainer/VBoxContainer/HBoxContainer/Loot Preview2"), NodePath("Loot And Inventory/HBoxContainer/CenterContainer/Loot Panel/MarginContainer/VBoxContainer/HBoxContainer/Loot Preview3")]
 _weapons_smith = NodePath("Weapons Smith")

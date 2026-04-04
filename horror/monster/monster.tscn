@@ -10,7 +10,6 @@
 [ext_resource type="Script" uid="uid://cxpcy8u870pnk" path="res://horror/monster/leg_ik_target.gd" id="8_d3vgi"]
 [ext_resource type="Script" uid="uid://dum5myfa27x5d" path="res://horror/detection_area.gd" id="9_tge75"]
 [ext_resource type="Script" uid="uid://b6h481h1w1e63" path="res://core/entities/look_ray_cast.gd" id="10_x6woe"]
-[ext_resource type="AudioStream" uid="uid://b4quwy8mnd2k8" path="res://horror/poems/test.mp3" id="11_rpytr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_v3ikl"]
 render_priority = 0
@@ -45,6 +44,7 @@ monster = NodePath("..")
 monster_center = NodePath("../Approx Monster Center")
 light = NodePath("../Light")
 speaker = NodePath("../AudioStreamPlayer3D")
+poems = Array[String](["uid://c3lrrg45g1bmc", "uid://42c030itji3l", "uid://cmxnvjg8f85jx", "uid://bgnsinr6suf1a", "uid://erbxcp3exfht", "uid://bxgcog3ryr0j0", "uid://37hek8vr5k6c", "uid://c3e4xhtsa4783", "uid://b0e2sgfm2g8x6", "uid://su6gs5brd5s7", "uid://btbe4pbhreyuf", "uid://bkxf56povqvb7"])
 hunt_speed_factor = 1.0
 look_ray = NodePath("../LookRayCast")
 max_tiles_distance_plan = 7
@@ -255,9 +255,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.53863084, 0)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="6" unique_id=1321377429]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7355927, 0)
-stream = ExtResource("11_rpytr")
-volume_db = 5.0
-autoplay = true
+volume_db = 12.0
 max_distance = 22.0
 bus = &"Dialogue"
 

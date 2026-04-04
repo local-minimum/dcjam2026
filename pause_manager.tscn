@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://wwcp3t7inmqj"]
+
+[ext_resource type="Script" uid="uid://catwwstthcoum" path="res://pause_manager.gd" id="1_sg2dq"]
+[ext_resource type="PackedScene" uid="uid://bcafcj4cf1gi3" path="res://pause_menu.tscn" id="2_8gelj"]
+
+[node name="PauseManager" type="Node" unique_id=727944804]
+process_mode = 3
+script = ExtResource("1_sg2dq")
+_pause_menu_scene = ExtResource("2_8gelj")

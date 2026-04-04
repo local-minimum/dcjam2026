@@ -54,4 +54,5 @@ func _on_dragon_door_trigger_area_entered(area: Area3D) -> void:
     create_tween().tween_property(player.camera, "global_position", target, 5.0)
 
     await get_tree().create_timer(4.7).timeout
+
     # TODO: Load credits or something

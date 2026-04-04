@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://cf712amno0wnv"]
 
+[ext_resource type="Script" uid="uid://c5ci2qg14xh2c" path="res://horror/horror_sidebar.gd" id="1_bmd5c"]
 [ext_resource type="Texture2D" uid="uid://cwnthnv701tbf" path="res://clicker/secret_panel.png" id="1_c6h0q"]
 
 [node name="Horror Sidebar" type="ColorRect" unique_id=933494870]
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.3
 color = Color(0.085367166, 6.757858e-06, 0.085840054, 1)
+script = ExtResource("1_bmd5c")
 
 [node name="Clicker Content" type="MarginContainer" parent="." unique_id=340762396]
 layout_mode = 1

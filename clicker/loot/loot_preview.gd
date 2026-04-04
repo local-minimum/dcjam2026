@@ -123,6 +123,11 @@ func _on_gui_input(event: InputEvent) -> void:
         var mevent: InputEventMouseButton = event
         if mevent.pressed && mevent.button_index == MOUSE_BUTTON_LEFT:
             quick_equip()
+            
+            # WARNING: Is is to force one item per looting round, delete this and unhide close button
+            # if we want to go back to a FFA on loot
+            loot_and_inventory.close_ui()
+
 
 func quick_equip() -> void:
     if _weapon != null:

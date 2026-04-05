@@ -78,6 +78,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
         else:
             var coords: Array[Vector3i]
             for n: Node3D in intermediary_positions:
+                if n == null: continue
                 coords.append(dungeon.get_closest_coordinates(n.global_position))
 
             match ending:

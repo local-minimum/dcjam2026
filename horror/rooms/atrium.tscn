@@ -1296,6 +1296,7 @@ spot_angle = 35.0
 spot_angle_attenuation = 0.933033
 
 [node name="Balcony" type="Node3D" parent="." unique_id=2014441479]
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Balcony" unique_id=1728793844]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -31)

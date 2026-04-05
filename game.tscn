@@ -14,7 +14,7 @@
 [ext_resource type="Script" uid="uid://d2lm4ukdo8cux" path="res://clicker/quest_ui.gd" id="15_xoeau"]
 [ext_resource type="PackedScene" uid="uid://ksxuclgif6c1" path="res://clicker/ui/clicker_sidebar.tscn" id="16_082n1"]
 [ext_resource type="Shader" uid="uid://11gufbev0t4g" path="res://cracks.gdshader" id="22_i2p71"]
-[ext_resource type="PackedScene" path="res://pause_manager.tscn" id="26_i2p71"]
+[ext_resource type="PackedScene" uid="uid://wwcp3t7inmqj" path="res://pause_manager.tscn" id="26_i2p71"]
 [ext_resource type="PackedScene" uid="uid://3heqxlultjpy" path="res://clicker/loot/loot_and_inventory.tscn" id="39_eu6ph"]
 [ext_resource type="Script" uid="uid://dpr1k74riep1o" path="res://clicker/dev_console_loot.gd" id="44_kq12w"]
 [ext_resource type="Resource" uid="uid://d3js5rmf1rpk" path="res://clicker/abilities/break_free.tres" id="49_6qn5j"]

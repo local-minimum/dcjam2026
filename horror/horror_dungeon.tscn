@@ -49,7 +49,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47469425, 0, 0)
 transform = Transform3D(-0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, -0.70710677, 42.292103, 0, -4)
 
 [node name="SpotLight3D" parent="Interactables/Dragon Key5" index="0" unique_id=5359294]
-transform = Transform3D(0.9987068, -0.0056267087, 0.050489433, -0.050801896, -0.11061457, 0.99256414, 2.9802266e-08, -0.9938476, -0.11075757, 0, 1.1601533, 0)
+transform = Transform3D(0.99870676, -0.0056267087, 0.050489433, -0.05080189, -0.11061457, 0.99256414, 2.9802264e-08, -0.9938476, -0.11075757, 0, 1.1601533, 0)
 
 [node name="Area3D" parent="Interactables/Dragon Key5" index="3" unique_id=2087952680]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47469425, 0, 0)
@@ -133,7 +133,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38103676, 0, 10)
 
 [node name="DragonDoorManager" parent="Foyer" index="5" unique_id=914619696 node_paths=PackedStringArray("monster")]
 monster = NodePath("../../Monster")
-required_keys = 4
 
 [node name="Monster Room Trigger2" parent="Foyer/Triggers" parent_id_path=PackedInt32Array(248408387, 1307637745) index="1" unique_id=1266502148 node_paths=PackedStringArray("intermediary_positions")]
 intermediary_positions = [NodePath("CheckPoint"), null, null, null]

@@ -34,6 +34,54 @@ corner_detail = 1
 expand_margin_top = 2.0
 expand_margin_bottom = 1.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ppecn"]
+content_margin_left = 20.0
+content_margin_top = 6.0
+content_margin_right = 24.0
+content_margin_bottom = 8.0
+bg_color = Color(0.15487596, 0.154876, 0.15487587, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.9079417, 0.9079417, 0.9079416, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_53338"]
+content_margin_left = 20.0
+content_margin_top = 6.0
+content_margin_right = 24.0
+content_margin_bottom = 8.0
+bg_color = Color(0.14406255, 0.14406255, 0.14406249, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.9079417, 0.9079417, 0.9079416, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uqutw"]
+content_margin_left = 20.0
+content_margin_top = 6.0
+content_margin_right = 24.0
+content_margin_bottom = 8.0
+bg_color = Color(0.20871013, 0.20871016, 0.20871007, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.9079417, 0.9079417, 0.9079416, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0qedo"]
 bg_color = Color(0, 0, 0, 1)
 
@@ -125,6 +173,15 @@ layout_mode = 2
 
 [node name="Loot Preview3" parent="Loot And Inventory/HBoxContainer/CenterContainer/Loot Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1704816354 instance=ExtResource("2_yrt3n")]
 layout_mode = 2
+
+[node name="SkipButton" type="Button" parent="Loot And Inventory/HBoxContainer/CenterContainer/Loot Panel/MarginContainer/VBoxContainer" unique_id=1777929261]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_ppecn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_53338")
+theme_override_styles/hover = SubResource("StyleBoxFlat_uqutw")
+text = "SKIP"
 
 [node name="Inventory Panel" type="PanelContainer" parent="Loot And Inventory/HBoxContainer" unique_id=694669563]
 layout_mode = 2
@@ -290,9 +347,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -33.0
-offset_right = -3.0
-offset_bottom = 30.0
+offset_left = -38.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = 38.0
 grow_horizontal = 0
 theme_override_fonts/font = ExtResource("8_0qedo")
 theme_override_font_sizes/font_size = 16
@@ -313,4 +371,5 @@ script = ExtResource("6_imme1")
 [node name="Gear Smith" type="Node" parent="." unique_id=2028427087]
 script = ExtResource("7_yrt3n")
 
+[connection signal="pressed" from="Loot And Inventory/HBoxContainer/CenterContainer/Loot Panel/MarginContainer/VBoxContainer/SkipButton" to="." method="_on_close_button_pressed"]
 [connection signal="pressed" from="Loot And Inventory/HBoxContainer/Inventory Panel/MarginContainer/Body/Close Button" to="." method="_on_close_button_pressed"]

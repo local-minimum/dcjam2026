@@ -263,11 +263,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.74523926, 0)
 shape = SubResource("CylinderShape3D_b45h2")
 
 [node name="Light" type="OmniLight3D" parent="." index="3" unique_id=1394661634]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1.5709311, 0)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1.4211015, 0)
 visible = false
 light_color = Color(0.99999994, 0.17606175, 0.107509546, 1)
-omni_range = 1.6038629
-omni_attenuation = 2.935
+light_energy = 2.0
+light_volumetric_fog_energy = 5.0
+omni_range = 1.0
+omni_attenuation = 1.556
 
 [node name="LookRayCast" type="RayCast3D" parent="." index="4" unique_id=1874556014]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.77190304, 0)

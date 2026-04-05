@@ -427,7 +427,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 1, -25)
 mesh = SubResource("ArrayMesh_r0gp2")
 
 [node name="MeshInstance3D109" type="MeshInstance3D" parent="Wall" unique_id=576477173]
-transform = Transform3D(8.742278e-08, 4.3711392e-08, 1, 1, 4.3711385e-08, -8.742278e-08, -4.371139e-08, 1, -4.371139e-08, 14, 1, -25)
+transform = Transform3D(8.742278e-08, 4.3711392e-08, 1, 1, 4.3711385e-08, -8.742278e-08, -4.371139e-08, 1, -4.371139e-08, 14, 2.5, -24.9)
 mesh = SubResource("ArrayMesh_aejem")
 
 [node name="MeshInstance3D156" type="MeshInstance3D" parent="Wall" unique_id=189227545]

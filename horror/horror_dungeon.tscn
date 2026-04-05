@@ -18,9 +18,10 @@
 [ext_resource type="Script" uid="uid://d0amf0qywgikd" path="res://horror/dragon_keys_ui.gd" id="15_ijayo"]
 [ext_resource type="PackedScene" uid="uid://miqvvv57y7jw" path="res://horror/rooms/foyer.tscn" id="16_ijayo"]
 [ext_resource type="PackedScene" uid="uid://c1sk2id5gjtyw" path="res://horror/rooms/gallery.tscn" id="18_fa5rm"]
+[ext_resource type="PackedScene" uid="uid://ckjdclroeuhky" path="res://horror/rooms/duct_rooms.tscn" id="19_u0uk3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_eidof"]
-size = Vector3(119.32135, 117.378235, 0.263)
+size = Vector3(128.49942, 117.378235, 0.263)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fa5rm"]
 size = Vector3(6, 1, 6)
@@ -39,16 +40,25 @@ metadata/_custom_type_script = "uid://5nd45w6q42kq"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.641368, 0, -14)
 
 [node name="SpotLight3D" parent="Interactables/Dragon Key" index="0" unique_id=5359294]
-transform = Transform3D(0.9987069, -0.0056267087, 0.050489433, -0.0508019, -0.11061457, 0.99256414, 2.9802267e-08, -0.9938476, -0.11075757, 0, 1.1601533, 0)
+transform = Transform3D(0.9987068, -0.0056267087, 0.050489433, -0.050801896, -0.11061457, 0.99256414, 2.9802266e-08, -0.9938476, -0.11075757, 0, 1.1601533, 0)
 
 [node name="Area3D" parent="Interactables/Dragon Key" index="3" unique_id=2087952680]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47469425, 0, 0)
+
+[node name="Dragon Key5" parent="Interactables" unique_id=60976961 instance=ExtResource("2_1m84d")]
+transform = Transform3D(-0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, -0.70710677, 42.292103, 0, -4)
+
+[node name="SpotLight3D" parent="Interactables/Dragon Key5" index="0" unique_id=5359294]
+transform = Transform3D(0.9987068, -0.0056267087, 0.050489433, -0.050801896, -0.11061457, 0.99256414, 2.9802266e-08, -0.9938476, -0.11075757, 0, 1.1601533, 0)
+
+[node name="Area3D" parent="Interactables/Dragon Key5" index="3" unique_id=2087952680]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47469425, 0, 0)
 
 [node name="Dragon Key2" parent="Interactables" unique_id=2040728135 instance=ExtResource("2_1m84d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.597461, 0, -6)
 
 [node name="SpotLight3D" parent="Interactables/Dragon Key2" index="0" unique_id=5359294]
-transform = Transform3D(0.9987069, -0.0056267087, 0.050489433, -0.0508019, -0.11061457, 0.99256414, 2.9802267e-08, -0.9938476, -0.11075757, 0, 1.1601533, 0)
+transform = Transform3D(0.9987068, -0.0056267087, 0.050489433, -0.050801896, -0.11061457, 0.99256414, 2.9802266e-08, -0.9938476, -0.11075757, 0, 1.1601533, 0)
 
 [node name="AnimationPlayer" parent="Interactables/Dragon Key2" index="2" unique_id=1381750830]
 root_node = NodePath("../../Dragon Key2")
@@ -60,7 +70,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4202175, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.544454, 0, -8)
 
 [node name="SpotLight3D" parent="Interactables/Dragon Key3" index="0" unique_id=5359294]
-transform = Transform3D(0.9987069, -0.0056267087, 0.050489433, -0.0508019, -0.11061457, 0.99256414, 2.9802267e-08, -0.9938476, -0.11075757, 0, 1.1601533, 0)
+transform = Transform3D(0.9987068, -0.0056267087, 0.050489433, -0.050801896, -0.11061457, 0.99256414, 2.9802266e-08, -0.9938476, -0.11075757, 0, 1.1601533, 0)
 
 [node name="AnimationPlayer" parent="Interactables/Dragon Key3" index="2" unique_id=1381750830]
 root_node = NodePath("../../Dragon Key3")
@@ -72,7 +82,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.48708344, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.022394, -0.00017893314, -28.045038)
 
 [node name="SpotLight3D" parent="Interactables/Dragon Key4" index="0" unique_id=5359294]
-transform = Transform3D(0.9987069, -0.0056267087, 0.050489433, -0.0508019, -0.11061457, 0.99256414, 2.9802267e-08, -0.9938476, -0.11075757, 0, 1.1601533, 0)
+transform = Transform3D(0.9987068, -0.0056267087, 0.050489433, -0.050801896, -0.11061457, 0.99256414, 2.9802266e-08, -0.9938476, -0.11075757, 0, 1.1601533, 0)
 
 [node name="AnimationPlayer" parent="Interactables/Dragon Key4" index="2" unique_id=1381750830]
 root_node = NodePath("../../Dragon Key4")
@@ -86,7 +96,7 @@ environment = ExtResource("3_ap2dw")
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -3.75, 0, -18.75)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Misc/Floor Collision" unique_id=1782019905]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1007175, 9.588593, -0.13185121)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5116825, 9.588593, -0.13185121)
 shape = SubResource("BoxShape3D_eidof")
 
 [node name="Player" parent="." unique_id=942295760 instance=ExtResource("5_eidof")]
@@ -123,6 +133,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38103676, 0, 10)
 
 [node name="DragonDoorManager" parent="Foyer" index="5" unique_id=914619696 node_paths=PackedStringArray("monster")]
 monster = NodePath("../../Monster")
+required_keys = 4
 
 [node name="Monster Room Trigger2" parent="Foyer/Triggers" parent_id_path=PackedInt32Array(248408387, 1307637745) index="1" unique_id=1266502148 node_paths=PackedStringArray("intermediary_positions")]
 intermediary_positions = [NodePath("CheckPoint"), null, null, null]
@@ -190,9 +201,13 @@ stretch_mode = 4
 [node name="Cubicles2" parent="." unique_id=133002402 instance=ExtResource("18_fa5rm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 0, 4)
 
+[node name="Duct Rooms" parent="." unique_id=1034438728 instance=ExtResource("19_u0uk3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -19)
+
 [connection signal="body_entered" from="Multi-Area Triggers/Monster Room Trigger/Area3D" to="Multi-Area Triggers/Monster Room Trigger" method="_on_area_3d_body_entered"]
 
 [editable path="Interactables/Dragon Key"]
+[editable path="Interactables/Dragon Key5"]
 [editable path="Interactables/Dragon Key2"]
 [editable path="Interactables/Dragon Key3"]
 [editable path="Interactables/Dragon Key4"]

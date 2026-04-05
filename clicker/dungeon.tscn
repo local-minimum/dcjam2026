@@ -35,7 +35,7 @@
 [ext_resource type="PackedScene" uid="uid://1dj8r87yrr6g" path="res://clicker/rooms/duct_rooms.tscn" id="33_fivls"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sufut"]
-size = Vector3(107, 112, 0.263)
+size = Vector3(113, 112, 0.263)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l3xlb"]
 size = Vector3(1.6708984, 1.7143555, 2.041504)
@@ -78,7 +78,7 @@ environment = ExtResource("2_eppcp")
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -3.75, 0, -18.75)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Misc/Floor Collision" unique_id=357102592]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.76511, 12.27771, -0.13185121)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.23489, 12.27771, -0.13185121)
 shape = SubResource("BoxShape3D_sufut")
 
 [node name="sideboard" parent="Misc" unique_id=1737767895 instance=ExtResource("12_sm5ll")]

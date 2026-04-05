@@ -90,22 +90,6 @@ size = Vector3(2, 4, 0.2)
 [sub_resource type="BoxShape3D" id="BoxShape3D_h5q2p"]
 size = Vector3(10, 2, 0.2)
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_pixaj"]
-_surfaces = [{
-"aabb": AABB(-1, -1, -0.1, 2, 2, 0.2),
-"attribute_data": PackedByteArray("ZeYAAP///////wAAZeb/////AAAAAP//AAAAAP////8AAAAAmRn//5kZAAAAAP//AAAAAP///////wAAAAD///////8AAGXm//9l5gAA/////wAAAACZGf//mRkAAAAA"),
-"format": 34896613399,
-"index_count": 36,
-"index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQACAAJAAoACwAJAAgADAANAA4ADwANAAwAEAARABIAEwARABAAFAAVABYAFwAVABQA"),
-"name": "Mesh",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 24,
-"vertex_data": PackedByteArray("AAAAAAAA/z8AAP//////PwAAAAD///8/AAD//wAA/z///wAAAAD//wAA//8AAP//AAAAAAAA////////AAD/////AAD///8//////wAA/z///wAAAAD/P/////////8/AAAAAP///n/////////+f///AAD///5/AAD//////n8AAAAA////////AAAAAP//AAAAAAAA/////wAA//////////////8/AAD//wAA/z//////AAD/PwAA//////8//3////9/////f////3///////3////9/////f////3//fwAA/38AAP9/AAD/fwAA/3////9/////f////3////9//z//f/8//3//P/9//z////9/////f////3////9/")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_xmlox")
-
 [node name="Corridor" type="Node3D" unique_id=353704301]
 
 [node name="Wall" type="Node3D" parent="." unique_id=1008589962]
@@ -371,78 +355,3 @@ shape = SubResource("BoxShape3D_h5q2p")
 [node name="CollisionShape3D8" type="CollisionShape3D" parent="StaticBody3D" unique_id=1258789722]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3, 2, 0)
 shape = SubResource("BoxShape3D_v3rd6")
-
-[node name="Ceiling" type="Node3D" parent="." unique_id=358201703]
-visible = false
-
-[node name="MeshInstance3D17" type="MeshInstance3D" parent="Ceiling" unique_id=924189925]
-transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, -26, 4.1, -16)
-mesh = SubResource("ArrayMesh_pixaj")
-
-[node name="MeshInstance3D18" type="MeshInstance3D" parent="Ceiling" unique_id=1482926470]
-transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, -24, 4.1, -16)
-mesh = SubResource("ArrayMesh_pixaj")
-
-[node name="MeshInstance3D28" type="MeshInstance3D" parent="Ceiling" unique_id=315640057]
-transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, -24, 2.1, -18)
-mesh = SubResource("ArrayMesh_pixaj")
-
-[node name="MeshInstance3D33" type="MeshInstance3D" parent="Ceiling" unique_id=272110247]
-transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, -24, 2.1, -14)
-mesh = SubResource("ArrayMesh_pixaj")
-
-[node name="MeshInstance3D34" type="MeshInstance3D" parent="Ceiling" unique_id=790196115]
-transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, -18, 2.1, -14)
-mesh = SubResource("ArrayMesh_pixaj")
-
-[node name="MeshInstance3D29" type="MeshInstance3D" parent="Ceiling" unique_id=1443097095]
-transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, -24, 2.1, -20)
-mesh = SubResource("ArrayMesh_pixaj")
-
-[node name="MeshInstance3D30" type="MeshInstance3D" parent="Ceiling" unique_id=604910123]
-transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, -24, 2.1, -22)
-mesh = SubResource("ArrayMesh_pixaj")
-
-[node name="MeshInstance3D31" type="MeshInstance3D" parent="Ceiling" unique_id=1402829286]
-transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, -24, 2.1, -24)
-mesh = SubResource("ArrayMesh_pixaj")
-
-[node name="MeshInstance3D32" type="MeshInstance3D" parent="Ceiling" unique_id=1628261333]
-transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, -24, 2.1, -26)
-mesh = SubResource("ArrayMesh_pixaj")
-
-[node name="MeshInstance3D19" type="MeshInstance3D" parent="Ceiling" unique_id=1236736276]
-transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, -22, 4.1, -16)
-mesh = SubResource("ArrayMesh_pixaj")
-
-[node name="MeshInstance3D20" type="MeshInstance3D" parent="Ceiling" unique_id=1578080840]
-transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, -20, 4.1, -16)
-mesh = SubResource("ArrayMesh_pixaj")
-
-[node name="MeshInstance3D21" type="MeshInstance3D" parent="Ceiling" unique_id=1759755242]
-transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, -18, 4.1, -16)
-mesh = SubResource("ArrayMesh_pixaj")
-
-[node name="MeshInstance3D22" type="MeshInstance3D" parent="Ceiling" unique_id=300440965]
-transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, -16, 4.1, -16)
-mesh = SubResource("ArrayMesh_pixaj")
-
-[node name="MeshInstance3D23" type="MeshInstance3D" parent="Ceiling" unique_id=1674568646]
-transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, -14, 4.1, -16)
-mesh = SubResource("ArrayMesh_pixaj")
-
-[node name="MeshInstance3D24" type="MeshInstance3D" parent="Ceiling" unique_id=1183564125]
-transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, -12, 4.1, -16)
-mesh = SubResource("ArrayMesh_pixaj")
-
-[node name="MeshInstance3D25" type="MeshInstance3D" parent="Ceiling" unique_id=1504513167]
-transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, -10, 4.1, -16)
-mesh = SubResource("ArrayMesh_pixaj")
-
-[node name="MeshInstance3D26" type="MeshInstance3D" parent="Ceiling" unique_id=1466119502]
-transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, -6, 4.1, -16)
-mesh = SubResource("ArrayMesh_pixaj")
-
-[node name="MeshInstance3D27" type="MeshInstance3D" parent="Ceiling" unique_id=1328308509]
-transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, -8, 4.1, -16)
-mesh = SubResource("ArrayMesh_pixaj")

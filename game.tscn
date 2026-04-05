@@ -273,7 +273,7 @@ player_stats_color = Color(1, 0, 0, 0.7607843)
 enemy_stats_color = Color(0, 0, 0.5019608, 0.8156863)
 end_color = Color(0.45882353, 0.45882353, 0.45882353, 0.29411766)
 
-[node name="Quest UI" type="VBoxContainer" parent="HSplitContainer/Viewport Side" unique_id=717770510 node_paths=PackedStringArray("dragon_quest_v1", "dragon_quest_v2", "dispose_quest")]
+[node name="Quest UI" type="VBoxContainer" parent="HSplitContainer/Viewport Side" unique_id=717770510 node_paths=PackedStringArray("dragon_quest_v1", "dragon_quest_v2", "dispose_quest", "hint_quest", "hint2_quest")]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 0
 offset_left = 39.0
@@ -285,6 +285,8 @@ script = ExtResource("15_xoeau")
 dragon_quest_v1 = NodePath("Dragon Quest")
 dragon_quest_v2 = NodePath("Dragon Quest V2")
 dispose_quest = NodePath("Dispose Quest")
+hint_quest = NodePath("Hint Quest 1")
+hint2_quest = NodePath("Hint Quest 2")
 
 [node name="Dragon Quest" type="Label" parent="HSplitContainer/Viewport Side/Quest UI" unique_id=1126309021]
 layout_mode = 2
@@ -294,6 +296,16 @@ label_settings = SubResource("LabelSettings_6qn5j")
 [node name="Dragon Quest V2" type="Label" parent="HSplitContainer/Viewport Side/Quest UI" unique_id=1848853075]
 layout_mode = 2
 text = "1 / 4 Dragons"
+label_settings = SubResource("LabelSettings_6qn5j")
+
+[node name="Hint Quest 1" type="Label" parent="HSplitContainer/Viewport Side/Quest UI" unique_id=2022470051]
+layout_mode = 2
+text = "Don't listen to voice"
+label_settings = SubResource("LabelSettings_6qn5j")
+
+[node name="Hint Quest 2" type="Label" parent="HSplitContainer/Viewport Side/Quest UI" unique_id=1535541207]
+layout_mode = 2
+text = "Break Free"
 label_settings = SubResource("LabelSettings_6qn5j")
 
 [node name="Dispose Quest" type="Label" parent="HSplitContainer/Viewport Side/Quest UI" unique_id=476044289]

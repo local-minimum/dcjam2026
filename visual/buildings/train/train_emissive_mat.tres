@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://d4couyl4ae1un"]
 
-[ext_resource type="Shader" uid="uid://drf2l6sb22tqd" path="res://visual/common/base_emission_shader.gdshader" id="1_4oblr"]
+[ext_resource type="Shader" path="res://visual/common/base_emission_shader.gdshader" id="1_4oblr"]
 [ext_resource type="Texture2D" uid="uid://do8wr35aa2q5k" path="res://visual/buildings/train/train_emissive.png" id="2_ojht1"]
 
 [resource]

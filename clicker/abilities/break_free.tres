@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ClickerAbilityData" format=3 uid="uid://d3js5rmf1rpk"]
+
+[ext_resource type="Script" uid="uid://bt1vi716f5csr" path="res://clicker/clicker_ability_data.gd" id="1_uvbgn"]
+
+[resource]
+script = ExtResource("1_uvbgn")
+id = "break-free"
+title = "Break Free!"
+costs = Array[int]([666])
+descriptions = Array[String](["You've had it with listening to that voice. Time to act!"])
+metadata/_custom_type_script = "uid://bt1vi716f5csr"

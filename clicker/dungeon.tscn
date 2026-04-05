@@ -31,9 +31,10 @@
 [ext_resource type="PackedScene" uid="uid://ihuyeodrof8q" path="res://clicker/enemies/c_ore.tscn" id="21_xkxrh"]
 [ext_resource type="PackedScene" uid="uid://bk1novtq2fqjb" path="res://clicker/enemies/brassodon.tscn" id="22_5s7a7"]
 [ext_resource type="PackedScene" uid="uid://8caxly5htdpe" path="res://clicker/enemies/ingomatic_v3.tscn" id="23_fivls"]
+[ext_resource type="PackedScene" uid="uid://cacxaqud57kme" path="res://clicker/rooms/gallery_clicker.tscn" id="32_5s7a7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sufut"]
-size = Vector3(75.727066, 99.23596, 0.263)
+size = Vector3(107, 112, 0.263)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l3xlb"]
 size = Vector3(1.6708984, 1.7143555, 2.041504)
@@ -73,7 +74,7 @@ environment = ExtResource("2_eppcp")
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -3.75, 0, -18.75)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Misc/Floor Collision" unique_id=357102592]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.128643, 18.659729, -0.13185121)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.76511, 12.27771, -0.13185121)
 shape = SubResource("BoxShape3D_sufut")
 
 [node name="sideboard" parent="Misc" unique_id=1737767895 instance=ExtResource("12_sm5ll")]
@@ -379,6 +380,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, -21)
 
 [node name="Collision System" type="Node" parent="." unique_id=1467278961]
 script = ExtResource("2_sufut")
+
+[node name="Gallery" parent="." unique_id=182392180 instance=ExtResource("32_5s7a7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 0, 4)
 
 [connection signal="area_entered" from="Interactables/dragon/trigger area" to="Interactables/dragon" method="_on_trigger_area_area_entered"]
 [connection signal="area_entered" from="Interactables/dragon3/trigger area" to="Interactables/dragon3" method="_on_trigger_area_area_entered"]

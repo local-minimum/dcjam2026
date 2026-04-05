@@ -8,8 +8,12 @@
 [ext_resource type="Material" uid="uid://dja2wwno4f7n5" path="res://visual/tiles/concrete_block/concrete_block_mat.tres" id="4_eief6"]
 [ext_resource type="Material" uid="uid://ct3x3guwn3w5l" path="res://visual/tiles/metal_crosshatch/metal_crosshatch_mat.tres" id="6_eief6"]
 [ext_resource type="Script" uid="uid://c6y8msnderh7g" path="res://horror/rooms/dragon_door_manager.gd" id="8_akkrm"]
+[ext_resource type="Shader" uid="uid://cvswjcnx32anm" path="res://horror/screen_blur_shake_shader.gdshader" id="9_k0tl3"]
 [ext_resource type="PackedScene" uid="uid://xwk63eyo1hpq" path="res://visual/tiles/dragon_door/dragon_door.tscn" id="9_r2jhy"]
 [ext_resource type="Script" uid="uid://pq54prborom3" path="res://horror/triggers.gd" id="10_qersb"]
+[ext_resource type="Environment" uid="uid://byjp5qc66kefe" path="res://horror/horror_environment.tres" id="10_ybyuc"]
+[ext_resource type="PackedScene" uid="uid://cedti1u06j3wl" path="res://game_complete.tscn" id="11_by2j1"]
+[ext_resource type="Shader" uid="uid://b516ovl5mt2ss" path="res://horror/portal_shader.gdshader" id="11_k4r26"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_tshes"]
 _surfaces = [{
@@ -219,6 +223,22 @@ size = Vector3(1.8, 1.8, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_01k27"]
 size = Vector3(2, 1, 2)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_k0tl3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ybyuc"]
+render_priority = 0
+shader = ExtResource("11_k4r26")
+shader_parameter/resolution = Vector2(200, 200)
+shader_parameter/octaves = 5
+shader_parameter/speed = 0.5
+shader_parameter/frequency = 1.60000002384192
+shader_parameter/amplitude = 1.20000001788144
+shader_parameter/time_shift = 1.0
+shader_parameter/zoom = 3.0
+shader_parameter/radiance = 0.5
+shader_parameter/sharpness = 5.0
+shader_parameter/gloss = 0.7099999878554
 
 [node name="Foyer" type="Node3D" unique_id=248408387]
 
@@ -842,21 +862,25 @@ omni_range = 4.0
 [node name="Hall Light 1" type="OmniLight3D" parent="Lights" unique_id=1140712830]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5421602, 4)
 light_color = Color(1, 0.7724288, 0.7327415, 1)
+light_volumetric_fog_energy = 2.0
 omni_range = 2.0
 
 [node name="Hall Light 2" type="OmniLight3D" parent="Lights" unique_id=1490824849]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5421602, 8)
 light_color = Color(1, 0.7724288, 0.7327415, 1)
+light_volumetric_fog_energy = 2.0
 omni_range = 2.0
 
 [node name="Hall Light 3" type="OmniLight3D" parent="Lights" unique_id=1156210698]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5421602, 12)
 light_color = Color(1, 0.7724288, 0.7327415, 1)
+light_volumetric_fog_energy = 2.0
 omni_range = 2.0
 
 [node name="Hall Light 4" type="OmniLight3D" parent="Lights" unique_id=1945422086]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1.5421602, 12)
 light_color = Color(1, 0.7724288, 0.7327415, 1)
+light_volumetric_fog_energy = 2.0
 omni_range = 2.0
 
 [node name="ReflectionProbe" type="ReflectionProbe" parent="Lights" unique_id=272655504]
@@ -995,11 +1019,14 @@ shape = SubResource("BoxShape3D_4r6iu")
 
 [node name="DragonDoorManager" type="Node" parent="." unique_id=914619696 node_paths=PackedStringArray("door_scene", "door_collider", "trigger_area_collider", "look_target")]
 script = ExtResource("8_akkrm")
-game_done_path = "uid://cedti1u06j3wl"
 door_scene = NodePath("../DragonDoor")
 door_collider = NodePath("../StaticBody3D/Dragon Door Collider")
 trigger_area_collider = NodePath("../DragonDoorTrigger")
 look_target = NodePath("../Wall/Exit Hall End")
+screen_shake_shader = ExtResource("9_k0tl3")
+horror_environment = ExtResource("10_ybyuc")
+game_end_screen = ExtResource("11_by2j1")
+required_keys = 0
 
 [node name="DragonDoorTrigger" type="Area3D" parent="." unique_id=556539270]
 collision_mask = 512
@@ -1049,7 +1076,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, 30)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -32)
 script = ExtResource("10_qersb")
 spawn_keith_position = NodePath("Spawn")
-intermediary_positions = [NodePath("CheckPoint"), NodePath(""), NodePath(""), NodePath("")]
+intermediary_positions = [NodePath("CheckPoint"), null, null, null]
 grace_period = 20.0
 jitter = 0.05
 
@@ -1068,6 +1095,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 30)
 
 [node name="CheckPoint" type="Node3D" parent="Triggers/Monster Room Trigger2" unique_id=807978123]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 30)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=66205529]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -4.897176, 1, 12)
+mesh = SubResource("PlaneMesh_k0tl3")
+surface_material_override/0 = SubResource("ShaderMaterial_ybyuc")
 
 [connection signal="area_entered" from="DragonDoorTrigger" to="DragonDoorManager" method="_on_dragon_door_trigger_area_entered"]
 [connection signal="body_entered" from="Triggers/Monster Room Trigger/Area3D" to="Triggers/Monster Room Trigger" method="_on_area_3d_body_entered"]

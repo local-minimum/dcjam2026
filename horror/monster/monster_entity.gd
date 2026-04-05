@@ -464,12 +464,18 @@ func _align_rotation_with_cardinals() -> void:
 
     monster.queue_turn(angle, 1.0, true)
 
+var is_speaking: bool:
+    get():
+        return speaker.playing
+
+var is_jailed: bool
+
 func start_next_poem() -> void:
     var poem: AudioStream = load(poems[_NEXT_POEM])
     speaker.stream = poem
     _NEXT_POEM = posmod(_NEXT_POEM + 1, poems.size())
     speaker.play()
-    if speaker.finished.connect(_sequence_next_poem, CONNECT_ONE_SHOT) != OK:
+    if !speaker.finished.is_connected(_sequence_next_poem) && speaker.finished.connect(_sequence_next_poem, CONNECT_ONE_SHOT) != OK:
         push_error("Failed to connect speaker finished")
 
 func pause_poem(pause: bool) -> void:

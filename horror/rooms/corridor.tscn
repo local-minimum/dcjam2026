@@ -180,7 +180,7 @@ size = Vector3(1.4106445, 1, 4.2579346)
 size = Vector3(18, 4, 0.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dffvr"]
-size = Vector3(18, 2, 0.2)
+size = Vector3(20, 2, 0.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_abhsr"]
 size = Vector3(12, 2, 0.2)
@@ -191,8 +191,29 @@ size = Vector3(4, 2, 0.2)
 [sub_resource type="BoxShape3D" id="BoxShape3D_v3rd6"]
 size = Vector3(2, 4, 0.2)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_13wpk"]
+size = Vector3(2, 2, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lcfga"]
+size = Vector3(2, 2, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mqyr4"]
+size = Vector3(2, 2, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nnhjo"]
+size = Vector3(2, 2, 0.2)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_h5q2p"]
 size = Vector3(10, 2, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n4chg"]
+size = Vector3(2, 0.2, 22)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j26r1"]
+size = Vector3(10, 0.2, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pc38m"]
+size = Vector3(2, 0.2, 2)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_pixaj"]
 _surfaces = [{
@@ -581,21 +602,22 @@ light_energy = 2.0
 light_volumetric_fog_energy = 5.0
 omni_range = 3.5
 
-[node name="Triggers" type="Node3D" parent="." unique_id=1066317152 node_paths=PackedStringArray("spawn_keith_position", "red_lights")]
+[node name="Triggrers" type="Node3D" parent="." unique_id=1473453663]
+
+[node name="Walk Down Hall Trigger" type="Node3D" parent="Triggrers" unique_id=1066317152 node_paths=PackedStringArray("spawn_keith_position", "red_lights")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -17)
 script = ExtResource("5_abhsr")
-keith_scare_sfx_path = "uid://bt4jw627jua1r"
 lights_cascade_sfx_path = "uid://17jtf5w2rh4g"
-spawn_keith_position = NodePath("../Floor/Trigger Keith Start Pos")
-red_lights = [NodePath("../Lights/RedLight6"), NodePath("../Lights/RedLight5"), NodePath("../Lights/RedLight4"), NodePath("../Lights/RedLight3"), NodePath("../Lights/RedLight2"), NodePath("../Lights/RedLight1")]
+spawn_keith_position = NodePath("../../Floor/Trigger Keith Start Pos")
+red_lights = [NodePath("../../Lights/RedLight6"), NodePath("../../Lights/RedLight5"), NodePath("../../Lights/RedLight4"), NodePath("../../Lights/RedLight3"), NodePath("../../Lights/RedLight2"), NodePath("../../Lights/RedLight1")]
 
-[node name="Area3D" type="Area3D" parent="Triggers" unique_id=1065119730]
+[node name="Area3D" type="Area3D" parent="Triggrers/Walk Down Hall Trigger" unique_id=1065119730]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, 1)
 collision_layer = 512
 collision_mask = 512
 input_ray_pickable = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Triggers/Area3D" unique_id=1329166246]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Triggrers/Walk Down Hall Trigger/Area3D" unique_id=1329166246]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20532227, 0, 0.04071045)
 shape = SubResource("BoxShape3D_uyvyw")
 
@@ -607,7 +629,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2, -1)
 shape = SubResource("BoxShape3D_jxbi7")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" unique_id=1783506355]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 3, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 3, 1)
 shape = SubResource("BoxShape3D_dffvr")
 
 [node name="CollisionShape3D9" type="CollisionShape3D" parent="StaticBody3D" unique_id=86274368]
@@ -627,20 +649,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, 1)
 shape = SubResource("BoxShape3D_v3rd6")
 
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="StaticBody3D" unique_id=381695444]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1, 2, 2)
-shape = SubResource("BoxShape3D_v3rd6")
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1, 1, 2)
+shape = SubResource("BoxShape3D_13wpk")
 
 [node name="CollisionShape3D11" type="CollisionShape3D" parent="StaticBody3D" unique_id=161278544]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7, 2, 2)
-shape = SubResource("BoxShape3D_v3rd6")
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7, 1, 2)
+shape = SubResource("BoxShape3D_lcfga")
 
 [node name="CollisionShape3D12" type="CollisionShape3D" parent="StaticBody3D" unique_id=1513843309]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5, 2, 2)
-shape = SubResource("BoxShape3D_v3rd6")
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5, 1, 2)
+shape = SubResource("BoxShape3D_mqyr4")
 
 [node name="CollisionShape3D6" type="CollisionShape3D" parent="StaticBody3D" unique_id=575052813]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1, 2, 2)
-shape = SubResource("BoxShape3D_v3rd6")
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1, 1, 2)
+shape = SubResource("BoxShape3D_nnhjo")
 
 [node name="CollisionShape3D7" type="CollisionShape3D" parent="StaticBody3D" unique_id=2115673101]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1, 1, -6)
@@ -653,6 +675,22 @@ shape = SubResource("BoxShape3D_h5q2p")
 [node name="CollisionShape3D8" type="CollisionShape3D" parent="StaticBody3D" unique_id=1258789722]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3, 2, 0)
 shape = SubResource("BoxShape3D_v3rd6")
+
+[node name="CollisionShape3D14" type="CollisionShape3D" parent="StaticBody3D" unique_id=1220581779]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8, 4, 0)
+shape = SubResource("BoxShape3D_n4chg")
+
+[node name="CollisionShape3D15" type="CollisionShape3D" parent="StaticBody3D" unique_id=1179514856]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 2, -6)
+shape = SubResource("BoxShape3D_j26r1")
+
+[node name="CollisionShape3D16" type="CollisionShape3D" parent="StaticBody3D" unique_id=1465110912]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 2, 2)
+shape = SubResource("BoxShape3D_pc38m")
+
+[node name="CollisionShape3D17" type="CollisionShape3D" parent="StaticBody3D" unique_id=635454576]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6, 2, 2)
+shape = SubResource("BoxShape3D_pc38m")
 
 [node name="Ceiling" type="Node3D" parent="." unique_id=358201703]
 
@@ -728,4 +766,4 @@ mesh = SubResource("ArrayMesh_pixaj")
 transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, -8, 4.1, -16)
 mesh = SubResource("ArrayMesh_pixaj")
 
-[connection signal="body_entered" from="Triggers/Area3D" to="Triggers" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="Triggrers/Walk Down Hall Trigger/Area3D" to="Triggrers/Walk Down Hall Trigger" method="_on_area_3d_body_entered"]

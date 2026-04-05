@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c14d20qkixt2d" path="res://horror/dragon_key.tscn" id="2_1m84d"]
 [ext_resource type="Environment" uid="uid://byjp5qc66kefe" path="res://horror/horror_environment.tres" id="3_ap2dw"]
 [ext_resource type="PackedScene" uid="uid://b6svyccqvk55" path="res://horror/player_3d_horror.tscn" id="5_eidof"]
+[ext_resource type="Script" uid="uid://pq54prborom3" path="res://horror/triggers.gd" id="5_nekqp"]
 [ext_resource type="PackedScene" uid="uid://b31jydn3i0u4j" path="res://horror/rooms/library.tscn" id="6_eidof"]
 [ext_resource type="PackedScene" uid="uid://d0hjjxkgu2bv4" path="res://horror/rooms/cubicles.tscn" id="7_bifnm"]
 [ext_resource type="PackedScene" uid="uid://dch5u7micaf0v" path="res://horror/rooms/atrium.tscn" id="8_urtwg"]
@@ -20,6 +21,9 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_eidof"]
 size = Vector3(75.727066, 99.23596, 0.263)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_fa5rm"]
+size = Vector3(6, 1, 6)
+
 [node name="HorrorLevel" type="Node3D" unique_id=1143420985 node_paths=PackedStringArray("collision_system", "player")]
 script = ExtResource("1_rtw18")
 grid_size = Vector3(2, 4, 2)
@@ -34,7 +38,7 @@ metadata/_custom_type_script = "uid://5nd45w6q42kq"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.641368, 0, -14)
 
 [node name="SpotLight3D" parent="Interactables/Dragon Key" index="0" unique_id=5359294]
-transform = Transform3D(0.9987079, -0.0056267087, 0.050489433, -0.05080195, -0.11061457, 0.99256414, 2.9802298e-08, -0.9938476, -0.11075757, 0, 1.1601533, 0)
+transform = Transform3D(0.99870765, -0.0056267087, 0.050489433, -0.050801937, -0.11061457, 0.99256414, 2.980229e-08, -0.9938476, -0.11075757, 0, 1.1601533, 0)
 
 [node name="Area3D" parent="Interactables/Dragon Key" index="3" unique_id=2087952680]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47469425, 0, 0)
@@ -43,7 +47,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47469425, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.597461, 0, -6)
 
 [node name="SpotLight3D" parent="Interactables/Dragon Key2" index="0" unique_id=5359294]
-transform = Transform3D(0.9987079, -0.0056267087, 0.050489433, -0.05080195, -0.11061457, 0.99256414, 2.9802298e-08, -0.9938476, -0.11075757, 0, 1.1601533, 0)
+transform = Transform3D(0.99870765, -0.0056267087, 0.050489433, -0.050801937, -0.11061457, 0.99256414, 2.980229e-08, -0.9938476, -0.11075757, 0, 1.1601533, 0)
 
 [node name="AnimationPlayer" parent="Interactables/Dragon Key2" index="2" unique_id=1381750830]
 root_node = NodePath("../../Dragon Key2")
@@ -55,7 +59,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4202175, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.544454, 0, -8)
 
 [node name="SpotLight3D" parent="Interactables/Dragon Key3" index="0" unique_id=5359294]
-transform = Transform3D(0.9987079, -0.0056267087, 0.050489433, -0.05080195, -0.11061457, 0.99256414, 2.9802298e-08, -0.9938476, -0.11075757, 0, 1.1601533, 0)
+transform = Transform3D(0.99870765, -0.0056267087, 0.050489433, -0.050801937, -0.11061457, 0.99256414, 2.980229e-08, -0.9938476, -0.11075757, 0, 1.1601533, 0)
 
 [node name="AnimationPlayer" parent="Interactables/Dragon Key3" index="2" unique_id=1381750830]
 root_node = NodePath("../../Dragon Key3")
@@ -67,7 +71,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.48708344, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.022394, -0.00017893314, -28.045038)
 
 [node name="SpotLight3D" parent="Interactables/Dragon Key4" index="0" unique_id=5359294]
-transform = Transform3D(0.9987079, -0.0056267087, 0.050489433, -0.05080195, -0.11061457, 0.99256414, 2.9802298e-08, -0.9938476, -0.11075757, 0, 1.1601533, 0)
+transform = Transform3D(0.99870765, -0.0056267087, 0.050489433, -0.050801937, -0.11061457, 0.99256414, 2.980229e-08, -0.9938476, -0.11075757, 0, 1.1601533, 0)
 
 [node name="AnimationPlayer" parent="Interactables/Dragon Key4" index="2" unique_id=1381750830]
 root_node = NodePath("../../Dragon Key4")
@@ -85,6 +89,34 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.128643, 18.659729, -0.1318
 shape = SubResource("BoxShape3D_eidof")
 
 [node name="Player" parent="." unique_id=942295760 instance=ExtResource("5_eidof")]
+
+[node name="Multi-Area Triggers" type="Node3D" parent="." unique_id=990173316]
+
+[node name="Monster Room Trigger" type="Node3D" parent="Multi-Area Triggers" unique_id=1432172303 node_paths=PackedStringArray("spawn_keith_position", "intermediary_positions")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -32)
+script = ExtResource("5_nekqp")
+turn_on_keith_light_during_walk = false
+spawn_keith_position = NodePath("Spawn")
+intermediary_positions = [NodePath("CheckPoint"), NodePath("CheckPoint2")]
+
+[node name="Area3D" type="Area3D" parent="Multi-Area Triggers/Monster Room Trigger" unique_id=1611863832]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1)
+collision_layer = 512
+collision_mask = 512
+input_ray_pickable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Multi-Area Triggers/Monster Room Trigger/Area3D" unique_id=1120749159]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08935547, 0, -0.83032227)
+shape = SubResource("BoxShape3D_fa5rm")
+
+[node name="Spawn" type="Node3D" parent="Multi-Area Triggers/Monster Room Trigger" unique_id=1320316158]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 16)
+
+[node name="CheckPoint" type="Node3D" parent="Multi-Area Triggers/Monster Room Trigger" unique_id=1502683895]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21767616, 0, 15.936676)
+
+[node name="CheckPoint2" type="Node3D" parent="Multi-Area Triggers/Monster Room Trigger" unique_id=1799325764]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38103676, 0, 10)
 
 [node name="Foyer" parent="." unique_id=248408387 instance=ExtResource("16_ijayo")]
 
@@ -146,6 +178,8 @@ layout_mode = 2
 texture = ExtResource("15_4828v")
 expand_mode = 3
 stretch_mode = 4
+
+[connection signal="body_entered" from="Multi-Area Triggers/Monster Room Trigger/Area3D" to="Multi-Area Triggers/Monster Room Trigger" method="_on_area_3d_body_entered"]
 
 [editable path="Interactables/Dragon Key"]
 [editable path="Interactables/Dragon Key2"]

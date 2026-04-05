@@ -54,6 +54,9 @@ shadow_mesh = SubResource("ArrayMesh_xmlox")
 [sub_resource type="BoxShape3D" id="BoxShape3D_fb7ji"]
 size = Vector3(6, 4, 0.2)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_dpr4h"]
+size = Vector3(6, 0.2, 6)
+
 [node name="Keith Jail" type="Node3D" unique_id=507186414 node_paths=PackedStringArray("jail_position")]
 script = ExtResource("1_dpr4h")
 jail_position = NodePath("Floor/CenterFloor")
@@ -249,3 +252,7 @@ shape = SubResource("BoxShape3D_fb7ji")
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D" unique_id=1702564639]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3, 2, -9)
 shape = SubResource("BoxShape3D_fb7ji")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="StaticBody3D" unique_id=1828960]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6, 4, -9)
+shape = SubResource("BoxShape3D_dpr4h")

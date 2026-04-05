@@ -9,6 +9,7 @@
 [ext_resource type="Material" uid="uid://ct3x3guwn3w5l" path="res://visual/tiles/metal_crosshatch/metal_crosshatch_mat.tres" id="6_eief6"]
 [ext_resource type="Script" uid="uid://c6y8msnderh7g" path="res://horror/rooms/dragon_door_manager.gd" id="8_akkrm"]
 [ext_resource type="PackedScene" uid="uid://xwk63eyo1hpq" path="res://visual/tiles/dragon_door/dragon_door.tscn" id="9_r2jhy"]
+[ext_resource type="Script" uid="uid://pq54prborom3" path="res://horror/triggers.gd" id="10_qersb"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_tshes"]
 _surfaces = [{
@@ -196,13 +197,28 @@ size = Vector3(2, 4.194458, 0.25531006)
 size = Vector3(0.19970703, 4.1921997, 8.166382)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y2lb5"]
-size = Vector3(3.9987793, 4.132141, 0.25061035)
+size = Vector3(4, 4, 0.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_i06fa"]
-size = Vector3(0.22192383, 4.00531, 1.9123535)
+size = Vector3(0.2, 4, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_by2j1"]
+size = Vector3(0.2, 2, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ladxl"]
+size = Vector3(8, 0.2, 14)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xsq1l"]
+size = Vector3(12, 0.2, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4r6iu"]
+size = Vector3(2, 0.2, 4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ybyuc"]
 size = Vector3(1.8, 1.8, 1.8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_01k27"]
+size = Vector3(2, 1, 2)
 
 [node name="Foyer" type="Node3D" unique_id=248408387]
 
@@ -918,28 +934,64 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0098877, 1.999176, -0.04846
 shape = SubResource("BoxShape3D_i06fa")
 
 [node name="CollisionShape3D8" type="CollisionShape3D" parent="StaticBody3D" unique_id=660608003]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.0098877, 1.999176, -3.048462)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6, 2, -3)
 shape = SubResource("BoxShape3D_i06fa")
 
 [node name="CollisionShape3D9" type="CollisionShape3D" parent="StaticBody3D" unique_id=1421457592]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.0098877, 1.999176, -7.048462)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6, 2, -7)
 shape = SubResource("BoxShape3D_i06fa")
 
 [node name="CollisionShape3D10" type="CollisionShape3D" parent="StaticBody3D" unique_id=918901834]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.0098877, 1.999176, -7.048462)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2, 2, -7)
 shape = SubResource("BoxShape3D_i06fa")
 
 [node name="CollisionShape3D11" type="CollisionShape3D" parent="StaticBody3D" unique_id=1083877656]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.9901123, 1.999176, -7.048462)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2, 2, -7)
 shape = SubResource("BoxShape3D_i06fa")
 
 [node name="CollisionShape3D12" type="CollisionShape3D" parent="StaticBody3D" unique_id=184315376]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9901123, 1.999176, -6.048462)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 2, -6)
 shape = SubResource("BoxShape3D_i06fa")
 
 [node name="CollisionShape3D13" type="CollisionShape3D" parent="StaticBody3D" unique_id=1482399023]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9901123, 1.999176, -2.048462)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 2, -2)
 shape = SubResource("BoxShape3D_i06fa")
+
+[node name="CollisionShape3D20" type="CollisionShape3D" parent="StaticBody3D" unique_id=1599857615]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 3, -4)
+shape = SubResource("BoxShape3D_by2j1")
+
+[node name="CollisionShape3D21" type="CollisionShape3D" parent="StaticBody3D" unique_id=677916269]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 3, 0)
+shape = SubResource("BoxShape3D_by2j1")
+
+[node name="CollisionShape3D25" type="CollisionShape3D" parent="StaticBody3D" unique_id=1544423233]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 4, 3, -7)
+shape = SubResource("BoxShape3D_by2j1")
+
+[node name="CollisionShape3D22" type="CollisionShape3D" parent="StaticBody3D" unique_id=1491985589]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 3, -2)
+shape = SubResource("BoxShape3D_by2j1")
+
+[node name="CollisionShape3D23" type="CollisionShape3D" parent="StaticBody3D" unique_id=296299845]
+transform = Transform3D(2.9802322e-08, 0, 1, 0, 1, 0, -1, 0, 2.9802322e-08, 0, 3, 1)
+shape = SubResource("BoxShape3D_by2j1")
+
+[node name="CollisionShape3D24" type="CollisionShape3D" parent="StaticBody3D" unique_id=722590229]
+transform = Transform3D(2.9802322e-08, 0, 1, 0, 1, 0, -1, 0, 2.9802322e-08, 0, 3, -7)
+shape = SubResource("BoxShape3D_by2j1")
+
+[node name="CollisionShape3D26" type="CollisionShape3D" parent="StaticBody3D" unique_id=627715680]
+transform = Transform3D(2.9802322e-08, 0, 1, 0, 1, 0, -1, 0, 2.9802322e-08, 0, 4, -3)
+shape = SubResource("BoxShape3D_ladxl")
+
+[node name="CollisionShape3D27" type="CollisionShape3D" parent="StaticBody3D" unique_id=934278535]
+transform = Transform3D(2.9802322e-08, 0, 1, 0, 1, 0, -1, 0, 2.9802322e-08, -5.9604645e-08, 2, 7)
+shape = SubResource("BoxShape3D_xsq1l")
+
+[node name="CollisionShape3D28" type="CollisionShape3D" parent="StaticBody3D" unique_id=1419809342]
+transform = Transform3D(2.9802322e-08, 0, 1, 0, 1, 0, -1, 0, 2.9802322e-08, -3, 2, 12)
+shape = SubResource("BoxShape3D_4r6iu")
 
 [node name="DragonDoorManager" type="Node" parent="." unique_id=914619696 node_paths=PackedStringArray("door_scene", "door_collider", "trigger_area_collider", "look_target")]
 script = ExtResource("8_akkrm")
@@ -959,4 +1011,64 @@ shape = SubResource("BoxShape3D_ybyuc")
 [node name="DragonDoor" parent="." unique_id=1326769779 instance=ExtResource("9_r2jhy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1)
 
+[node name="Triggers" type="Node3D" parent="." unique_id=1307637745]
+
+[node name="Monster Room Trigger" type="Node3D" parent="Triggers" unique_id=2067386509 node_paths=PackedStringArray("spawn_keith_position", "intermediary_positions")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -32)
+script = ExtResource("10_qersb")
+spawn_keith_position = NodePath("Spawn")
+intermediary_positions = [NodePath("CheckPoint"), NodePath("CheckPoint2"), NodePath("CheckPoint3"), NodePath("CheckPoint4")]
+jitter = 0.05
+
+[node name="Area3D" type="Area3D" parent="Triggers/Monster Room Trigger" unique_id=277174191]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 1, 23)
+collision_layer = 512
+collision_mask = 512
+input_ray_pickable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Triggers/Monster Room Trigger/Area3D" unique_id=1997663178]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+shape = SubResource("BoxShape3D_01k27")
+
+[node name="Spawn" type="Node3D" parent="Triggers/Monster Room Trigger" unique_id=1450607922]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 30)
+
+[node name="CheckPoint" type="Node3D" parent="Triggers/Monster Room Trigger" unique_id=26658408]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 32)
+
+[node name="CheckPoint2" type="Node3D" parent="Triggers/Monster Room Trigger" unique_id=1992058406]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 32.362427)
+
+[node name="CheckPoint3" type="Node3D" parent="Triggers/Monster Room Trigger" unique_id=724122538]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, 30)
+
+[node name="CheckPoint4" type="Node3D" parent="Triggers/Monster Room Trigger" unique_id=1763555787]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, 30)
+
+[node name="Monster Room Trigger2" type="Node3D" parent="Triggers" unique_id=1266502148 node_paths=PackedStringArray("spawn_keith_position", "intermediary_positions")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -32)
+script = ExtResource("10_qersb")
+spawn_keith_position = NodePath("Spawn")
+intermediary_positions = [NodePath("CheckPoint"), NodePath(""), NodePath(""), NodePath("")]
+grace_period = 20.0
+jitter = 0.05
+
+[node name="Area3D" type="Area3D" parent="Triggers/Monster Room Trigger2" unique_id=465077184]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 1, 23)
+collision_layer = 512
+collision_mask = 512
+input_ray_pickable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Triggers/Monster Room Trigger2/Area3D" unique_id=559975447]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 1)
+shape = SubResource("BoxShape3D_01k27")
+
+[node name="Spawn" type="Node3D" parent="Triggers/Monster Room Trigger2" unique_id=1643782473]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 30)
+
+[node name="CheckPoint" type="Node3D" parent="Triggers/Monster Room Trigger2" unique_id=807978123]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 30)
+
 [connection signal="area_entered" from="DragonDoorTrigger" to="DragonDoorManager" method="_on_dragon_door_trigger_area_entered"]
+[connection signal="body_entered" from="Triggers/Monster Room Trigger/Area3D" to="Triggers/Monster Room Trigger" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="Triggers/Monster Room Trigger2/Area3D" to="Triggers/Monster Room Trigger2" method="_on_area_3d_body_entered"]

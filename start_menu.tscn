@@ -79,7 +79,7 @@ _data = {
 &"animate_start_menu": SubResource("Animation_vpdu5")
 }
 
-[node name="StartMenu" type="Node3D" unique_id=1867207705 node_paths=PackedStringArray("title_label", "credits_label", "main_menu_container", "option_menu_container", "body_selector_container", "adjustments_container", "brightness_slider", "contrast_slider", "saturation_slider")]
+[node name="StartMenu" type="Node3D" unique_id=1867207705 node_paths=PackedStringArray("title_label", "credits_label", "main_menu_container", "option_menu_container", "body_selector_container", "adjustments_container", "audio_container", "brightness_slider", "contrast_slider", "saturation_slider", "music_slider", "sfx_slider", "dialogue_slider")]
 process_mode = 3
 script = ExtResource("1_vpdu5")
 menu_music_path = "uid://cyph2xpgk4wat"
@@ -90,12 +90,16 @@ main_menu_container = NodePath("UICanvas/UI/MarginContainer/BtnsCentreContainer/
 option_menu_container = NodePath("UICanvas/UI/MarginContainer/BtnsCentreContainer/OptionsButtonsContainer")
 body_selector_container = NodePath("UICanvas/UI/MarginContainer/BodySelectorContainer")
 adjustments_container = NodePath("UICanvas/UI/MarginContainer/AdjustmentsContainer")
+audio_container = NodePath("UICanvas/UI/MarginContainer/AudioContainer")
 body_type_textures = Array[Texture2D]([ExtResource("2_v2mkm"), ExtResource("3_ppfnh"), ExtResource("4_7boi2")])
 clicker_env = ExtResource("1_ia0g5")
 horror_env = ExtResource("6_7boi2")
 brightness_slider = NodePath("UICanvas/UI/MarginContainer/AdjustmentsContainer/BrightnessSlider")
 contrast_slider = NodePath("UICanvas/UI/MarginContainer/AdjustmentsContainer/ContrastSlider")
 saturation_slider = NodePath("UICanvas/UI/MarginContainer/AdjustmentsContainer/SaturationSlider")
+music_slider = NodePath("UICanvas/UI/MarginContainer/AudioContainer/MusicSlider")
+sfx_slider = NodePath("UICanvas/UI/MarginContainer/AudioContainer/SFXSlider")
+dialogue_slider = NodePath("UICanvas/UI/MarginContainer/AudioContainer/DialogueSlider")
 
 [node name="UICanvas" type="CanvasLayer" parent="." unique_id=2144750330]
 
@@ -201,6 +205,19 @@ visible = false
 layout_mode = 2
 theme_override_constants/separation = 22
 
+[node name="AudioButton" type="Button" parent="UICanvas/UI/MarginContainer/BtnsCentreContainer/OptionsButtonsContainer" unique_id=971986697]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.6542321, 0.6542321, 0.654232, 1)
+theme_override_colors/font_hover_color = Color(0.22759944, 0.6840977, 0.99999994, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 120
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vpdu5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_pgi0o")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_v2mkm")
+text = "AUDIO"
+
 [node name="AdjustmentsButton" type="Button" parent="UICanvas/UI/MarginContainer/BtnsCentreContainer/OptionsButtonsContainer" unique_id=681608768]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -212,7 +229,7 @@ theme_override_font_sizes/font_size = 120
 theme_override_styles/normal = SubResource("StyleBoxEmpty_vpdu5")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_pgi0o")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_v2mkm")
-text = "BRIGHTNESS"
+text = "LIGHTING"
 
 [node name="BackButton" type="Button" parent="UICanvas/UI/MarginContainer/BtnsCentreContainer/OptionsButtonsContainer" unique_id=1195477319]
 layout_mode = 2
@@ -315,7 +332,9 @@ text = "BACK"
 
 [node name="AdjustmentsContainer" type="VBoxContainer" parent="UICanvas/UI/MarginContainer" unique_id=2005413815]
 visible = false
+custom_minimum_size = Vector2(1000, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_constants/separation = 30
 alignment = 2
 
@@ -383,6 +402,78 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_pgi0o")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_v2mkm")
 text = "BACK"
 
+[node name="AudioContainer" type="VBoxContainer" parent="UICanvas/UI/MarginContainer" unique_id=872093086]
+visible = false
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 30
+alignment = 2
+
+[node name="MusicLabel" type="Label" parent="UICanvas/UI/MarginContainer/AudioContainer" unique_id=1129467827]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 90
+text = "MUSIC VOLUME"
+horizontal_alignment = 1
+
+[node name="MusicSlider" type="HSlider" parent="UICanvas/UI/MarginContainer/AudioContainer" unique_id=487702113]
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxFlat_7boi2")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_pgi0o")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_73a2t")
+max_value = 2.0
+step = 0.01
+value = 1.0
+
+[node name="SFXLabel" type="Label" parent="UICanvas/UI/MarginContainer/AudioContainer" unique_id=744905718]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 90
+text = "SFX VOLUME"
+horizontal_alignment = 1
+
+[node name="SFXSlider" type="HSlider" parent="UICanvas/UI/MarginContainer/AudioContainer" unique_id=272188960]
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxFlat_7boi2")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_pgi0o")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_73a2t")
+max_value = 2.0
+step = 0.01
+value = 1.0
+
+[node name="DialogueLabel" type="Label" parent="UICanvas/UI/MarginContainer/AudioContainer" unique_id=1183662038]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 90
+text = "DIALOGUE VOLUME"
+horizontal_alignment = 1
+
+[node name="DialogueSlider" type="HSlider" parent="UICanvas/UI/MarginContainer/AudioContainer" unique_id=1889438641]
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxFlat_7boi2")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_pgi0o")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_73a2t")
+max_value = 2.0
+step = 0.01
+value = 1.0
+
+[node name="BackButton" type="Button" parent="UICanvas/UI/MarginContainer/AudioContainer" unique_id=663900964]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.6542321, 0.6542321, 0.654232, 1)
+theme_override_colors/font_hover_color = Color(0.22759944, 0.6840977, 0.99999994, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 58
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vpdu5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_pgi0o")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_v2mkm")
+text = "BACK"
+
 [node name="3D" type="Node3D" parent="." unique_id=1338561247]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="3D" unique_id=401209742]
@@ -400,6 +491,7 @@ autoplay = &"animate_start_menu"
 [connection signal="pressed" from="UICanvas/UI/MarginContainer/BtnsCentreContainer/MenuButtonsContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="UICanvas/UI/MarginContainer/BtnsCentreContainer/MenuButtonsContainer/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="UICanvas/UI/MarginContainer/BtnsCentreContainer/MenuButtonsContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="UICanvas/UI/MarginContainer/BtnsCentreContainer/OptionsButtonsContainer/AudioButton" to="." method="_on_audio_button_pressed"]
 [connection signal="pressed" from="UICanvas/UI/MarginContainer/BtnsCentreContainer/OptionsButtonsContainer/AdjustmentsButton" to="." method="_on_adjustments_button_pressed"]
 [connection signal="pressed" from="UICanvas/UI/MarginContainer/BtnsCentreContainer/OptionsButtonsContainer/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="UICanvas/UI/MarginContainer/BodySelectorContainer/HBoxContainer/FemContainer/FemTexButton" to="." method="_body_type_button_pressed" binds= [0]]
@@ -413,3 +505,7 @@ autoplay = &"animate_start_menu"
 [connection signal="value_changed" from="UICanvas/UI/MarginContainer/AdjustmentsContainer/ContrastSlider" to="." method="_on_contrast_slider_value_changed"]
 [connection signal="value_changed" from="UICanvas/UI/MarginContainer/AdjustmentsContainer/SaturationSlider" to="." method="_on_saturation_slider_value_changed"]
 [connection signal="pressed" from="UICanvas/UI/MarginContainer/AdjustmentsContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="value_changed" from="UICanvas/UI/MarginContainer/AudioContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="UICanvas/UI/MarginContainer/AudioContainer/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="value_changed" from="UICanvas/UI/MarginContainer/AudioContainer/DialogueSlider" to="." method="_on_dialogue_slider_value_changed"]
+[connection signal="pressed" from="UICanvas/UI/MarginContainer/AudioContainer/BackButton" to="." method="_on_back_button_pressed"]

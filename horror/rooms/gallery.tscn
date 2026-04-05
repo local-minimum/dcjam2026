@@ -88,12 +88,27 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_covnm")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jxbi7"]
+size = Vector3(22, 4, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l1nn0"]
+size = Vector3(16, 4, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_smx0n"]
+size = Vector3(10, 4, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dovlg"]
+size = Vector3(2, 2, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5tyam"]
 size = Vector3(4, 4, 0.2)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_rxb4p"]
-size = Vector3(2, 1, 4)
+[sub_resource type="BoxShape3D" id="BoxShape3D_ihy1x"]
+size = Vector3(8, 4, 0.2)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_gl5e2"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_jk5hy"]
+size = Vector3(2, 4, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rxb4p"]
 size = Vector3(2, 1, 4)
 
 [node name="Cubicles" type="Node3D" unique_id=1279492692]
@@ -1263,119 +1278,191 @@ mesh = SubResource("ArrayMesh_qbuh3")
 [node name="Lights" type="Node3D" parent="." unique_id=1963813778]
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Lights" unique_id=757951565]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 8, 4, -10)
-light_energy = 5.0
+transform = Transform3D(0.9848077, 0.04494346, 0.16773126, -0.1736482, 0.25488704, 0.9512513, 0, -0.96592593, 0.2588191, 8, 4, -11.2)
+light_energy = 1.5
 light_volumetric_fog_energy = 5.0
 spot_angle = 25.0
 
 [node name="SpotLight3D5" type="SpotLight3D" parent="Lights" unique_id=90438652]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 19, 4, -3)
-light_energy = 5.0
+transform = Transform3D(1, 0, 0, 0, -0.32913038, 0.9442845, 0, -0.9442845, -0.32913038, 19.343353, 4, -3.0718994)
+light_energy = 3.0
 light_volumetric_fog_energy = 5.0
 spot_angle = 25.0
 
 [node name="SpotLight3D3" type="SpotLight3D" parent="Lights" unique_id=1237213619]
-transform = Transform3D(-0.42772284, 0.79012656, 0.4390367, 0.78464735, 0.083416134, 0.6143047, 0.4487557, 0.60724115, -0.6556497, 14.7658825, 3.2, -4.1705866)
+transform = Transform3D(-0.32395893, 0.9000183, 0.29157767, 0.7846472, 0.08341611, 0.61430466, 0.5285632, 0.42779517, -0.73322046, 14.7658825, 3.2, -4.1705866)
 light_energy = 2.0
 spot_range = 7.0997825
-spot_angle = 50.87
+spot_angle = 29.62603
 
 [node name="SpotLight3D4" type="SpotLight3D" parent="Lights" unique_id=1286197405]
-transform = Transform3D(-0.46090302, 0.8217006, 0.33522624, 0.66665643, 0.07124502, 0.74195236, 0.5857795, 0.5654488, -0.58062905, 2.1689205, 4, -5.4061265)
-light_energy = 2.0
+transform = Transform3D(-0.58236426, 0.792382, 0.18161227, 0.558482, 0.22763373, 0.7976724, 0.59072, 0.565963, -0.5750966, 2.1689205, 4, -4.9061265)
+light_energy = 1.5
 spot_range = 7.0997825
-spot_angle = 50.87
+spot_angle = 33.000454
 
 [node name="SpotLight3D6" type="SpotLight3D" parent="Lights" unique_id=2123092799]
-transform = Transform3D(0.89075017, 0.20179603, 0.40723756, -0.45282435, 0.31732818, 0.8332184, 0.038912237, -0.9265965, 0.3740384, 14.403511, 4.1, -11.364516)
+transform = Transform3D(0.9367074, 0.15812357, 0.31237203, -0.34991023, 0.39241618, 0.85063064, 0.011924943, -0.9060942, 0.42290825, 14.403511, 4.1, -11.364516)
 light_energy = 2.0
 spot_range = 7.0997825
-spot_angle = 52.073284
+spot_angle = 35.708683
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Lights" unique_id=879641140]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 3, -10)
 light_color = Color(1, 0.7576778, 0.6788598, 1)
-omni_range = 7.0
+omni_range = 4.936764
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Lights" unique_id=1537284884]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 3, -12)
 light_color = Color(1, 0.7576778, 0.6788598, 1)
-omni_range = 7.0
+omni_range = 4.8357453
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="Lights" unique_id=2032120703]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 3, -4)
 light_color = Color(1, 0.7576778, 0.6788598, 1)
-omni_range = 4.156677
+omni_range = 3.6487207
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1943478378]
-visible = false
 
 [node name="Shape 1" type="CollisionShape3D" parent="StaticBody3D" unique_id=1443202019]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 2, 3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2, -1)
 shape = SubResource("BoxShape3D_jxbi7")
 
-[node name="Triggers" type="Node3D" parent="." unique_id=73320955]
-visible = false
+[node name="Shape 2" type="CollisionShape3D" parent="StaticBody3D" unique_id=769373056]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2, -13)
+shape = SubResource("BoxShape3D_l1nn0")
 
-[node name="Cubicles Trigger 1" type="Node3D" parent="Triggers" unique_id=476173113 node_paths=PackedStringArray("spawn_keith_position", "intermediary_positions")]
+[node name="Shape 3" type="CollisionShape3D" parent="StaticBody3D" unique_id=2114765384]
+transform = Transform3D(0.0043676174, 0.1096233, -0.99396366, 0.022137508, 0.993719, 0.10969359, 0.9997454, -0.022482976, 0.0019133972, 21, 2, -9)
+shape = SubResource("BoxShape3D_l1nn0")
+
+[node name="Shape 4" type="CollisionShape3D" parent="StaticBody3D" unique_id=2024573479]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1, 2, -6)
+shape = SubResource("BoxShape3D_smx0n")
+
+[node name="Shape 5" type="CollisionShape3D" parent="StaticBody3D" unique_id=1397718466]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 17, 2, -12)
+shape = SubResource("BoxShape3D_smx0n")
+
+[node name="Shape 15" type="CollisionShape3D" parent="StaticBody3D" unique_id=390289559]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 17, 3, -6)
+shape = SubResource("BoxShape3D_dovlg")
+
+[node name="Shape 16" type="CollisionShape3D" parent="StaticBody3D" unique_id=680715145]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 3, -6)
+shape = SubResource("BoxShape3D_dovlg")
+
+[node name="Shape 17" type="CollisionShape3D" parent="StaticBody3D" unique_id=477293651]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5, 3, -8)
+shape = SubResource("BoxShape3D_dovlg")
+
+[node name="Shape 18" type="CollisionShape3D" parent="StaticBody3D" unique_id=33936255]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 11, 3, -12)
+shape = SubResource("BoxShape3D_dovlg")
+
+[node name="Shape 19" type="CollisionShape3D" parent="StaticBody3D" unique_id=836589653]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 11, 3, -2)
+shape = SubResource("BoxShape3D_dovlg")
+
+[node name="Shape 20" type="CollisionShape3D" parent="StaticBody3D" unique_id=450195797]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 10, 3, -7)
+shape = SubResource("BoxShape3D_dovlg")
+
+[node name="Shape 21" type="CollisionShape3D" parent="StaticBody3D" unique_id=2134443239]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 16, 3, -7)
+shape = SubResource("BoxShape3D_dovlg")
+
+[node name="Shape 22" type="CollisionShape3D" parent="StaticBody3D" unique_id=1472120237]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 3, -7)
+shape = SubResource("BoxShape3D_dovlg")
+
+[node name="Shape 9" type="CollisionShape3D" parent="StaticBody3D" unique_id=914056113]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 17, 2, -3)
+shape = SubResource("BoxShape3D_5tyam")
+
+[node name="Shape 10" type="CollisionShape3D" parent="StaticBody3D" unique_id=1501903577]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5, 2, -3)
+shape = SubResource("BoxShape3D_5tyam")
+
+[node name="Shape 11" type="CollisionShape3D" parent="StaticBody3D" unique_id=1051384349]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5, 2, -11)
+shape = SubResource("BoxShape3D_5tyam")
+
+[node name="Shape 12" type="CollisionShape3D" parent="StaticBody3D" unique_id=842960919]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 13, 2, -7)
+shape = SubResource("BoxShape3D_5tyam")
+
+[node name="Shape 13" type="CollisionShape3D" parent="StaticBody3D" unique_id=1462029119]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 5, 2, -7)
+shape = SubResource("BoxShape3D_ihy1x")
+
+[node name="Shape 14" type="CollisionShape3D" parent="StaticBody3D" unique_id=336384587]
+transform = Transform3D(-4.3711385e-08, 0, 1.0000001, 0, 1, 0, -0.9999999, 0, -4.3711392e-08, 11, 2, -7)
+shape = SubResource("BoxShape3D_ihy1x")
+
+[node name="Shape 6" type="CollisionShape3D" parent="StaticBody3D" unique_id=1288798326]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 18, 2, -17)
+shape = SubResource("BoxShape3D_jk5hy")
+
+[node name="Shape 7" type="CollisionShape3D" parent="StaticBody3D" unique_id=1708933686]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 2, -11)
+shape = SubResource("BoxShape3D_jk5hy")
+
+[node name="Shape 8" type="CollisionShape3D" parent="StaticBody3D" unique_id=1423475654]
+transform = Transform3D(-4.3711385e-08, 0, -1.0000001, 0, 1, 0, 0.9999999, 0, -4.3711392e-08, 1, 2, -12)
+shape = SubResource("BoxShape3D_jk5hy")
+
+[node name="Triggers" type="Node3D" parent="." unique_id=73320955]
+
+[node name="Gallery Trigger 1" type="Node3D" parent="Triggers" unique_id=476173113 node_paths=PackedStringArray("spawn_keith_position", "intermediary_positions")]
 script = ExtResource("5_dovlg")
 spawn_keith_position = NodePath("Spawn")
-intermediary_positions = [NodePath("CheckPoint"), NodePath("CheckPoint2"), NodePath("CheckPoint3")]
+intermediary_positions = [NodePath("CheckPoint"), NodePath("CheckPoint2"), NodePath("CheckPoint3"), NodePath("CheckPoint4"), NodePath("CheckPoint5"), NodePath("CheckPoint6"), NodePath("CheckPoint7"), NodePath("CheckPoint8"), NodePath("CheckPoint9"), NodePath("CheckPoint10")]
+ending = 2
 jitter = 0.05
 
-[node name="Area3D" type="Area3D" parent="Triggers/Cubicles Trigger 1" unique_id=1145829353]
+[node name="Area3D" type="Area3D" parent="Triggers/Gallery Trigger 1" unique_id=1145829353]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -8)
 collision_layer = 512
 collision_mask = 512
 input_ray_pickable = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Triggers/Cubicles Trigger 1/Area3D" unique_id=1470029382]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Triggers/Gallery Trigger 1/Area3D" unique_id=1470029382]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 1)
 shape = SubResource("BoxShape3D_rxb4p")
 
-[node name="Spawn" type="Node3D" parent="Triggers/Cubicles Trigger 1" unique_id=460734231]
+[node name="Spawn" type="Node3D" parent="Triggers/Gallery Trigger 1" unique_id=460734231]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -16)
 
-[node name="CheckPoint" type="Node3D" parent="Triggers/Cubicles Trigger 1" unique_id=52384490]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, -18.4)
+[node name="CheckPoint" type="Node3D" parent="Triggers/Gallery Trigger 1" unique_id=52384490]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, -6)
 
-[node name="CheckPoint2" type="Node3D" parent="Triggers/Cubicles Trigger 1" unique_id=1352725067]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 0, -18)
+[node name="CheckPoint2" type="Node3D" parent="Triggers/Gallery Trigger 1" unique_id=1352725067]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -2)
 
-[node name="CheckPoint3" type="Node3D" parent="Triggers/Cubicles Trigger 1" unique_id=2022024642]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.3, 0, -11)
+[node name="CheckPoint3" type="Node3D" parent="Triggers/Gallery Trigger 1" unique_id=2022024642]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -6)
 
-[node name="Cubicles Trigger 2" type="Node3D" parent="Triggers" unique_id=232126322 node_paths=PackedStringArray("spawn_keith_position", "intermediary_positions")]
-script = ExtResource("5_dovlg")
-require_keith_jailed_to_trigger = true
-spawn_keith_position = NodePath("Spawn")
-intermediary_positions = [NodePath("CheckPoint"), NodePath("CheckPoint2"), NodePath("CheckPoint3"), NodePath("CheckPoint4")]
-jitter = 0.05
+[node name="CheckPoint4" type="Node3D" parent="Triggers/Gallery Trigger 1" unique_id=1161756431]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -8)
 
-[node name="Area3D" type="Area3D" parent="Triggers/Cubicles Trigger 2" unique_id=230577920]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -11)
-collision_layer = 512
-collision_mask = 512
-input_ray_pickable = false
+[node name="CheckPoint5" type="Node3D" parent="Triggers/Gallery Trigger 1" unique_id=172515744]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Triggers/Cubicles Trigger 2/Area3D" unique_id=1635257521]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
-shape = SubResource("BoxShape3D_gl5e2")
+[node name="CheckPoint6" type="Node3D" parent="Triggers/Gallery Trigger 1" unique_id=2085306330]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -4)
 
-[node name="Spawn" type="Node3D" parent="Triggers/Cubicles Trigger 2" unique_id=1075125341]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -14)
+[node name="CheckPoint7" type="Node3D" parent="Triggers/Gallery Trigger 1" unique_id=1297399999]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -6)
 
-[node name="CheckPoint" type="Node3D" parent="Triggers/Cubicles Trigger 2" unique_id=809119668]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4, 0, -13.9)
+[node name="CheckPoint8" type="Node3D" parent="Triggers/Gallery Trigger 1" unique_id=1689967352]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -2)
 
-[node name="CheckPoint2" type="Node3D" parent="Triggers/Cubicles Trigger 2" unique_id=322629878]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.9, 0, -7.5)
+[node name="CheckPoint9" type="Node3D" parent="Triggers/Gallery Trigger 1" unique_id=787252412]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -6)
 
-[node name="CheckPoint3" type="Node3D" parent="Triggers/Cubicles Trigger 2" unique_id=165090095]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8999991, 0, -8)
-
-[node name="CheckPoint4" type="Node3D" parent="Triggers/Cubicles Trigger 2" unique_id=1409176545]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8999991, 0, -5)
+[node name="CheckPoint10" type="Node3D" parent="Triggers/Gallery Trigger 1" unique_id=415127080]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -12)
 
 [node name="Clutter" type="Node3D" parent="." unique_id=1925286093]
 
@@ -1419,5 +1506,4 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.46
 mesh = ExtResource("7_dovlg")
 surface_material_override/0 = ExtResource("6_smx0n")
 
-[connection signal="body_entered" from="Triggers/Cubicles Trigger 1/Area3D" to="Triggers/Cubicles Trigger 1" method="_on_area_3d_body_entered"]
-[connection signal="body_entered" from="Triggers/Cubicles Trigger 2/Area3D" to="Triggers/Cubicles Trigger 2" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="Triggers/Gallery Trigger 1/Area3D" to="Triggers/Gallery Trigger 1" method="_on_area_3d_body_entered"]

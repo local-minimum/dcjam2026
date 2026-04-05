@@ -38,6 +38,9 @@ const WOBBLE_INTENSITY: float = 0.05
 @export var _front_ray: RayCast3D
 
 @export var lookat_IK_target: Marker3D
+@export var entity_child: MonsterEntity
+@export var arm_ik_bone: JacobianIK3D
+@export var arm_ik_target: Marker3D
 
 var _wobble_time: float = 0.0
 var _target_value: float = 0.0

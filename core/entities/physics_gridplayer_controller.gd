@@ -385,3 +385,12 @@ static func find_in_tree(n: Node) -> PhysicsGridPlayerController:
         n = n.get_parent()
 
     return null
+
+
+@export var grid_entity_collision: Area3D
+@export var noise_area: Area3D
+
+func remove_collision() -> void:
+    grid_entity_collision.queue_free()
+    noise_area.queue_free()
+    

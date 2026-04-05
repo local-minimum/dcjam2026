@@ -117,7 +117,7 @@ _data = {
 &"get_killed": SubResource("Animation_mr5p5")
 }
 
-[node name="Player3d" type="CharacterBody3D" unique_id=942295760 node_paths=PackedStringArray("_camera", "_freelook_cam", "_gridded_controller", "grid_entity", "look_target", "_captured_pointer_eventer", "stepper", "_forward", "_left", "_right", "_backward", "_debug_shapes", "animation_player")]
+[node name="Player3d" type="CharacterBody3D" unique_id=942295760 node_paths=PackedStringArray("_camera", "_freelook_cam", "_gridded_controller", "grid_entity", "look_target", "_captured_pointer_eventer", "stepper", "_forward", "_left", "_right", "_backward", "_debug_shapes", "animation_player", "grid_entity_collision", "noise_area")]
 collision_layer = 512
 collision_mask = 1025
 input_ray_pickable = false
@@ -135,6 +135,8 @@ _right = NodePath("Casting Origin/Cast Right")
 _backward = NodePath("Casting Origin/Cast Backward")
 _debug_shapes = [NodePath("Debug Step CollisionPt"), NodePath("Player Collision Body/Debug Body Shape"), NodePath("Camera3D/Debug Cam Position"), NodePath("Camera3D/Debug Cam Look Direction")]
 animation_player = NodePath("AnimationPlayer")
+grid_entity_collision = NodePath("GridEntity Collision Area")
+noise_area = NodePath("Noise Area")
 
 [node name="GriddedController" type="Node" parent="." unique_id=1745718286 node_paths=PackedStringArray("_player")]
 script = ExtResource("2_m1kc4")

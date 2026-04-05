@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c14d20qkixt2d" path="res://horror/dragon_key.tscn" id="2_1m84d"]
 [ext_resource type="Environment" uid="uid://byjp5qc66kefe" path="res://horror/horror_environment.tres" id="3_ap2dw"]
 [ext_resource type="PackedScene" uid="uid://b6svyccqvk55" path="res://horror/player_3d_horror.tscn" id="5_eidof"]
+[ext_resource type="Script" uid="uid://pq54prborom3" path="res://horror/triggers.gd" id="5_nekqp"]
 [ext_resource type="PackedScene" uid="uid://b31jydn3i0u4j" path="res://horror/rooms/library.tscn" id="6_eidof"]
 [ext_resource type="PackedScene" uid="uid://d0hjjxkgu2bv4" path="res://horror/rooms/cubicles.tscn" id="7_bifnm"]
 [ext_resource type="PackedScene" uid="uid://dch5u7micaf0v" path="res://horror/rooms/atrium.tscn" id="8_urtwg"]
@@ -19,6 +20,9 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_eidof"]
 size = Vector3(75.727066, 99.23596, 0.263)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fa5rm"]
+size = Vector3(6, 1, 6)
 
 [node name="HorrorLevel" type="Node3D" unique_id=1143420985 node_paths=PackedStringArray("collision_system", "player")]
 script = ExtResource("1_rtw18")
@@ -86,6 +90,34 @@ shape = SubResource("BoxShape3D_eidof")
 
 [node name="Player" parent="." unique_id=942295760 instance=ExtResource("5_eidof")]
 
+[node name="Multi-Area Triggers" type="Node3D" parent="." unique_id=990173316]
+
+[node name="Monster Room Trigger" type="Node3D" parent="Multi-Area Triggers" unique_id=1432172303 node_paths=PackedStringArray("spawn_keith_position", "intermediary_positions")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -32)
+script = ExtResource("5_nekqp")
+turn_on_keith_light_during_walk = false
+spawn_keith_position = NodePath("Spawn")
+intermediary_positions = [NodePath("CheckPoint"), NodePath("CheckPoint2")]
+
+[node name="Area3D" type="Area3D" parent="Multi-Area Triggers/Monster Room Trigger" unique_id=1611863832]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1)
+collision_layer = 512
+collision_mask = 512
+input_ray_pickable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Multi-Area Triggers/Monster Room Trigger/Area3D" unique_id=1120749159]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08935547, 0, -0.83032227)
+shape = SubResource("BoxShape3D_fa5rm")
+
+[node name="Spawn" type="Node3D" parent="Multi-Area Triggers/Monster Room Trigger" unique_id=1320316158]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 16)
+
+[node name="CheckPoint" type="Node3D" parent="Multi-Area Triggers/Monster Room Trigger" unique_id=1502683895]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21767616, 0, 15.936676)
+
+[node name="CheckPoint2" type="Node3D" parent="Multi-Area Triggers/Monster Room Trigger" unique_id=1799325764]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38103676, 0, 10)
+
 [node name="Foyer" parent="." unique_id=248408387 instance=ExtResource("16_ijayo")]
 
 [node name="Library" parent="." unique_id=1536973768 instance=ExtResource("6_eidof")]
@@ -146,6 +178,8 @@ layout_mode = 2
 texture = ExtResource("15_4828v")
 expand_mode = 3
 stretch_mode = 4
+
+[connection signal="body_entered" from="Multi-Area Triggers/Monster Room Trigger/Area3D" to="Multi-Area Triggers/Monster Room Trigger" method="_on_area_3d_body_entered"]
 
 [editable path="Interactables/Dragon Key"]
 [editable path="Interactables/Dragon Key2"]

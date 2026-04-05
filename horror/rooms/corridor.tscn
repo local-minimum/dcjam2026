@@ -581,21 +581,22 @@ light_energy = 2.0
 light_volumetric_fog_energy = 5.0
 omni_range = 3.5
 
-[node name="Triggers" type="Node3D" parent="." unique_id=1066317152 node_paths=PackedStringArray("spawn_keith_position", "red_lights")]
+[node name="Triggrers" type="Node3D" parent="." unique_id=1473453663]
+
+[node name="Walk Down Hall Trigger" type="Node3D" parent="Triggrers" unique_id=1066317152 node_paths=PackedStringArray("spawn_keith_position", "red_lights")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -17)
 script = ExtResource("5_abhsr")
-keith_scare_sfx_path = "uid://bt4jw627jua1r"
 lights_cascade_sfx_path = "uid://17jtf5w2rh4g"
-spawn_keith_position = NodePath("../Floor/Trigger Keith Start Pos")
-red_lights = [NodePath("../Lights/RedLight6"), NodePath("../Lights/RedLight5"), NodePath("../Lights/RedLight4"), NodePath("../Lights/RedLight3"), NodePath("../Lights/RedLight2"), NodePath("../Lights/RedLight1")]
+spawn_keith_position = NodePath("../../Floor/Trigger Keith Start Pos")
+red_lights = [NodePath("../../Lights/RedLight6"), NodePath("../../Lights/RedLight5"), NodePath("../../Lights/RedLight4"), NodePath("../../Lights/RedLight3"), NodePath("../../Lights/RedLight2"), NodePath("../../Lights/RedLight1")]
 
-[node name="Area3D" type="Area3D" parent="Triggers" unique_id=1065119730]
+[node name="Area3D" type="Area3D" parent="Triggrers/Walk Down Hall Trigger" unique_id=1065119730]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, 1)
 collision_layer = 512
 collision_mask = 512
 input_ray_pickable = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Triggers/Area3D" unique_id=1329166246]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Triggrers/Walk Down Hall Trigger/Area3D" unique_id=1329166246]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20532227, 0, 0.04071045)
 shape = SubResource("BoxShape3D_uyvyw")
 
@@ -728,4 +729,4 @@ mesh = SubResource("ArrayMesh_pixaj")
 transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, -8, 4.1, -16)
 mesh = SubResource("ArrayMesh_pixaj")
 
-[connection signal="body_entered" from="Triggers/Area3D" to="Triggers" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="Triggrers/Walk Down Hall Trigger/Area3D" to="Triggrers/Walk Down Hall Trigger" method="_on_area_3d_body_entered"]

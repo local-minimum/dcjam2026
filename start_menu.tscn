@@ -391,7 +391,7 @@ environment = ExtResource("1_ia0g5")
 [node name="Outside" parent="3D" unique_id=1686640705 instance=ExtResource("1_jwbto")]
 
 [node name="Camera3D" type="Camera3D" parent="3D" unique_id=945757877]
-transform = Transform3D(0.8660254, 0.35355335, 0.3535535, -0.08683261, 0.80271, -0.5900142, -0.49240237, 0.4802673, 0.7258673, 4, 0, -52)
+transform = Transform3D(0.8645849, 0.36357698, 0.34684956, -0.08545163, 0.7865956, -0.611527, -0.4951675, 0.4990782, 0.711147, 22.66298, 0, -52)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1693846594]
 libraries/ = SubResource("AnimationLibrary_v2mkm")

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://gj8ylqhn81pl"
 path.s3tc="res://.godot/imported/monster_normal.png-e0344ddf05bec805a970439348288f36.s3tc.ctex"
+path.etc2="res://.godot/imported/monster_normal.png-e0344ddf05bec805a970439348288f36.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://horror/monster/monster_normal.png"
-dest_files=["res://.godot/imported/monster_normal.png-e0344ddf05bec805a970439348288f36.s3tc.ctex"]
+dest_files=["res://.godot/imported/monster_normal.png-e0344ddf05bec805a970439348288f36.s3tc.ctex", "res://.godot/imported/monster_normal.png-e0344ddf05bec805a970439348288f36.etc2.ctex"]
 
 [params]
 

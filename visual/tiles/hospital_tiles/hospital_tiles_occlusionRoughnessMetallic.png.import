@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://be6pxmp248ffe"
 path.s3tc="res://.godot/imported/hospital_tiles_occlusionRoughnessMetallic.png-51391e2ebb1574d20051c04d69bc07c0.s3tc.ctex"
+path.etc2="res://.godot/imported/hospital_tiles_occlusionRoughnessMetallic.png-51391e2ebb1574d20051c04d69bc07c0.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://visual/tiles/hospital_tiles/hospital_tiles_occlusionRoughnessMetallic.png"
-dest_files=["res://.godot/imported/hospital_tiles_occlusionRoughnessMetallic.png-51391e2ebb1574d20051c04d69bc07c0.s3tc.ctex"]
+dest_files=["res://.godot/imported/hospital_tiles_occlusionRoughnessMetallic.png-51391e2ebb1574d20051c04d69bc07c0.s3tc.ctex", "res://.godot/imported/hospital_tiles_occlusionRoughnessMetallic.png-51391e2ebb1574d20051c04d69bc07c0.etc2.ctex"]
 
 [params]
 

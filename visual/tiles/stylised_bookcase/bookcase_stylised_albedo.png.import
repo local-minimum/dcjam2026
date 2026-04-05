@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://un8xvs6515wq"
 path.s3tc="res://.godot/imported/bookcase_stylised_albedo.png-17207eaf0993415c3feca3c3ad1caf56.s3tc.ctex"
+path.etc2="res://.godot/imported/bookcase_stylised_albedo.png-17207eaf0993415c3feca3c3ad1caf56.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://visual/tiles/stylised_bookcase/bookcase_stylised_albedo.png"
-dest_files=["res://.godot/imported/bookcase_stylised_albedo.png-17207eaf0993415c3feca3c3ad1caf56.s3tc.ctex"]
+dest_files=["res://.godot/imported/bookcase_stylised_albedo.png-17207eaf0993415c3feca3c3ad1caf56.s3tc.ctex", "res://.godot/imported/bookcase_stylised_albedo.png-17207eaf0993415c3feca3c3ad1caf56.etc2.ctex"]
 
 [params]
 

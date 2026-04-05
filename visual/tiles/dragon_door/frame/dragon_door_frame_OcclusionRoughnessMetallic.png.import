@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b736n4jxylnec"
 path.s3tc="res://.godot/imported/dragon_door_frame_OcclusionRoughnessMetallic.png-16cf444e6fd1c8e8e595b41d04dda589.s3tc.ctex"
+path.etc2="res://.godot/imported/dragon_door_frame_OcclusionRoughnessMetallic.png-16cf444e6fd1c8e8e595b41d04dda589.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://visual/tiles/dragon_door/frame/dragon_door_frame_OcclusionRoughnessMetallic.png"
-dest_files=["res://.godot/imported/dragon_door_frame_OcclusionRoughnessMetallic.png-16cf444e6fd1c8e8e595b41d04dda589.s3tc.ctex"]
+dest_files=["res://.godot/imported/dragon_door_frame_OcclusionRoughnessMetallic.png-16cf444e6fd1c8e8e595b41d04dda589.s3tc.ctex", "res://.godot/imported/dragon_door_frame_OcclusionRoughnessMetallic.png-16cf444e6fd1c8e8e595b41d04dda589.etc2.ctex"]
 
 [params]
 

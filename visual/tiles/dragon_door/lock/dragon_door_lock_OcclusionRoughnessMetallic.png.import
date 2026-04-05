@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cwto8n538p34e"
 path.s3tc="res://.godot/imported/dragon_door_lock_OcclusionRoughnessMetallic.png-f7d11fdcab0fed12ac749766d09a48c6.s3tc.ctex"
+path.etc2="res://.godot/imported/dragon_door_lock_OcclusionRoughnessMetallic.png-f7d11fdcab0fed12ac749766d09a48c6.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://visual/tiles/dragon_door/lock/dragon_door_lock_OcclusionRoughnessMetallic.png"
-dest_files=["res://.godot/imported/dragon_door_lock_OcclusionRoughnessMetallic.png-f7d11fdcab0fed12ac749766d09a48c6.s3tc.ctex"]
+dest_files=["res://.godot/imported/dragon_door_lock_OcclusionRoughnessMetallic.png-f7d11fdcab0fed12ac749766d09a48c6.s3tc.ctex", "res://.godot/imported/dragon_door_lock_OcclusionRoughnessMetallic.png-f7d11fdcab0fed12ac749766d09a48c6.etc2.ctex"]
 
 [params]
 

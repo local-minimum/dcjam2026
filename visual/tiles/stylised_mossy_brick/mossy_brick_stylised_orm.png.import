@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://pae5u563xb7r"
 path.s3tc="res://.godot/imported/mossy_brick_stylised_orm.png-09fcbcfeb9b0e4af63e5bffe40d94725.s3tc.ctex"
+path.etc2="res://.godot/imported/mossy_brick_stylised_orm.png-09fcbcfeb9b0e4af63e5bffe40d94725.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://visual/tiles/stylised_mossy_brick/mossy_brick_stylised_orm.png"
-dest_files=["res://.godot/imported/mossy_brick_stylised_orm.png-09fcbcfeb9b0e4af63e5bffe40d94725.s3tc.ctex"]
+dest_files=["res://.godot/imported/mossy_brick_stylised_orm.png-09fcbcfeb9b0e4af63e5bffe40d94725.s3tc.ctex", "res://.godot/imported/mossy_brick_stylised_orm.png-09fcbcfeb9b0e4af63e5bffe40d94725.etc2.ctex"]
 
 [params]
 

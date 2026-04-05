@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bhn35lynilguh"
 path.s3tc="res://.godot/imported/concrete_quad_tiles_baseColor.png-683bb91e6bdb43b51e83a7963ed776f5.s3tc.ctex"
+path.etc2="res://.godot/imported/concrete_quad_tiles_baseColor.png-683bb91e6bdb43b51e83a7963ed776f5.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://visual/tiles/concrete_quad/concrete_quad_tiles_baseColor.png"
-dest_files=["res://.godot/imported/concrete_quad_tiles_baseColor.png-683bb91e6bdb43b51e83a7963ed776f5.s3tc.ctex"]
+dest_files=["res://.godot/imported/concrete_quad_tiles_baseColor.png-683bb91e6bdb43b51e83a7963ed776f5.s3tc.ctex", "res://.godot/imported/concrete_quad_tiles_baseColor.png-683bb91e6bdb43b51e83a7963ed776f5.etc2.ctex"]
 
 [params]
 

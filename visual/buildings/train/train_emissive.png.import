@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://do8wr35aa2q5k"
 path.s3tc="res://.godot/imported/train_emissive.png-dc29c1c7f99f7f8f2cc53f9f6131cd6d.s3tc.ctex"
+path.etc2="res://.godot/imported/train_emissive.png-dc29c1c7f99f7f8f2cc53f9f6131cd6d.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://visual/buildings/train/train_emissive.png"
-dest_files=["res://.godot/imported/train_emissive.png-dc29c1c7f99f7f8f2cc53f9f6131cd6d.s3tc.ctex"]
+dest_files=["res://.godot/imported/train_emissive.png-dc29c1c7f99f7f8f2cc53f9f6131cd6d.s3tc.ctex", "res://.godot/imported/train_emissive.png-dc29c1c7f99f7f8f2cc53f9f6131cd6d.etc2.ctex"]
 
 [params]
 

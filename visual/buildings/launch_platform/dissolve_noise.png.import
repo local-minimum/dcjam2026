@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c7w7w3leqdjq5"
 path.s3tc="res://.godot/imported/dissolve_noise.png-ac7ae2806f092f68e89e520843902a93.s3tc.ctex"
+path.etc2="res://.godot/imported/dissolve_noise.png-ac7ae2806f092f68e89e520843902a93.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://visual/buildings/launch_platform/dissolve_noise.png"
-dest_files=["res://.godot/imported/dissolve_noise.png-ac7ae2806f092f68e89e520843902a93.s3tc.ctex"]
+dest_files=["res://.godot/imported/dissolve_noise.png-ac7ae2806f092f68e89e520843902a93.s3tc.ctex", "res://.godot/imported/dissolve_noise.png-ac7ae2806f092f68e89e520843902a93.etc2.ctex"]
 
 [params]
 

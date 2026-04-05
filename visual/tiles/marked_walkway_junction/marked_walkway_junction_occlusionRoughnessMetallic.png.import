@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c3um5hfsi4taj"
 path.s3tc="res://.godot/imported/marked_walkway_junction_occlusionRoughnessMetallic.png-a68bfc1ef589737257b2baa6bc47dc6d.s3tc.ctex"
+path.etc2="res://.godot/imported/marked_walkway_junction_occlusionRoughnessMetallic.png-a68bfc1ef589737257b2baa6bc47dc6d.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://visual/tiles/marked_walkway_junction/marked_walkway_junction_occlusionRoughnessMetallic.png"
-dest_files=["res://.godot/imported/marked_walkway_junction_occlusionRoughnessMetallic.png-a68bfc1ef589737257b2baa6bc47dc6d.s3tc.ctex"]
+dest_files=["res://.godot/imported/marked_walkway_junction_occlusionRoughnessMetallic.png-a68bfc1ef589737257b2baa6bc47dc6d.s3tc.ctex", "res://.godot/imported/marked_walkway_junction_occlusionRoughnessMetallic.png-a68bfc1ef589737257b2baa6bc47dc6d.etc2.ctex"]
 
 [params]
 

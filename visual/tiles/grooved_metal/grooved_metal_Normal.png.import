@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cnxqo7sk3qite"
 path.s3tc="res://.godot/imported/grooved_metal_Normal.png-c181f5a4151788f1f66cdb478dfcba27.s3tc.ctex"
+path.etc2="res://.godot/imported/grooved_metal_Normal.png-c181f5a4151788f1f66cdb478dfcba27.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://visual/tiles/grooved_metal/grooved_metal_Normal.png"
-dest_files=["res://.godot/imported/grooved_metal_Normal.png-c181f5a4151788f1f66cdb478dfcba27.s3tc.ctex"]
+dest_files=["res://.godot/imported/grooved_metal_Normal.png-c181f5a4151788f1f66cdb478dfcba27.s3tc.ctex", "res://.godot/imported/grooved_metal_Normal.png-c181f5a4151788f1f66cdb478dfcba27.etc2.ctex"]
 
 [params]
 

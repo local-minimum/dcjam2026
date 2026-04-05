@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bypxtg7k8snh0"
 path.s3tc="res://.godot/imported/ridged_light_panel_occlusionRoughnessMetallic.png-4c92dbbb090c26d7d83c6f6b05b92984.s3tc.ctex"
+path.etc2="res://.godot/imported/ridged_light_panel_occlusionRoughnessMetallic.png-4c92dbbb090c26d7d83c6f6b05b92984.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://visual/tiles/ridged_light_panel/ridged_light_panel_occlusionRoughnessMetallic.png"
-dest_files=["res://.godot/imported/ridged_light_panel_occlusionRoughnessMetallic.png-4c92dbbb090c26d7d83c6f6b05b92984.s3tc.ctex"]
+dest_files=["res://.godot/imported/ridged_light_panel_occlusionRoughnessMetallic.png-4c92dbbb090c26d7d83c6f6b05b92984.s3tc.ctex", "res://.godot/imported/ridged_light_panel_occlusionRoughnessMetallic.png-4c92dbbb090c26d7d83c6f6b05b92984.etc2.ctex"]
 
 [params]
 

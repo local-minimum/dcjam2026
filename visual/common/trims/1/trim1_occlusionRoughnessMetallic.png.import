@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cpoki2yen0285"
 path.s3tc="res://.godot/imported/trim1_occlusionRoughnessMetallic.png-3a72bea3065ac11e7a7cc2e54ebde3a0.s3tc.ctex"
+path.etc2="res://.godot/imported/trim1_occlusionRoughnessMetallic.png-3a72bea3065ac11e7a7cc2e54ebde3a0.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://visual/common/trims/1/trim1_occlusionRoughnessMetallic.png"
-dest_files=["res://.godot/imported/trim1_occlusionRoughnessMetallic.png-3a72bea3065ac11e7a7cc2e54ebde3a0.s3tc.ctex"]
+dest_files=["res://.godot/imported/trim1_occlusionRoughnessMetallic.png-3a72bea3065ac11e7a7cc2e54ebde3a0.s3tc.ctex", "res://.godot/imported/trim1_occlusionRoughnessMetallic.png-3a72bea3065ac11e7a7cc2e54ebde3a0.etc2.ctex"]
 
 [params]
 

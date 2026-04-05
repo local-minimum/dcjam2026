@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://de3timxxpl2n4"
 path.s3tc="res://.godot/imported/dragon_door_piece_BaseColor.png-af54c860d58622c0377bda70e3f08bdb.s3tc.ctex"
+path.etc2="res://.godot/imported/dragon_door_piece_BaseColor.png-af54c860d58622c0377bda70e3f08bdb.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://visual/tiles/dragon_door/piece/dragon_door_piece_BaseColor.png"
-dest_files=["res://.godot/imported/dragon_door_piece_BaseColor.png-af54c860d58622c0377bda70e3f08bdb.s3tc.ctex"]
+dest_files=["res://.godot/imported/dragon_door_piece_BaseColor.png-af54c860d58622c0377bda70e3f08bdb.s3tc.ctex", "res://.godot/imported/dragon_door_piece_BaseColor.png-af54c860d58622c0377bda70e3f08bdb.etc2.ctex"]
 
 [params]
 

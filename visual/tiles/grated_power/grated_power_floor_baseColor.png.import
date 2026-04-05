@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://jvndw7v8rj0d"
 path.s3tc="res://.godot/imported/grated_power_floor_baseColor.png-3ce45a4fba607ed0ddbf974a64111297.s3tc.ctex"
+path.etc2="res://.godot/imported/grated_power_floor_baseColor.png-3ce45a4fba607ed0ddbf974a64111297.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://visual/tiles/grated_power/grated_power_floor_baseColor.png"
-dest_files=["res://.godot/imported/grated_power_floor_baseColor.png-3ce45a4fba607ed0ddbf974a64111297.s3tc.ctex"]
+dest_files=["res://.godot/imported/grated_power_floor_baseColor.png-3ce45a4fba607ed0ddbf974a64111297.s3tc.ctex", "res://.godot/imported/grated_power_floor_baseColor.png-3ce45a4fba607ed0ddbf974a64111297.etc2.ctex"]
 
 [params]
 

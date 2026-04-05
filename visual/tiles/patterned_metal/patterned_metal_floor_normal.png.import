@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c3j8k6pdvr1eq"
 path.s3tc="res://.godot/imported/patterned_metal_floor_normal.png-9cbb9f3021c0a2dc6a6532d28a04c002.s3tc.ctex"
+path.etc2="res://.godot/imported/patterned_metal_floor_normal.png-9cbb9f3021c0a2dc6a6532d28a04c002.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://visual/tiles/patterned_metal/patterned_metal_floor_normal.png"
-dest_files=["res://.godot/imported/patterned_metal_floor_normal.png-9cbb9f3021c0a2dc6a6532d28a04c002.s3tc.ctex"]
+dest_files=["res://.godot/imported/patterned_metal_floor_normal.png-9cbb9f3021c0a2dc6a6532d28a04c002.s3tc.ctex", "res://.godot/imported/patterned_metal_floor_normal.png-9cbb9f3021c0a2dc6a6532d28a04c002.etc2.ctex"]
 
 [params]
 

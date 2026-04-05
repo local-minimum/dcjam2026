@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://fjdjamsv8daq"
 path.s3tc="res://.godot/imported/bankers_lamp_OcclusionRoughnessMetallic.png-7c8afbb96e1033fd6c472e9b0ecc6255.s3tc.ctex"
+path.etc2="res://.godot/imported/bankers_lamp_OcclusionRoughnessMetallic.png-7c8afbb96e1033fd6c472e9b0ecc6255.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://visual/clutter/bankers_lamp/bankers_lamp_OcclusionRoughnessMetallic.png"
-dest_files=["res://.godot/imported/bankers_lamp_OcclusionRoughnessMetallic.png-7c8afbb96e1033fd6c472e9b0ecc6255.s3tc.ctex"]
+dest_files=["res://.godot/imported/bankers_lamp_OcclusionRoughnessMetallic.png-7c8afbb96e1033fd6c472e9b0ecc6255.s3tc.ctex", "res://.godot/imported/bankers_lamp_OcclusionRoughnessMetallic.png-7c8afbb96e1033fd6c472e9b0ecc6255.etc2.ctex"]
 
 [params]
 

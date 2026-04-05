@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://djmujlyvqee3r"
 path.s3tc="res://.godot/imported/stylised_bolted_panels_albedo.png-f64801c6234ee009d56d94d5629d3a6d.s3tc.ctex"
+path.etc2="res://.godot/imported/stylised_bolted_panels_albedo.png-f64801c6234ee009d56d94d5629d3a6d.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://visual/tiles/stylised_bolted_panels/stylised_bolted_panels_albedo.png"
-dest_files=["res://.godot/imported/stylised_bolted_panels_albedo.png-f64801c6234ee009d56d94d5629d3a6d.s3tc.ctex"]
+dest_files=["res://.godot/imported/stylised_bolted_panels_albedo.png-f64801c6234ee009d56d94d5629d3a6d.s3tc.ctex", "res://.godot/imported/stylised_bolted_panels_albedo.png-f64801c6234ee009d56d94d5629d3a6d.etc2.ctex"]
 
 [params]
 

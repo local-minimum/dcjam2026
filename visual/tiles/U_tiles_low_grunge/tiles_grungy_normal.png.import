@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b51map26xi61q"
 path.s3tc="res://.godot/imported/tiles_grungy_normal.png-0109ebc878fecf026df31bbeba3a7783.s3tc.ctex"
+path.etc2="res://.godot/imported/tiles_grungy_normal.png-0109ebc878fecf026df31bbeba3a7783.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://visual/tiles/U_tiles_low_grunge/tiles_grungy_normal.png"
-dest_files=["res://.godot/imported/tiles_grungy_normal.png-0109ebc878fecf026df31bbeba3a7783.s3tc.ctex"]
+dest_files=["res://.godot/imported/tiles_grungy_normal.png-0109ebc878fecf026df31bbeba3a7783.s3tc.ctex", "res://.godot/imported/tiles_grungy_normal.png-0109ebc878fecf026df31bbeba3a7783.etc2.ctex"]
 
 [params]
 

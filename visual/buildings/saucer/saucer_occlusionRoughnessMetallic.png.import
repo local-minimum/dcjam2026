@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://sipvg6pymu2r"
 path.s3tc="res://.godot/imported/saucer_occlusionRoughnessMetallic.png-4a59dd9ff66915748c0b767f2a00f60a.s3tc.ctex"
+path.etc2="res://.godot/imported/saucer_occlusionRoughnessMetallic.png-4a59dd9ff66915748c0b767f2a00f60a.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://visual/buildings/saucer/saucer_occlusionRoughnessMetallic.png"
-dest_files=["res://.godot/imported/saucer_occlusionRoughnessMetallic.png-4a59dd9ff66915748c0b767f2a00f60a.s3tc.ctex"]
+dest_files=["res://.godot/imported/saucer_occlusionRoughnessMetallic.png-4a59dd9ff66915748c0b767f2a00f60a.s3tc.ctex", "res://.godot/imported/saucer_occlusionRoughnessMetallic.png-4a59dd9ff66915748c0b767f2a00f60a.etc2.ctex"]
 
 [params]
 

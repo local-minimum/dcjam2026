@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d5f2oe4677q5"
 path.s3tc="res://.godot/imported/sky_34_2k.png-c793227b37905b25609f13eae91edf36.s3tc.ctex"
+path.etc2="res://.godot/imported/sky_34_2k.png-c793227b37905b25609f13eae91edf36.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://visual/common/sky_34_2k.png"
-dest_files=["res://.godot/imported/sky_34_2k.png-c793227b37905b25609f13eae91edf36.s3tc.ctex"]
+dest_files=["res://.godot/imported/sky_34_2k.png-c793227b37905b25609f13eae91edf36.s3tc.ctex", "res://.godot/imported/sky_34_2k.png-c793227b37905b25609f13eae91edf36.etc2.ctex"]
 
 [params]
 

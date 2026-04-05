@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bx6ysy5k5sn4p"]
+
+[ext_resource type="Shader" uid="uid://drf2l6sb22tqd" path="res://visual/common/base_emission_shader.gdshader" id="1_3lukb"]
+[ext_resource type="Texture2D" uid="uid://do8wr35aa2q5k" path="res://visual/buildings/train/train_emissive.png" id="2_ktavy"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_3lukb")
+shader_parameter/albedo = Color(0, 0, 0, 1)
+shader_parameter/texture_emission = ExtResource("2_ktavy")
+shader_parameter/emission = Color(0, 0, 0, 1)
+shader_parameter/emission_energy = 99.9999977648

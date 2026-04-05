@@ -14,6 +14,7 @@
 [ext_resource type="Environment" uid="uid://byjp5qc66kefe" path="res://horror/horror_environment.tres" id="10_ybyuc"]
 [ext_resource type="PackedScene" uid="uid://cedti1u06j3wl" path="res://game_complete.tscn" id="11_by2j1"]
 [ext_resource type="Shader" uid="uid://b516ovl5mt2ss" path="res://horror/portal_shader.gdshader" id="11_k4r26"]
+[ext_resource type="ArrayOccluder3D" uid="uid://dkiovwf4wlnnx" path="res://horror/occluders/foyer.occ" id="15_xsq1l"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_tshes"]
 _surfaces = [{
@@ -1099,6 +1100,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 30)
 transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -4.897176, 1, 12)
 mesh = SubResource("PlaneMesh_k0tl3")
 surface_material_override/0 = SubResource("ShaderMaterial_ybyuc")
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="." unique_id=2142261484]
+occluder = ExtResource("15_xsq1l")
 
 [connection signal="area_entered" from="DragonDoorTrigger" to="DragonDoorManager" method="_on_dragon_door_trigger_area_entered"]
 [connection signal="body_entered" from="Triggers/Monster Room Trigger/Area3D" to="Triggers/Monster Room Trigger" method="_on_area_3d_body_entered"]

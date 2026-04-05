@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://crdkc5mx8cs5l"]
 
+[ext_resource type="ArrayOccluder3D" uid="uid://vme8rkdixo17" path="res://horror/occluders/monster_room.occ" id="2_nbv0a"]
 [ext_resource type="Material" uid="uid://l1qka8ips3gh" path="res://visual/tiles/tiles_high_grunge/tiles_high_grunge_red_mat.tres" id="2_ufkhn"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_xmlox"]
@@ -464,3 +465,6 @@ shape = SubResource("BoxShape3D_4e5rd")
 [node name="CollisionShape3D6" type="CollisionShape3D" parent="StaticBody3D" unique_id=550155276]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 8, 4, -11)
 shape = SubResource("BoxShape3D_nbv0a")
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="." unique_id=535777619]
+occluder = ExtResource("2_nbv0a")

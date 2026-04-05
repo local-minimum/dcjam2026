@@ -9,6 +9,7 @@
 [ext_resource type="Material" uid="uid://ct3x3guwn3w5l" path="res://visual/tiles/metal_crosshatch/metal_crosshatch_mat.tres" id="6_eief6"]
 [ext_resource type="Script" uid="uid://c6y8msnderh7g" path="res://horror/rooms/dragon_door_manager.gd" id="8_akkrm"]
 [ext_resource type="PackedScene" uid="uid://xwk63eyo1hpq" path="res://visual/tiles/dragon_door/dragon_door.tscn" id="9_r2jhy"]
+[ext_resource type="Script" uid="uid://pq54prborom3" path="res://horror/triggers.gd" id="10_qersb"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_tshes"]
 _surfaces = [{
@@ -215,6 +216,9 @@ size = Vector3(2, 0.2, 4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ybyuc"]
 size = Vector3(1.8, 1.8, 1.8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_01k27"]
+size = Vector3(2, 1, 2)
 
 [node name="Foyer" type="Node3D" unique_id=248408387]
 
@@ -1007,4 +1011,64 @@ shape = SubResource("BoxShape3D_ybyuc")
 [node name="DragonDoor" parent="." unique_id=1326769779 instance=ExtResource("9_r2jhy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1)
 
+[node name="Triggers" type="Node3D" parent="." unique_id=1307637745]
+
+[node name="Monster Room Trigger" type="Node3D" parent="Triggers" unique_id=2067386509 node_paths=PackedStringArray("spawn_keith_position", "intermediary_positions")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -32)
+script = ExtResource("10_qersb")
+spawn_keith_position = NodePath("Spawn")
+intermediary_positions = [NodePath("CheckPoint"), NodePath("CheckPoint2"), NodePath("CheckPoint3"), NodePath("CheckPoint4")]
+jitter = 0.05
+
+[node name="Area3D" type="Area3D" parent="Triggers/Monster Room Trigger" unique_id=277174191]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 1, 23)
+collision_layer = 512
+collision_mask = 512
+input_ray_pickable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Triggers/Monster Room Trigger/Area3D" unique_id=1997663178]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+shape = SubResource("BoxShape3D_01k27")
+
+[node name="Spawn" type="Node3D" parent="Triggers/Monster Room Trigger" unique_id=1450607922]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 30)
+
+[node name="CheckPoint" type="Node3D" parent="Triggers/Monster Room Trigger" unique_id=26658408]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 32)
+
+[node name="CheckPoint2" type="Node3D" parent="Triggers/Monster Room Trigger" unique_id=1992058406]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 32.362427)
+
+[node name="CheckPoint3" type="Node3D" parent="Triggers/Monster Room Trigger" unique_id=724122538]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, 30)
+
+[node name="CheckPoint4" type="Node3D" parent="Triggers/Monster Room Trigger" unique_id=1763555787]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, 30)
+
+[node name="Monster Room Trigger2" type="Node3D" parent="Triggers" unique_id=1266502148 node_paths=PackedStringArray("spawn_keith_position", "intermediary_positions")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -32)
+script = ExtResource("10_qersb")
+spawn_keith_position = NodePath("Spawn")
+intermediary_positions = [NodePath("CheckPoint"), NodePath(""), NodePath(""), NodePath("")]
+grace_period = 20.0
+jitter = 0.05
+
+[node name="Area3D" type="Area3D" parent="Triggers/Monster Room Trigger2" unique_id=465077184]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 1, 23)
+collision_layer = 512
+collision_mask = 512
+input_ray_pickable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Triggers/Monster Room Trigger2/Area3D" unique_id=559975447]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 1)
+shape = SubResource("BoxShape3D_01k27")
+
+[node name="Spawn" type="Node3D" parent="Triggers/Monster Room Trigger2" unique_id=1643782473]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 30)
+
+[node name="CheckPoint" type="Node3D" parent="Triggers/Monster Room Trigger2" unique_id=807978123]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 30)
+
 [connection signal="area_entered" from="DragonDoorTrigger" to="DragonDoorManager" method="_on_dragon_door_trigger_area_entered"]
+[connection signal="body_entered" from="Triggers/Monster Room Trigger/Area3D" to="Triggers/Monster Room Trigger" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="Triggers/Monster Room Trigger2/Area3D" to="Triggers/Monster Room Trigger2" method="_on_area_3d_body_entered"]

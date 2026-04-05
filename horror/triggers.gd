@@ -6,6 +6,7 @@ const LIGHT_TIMINGS: Array[float] = [0.135, 0.937, 0.928, 0.945, 0.937, 0.933]
 
 @export_file("*.wav") var lights_cascade_sfx_path: String
 
+@export var require_keith_jailed_to_trigger: bool
 @export var turn_on_keith_light_during_walk: bool = true
 @export var spawn_keith_position: Node3D
 @export var spawn_elevation: float = 0.3
@@ -53,7 +54,7 @@ func _handle_entity_join_level(entity: GridEntity) -> void:
         monster_entity = entity
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-    if monster_entity == null || Time.get_ticks_msec() < _go_live_time:
+    if monster_entity == null || Time.get_ticks_msec() < _go_live_time || require_keith_jailed_to_trigger && monster_entity.is_jailed:
         return
 
     var player: PhysicsGridPlayerController = PhysicsGridPlayerController.find_in_tree(body)
@@ -63,6 +64,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
             keith_light.hide()
 
         monster_entity.monster.teleport(spawn_keith_position.global_position + Vector3.UP * spawn_elevation)
+        monster_entity.is_jailed = false
         if !monster_entity.is_speaking:
             monster_entity.start_next_poem()
         monster_entity.disabled_player_interactions = false

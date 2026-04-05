@@ -468,6 +468,7 @@ var is_speaking: bool:
     get():
         return speaker.playing
 
+var is_jailed: bool
 
 func start_next_poem() -> void:
     var poem: AudioStream = load(poems[_NEXT_POEM])

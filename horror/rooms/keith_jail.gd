@@ -19,5 +19,6 @@ func _handle_jail_keith() -> void:
     keith.teleport(jail_position.global_position + vertical_jail_margin * Vector3.UP)
 
     if monster_entity != null:
+        monster_entity.is_jailed = true
         monster_entity.disabled_player_interactions = true
         monster_entity.silence()

@@ -115,4 +115,7 @@ func _setup_final_transition(player: PhysicsGridPlayerController) -> void:
     
 
 func _end_screen() -> void:
-    get_tree().change_scene_to_packed(game_end_screen)
+    var end_screen: Control = game_end_screen.instantiate()
+    add_child(end_screen)
+    
+    #get_tree().change_scene_to_packed(game_end_screen)

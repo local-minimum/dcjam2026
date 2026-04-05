@@ -32,6 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://bk1novtq2fqjb" path="res://clicker/enemies/brassodon.tscn" id="22_5s7a7"]
 [ext_resource type="PackedScene" uid="uid://8caxly5htdpe" path="res://clicker/enemies/ingomatic_v3.tscn" id="23_fivls"]
 [ext_resource type="PackedScene" uid="uid://cacxaqud57kme" path="res://clicker/rooms/gallery_clicker.tscn" id="32_5s7a7"]
+[ext_resource type="PackedScene" uid="uid://1dj8r87yrr6g" path="res://clicker/rooms/duct_rooms.tscn" id="33_fivls"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sufut"]
 size = Vector3(107, 112, 0.263)
@@ -435,6 +436,9 @@ script = ExtResource("2_sufut")
 
 [node name="Gallery" parent="." unique_id=182392180 instance=ExtResource("32_5s7a7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 0, 4)
+
+[node name="Duct Rooms" parent="." unique_id=1551150923 instance=ExtResource("33_fivls")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -19)
 
 [connection signal="area_entered" from="Interactables/dragon/trigger area" to="Interactables/dragon" method="_on_trigger_area_area_entered"]
 [connection signal="area_entered" from="Interactables/dragon3/trigger area" to="Interactables/dragon3" method="_on_trigger_area_area_entered"]

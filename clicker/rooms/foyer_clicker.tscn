@@ -6,6 +6,7 @@
 [ext_resource type="Material" uid="uid://dtj6oh3w7ikhg" path="res://visual/tiles/stylised_bolted_panels/stylised_bolted_panels_mat.tres" id="3_ktvci"]
 [ext_resource type="Material" uid="uid://c0b7e6xapiqb1" path="res://visual/tiles/stylised_piped_panels/stylised_piped_panels.mat.tres" id="3_nlq8e"]
 [ext_resource type="Material" uid="uid://dk4b0e2hwh8we" path="res://visual/tiles/reinforced_skylight/reinforced_skylight_mat.tres" id="7_mwgcm"]
+[ext_resource type="ArrayOccluder3D" uid="uid://b3dhjr3uixae1" path="res://clicker/occluders/foyer_clicker.occ" id="7_uhitq"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_tshes"]
 _surfaces = [{
@@ -746,3 +747,6 @@ shape = SubResource("BoxShape3D_i06fa")
 [node name="CollisionShape3D13" type="CollisionShape3D" parent="StaticBody3D" unique_id=1482399023]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9901123, 1.999176, -2.048462)
 shape = SubResource("BoxShape3D_i06fa")
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="." unique_id=1644350098]
+occluder = ExtResource("7_uhitq")

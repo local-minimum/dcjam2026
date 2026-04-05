@@ -7,6 +7,7 @@
 [ext_resource type="Material" uid="uid://bsectc0of4coe" path="res://visual/tiles/ridged_light_panel/ridged_light_panel.tres" id="3_abhsr"]
 [ext_resource type="Script" uid="uid://pq54prborom3" path="res://horror/triggers.gd" id="5_abhsr"]
 [ext_resource type="Material" uid="uid://ct3x3guwn3w5l" path="res://visual/tiles/metal_crosshatch/metal_crosshatch_mat.tres" id="6_uyvyw"]
+[ext_resource type="ArrayOccluder3D" uid="uid://diljxroq148mv" path="res://horror/occluders/corridor.occ" id="8_h5q2p"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_xmlox"]
 _surfaces = [{
@@ -766,5 +767,8 @@ mesh = SubResource("ArrayMesh_pixaj")
 [node name="MeshInstance3D27" type="MeshInstance3D" parent="Ceiling" unique_id=1328308509]
 transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, -8, 4.1, -16)
 mesh = SubResource("ArrayMesh_pixaj")
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="." unique_id=1595712946]
+occluder = ExtResource("8_h5q2p")
 
 [connection signal="body_entered" from="Triggrers/Walk Down Hall Trigger/Area3D" to="Triggrers/Walk Down Hall Trigger" method="_on_area_3d_body_entered"]

@@ -4,6 +4,7 @@
 [ext_resource type="Material" uid="uid://b0w1s1ufqtf5q" path="res://visual/tiles/checker_plate/checker_plate_mat.tres" id="4_guqjb"]
 [ext_resource type="Material" uid="uid://dtj6oh3w7ikhg" path="res://visual/tiles/stylised_bolted_panels/stylised_bolted_panels_mat.tres" id="5_1kqap"]
 [ext_resource type="Material" uid="uid://ca3jquhtlsk3d" path="res://visual/tiles/stylised_geometric_metal/stylised_geometric_metal_mat.tres" id="5_r0lnl"]
+[ext_resource type="ArrayOccluder3D" uid="uid://djibqhmh6v4h5" path="res://clicker/occluders/atrium_clicker.occ" id="8_1kqap"]
 [ext_resource type="ArrayMesh" uid="uid://b0vlo73s2fd38" path="res://visual/clutter/sculptures/sculpture_triangle.obj" id="10_41bkw"]
 [ext_resource type="Material" uid="uid://doubdvy88wgr7" path="res://visual/common/trims/1/trim_1_mat.tres" id="11_3fjto"]
 [ext_resource type="ArrayMesh" uid="uid://ceb8oy4go2no4" path="res://visual/clutter/sculptures/sculpture_walk.obj" id="12_86u5u"]
@@ -778,11 +779,13 @@ mesh = SubResource("BoxMesh_urtwg")
 
 [node name="SculptureTriangle" type="MeshInstance3D" parent="Clutter" unique_id=1256534983]
 transform = Transform3D(-1.0000001, 0, 0, 0, 1, 0, 0, 0, -1.0000001, -4.060279, 0, -28.419989)
+layers = 2
 mesh = ExtResource("10_41bkw")
 surface_material_override/0 = ExtResource("11_3fjto")
 
 [node name="SculptureWalk" type="MeshInstance3D" parent="Clutter" unique_id=1758989187]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.097229, -4.7683716e-07, -28.388567)
+layers = 2
 mesh = ExtResource("12_86u5u")
 surface_material_override/0 = ExtResource("11_3fjto")
 
@@ -856,3 +859,7 @@ shape = SubResource("BoxShape3D_wbvxx")
 [node name="CollisionShape3D15" type="CollisionShape3D" parent="StaticBody3D" unique_id=777865876]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, 2)
 shape = SubResource("BoxShape3D_wbvxx")
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="." unique_id=553193445]
+occluder = ExtResource("8_1kqap")
+bake_mask = 4293918721

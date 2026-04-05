@@ -4,6 +4,7 @@
 [ext_resource type="ArrayMesh" uid="uid://b0vlo73s2fd38" path="res://visual/clutter/sculptures/sculpture_triangle.obj" id="1_yljah"]
 [ext_resource type="Material" uid="uid://doubdvy88wgr7" path="res://visual/common/trims/1/trim_1_mat.tres" id="2_6q6vn"]
 [ext_resource type="ArrayMesh" uid="uid://ceb8oy4go2no4" path="res://visual/clutter/sculptures/sculpture_walk.obj" id="3_6q6vn"]
+[ext_resource type="ArrayOccluder3D" uid="uid://dsj8x5u7wncel" path="res://clicker/occluders/gallery_clicker.occ" id="5_7386c"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_xmlox"]
 _surfaces = [{
@@ -120,41 +121,49 @@ size = Vector3(8, 4, 0.2)
 
 [node name="SculptureTriangle" type="MeshInstance3D" parent="Clutter" unique_id=608111724]
 transform = Transform3D(-1.0000001, 0, 0, 0, 1, 0, 0, 0, -1.0000001, 6.899926, 0, -12.471014)
+layers = 2
 mesh = ExtResource("1_yljah")
 surface_material_override/0 = ExtResource("2_6q6vn")
 
 [node name="SculptureTriangle2" type="MeshInstance3D" parent="Clutter" unique_id=1765548356]
 transform = Transform3D(-1.0000001, 0, 0, 0, 1, 0, 0, 0, -1.0000001, 1.49154, 0, -1.5199032)
+layers = 2
 mesh = ExtResource("1_yljah")
 surface_material_override/0 = ExtResource("2_6q6vn")
 
 [node name="SculptureTriangle4" type="MeshInstance3D" parent="Clutter" unique_id=2044151905]
 transform = Transform3D(-1.0000001, 0, 0, 0, 1, 0, 0, 0, -1.0000001, 19.391539, 0, -1.5199032)
+layers = 2
 mesh = ExtResource("1_yljah")
 surface_material_override/0 = ExtResource("2_6q6vn")
 
 [node name="SculptureTriangle3" type="MeshInstance3D" parent="Clutter" unique_id=888234552]
 transform = Transform3D(-1.0000001, 0, 0, 0, 1, 0, 0, 0, -1.0000001, 7.49154, 0, -1.5199032)
+layers = 2
 mesh = ExtResource("1_yljah")
 surface_material_override/0 = ExtResource("2_6q6vn")
 
 [node name="SculptureWalk" type="MeshInstance3D" parent="Clutter" unique_id=453680323]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.4647827, -4.7683716e-07, -12.493792)
+layers = 2
 mesh = ExtResource("3_6q6vn")
 surface_material_override/0 = ExtResource("2_6q6vn")
 
 [node name="SculptureWalk2" type="MeshInstance3D" parent="Clutter" unique_id=1918688700]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 13.464783, -4.7683716e-07, -12.493792)
+layers = 2
 mesh = ExtResource("3_6q6vn")
 surface_material_override/0 = ExtResource("2_6q6vn")
 
 [node name="SculptureWalk3" type="MeshInstance3D" parent="Clutter" unique_id=2048305895]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 13.464783, -4.7683716e-07, -1.4937916)
+layers = 2
 mesh = ExtResource("3_6q6vn")
 surface_material_override/0 = ExtResource("2_6q6vn")
 
 [node name="SculptureWalk4" type="MeshInstance3D" parent="Clutter" unique_id=1281992185]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.4647827, -4.7683716e-07, -6.4937916)
+layers = 2
 mesh = ExtResource("3_6q6vn")
 surface_material_override/0 = ExtResource("2_6q6vn")
 
@@ -985,3 +994,7 @@ shape = SubResource("BoxShape3D_m51et")
 [node name="Shape 11" type="CollisionShape3D" parent="StaticBody3D" unique_id=676072342]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 5, 2, -7)
 shape = SubResource("BoxShape3D_m51et")
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="." unique_id=732205676]
+occluder = ExtResource("5_7386c")
+bake_mask = 1

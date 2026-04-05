@@ -1,9 +1,10 @@
 [gd_scene format=4 uid="uid://cgl7x0ttstr4c"]
 
-[ext_resource type="Shader" path="res://visual/common/base_stylised_shader.gdshader" id="1_4ui2x"]
+[ext_resource type="Shader" uid="uid://cxakfuw35muos" path="res://visual/common/base_stylised_shader.gdshader" id="1_4ui2x"]
 [ext_resource type="Texture2D" uid="uid://dwdot5b77fg3d" path="res://visual/tiles/hospital_tiles/hospital_tiles_baseColor.png" id="2_gfggb"]
 [ext_resource type="Texture2D" uid="uid://0e1drvm6keu8" path="res://visual/tiles/hospital_tiles/hospital_tiles_normal.png" id="3_pp50r"]
 [ext_resource type="Texture2D" uid="uid://be6pxmp248ffe" path="res://visual/tiles/hospital_tiles/hospital_tiles_occlusionRoughnessMetallic.png" id="4_ymhu8"]
+[ext_resource type="ArrayOccluder3D" uid="uid://e7tfd20wvj8w" path="res://clicker/occluders/corridor_clicker.occ" id="5_gfggb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aos28"]
 render_priority = 0
@@ -355,3 +356,6 @@ shape = SubResource("BoxShape3D_h5q2p")
 [node name="CollisionShape3D8" type="CollisionShape3D" parent="StaticBody3D" unique_id=1258789722]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3, 2, 0)
 shape = SubResource("BoxShape3D_v3rd6")
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="." unique_id=1135102172]
+occluder = ExtResource("5_gfggb")

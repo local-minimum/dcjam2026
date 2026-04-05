@@ -7,6 +7,7 @@
 [ext_resource type="ArrayMesh" uid="uid://b0vlo73s2fd38" path="res://visual/clutter/sculptures/sculpture_triangle.obj" id="5_l1nn0"]
 [ext_resource type="Material" uid="uid://doubdvy88wgr7" path="res://visual/common/trims/1/trim_1_mat.tres" id="6_smx0n"]
 [ext_resource type="ArrayMesh" uid="uid://ceb8oy4go2no4" path="res://visual/clutter/sculptures/sculpture_walk.obj" id="7_dovlg"]
+[ext_resource type="ArrayOccluder3D" uid="uid://io4efqxhr34b" path="res://horror/occluders/gallery.occ" id="8_smx0n"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_xmlox"]
 _surfaces = [{
@@ -1468,42 +1469,54 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -12)
 
 [node name="SculptureTriangle" type="MeshInstance3D" parent="Clutter" unique_id=1392672106]
 transform = Transform3D(-1.0000001, 0, 0, 0, 1, 0, 0, 0, -1.0000001, 6.899926, 0, -12.471014)
+layers = 2
 mesh = ExtResource("5_l1nn0")
 surface_material_override/0 = ExtResource("6_smx0n")
 
 [node name="SculptureTriangle2" type="MeshInstance3D" parent="Clutter" unique_id=1995796422]
 transform = Transform3D(-1.0000001, 0, 0, 0, 1, 0, 0, 0, -1.0000001, 1.49154, 0, -1.5199032)
+layers = 2
 mesh = ExtResource("5_l1nn0")
 surface_material_override/0 = ExtResource("6_smx0n")
 
 [node name="SculptureTriangle4" type="MeshInstance3D" parent="Clutter" unique_id=1042411574]
 transform = Transform3D(-1.0000001, 0, 0, 0, 1, 0, 0, 0, -1.0000001, 19.391539, 0, -1.5199032)
+layers = 2
 mesh = ExtResource("5_l1nn0")
 surface_material_override/0 = ExtResource("6_smx0n")
 
 [node name="SculptureTriangle3" type="MeshInstance3D" parent="Clutter" unique_id=2118109642]
 transform = Transform3D(-1.0000001, 0, 0, 0, 1, 0, 0, 0, -1.0000001, 7.49154, 0, -1.5199032)
+layers = 2
 mesh = ExtResource("5_l1nn0")
 surface_material_override/0 = ExtResource("6_smx0n")
 
 [node name="SculptureWalk" type="MeshInstance3D" parent="Clutter" unique_id=1090056654]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.4647827, -4.7683716e-07, -12.493792)
+layers = 2
 mesh = ExtResource("7_dovlg")
 surface_material_override/0 = ExtResource("6_smx0n")
 
 [node name="SculptureWalk2" type="MeshInstance3D" parent="Clutter" unique_id=1312177968]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 13.464783, -4.7683716e-07, -12.493792)
+layers = 2
 mesh = ExtResource("7_dovlg")
 surface_material_override/0 = ExtResource("6_smx0n")
 
 [node name="SculptureWalk3" type="MeshInstance3D" parent="Clutter" unique_id=1210051940]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 13.464783, -4.7683716e-07, -1.4937916)
+layers = 2
 mesh = ExtResource("7_dovlg")
 surface_material_override/0 = ExtResource("6_smx0n")
 
 [node name="SculptureWalk4" type="MeshInstance3D" parent="Clutter" unique_id=1528741369]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.4647827, -4.7683716e-07, -6.4937916)
+layers = 2
 mesh = ExtResource("7_dovlg")
 surface_material_override/0 = ExtResource("6_smx0n")
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="." unique_id=1712441330]
+occluder = ExtResource("8_smx0n")
+bake_mask = 1
 
 [connection signal="body_entered" from="Triggers/Gallery Trigger 1/Area3D" to="Triggers/Gallery Trigger 1" method="_on_area_3d_body_entered"]

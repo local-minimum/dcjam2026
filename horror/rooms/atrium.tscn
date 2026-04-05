@@ -12,6 +12,7 @@
 [ext_resource type="Material" uid="uid://c5fkh61jegi8x" path="res://visual/tiles/grated_power/grated_power_mat.tres" id="5_5nvhf"]
 [ext_resource type="Material" uid="uid://dk4b0e2hwh8we" path="res://visual/tiles/reinforced_skylight/reinforced_skylight_mat.tres" id="5_6043l"]
 [ext_resource type="Material" uid="uid://cjmi6owuephcb" path="res://visual/tiles/concrete_quad/concrete_quad_mat.tres" id="6_hdd67"]
+[ext_resource type="ArrayOccluder3D" uid="uid://chmy6n2sapuk0" path="res://horror/occluders/atrium.occ" id="13_wm7kx"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_xmlox"]
 _surfaces = [{
@@ -1236,6 +1237,7 @@ spot_angle = 90.0
 transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 6, -25)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Lights/SkyLight1" unique_id=1438555178]
+layers = 2
 mesh = SubResource("ArrayMesh_fg8q2")
 
 [node name="EmmmisivePlane" type="MeshInstance3D" parent="Lights/SkyLight1" unique_id=272803039]
@@ -1257,6 +1259,7 @@ spot_angle_attenuation = 0.933033
 transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 6, -21)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Lights/SkyLight2" unique_id=1471745053]
+layers = 2
 mesh = SubResource("ArrayMesh_fg8q2")
 
 [node name="EmmmisivePlane" type="MeshInstance3D" parent="Lights/SkyLight2" unique_id=1829849145]
@@ -1278,6 +1281,7 @@ spot_angle_attenuation = 0.933033
 transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 6, -17)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Lights/SkyLight3" unique_id=444858972]
+layers = 2
 mesh = SubResource("ArrayMesh_fg8q2")
 
 [node name="EmmmisivePlane" type="MeshInstance3D" parent="Lights/SkyLight3" unique_id=1487549151]
@@ -1306,11 +1310,13 @@ mesh = SubResource("BoxMesh_urtwg")
 
 [node name="SculptureTriangle" type="MeshInstance3D" parent="Clutter" unique_id=1256534983]
 transform = Transform3D(-1.0000001, 0, 0, 0, 1, 0, 0, 0, -1.0000001, -4.060279, 0, -28.419989)
+layers = 2
 mesh = ExtResource("2_udm7l")
 surface_material_override/0 = ExtResource("3_lara0")
 
 [node name="SculptureWalk" type="MeshInstance3D" parent="Clutter" unique_id=1758989187]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.097229, -4.7683716e-07, -28.388567)
+layers = 2
 mesh = ExtResource("4_lara0")
 surface_material_override/0 = ExtResource("3_lara0")
 
@@ -1412,3 +1418,7 @@ shape = SubResource("BoxShape3D_ol2yw")
 [node name="CollisionShape3D24" type="CollisionShape3D" parent="StaticBody3D" unique_id=626881632]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -11)
 shape = SubResource("BoxShape3D_fg2uv")
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="." unique_id=346324188]
+occluder = ExtResource("13_wm7kx")
+bake_mask = 1

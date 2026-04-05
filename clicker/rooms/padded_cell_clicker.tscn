@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://d1hclgmjxidka" path="res://visual/tiles/padded_cell/padded_cell_normal.png" id="2_l6h8e"]
 [ext_resource type="Texture2D" uid="uid://df7qifqx06al" path="res://visual/tiles/padded_cell/padded_cell_occlusionRoughnessMetallic.png" id="3_8uswk"]
 [ext_resource type="Texture2D" uid="uid://b4c7cancribk3" path="res://visual/tiles/padded_cell/blood_writing.png" id="4_l6h8e"]
+[ext_resource type="ArrayOccluder3D" uid="uid://c14rppu5cipa3" path="res://clicker/occluders/padded_cell_clicker.occ" id="5_cli8h"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l6h8e"]
 render_priority = 0
@@ -341,3 +342,6 @@ shape = SubResource("BoxShape3D_cli8h")
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="StaticBody3D" unique_id=1785381613]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.9969177, 1.8937378, 3.0140686)
 shape = SubResource("BoxShape3D_cli8h")
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="." unique_id=195238474]
+occluder = ExtResource("5_cli8h")

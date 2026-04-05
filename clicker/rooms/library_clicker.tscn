@@ -2,6 +2,7 @@
 
 [ext_resource type="Material" uid="uid://diwb8tjymr6wb" path="res://visual/tiles/stylised_bookcase/bookcase_stylised_mat.tres" id="1_6bk4q"]
 [ext_resource type="Material" uid="uid://b3o8kvs1bk15l" path="res://visual/tiles/stylised_wood_planks/stylised_wooden_planks_mat.tres" id="2_6bk4q"]
+[ext_resource type="ArrayOccluder3D" uid="uid://dqwtjr2k1tvu0" path="res://clicker/occluders/library_clicker.occ" id="3_6bk4q"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_tshes"]
 _surfaces = [{
@@ -602,3 +603,6 @@ shape = SubResource("BoxShape3D_ssyx1")
 [node name="CollisionShape3D9" type="CollisionShape3D" parent="StaticBody3D" unique_id=828550008]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1.9054565, 0)
 shape = SubResource("BoxShape3D_2i8hq")
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="." unique_id=288815503]
+occluder = ExtResource("3_6bk4q")

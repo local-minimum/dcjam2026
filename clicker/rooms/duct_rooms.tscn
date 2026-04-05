@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://df7qifqx06al" path="res://visual/tiles/padded_cell/padded_cell_occlusionRoughnessMetallic.png" id="3_d6d5t"]
 [ext_resource type="Material" uid="uid://diwb8tjymr6wb" path="res://visual/tiles/stylised_bookcase/bookcase_stylised_mat.tres" id="4_cwd4m"]
 [ext_resource type="Material" uid="uid://b3o8kvs1bk15l" path="res://visual/tiles/stylised_wood_planks/stylised_wooden_planks_mat.tres" id="4_ku2rw"]
+[ext_resource type="ArrayOccluder3D" uid="uid://xgt7vl833emh" path="res://clicker/occluders/duct_rooms.occ" id="6_d6d5t"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l6h8e"]
 render_priority = 0
@@ -1685,3 +1686,6 @@ shape = SubResource("BoxShape3D_82m2u")
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="StaticBody3D" unique_id=1245914463]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.996918, 0.8330078, 1.0140686)
 shape = SubResource("BoxShape3D_0kw1c")
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="." unique_id=1021354469]
+occluder = ExtResource("6_d6d5t")

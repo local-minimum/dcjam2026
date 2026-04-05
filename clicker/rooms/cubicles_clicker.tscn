@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://dtk2ojsopxo8u"]
 
 [ext_resource type="Material" uid="uid://cu3hlmljkqk22" path="res://visual/tiles/stylised_mossy_brick/stylised_mossy_brick_mat.tres" id="1_d646b"]
+[ext_resource type="ArrayOccluder3D" uid="uid://bk176s4nbixuw" path="res://clicker/occluders/cubicles_clicker.occ" id="2_55v0x"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_xmlox"]
 _surfaces = [{
@@ -1193,3 +1194,6 @@ shape = SubResource("BoxShape3D_jxbi7")
 [node name="2x2_15" type="CollisionShape3D" parent="StaticBody3D" unique_id=1677304195]
 transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 17, 2, -5)
 shape = SubResource("BoxShape3D_jxbi7")
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="." unique_id=9415633]
+occluder = ExtResource("2_55v0x")

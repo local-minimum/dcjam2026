@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://qnqpl5m2sspy"
 path.s3tc="res://.godot/imported/stylised_geometric_metal_orm.png-da2f45adffe1892de8bf4c8740157d38.s3tc.ctex"
+path.etc2="res://.godot/imported/stylised_geometric_metal_orm.png-da2f45adffe1892de8bf4c8740157d38.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://visual/tiles/stylised_geometric_metal/stylised_geometric_metal_orm.png"
-dest_files=["res://.godot/imported/stylised_geometric_metal_orm.png-da2f45adffe1892de8bf4c8740157d38.s3tc.ctex"]
+dest_files=["res://.godot/imported/stylised_geometric_metal_orm.png-da2f45adffe1892de8bf4c8740157d38.s3tc.ctex", "res://.godot/imported/stylised_geometric_metal_orm.png-da2f45adffe1892de8bf4c8740157d38.etc2.ctex"]
 
 [params]
 

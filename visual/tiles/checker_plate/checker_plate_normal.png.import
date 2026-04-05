@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://02ptbcxqn0a1"
 path.s3tc="res://.godot/imported/checker_plate_normal.png-76da52b3b8dc505e253a0213ea887691.s3tc.ctex"
+path.etc2="res://.godot/imported/checker_plate_normal.png-76da52b3b8dc505e253a0213ea887691.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://visual/tiles/checker_plate/checker_plate_normal.png"
-dest_files=["res://.godot/imported/checker_plate_normal.png-76da52b3b8dc505e253a0213ea887691.s3tc.ctex"]
+dest_files=["res://.godot/imported/checker_plate_normal.png-76da52b3b8dc505e253a0213ea887691.s3tc.ctex", "res://.godot/imported/checker_plate_normal.png-76da52b3b8dc505e253a0213ea887691.etc2.ctex"]
 
 [params]
 

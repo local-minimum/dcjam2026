@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cxu7qwa01sjv1"
 path.s3tc="res://.godot/imported/tiles_high_grunge_occlusionRoughnessMetallic.png-edc41b4c247b93db9c42502a7bd7b5ea.s3tc.ctex"
+path.etc2="res://.godot/imported/tiles_high_grunge_occlusionRoughnessMetallic.png-edc41b4c247b93db9c42502a7bd7b5ea.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://visual/tiles/tiles_high_grunge/tiles_high_grunge_occlusionRoughnessMetallic.png"
-dest_files=["res://.godot/imported/tiles_high_grunge_occlusionRoughnessMetallic.png-edc41b4c247b93db9c42502a7bd7b5ea.s3tc.ctex"]
+dest_files=["res://.godot/imported/tiles_high_grunge_occlusionRoughnessMetallic.png-edc41b4c247b93db9c42502a7bd7b5ea.s3tc.ctex", "res://.godot/imported/tiles_high_grunge_occlusionRoughnessMetallic.png-edc41b4c247b93db9c42502a7bd7b5ea.etc2.ctex"]
 
 [params]
 

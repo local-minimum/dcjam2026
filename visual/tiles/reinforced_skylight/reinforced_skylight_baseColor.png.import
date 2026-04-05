@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bomxej8i35hyy"
 path.s3tc="res://.godot/imported/reinforced_skylight_baseColor.png-43c1c0b0eab397efe19e9c3993e8a293.s3tc.ctex"
+path.etc2="res://.godot/imported/reinforced_skylight_baseColor.png-43c1c0b0eab397efe19e9c3993e8a293.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://visual/tiles/reinforced_skylight/reinforced_skylight_baseColor.png"
-dest_files=["res://.godot/imported/reinforced_skylight_baseColor.png-43c1c0b0eab397efe19e9c3993e8a293.s3tc.ctex"]
+dest_files=["res://.godot/imported/reinforced_skylight_baseColor.png-43c1c0b0eab397efe19e9c3993e8a293.s3tc.ctex", "res://.godot/imported/reinforced_skylight_baseColor.png-43c1c0b0eab397efe19e9c3993e8a293.etc2.ctex"]
 
 [params]
 

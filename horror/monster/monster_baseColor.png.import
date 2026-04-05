@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bgi2fi4dp2fjv"
 path.s3tc="res://.godot/imported/monster_baseColor.png-ff32314106e9cee8be00db3e1d77fd76.s3tc.ctex"
+path.etc2="res://.godot/imported/monster_baseColor.png-ff32314106e9cee8be00db3e1d77fd76.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://horror/monster/monster_baseColor.png"
-dest_files=["res://.godot/imported/monster_baseColor.png-ff32314106e9cee8be00db3e1d77fd76.s3tc.ctex"]
+dest_files=["res://.godot/imported/monster_baseColor.png-ff32314106e9cee8be00db3e1d77fd76.s3tc.ctex", "res://.godot/imported/monster_baseColor.png-ff32314106e9cee8be00db3e1d77fd76.etc2.ctex"]
 
 [params]
 

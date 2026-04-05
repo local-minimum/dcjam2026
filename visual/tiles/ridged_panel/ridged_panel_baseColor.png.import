@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://di7jbw6y70jhf"
 path.s3tc="res://.godot/imported/ridged_panel_baseColor.png-d42ed6c8812fe4dc9d8fa81386138e9e.s3tc.ctex"
+path.etc2="res://.godot/imported/ridged_panel_baseColor.png-d42ed6c8812fe4dc9d8fa81386138e9e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://visual/tiles/ridged_panel/ridged_panel_baseColor.png"
-dest_files=["res://.godot/imported/ridged_panel_baseColor.png-d42ed6c8812fe4dc9d8fa81386138e9e.s3tc.ctex"]
+dest_files=["res://.godot/imported/ridged_panel_baseColor.png-d42ed6c8812fe4dc9d8fa81386138e9e.s3tc.ctex", "res://.godot/imported/ridged_panel_baseColor.png-d42ed6c8812fe4dc9d8fa81386138e9e.etc2.ctex"]
 
 [params]
 

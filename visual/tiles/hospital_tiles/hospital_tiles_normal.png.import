@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://0e1drvm6keu8"
 path.s3tc="res://.godot/imported/hospital_tiles_normal.png-9c67c8cf3827bba6433617ad74e24dd5.s3tc.ctex"
+path.etc2="res://.godot/imported/hospital_tiles_normal.png-9c67c8cf3827bba6433617ad74e24dd5.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://visual/tiles/hospital_tiles/hospital_tiles_normal.png"
-dest_files=["res://.godot/imported/hospital_tiles_normal.png-9c67c8cf3827bba6433617ad74e24dd5.s3tc.ctex"]
+dest_files=["res://.godot/imported/hospital_tiles_normal.png-9c67c8cf3827bba6433617ad74e24dd5.s3tc.ctex", "res://.godot/imported/hospital_tiles_normal.png-9c67c8cf3827bba6433617ad74e24dd5.etc2.ctex"]
 
 [params]
 

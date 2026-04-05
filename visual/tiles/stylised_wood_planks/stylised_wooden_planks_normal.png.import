@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bhej3dgk4n270"
 path.s3tc="res://.godot/imported/stylised_wooden_planks_normal.png-639e96cbe7db23a9e19968c969ac7339.s3tc.ctex"
+path.etc2="res://.godot/imported/stylised_wooden_planks_normal.png-639e96cbe7db23a9e19968c969ac7339.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://visual/tiles/stylised_wood_planks/stylised_wooden_planks_normal.png"
-dest_files=["res://.godot/imported/stylised_wooden_planks_normal.png-639e96cbe7db23a9e19968c969ac7339.s3tc.ctex"]
+dest_files=["res://.godot/imported/stylised_wooden_planks_normal.png-639e96cbe7db23a9e19968c969ac7339.s3tc.ctex", "res://.godot/imported/stylised_wooden_planks_normal.png-639e96cbe7db23a9e19968c969ac7339.etc2.ctex"]
 
 [params]
 

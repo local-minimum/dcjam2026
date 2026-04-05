@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c5k2gm87yrvum"
 path.s3tc="res://.godot/imported/concrete_quad_tiles_occlusionRoughnessMetallic.png-16212d82fa467fc70238bc039f5f32da.s3tc.ctex"
+path.etc2="res://.godot/imported/concrete_quad_tiles_occlusionRoughnessMetallic.png-16212d82fa467fc70238bc039f5f32da.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://visual/tiles/concrete_quad/concrete_quad_tiles_occlusionRoughnessMetallic.png"
-dest_files=["res://.godot/imported/concrete_quad_tiles_occlusionRoughnessMetallic.png-16212d82fa467fc70238bc039f5f32da.s3tc.ctex"]
+dest_files=["res://.godot/imported/concrete_quad_tiles_occlusionRoughnessMetallic.png-16212d82fa467fc70238bc039f5f32da.s3tc.ctex", "res://.godot/imported/concrete_quad_tiles_occlusionRoughnessMetallic.png-16212d82fa467fc70238bc039f5f32da.etc2.ctex"]
 
 [params]
 

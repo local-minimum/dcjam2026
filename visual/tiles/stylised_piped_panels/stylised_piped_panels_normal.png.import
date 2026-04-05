@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cxfiigipnxl86"
 path.s3tc="res://.godot/imported/stylised_piped_panels_normal.png-c7fc12b897d1905b059bf30db379c69e.s3tc.ctex"
+path.etc2="res://.godot/imported/stylised_piped_panels_normal.png-c7fc12b897d1905b059bf30db379c69e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://visual/tiles/stylised_piped_panels/stylised_piped_panels_normal.png"
-dest_files=["res://.godot/imported/stylised_piped_panels_normal.png-c7fc12b897d1905b059bf30db379c69e.s3tc.ctex"]
+dest_files=["res://.godot/imported/stylised_piped_panels_normal.png-c7fc12b897d1905b059bf30db379c69e.s3tc.ctex", "res://.godot/imported/stylised_piped_panels_normal.png-c7fc12b897d1905b059bf30db379c69e.etc2.ctex"]
 
 [params]
 

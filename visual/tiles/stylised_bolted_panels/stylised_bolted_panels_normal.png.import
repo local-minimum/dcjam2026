@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c5ymhvtvv0l6v"
 path.s3tc="res://.godot/imported/stylised_bolted_panels_normal.png-748539f7dc4fb08e76bddea57dfd47cb.s3tc.ctex"
+path.etc2="res://.godot/imported/stylised_bolted_panels_normal.png-748539f7dc4fb08e76bddea57dfd47cb.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://visual/tiles/stylised_bolted_panels/stylised_bolted_panels_normal.png"
-dest_files=["res://.godot/imported/stylised_bolted_panels_normal.png-748539f7dc4fb08e76bddea57dfd47cb.s3tc.ctex"]
+dest_files=["res://.godot/imported/stylised_bolted_panels_normal.png-748539f7dc4fb08e76bddea57dfd47cb.s3tc.ctex", "res://.godot/imported/stylised_bolted_panels_normal.png-748539f7dc4fb08e76bddea57dfd47cb.etc2.ctex"]
 
 [params]
 

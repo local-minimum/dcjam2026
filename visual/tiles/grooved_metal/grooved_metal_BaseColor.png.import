@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://xl26h4b3h24r"
 path.s3tc="res://.godot/imported/grooved_metal_BaseColor.png-7870997c19957d67d2641326130e1377.s3tc.ctex"
+path.etc2="res://.godot/imported/grooved_metal_BaseColor.png-7870997c19957d67d2641326130e1377.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://visual/tiles/grooved_metal/grooved_metal_BaseColor.png"
-dest_files=["res://.godot/imported/grooved_metal_BaseColor.png-7870997c19957d67d2641326130e1377.s3tc.ctex"]
+dest_files=["res://.godot/imported/grooved_metal_BaseColor.png-7870997c19957d67d2641326130e1377.s3tc.ctex", "res://.godot/imported/grooved_metal_BaseColor.png-7870997c19957d67d2641326130e1377.etc2.ctex"]
 
 [params]
 

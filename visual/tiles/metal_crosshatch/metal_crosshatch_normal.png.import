@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bytx7wacrg7na"
 path.s3tc="res://.godot/imported/metal_crosshatch_normal.png-a2dc887f1d8569bd715c53926d2bb53f.s3tc.ctex"
+path.etc2="res://.godot/imported/metal_crosshatch_normal.png-a2dc887f1d8569bd715c53926d2bb53f.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://visual/tiles/metal_crosshatch/metal_crosshatch_normal.png"
-dest_files=["res://.godot/imported/metal_crosshatch_normal.png-a2dc887f1d8569bd715c53926d2bb53f.s3tc.ctex"]
+dest_files=["res://.godot/imported/metal_crosshatch_normal.png-a2dc887f1d8569bd715c53926d2bb53f.s3tc.ctex", "res://.godot/imported/metal_crosshatch_normal.png-a2dc887f1d8569bd715c53926d2bb53f.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cryebbr0rdfac"
 path.s3tc="res://.godot/imported/marked_walkway_junction_normal.png-69a99a3f16f9e561f7898ab6c3fa17c2.s3tc.ctex"
+path.etc2="res://.godot/imported/marked_walkway_junction_normal.png-69a99a3f16f9e561f7898ab6c3fa17c2.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://visual/tiles/marked_walkway_junction/marked_walkway_junction_normal.png"
-dest_files=["res://.godot/imported/marked_walkway_junction_normal.png-69a99a3f16f9e561f7898ab6c3fa17c2.s3tc.ctex"]
+dest_files=["res://.godot/imported/marked_walkway_junction_normal.png-69a99a3f16f9e561f7898ab6c3fa17c2.s3tc.ctex", "res://.godot/imported/marked_walkway_junction_normal.png-69a99a3f16f9e561f7898ab6c3fa17c2.etc2.ctex"]
 
 [params]
 

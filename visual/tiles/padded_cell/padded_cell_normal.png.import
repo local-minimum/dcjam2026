@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d1hclgmjxidka"
 path.s3tc="res://.godot/imported/padded_cell_normal.png-5789fa6b0be7b4b3aa8ad543a8b4bb9e.s3tc.ctex"
+path.etc2="res://.godot/imported/padded_cell_normal.png-5789fa6b0be7b4b3aa8ad543a8b4bb9e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://visual/tiles/padded_cell/padded_cell_normal.png"
-dest_files=["res://.godot/imported/padded_cell_normal.png-5789fa6b0be7b4b3aa8ad543a8b4bb9e.s3tc.ctex"]
+dest_files=["res://.godot/imported/padded_cell_normal.png-5789fa6b0be7b4b3aa8ad543a8b4bb9e.s3tc.ctex", "res://.godot/imported/padded_cell_normal.png-5789fa6b0be7b4b3aa8ad543a8b4bb9e.etc2.ctex"]
 
 [params]
 

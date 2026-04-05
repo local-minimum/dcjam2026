@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cvbdwur5dxudi"
 path.s3tc="res://.godot/imported/dragon_door_frame_Normal.png-0f5d911e75fc3d2bbe0fdb5a787fba48.s3tc.ctex"
+path.etc2="res://.godot/imported/dragon_door_frame_Normal.png-0f5d911e75fc3d2bbe0fdb5a787fba48.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://visual/tiles/dragon_door/frame/dragon_door_frame_Normal.png"
-dest_files=["res://.godot/imported/dragon_door_frame_Normal.png-0f5d911e75fc3d2bbe0fdb5a787fba48.s3tc.ctex"]
+dest_files=["res://.godot/imported/dragon_door_frame_Normal.png-0f5d911e75fc3d2bbe0fdb5a787fba48.s3tc.ctex", "res://.godot/imported/dragon_door_frame_Normal.png-0f5d911e75fc3d2bbe0fdb5a787fba48.etc2.ctex"]
 
 [params]
 

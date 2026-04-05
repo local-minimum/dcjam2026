@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://buplyvo8m0td5"
 path.s3tc="res://.godot/imported/bankers_lamp_BaseColor.png-23d6e0f992e04c230ee32062b617b7d8.s3tc.ctex"
+path.etc2="res://.godot/imported/bankers_lamp_BaseColor.png-23d6e0f992e04c230ee32062b617b7d8.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://visual/clutter/bankers_lamp/bankers_lamp_BaseColor.png"
-dest_files=["res://.godot/imported/bankers_lamp_BaseColor.png-23d6e0f992e04c230ee32062b617b7d8.s3tc.ctex"]
+dest_files=["res://.godot/imported/bankers_lamp_BaseColor.png-23d6e0f992e04c230ee32062b617b7d8.s3tc.ctex", "res://.godot/imported/bankers_lamp_BaseColor.png-23d6e0f992e04c230ee32062b617b7d8.etc2.ctex"]
 
 [params]
 

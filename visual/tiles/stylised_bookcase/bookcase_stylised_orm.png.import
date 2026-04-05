@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bbkr7mckw3af3"
 path.s3tc="res://.godot/imported/bookcase_stylised_orm.png-4c64d4453f6fe977e0f202631331ee85.s3tc.ctex"
+path.etc2="res://.godot/imported/bookcase_stylised_orm.png-4c64d4453f6fe977e0f202631331ee85.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://visual/tiles/stylised_bookcase/bookcase_stylised_orm.png"
-dest_files=["res://.godot/imported/bookcase_stylised_orm.png-4c64d4453f6fe977e0f202631331ee85.s3tc.ctex"]
+dest_files=["res://.godot/imported/bookcase_stylised_orm.png-4c64d4453f6fe977e0f202631331ee85.s3tc.ctex", "res://.godot/imported/bookcase_stylised_orm.png-4c64d4453f6fe977e0f202631331ee85.etc2.ctex"]
 
 [params]
 

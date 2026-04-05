@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://caeqho18rhmp2"
 path.s3tc="res://.godot/imported/tiles_high_grunge_normal.png-150e8de71bdd030769d398d083ab6b9b.s3tc.ctex"
+path.etc2="res://.godot/imported/tiles_high_grunge_normal.png-150e8de71bdd030769d398d083ab6b9b.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://visual/tiles/tiles_high_grunge/tiles_high_grunge_normal.png"
-dest_files=["res://.godot/imported/tiles_high_grunge_normal.png-150e8de71bdd030769d398d083ab6b9b.s3tc.ctex"]
+dest_files=["res://.godot/imported/tiles_high_grunge_normal.png-150e8de71bdd030769d398d083ab6b9b.s3tc.ctex", "res://.godot/imported/tiles_high_grunge_normal.png-150e8de71bdd030769d398d083ab6b9b.etc2.ctex"]
 
 [params]
 

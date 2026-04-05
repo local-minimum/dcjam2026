@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bi1b4584bxe61"
 path.s3tc="res://.godot/imported/metal_vent_normal.png-6fca0debe3ebf1e089169e98b50f11de.s3tc.ctex"
+path.etc2="res://.godot/imported/metal_vent_normal.png-6fca0debe3ebf1e089169e98b50f11de.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://visual/tiles/metal_vent/metal_vent_normal.png"
-dest_files=["res://.godot/imported/metal_vent_normal.png-6fca0debe3ebf1e089169e98b50f11de.s3tc.ctex"]
+dest_files=["res://.godot/imported/metal_vent_normal.png-6fca0debe3ebf1e089169e98b50f11de.s3tc.ctex", "res://.godot/imported/metal_vent_normal.png-6fca0debe3ebf1e089169e98b50f11de.etc2.ctex"]
 
 [params]
 

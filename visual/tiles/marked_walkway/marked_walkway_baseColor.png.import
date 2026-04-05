@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dydy3p8wg76kl"
 path.s3tc="res://.godot/imported/marked_walkway_baseColor.png-58b62c54a6dc9a19513ad71c956c307e.s3tc.ctex"
+path.etc2="res://.godot/imported/marked_walkway_baseColor.png-58b62c54a6dc9a19513ad71c956c307e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://visual/tiles/marked_walkway/marked_walkway_baseColor.png"
-dest_files=["res://.godot/imported/marked_walkway_baseColor.png-58b62c54a6dc9a19513ad71c956c307e.s3tc.ctex"]
+dest_files=["res://.godot/imported/marked_walkway_baseColor.png-58b62c54a6dc9a19513ad71c956c307e.s3tc.ctex", "res://.godot/imported/marked_walkway_baseColor.png-58b62c54a6dc9a19513ad71c956c307e.etc2.ctex"]
 
 [params]
 

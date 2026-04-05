@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dl4iml0wpxilb"
 path.s3tc="res://.godot/imported/hardwood_floor_occlusionRoughnessMetallic.png-2116ed42e214b41c920659352cd57749.s3tc.ctex"
+path.etc2="res://.godot/imported/hardwood_floor_occlusionRoughnessMetallic.png-2116ed42e214b41c920659352cd57749.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://visual/tiles/hardwood_floor/hardwood_floor_occlusionRoughnessMetallic.png"
-dest_files=["res://.godot/imported/hardwood_floor_occlusionRoughnessMetallic.png-2116ed42e214b41c920659352cd57749.s3tc.ctex"]
+dest_files=["res://.godot/imported/hardwood_floor_occlusionRoughnessMetallic.png-2116ed42e214b41c920659352cd57749.s3tc.ctex", "res://.godot/imported/hardwood_floor_occlusionRoughnessMetallic.png-2116ed42e214b41c920659352cd57749.etc2.ctex"]
 
 [params]
 

@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" path="res://pause_manager.tscn" id="26_i2p71"]
 [ext_resource type="PackedScene" uid="uid://3heqxlultjpy" path="res://clicker/loot/loot_and_inventory.tscn" id="39_eu6ph"]
 [ext_resource type="Script" uid="uid://dpr1k74riep1o" path="res://clicker/dev_console_loot.gd" id="44_kq12w"]
-[ext_resource type="Resource" uid="uid://d3js5rmf1rpk" path="res://clicker/abilities/click_hard.tres" id="49_6qn5j"]
+[ext_resource type="Resource" uid="uid://d3js5rmf1rpk" path="res://clicker/abilities/break_free.tres" id="49_6qn5j"]
 [ext_resource type="Script" uid="uid://6wo0m40nhvd5" path="res://clicker/dev_console_damage.gd" id="63_baljx"]
 [ext_resource type="Script" uid="uid://cypvqaxbcaqeh" path="res://core/dev_console_commands/dev_speed.gd" id="63_ple6s"]
 [ext_resource type="Script" uid="uid://c50eh21gdu5cn" path="res://sound_track_manager.gd" id="63_ra4rb"]

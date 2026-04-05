@@ -1,0 +1,987 @@
+[gd_scene format=4 uid="uid://cacxaqud57kme"]
+
+[ext_resource type="Material" uid="uid://cu3hlmljkqk22" path="res://visual/tiles/stylised_mossy_brick/stylised_mossy_brick_mat.tres" id="1_tuhmt"]
+[ext_resource type="ArrayMesh" uid="uid://b0vlo73s2fd38" path="res://visual/clutter/sculptures/sculpture_triangle.obj" id="1_yljah"]
+[ext_resource type="Material" uid="uid://doubdvy88wgr7" path="res://visual/common/trims/1/trim_1_mat.tres" id="2_6q6vn"]
+[ext_resource type="ArrayMesh" uid="uid://ceb8oy4go2no4" path="res://visual/clutter/sculptures/sculpture_walk.obj" id="3_6q6vn"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_xmlox"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -0.1, 2, 2, 0.2),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAwABAAAAAQAEAAIAAQADAAQAAgAEAAUABAADAAYABAAGAAUABwADAAAAAgAHAAAABgADAAcABQAHAAIABQAGAAcA"),
+"name": "Mesh",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAAAAAAAAAP////8AAAAAAAD//wAAAAD//wAAAAD///////8AAP//AAD//wAA/////wAAAAD//wAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_r0gp2"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -0.1, 2, 2, 0.2),
+"attribute_data": PackedByteArray("ZeYAAP///////wAAZeb/////AAAAAP//AAAAAP////8AAAAAmRn//5kZAAAAAP//AAAAAP///////wAAAAD///////8AAGXm//9l5gAA/////wAAAACZGf//mRkAAAAA"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQACAAJAAoACwAJAAgADAANAA4ADwANAAwAEAARABIAEwARABAAFAAVABYAFwAVABQA"),
+"material": ExtResource("1_tuhmt"),
+"name": "Mesh",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAAAA/z8AAP//////PwAAAAD///8/AAD//wAA/z///wAAAAD//wAA//8AAP//AAAAAAAA////////AAD/////AAD///8//////wAA/z///wAAAAD/P/////////8/AAAAAP///n/////////+f///AAD///5/AAD//////n8AAAAA////////AAAAAP//AAAAAAAA/////wAA//////////////8/AAD//wAA/z//////AAD/PwAA//////8//3////9/////f////3///////3////9/////f////3//fwAA/38AAP9/AAD/fwAA/3////9/////f////3////9//z//f/8//3//P/9//z////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_xmlox")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_cjv2e"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -0.1, 2, 2, 0.2),
+"attribute_data": PackedByteArray("ZeYAAP///////wAAZeb/////AAAAAP//AAAAAP////8AAAAAmRn//5kZAAAAAP//AAAAAP///////wAAAAD///////8AAGXm//9l5gAA/////wAAAACZGf//mRkAAAAA"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQACAAJAAoACwAJAAgADAANAA4ADwANAAwAEAARABIAEwARABAAFAAVABYAFwAVABQA"),
+"material": ExtResource("1_tuhmt"),
+"name": "Mesh",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAAAA/z8AAP//////PwAAAAD///8/AAD//wAA/z///wAAAAD//wAA//8AAP//AAAAAAAA////////AAD/////AAD///8//////wAA/z///wAAAAD/P/////////8/AAAAAP///n/////////+f///AAD///5/AAD//////n8AAAAA////////AAAAAP//AAAAAAAA/////wAA//////////////8/AAD//wAA/z//////AAD/PwAA//////8//3////9/////f////3///////3////9/////f////3//fwAA/38AAP9/AAD/fwAA/3////9/////f////3////9//z//f/8//3//P/9//z////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_xmlox")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_covnm"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -0.1, 2, 2, 0.2),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAwABAAAAAQAEAAIAAQADAAQAAgAEAAUABAADAAYABAAGAAUABwADAAAAAgAHAAAABgADAAcABQAHAAIABQAGAAcA"),
+"name": "Mesh",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAAAAAAAAAP////8AAAAAAAD//wAAAAD//wAAAAD///////8AAP//AAD//wAA/////wAAAAD//wAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_qbuh3"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -0.1, 2, 2, 0.2),
+"attribute_data": PackedByteArray("ZeYAAP///////wAAZeb/////AAAAAP//AAAAAP////8AAAAAmRn//5kZAAAAAP//AAAAAP///////wAAAAD///////8AAGXm//9l5gAA/////wAAAACZGf//mRkAAAAA"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQACAAJAAoACwAJAAgADAANAA4ADwANAAwAEAARABIAEwARABAAFAAVABYAFwAVABQA"),
+"material": ExtResource("1_tuhmt"),
+"name": "Mesh",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAAAA/z8AAP//////PwAAAAD///8/AAD//wAA/z///wAAAAD//wAA//8AAP//AAAAAAAA////////AAD/////AAD///8//////wAA/z///wAAAAD/P/////////8/AAAAAP///n/////////+f///AAD///5/AAD//////n8AAAAA////////AAAAAP//AAAAAAAA/////wAA//////////////8/AAD//wAA/z//////AAD/PwAA//////8//3////9/////f////3///////3////9/////f////3//fwAA/38AAP9/AAD/fwAA/3////9/////f////3////9//z//f/8//3//P/9//z////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_covnm")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jxbi7"]
+size = Vector3(22, 4, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6q6vn"]
+size = Vector3(16, 4, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7386c"]
+size = Vector3(10, 4, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uk3wc"]
+size = Vector3(4, 4, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5k5ei"]
+size = Vector3(2, 4, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ym1hm"]
+size = Vector3(2, 4, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bsf7s"]
+size = Vector3(2, 4, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bnfdy"]
+size = Vector3(6, 4, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xcbxa"]
+size = Vector3(4, 4, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m51et"]
+size = Vector3(8, 4, 0.2)
+
+[node name="Gallery" type="Node3D" unique_id=1279492692]
+
+[node name="Clutter" type="Node3D" parent="." unique_id=119246934]
+
+[node name="SculptureTriangle" type="MeshInstance3D" parent="Clutter" unique_id=608111724]
+transform = Transform3D(-1.0000001, 0, 0, 0, 1, 0, 0, 0, -1.0000001, 6.899926, 0, -12.471014)
+mesh = ExtResource("1_yljah")
+surface_material_override/0 = ExtResource("2_6q6vn")
+
+[node name="SculptureTriangle2" type="MeshInstance3D" parent="Clutter" unique_id=1765548356]
+transform = Transform3D(-1.0000001, 0, 0, 0, 1, 0, 0, 0, -1.0000001, 1.49154, 0, -1.5199032)
+mesh = ExtResource("1_yljah")
+surface_material_override/0 = ExtResource("2_6q6vn")
+
+[node name="SculptureTriangle4" type="MeshInstance3D" parent="Clutter" unique_id=2044151905]
+transform = Transform3D(-1.0000001, 0, 0, 0, 1, 0, 0, 0, -1.0000001, 19.391539, 0, -1.5199032)
+mesh = ExtResource("1_yljah")
+surface_material_override/0 = ExtResource("2_6q6vn")
+
+[node name="SculptureTriangle3" type="MeshInstance3D" parent="Clutter" unique_id=888234552]
+transform = Transform3D(-1.0000001, 0, 0, 0, 1, 0, 0, 0, -1.0000001, 7.49154, 0, -1.5199032)
+mesh = ExtResource("1_yljah")
+surface_material_override/0 = ExtResource("2_6q6vn")
+
+[node name="SculptureWalk" type="MeshInstance3D" parent="Clutter" unique_id=453680323]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.4647827, -4.7683716e-07, -12.493792)
+mesh = ExtResource("3_6q6vn")
+surface_material_override/0 = ExtResource("2_6q6vn")
+
+[node name="SculptureWalk2" type="MeshInstance3D" parent="Clutter" unique_id=1918688700]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 13.464783, -4.7683716e-07, -12.493792)
+mesh = ExtResource("3_6q6vn")
+surface_material_override/0 = ExtResource("2_6q6vn")
+
+[node name="SculptureWalk3" type="MeshInstance3D" parent="Clutter" unique_id=2048305895]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 13.464783, -4.7683716e-07, -1.4937916)
+mesh = ExtResource("3_6q6vn")
+surface_material_override/0 = ExtResource("2_6q6vn")
+
+[node name="SculptureWalk4" type="MeshInstance3D" parent="Clutter" unique_id=1281992185]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.4647827, -4.7683716e-07, -6.4937916)
+mesh = ExtResource("3_6q6vn")
+surface_material_override/0 = ExtResource("2_6q6vn")
+
+[node name="Wall" type="Node3D" parent="." unique_id=1570473957]
+
+[node name="MeshInstance3D74" type="MeshInstance3D" parent="Wall" unique_id=2042411514]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 21, 3, -8)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D152" type="MeshInstance3D" parent="Wall" unique_id=857717164]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 21, 1, -8)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D99" type="MeshInstance3D" parent="Wall" unique_id=519882021]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 16, 3, -1)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D173" type="MeshInstance3D" parent="Wall" unique_id=1809681298]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 16, 1, -1)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D118" type="MeshInstance3D" parent="Wall" unique_id=352649524]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 18, 3, -1)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D108" type="MeshInstance3D" parent="Wall" unique_id=1479650011]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 20, 3, -1)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D174" type="MeshInstance3D" parent="Wall" unique_id=1470388270]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 18, 1, -1)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D207" type="MeshInstance3D" parent="Wall" unique_id=1702415185]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 20, 1, -1)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D100" type="MeshInstance3D" parent="Wall" unique_id=1021008613]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 10, 3, -1)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D175" type="MeshInstance3D" parent="Wall" unique_id=771742289]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 10, 1, -1)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D122" type="MeshInstance3D" parent="Wall" unique_id=1564838112]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 12, 3, -1)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D109" type="MeshInstance3D" parent="Wall" unique_id=96957126]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 14, 3, -1)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D176" type="MeshInstance3D" parent="Wall" unique_id=899412073]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 12, 1, -1)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D208" type="MeshInstance3D" parent="Wall" unique_id=1551875531]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 14, 1, -1)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D101" type="MeshInstance3D" parent="Wall" unique_id=1254850122]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 4, 3, -1)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D177" type="MeshInstance3D" parent="Wall" unique_id=1907424987]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 4, 1, -1)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D131" type="MeshInstance3D" parent="Wall" unique_id=526613286]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 6, 3, -1)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D110" type="MeshInstance3D" parent="Wall" unique_id=1593512538]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 8, 3, -1)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D178" type="MeshInstance3D" parent="Wall" unique_id=1223511228]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 6, 1, -1)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D211" type="MeshInstance3D" parent="Wall" unique_id=665956939]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 8, 1, -1)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D132" type="MeshInstance3D" parent="Wall" unique_id=911566572]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 3, -1)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D111" type="MeshInstance3D" parent="Wall" unique_id=1681388561]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 2, 3, -1)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D180" type="MeshInstance3D" parent="Wall" unique_id=1236616833]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 1, -1)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D212" type="MeshInstance3D" parent="Wall" unique_id=1108608303]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 2, 1, -1)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D209" type="MeshInstance3D" parent="Wall" unique_id=1411436178]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 17, 1, -12)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D210" type="MeshInstance3D" parent="Wall" unique_id=204564955]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 17, 1, -10)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D217" type="MeshInstance3D" parent="Wall" unique_id=1601430206]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 17, 1, -8)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D213" type="MeshInstance3D" parent="Wall" unique_id=1198666063]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 17, 3, -12)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D214" type="MeshInstance3D" parent="Wall" unique_id=2028681454]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 17, 3, -10)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D218" type="MeshInstance3D" parent="Wall" unique_id=1281071133]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 17, 3, -8)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D216" type="MeshInstance3D" parent="Wall" unique_id=1500310627]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 11, 1, -10)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D219" type="MeshInstance3D" parent="Wall" unique_id=771267970]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 11, 1, -8)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D220" type="MeshInstance3D" parent="Wall" unique_id=2043293177]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 11, 3, -12)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D221" type="MeshInstance3D" parent="Wall" unique_id=160062589]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 11, 3, -10)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D222" type="MeshInstance3D" parent="Wall" unique_id=1782944626]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 11, 3, -8)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D224" type="MeshInstance3D" parent="Wall" unique_id=637210543]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 8, 1, -7)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D225" type="MeshInstance3D" parent="Wall" unique_id=512338519]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 6, 1, -7)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D226" type="MeshInstance3D" parent="Wall" unique_id=631984182]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 10, 3, -7)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D227" type="MeshInstance3D" parent="Wall" unique_id=1190546049]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 8, 3, -7)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D228" type="MeshInstance3D" parent="Wall" unique_id=454027235]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 6, 3, -7)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D230" type="MeshInstance3D" parent="Wall" unique_id=1142146443]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 5, 1, -10)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D231" type="MeshInstance3D" parent="Wall" unique_id=460109523]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 5, 1, -12)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D232" type="MeshInstance3D" parent="Wall" unique_id=1401031820]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 5, 3, -8)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D233" type="MeshInstance3D" parent="Wall" unique_id=523049022]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 5, 3, -10)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D234" type="MeshInstance3D" parent="Wall" unique_id=1052143442]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 5, 3, -12)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D236" type="MeshInstance3D" parent="Wall" unique_id=995487503]
+transform = Transform3D(-1, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -1, 14, 1, -7)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D237" type="MeshInstance3D" parent="Wall" unique_id=385274199]
+transform = Transform3D(-1, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -1, 12, 1, -7)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D238" type="MeshInstance3D" parent="Wall" unique_id=488837427]
+transform = Transform3D(-1, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -1, 16, 3, -7)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D239" type="MeshInstance3D" parent="Wall" unique_id=1866340757]
+transform = Transform3D(-1, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -1, 14, 3, -7)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D240" type="MeshInstance3D" parent="Wall" unique_id=1336164615]
+transform = Transform3D(-1, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -1, 12, 3, -7)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D242" type="MeshInstance3D" parent="Wall" unique_id=1707561036]
+transform = Transform3D(-4.371138e-08, 0, -1, 0, 1, 0, 1, 0, -4.371138e-08, 17, 1, -4)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D243" type="MeshInstance3D" parent="Wall" unique_id=533274321]
+transform = Transform3D(-4.371138e-08, 0, -1, 0, 1, 0, 1, 0, -4.371138e-08, 17, 1, -2)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D244" type="MeshInstance3D" parent="Wall" unique_id=660144489]
+transform = Transform3D(-4.371138e-08, 0, -1, 0, 1, 0, 1, 0, -4.371138e-08, 17, 3, -6)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D245" type="MeshInstance3D" parent="Wall" unique_id=93064460]
+transform = Transform3D(-4.371138e-08, 0, -1, 0, 1, 0, 1, 0, -4.371138e-08, 17, 3, -4)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D246" type="MeshInstance3D" parent="Wall" unique_id=1048907800]
+transform = Transform3D(-4.371138e-08, 0, -1, 0, 1, 0, 1, 0, -4.371138e-08, 17, 3, -2)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D247" type="MeshInstance3D" parent="Wall" unique_id=2051207916]
+transform = Transform3D(-4.371138e-08, 0, -1, 0, 1, 0, 1, 0, -4.371138e-08, 11, 1, -6)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D248" type="MeshInstance3D" parent="Wall" unique_id=577549101]
+transform = Transform3D(-4.371138e-08, 0, -1, 0, 1, 0, 1, 0, -4.371138e-08, 11, 1, -4)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D250" type="MeshInstance3D" parent="Wall" unique_id=2057883702]
+transform = Transform3D(-4.371138e-08, 0, -1, 0, 1, 0, 1, 0, -4.371138e-08, 11, 3, -6)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D251" type="MeshInstance3D" parent="Wall" unique_id=1827345403]
+transform = Transform3D(-4.371138e-08, 0, -1, 0, 1, 0, 1, 0, -4.371138e-08, 11, 3, -4)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D252" type="MeshInstance3D" parent="Wall" unique_id=966039251]
+transform = Transform3D(-4.371138e-08, 0, -1, 0, 1, 0, 1, 0, -4.371138e-08, 11, 3, -2)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D254" type="MeshInstance3D" parent="Wall" unique_id=1161939756]
+transform = Transform3D(-4.371138e-08, 0, -1, 0, 1, 0, 1, 0, -4.371138e-08, 5, 1, -4)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D255" type="MeshInstance3D" parent="Wall" unique_id=609319407]
+transform = Transform3D(-4.371138e-08, 0, -1, 0, 1, 0, 1, 0, -4.371138e-08, 5, 1, -2)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D256" type="MeshInstance3D" parent="Wall" unique_id=1703589927]
+transform = Transform3D(-4.371138e-08, 0, -1, 0, 1, 0, 1, 0, -4.371138e-08, 5, 3, -6)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D257" type="MeshInstance3D" parent="Wall" unique_id=1034979582]
+transform = Transform3D(-4.371138e-08, 0, -1, 0, 1, 0, 1, 0, -4.371138e-08, 5, 3, -4)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D258" type="MeshInstance3D" parent="Wall" unique_id=209010350]
+transform = Transform3D(-4.371138e-08, 0, -1, 0, 1, 0, 1, 0, -4.371138e-08, 5, 3, -2)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D259" type="MeshInstance3D" parent="Wall" unique_id=268568841]
+transform = Transform3D(-1, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -1, 4, 1, -7)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D260" type="MeshInstance3D" parent="Wall" unique_id=618248485]
+transform = Transform3D(-1, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -1, 2, 1, -7)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D262" type="MeshInstance3D" parent="Wall" unique_id=339531905]
+transform = Transform3D(-1, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -1, 4, 3, -7)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D263" type="MeshInstance3D" parent="Wall" unique_id=482109001]
+transform = Transform3D(-1, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -1, 2, 3, -7)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D264" type="MeshInstance3D" parent="Wall" unique_id=1202657989]
+transform = Transform3D(-1, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -1, 0, 3, -7)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D119" type="MeshInstance3D" parent="Wall" unique_id=1615492291]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 3, -13)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D120" type="MeshInstance3D" parent="Wall" unique_id=1364137015]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 3, -13)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D121" type="MeshInstance3D" parent="Wall" unique_id=684262655]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 3, -13)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D123" type="MeshInstance3D" parent="Wall" unique_id=589409319]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.0009999, 3, -12)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D186" type="MeshInstance3D" parent="Wall" unique_id=1932919226]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.0009999, 1, -12)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D187" type="MeshInstance3D" parent="Wall" unique_id=1892816674]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0009999275, 3, -10.999)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D189" type="MeshInstance3D" parent="Wall" unique_id=853533468]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1, 3, -5.9989996)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D190" type="MeshInstance3D" parent="Wall" unique_id=2003655577]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1, 3, -4)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D191" type="MeshInstance3D" parent="Wall" unique_id=795371553]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1, 3, -2)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D192" type="MeshInstance3D" parent="Wall" unique_id=997531475]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1, 1, -5.9989996)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D193" type="MeshInstance3D" parent="Wall" unique_id=1874642506]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1, 1, -4)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D194" type="MeshInstance3D" parent="Wall" unique_id=2121722579]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1, 1, -2)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D196" type="MeshInstance3D" parent="Wall" unique_id=1332706417]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1, 3, -10)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D197" type="MeshInstance3D" parent="Wall" unique_id=880711394]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1, 3, -8)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D199" type="MeshInstance3D" parent="Wall" unique_id=917456034]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1, 1, -10)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D200" type="MeshInstance3D" parent="Wall" unique_id=17095184]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1, 1, -8)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D188" type="MeshInstance3D" parent="Wall" unique_id=1207428093]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0009999275, 1, -10.999)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D157" type="MeshInstance3D" parent="Wall" unique_id=279208604]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, -13)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D158" type="MeshInstance3D" parent="Wall" unique_id=966315181]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, -13)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D159" type="MeshInstance3D" parent="Wall" unique_id=2058773957]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -13)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D133" type="MeshInstance3D" parent="Wall" unique_id=814280119]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 3, -13)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D134" type="MeshInstance3D" parent="Wall" unique_id=1118465866]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 3, -13)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D135" type="MeshInstance3D" parent="Wall" unique_id=1721778440]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 3, -13)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D160" type="MeshInstance3D" parent="Wall" unique_id=1473613858]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1, -13)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D161" type="MeshInstance3D" parent="Wall" unique_id=553102964]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 1, -13)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D162" type="MeshInstance3D" parent="Wall" unique_id=1509593063]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, -13)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D136" type="MeshInstance3D" parent="Wall" unique_id=18755209]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 3, -13)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D137" type="MeshInstance3D" parent="Wall" unique_id=42800168]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 3, -17)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D139" type="MeshInstance3D" parent="Wall" unique_id=2009352208]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 3, -17)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D138" type="MeshInstance3D" parent="Wall" unique_id=781846198]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 3, -13)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D163" type="MeshInstance3D" parent="Wall" unique_id=1052054515]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 1, -13)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D164" type="MeshInstance3D" parent="Wall" unique_id=1724361980]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 1, -17)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D165" type="MeshInstance3D" parent="Wall" unique_id=265235511]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 1, -13)
+mesh = SubResource("ArrayMesh_r0gp2")
+
+[node name="MeshInstance3D69" type="MeshInstance3D" parent="Wall" unique_id=1981892623]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 21, 1, -14)
+mesh = SubResource("ArrayMesh_cjv2e")
+
+[node name="MeshInstance3D70" type="MeshInstance3D" parent="Wall" unique_id=656190493]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 21, 3, -14)
+mesh = SubResource("ArrayMesh_cjv2e")
+
+[node name="MeshInstance3D71" type="MeshInstance3D" parent="Wall" unique_id=1778954491]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 21, 3, -16)
+mesh = SubResource("ArrayMesh_cjv2e")
+
+[node name="MeshInstance3D72" type="MeshInstance3D" parent="Wall" unique_id=2044222723]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 21, 1, -16)
+mesh = SubResource("ArrayMesh_cjv2e")
+
+[node name="MeshInstance3D73" type="MeshInstance3D" parent="Wall" unique_id=1193384368]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 17, 1, -14)
+mesh = SubResource("ArrayMesh_cjv2e")
+
+[node name="MeshInstance3D75" type="MeshInstance3D" parent="Wall" unique_id=784991979]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 17, 3, -14)
+mesh = SubResource("ArrayMesh_cjv2e")
+
+[node name="MeshInstance3D76" type="MeshInstance3D" parent="Wall" unique_id=1064731453]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 17, 3, -16)
+mesh = SubResource("ArrayMesh_cjv2e")
+
+[node name="MeshInstance3D77" type="MeshInstance3D" parent="Wall" unique_id=1552888481]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 17, 1, -16)
+mesh = SubResource("ArrayMesh_cjv2e")
+
+[node name="MeshInstance3D95" type="MeshInstance3D" parent="Wall" unique_id=1939367680]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 21, 1, -10)
+mesh = SubResource("ArrayMesh_cjv2e")
+
+[node name="MeshInstance3D112" type="MeshInstance3D" parent="Wall" unique_id=524966383]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 21, 3, -10)
+mesh = SubResource("ArrayMesh_cjv2e")
+
+[node name="MeshInstance3D113" type="MeshInstance3D" parent="Wall" unique_id=1764225323]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 21, 3, -12)
+mesh = SubResource("ArrayMesh_cjv2e")
+
+[node name="MeshInstance3D124" type="MeshInstance3D" parent="Wall" unique_id=71401489]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 21, 1, -12)
+mesh = SubResource("ArrayMesh_cjv2e")
+
+[node name="MeshInstance3D125" type="MeshInstance3D" parent="Wall" unique_id=1665130611]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 21, 1, -4)
+mesh = SubResource("ArrayMesh_cjv2e")
+
+[node name="MeshInstance3D126" type="MeshInstance3D" parent="Wall" unique_id=1659852601]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 21, 3, -4)
+mesh = SubResource("ArrayMesh_cjv2e")
+
+[node name="MeshInstance3D129" type="MeshInstance3D" parent="Wall" unique_id=1863368619]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 21, 1, -2)
+mesh = SubResource("ArrayMesh_cjv2e")
+
+[node name="MeshInstance3D130" type="MeshInstance3D" parent="Wall" unique_id=1099094397]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 21, 3, -2)
+mesh = SubResource("ArrayMesh_cjv2e")
+
+[node name="MeshInstance3D127" type="MeshInstance3D" parent="Wall" unique_id=1793091390]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 21, 3, -6)
+mesh = SubResource("ArrayMesh_cjv2e")
+
+[node name="MeshInstance3D128" type="MeshInstance3D" parent="Wall" unique_id=1272844253]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 21, 1, -6)
+mesh = SubResource("ArrayMesh_cjv2e")
+
+[node name="Floor" type="Node3D" parent="." unique_id=1443115288]
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Floor" unique_id=694405301]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 2, -0.100409865, -12)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Floor" unique_id=1491479571]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 2, -0.100409865, -10)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Floor" unique_id=962636677]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 2, -0.100409865, -8)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Floor" unique_id=1863765261]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.100409865, -10)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="Floor" unique_id=1377192598]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.100409865, -8)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="Floor" unique_id=1425685276]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 20, -0.100409865, -14)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="Floor" unique_id=1809207129]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 20, -0.100409865, -12)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="Floor" unique_id=519771969]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 20, -0.100409865, -16)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="Floor" unique_id=735824387]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 18, -0.100409865, -14)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="Floor" unique_id=876933757]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 18, -0.100409865, -12)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="Floor" unique_id=1025587745]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 18, -0.100409865, -16)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D16" type="MeshInstance3D" parent="Floor" unique_id=1036442251]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.100409865, -6)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D18" type="MeshInstance3D" parent="Floor" unique_id=501605516]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.100409865, -4)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D19" type="MeshInstance3D" parent="Floor" unique_id=1512996428]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 16, -0.100409865, -12)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D20" type="MeshInstance3D" parent="Floor" unique_id=1876268545]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 16, -0.100409865, -10)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D21" type="MeshInstance3D" parent="Floor" unique_id=1448423564]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 16, -0.100409865, -8)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D74" type="MeshInstance3D" parent="Floor" unique_id=908960118]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 18, -0.100409865, -6)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D75" type="MeshInstance3D" parent="Floor" unique_id=745830999]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 20, -0.100409865, -6)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D22" type="MeshInstance3D" parent="Floor" unique_id=1462215014]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 14, -0.100409865, -12)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D23" type="MeshInstance3D" parent="Floor" unique_id=955223667]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 14, -0.100409865, -10)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D24" type="MeshInstance3D" parent="Floor" unique_id=142842712]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 14, -0.100409865, -8)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D25" type="MeshInstance3D" parent="Floor" unique_id=69950894]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 12, -0.100409865, -12)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D26" type="MeshInstance3D" parent="Floor" unique_id=275539244]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 12, -0.100409865, -10)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D27" type="MeshInstance3D" parent="Floor" unique_id=1980363194]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 12, -0.100409865, -8)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D28" type="MeshInstance3D" parent="Floor" unique_id=958538979]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 16, -0.100409865, -6)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D29" type="MeshInstance3D" parent="Floor" unique_id=1891100377]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 16, -0.100409865, -4)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D30" type="MeshInstance3D" parent="Floor" unique_id=347760358]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 16, -0.100409865, -2)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D31" type="MeshInstance3D" parent="Floor" unique_id=335944835]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 14, -0.100409865, -6)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D32" type="MeshInstance3D" parent="Floor" unique_id=690375430]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 14, -0.100409865, -4)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D46" type="MeshInstance3D" parent="Floor" unique_id=1291118301]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 20, -0.100409865, -4)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D59" type="MeshInstance3D" parent="Floor" unique_id=410960871]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 20, -0.100409865, -2)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D60" type="MeshInstance3D" parent="Floor" unique_id=1641408449]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 18, -0.100409865, -4)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D61" type="MeshInstance3D" parent="Floor" unique_id=761230936]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 18, -0.100409865, -2)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D62" type="MeshInstance3D" parent="Floor" unique_id=1021630239]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 20, -0.100409865, -10)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D63" type="MeshInstance3D" parent="Floor" unique_id=44047711]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 20, -0.100409865, -8)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D64" type="MeshInstance3D" parent="Floor" unique_id=222155083]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 18, -0.100409865, -10)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D65" type="MeshInstance3D" parent="Floor" unique_id=1437782492]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 18, -0.100409865, -8)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D67" type="MeshInstance3D" parent="Floor" unique_id=1738922280]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 2, -0.100409865, -2)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D68" type="MeshInstance3D" parent="Floor" unique_id=1521050687]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 2, -0.100409865, -6)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D69" type="MeshInstance3D" parent="Floor" unique_id=1663873388]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.100409865, -2)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D70" type="MeshInstance3D" parent="Floor" unique_id=238544243]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 6, -0.100409865, -4)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D71" type="MeshInstance3D" parent="Floor" unique_id=1610258237]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 6, -0.100409865, -2)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D72" type="MeshInstance3D" parent="Floor" unique_id=1546439052]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 4, -0.100409865, -4)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D73" type="MeshInstance3D" parent="Floor" unique_id=1376607215]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 4, -0.100409865, -2)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D33" type="MeshInstance3D" parent="Floor" unique_id=823981863]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 14, -0.100409865, -2)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D34" type="MeshInstance3D" parent="Floor" unique_id=170703326]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 12, -0.100409865, -6)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D35" type="MeshInstance3D" parent="Floor" unique_id=792141763]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 12, -0.100409865, -4)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D36" type="MeshInstance3D" parent="Floor" unique_id=1277101714]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 12, -0.100409865, -2)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D37" type="MeshInstance3D" parent="Floor" unique_id=1023855171]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 10, -0.100409865, -2)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D38" type="MeshInstance3D" parent="Floor" unique_id=2018143409]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 10, -0.100409865, -4)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D39" type="MeshInstance3D" parent="Floor" unique_id=1765777704]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 10, -0.100409865, -6)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D56" type="MeshInstance3D" parent="Floor" unique_id=1080750476]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 8, -0.100409865, -4)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D58" type="MeshInstance3D" parent="Floor" unique_id=1700756320]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 8, -0.100409865, -2)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D57" type="MeshInstance3D" parent="Floor" unique_id=1202589594]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 8, -0.100409865, -6)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D40" type="MeshInstance3D" parent="Floor" unique_id=371771111]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 10, -0.100409865, -8)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D41" type="MeshInstance3D" parent="Floor" unique_id=883498852]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 10, -0.100409865, -10)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D42" type="MeshInstance3D" parent="Floor" unique_id=296749862]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 10, -0.100409865, -12)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D43" type="MeshInstance3D" parent="Floor" unique_id=1549636119]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 2, -0.100409865, -4)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D44" type="MeshInstance3D" parent="Floor" unique_id=1685431015]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 6, -0.100409865, -6)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D45" type="MeshInstance3D" parent="Floor" unique_id=957983129]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 4, -0.100409865, -6)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D47" type="MeshInstance3D" parent="Floor" unique_id=1308573204]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 8, -0.100409865, -12)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D48" type="MeshInstance3D" parent="Floor" unique_id=1447036733]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 6, -0.100409865, -12)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D49" type="MeshInstance3D" parent="Floor" unique_id=767866189]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 4, -0.100409865, -12)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D50" type="MeshInstance3D" parent="Floor" unique_id=1431728146]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 8, -0.100409865, -10)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D51" type="MeshInstance3D" parent="Floor" unique_id=643124202]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 6, -0.100409865, -10)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D52" type="MeshInstance3D" parent="Floor" unique_id=711476772]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 4, -0.100409865, -10)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D53" type="MeshInstance3D" parent="Floor" unique_id=840688893]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 8, -0.100409865, -8)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D54" type="MeshInstance3D" parent="Floor" unique_id=1898379079]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 6, -0.100409865, -8)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="MeshInstance3D55" type="MeshInstance3D" parent="Floor" unique_id=875660244]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 4, -0.100409865, -8)
+mesh = SubResource("ArrayMesh_qbuh3")
+
+[node name="Lights" type="Node3D" parent="." unique_id=1963813778]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1943478378]
+
+[node name="Shape 1" type="CollisionShape3D" parent="StaticBody3D" unique_id=1443202019]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2, -1)
+shape = SubResource("BoxShape3D_jxbi7")
+
+[node name="Shape 2" type="CollisionShape3D" parent="StaticBody3D" unique_id=764868025]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2, -13)
+shape = SubResource("BoxShape3D_6q6vn")
+
+[node name="Shape 3" type="CollisionShape3D" parent="StaticBody3D" unique_id=375488997]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 21, 2, -9)
+shape = SubResource("BoxShape3D_6q6vn")
+
+[node name="Shape 4" type="CollisionShape3D" parent="StaticBody3D" unique_id=1772393326]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1, 2, -6)
+shape = SubResource("BoxShape3D_7386c")
+
+[node name="Shape 5" type="CollisionShape3D" parent="StaticBody3D" unique_id=388266470]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 17, 2, -15)
+shape = SubResource("BoxShape3D_uk3wc")
+
+[node name="Shape 6" type="CollisionShape3D" parent="StaticBody3D" unique_id=59397311]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1, 2, -12)
+shape = SubResource("BoxShape3D_5k5ei")
+
+[node name="Shape 7" type="CollisionShape3D" parent="StaticBody3D" unique_id=1301347632]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 2, -11)
+shape = SubResource("BoxShape3D_ym1hm")
+
+[node name="Shape 8" type="CollisionShape3D" parent="StaticBody3D" unique_id=1265889879]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 18, 2, -17)
+shape = SubResource("BoxShape3D_bsf7s")
+
+[node name="Shape 9" type="CollisionShape3D" parent="StaticBody3D" unique_id=1044874969]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 17, 2, -10)
+shape = SubResource("BoxShape3D_bnfdy")
+
+[node name="Shape 12" type="CollisionShape3D" parent="StaticBody3D" unique_id=120564159]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 13, 2, -7)
+shape = SubResource("BoxShape3D_xcbxa")
+
+[node name="Shape 13" type="CollisionShape3D" parent="StaticBody3D" unique_id=1750481262]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 2, -11)
+shape = SubResource("BoxShape3D_xcbxa")
+
+[node name="Shape 14" type="CollisionShape3D" parent="StaticBody3D" unique_id=207678440]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 2, -3)
+shape = SubResource("BoxShape3D_xcbxa")
+
+[node name="Shape 15" type="CollisionShape3D" parent="StaticBody3D" unique_id=1528254212]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 17, 2, -3)
+shape = SubResource("BoxShape3D_xcbxa")
+
+[node name="Shape 10" type="CollisionShape3D" parent="StaticBody3D" unique_id=650984979]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 11, 2, -7)
+shape = SubResource("BoxShape3D_m51et")
+
+[node name="Shape 11" type="CollisionShape3D" parent="StaticBody3D" unique_id=676072342]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 5, 2, -7)
+shape = SubResource("BoxShape3D_m51et")

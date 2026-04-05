@@ -127,6 +127,7 @@ func _handle_change_ability_level(ability_id: String, lvl: int) -> void:
 
 var _steps: int
 var _dragons: int
+var _has_heard_gain_dispose: bool
 
 func _handle_arrive_tile(player: PhysicsGridPlayerController, _coords: Vector3i) -> void:
     if __GlobalGameState.health <= 0.0 || player.cinematic:
@@ -137,7 +138,8 @@ func _handle_arrive_tile(player: PhysicsGridPlayerController, _coords: Vector3i)
         __GlobalGameState.has_gained_dragons_quest = true
         __AudioHub.play_dialogue(_gain_quest, _handle_gained_dragons_quest_dialog_ended)
 
-    elif !__GlobalGameState.has_disposed_completed && _dragons == 4 && _steps >= _steps_until_dispose_quest:
+    elif !_has_heard_gain_dispose && !__GlobalGameState.has_disposed_completed && _dragons == 4 && _steps >= _steps_until_dispose_quest:
+        _has_heard_gain_dispose = true
         __AudioHub.play_dialogue(_dispose_quest, _handle_dispose_quest_dialog_ended)
 
 func _handle_gained_dragons_quest_dialog_ended(success: bool) -> void:
@@ -360,7 +362,7 @@ func _retry_clip_if_dragons_less_than(success: bool, clip: String, dragons: int)
             3.0,
         )
 
-func _groundhog_next_day() -> void:
+func _groundhog_next_day(_success: bool) -> void:
     __AudioHub.clear_all_dialogues()
     __GlobalGameState.replay += 1
     __GlobalGameState.reset_day_progress()

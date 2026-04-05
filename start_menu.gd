@@ -80,12 +80,12 @@ func _on_audio_button_pressed() -> void:
     music_slider.value = __AudioHub.get_volume(AudioHub.Bus.MUSIC)
     dialogue_slider.value = __AudioHub.get_volume(AudioHub.Bus.DIALGUE)
     sfx_slider.value = __AudioHub.get_volume(AudioHub.Bus.SFX)
-    
+
     title_label.hide()
     credits_label.hide()
     option_menu_container.hide()
     audio_container.show()
-    
+
 
 
 func _on_brightness_slider_value_changed(value: float) -> void:

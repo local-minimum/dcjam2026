@@ -288,6 +288,7 @@ mesh = SubResource("ArrayMesh_ap2dw")
 
 [node name="MeshInstance3D60" type="MeshInstance3D" parent="Wall" unique_id=1768785820]
 transform = Transform3D(1, -8.742278e-08, 4.3711385e-08, -8.742278e-08, -1, -4.371139e-08, 4.3711392e-08, 4.3711385e-08, -1, -24, 1, -13)
+visible = false
 mesh = SubResource("ArrayMesh_ap2dw")
 
 [node name="MeshInstance3D19" type="MeshInstance3D" parent="Wall" unique_id=86608518]

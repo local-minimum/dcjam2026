@@ -3,6 +3,7 @@ class_name PhaseTransition
 
 enum Phase { WAITING, ERROR, LOAD_DUNGEON, LOAD_PANEL, WAITING_TO_FINALIZE, DONE }
 
+@export var _sync_horror_player_location: bool
 @export var _split_container: HSplitContainer
 @export var _subviewport: SubViewport
 @export var _unloading_nodes: Array[Node]
@@ -133,8 +134,9 @@ func _check_loading_next_scene(path: String) -> Variant:
 
 func _setup_dungeon(dungeon: Dungeon) -> void:
     _subviewport.add_child(dungeon)
-    dungeon.player.global_position = dungeon.get_global_grid_position_from_coordinates(_player_coords)
-    dungeon.player.global_rotation = _player_orientation.get_euler()
+    if _sync_horror_player_location:
+        dungeon.player.global_position = dungeon.get_global_grid_position_from_coordinates(_player_coords)
+        dungeon.player.global_rotation = _player_orientation.get_euler()
     dungeon.player.add_cinematic_blocker(self)
 
 func _process(_delta: float) -> void:

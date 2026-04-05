@@ -1027,6 +1027,7 @@ look_target = NodePath("../Wall/Exit Hall End")
 screen_shake_shader = ExtResource("9_k0tl3")
 horror_environment = ExtResource("10_ybyuc")
 game_end_screen = ExtResource("11_by2j1")
+_ending_music = "res://horror/audio/Ending.mp3"
 
 [node name="DragonDoorTrigger" type="Area3D" parent="." unique_id=556539270]
 collision_mask = 512

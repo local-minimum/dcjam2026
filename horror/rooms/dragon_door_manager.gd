@@ -11,6 +11,8 @@ class_name DragonDoorManager
 @export var monster: Monster
 @export var game_end_screen: PackedScene
 
+@export_file_path("*.mp3") var _ending_music: String
+
 @export var required_keys: int = 4
 
 var _accumulated_keys: int = 0
@@ -42,6 +44,7 @@ func _on_dragon_door_trigger_area_entered(area: Area3D) -> void:
     player.add_cinematic_blocker(self)
     __SignalBus.on_toggle_freelook_camera.emit(false, FreeLookCam.ToggleCause.MOVEMENT)
 
+    __AudioHub.play_music(_ending_music, 0.5)
     __SignalBus.on_horror_outro_triggered.emit()
     trigger_area_collider.queue_free()
 
@@ -115,4 +118,7 @@ func _setup_final_transition(player: PhysicsGridPlayerController) -> void:
     
 
 func _end_screen() -> void:
-    get_tree().change_scene_to_packed(game_end_screen)
+    var end_screen: Control = game_end_screen.instantiate()
+    add_child(end_screen)
+    
+    #get_tree().change_scene_to_packed(game_end_screen)

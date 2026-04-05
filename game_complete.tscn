@@ -4,12 +4,63 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_4apke"]
 font_size = 64
+outline_size = 14
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_qg72s"]
-font_size = 28
+font_size = 40
+outline_size = 15
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_4xff7"]
-font_size = 28
+font_size = 46
+outline_size = 15
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qg72s"]
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 16.0
+content_margin_bottom = 4.0
+bg_color = Color(0.14044744, 0.14044747, 0.14044738, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4xff7"]
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 16.0
+content_margin_bottom = 4.0
+bg_color = Color(0.096204825, 0.09620472, 0.09620472, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wj4hi"]
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 16.0
+content_margin_bottom = 4.0
+bg_color = Color(0.23031503, 0.23031491, 0.23031488, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [node name="After Play Screen" type="Control" unique_id=759958240]
 layout_mode = 3
@@ -26,11 +77,14 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 528.0
+offset_bottom = -231.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=133128526]
 layout_mode = 2
+theme_override_constants/separation = 30
 alignment = 1
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1054991647]
@@ -40,8 +94,6 @@ label_settings = SubResource("LabelSettings_4apke")
 
 [node name="GridContainer" type="GridContainer" parent="CenterContainer/VBoxContainer" unique_id=1142149246]
 layout_mode = 2
-theme_override_constants/h_separation = 10
-theme_override_constants/v_separation = 4
 columns = 2
 
 [node name="Steps Label" type="Label" parent="CenterContainer/VBoxContainer/GridContainer" unique_id=992698102]
@@ -170,17 +222,13 @@ label_settings = SubResource("LabelSettings_4xff7")
 horizontal_alignment = 2
 vertical_alignment = 2
 
-[node name="Menu Button" type="Button" parent="." unique_id=1731459986]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -196.0
-offset_top = -105.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "Menu"
+[node name="Menu Button" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1731459986]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_qg72s")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4xff7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wj4hi")
+text = "RETURN TO MAIN MENU"
 
-[connection signal="pressed" from="Menu Button" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Menu Button" to="." method="_on_menu_button_pressed"]

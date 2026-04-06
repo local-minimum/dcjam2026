@@ -419,6 +419,7 @@ mesh = SubResource("ArrayMesh_uhitq")
 
 [node name="False Wall" type="MeshInstance3D" parent="Wall" unique_id=1820433062]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1)
+layers = 2
 mesh = SubResource("ArrayMesh_uhitq")
 
 [node name="MeshInstance3D165" type="MeshInstance3D" parent="Wall" unique_id=1796640798]
@@ -750,3 +751,4 @@ shape = SubResource("BoxShape3D_i06fa")
 
 [node name="OccluderInstance3D" type="OccluderInstance3D" parent="." unique_id=1644350098]
 occluder = ExtResource("7_uhitq")
+bake_mask = 1

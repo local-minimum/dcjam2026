@@ -1,4 +1,5 @@
 extends Node3D
+class_name KeithTrigger
 
 enum MoveEnding { TRIGGER_COORDINATES, PLAYER_COORDINATES, LAST_INTERMEDIARY }
 
@@ -17,6 +18,8 @@ const LIGHT_TIMINGS: Array[float] = [0.135, 0.937, 0.928, 0.945, 0.937, 0.933]
 @export_range(0.0, 0.25) var jitter: float = 0.0
 
 @export var red_lights: Array[OmniLight3D]
+
+static var _last_trigger: KeithTrigger
 
 var _lights_on: bool = false
 var _keith_run_triggered: bool = false
@@ -45,6 +48,9 @@ func _enter_tree() -> void:
 
     _go_live_time = Time.get_ticks_msec() + roundi(1000.0 * grace_period)
 
+func _exit_tree() -> void:
+    if _last_trigger == self:
+        _last_trigger = null
 
 func _handle_jail_keith() -> void:
     _keith_run_triggered = false
@@ -58,7 +64,8 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
         return
 
     var player: PhysicsGridPlayerController = PhysicsGridPlayerController.find_in_tree(body)
-    if player != null && !monster_entity.hunting  && !_keith_run_triggered:
+    if player != null && _last_trigger != self && !_keith_run_triggered:
+        _last_trigger = self
         _keith_run_triggered = true
         if keith_light != null:
             keith_light.hide()

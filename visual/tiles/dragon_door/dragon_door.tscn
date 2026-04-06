@@ -383,38 +383,47 @@ animation_player = NodePath("AnimationPlayer")
 
 [node name="Frame" type="MeshInstance3D" parent="." unique_id=1142323762]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+layers = 2
 mesh = SubResource("ArrayMesh_33vpl")
 
 [node name="PieceTop" type="MeshInstance3D" parent="." unique_id=1492274746]
 transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 0, 0, 0.04)
+layers = 2
 mesh = SubResource("ArrayMesh_7fceh")
 
 [node name="PieceBottom" type="MeshInstance3D" parent="." unique_id=1780527349]
 transform = Transform3D(-1, -8.742278e-08, -1.7484555e-07, 8.742278e-08, -1, 1.5285484e-14, -1.7484555e-07, 0, 1, 0, 0, 0.04)
+layers = 2
 mesh = SubResource("ArrayMesh_7fceh")
 
 [node name="PieceLeft" type="MeshInstance3D" parent="." unique_id=602122535]
 transform = Transform3D(-4.371139e-08, 1, -7.642742e-15, -1, -4.371139e-08, -1.7484555e-07, -1.7484555e-07, 0, 1, 0, 0, 0.04)
+layers = 2
 mesh = SubResource("ArrayMesh_7fceh")
 
 [node name="PieceRight" type="MeshInstance3D" parent="." unique_id=563526290]
 transform = Transform3D(1.3113416e-07, -1, 2.2928226e-14, 1, 1.3113416e-07, 1.7484555e-07, -1.7484555e-07, 0, 1, 0, 0, 0.04)
+layers = 2
 mesh = SubResource("ArrayMesh_7fceh")
 
 [node name="LockTR" type="MeshInstance3D" parent="." unique_id=758529270]
-transform = Transform3D(-0.7071064, -0.7071064, 1.509958e-07, -0.7071064, 0.7071064, 0, -1.067701e-07, -1.067701e-07, -1, -0.7, 0.7, 0)
+transform = Transform3D(-0.7071064, -0.7071064, 1.509958e-07, -0.7071064, 0.7071064, 0, -1.06770095e-07, -1.06770095e-07, -1, -0.7, 0.7, 0)
+layers = 2
 mesh = SubResource("ArrayMesh_vp1g6")
 
 [node name="LockBR" type="MeshInstance3D" parent="." unique_id=1689398826]
 transform = Transform3D(0.7071067, -0.7071067, -1.509958e-07, -0.7071067, -0.7071067, 6.181724e-08, -1.5048153e-07, 6.3058756e-08, -1, -0.7, -0.7, 0)
+layers = 2
 mesh = SubResource("ArrayMesh_vp1g6")
 
 [node name="LockTL" type="MeshInstance3D" parent="." unique_id=838677326]
 transform = Transform3D(-0.7071067, 0.7071067, 1.509958e-07, 0.7071067, 0.7071067, -6.181724e-08, -1.5048153e-07, 6.3058756e-08, -1, 0.7, 0.7, 0)
+layers = 2
 mesh = SubResource("ArrayMesh_vp1g6")
 
 [node name="LockBL" type="MeshInstance3D" parent="." unique_id=2081721218]
 transform = Transform3D(0.7071067, 0.7071067, -1.509958e-07, 0.7071067, -0.7071067, -6.181724e-08, -1.5048153e-07, -6.3058756e-08, -1, 0.7, -0.7, 0)
+layers = 2
 mesh = SubResource("ArrayMesh_vp1g6")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1197692209]

@@ -20,7 +20,7 @@ enum Phase { WAITING, ERROR, LOAD_DUNGEON, LOAD_PANEL, WAITING_TO_FINALIZE, DONE
 var phase: Phase = Phase.WAITING
 var _player_coords: Vector3i
 var _player_orientation: Quaternion
-var _waiting_for_resting_player: bool
+#var _waiting_for_resting_player: bool
 var _player: PhysicsGridPlayerController
 var _may_transition: bool
 
@@ -62,16 +62,17 @@ func _handle_ready_horror() -> void:
     _player = PhysicsGridPlayerController.last_connected_player
     _player.add_cinematic_blocker(self)
 
-    _waiting_for_resting_player = true
+    #_waiting_for_resting_player = true
 
-    if _player.grid_entity.is_stationary:
-        _ready_transition()
+    #if _player.grid_entity.is_stationary:
+        #_ready_transition()
+    _ready_transition()
 
     set_process(true)
 
 func _ready_transition() -> void:
     #print_debug("Horror transition starts with screenshot")
-    _waiting_for_resting_player = false
+    #_waiting_for_resting_player = false
 
     _player_coords = _player.dungeon.get_closest_coordinates(_player.global_position)
     _player_orientation = _player.global_basis.get_rotation_quaternion()
@@ -140,10 +141,10 @@ func _setup_dungeon(dungeon: Dungeon) -> void:
     dungeon.player.add_cinematic_blocker(self)
 
 func _process(_delta: float) -> void:
-    if _waiting_for_resting_player:
-        if _player.grid_entity.is_stationary:
-            _ready_transition()
-        return
+    #if _waiting_for_resting_player:
+        #if _player.grid_entity.is_stationary:
+            #_ready_transition()
+        #return
 
     match phase:
         Phase.LOAD_DUNGEON:

@@ -4,6 +4,7 @@ class_name SoundTrackManager
 enum ClickerMood { SOFT, MEDIUM, INTENSE }
 
 @export_file_path("*.mp3") var clicker_tracks: Array[String]
+@export_file_path("*.mp3") var _horror_music: String
 @export var clicker_initial_fade_in: float = 1.0
 @export var clicker_crossfade: float = 1.0
 @export var clicker_start_mood: ClickerMood = ClickerMood.SOFT
@@ -37,11 +38,14 @@ func _get_target_volumes() -> Array[float]:
 func _ready() -> void:
     _clicker_mood = clicker_start_mood
 
-    _clicker_volume_faders = __AudioHub.multiplay_music(
-        clicker_tracks,
-        _get_target_volumes(),
-        clicker_initial_fade_in,
-    )
+    if __GlobalGameState.keith_kills <= 0:
+        _clicker_volume_faders = __AudioHub.multiplay_music(
+            clicker_tracks,
+            _get_target_volumes(),
+            clicker_initial_fade_in,
+        )
+    else:
+        __AudioHub.play_music(_horror_music, 0.5)
 
 func _handle_player_health_change(_new_health: float, _old_health: float) -> void:
     _change_clicker_music()

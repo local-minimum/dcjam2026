@@ -148,6 +148,7 @@ func play_sfx(sound_resource_path: String, volume: float = 1) -> void:
 
 func play_dialogue(
     sound_resource_path: String,
+    on_start: Variant = null,
     on_finish: Variant = null,
     enqueue: bool = true,
     silence_others: bool = false,
@@ -165,6 +166,7 @@ func play_dialogue(
         _enqueue_stream(
             Bus.DIALGUE,
             sound_resource_path,
+            on_start,
             on_finish,
             delay_start,
             max_delay,
@@ -185,14 +187,17 @@ func play_dialogue(
 
     player.stream = load(sound_resource_path)
     _dialogue_running.append(player)
-    _delay_play(player, delay_start)
+    _delay_play(player, delay_start, on_start)
 
 ## Do not await this function to ensure it puts the relevant busy state even if not yet playing!
-func _delay_play(player: AudioStreamPlayer, delay_start: float) -> void:
+func _delay_play(player: AudioStreamPlayer, delay_start: float, on_start: Variant) -> void:
     if delay_start:
         await get_tree().create_timer(delay_start).timeout
 
     print_debug("[Audio Hub] started playing %s after delay %s" % [player, delay_start])
+    if on_start is Callable:
+        (on_start as Callable).call()
+
     player.play()
 
 func _end_dialogue_players() -> void:
@@ -381,6 +386,7 @@ var _queue: Dictionary[Bus, Array]
 func _enqueue_stream(
     bus: Bus,
     sound_resource_path: String,
+    on_start: Variant,
     on_finish: Variant,
     delay_start: float,
     max_wait: float,
@@ -388,7 +394,7 @@ func _enqueue_stream(
     var refuse_time: int = Time.get_ticks_msec() + roundi(1000 * max_wait) if max_wait > 0 else -1
     var queued: Callable = func () -> bool:
         if refuse_time < 0 || Time.get_ticks_msec() < refuse_time:
-            play_dialogue(sound_resource_path, on_finish, false, false, delay_start)
+            play_dialogue(sound_resource_path, on_start, on_finish, false, false, delay_start)
             return true
 
         else:

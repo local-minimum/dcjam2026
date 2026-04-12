@@ -1,11 +1,17 @@
 [gd_scene format=3 uid="uid://bhjjmbb16vl26"]
 
+[ext_resource type="Script" uid="uid://b8b11hcf6hliv" path="res://core/subtitles/subtitles_demo.gd" id="1_5r7rs"]
 [ext_resource type="Script" uid="uid://cbgfqqfwx7v5o" path="res://core/subtitles/subtitles.gd" id="1_iooe4"]
 [ext_resource type="FontFile" uid="uid://b5c0p00x6g6u5" path="res://fonts/roboto/Roboto-Italic.ttf" id="1_uf1ab"]
+[ext_resource type="Script" uid="uid://cycuc5ntkfi75" path="res://core/subtitles/subbed_audio.gd" id="2_5r7rs"]
 [ext_resource type="FontFile" uid="uid://vrrmdx83skor" path="res://fonts/roboto/Roboto-Regular.ttf" id="2_ddi5s"]
-[ext_resource type="Script" uid="uid://cycuc5ntkfi75" path="res://core/subtitles/subbed_audio.gd" id="4_3jo2o"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3jo2o"]
+
+[sub_resource type="Resource" id="Resource_1tv6o"]
+script = ExtResource("2_5r7rs")
+audio_path = "uid://bimtuhyc3kcum"
+metadata/_custom_type_script = "uid://cycuc5ntkfi75"
 
 [sub_resource type="LabelSettings" id="LabelSettings_uf1ab"]
 font = ExtResource("2_ddi5s")
@@ -24,6 +30,9 @@ grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxEmpty_3jo2o")
+script = ExtResource("1_5r7rs")
+audio = SubResource("Resource_1tv6o")
+autoplay = true
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=1477589047]
 layout_mode = 2
@@ -62,9 +71,3 @@ subs_root = NodePath("..")
 labels = [NodePath("../CenterContainer/PanelContainer/MarginContainer/Subtitles/Line 1"), NodePath("../CenterContainer/PanelContainer/MarginContainer/Subtitles/Line 2")]
 regular_style = SubResource("LabelSettings_uf1ab")
 metadata/_custom_type_script = "uid://cbgfqqfwx7v5o"
-
-[node name="SubbedAudio" type="Node" parent="." unique_id=1840936272]
-script = ExtResource("4_3jo2o")
-audio_path = "uid://jw1nkt7wth00"
-autoplay = true
-metadata/_custom_type_script = "uid://cycuc5ntkfi75"

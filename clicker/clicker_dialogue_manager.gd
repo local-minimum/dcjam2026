@@ -9,8 +9,9 @@ class_name ClickerDialogueManager
 
 @export_file_path("*.mp3") var _refuse_clicking: String
 @export_file_path("*.mp3") var _bored: String
-@export_file_path("*.mp3") var _fight: String
-@export_file_path("*.mp3") var _new_day_first_fight: String
+@export var _fight: SubbedAudio
+@export var _new_day_first_fight: SubbedAudio
+
 @export_file_path("*.mp3") var _healing: String
 @export_file_path("*.mp3") var _reheal_fail: String
 
@@ -249,18 +250,15 @@ func _handle_change_boredom(boredom: float) -> void:
 
 func _first_fight(_data: EnemyData) -> void:
     if __GlobalGameState.health > 0.0:
-        __AudioHub.play_dialogue(
-            _fight if __GlobalGameState.replay == 0 else _new_day_first_fight,
-            func (success: bool) -> void:
-                if !success:
-                    if !__SignalBus.on_enemy_join_battle.is_connected(_first_fight):
-                        __SignalBus.on_enemy_join_battle.connect(_first_fight, CONNECT_ONE_SHOT)
-                ,
-            true,
-            false,
-            -1,
-            2.0,
-        )
+        var on_complete: Callable = func (success: bool) -> void:
+            if !success:
+                if !__SignalBus.on_enemy_join_battle.is_connected(_first_fight):
+                    __SignalBus.on_enemy_join_battle.connect(_first_fight, CONNECT_ONE_SHOT)
+
+        if __GlobalGameState.replay == 0:
+            _fight.play(null, on_complete, true, false, -1, 2.0)
+        else:
+             _new_day_first_fight.play(null, on_complete, true, false, -1, 2.0)
 
 var _has_gained_xp: bool
 func _change_xp(new_xp: float, prev_xp: float) -> void:

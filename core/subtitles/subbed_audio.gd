@@ -1,18 +1,16 @@
-extends Node
+extends Resource
 class_name SubbedAudio
 
 @export_file("*.mp3") var audio_path: String
-@export var autoplay: bool
-@export var autoplay_delay: float = -1.0
 
-@onready var _subs: SubDatabase = SubDatabase.new()
+var _subs: SubDatabase = SubDatabase.new()
+var _loaded: bool
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+func _load() -> void:
+    if _loaded:
+        return
     _subs.load_sub(audio_path)
-
-    if autoplay:
-        play(null, null, false, true, autoplay_delay)
+    _loaded = true
 
 func play(
     on_start: Variant = null,
@@ -22,6 +20,8 @@ func play(
     delay_start: float = -1.0,
     max_delay: float = -1.0,
 ) -> void:
+    _load()
+
     if on_start == null:
         on_start = _on_start_dialog
     else:

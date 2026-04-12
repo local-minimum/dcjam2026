@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://pxppetlw4kl1" path="res://clicker/battle/enemy_frame_bg.png" id="1_mms3g"]
 [ext_resource type="Script" uid="uid://bcwuwwgdljgir" path="res://clicker/loot/loot_preview.gd" id="1_mw1fy"]
 [ext_resource type="FontFile" uid="uid://c7p84b460gfg8" path="res://fonts/fabian/FABIAN__.TTF" id="3_jw3v5"]
-[ext_resource type="FontFile" uid="uid://vrrmdx83skor" path="res://addons/dialogic/Example Assets/Fonts/Roboto-Regular.ttf" id="4_fdsuc"]
+[ext_resource type="FontFile" uid="uid://vrrmdx83skor" path="res://fonts/roboto/Roboto-Regular.ttf" id="4_fdsuc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r7usq"]
 bg_color = Color(0.09620472, 0.09620475, 0.09620469, 1)

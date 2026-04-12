@@ -67,4 +67,6 @@ signal on_sync_keys(keys: Dictionary[String, int])
 # -> Camera
 signal on_toggle_freelook_camera(active: bool, cause: FreeLookCam.ToggleCause)
 
+# A11Y systems
+signal on_subtitle(data: SubData)
 @warning_ignore_restore("unused_signal")

@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://bhjjmbb16vl26"]
+
+[ext_resource type="Script" uid="uid://cbgfqqfwx7v5o" path="res://core/subtitles/subtitles.gd" id="1_iooe4"]
+[ext_resource type="FontFile" uid="uid://b5c0p00x6g6u5" path="res://fonts/roboto/Roboto-Italic.ttf" id="1_uf1ab"]
+[ext_resource type="FontFile" uid="uid://vrrmdx83skor" path="res://fonts/roboto/Roboto-Regular.ttf" id="2_ddi5s"]
+[ext_resource type="Script" uid="uid://cycuc5ntkfi75" path="res://core/subtitles/subbed_audio.gd" id="4_3jo2o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3jo2o"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_uf1ab"]
+font = ExtResource("2_ddi5s")
+font_size = 24
+font_color = Color(0.69688606, 0.69688606, 0.696886, 1)
+shadow_size = 2
+shadow_color = Color(0.08235294, 0.08235294, 0.08235294, 0.8666667)
+
+[node name="Subtitles Container Demo" type="PanelContainer" unique_id=1352243385]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -130.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_3jo2o")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1477589047]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer" unique_id=524368114]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer" unique_id=1157388610]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Subtitles" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer" unique_id=1904284249]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Line 1" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/Subtitles" unique_id=2144955341]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_uf1ab")
+theme_override_font_sizes/font_size = 36
+horizontal_alignment = 1
+
+[node name="Line 2" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/Subtitles" unique_id=1164388392]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_uf1ab")
+theme_override_font_sizes/font_size = 36
+horizontal_alignment = 1
+
+[node name="Subtitles" type="Node" parent="." unique_id=778090927 node_paths=PackedStringArray("subs_root", "labels")]
+script = ExtResource("1_iooe4")
+subs_root = NodePath("..")
+labels = [NodePath("../CenterContainer/PanelContainer/MarginContainer/Subtitles/Line 1"), NodePath("../CenterContainer/PanelContainer/MarginContainer/Subtitles/Line 2")]
+regular_style = SubResource("LabelSettings_uf1ab")
+metadata/_custom_type_script = "uid://cbgfqqfwx7v5o"
+
+[node name="SubbedAudio" type="Node" parent="." unique_id=1840936272]
+script = ExtResource("4_3jo2o")
+audio_path = "uid://jw1nkt7wth00"
+autoplay = true
+metadata/_custom_type_script = "uid://cycuc5ntkfi75"

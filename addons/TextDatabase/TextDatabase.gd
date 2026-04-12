@@ -211,7 +211,7 @@ static func load_database(database_script: String, path: String) -> TextDatabase
 
 ## Loads data from the given path. Can be called multiple times on different files and the new data will be appended to the database with incrementing IDs.
 ## If the path is a directory, all files from that directory will be loaded, in alphabetical order.
-func load_from_path(path: String) -> void:
+func load_from_path(path: String, append: bool = true) -> void:
     var dir: DirAccess = DirAccess.open(path)
     if dir:
         var file_list: Array[String]
@@ -257,6 +257,9 @@ func load_from_path(path: String) -> void:
         _:
             push_error("Unrecognized extension '.%s', can't extract data." % path.get_extension())
             return
+
+    if !append:
+        __data.clear()
 
     for entry in data:
         for property in __default_values:

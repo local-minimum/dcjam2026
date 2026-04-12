@@ -8,10 +8,10 @@ class_name TextDatabase
 ## Note that none of the data validation is performed in release builds.
 
 ## ID property for the entry. Each entry has an unique ID, starting from 0.
-var id_name := "id"
+var id_name: String = "id"
 
 ## Name property for an entry, i.e. you can find entry name under this property. Used as key when converting to Dictionary.
-var entry_name := "name"
+var entry_name: String = "name"
 
 ## If true, property types will be validated when possible (including checking against default properties). Automatically set to true if any mandatory or valid property has a type provided.
 var is_typed: bool
@@ -36,11 +36,11 @@ var postprocess_entry: Callable
 
 ## Creates the list of valid properties based on a [RefCounted] object instance. [param constructor] should be a method that returns an instance of the target class. It can be its [code]new[/code] method:
 ## [codeblock]
-## var db := TextDatabase.new()
+## var db: TextDatabase = TextDatabase.new()
 ## db.define_from_struct(Item.new)
 ## [/codeblock]
 ## Calling this method is required to use [method get_struct_array] and [method get_struct_dictionary].
-func define_from_struct(constructor: Callable):
+func define_from_struct(constructor: Callable) -> void:
     __struct_constructor = constructor
     if not OS.is_debug_build():
         return
@@ -57,7 +57,7 @@ func define_from_struct(constructor: Callable):
         add_default_property(property_name, struct.get(property_name))
 
 ## Makes an existing property mandatory. Requires [method define_from_struct] to be called first. Used to customize struct properties.
-func override_property_mandatory(property: String):
+func override_property_mandatory(property: String) -> void:
     assert(__struct_constructor.is_valid(), "define_from_struct() needs to be called first to override properties.")
     if not OS.is_debug_build():
         return
@@ -70,7 +70,7 @@ func override_property_mandatory(property: String):
     push_error("Failed to override property \"%s\": does not exist." % property)
 
 ## Changes the validated type of a property. Requires [method define_from_struct] to be called first. Used to customize struct properties, in case when the actual type can't be stored as text. When overriding type, make sure to assign correct value using [method _postprocess_entry].
-func override_property_type(property: String, type: int):
+func override_property_type(property: String, type: int) -> void:
     assert(__struct_constructor.is_valid(), "define_from_struct() needs to be called first to override properties.")
     if not OS.is_debug_build():
         return
@@ -84,18 +84,18 @@ func override_property_type(property: String, type: int):
     push_error("Failed to override property \"%s\": does not exist." % property)
 
 ## Adds a valid property with optionally provided type.
-func add_valid_property(property: String, type: int = TYPE_MAX):
+func add_valid_property(property: String, type: Variant.Type = TYPE_MAX) -> void:
     assert(not __property_exists(property), "Property '%s' already exists." % property)
     __valid_properties.append([property, type])
 
 ## Adds a mandatory property with optionally provided type. The property is also added to valid properties.
-func add_mandatory_property(property: String, type: int = TYPE_MAX):
+func add_mandatory_property(property: String, type: Variant.Type = TYPE_MAX) -> void:
     assert(not __property_exists(property), "Property '%s' already exists." % property)
     __mandatory_properties.append([property, type])
     __valid_properties.append([property, type])
 
 ## Adds a valid property with a default value. Enforces type, unless [param typed] is false.
-func add_default_property(property: String, default, typed := true):
+func add_default_property(property: String, default: Variant, typed: bool = true) -> void:
     add_valid_property(property, typeof(default) if typed else TYPE_MAX)
     __default_values[property] = default
 
@@ -129,7 +129,7 @@ func get_array() -> Array[Dictionary]:
     return __data
 
 ## Returns the database as a Dictionary, where [member entry_name] is used for key and the loaded entries are values. Fails if [member entry_name] is empty. Use [member skip_unnamed] to automatically skip unnamed entries.
-func get_dictionary(skip_unnamed := false) -> Dictionary:
+func get_dictionary(skip_unnamed: bool = false) -> Dictionary:
     if entry_name.is_empty():
         push_error("Can't create Dictionary if data is unnamed.")
         return {}
@@ -159,12 +159,12 @@ func get_struct_array() -> Array[RefCounted]:
     return ret
 
 ## Same as [method get_dictionary], but the entries (values) are returned as the designated structs, instead of Dictionaries. [method define_from_struct] has to be called before using this method.
-func get_struct_dictionary(skip_unnamed := false) -> Dictionary:
+func get_struct_dictionary(skip_unnamed: bool = false) -> Dictionary:
     if __struct_constructor.is_null():
         push_error("define_from_struct() needs to be called first to get struct Dictionary.")
         return {}
 
-    var ret := get_dictionary(skip_unnamed)
+    var ret: Dictionary = get_dictionary(skip_unnamed)
     for key in ret:
         ret[key] = __make_struct(ret[key])
     return ret
@@ -174,7 +174,7 @@ func size() -> int:
     return __data.size()
 
 ## Returns whether the property is valid.
-func is_property_valid(entry: Dictionary, property: String, value = null) -> bool:
+func is_property_valid(entry: Dictionary, property: String, value: Variant = null) -> bool:
     if value == null:
         value = entry[property]
 
@@ -204,20 +204,20 @@ func is_property_valid(entry: Dictionary, property: String, value = null) -> boo
 
 ## Creates a TextDatabase from the given script and loads file(s) under provided path.
 static func load_database(database_script: String, path: String) -> TextDatabase:
-    var storage := load(database_script).new() as TextDatabase
+    var storage: TextDatabase = load(database_script).new()
     assert(storage, "Invalid custom script: %s" % database_script)
     storage.load_from_path(path)
     return storage
 
 ## Loads data from the given path. Can be called multiple times on different files and the new data will be appended to the database with incrementing IDs.
 ## If the path is a directory, all files from that directory will be loaded, in alphabetical order.
-func load_from_path(path: String):
-    var dir := DirAccess.open(path)
+func load_from_path(path: String) -> void:
+    var dir: DirAccess = DirAccess.open(path)
     if dir:
         var file_list: Array[String]
 
         dir.list_dir_begin()
-        var file := dir.get_next()
+        var file: String = dir.get_next()
         while not file.is_empty():
             if not dir.current_is_dir():
                 file_list.append(dir.get_current_dir().path_join(file))
@@ -237,7 +237,7 @@ func load_from_path(path: String):
 
     match path.get_extension():
         "json":
-            var file := FileAccess.open(path, FileAccess.READ)
+            var file: FileAccess = FileAccess.open(path, FileAccess.READ)
             var json = JSON.parse_string(file.get_as_text())
 
             assert(json, "Parse failed, invalid JSON file: %s" % path)
@@ -249,8 +249,8 @@ func load_from_path(path: String):
                 data[i][id_name] = __last_id
                 __last_id += 1
         "cfg":
-            var file := ConfigFile.new()
-            var error := file.load(path)
+            var file: ConfigFile = ConfigFile.new()
+            var error: Error = file.load(path)
             assert(error == OK, "Parse failed, invalid ConfigFile \"%s\". Error code: %s" % [path, error])
 
             data = __config_file_to_array(file)
@@ -307,12 +307,12 @@ var __mandatory_properties: Array[Array]
 var __valid_properties: Array[Array]
 var __default_values: Dictionary
 
-func _init():
+func _init() -> void:
     _initialize()
     if OS.is_debug_build():
         _schema_initialize()
 
-func __setup():
+func __setup() -> void:
     if not OS.is_debug_build():
         return
 
@@ -331,7 +331,7 @@ func __make_struct(entry: Dictionary) -> RefCounted:
         struct.set(property, entry[property])
     return struct
 
-func __match_type(type1: int, type2: int) -> bool:
+func __match_type(type1: Variant.Type, type2: Variant.Type) -> bool:
     if type1 == TYPE_MAX or type2 == TYPE_MAX:
         return true
 
@@ -350,7 +350,7 @@ func __property_exists(property: String) -> bool:
 func __config_file_to_array(data: ConfigFile) -> Array[Dictionary]:
     var array: Array[Dictionary]
     for section in data.get_sections():
-        var entry := {id_name: __last_id}
+        var entry: Dictionary = {id_name: __last_id}
         if not entry_name.is_empty():
             entry[entry_name] = section
         __last_id += 1

@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://bl33wdh2b41xo" path="res://clicker/loot/weapons_smith.gd" id="6_imme1"]
 [ext_resource type="Script" uid="uid://cgwptmq5mmsg7" path="res://clicker/loot/gear_slot_ui.gd" id="6_lbac6"]
 [ext_resource type="Script" uid="uid://jp8g8pd46146" path="res://clicker/loot/gear_smith.gd" id="7_yrt3n"]
-[ext_resource type="FontFile" uid="uid://vrrmdx83skor" path="res://fonts/Fonts/Roboto-Regular.ttf" id="8_0qedo"]
+[ext_resource type="FontFile" uid="uid://vrrmdx83skor" path="res://fonts/roboto/Roboto-Regular.ttf" id="8_0qedo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rgya6"]
 bg_color = Color(0.12955841, 0.1295585, 0.12955841, 0.5)

@@ -119,8 +119,8 @@ func _handle_arrive_tile(player: PhysicsGridPlayerController, _coords: Vector3i)
         return
 
     _steps += 1
-    if !__GlobalGameState.has_gained_dragons_quest && _steps >= _steps_until_dragon_quest:
-        __GlobalGameState.has_gained_dragons_quest = true
+    if __GlobalGameState.dragon_quest_state == GlobalGameState.DragonQuestState.NOT_STARTED && _steps >= _steps_until_dragon_quest:
+        __GlobalGameState.dragon_quest_state = GlobalGameState.DragonQuestState.GAINED
         _gain_quest.play(null, _handle_gained_dragons_quest_dialog_ended)
 
     elif !_has_heard_gain_dispose && !__GlobalGameState.has_disposed_completed && _dragons == 4 && _steps >= _steps_until_dispose_quest:
@@ -263,42 +263,39 @@ func _time_refusal(success: float) -> void:
 func _handle_progress_quest(quest_id: String, step: int) -> void:
     if quest_id == Dragon.DRAGONS_QUEST_ID:
         _dragons = step
-        if step > 1:
-            __GlobalGameState.has_collected_a_dragon = true
 
         match step:
             1:
-                if __GlobalGameState.has_collected_a_dragon && __GlobalGameState.replay > 0:
-                    _first_dragon_repeat.play(
-                        null,
-                        _retry_clip_if_dragons_less_than.bind(_first_dragon_repeat, 2),
-                        true,
-                        false,
-                        -1.0,
-                        3.0,
-                    )
+                match __GlobalGameState.dragon_quest_state:
+                    GlobalGameState.DragonQuestState.GOTTEN_DRAGON:
+                        _first_dragon_repeat.play(
+                            null,
+                            _retry_clip_if_dragons_less_than.bind(_first_dragon_repeat, 2),
+                            true,
+                            false,
+                            -1.0,
+                            3.0,
+                        )
 
-                elif !__GlobalGameState.has_gained_dragons_quest:
-                    __GlobalGameState.has_gained_dragons_quest = true
-                    _first_dragon_without_quest.play(
-                        null,
-                        _retry_clip_if_dragons_less_than.bind(_first_dragon_without_quest, 2),
-                        true,
-                        false,
-                        -1.0,
-                        3.0,
-                    )
+                    GlobalGameState.DragonQuestState.NOT_STARTED:
+                        _first_dragon_without_quest.play(
+                            null,
+                            _retry_clip_if_dragons_less_than.bind(_first_dragon_without_quest, 2),
+                            true,
+                            false,
+                            -1.0,
+                            3.0,
+                        )
 
-                else:
-                    __GlobalGameState.has_gained_dragons_quest = true
-                    _first_dragon.play(
-                        null,
-                        _retry_clip_if_dragons_less_than.bind(_first_dragon, 2),
-                        true,
-                        false,
-                        -1.0,
-                        3.0,
-                    )
+                    GlobalGameState.DragonQuestState.GAINED:
+                        _first_dragon.play(
+                            null,
+                            _retry_clip_if_dragons_less_than.bind(_first_dragon, 2),
+                            true,
+                            false,
+                            -1.0,
+                            3.0,
+                        )
             2:
                 _second_dragon.play(
                     null,
@@ -326,11 +323,14 @@ func _handle_progress_quest(quest_id: String, step: int) -> void:
             var player: PhysicsGridPlayerController = PhysicsGridPlayerController.last_connected_player
             player.add_cinematic_blocker(self)
 
+            __SignalBus.on_clear_queued_subtitles.emit()
             _complete_dispose_quest.play(null, _groundhog_next_day, false, true)
 
 func _retry_clip_if_dragons_less_than(success: bool, clip: SubbedAudio, dragons: int) -> void:
-    if !success && _dragons < dragons:
-        clip.play_dialogue(
+    if success:
+        __GlobalGameState.dragon_quest_state = GlobalGameState.DragonQuestState.GOTTEN_DRAGON
+    elif _dragons < dragons:
+        clip.play(
             null,
             _retry_clip_if_dragons_less_than.bind(clip, dragons),
             true,

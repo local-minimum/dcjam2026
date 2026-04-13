@@ -260,10 +260,12 @@ func _time_refusal(success: float) -> void:
 func _handle_progress_quest(quest_id: String, step: int) -> void:
     if quest_id == Dragon.DRAGONS_QUEST_ID:
         _dragons = step
+        if step > 1:
+            __GlobalGameState.has_collected_a_dragon = true
 
         match step:
             1:
-                if __GlobalGameState.has_gained_dragons_quest && __GlobalGameState.replay > 0:
+                if __GlobalGameState.has_collected_a_dragon && __GlobalGameState.replay > 0:
                     _first_dragon_repeat.play(
                         null,
                         _retry_clip_if_dragons_less_than.bind(_first_dragon_repeat, 2),

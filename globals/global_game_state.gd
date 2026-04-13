@@ -150,6 +150,7 @@ var replay: int
 var deaths: int
 var total_robots_encountered: int
 var has_gained_dragons_quest: bool
+var has_collected_a_dragon: bool
 var has_disposed_completed: bool
 # End block
 
@@ -168,5 +169,6 @@ func start_new_game() -> void:
     deaths = 0
     has_disposed_completed = false
     has_gained_dragons_quest = false
+    has_collected_a_dragon = false
 
     _silence_emits = false

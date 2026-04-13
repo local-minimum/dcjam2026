@@ -17,6 +17,8 @@ func _enter_tree() -> void:
         push_error("Failed to connect subtitle")
     if __SignalBus.on_toggle_subtitles.connect(_handle_toggle_subtitles) != OK:
         push_error("Failed to connect toggle subtitles")
+    if __SignalBus.on_change_subtitles_size.connect(_handle_change_subtitle_size) != OK:
+        push_error("Failed to connect change subtitle size")
 
 func _ready() -> void:
     if _active_subs.is_empty():
@@ -25,6 +27,14 @@ func _ready() -> void:
     for label: Label in labels:
         if !_active_subs.has(label):
             label.hide()
+
+    _handle_change_subtitle_size(AccessibilitySettings.subtitles_size)
+    _handle_toggle_subtitles(AccessibilitySettings.subtitles)
+
+func _handle_change_subtitle_size(size: int) -> void:
+    regular_style.font_size = size
+    bold_style.font_size = size
+    italic_style.font_size = size
 
 func _handle_toggle_subtitles(enabled: bool) -> void:
     _enabled = enabled

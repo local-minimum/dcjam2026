@@ -5,6 +5,30 @@ enum Handedness { LEFT, RIGHT }
 
 static var _instance: AccessibilitySettings
 
+static var subtitles: bool = true:
+    get():
+        if _instance != null || _instance.settings == null:
+            return subtitles
+        return _instance.settings.get_settingb(_SUBTITLES_KEY, subtitles)
+
+    set(value):
+        subtitles = value
+        if _instance != null && _instance.settings != null:
+            _instance.settings.set_settingb(_SUBTITLES_KEY, value)
+        __SignalBus.on_toggle_subtitles.emit(value)
+
+static var subtitles_size: int = 28:
+    get():
+        if _instance != null || _instance.settings == null:
+            return subtitles_size
+        return _instance.settings.get_settingb(_SUBTITLES_SIZE_KEY, subtitles_size)
+
+    set(value):
+        subtitles_size = value
+        if _instance != null && _instance.settings != null:
+            _instance.settings.set_settingb(_SUBTITLES_SIZE_KEY, value)
+        __SignalBus.on_toggle_subtitles.emit(value)
+
 static var handedness: Handedness = Handedness.RIGHT:
     get():
         if _instance == null || _instance.settings == null:
@@ -41,6 +65,8 @@ static var mouse_sensitivity: float = 1.0:
         __SignalBus.on_update_mouse_sensitivity.emit(value)
 
 
+const _SUBTITLES_KEY: String = "acciessibility.subtitles"
+const _SUBTITLES_SIZE_KEY: String = "acciessibility.subtitles.size"
 const _HANDEDNESS_KEY: String = "accessibility.handedness"
 const _MOUSE_INVERT_Y_KEY: String = "accessibility.mouse.invert-y-axis"
 const _MOUSE_SENSITIVITY: String = "accessibility.mouse.sensistivity"

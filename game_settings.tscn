@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://k06e602vjxni"]
+
+[ext_resource type="Script" uid="uid://byetmq0ilyqor" path="res://core/settings/game_settings.gd" id="1_whu6v"]
+[ext_resource type="Script" uid="uid://03jcb75xfhhs" path="res://core/settings/accessibility_settings.gd" id="2_r0nbb"]
+[ext_resource type="Script" uid="uid://dqwqm2boptlgi" path="res://core/settings/disk_json_settings_provider.gd" id="3_ij7ky"]
+
+[node name="GameSettings" type="Node" unique_id=1134563579 node_paths=PackedStringArray("accessibility")]
+script = ExtResource("1_whu6v")
+accessibility = NodePath("AccessibilitySettings")
+metadata/_custom_type_script = "uid://byetmq0ilyqor"
+
+[node name="AccessibilitySettings" type="Node" parent="." unique_id=132775769 node_paths=PackedStringArray("settings")]
+script = ExtResource("2_r0nbb")
+settings = NodePath("../DiskJsonSettingsProvider")
+metadata/_custom_type_script = "uid://03jcb75xfhhs"
+
+[node name="DiskJsonSettingsProvider" type="Node" parent="." unique_id=308374140]
+script = ExtResource("3_ij7ky")
+metadata/_custom_type_script = "uid://dqwqm2boptlgi"

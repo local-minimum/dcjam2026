@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://wwcp3t7inmqj" path="res://pause_manager.tscn" id="26_i2p71"]
 [ext_resource type="Script" uid="uid://cycuc5ntkfi75" path="res://core/subtitles/subbed_audio.gd" id="26_xa8c5"]
 [ext_resource type="PackedScene" uid="uid://cfelmhc86djyq" path="res://core/subtitles/simple_subtitles_container.tscn" id="28_5b14r"]
+[ext_resource type="PackedScene" uid="uid://k06e602vjxni" path="res://game_settings.tscn" id="29_bnpwn"]
 [ext_resource type="PackedScene" uid="uid://3heqxlultjpy" path="res://clicker/loot/loot_and_inventory.tscn" id="39_eu6ph"]
 [ext_resource type="Script" uid="uid://dpr1k74riep1o" path="res://clicker/dev_console_loot.gd" id="44_kq12w"]
 [ext_resource type="Resource" uid="uid://d3js5rmf1rpk" path="res://clicker/abilities/break_free.tres" id="49_6qn5j"]
@@ -557,5 +558,7 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.766
 offset_top = -70.0
+
+[node name="GameSettings" parent="." unique_id=1134563579 instance=ExtResource("29_bnpwn")]
 
 [connection signal="timeout" from="HSplitContainer/Viewport Side/PlayerHealthBar/HealthTimer" to="HSplitContainer/Viewport Side/PlayerHealthBar" method="_on_health_timer_timeout"]

@@ -69,6 +69,7 @@ signal on_toggle_freelook_camera(active: bool, cause: FreeLookCam.ToggleCause)
 
 # A11Y systems
 signal on_subtitle(data: SubData)
+signal on_clear_queued_subtitles()
 signal on_toggle_subtitles(enabled: bool)
 signal on_change_subtitles_size(size: int)
 @warning_ignore_restore("unused_signal")

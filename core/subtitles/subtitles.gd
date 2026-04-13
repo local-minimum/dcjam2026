@@ -9,7 +9,7 @@ class_name Subtitles
 @export var italic_style: LabelSettings
 
 var _active_subs: Dictionary[Label, SubData]
-
+var _queue: Array[SubData]
 var _enabled: bool = true
 
 func _enter_tree() -> void:
@@ -19,6 +19,8 @@ func _enter_tree() -> void:
         push_error("Failed to connect toggle subtitles")
     if __SignalBus.on_change_subtitles_size.connect(_handle_change_subtitle_size) != OK:
         push_error("Failed to connect change subtitle size")
+    if __SignalBus.on_clear_queued_subtitles.connect(_handle_clear_queued_subtitles) != OK:
+        push_error("Failed to connect clear queued subtitles")
 
 func _ready() -> void:
     if _active_subs.is_empty():
@@ -30,6 +32,9 @@ func _ready() -> void:
 
     _handle_change_subtitle_size(AccessibilitySettings.subtitles_size)
     _handle_toggle_subtitles(AccessibilitySettings.subtitles)
+
+func _handle_clear_queued_subtitles() -> void:
+    _queue.clear()
 
 func _handle_change_subtitle_size(size: int) -> void:
     regular_style.font_size = size
@@ -79,9 +84,17 @@ func _get_label_settings(data: SubData) -> LabelSettings:
 func _handle_subtitle(data: SubData) -> void:
     if data.end <= data.start:
         push_warning("Ignoring sub because never visible %s" % [data])
+        return
+
+    _queue.append(data)
 
     if data.start > 0.0:
-        await get_tree().create_timer(data.start).timeout
+        await get_tree().create_timer(data.start, false).timeout
+
+    if !_queue.has(data):
+        return
+
+    _queue.erase(data)
 
     var label: Label = _get_next_label()
     if label == null:
@@ -97,7 +110,7 @@ func _handle_subtitle(data: SubData) -> void:
     label.move_to_front()
     label.show()
 
-    await get_tree().create_timer(data.end - data.start).timeout
+    await get_tree().create_timer(data.end - data.start, false).timeout
 
     if _active_subs.get(label, null) == data:
         label.hide()

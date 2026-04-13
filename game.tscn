@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://dmfjlovtm3r5k"]
 
-[ext_resource type="Environment" uid="uid://cab2e1qcby00n" path="res://clicker/clicker_environment.tres" id="1_80nbo"]
 [ext_resource type="PackedScene" uid="uid://bufrvjcwdgi7q" path="res://clicker/dungeon.tscn" id="2_e2o6t"]
 [ext_resource type="PackedScene" uid="uid://dfk0j2p4xgbfi" path="res://clicker/ui/battle_ui.tscn" id="3_vaj68"]
 [ext_resource type="Resource" uid="uid://c208p6knl8gu2" path="res://clicker/abilities/mental_smarts.tres" id="7_iotsf"]
@@ -37,7 +36,6 @@ HSplitContainer/icons/grabber = null
 HSplitContainer/icons/touch_dragger = null
 
 [sub_resource type="World3D" id="World3D_e2o6t"]
-environment = ExtResource("1_80nbo")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xfvwf"]
 

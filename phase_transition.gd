@@ -13,6 +13,7 @@ enum Phase { WAITING, ERROR, LOAD_DUNGEON, LOAD_PANEL, WAITING_TO_FINALIZE, DONE
 @export var _transition_prep_animator: AnimationPlayer
 @export var _transition_animation: String
 @export var _overlay_label: Label
+@export var _subtitles_container: Control
 
 @export_file_path("*.tscn") var _horror_dungeon_scene: String
 @export_file_path("*.tscn") var _horror_panel_scene: String
@@ -218,6 +219,8 @@ func _finalize() -> void:
         _transition_duration,
     ).set_trans(Tween.TRANS_CUBIC)
     tween.play()
+
+    _subtitles_container.anchor_right = 1.0
 
     await get_tree().create_timer(_transition_duration).timeout
 

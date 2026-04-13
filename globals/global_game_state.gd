@@ -136,9 +136,13 @@ func reset_day_progress() -> void:
     weapon = null
     _gear.clear()
 
+    if dragon_quest_state != DragonQuestState.GOTTEN_DRAGON:
+        dragon_quest_state = DragonQuestState.NOT_STARTED
+
     _silence_emits = false
     print_debug("Reset day progress, including xp and health")
 
+enum DragonQuestState { NOT_STARTED, GAINED, GOTTEN_DRAGON }
 # This block is for between days stuff
 var keith_kills: int
 var total_gear_worn: int = 0
@@ -149,7 +153,7 @@ var total_xp_gained: float
 var replay: int
 var deaths: int
 var total_robots_encountered: int
-var has_gained_dragons_quest: bool
+var dragon_quest_state: DragonQuestState = DragonQuestState.NOT_STARTED
 var has_disposed_completed: bool
 # End block
 
@@ -167,6 +171,6 @@ func start_new_game() -> void:
     replay = 0
     deaths = 0
     has_disposed_completed = false
-    has_gained_dragons_quest = false
+    dragon_quest_state = DragonQuestState.NOT_STARTED
 
     _silence_emits = false

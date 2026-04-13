@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://cfelmhc86djyq"]
+
+[ext_resource type="Script" uid="uid://cbgfqqfwx7v5o" path="res://core/subtitles/subtitles.gd" id="1_p2jd1"]
+[ext_resource type="FontFile" uid="uid://vrrmdx83skor" path="res://fonts/roboto/Roboto-Regular.ttf" id="2_bvfgd"]
+[ext_resource type="FontFile" uid="uid://cc4xli25271fd" path="res://fonts/roboto/Roboto-Bold.ttf" id="3_3ukyr"]
+[ext_resource type="FontFile" uid="uid://b5c0p00x6g6u5" path="res://fonts/roboto/Roboto-Italic.ttf" id="4_vbbp5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5r7rs"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_uf1ab"]
+font = ExtResource("2_bvfgd")
+font_size = 28
+font_color = Color(0.831761, 0.8317611, 0.8317609, 1)
+shadow_size = 2
+shadow_color = Color(0.08235294, 0.08235294, 0.08235294, 0.8666667)
+
+[sub_resource type="LabelSettings" id="LabelSettings_p8cgh"]
+font = ExtResource("3_3ukyr")
+font_size = 28
+font_color = Color(0.83137256, 0.83137256, 0.83137256, 1)
+shadow_size = 2
+shadow_color = Color(0.08235294, 0.08235294, 0.08235294, 0.8666667)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wdlki"]
+font = ExtResource("4_vbbp5")
+font_size = 28
+font_color = Color(0.83137256, 0.83137256, 0.83137256, 1)
+shadow_size = 2
+shadow_color = Color(0.08235294, 0.08235294, 0.08235294, 0.8666667)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p2jd1"]
+bg_color = Color(0.22352941, 0.22352941, 0.22352941, 0.89411765)
+
+[node name="Simple Subtitles Container" type="PanelContainer" unique_id=148810722]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_5r7rs")
+
+[node name="Subtitles" type="Node" parent="." unique_id=804788553 node_paths=PackedStringArray("subs_root", "labels")]
+process_mode = 1
+script = ExtResource("1_p2jd1")
+subs_root = NodePath("..")
+labels = [NodePath("../MarginContainer/CenterContainer/PanelContainer/MarginContainer/Subtitles/Line 1"), NodePath("../MarginContainer/CenterContainer/PanelContainer/MarginContainer/Subtitles/Line 2")]
+regular_style = SubResource("LabelSettings_uf1ab")
+bold_style = SubResource("LabelSettings_p8cgh")
+italic_style = SubResource("LabelSettings_wdlki")
+metadata/_custom_type_script = "uid://cbgfqqfwx7v5o"
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=666095943]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_bottom = 30
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer" unique_id=1685509811]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/CenterContainer" unique_id=368378507]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_p2jd1")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/CenterContainer/PanelContainer" unique_id=1693967395]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="Subtitles" type="VBoxContainer" parent="MarginContainer/CenterContainer/PanelContainer/MarginContainer" unique_id=1536516034]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Line 1" type="Label" parent="MarginContainer/CenterContainer/PanelContainer/MarginContainer/Subtitles" unique_id=325371103]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_vbbp5")
+theme_override_font_sizes/font_size = 36
+horizontal_alignment = 1
+
+[node name="Line 2" type="Label" parent="MarginContainer/CenterContainer/PanelContainer/MarginContainer/Subtitles" unique_id=1962749650]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_vbbp5")
+theme_override_font_sizes/font_size = 36
+horizontal_alignment = 1

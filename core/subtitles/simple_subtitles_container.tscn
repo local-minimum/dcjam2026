@@ -17,14 +17,14 @@ shadow_color = Color(0.08235294, 0.08235294, 0.08235294, 0.8666667)
 [sub_resource type="LabelSettings" id="LabelSettings_p8cgh"]
 font = ExtResource("3_3ukyr")
 font_size = 28
-font_color = Color(0.69688606, 0.69688606, 0.696886, 1)
+font_color = Color(0.83137256, 0.83137256, 0.83137256, 1)
 shadow_size = 2
 shadow_color = Color(0.08235294, 0.08235294, 0.08235294, 0.8666667)
 
 [sub_resource type="LabelSettings" id="LabelSettings_wdlki"]
 font = ExtResource("4_vbbp5")
 font_size = 28
-font_color = Color(0.69688606, 0.69688606, 0.696886, 1)
+font_color = Color(0.83137256, 0.83137256, 0.83137256, 1)
 shadow_size = 2
 shadow_color = Color(0.08235294, 0.08235294, 0.08235294, 0.8666667)
 

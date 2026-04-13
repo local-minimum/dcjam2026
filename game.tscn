@@ -139,6 +139,41 @@ _data = {
 &"RESET": SubResource("Animation_baljx")
 }
 
+[sub_resource type="Resource" id="Resource_bnpwn"]
+script = ExtResource("26_xa8c5")
+audio_path = "uid://c4gp1dl7x0qn4"
+metadata/_custom_type_script = "uid://cycuc5ntkfi75"
+
+[sub_resource type="Resource" id="Resource_36jdj"]
+script = ExtResource("26_xa8c5")
+audio_path = "uid://33748w12x6ui"
+metadata/_custom_type_script = "uid://cycuc5ntkfi75"
+
+[sub_resource type="Resource" id="Resource_xfvwf"]
+script = ExtResource("26_xa8c5")
+audio_path = "uid://q7qpo5ykj2xt"
+metadata/_custom_type_script = "uid://cycuc5ntkfi75"
+
+[sub_resource type="Resource" id="Resource_dhpj7"]
+script = ExtResource("26_xa8c5")
+audio_path = "uid://cn5h1eomh0341"
+metadata/_custom_type_script = "uid://cycuc5ntkfi75"
+
+[sub_resource type="Resource" id="Resource_7knny"]
+script = ExtResource("26_xa8c5")
+audio_path = "uid://m2bc46ax485h"
+metadata/_custom_type_script = "uid://cycuc5ntkfi75"
+
+[sub_resource type="Resource" id="Resource_082n1"]
+script = ExtResource("26_xa8c5")
+audio_path = "uid://ixsl2cd3juy4"
+metadata/_custom_type_script = "uid://cycuc5ntkfi75"
+
+[sub_resource type="Resource" id="Resource_xex6t"]
+script = ExtResource("26_xa8c5")
+audio_path = "uid://bgky8itb0sb73"
+metadata/_custom_type_script = "uid://cycuc5ntkfi75"
+
 [sub_resource type="Resource" id="Resource_xa8c5"]
 script = ExtResource("26_xa8c5")
 audio_path = "uid://jw1nkt7wth00"
@@ -147,6 +182,66 @@ metadata/_custom_type_script = "uid://cycuc5ntkfi75"
 [sub_resource type="Resource" id="Resource_5b14r"]
 script = ExtResource("26_xa8c5")
 audio_path = "uid://bimtuhyc3kcum"
+metadata/_custom_type_script = "uid://cycuc5ntkfi75"
+
+[sub_resource type="Resource" id="Resource_aa0lp"]
+script = ExtResource("26_xa8c5")
+audio_path = "uid://b23sr8pdccbhc"
+metadata/_custom_type_script = "uid://cycuc5ntkfi75"
+
+[sub_resource type="Resource" id="Resource_iu0sx"]
+script = ExtResource("26_xa8c5")
+audio_path = "uid://dqyx0n7gj7pke"
+metadata/_custom_type_script = "uid://cycuc5ntkfi75"
+
+[sub_resource type="Resource" id="Resource_4v2jo"]
+script = ExtResource("26_xa8c5")
+audio_path = "uid://8tu5wt56i3ry"
+metadata/_custom_type_script = "uid://cycuc5ntkfi75"
+
+[sub_resource type="Resource" id="Resource_l1i01"]
+script = ExtResource("26_xa8c5")
+audio_path = "uid://mns1qodscbx2"
+metadata/_custom_type_script = "uid://cycuc5ntkfi75"
+
+[sub_resource type="Resource" id="Resource_r62pu"]
+script = ExtResource("26_xa8c5")
+audio_path = "uid://d28pboexpqjam"
+metadata/_custom_type_script = "uid://cycuc5ntkfi75"
+
+[sub_resource type="Resource" id="Resource_klri6"]
+script = ExtResource("26_xa8c5")
+audio_path = "uid://b76qnj82cipoa"
+metadata/_custom_type_script = "uid://cycuc5ntkfi75"
+
+[sub_resource type="Resource" id="Resource_eu6ph"]
+script = ExtResource("26_xa8c5")
+audio_path = "uid://dr4tmkwdqay8p"
+metadata/_custom_type_script = "uid://cycuc5ntkfi75"
+
+[sub_resource type="Resource" id="Resource_edr7y"]
+script = ExtResource("26_xa8c5")
+audio_path = "uid://dxu7pfwlatrk0"
+metadata/_custom_type_script = "uid://cycuc5ntkfi75"
+
+[sub_resource type="Resource" id="Resource_kq12w"]
+script = ExtResource("26_xa8c5")
+audio_path = "uid://chr2mpufrt2p8"
+metadata/_custom_type_script = "uid://cycuc5ntkfi75"
+
+[sub_resource type="Resource" id="Resource_t46w6"]
+script = ExtResource("26_xa8c5")
+audio_path = "uid://cec7dvobnlerv"
+metadata/_custom_type_script = "uid://cycuc5ntkfi75"
+
+[sub_resource type="Resource" id="Resource_m28ev"]
+script = ExtResource("26_xa8c5")
+audio_path = "uid://23g775bnwfw3"
+metadata/_custom_type_script = "uid://cycuc5ntkfi75"
+
+[sub_resource type="Resource" id="Resource_lwlx3"]
+script = ExtResource("26_xa8c5")
+audio_path = "uid://dpmgnh2jf6ajq"
 metadata/_custom_type_script = "uid://cycuc5ntkfi75"
 
 [node name="Control" type="Control" unique_id=1242508304]
@@ -430,27 +525,27 @@ next/Lost = &"Lost"
 
 [node name="Clicker Dialogue Manager" type="Node" parent="." unique_id=1047932264]
 script = ExtResource("68_vyqle")
-_awake = "res://clicker/dialogue/first_impression.mp3"
-_repeat_awake = "res://clicker/dialogue/second_awake.mp3"
-_awake_after_dispose = "res://clicker/dialogue/awake_after_dispose.mp3"
-_first_death = "res://clicker/dialogue/death_1.mp3"
-_repeat_death = "res://clicker/dialogue/death_2.mp3"
-_refuse_clicking = "res://clicker/dialogue/stubborn.mp3"
-_bored = "res://clicker/dialogue/bored.mp3"
+_awake = SubResource("Resource_bnpwn")
+_repeat_awake = SubResource("Resource_36jdj")
+_awake_after_dispose = SubResource("Resource_xfvwf")
+_first_death = SubResource("Resource_dhpj7")
+_repeat_death = SubResource("Resource_7knny")
+_refuse_clicking = SubResource("Resource_082n1")
+_bored = SubResource("Resource_xex6t")
 _fight = SubResource("Resource_xa8c5")
 _new_day_first_fight = SubResource("Resource_5b14r")
-_healing = "res://clicker/dialogue/healing.mp3"
-_reheal_fail = "res://clicker/dialogue/rehealing.mp3"
-_gain_quest = "res://clicker/dialogue/dragons.mp3"
-_first_dragon = "res://clicker/dialogue/first_dragon.mp3"
-_first_dragon_without_quest = "res://clicker/dialogue/first_dragon_no_quest.mp3"
-_first_dragon_repeat = "res://clicker/dialogue/first_dragon_second_try.mp3"
-_second_dragon = "res://clicker/dialogue/dragon_2.mp3"
-_third_dragon = "res://clicker/dialogue/dragon_3.mp3"
-_fourth_dragon = "res://clicker/dialogue/dragon_4.mp3"
-_dispose_quest = "res://clicker/dialogue/gain_dispose_quest.mp3"
-_complete_dispose_quest = "res://clicker/dialogue/complete_dispose_quest.mp3"
-_signal_lost = "res://clicker/dialogue/click_hard.mp3"
+_healing = SubResource("Resource_aa0lp")
+_reheal_fail = SubResource("Resource_iu0sx")
+_gain_quest = SubResource("Resource_4v2jo")
+_first_dragon = SubResource("Resource_l1i01")
+_first_dragon_without_quest = SubResource("Resource_r62pu")
+_first_dragon_repeat = SubResource("Resource_klri6")
+_second_dragon = SubResource("Resource_eu6ph")
+_third_dragon = SubResource("Resource_edr7y")
+_fourth_dragon = SubResource("Resource_kq12w")
+_dispose_quest = SubResource("Resource_t46w6")
+_complete_dispose_quest = SubResource("Resource_m28ev")
+_signal_lost = SubResource("Resource_lwlx3")
 _horror_music = "res://horror/audio/After.mp3"
 _click_hard_ability = ExtResource("49_6qn5j")
 _steps_until_dragon_quest = 70

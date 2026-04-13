@@ -7,7 +7,7 @@ static var _instance: AccessibilitySettings
 
 static var subtitles: bool = true:
     get():
-        if _instance != null || _instance.settings == null:
+        if _instance == null || _instance.settings == null:
             return subtitles
         return _instance.settings.get_settingb(_SUBTITLES_KEY, subtitles)
 
@@ -19,14 +19,14 @@ static var subtitles: bool = true:
 
 static var subtitles_size: int = 28:
     get():
-        if _instance != null || _instance.settings == null:
+        if _instance == null || _instance.settings == null:
             return subtitles_size
-        return _instance.settings.get_settingb(_SUBTITLES_SIZE_KEY, subtitles_size)
+        return _instance.settings.get_settingi(_SUBTITLES_SIZE_KEY, subtitles_size)
 
     set(value):
         subtitles_size = value
         if _instance != null && _instance.settings != null:
-            _instance.settings.set_settingb(_SUBTITLES_SIZE_KEY, value)
+            _instance.settings.set_settingi(_SUBTITLES_SIZE_KEY, value)
         __SignalBus.on_toggle_subtitles.emit(value)
 
 static var handedness: Handedness = Handedness.RIGHT:

@@ -43,6 +43,7 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_5r7rs")
 
 [node name="Subtitles" type="Node" parent="." unique_id=804788553 node_paths=PackedStringArray("subs_root", "labels")]
+process_mode = 1
 script = ExtResource("1_p2jd1")
 subs_root = NodePath("..")
 labels = [NodePath("../MarginContainer/CenterContainer/PanelContainer/MarginContainer/Subtitles/Line 1"), NodePath("../MarginContainer/CenterContainer/PanelContainer/MarginContainer/Subtitles/Line 2")]

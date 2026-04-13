@@ -10,9 +10,13 @@ class_name Subtitles
 
 var _active_subs: Dictionary[Label, SubData]
 
+var _enabled: bool = true
+
 func _enter_tree() -> void:
     if __SignalBus.on_subtitle.connect(_handle_subtitle) != OK:
         push_error("Failed to connect subtitle")
+    if __SignalBus.on_toggle_subtitles.connect(_handle_toggle_subtitles) != OK:
+        push_error("Failed to connect toggle subtitles")
 
 func _ready() -> void:
     if _active_subs.is_empty():
@@ -21,6 +25,16 @@ func _ready() -> void:
     for label: Label in labels:
         if !_active_subs.has(label):
             label.hide()
+
+func _handle_toggle_subtitles(enabled: bool) -> void:
+    _enabled = enabled
+    if enabled:
+        for l: Label in labels:
+            if l.visible:
+                subs_root.show()
+                return
+    else:
+        subs_root.hide()
 
 func _get_next_label() -> Label:
     var earliest_end_data: SubData = null
@@ -64,7 +78,7 @@ func _handle_subtitle(data: SubData) -> void:
         push_warning("Cannot display sub because no subtitle label available")
         return
 
-    if _active_subs.is_empty():
+    if _enabled && (_active_subs.is_empty() || !subs_root.visible):
         subs_root.show()
 
     _active_subs.set(label, data)

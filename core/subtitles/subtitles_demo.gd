@@ -1,4 +1,4 @@
-extends PanelContainer
+extends Control
 
 enum Languages { NONE, ENGLISH, SWEDISH, TOKI_PONA, WELSH }
 

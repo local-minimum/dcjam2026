@@ -71,7 +71,7 @@ func _ready() -> void:
 
     elif __GlobalGameState.replay == 0:
         _player.add_cinematic_blocker(self)
-        __SignalBus.on_clear_queued_subtitles.emit()
+        __SignalBus.on_clear_all_queued_subtitles.emit()
         _awake.play(null, _time_refusal, false, true, _delay_first_dialogue)
 
     else:
@@ -99,7 +99,7 @@ func _handle_change_ability_level(ability_id: String, lvl: int) -> void:
 
         __SignalBus.on_ready_horror.emit()
 
-        __SignalBus.on_clear_queued_subtitles.emit()
+        __SignalBus.on_clear_all_queued_subtitles.emit()
         _signal_lost.play(
             null,
             func (_success: bool) -> void:
@@ -146,7 +146,7 @@ func _handle_health_changed(new_health: float, prev_health: float) -> void:
 
         __AudioHub.clear_all_dialogues()
 
-        __SignalBus.on_clear_queued_subtitles.emit()
+        __SignalBus.on_clear_all_queued_subtitles.emit()
         if __GlobalGameState.deaths == 0:
             _first_death.play(null, _restart_after_death_dialogue, false, true, 0.5)
         else:
@@ -323,7 +323,7 @@ func _handle_progress_quest(quest_id: String, step: int) -> void:
             var player: PhysicsGridPlayerController = PhysicsGridPlayerController.last_connected_player
             player.add_cinematic_blocker(self)
 
-            __SignalBus.on_clear_queued_subtitles.emit()
+            __SignalBus.on_clear_all_queued_subtitles.emit()
             _complete_dispose_quest.play(null, _groundhog_next_day, false, true)
 
 func _retry_clip_if_dragons_less_than(success: bool, clip: SubbedAudio, dragons: int) -> void:

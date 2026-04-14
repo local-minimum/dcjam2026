@@ -23,6 +23,7 @@ static var _NEXT_POEM: int = 0
 signal on_monster_idle()
 
 var disabled_player_interactions: bool
+var subs: Array[SubDatabase]
 
 func clear_queues_and_noise() -> void:
     _tracked_noise = null
@@ -77,6 +78,13 @@ func _enter_tree() -> void:
         push_error("Failed to connect to monster idle")
     if __SignalBus.on_horror_outro_triggered.connect(_handle_horror_outro_triggered) != OK:
         push_error("Failed to connect horror outro triggered")
+
+    for poem: String in poems:
+        if poem == null:
+            subs.append(null)
+        var sub: SubDatabase = SubDatabase.new()
+        sub.load_sub(poem)
+        subs.append(sub)
 
 func _handle_horror_outro_triggered() -> void:
     clear_queues_and_noise()
@@ -469,17 +477,30 @@ var is_speaking: bool:
         return speaker.playing
 
 var is_jailed: bool
+var _queued_subs: Array[SubData]
 
 func start_next_poem() -> void:
+    if !_queued_subs.is_empty():
+        __SignalBus.on_clear_queued_subtitles.emit(_queued_subs)
+
     var poem: AudioStream = load(poems[_NEXT_POEM])
     speaker.stream = poem
+
+    _queued_subs = subs[_NEXT_POEM].get_subs()
+
     _NEXT_POEM = posmod(_NEXT_POEM + 1, poems.size())
+
     speaker.play()
+
+    for sub_data: SubData in _queued_subs:
+        __SignalBus.on_subtitle.emit(sub_data)
+
     if !speaker.finished.is_connected(_sequence_next_poem) && speaker.finished.connect(_sequence_next_poem, CONNECT_ONE_SHOT) != OK:
         push_error("Failed to connect speaker finished")
 
 func pause_poem(pause: bool) -> void:
-    speaker.stream_paused = pause
+    #speaker.stream_paused = pause
+    push_warning("Pausing is deprecated, because it puts subs out of sync")
 
 func silence() -> void:
     if speaker.finished.is_connected(_sequence_next_poem):
@@ -487,7 +508,12 @@ func silence() -> void:
 
     speaker.stop()
 
+    if !_queued_subs.is_empty():
+        __SignalBus.on_clear_queued_subtitles.emit(_queued_subs)
+        _queued_subs.clear()
+
 func _sequence_next_poem() -> void:
+    _queued_subs.clear()
     await get_tree().create_timer(randf_range(1.0, 3.0)).timeout
     if !speaker.playing:
         start_next_poem()

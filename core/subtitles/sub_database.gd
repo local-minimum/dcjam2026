@@ -15,8 +15,8 @@ func _schema_initialize():
 func _postprocess_entry(entry: Dictionary):
     entry.format = SubData.int_to_text_format(entry.get('format', SubData.SubTextFormat.Regular))
 
-func load_sub(audio_resource_path: String) -> void:
-    _file_path = "%s%s" % [ResourceUID.uid_to_path(audio_resource_path), SUFFIX]
+func load_sub(audio_resource_uid: String) -> void:
+    _file_path = "%s%s" % [ResourceUID.uid_to_path(audio_resource_uid), SUFFIX]
     load_from_path(_file_path, false)
 
 func has_language(lang: String) -> bool:

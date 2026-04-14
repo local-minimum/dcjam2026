@@ -1,6 +1,8 @@
 extends ColorRect
 class_name LootAndInventory
 
+static var looting_in_progress: bool
+
 @export var _body_rect: TextureRect
 @export var _loot_root: Control
 @export var _loot_previews: Array[LootPreviewUI]
@@ -51,6 +53,8 @@ func _ready() -> void:
     hide()
 
 func _handle_battle_end(credits: int) -> void:
+    looting_in_progress = true
+
     __SignalBus.on_toggle_freelook_camera.emit(false, FreeLookCam.ToggleCause.MOVEMENT)
     PhysicsGridPlayerController.last_connected_player.add_cinematic_blocker(self)
 
@@ -128,7 +132,7 @@ func _handle_battle_end(credits: int) -> void:
     show()
 
 func _input(event: InputEvent) -> void:
-    if event.is_action_pressed(&"inventory"):
+    if !looting_in_progress && event.is_action_pressed(&"inventory"):
         if !visible && !PhysicsGridPlayerController.last_connected_player_cinematic:
             PhysicsGridPlayerController.last_connected_player.add_cinematic_blocker(self)
             __SignalBus.on_toggle_freelook_camera.emit(false, FreeLookCam.ToggleCause.MOVEMENT)
@@ -146,6 +150,7 @@ func check_remaining_loot() -> void:
     close_ui()
 
 func close_ui() -> void:
+    looting_in_progress = false
     _loot_root.hide()
     await get_tree().create_timer(0.25).timeout
     PhysicsGridPlayerController.last_connected_player.remove_cinematic_blocker(self)

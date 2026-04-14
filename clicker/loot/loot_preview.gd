@@ -34,19 +34,37 @@ func preview_gear(gear: Gear) -> void:
     var defences: Array[float] = []
     var dodges: Array[float] = []
 
+    #var t0: int = Time.get_ticks_usec()
+    var is_new_gear: bool = true
     for armour: Gear in armours:
         if not armour:
             defences.push_back(0.0)
             dodges.push_back(0.0)
             continue
 
+        if !is_new_gear && armour.is_same(gear):
+            dodges.push_back(dodges[0])
+            defences.push_back(defences[0])
+            continue
+
+        is_new_gear = false
         var def_total: float = 0
-        var rolls: int = 20
+        var rolls: int = 256
+
+        #var n_rerolls: int = 200
+        #var rerolls: PackedFloat64Array = PackedFloat64Array()
+        #rerolls.resize(n_rerolls)
+        #for i in n_rerolls:
+        #def_total = 0
         for idx: int in rolls:
             def_total += maxi(armour.defend() if idx == 0 else armour.reroll_defend(), 0)
+        #rerolls[i] = def_total / rolls
 
+        #print_debug("Rolling gear %s" % rerolls)
         dodges.push_back(armour.dodge_chance_percent())
         defences.push_back(((def_total / rolls) * 100) / 100)
+
+    #print_debug("Rolling armor stat took: %s usec" % [Time.get_ticks_usec() - t0])
 
     _description_top.text = "DEF:"
     var new_gear_def: float = snappedf(defences[0], 0.1)
@@ -56,6 +74,9 @@ func preview_gear(gear: Gear) -> void:
         var def_diff: float = snappedf(defences[0] - defences[1], 0.1)
         _value_top.text = str(new_gear_def, " (+", def_diff, ")")
         _value_top.modulate = Color.GREEN
+    elif defences[0] == defences[1]:
+        _value_top.text = str(new_gear_def, " (equal)")
+        _value_top.modulate = Color.WHITE
     else:
         # String done this way to ensure rounding / flooring not done too early - this gives high accuracy
         var def_diff: float = snappedf(defences[1] - defences[0], 0.1)
@@ -69,6 +90,9 @@ func preview_gear(gear: Gear) -> void:
         var dodge_diff: float = snappedf(dodges[0] - dodges[1], 0.1)
         _value_bottom.text = str(new_gear_dodge, " (+", dodge_diff, "%)")
         _value_bottom.modulate = Color.GREEN
+    elif dodges[0] == dodges[1]:
+        _value_bottom.text = str(new_gear_dodge, " (equal)")
+        _value_bottom.modulate = Color.WHITE
     else:
         var dodge_diff: float = snappedf(dodges[1] - dodges[0], 0.1)
         _value_bottom.text = str(new_gear_dodge, " (-", dodge_diff, "%)")
@@ -89,14 +113,37 @@ func preview_weapon(weapon: Weapon) -> void:
     var weapons: Array[Weapon] = [weapon, __GlobalGameState.weapon]
     var dps: Array[float] = []
 
+    var t0: int = Time.get_ticks_usec()
+
+    var is_new_weapon: bool = true
+
     for wep: Weapon in weapons:
+        if !is_new_weapon && wep.is_same(weapon):
+            dps.push_back(dps[0])
+            continue
+
+        is_new_weapon = false
+
         var cd: float = wep.cooldown()
+
+        #var n_rerolls: int = 200
+        #var rerolls: PackedFloat64Array = PackedFloat64Array()
+        #rerolls.resize(n_rerolls)
+
         var attack_total: float = 0
-        var rolls: int = 20
+        var rolls: int = 256
+        #for i in n_rerolls:
+        #attack_total = 0
         for idx: int in rolls:
             attack_total += maxi(wep.attack() if idx == 0 else wep.reroll_attack(), 0)
 
+        #rerolls[i] = attack_total / rolls
+
+        #print_debug("Rolling weapon %s" % rerolls)
+
         dps.push_back((attack_total / (cd * rolls) * 100 ) / 100)
+
+    print_debug("Rolling weapon stat took: %s usec" % [Time.get_ticks_usec() - t0])
 
     _description_top.text = "DPS:"
     var new_wep_dps: float = snappedf(dps[0], 0.1)
@@ -106,6 +153,9 @@ func preview_weapon(weapon: Weapon) -> void:
         var dps_diff: float = snappedf(dps[0] - dps[1], 0.1)
         _value_top.text = str(new_wep_dps, " (+", dps_diff, ")")
         _value_top.modulate = Color.GREEN
+    elif dps[0] == dps[1]:
+        _value_top.text = str(new_wep_dps, " (equal)")
+        _value_top.modulate = Color.WHITE
     else:
         # String done this way to ensure rounding / flooring not done too early - this gives high accuracy
         var dps_diff: float = snappedf(dps[1] - dps[0], 0.1)

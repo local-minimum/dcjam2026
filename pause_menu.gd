@@ -20,7 +20,7 @@ signal closed
 @export var sfx_slider: HSlider
 
 @export var subtitles_btn: Button
-@export var subtitle_language: MenuButton
+@export var subtitle_language: OptionButton
 @export var subtitle_size_slider: HSlider
 
 @export var start_menu_scene: PackedScene

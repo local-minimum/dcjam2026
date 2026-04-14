@@ -99,7 +99,7 @@ music_slider = NodePath("CenterContainer/PanelContainer/MarginContainer/Audio Co
 dialogue_slider = NodePath("CenterContainer/PanelContainer/MarginContainer/Audio Container/DialogueVolumeSlider")
 sfx_slider = NodePath("CenterContainer/PanelContainer/MarginContainer/Audio Container/SFXVolumeSlider")
 subtitles_btn = NodePath("CenterContainer/PanelContainer/MarginContainer/Accessibility Container/Subtitles Row/Enable Subtitles")
-subtitle_language = NodePath("CenterContainer/PanelContainer/MarginContainer/Accessibility Container/Language Row/Subtitle Language")
+subtitle_language = NodePath("CenterContainer/PanelContainer/MarginContainer/Accessibility Container/Language Row/OptionButton")
 subtitle_size_slider = NodePath("CenterContainer/PanelContainer/MarginContainer/Accessibility Container/SubtitleSizeSlider")
 start_menu_scene = ExtResource("4_p81d2")
 
@@ -406,6 +406,7 @@ layout_mode = 2
 
 [node name="Language Row" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/Accessibility Container" unique_id=855264477]
 layout_mode = 2
+theme_override_constants/separation = 13
 
 [node name="Language" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/Accessibility Container/Language Row" unique_id=267264705]
 layout_mode = 2
@@ -416,17 +417,14 @@ theme_override_font_sizes/font_size = 25
 text = "Language"
 vertical_alignment = 1
 
-[node name="Control" type="Control" parent="CenterContainer/PanelContainer/MarginContainer/Accessibility Container/Language Row" unique_id=1860824785]
+[node name="OptionButton" type="OptionButton" parent="CenterContainer/PanelContainer/MarginContainer/Accessibility Container/Language Row" unique_id=421672592]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.0
-
-[node name="Subtitle Language" type="MenuButton" parent="CenterContainer/PanelContainer/MarginContainer/Accessibility Container/Language Row" unique_id=529482622]
-layout_mode = 2
-size_flags_horizontal = 3
-button_pressed = true
-keep_pressed_outside = true
-text = "English"
+size_flags_horizontal = 10
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 20
+selected = 0
 item_count = 2
 popup/item_0/text = "English"
 popup/item_0/id = 0
@@ -453,12 +451,9 @@ max_value = 64.0
 value = 10.0
 rounded = true
 
-[node name="Spacer" type="Control" parent="CenterContainer/PanelContainer/MarginContainer/Accessibility Container" unique_id=895125367]
-layout_mode = 2
-size_flags_vertical = 3
-
 [node name="BackBtn" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/Accessibility Container" unique_id=1005667124]
 layout_mode = 2
+size_flags_vertical = 10
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4

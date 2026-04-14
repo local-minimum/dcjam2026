@@ -9,6 +9,15 @@ func _to_string() -> String:
 func roll() -> int:
     return _sides.pick_random()
 
+func mean_side_value() -> float:
+    if _sides.is_empty():
+        return 0
+
+    var tot: float = 0
+    for s: int in _sides:
+        tot += s
+    return tot / _sides.size()
+
 func _init(sides: Array[int]) -> void:
     _sides = Array(sides)
 

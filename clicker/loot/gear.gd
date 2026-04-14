@@ -1,6 +1,8 @@
 extends RefCounted
 class_name Gear
 
+const _AVG_BIAS: float = 0.75
+
 ## Internal cost of making it
 var score: int
 
@@ -30,6 +32,9 @@ func get_mat() -> Mat:
 var _base: Base
 func get_base() -> Base:
     return _base
+
+func is_same(other: Gear) -> bool:
+    return _quality == other._quality && _mat == other._mat && _base == other._base
 
 var icon: Texture2D
 var dress_up_icon: Texture2D
@@ -110,6 +115,12 @@ func reroll_defend() -> int:
     var mat_level: int = __GlobalGameState.get_current_ability_level(mat_skill)
     var mod: int = _material_to_defence_adjustment(mat_level)
 
+    if _AVG_BIAS > 0.0:
+        return maxi(
+            0,
+            roundi(_AVG_BIAS * _cached_die.mean_side_value() + (1.0 - _AVG_BIAS) * base) + mod,
+        )
+
     return maxi(0, base + mod)
 
 func dodge_chance_percent() -> float:
@@ -127,9 +138,6 @@ func dodge_chance_percent() -> float:
         _:
             push_error("Unknown material %s" % [Mat.find_key(_mat)])
             return 0.0
-
-func is_same(other: Gear) -> bool:
-    return _base == other._base && _mat == other._mat && _quality == other._quality
 
 func humanized() -> String:
     return ("%s %s %s" % [

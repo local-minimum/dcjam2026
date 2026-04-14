@@ -1,6 +1,8 @@
 extends RefCounted
 class_name Weapon
 
+const _AVG_BIAS: float = 0.75
+
 ## Internal cost of making it
 var score: int
 
@@ -19,6 +21,9 @@ func get_mat() -> Mat:
 var _base: Base
 func get_base() -> Base:
     return _base
+
+func is_same(other: Weapon) -> bool:
+    return _base == other._base && _mat == other._mat && _quality == other._quality
 
 var icon: Texture2D
 
@@ -199,10 +204,14 @@ func reroll_attack() -> int:
         _:
             attack_strength = ArrayUtils.sumi(rolls.slice(-1))
 
+    if _AVG_BIAS > 0:
+        return roundi(
+            _AVG_BIAS * _cached_die.mean_side_value() +
+            (1.0 - _AVG_BIAS) * attack_strength
+        )
+
     return attack_strength
 
-func is_same(other: Weapon) -> bool:
-    return _base == other._base && _mat == other._mat && _quality == other._quality
 
 func humanized() -> String:
     return ("%s %s %s" % [

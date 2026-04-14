@@ -78,6 +78,7 @@ func _on_quit_desktopbtn_pressed() -> void:
     get_tree().quit()
 
 func _on_quit_main_menubtn_pressed() -> void:
+    __AudioHub.clear_all_dialogues()
     get_tree().paused = false
     get_tree().change_scene_to_packed(start_menu_scene)
 

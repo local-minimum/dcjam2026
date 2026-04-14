@@ -126,3 +126,7 @@ func _handle_subtitle(data: SubData) -> void:
 
         if _active_subs.is_empty():
             subs_root.hide()
+
+static func get_language_code() -> String:
+    var loc: String = TranslationServer.get_locale()
+    return loc.substr(0, loc.find("_"))

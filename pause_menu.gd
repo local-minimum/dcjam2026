@@ -65,6 +65,7 @@ func _on_quit_desktopbtn_pressed() -> void:
 
 
 func _on_quit_main_menubtn_pressed() -> void:
+    get_tree().paused = false
     get_tree().change_scene_to_packed(start_menu_scene)
 
 

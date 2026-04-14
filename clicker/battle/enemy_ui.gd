@@ -23,7 +23,7 @@ func sync_health(enemy: BattleManager.Enemy) -> void:
     enemy_health_bar.value = enemy.health
 
     if enemy.health < _prev_health:
-        print(enemy.health, " ", _prev_health)
+        #print_debug(enemy.health, " ", _prev_health)
         health_timer.start()
     else:
         enemy_damage_bar.value = enemy.health

@@ -154,7 +154,7 @@ func _ready() -> void:
 
 func _handle_arrive_at_tile(_player: PhysicsGridPlayerController, _coords: Vector3i) -> void:
     _steps += 1
-    print_debug("Specials %s / %s %s" % [_steps, _ready_special_after_steps, _special_ready])
+    #print_debug("Specials %s / %s %s" % [_steps, _ready_special_after_steps, _special_ready])
     if !_special_ready && _steps >= _ready_special_after_steps:
         _ready_special()
 

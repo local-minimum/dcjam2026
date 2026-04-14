@@ -393,4 +393,3 @@ static func find_in_tree(n: Node) -> PhysicsGridPlayerController:
 func remove_collision() -> void:
     grid_entity_collision.queue_free()
     noise_area.queue_free()
-    

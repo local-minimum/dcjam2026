@@ -26,4 +26,4 @@ func _lang_to_locale_code() -> String:
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
     if autoplay:
-        audio.play(null, get_tree().quit, false, true, autoplay_delay, -1.0, _lang_to_locale_code())
+        audio.play(null, get_tree().quit, AudioHub.QueueBehaviour.IGNORE_QUEUE_SILENCE_PLAYING, autoplay_delay, -1.0, _lang_to_locale_code())

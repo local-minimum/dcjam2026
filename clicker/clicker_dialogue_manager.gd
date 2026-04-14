@@ -74,14 +74,14 @@ func _ready() -> void:
     elif __GlobalGameState.replay == 0:
         _player.add_cinematic_blocker(self)
         __SignalBus.on_clear_all_queued_subtitles.emit()
-        _awake.play(null, _time_refusal, false, true, _delay_first_dialogue)
+        _awake.play(null, _time_refusal, AudioHub.QueueBehaviour.ENQUEUE, _delay_first_dialogue)
 
     else:
         if __GlobalGameState.has_disposed_completed:
-            _awake_after_dispose.play(null, null, true, false, _delay_first_dialogue)
+            _awake_after_dispose.play(null, null, AudioHub.QueueBehaviour.ENQUEUE, _delay_first_dialogue)
 
         else:
-            _repeat_awake.play(null, null, true, false, _delay_first_dialogue)
+            _repeat_awake.play(null, null, AudioHub.QueueBehaviour.ENQUEUE, _delay_first_dialogue)
 
         await get_tree().create_timer(5.0).timeout
         __SignalBus.on_gain_bonus_autoclickers.emit(2)
@@ -107,8 +107,7 @@ func _handle_change_ability_level(ability_id: String, lvl: int) -> void:
             func (_success: bool) -> void:
                 # We don't care we must go horror
                 __SignalBus.on_transition_to_horror.emit(),
-            false,
-            true,
+            AudioHub.QueueBehaviour.IGNORE_QUEUE_SILENCE_PLAYING,
         )
         print_debug("Clicking through!")
 
@@ -153,9 +152,9 @@ func _handle_health_changed(new_health: float, prev_health: float) -> void:
 
         __SignalBus.on_clear_all_queued_subtitles.emit()
         if __GlobalGameState.deaths == 0:
-            _first_death.play(null, _restart_after_death_dialogue, false, true, 0.5)
+            _first_death.play(null, _restart_after_death_dialogue, AudioHub.QueueBehaviour.IGNORE_QUEUE_SILENCE_PLAYING, 0.5)
         else:
-            _repeat_death.play(null, _restart_after_death_dialogue, false, true, 0.5)
+            _repeat_death.play(null, _restart_after_death_dialogue, AudioHub.QueueBehaviour.IGNORE_QUEUE_SILENCE_PLAYING, 0.5)
 
 func _restart_after_death_dialogue(_success: bool) -> void:
     __AudioHub.clear_all_dialogues()
@@ -183,8 +182,7 @@ func _handle_healing_refused(_station: HealthStation) -> void:
                 if !__SignalBus.on_healing_refused.is_connected(_handle_healing_refused):
                     __SignalBus.on_healing_refused.connect(_handle_healing_refused, CONNECT_ONE_SHOT)
             ,
-        true,
-        false,
+        AudioHub.QueueBehaviour.ENQUEUE,
         -1,
         1.0,
     )
@@ -205,8 +203,7 @@ func _handle_healing_spotted(_station: HealthStation) -> void:
                 if !__SignalBus.on_player_spot_healing.is_connected(_handle_healing_spotted):
                     __SignalBus.on_player_spot_healing.connect(_handle_healing_spotted, CONNECT_ONE_SHOT)
             ,
-        true,
-        false,
+        AudioHub.QueueBehaviour.ENQUEUE,
         -1,
         1.0,
     )
@@ -221,8 +218,7 @@ func _handle_change_boredom(boredom: float) -> void:
                     if !__SignalBus.on_change_boredom.is_connected(_handle_change_boredom):
                         __SignalBus.on_change_boredom.connect(_handle_change_boredom)
                 ,
-            true,
-            false,
+            AudioHub.QueueBehaviour.ENQUEUE,
             -1,
             2.0,
         )
@@ -235,9 +231,9 @@ func _first_fight(_data: EnemyData) -> void:
                     __SignalBus.on_enemy_join_battle.connect(_first_fight, CONNECT_ONE_SHOT)
 
         if __GlobalGameState.replay == 0:
-            _fight.play(null, on_complete, true, false, -1, 2.0)
+            _fight.play(null, on_complete, AudioHub.QueueBehaviour.ENQUEUE, -1, 2.0)
         else:
-             _new_day_first_fight.play(null, on_complete, true, false, -1, 2.0)
+             _new_day_first_fight.play(null, on_complete, AudioHub.QueueBehaviour.ENQUEUE, -1, 2.0)
 
 var _has_gained_xp: bool
 func _change_xp(new_xp: float, prev_xp: float) -> void:
@@ -261,8 +257,6 @@ func _time_refusal(success: float) -> void:
             null,
             func (_success: bool) -> void:
                 __SignalBus.on_gain_bonus_autoclickers.emit(1),
-            true,
-            false,
         )
 
 func _handle_progress_quest(quest_id: String, step: int) -> void:
@@ -276,8 +270,7 @@ func _handle_progress_quest(quest_id: String, step: int) -> void:
                         _first_dragon_repeat.play(
                             null,
                             _retry_clip_if_dragons_less_than.bind(_first_dragon_repeat, 2),
-                            true,
-                            false,
+                            AudioHub.QueueBehaviour.ENQUEUE,
                             -1.0,
                             3.0,
                         )
@@ -286,8 +279,7 @@ func _handle_progress_quest(quest_id: String, step: int) -> void:
                         _first_dragon_without_quest.play(
                             null,
                             _retry_clip_if_dragons_less_than.bind(_first_dragon_without_quest, 2),
-                            true,
-                            false,
+                            AudioHub.QueueBehaviour.ENQUEUE,
                             -1.0,
                             3.0,
                         )
@@ -296,8 +288,7 @@ func _handle_progress_quest(quest_id: String, step: int) -> void:
                         _first_dragon.play(
                             null,
                             _retry_clip_if_dragons_less_than.bind(_first_dragon, 2),
-                            true,
-                            false,
+                            AudioHub.QueueBehaviour.ENQUEUE,
                             -1.0,
                             3.0,
                         )
@@ -305,8 +296,7 @@ func _handle_progress_quest(quest_id: String, step: int) -> void:
                 _second_dragon.play(
                     null,
                     _retry_clip_if_dragons_less_than.bind(_second_dragon, 3),
-                    true,
-                    false,
+                    AudioHub.QueueBehaviour.ENQUEUE,
                     -1.0,
                     3.0,
                 )
@@ -314,8 +304,7 @@ func _handle_progress_quest(quest_id: String, step: int) -> void:
                 _third_dragon.play(
                     null,
                     _retry_clip_if_dragons_less_than.bind(_third_dragon, 4),
-                    true,
-                    false,
+                    AudioHub.QueueBehaviour.ENQUEUE,
                     -1.0,
                     3.0,
                 )
@@ -329,7 +318,7 @@ func _handle_progress_quest(quest_id: String, step: int) -> void:
             player.add_cinematic_blocker(self)
 
             __SignalBus.on_clear_all_queued_subtitles.emit()
-            _complete_dispose_quest.play(null, _groundhog_next_day, false, true)
+            _complete_dispose_quest.play(null, _groundhog_next_day, AudioHub.QueueBehaviour.IGNORE_QUEUE_SILENCE_PLAYING)
 
 func _retry_clip_if_dragons_less_than(success: bool, clip: SubbedAudio, dragons: int) -> void:
     if success:
@@ -338,8 +327,7 @@ func _retry_clip_if_dragons_less_than(success: bool, clip: SubbedAudio, dragons:
         clip.play(
             null,
             _retry_clip_if_dragons_less_than.bind(clip, dragons),
-            true,
-            false,
+            AudioHub.QueueBehaviour.ENQUEUE,
             -1,
             3.0,
         )

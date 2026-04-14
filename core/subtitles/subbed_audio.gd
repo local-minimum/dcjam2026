@@ -15,8 +15,7 @@ func _load() -> void:
 func play(
     on_start: Variant = null,
     on_finish: Variant = null,
-    enqueue: bool = true,
-    silence_others: bool = false,
+    enqueue: AudioHub.QueueBehaviour = AudioHub.QueueBehaviour.ENQUEUE,
     delay_start: float = -1.0,
     max_delay: float = -1.0,
     language_override: String = ""
@@ -36,7 +35,6 @@ func play(
         on_start,
         on_finish,
         enqueue,
-        silence_others,
         delay_start,
         max_delay,
     )

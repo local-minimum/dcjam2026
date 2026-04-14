@@ -150,23 +150,23 @@ func play_sfx(sound_resource_path: String, volume: float = 1) -> void:
     player.volume_linear = volume
     player.play()
 
+enum QueueBehaviour { ENQUEUE, IGNORE_QUEUE, IGNORE_QUEUE_SILENCE_PLAYING }
 
 func play_dialogue(
     sound_resource_path: String,
     on_start: Variant = null,
     on_finish: Variant = null,
-    enqueue: bool = true,
-    silence_others: bool = false,
+    enqueue: QueueBehaviour = QueueBehaviour.ENQUEUE,
     delay_start: float = -1,
     max_delay: float = -1,
 ) -> void:
     if sound_resource_path.is_empty():
         return
 
-    if silence_others:
+    if enqueue == QueueBehaviour.IGNORE_QUEUE_SILENCE_PLAYING:
         _end_dialogue_players()
 
-    if enqueue && dialogue_busy:
+    if enqueue == QueueBehaviour.ENQUEUE && dialogue_busy:
         print_debug("[Audio Hub] Dialog busy %s putting %s in queue" % [_dialogue_playing, sound_resource_path])
         _enqueue_stream(
             Bus.DIALGUE,
@@ -399,7 +399,7 @@ func _enqueue_stream(
     var refuse_time: int = Time.get_ticks_msec() + roundi(1000 * max_wait) if max_wait > 0 else -1
     var queued: Callable = func () -> bool:
         if refuse_time < 0 || Time.get_ticks_msec() < refuse_time:
-            play_dialogue(sound_resource_path, on_start, on_finish, false, false, delay_start)
+            play_dialogue(sound_resource_path, on_start, on_finish, QueueBehaviour.IGNORE_QUEUE, delay_start)
             return true
 
         else:

@@ -1,12 +1,15 @@
 extends Node3D
 class_name KeithTrigger
 
+signal on_trigger_activated(trigger: KeithTrigger)
+
 enum MoveEnding { TRIGGER_COORDINATES, PLAYER_COORDINATES, LAST_INTERMEDIARY }
 
 const LIGHT_TIMINGS: Array[float] = [0.135, 0.937, 0.928, 0.945, 0.937, 0.933]
 
 @export_file("*.wav") var lights_cascade_sfx_path: String
 
+@export var trigger_id: String
 @export var require_keith_jailed_to_trigger: bool
 @export var turn_on_keith_light_during_walk: bool = true
 @export var spawn_keith_position: Node3D
@@ -16,10 +19,15 @@ const LIGHT_TIMINGS: Array[float] = [0.135, 0.937, 0.928, 0.945, 0.937, 0.933]
 @export var grace_period: float = 1.0
 @export_range(0.5, 2.0) var speed: float = 1.0
 @export_range(0.0, 0.25) var jitter: float = 0.0
+@export var require_trigger_other_before_activate: String
 
 @export var red_lights: Array[OmniLight3D]
 
-static var _last_trigger: KeithTrigger
+static var _last_trigger: KeithTrigger:
+    set(value):
+        _last_trigger = value
+        if value != null:
+            __SignalBus.on_trigger_keith.emit(value)
 
 var _lights_on: bool = false
 var _keith_run_triggered: bool = false
@@ -39,18 +47,26 @@ var keith_light: OmniLight3D:
         return null
 
 var _go_live_time: int
+var _trigger_condition_met: bool
 
 func _enter_tree() -> void:
     if __SignalBus.on_entity_join_level.connect(_handle_entity_join_level) != OK:
         push_error("Failed to connect entity join level")
     if __SignalBus.on_jail_keith.connect(_handle_jail_keith) != OK:
         push_error("Failed to connect jail keith")
+    if !require_trigger_other_before_activate.is_empty() && __SignalBus.on_trigger_keith.connect(_handle_trigger_keith) != OK:
+        push_error("Failed to connect trigger keith")
+
+    _trigger_condition_met = require_trigger_other_before_activate.is_empty()
 
     _go_live_time = Time.get_ticks_msec() + roundi(1000.0 * grace_period)
 
 func _exit_tree() -> void:
     if _last_trigger == self:
         _last_trigger = null
+
+func _handle_trigger_keith(trigger: KeithTrigger) -> void:
+    _trigger_condition_met = _trigger_condition_met || trigger.trigger_id == require_trigger_other_before_activate
 
 func _handle_jail_keith() -> void:
     _keith_run_triggered = false
@@ -60,7 +76,7 @@ func _handle_entity_join_level(entity: GridEntity) -> void:
         monster_entity = entity
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-    if monster_entity == null || Time.get_ticks_msec() < _go_live_time || require_keith_jailed_to_trigger && monster_entity.is_jailed:
+    if !_trigger_condition_met || monster_entity == null || Time.get_ticks_msec() < _go_live_time || require_keith_jailed_to_trigger && monster_entity.is_jailed:
         return
 
     var player: PhysicsGridPlayerController = PhysicsGridPlayerController.find_in_tree(body)

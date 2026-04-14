@@ -144,6 +144,9 @@ func _handle_health_changed(new_health: float, prev_health: float) -> void:
         var player: PhysicsGridPlayerController = PhysicsGridPlayerController.last_connected_player
         player.add_cinematic_blocker(self)
 
+        if _started_click_through:
+            return
+
         __AudioHub.clear_all_dialogues()
 
         __SignalBus.on_clear_all_queued_subtitles.emit()

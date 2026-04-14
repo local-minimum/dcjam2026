@@ -38,6 +38,7 @@ signal on_horror_failed()
 signal on_collect_horror_key()
 signal on_not_enough_horror_keys()
 signal on_horror_outro_triggered()
+signal on_trigger_keith(trigger: KeithTrigger)
 signal on_jail_keith()
 
 @warning_ignore_restore("unused_signal")

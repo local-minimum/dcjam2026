@@ -610,6 +610,7 @@ omni_range = 3.5
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -17)
 script = ExtResource("5_abhsr")
 lights_cascade_sfx_path = "uid://17jtf5w2rh4g"
+trigger_id = "hallway"
 spawn_keith_position = NodePath("../../Floor/Trigger Keith Start Pos")
 red_lights = [NodePath("../../Lights/RedLight6"), NodePath("../../Lights/RedLight5"), NodePath("../../Lights/RedLight4"), NodePath("../../Lights/RedLight3"), NodePath("../../Lights/RedLight2"), NodePath("../../Lights/RedLight1")]
 

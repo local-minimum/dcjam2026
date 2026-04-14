@@ -19,7 +19,7 @@ func _enter_tree() -> void:
         push_error("Failed to connect toggle subtitles")
     if __SignalBus.on_change_subtitles_size.connect(_handle_change_subtitle_size) != OK:
         push_error("Failed to connect change subtitle size")
-    if __SignalBus.on_clear_queued_subtitles.connect(_handle_clear_queued_subtitles) != OK:
+    if __SignalBus.on_clear_all_queued_subtitles.connect(_handle_clear_all_queued_subtitles) != OK:
         push_error("Failed to connect clear queued subtitles")
 
 func _ready() -> void:
@@ -33,7 +33,14 @@ func _ready() -> void:
     _handle_change_subtitle_size(AccessibilitySettings.subtitles_size)
     _handle_toggle_subtitles(AccessibilitySettings.subtitles)
 
-func _handle_clear_queued_subtitles() -> void:
+func _handle_clear_queued_subtitles(subs: Array[SubData]) -> void:
+    if _queue.is_empty():
+        return
+
+    for data: SubData in subs:
+        _queue.erase(data)
+
+func _handle_clear_all_queued_subtitles() -> void:
     _queue.clear()
 
 func _handle_change_subtitle_size(size: int) -> void:

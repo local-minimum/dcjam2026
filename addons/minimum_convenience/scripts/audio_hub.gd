@@ -114,6 +114,11 @@ func _create_player(
     if make_available:
         available_players.append(player)
 
+    if bus != Bus.MUSIC:
+        player.process_mode = Node.PROCESS_MODE_PAUSABLE
+    else:
+        player.process_mode = Node.PROCESS_MODE_ALWAYS
+
     return player
 
 func _handle_player_finished(player: AudioStreamPlayer, available: Array[AudioStreamPlayer], running: Variant, bus: Bus) -> void:

@@ -527,6 +527,7 @@ libraries/ = SubResource("AnimationLibrary_t2ssd")
 next/Lost = &"Lost"
 
 [node name="Clicker Dialogue Manager" type="Node" parent="." unique_id=1047932264]
+process_mode = 1
 script = ExtResource("68_vyqle")
 _awake = SubResource("Resource_bnpwn")
 _repeat_awake = SubResource("Resource_36jdj")

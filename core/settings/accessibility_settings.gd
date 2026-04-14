@@ -27,7 +27,7 @@ static var subtitles_size: int = 28:
         subtitles_size = value
         if _instance != null && _instance.settings != null:
             _instance.settings.set_settingi(_SUBTITLES_SIZE_KEY, value)
-        __SignalBus.on_toggle_subtitles.emit(value)
+        __SignalBus.on_change_subtitles_size.emit(value)
 
 static var handedness: Handedness = Handedness.RIGHT:
     get():

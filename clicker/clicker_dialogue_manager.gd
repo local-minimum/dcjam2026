@@ -41,6 +41,8 @@ class_name ClickerDialogueManager
 @export var _delay_before_signal_loss: float = 10.0
 
 func _enter_tree() -> void:
+    __AudioHub.process_mode = Node.PROCESS_MODE_PAUSABLE
+
     if __SignalBus.on_change_xp.connect(_change_xp) != OK:
         push_error("Failed to connect change xp")
     if __SignalBus.on_enemy_join_battle.connect(_first_fight, CONNECT_ONE_SHOT) != OK:

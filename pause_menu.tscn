@@ -76,7 +76,7 @@ bg_color = Color(9.9726916e-05, 0.4754079, 0.91854036, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_73a2t"]
 bg_color = Color(0.3623615, 0.6460767, 1, 0.795)
 
-[node name="PauseMenu" type="Control" unique_id=1365061671 node_paths=PackedStringArray("menu_container", "gfx_container", "audio_container", "quit_container", "brightness_slider", "contrast_slider", "saturation_slider", "music_slider", "dialogue_slider", "sfx_slider")]
+[node name="PauseMenu" type="Control" unique_id=1365061671 node_paths=PackedStringArray("menu_container", "gfx_container", "audio_container", "accessibility_container", "quit_container", "brightness_slider", "contrast_slider", "saturation_slider", "music_slider", "dialogue_slider", "sfx_slider", "subtitles_btn", "subtitle_language", "subtitle_size_slider")]
 process_mode = 2
 layout_mode = 3
 anchors_preset = 15
@@ -88,6 +88,7 @@ script = ExtResource("1_hdmo1")
 menu_container = NodePath("CenterContainer/PanelContainer/MarginContainer/MenuContainer")
 gfx_container = NodePath("CenterContainer/PanelContainer/MarginContainer/GfxContainer")
 audio_container = NodePath("CenterContainer/PanelContainer/MarginContainer/Audio Container")
+accessibility_container = NodePath("CenterContainer/PanelContainer/MarginContainer/Accessibility Container")
 quit_container = NodePath("CenterContainer/PanelContainer/MarginContainer/QuitContainer")
 clicker_env = ExtResource("2_05uyy")
 horror_env = ExtResource("3_p81d2")
@@ -97,6 +98,9 @@ saturation_slider = NodePath("CenterContainer/PanelContainer/MarginContainer/Gfx
 music_slider = NodePath("CenterContainer/PanelContainer/MarginContainer/Audio Container/MusicVolumeSlider")
 dialogue_slider = NodePath("CenterContainer/PanelContainer/MarginContainer/Audio Container/DialogueVolumeSlider")
 sfx_slider = NodePath("CenterContainer/PanelContainer/MarginContainer/Audio Container/SFXVolumeSlider")
+subtitles_btn = NodePath("CenterContainer/PanelContainer/MarginContainer/Accessibility Container/Subtitles Row/Enable Subtitles")
+subtitle_language = NodePath("CenterContainer/PanelContainer/MarginContainer/Accessibility Container/Language Row/OptionButton")
+subtitle_size_slider = NodePath("CenterContainer/PanelContainer/MarginContainer/Accessibility Container/SubtitleSizeSlider")
 start_menu_scene = ExtResource("4_p81d2")
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=289643786]
@@ -120,6 +124,7 @@ theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 14
 
 [node name="MenuContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer" unique_id=792150698]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 18
 
@@ -169,6 +174,17 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_hdmo1")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_05uyy")
 theme_override_styles/hover = SubResource("StyleBoxFlat_p81d2")
 text = "Audio Settings"
+
+[node name="AccessabilityBtn" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/MenuContainer" unique_id=1448203279]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_hdmo1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_05uyy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_p81d2")
+text = "Accessability"
 
 [node name="QuitBtn" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/MenuContainer" unique_id=106487410]
 layout_mode = 2
@@ -353,6 +369,99 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_hdmo1")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_05uyy")
 text = "Back"
 
+[node name="Accessibility Container" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer" unique_id=569606789]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 11
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/Accessibility Container" unique_id=863257813]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 44
+text = "Accessibility"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/PanelContainer/MarginContainer/Accessibility Container" unique_id=162123375]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_wyi4u")
+
+[node name="Subtitles Row" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/Accessibility Container" unique_id=1340100861]
+layout_mode = 2
+
+[node name="Subtitles" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/Accessibility Container/Subtitles Row" unique_id=163736843]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 25
+text = "Subtitles"
+vertical_alignment = 1
+
+[node name="Enable Subtitles" type="CheckButton" parent="CenterContainer/PanelContainer/MarginContainer/Accessibility Container/Subtitles Row" unique_id=345880382]
+layout_mode = 2
+
+[node name="Language Row" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/Accessibility Container" unique_id=855264477]
+layout_mode = 2
+theme_override_constants/separation = 13
+
+[node name="Language" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/Accessibility Container/Language Row" unique_id=267264705]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 25
+text = "Language"
+vertical_alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="CenterContainer/PanelContainer/MarginContainer/Accessibility Container/Language Row" unique_id=421672592]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 20
+selected = 0
+item_count = 2
+popup/item_0/text = "English"
+popup/item_0/id = 0
+popup/item_1/text = "Svenska"
+popup/item_1/id = 1
+
+[node name="Subtitle Size" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/Accessibility Container" unique_id=666908759]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 25
+text = "Subtitle Size"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SubtitleSizeSlider" type="HSlider" parent="CenterContainer/PanelContainer/MarginContainer/Accessibility Container" unique_id=902204633]
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxFlat_nwcfo")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_pgi0o")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_73a2t")
+min_value = 10.0
+max_value = 64.0
+value = 10.0
+rounded = true
+
+[node name="BackBtn" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/Accessibility Container" unique_id=1005667124]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_hdmo1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_05uyy")
+text = "Back"
+
 [node name="QuitContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer" unique_id=1301388274]
 visible = false
 layout_mode = 2
@@ -412,6 +521,7 @@ vertical_alignment = 1
 [connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/MenuContainer/ResumeBtn" to="." method="_on_resume_btn_pressed"]
 [connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/MenuContainer/GfxBtn" to="." method="_on_gfx_btn_pressed"]
 [connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/MenuContainer/AudioBtn" to="." method="_on_audio_btn_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/MenuContainer/AccessabilityBtn" to="." method="_on_accessability_btn_pressed"]
 [connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/MenuContainer/QuitBtn" to="." method="_on_quit_btn_pressed"]
 [connection signal="value_changed" from="CenterContainer/PanelContainer/MarginContainer/GfxContainer/BrightnessSlider" to="." method="_on_brightness_slider_value_changed"]
 [connection signal="value_changed" from="CenterContainer/PanelContainer/MarginContainer/GfxContainer/ContrastSlider" to="." method="_on_contrast_slider_value_changed"]
@@ -421,6 +531,9 @@ vertical_alignment = 1
 [connection signal="value_changed" from="CenterContainer/PanelContainer/MarginContainer/Audio Container/DialogueVolumeSlider" to="." method="_on_dialogue_volume_slider_value_changed"]
 [connection signal="value_changed" from="CenterContainer/PanelContainer/MarginContainer/Audio Container/SFXVolumeSlider" to="." method="_on_sfx_volume_slider_value_changed"]
 [connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/Audio Container/BackBtn" to="." method="_on_back_btn_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/Accessibility Container/Subtitles Row/Enable Subtitles" to="." method="_on_enable_subtitles_pressed"]
+[connection signal="value_changed" from="CenterContainer/PanelContainer/MarginContainer/Accessibility Container/SubtitleSizeSlider" to="." method="_on_subtitle_size_slider_value_changed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/Accessibility Container/BackBtn" to="." method="_on_back_btn_pressed"]
 [connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/QuitContainer/QuitMainMenubtn" to="." method="_on_quit_main_menubtn_pressed"]
 [connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/QuitContainer/QuitDesktopbtn" to="." method="_on_quit_desktopbtn_pressed"]
 [connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/QuitContainer/BackBtn" to="." method="_on_back_btn_pressed"]

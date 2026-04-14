@@ -498,7 +498,7 @@ func start_next_poem() -> void:
     if !speaker.finished.is_connected(_sequence_next_poem) && speaker.finished.connect(_sequence_next_poem, CONNECT_ONE_SHOT) != OK:
         push_error("Failed to connect speaker finished")
 
-func pause_poem(pause: bool) -> void:
+func pause_poem(_pause: bool) -> void:
     #speaker.stream_paused = pause
     push_warning("Pausing is deprecated, because it puts subs out of sync")
 

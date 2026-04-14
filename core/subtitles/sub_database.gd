@@ -30,7 +30,7 @@ func get_subs(lang: String = "", use_fallback: bool = true) -> Array[SubData]:
     var ret: Array[SubData] = []
 
     if lang.is_empty():
-        lang = TranslationServer.get_language_name(TranslationServer.get_locale())
+        lang = Subtitles.get_language_code()
 
     if use_fallback && (lang.is_empty() || !has_language(lang)):
         lang = FALLBACK_LANGUAGE

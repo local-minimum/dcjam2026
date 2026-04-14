@@ -1,8 +1,6 @@
 extends Node3D
 class_name KeithTrigger
 
-signal on_trigger_activated(trigger: KeithTrigger)
-
 enum MoveEnding { TRIGGER_COORDINATES, PLAYER_COORDINATES, LAST_INTERMEDIARY }
 
 const LIGHT_TIMINGS: Array[float] = [0.135, 0.937, 0.928, 0.945, 0.937, 0.933]

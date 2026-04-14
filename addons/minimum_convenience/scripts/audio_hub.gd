@@ -114,6 +114,11 @@ func _create_player(
     if make_available:
         available_players.append(player)
 
+    if bus != Bus.MUSIC:
+        player.process_mode = Node.PROCESS_MODE_PAUSABLE
+    else:
+        player.process_mode = Node.PROCESS_MODE_ALWAYS
+
     return player
 
 func _handle_player_finished(player: AudioStreamPlayer, available: Array[AudioStreamPlayer], running: Variant, bus: Bus) -> void:
@@ -192,7 +197,7 @@ func play_dialogue(
 ## Do not await this function to ensure it puts the relevant busy state even if not yet playing!
 func _delay_play(player: AudioStreamPlayer, delay_start: float, on_start: Variant) -> void:
     if delay_start:
-        await get_tree().create_timer(delay_start).timeout
+        await get_tree().create_timer(delay_start, false).timeout
 
     print_debug("[Audio Hub] started playing %s after delay %s" % [player, delay_start])
     if on_start is Callable:

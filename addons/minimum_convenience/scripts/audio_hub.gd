@@ -154,6 +154,7 @@ enum QueueBehaviour { ENQUEUE, IGNORE_QUEUE, IGNORE_QUEUE_SILENCE_PLAYING }
 
 func play_dialogue(
     sound_resource_path: String,
+    callback_bind: Node = null,
     on_start: Variant = null,
     on_finish: Variant = null,
     enqueue: QueueBehaviour = QueueBehaviour.ENQUEUE,
@@ -171,6 +172,7 @@ func play_dialogue(
         _enqueue_stream(
             Bus.DIALGUE,
             sound_resource_path,
+            callback_bind,
             on_start,
             on_finish,
             delay_start,
@@ -190,17 +192,19 @@ func play_dialogue(
         else:
             _oneshots[player] = [on_finish]
 
+        _oneshot_binds[on_finish] = callback_bind
+
     player.stream = load(sound_resource_path)
     _dialogue_running.append(player)
-    _delay_play(player, delay_start, on_start)
+    _delay_play(player, delay_start, callback_bind, on_start)
 
 ## Do not await this function to ensure it puts the relevant busy state even if not yet playing!
-func _delay_play(player: AudioStreamPlayer, delay_start: float, on_start: Variant) -> void:
+func _delay_play(player: AudioStreamPlayer, delay_start: float, callback_bind: Node, on_start: Variant) -> void:
     if delay_start:
         await get_tree().create_timer(delay_start, false).timeout
 
     print_debug("[Audio Hub] started playing %s after delay %s" % [player, delay_start])
-    if on_start is Callable:
+    if on_start is Callable && is_instance_valid(callback_bind):
         (on_start as Callable).call()
 
     player.play()
@@ -248,7 +252,7 @@ func clear_all_dialogues() -> void:
 func multiplay_music(
     sound_resource_paths: Array[String],
     initial_volumes: Array[float],
-    crossfade_time: float = -1,
+    crossfade_time: float = 0,
 ) -> Array[Callable]:
     var players: Array[AudioStreamPlayer]
     var fading_callbacks: Array[Callable]
@@ -320,7 +324,7 @@ func multiplay_music(
 ## If larger then it fades
 func play_music(
     sound_resource_path: String,
-    crossfade_time: float = -1.0,
+    crossfade_time: float = 0.0,
 ) -> void:
     if sound_resource_path.is_empty():
         return
@@ -384,13 +388,14 @@ func _end_music_players() -> void:
 
     _music_running.clear()
 
-
+var _oneshot_binds: Dictionary[Callable, Node]
 var _oneshots: Dictionary[AudioStreamPlayer, Array]
 var _queue: Dictionary[Bus, Array]
 
 func _enqueue_stream(
     bus: Bus,
     sound_resource_path: String,
+    callback_bind: Node,
     on_start: Variant,
     on_finish: Variant,
     delay_start: float,
@@ -399,7 +404,7 @@ func _enqueue_stream(
     var refuse_time: int = Time.get_ticks_msec() + roundi(1000 * max_wait) if max_wait > 0 else -1
     var queued: Callable = func () -> bool:
         if refuse_time < 0 || Time.get_ticks_msec() < refuse_time:
-            play_dialogue(sound_resource_path, on_start, on_finish, QueueBehaviour.IGNORE_QUEUE, delay_start)
+            play_dialogue(sound_resource_path, callback_bind, on_start, on_finish, QueueBehaviour.IGNORE_QUEUE, delay_start)
             return true
 
         else:
@@ -447,37 +452,50 @@ func _process_queue(bus: Bus) -> void:
 func _attempt_callback(v: Variant, success: bool) -> void:
     if v is Callable:
         var c: Callable = v
-        if c.get_object() == null || is_instance_valid(c.get_object()):
-            c.call(success)
-        else:
-            print_debug("[Audio Hub] This is no longer a valid callback %s" % [c])
+        if _oneshot_binds.has(c):
+            var b: Node = _oneshot_binds[c]
+            _oneshot_binds.erase(c)
+            if !is_instance_valid(b):
+                push_warning("[Audio Hub] %s is bound to %s which is no longer valid" % [c, b])
+                return
+
+        c.call(success)
+
     else:
-        print_debug("[Audio Hub] This is not a callback %s ignoring success (%s) call" % [v, success])
+        push_error("[Audio Hub] This is not a callback %s ignoring success (%s) call" % [v, success])
 
 func clear_callbacks(bus: Bus, call_as_failed: bool = false) -> void:
     match bus:
         Bus.DIALGUE:
             for player: AudioStreamPlayer in _dialogue_running:
                 if _oneshots.has(player):
-                    if call_as_failed:
-                        for c: Variant in _oneshots[player]:
+                    for c: Variant in _oneshots[player]:
+                        if call_as_failed:
                             _attempt_callback(c, false)
+                        elif c is Callable:
+                            _oneshot_binds.erase(c)
 
                     _oneshots.erase(player)
         Bus.SFX:
             for player: AudioStreamPlayer in _oneshots:
                 if !_music_running.has(player) && !_dialogue_running.has(player):
-                    if call_as_failed:
-                        for c: Variant in _oneshots[player]:
+
+                    for c: Variant in _oneshots[player]:
+                        if call_as_failed:
                             _attempt_callback(c, false)
+                        elif c is Callable:
+                            _oneshot_binds.erase(c)
+
                     _oneshots.erase(player)
 
         Bus.MUSIC:
             for player: AudioStreamPlayer in _music_running:
                 if _oneshots.has(player):
-                    if call_as_failed:
-                        for c: Variant in _oneshots[player]:
+                    for c: Variant in _oneshots[player]:
+                        if call_as_failed:
                             _attempt_callback(c, false)
+                        elif c is Callable:
+                            _oneshot_binds.erase(c)
 
                     _oneshots.erase(player)
 
@@ -487,5 +505,9 @@ func _clear_bus_queue(bus: Bus) -> void:
 
 func _clear_callbacks(player: AudioStreamPlayer) -> void:
     @warning_ignore_start("return_value_discarded")
+    for c: Variant in _oneshots.get(player, []):
+        if c is Callable:
+            _oneshot_binds.erase(c)
+
     _oneshots.erase(player)
     @warning_ignore_restore("return_value_discarded")

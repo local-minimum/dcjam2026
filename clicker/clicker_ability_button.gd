@@ -101,8 +101,9 @@ func _handle_hide_ability(ability_id: String) -> void:
         hide()
 
 func _handle_show_ability(ability_id: String) -> void:
-    if ability_id == ability.id:
+    if ability_id == ability.id && (has_more_levels || !ability.autohide_on_completed):
         _force_hidden = false
+        show()
         sync_all()
 
 func _handle_change_xp(new_xp: float, _old_value: float) -> void:

@@ -32,7 +32,7 @@ signal on_change_gear(slot: Gear.Base, gear: Gear)
 signal on_gain_quest(quest_id: String)
 signal on_progress_quest(quest_id: String, step: int)
 
-signal on_ready_horror()
+signal on_ready_horror(subbed_audio: SubbedAudio)
 signal on_transition_to_horror()
 signal on_horror_loaded()
 signal on_horror_failed()

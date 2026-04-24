@@ -108,7 +108,7 @@ func _unload_conent() -> void:
         if is_instance_valid(node):
             node.queue_free()
 
-    __AudioHub.clear_callbacks(AudioHub.Bus.DIALGUE)
+    # We may not clear callbacks for DIALOG here because we probably have one running
     __AudioHub.clear_callbacks(AudioHub.Bus.SFX)
 
 func _load_horror_dungeon() -> void:

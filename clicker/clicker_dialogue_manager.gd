@@ -26,6 +26,8 @@ class_name ClickerDialogueManager
 @export var _dispose_quest: SubbedAudio
 @export var _complete_dispose_quest: SubbedAudio
 
+@export var _first_break_free_attempt: SubbedAudio
+@export var _second_break_free_attempt: SubbedAudio
 @export var _signal_lost: SubbedAudio
 
 @export_file_path("*.mp3") var _horror_music: String
@@ -74,14 +76,14 @@ func _ready() -> void:
     elif __GlobalGameState.replay == 0:
         _player.add_cinematic_blocker(self)
         __SignalBus.on_clear_all_queued_subtitles.emit()
-        _awake.play(null, _time_refusal, AudioHub.QueueBehaviour.ENQUEUE, _delay_first_dialogue)
+        _awake.play(self, null, _time_refusal, AudioHub.QueueBehaviour.ENQUEUE, _delay_first_dialogue)
 
     else:
         if __GlobalGameState.has_disposed_completed:
-            _awake_after_dispose.play(null, null, AudioHub.QueueBehaviour.ENQUEUE, _delay_first_dialogue)
+            _awake_after_dispose.play(null, null, null, AudioHub.QueueBehaviour.ENQUEUE, _delay_first_dialogue)
 
         else:
-            _repeat_awake.play(null, null, AudioHub.QueueBehaviour.ENQUEUE, _delay_first_dialogue)
+            _repeat_awake.play(null, null, null, AudioHub.QueueBehaviour.ENQUEUE, _delay_first_dialogue)
 
         await get_tree().create_timer(5.0).timeout
         __SignalBus.on_gain_bonus_autoclickers.emit(2)
@@ -89,27 +91,46 @@ func _ready() -> void:
 var _started_click_through: bool
 
 func _handle_change_ability_level(ability_id: String, lvl: int) -> void:
-    if !_started_click_through && _click_hard_ability != null && ability_id == _click_hard_ability.id && lvl > 0:
-        _started_click_through = true
+    if !_started_click_through && _click_hard_ability != null && ability_id == _click_hard_ability.id:
 
-        __AudioHub.play_music(_horror_music, 2.0)
+        match lvl:
+            0:
+                push_warning("Gaining lvl 0 should not happen")
+                return
 
-        await get_tree().create_timer(_delay_before_signal_loss).timeout
+            1:
+                __SignalBus.on_hide_ability.emit(ability_id)
 
-        var player: PhysicsGridPlayerController = PhysicsGridPlayerController.last_connected_player
-        player.add_cinematic_blocker(self)
+                _first_break_free_attempt.play(
+                    null,
+                    null,
+                    null,
+                    AudioHub.QueueBehaviour.IGNORE_QUEUE_SILENCE_PLAYING,
+                )
+                return
 
-        __SignalBus.on_ready_horror.emit()
+            2:
+                __SignalBus.on_hide_ability.emit(ability_id)
 
-        __SignalBus.on_clear_all_queued_subtitles.emit()
-        _signal_lost.play(
-            null,
-            func (_success: bool) -> void:
-                # We don't care we must go horror
-                __SignalBus.on_transition_to_horror.emit(),
-            AudioHub.QueueBehaviour.IGNORE_QUEUE_SILENCE_PLAYING,
-        )
-        print_debug("Clicking through!")
+                _second_break_free_attempt.play(
+                    null,
+                    null,
+                    null,
+                    AudioHub.QueueBehaviour.IGNORE_QUEUE_SILENCE_PLAYING,
+                )
+                return
+
+            3:
+                _started_click_through = true
+
+                __AudioHub.play_music(_horror_music, 2.0)
+
+                await get_tree().create_timer(_delay_before_signal_loss).timeout
+
+                var player: PhysicsGridPlayerController = PhysicsGridPlayerController.last_connected_player
+                player.add_cinematic_blocker(self)
+
+                __SignalBus.on_ready_horror.emit(_signal_lost)
 
 var _steps: int
 var _dragons: int
@@ -122,23 +143,23 @@ func _handle_arrive_tile(player: PhysicsGridPlayerController, _coords: Vector3i)
     _steps += 1
     if __GlobalGameState.dragon_quest_state == GlobalGameState.DragonQuestState.NOT_STARTED && _steps >= _steps_until_dragon_quest:
         __GlobalGameState.dragon_quest_state = GlobalGameState.DragonQuestState.GAINED
-        _gain_quest.play(null, _handle_gained_dragons_quest_dialog_ended)
+        _gain_quest.play(self, null, _handle_gained_dragons_quest_dialog_ended)
 
     elif !_has_heard_gain_dispose && !__GlobalGameState.has_disposed_completed && _dragons == 4 && _steps >= _steps_until_dispose_quest:
         _has_heard_gain_dispose = true
-        _dispose_quest.play(null, _handle_dispose_quest_dialog_ended)
+        _dispose_quest.play(self, null, _handle_dispose_quest_dialog_ended)
 
 func _handle_gained_dragons_quest_dialog_ended(success: bool) -> void:
     if success:
         __SignalBus.on_gain_quest.emit(Dragon.DRAGONS_QUEST_ID)
     elif _dragons <= 0:
-        _gain_quest.play(null, _handle_gained_dragons_quest_dialog_ended)
+        _gain_quest.play(self, null, _handle_gained_dragons_quest_dialog_ended)
 
 func _handle_dispose_quest_dialog_ended(success: bool) -> void:
     if success:
         __SignalBus.on_gain_quest.emit(Dragon.DISPOSE_QUEST_ID)
     elif !__GlobalGameState.has_disposed_completed:
-        _dispose_quest.play(null, _handle_dispose_quest_dialog_ended)
+        _dispose_quest.play(self, null, _handle_dispose_quest_dialog_ended)
 
 func _handle_health_changed(new_health: float, prev_health: float) -> void:
     if prev_health > 0.0 && new_health <= 0.0:
@@ -152,9 +173,9 @@ func _handle_health_changed(new_health: float, prev_health: float) -> void:
 
         __SignalBus.on_clear_all_queued_subtitles.emit()
         if __GlobalGameState.deaths == 0:
-            _first_death.play(null, _restart_after_death_dialogue, AudioHub.QueueBehaviour.IGNORE_QUEUE_SILENCE_PLAYING, 0.5)
+            _first_death.play(self, null, _restart_after_death_dialogue, AudioHub.QueueBehaviour.IGNORE_QUEUE_SILENCE_PLAYING, 0.5)
         else:
-            _repeat_death.play(null, _restart_after_death_dialogue, AudioHub.QueueBehaviour.IGNORE_QUEUE_SILENCE_PLAYING, 0.5)
+            _repeat_death.play(self, null, _restart_after_death_dialogue, AudioHub.QueueBehaviour.IGNORE_QUEUE_SILENCE_PLAYING, 0.5)
 
 func _restart_after_death_dialogue(_success: bool) -> void:
     __AudioHub.clear_all_dialogues()
@@ -175,6 +196,7 @@ func _handle_healing_refused(_station: HealthStation) -> void:
 
     print_debug("Dialogue Manager: Play healing refused clip")
     _reheal_fail.play(
+        self,
         null,
         func (success: bool) -> void:
             print_debug("Healing refused got played %s" % [success])
@@ -195,6 +217,7 @@ func _handle_healing_spotted(_station: HealthStation) -> void:
 
     print_debug("Dialogue Manager: Play healing spotted clip")
     _healing.play(
+        self,
         null,
         func (success: bool) -> void:
             print_debug("Audio hub says healing clipp processed %s" % success)
@@ -212,6 +235,7 @@ func _handle_change_boredom(boredom: float) -> void:
     if boredom > _boredom_threshold:
         __SignalBus.on_change_boredom.disconnect(_handle_change_boredom)
         _bored.play(
+            self,
             null,
             func (success: bool) -> void:
                 if !success:
@@ -231,9 +255,9 @@ func _first_fight(_data: EnemyData) -> void:
                     __SignalBus.on_enemy_join_battle.connect(_first_fight, CONNECT_ONE_SHOT)
 
         if __GlobalGameState.replay == 0:
-            _fight.play(null, on_complete, AudioHub.QueueBehaviour.ENQUEUE, -1, 2.0)
+            _fight.play(self, null, on_complete, AudioHub.QueueBehaviour.ENQUEUE, -1, 2.0)
         else:
-             _new_day_first_fight.play(null, on_complete, AudioHub.QueueBehaviour.ENQUEUE, -1, 2.0)
+             _new_day_first_fight.play(self, null, on_complete, AudioHub.QueueBehaviour.ENQUEUE, -1, 2.0)
 
 var _has_gained_xp: bool
 func _change_xp(new_xp: float, prev_xp: float) -> void:
@@ -254,6 +278,7 @@ func _time_refusal(success: float) -> void:
     await get_tree().create_timer(_refuse_after_wait).timeout
     if !_has_gained_xp:
         _refuse_clicking.play(
+            self,
             null,
             func (_success: bool) -> void:
                 __SignalBus.on_gain_bonus_autoclickers.emit(1),
@@ -268,6 +293,7 @@ func _handle_progress_quest(quest_id: String, step: int) -> void:
                 match __GlobalGameState.dragon_quest_state:
                     GlobalGameState.DragonQuestState.GOTTEN_DRAGON:
                         _first_dragon_repeat.play(
+                            self,
                             null,
                             _retry_clip_if_dragons_less_than.bind(_first_dragon_repeat, 2),
                             AudioHub.QueueBehaviour.ENQUEUE,
@@ -277,6 +303,7 @@ func _handle_progress_quest(quest_id: String, step: int) -> void:
 
                     GlobalGameState.DragonQuestState.NOT_STARTED:
                         _first_dragon_without_quest.play(
+                            self,
                             null,
                             _retry_clip_if_dragons_less_than.bind(_first_dragon_without_quest, 2),
                             AudioHub.QueueBehaviour.ENQUEUE,
@@ -286,6 +313,7 @@ func _handle_progress_quest(quest_id: String, step: int) -> void:
 
                     GlobalGameState.DragonQuestState.GAINED:
                         _first_dragon.play(
+                            self,
                             null,
                             _retry_clip_if_dragons_less_than.bind(_first_dragon, 2),
                             AudioHub.QueueBehaviour.ENQUEUE,
@@ -294,6 +322,7 @@ func _handle_progress_quest(quest_id: String, step: int) -> void:
                         )
             2:
                 _second_dragon.play(
+                    self,
                     null,
                     _retry_clip_if_dragons_less_than.bind(_second_dragon, 3),
                     AudioHub.QueueBehaviour.ENQUEUE,
@@ -302,6 +331,7 @@ func _handle_progress_quest(quest_id: String, step: int) -> void:
                 )
             3:
                 _third_dragon.play(
+                    self,
                     null,
                     _retry_clip_if_dragons_less_than.bind(_third_dragon, 4),
                     AudioHub.QueueBehaviour.ENQUEUE,
@@ -325,6 +355,7 @@ func _retry_clip_if_dragons_less_than(success: bool, clip: SubbedAudio, dragons:
         __GlobalGameState.dragon_quest_state = GlobalGameState.DragonQuestState.GOTTEN_DRAGON
     elif _dragons < dragons:
         clip.play(
+            self,
             null,
             _retry_clip_if_dragons_less_than.bind(clip, dragons),
             AudioHub.QueueBehaviour.ENQUEUE,

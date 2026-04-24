@@ -24,6 +24,7 @@ class_name ClickerAbilityButton
 @export_tool_button("Sync") var _sync_btn: Callable = sync_all
 @warning_ignore_restore("unused_private_class_variable")
 
+var _force_hidden: bool
 
 var intercatable: bool:
     get():
@@ -43,6 +44,8 @@ var _current_cost: int
 var _locked_requirements: Array[String]
 var weapon_blocked: bool
 var gear_blocked: bool
+
+## If cost is shown to player
 var _revealed: bool
 
 func _enter_tree() -> void:
@@ -54,6 +57,13 @@ func _enter_tree() -> void:
 
     if __SignalBus.on_change_xp.connect(_handle_change_xp) != OK:
         push_error("Failed to connect change xp")
+
+    if __SignalBus.on_show_ability.connect(_handle_show_ability) != OK:
+        push_error("Failed to connect show ability")
+
+    if __SignalBus.on_hide_ability.connect(_handle_hide_ability) != OK:
+        push_error("Failed to connect hide ability")
+
 
     _locked_requirements.clear()
     _locked_requirements.append_array(ability.requirement_ids if ability != null else [])
@@ -82,8 +92,19 @@ func sync_all() -> void:
             return
         _sync_interactable()
 
-    show()
+    if !_force_hidden:
+        show()
 
+func _handle_hide_ability(ability_id: String) -> void:
+    if ability_id == ability.id:
+        _force_hidden = true
+        hide()
+
+func _handle_show_ability(ability_id: String) -> void:
+    if ability_id == ability.id && (has_more_levels || !ability.autohide_on_completed):
+        _force_hidden = false
+        show()
+        sync_all()
 
 func _handle_change_xp(new_xp: float, _old_value: float) -> void:
     if visible && !_revealed && new_xp >= reveal_threshold * _current_cost:

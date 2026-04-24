@@ -241,6 +241,16 @@ script = ExtResource("26_xa8c5")
 audio_path = "uid://23g775bnwfw3"
 metadata/_custom_type_script = "uid://cycuc5ntkfi75"
 
+[sub_resource type="Resource" id="Resource_0de7l"]
+script = ExtResource("26_xa8c5")
+audio_path = "uid://7h7cymfa4hi5"
+metadata/_custom_type_script = "uid://cycuc5ntkfi75"
+
+[sub_resource type="Resource" id="Resource_87ddb"]
+script = ExtResource("26_xa8c5")
+audio_path = "uid://dff0bqrb0w4w4"
+metadata/_custom_type_script = "uid://cycuc5ntkfi75"
+
 [sub_resource type="Resource" id="Resource_lwlx3"]
 script = ExtResource("26_xa8c5")
 audio_path = "uid://dpmgnh2jf6ajq"
@@ -540,6 +550,8 @@ _third_dragon = SubResource("Resource_edr7y")
 _fourth_dragon = SubResource("Resource_kq12w")
 _dispose_quest = SubResource("Resource_t46w6")
 _complete_dispose_quest = SubResource("Resource_m28ev")
+_first_break_free_attempt = SubResource("Resource_0de7l")
+_second_break_free_attempt = SubResource("Resource_87ddb")
 _signal_lost = SubResource("Resource_lwlx3")
 _horror_music = "res://horror/audio/After.mp3"
 _click_hard_ability = ExtResource("49_6qn5j")

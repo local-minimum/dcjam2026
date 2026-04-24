@@ -38,7 +38,7 @@ func _enter_tree() -> void:
 func _ready() -> void:
     if __GlobalGameState.keith_kills > 0:
         await get_tree().create_timer(2.0).timeout
-        __SignalBus.on_ready_horror.emit()
+        __SignalBus.on_ready_horror.emit(null)
         await get_tree().create_timer(0.5).timeout
         __SignalBus.on_transition_to_horror.emit()
 
@@ -55,7 +55,22 @@ func _handle_transition_to_horror() -> void:
     #print_debug("May finalize horror transition")
     _may_transition = true
 
-func _handle_ready_horror() -> void:
+var _active_subbed_audio: SubbedAudio
+func _handle_ready_horror(signal_lost: SubbedAudio) -> void:
+    _active_subbed_audio = signal_lost
+
+    __SignalBus.on_clear_all_queued_subtitles.emit()
+
+    if signal_lost != null:
+        signal_lost.play(
+            self,
+            null,
+            func (_success: bool) -> void:
+                # We don't care we must go horror
+                __SignalBus.on_transition_to_horror.emit(),
+            AudioHub.QueueBehaviour.IGNORE_QUEUE_SILENCE_PLAYING,
+        )
+
     #print_debug("Ready horror invoked")
     var shader_mat: ShaderMaterial = material
     shader_mat.set_shader_parameter("intensity", 0.0)
@@ -63,10 +78,6 @@ func _handle_ready_horror() -> void:
     _player = PhysicsGridPlayerController.last_connected_player
     _player.add_cinematic_blocker(self)
 
-    #_waiting_for_resting_player = true
-
-    #if _player.grid_entity.is_stationary:
-        #_ready_transition()
     _ready_transition()
 
     set_process(true)
@@ -97,7 +108,7 @@ func _unload_conent() -> void:
         if is_instance_valid(node):
             node.queue_free()
 
-    __AudioHub.clear_callbacks(AudioHub.Bus.DIALGUE)
+    # We may not clear callbacks for DIALOG here because we probably have one running
     __AudioHub.clear_callbacks(AudioHub.Bus.SFX)
 
 func _load_horror_dungeon() -> void:

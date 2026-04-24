@@ -13,6 +13,7 @@ func _load() -> void:
     _loaded = true
 
 func play(
+    callback_bind: Node = null,
     on_start: Variant = null,
     on_finish: Variant = null,
     enqueue: AudioHub.QueueBehaviour = AudioHub.QueueBehaviour.ENQUEUE,
@@ -32,6 +33,7 @@ func play(
 
     __AudioHub.play_dialogue(
         audio_path,
+        callback_bind,
         on_start,
         on_finish,
         enqueue,

@@ -6,6 +6,6 @@
 script = ExtResource("1_uvbgn")
 id = "break-free"
 title = "Break Free!"
-costs = Array[int]([666])
-descriptions = Array[String](["You've had it with listening to that voice. Time to act!"])
+costs = Array[int]([6, 66, 666])
+descriptions = Array[String](["Everyone needs to be free.", "We don't follow orders, we make our own way!", "You've had it with listening to that voice. Time to act!"])
 metadata/_custom_type_script = "uid://bt1vi716f5csr"

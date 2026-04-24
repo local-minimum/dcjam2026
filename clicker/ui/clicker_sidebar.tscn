@@ -239,6 +239,7 @@ _ab_g_brass = ExtResource("31_cy8ch")
 _ab_g_aluminum = ExtResource("32_w0jc0")
 _ab_g_obsidian = ExtResource("33_qh8jo")
 _ab_click_hard = ExtResource("34_l87eh")
+_ready_special_after_abilities = Array[int]([15, 25, 35])
 _auto_hide_abilities = Array[ExtResource("32_ivphy")]([ExtResource("34_l87eh")])
 
 [node name="Mental" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=324514739 instance=ExtResource("35_f3ofs")]

@@ -117,13 +117,15 @@ func _matching_gear_mat(ability: ClickerAbilityData, mat: Gear.Mat) -> bool:
 
 @export_category("Specials")
 @export var _ab_click_hard: ClickerAbilityData
-@export var _clicker_button_scene: PackedScene
-@export var _ready_special_after_abilities: int = 25
-@export var _free_abilities_towards_special_on_later_day: int = 10
-@export var _ready_special_after_steps: int = 200
-@export var _free_steps_towards_special_on_later_day: int = 100
+@export var _ready_special_after_abilities: Array[int] = [15, 10, 15]
+@export var _free_abilities_towards_special_on_later_day: int  = 8
+@export var _ready_special_after_steps: Array[int] = [100, 150, 250]
+@export var _free_steps_towards_special_on_later_day: int = 70
+
+@export var _auto_hide_abilities: Array[ClickerAbilityData]
 
 var _special_ready: bool
+var _special_level: int
 var _abilities_learnt: int
 var _steps: int
 
@@ -150,26 +152,26 @@ func _ready() -> void:
         _abilities_learnt = _free_abilities_towards_special_on_later_day
         _steps = _free_steps_towards_special_on_later_day
 
+    for ability: ClickerAbilityData in _auto_hide_abilities:
+        __SignalBus.on_hide_ability.emit(ability.id)
+
     _handle_change_gear()
 
 func _handle_arrive_at_tile(_player: PhysicsGridPlayerController, _coords: Vector3i) -> void:
     _steps += 1
     #print_debug("Specials %s / %s %s" % [_steps, _ready_special_after_steps, _special_ready])
-    if !_special_ready && _steps >= _ready_special_after_steps:
-        _ready_special()
+    if !_special_ready && _steps >= _ready_special_after_steps[mini(_special_level, _ready_special_after_steps.size() - 1)]:
+        __SignalBus.on_show_ability.emit(_ab_click_hard.id)
 
-func _handle_change_ability_level(_ability: String, _lvl: int) -> void:
+func _handle_change_ability_level(ability: String, lvl: int) -> void:
+    if ability == _ab_click_hard.id:
+        _special_ready = false
+        _special_level = lvl
+        return
+
     _abilities_learnt += 1
-    if !_special_ready && _abilities_learnt >= _ready_special_after_abilities:
-        _ready_special()
-
-func _ready_special() -> void:
-    _special_ready = true
-    var btn: ClickerAbilityButton = _clicker_button_scene.instantiate()
-    btn.ability = _ab_click_hard
-    _abilities.append(btn)
-    add_child(btn)
-    btn.sync_all()
+    if !_special_ready && _abilities_learnt >= _ready_special_after_abilities[mini(_special_level, _ready_special_after_abilities.size() - 1)]:
+        __SignalBus.on_show_ability.emit(_ab_click_hard.id)
 
 func _handle_change_weapon(weapon: Weapon) -> void:
     for ability: ClickerAbilityButton in _abilities:

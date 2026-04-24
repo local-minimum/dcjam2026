@@ -27,9 +27,10 @@
 [ext_resource type="Resource" uid="uid://biiceahtxp57d" path="res://clicker/abilities/appearance_cardboard.tres" id="29_85j68"]
 [ext_resource type="Resource" uid="uid://df7cvo3up8mlt" path="res://clicker/abilities/appearance_plastic.tres" id="30_a65op"]
 [ext_resource type="Resource" uid="uid://br813yeror8bu" path="res://clicker/abilities/appearance_brass.tres" id="31_cy8ch"]
+[ext_resource type="Script" uid="uid://bt1vi716f5csr" path="res://clicker/clicker_ability_data.gd" id="32_ivphy"]
 [ext_resource type="Resource" uid="uid://41360xnp21fo" path="res://clicker/abilities/appearance_aluminum.tres" id="32_w0jc0"]
 [ext_resource type="Resource" uid="uid://byy8djgdai0" path="res://clicker/abilities/appearance_obsidian.tres" id="33_qh8jo"]
-[ext_resource type="Resource" uid="uid://d3js5rmf1rpk" path="res://clicker/abilities/click_hard.tres" id="34_l87eh"]
+[ext_resource type="Resource" uid="uid://d3js5rmf1rpk" path="res://clicker/abilities/break_free.tres" id="34_l87eh"]
 [ext_resource type="PackedScene" uid="uid://ctchufnwaro7b" path="res://clicker/clicker_ability_button.tscn" id="35_f3ofs"]
 [ext_resource type="Resource" uid="uid://fuk8h78kio6" path="res://clicker/abilities/mental.tres" id="36_1knou"]
 [ext_resource type="Resource" uid="uid://c208p6knl8gu2" path="res://clicker/abilities/mental_smarts.tres" id="37_u8mkj"]
@@ -238,7 +239,7 @@ _ab_g_brass = ExtResource("31_cy8ch")
 _ab_g_aluminum = ExtResource("32_w0jc0")
 _ab_g_obsidian = ExtResource("33_qh8jo")
 _ab_click_hard = ExtResource("34_l87eh")
-_clicker_button_scene = ExtResource("35_f3ofs")
+_auto_hide_abilities = Array[ExtResource("32_ivphy")]([ExtResource("34_l87eh")])
 
 [node name="Mental" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=324514739 instance=ExtResource("35_f3ofs")]
 layout_mode = 2
@@ -413,6 +414,11 @@ affordable_color = Color(0.42327625, 0.86139107, 0, 1)
 [node name="Mix and Match" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=602775478 instance=ExtResource("35_f3ofs")]
 layout_mode = 2
 ability = ExtResource("45_swsrb")
+affordable_color = Color(0.42327625, 0.86139107, 0, 1)
+
+[node name="Break Free" parent="Clicker Content/VBoxContainer/ScrollContainer/MarginContainer/AbilititiesManager" unique_id=940862797 instance=ExtResource("35_f3ofs")]
+layout_mode = 2
+ability = ExtResource("34_l87eh")
 affordable_color = Color(0.42327625, 0.86139107, 0, 1)
 
 [node name="Secrets Protector" type="TextureRect" parent="." unique_id=1431310683]

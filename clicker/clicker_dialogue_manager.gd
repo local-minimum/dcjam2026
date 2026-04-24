@@ -26,6 +26,8 @@ class_name ClickerDialogueManager
 @export var _dispose_quest: SubbedAudio
 @export var _complete_dispose_quest: SubbedAudio
 
+@export var _first_break_free_attempt: SubbedAudio
+@export var _second_break_free_attempt: SubbedAudio
 @export var _signal_lost: SubbedAudio
 
 @export_file_path("*.mp3") var _horror_music: String
@@ -89,27 +91,54 @@ func _ready() -> void:
 var _started_click_through: bool
 
 func _handle_change_ability_level(ability_id: String, lvl: int) -> void:
-    if !_started_click_through && _click_hard_ability != null && ability_id == _click_hard_ability.id && lvl > 0:
-        _started_click_through = true
+    if !_started_click_through && _click_hard_ability != null && ability_id == _click_hard_ability.id:
 
-        __AudioHub.play_music(_horror_music, 2.0)
+        match lvl:
+            0:
+                push_warning("Gaining lvl 0 should not happen")
+                return
 
-        await get_tree().create_timer(_delay_before_signal_loss).timeout
+            1:
+                __SignalBus.on_hide_ability.emit(ability_id)
 
-        var player: PhysicsGridPlayerController = PhysicsGridPlayerController.last_connected_player
-        player.add_cinematic_blocker(self)
+                _first_break_free_attempt.play(
+                    null,
+                    null,
+                    AudioHub.QueueBehaviour.IGNORE_QUEUE_SILENCE_PLAYING,
+                )
+                return
 
-        __SignalBus.on_ready_horror.emit()
+            2:
+                __SignalBus.on_hide_ability.emit(ability_id)
 
-        __SignalBus.on_clear_all_queued_subtitles.emit()
-        _signal_lost.play(
-            null,
-            func (_success: bool) -> void:
-                # We don't care we must go horror
-                __SignalBus.on_transition_to_horror.emit(),
-            AudioHub.QueueBehaviour.IGNORE_QUEUE_SILENCE_PLAYING,
-        )
-        print_debug("Clicking through!")
+                _second_break_free_attempt.play(
+                    null,
+                    null,
+                    AudioHub.QueueBehaviour.IGNORE_QUEUE_SILENCE_PLAYING,
+                )
+                return
+
+            3:
+                _started_click_through = true
+
+                __AudioHub.play_music(_horror_music, 2.0)
+
+                await get_tree().create_timer(_delay_before_signal_loss).timeout
+
+                var player: PhysicsGridPlayerController = PhysicsGridPlayerController.last_connected_player
+                player.add_cinematic_blocker(self)
+
+                __SignalBus.on_ready_horror.emit()
+
+                __SignalBus.on_clear_all_queued_subtitles.emit()
+                _signal_lost.play(
+                    null,
+                    func (_success: bool) -> void:
+                        # We don't care we must go horror
+                        __SignalBus.on_transition_to_horror.emit(),
+                    AudioHub.QueueBehaviour.IGNORE_QUEUE_SILENCE_PLAYING,
+                )
+
 
 var _steps: int
 var _dragons: int

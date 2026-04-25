@@ -26,6 +26,35 @@ static func is_translation(movement: MovementType) -> bool:
 static func is_cardinal_translation(movement: MovementType) -> bool:
     return movement != MovementType.NONE && !is_turn(movement) && movement != MovementType.CENTER
 
+static func invert(movement: MovementType) -> MovementType:
+    match movement:
+        MovementType.FORWARD:
+            return MovementType.BACK
+        MovementType.BACK:
+            return MovementType.FORWARD
+        MovementType.STRAFE_LEFT:
+            return MovementType.STRAFE_RIGHT
+        MovementType.STRAFE_RIGHT:
+            return MovementType.STRAFE_LEFT
+        MovementType.TURN_CLOCKWISE:
+            return MovementType.TURN_COUNTER_CLOCKWISE
+        MovementType.TURN_COUNTER_CLOCKWISE:
+            return MovementType.TURN_CLOCKWISE
+        MovementType.ABS_DOWN:
+            return MovementType.ABS_UP
+        MovementType.ABS_UP:
+            return MovementType.ABS_DOWN
+        MovementType.ABS_NORTH:
+            return MovementType.ABS_SOUTH
+        MovementType.ABS_SOUTH:
+            return MovementType.ABS_NORTH
+        MovementType.ABS_WEST:
+            return MovementType.ABS_EAST
+        MovementType.ABS_EAST:
+            return MovementType.ABS_WEST
+        _:
+            return MovementType.NONE
+
 static func to_direction(
     movement: MovementType,
     look_direction: CardinalDirections.CardinalDirection,

@@ -275,6 +275,9 @@ func handle_translation_end(movement: Movement.MovementType) -> void:
     if !_translation_pressed.get(movement, false):
         _translation_stack.erase(movement)
 
+func clear_translation_stack() -> void:
+    _translation_stack.clear()
+
 func _handle_force_abort_translation() -> void:
     if gridless:
         push_error("Asking gridless player %s to abort translation isn't possible" % [self])

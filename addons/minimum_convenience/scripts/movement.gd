@@ -26,6 +26,26 @@ static func is_translation(movement: MovementType) -> bool:
 static func is_cardinal_translation(movement: MovementType) -> bool:
     return movement != MovementType.NONE && !is_turn(movement) && movement != MovementType.CENTER
 
+static func is_orthogonal(movement: MovementType, other: MovementType) -> bool:
+    match movement:
+        MovementType.FORWARD, MovementType.BACK:
+            return other == MovementType.STRAFE_LEFT || other == MovementType.STRAFE_RIGHT
+
+        MovementType.STRAFE_LEFT, MovementType.STRAFE_RIGHT:
+            return other == MovementType.FORWARD || other == MovementType.BACK
+
+        MovementType.ABS_DOWN, MovementType.ABS_UP:
+            return other == MovementType.ABS_WEST || other == MovementType.ABS_EAST || other == MovementType.ABS_NORTH || other == MovementType.ABS_SOUTH
+
+        MovementType.ABS_WEST, MovementType.ABS_EAST:
+            return other == MovementType.ABS_UP || other == MovementType.ABS_DOWN || other == MovementType.ABS_NORTH || other == MovementType.ABS_SOUTH
+
+        MovementType.ABS_NORTH, MovementType.ABS_SOUTH:
+            return other == MovementType.ABS_UP || other == MovementType.ABS_DOWN || other == MovementType.ABS_WEST || other == MovementType.ABS_EAST
+
+        _:
+            return false
+
 static func invert(movement: MovementType) -> MovementType:
     match movement:
         MovementType.FORWARD:

@@ -251,6 +251,8 @@ func _push_ontop_of_movement_stack(movement: Movement.MovementType) -> void:
         var inverse: Movement.MovementType = Movement.invert(movement)
         if _translation_stack.has(inverse):
             _translation_stack.clear()
+        elif _allow_continious_translation && !_translation_stack.is_empty() && _translation_pressed[_translation_stack[0]] && Movement.is_orthogonal(_translation_stack[0], movement):
+            _translation_stack.push_front(movement)
         else:
             _translation_stack.append(movement)
         _translation_pressed[movement] = _allow_continious_translation

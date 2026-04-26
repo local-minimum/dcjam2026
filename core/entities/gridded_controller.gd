@@ -28,6 +28,9 @@ func _ready() -> void:
     cam_fov = _player.camera.fov
     cam_near = _player.camera.near
 
+var _wanted_rotation: float
+var _wanted_rotation_delay: int = -1
+
 func handle_movement(translation_stack: Array[Movement.MovementType]) -> void:
     if !translation_stack.is_empty():
         var movement: Movement.MovementType = translation_stack[0]
@@ -44,9 +47,35 @@ func handle_movement(translation_stack: Array[Movement.MovementType]) -> void:
                 push_error("Player %s's movement %s is not a valid translation" % [name, Movement.name(movement)])
 
     if Input.is_action_just_pressed("crawl_turn_left"):
-        _attempt_turn(PI * 0.5)
+        if _wanted_rotation >= 0.0:
+            if translation_stack.size() <= 1:
+                _attempt_turn(PI * 0.5)
+                _wanted_rotation_delay = -1
+                _wanted_rotation = 0.0
+            else:
+                _wanted_rotation = PI * 0.5
+                _wanted_rotation_delay = translation_stack.size() - 1
+        else:
+            _wanted_rotation = 0.0
+            _wanted_rotation_delay = -1
+
     elif Input.is_action_just_pressed("crawl_turn_right"):
-        _attempt_turn(-PI * 0.5)
+        if _wanted_rotation <= 0.0:
+            if translation_stack.size() <= 1:
+                _attempt_turn(-PI * 0.5)
+                _wanted_rotation_delay = -1
+                _wanted_rotation = 0.0
+            else:
+                _wanted_rotation = -PI * 0.5
+                _wanted_rotation_delay = translation_stack.size() - 1
+        else:
+            _wanted_rotation = 0.0
+            _wanted_rotation_delay = -1
+
+    elif _wanted_rotation_delay == 0:
+        _attempt_turn(_wanted_rotation)
+        _wanted_rotation = 0.0
+        _wanted_rotation_delay = -1
 
 ## Force alignment with the grid
 func transition_into_gridded() -> void:
@@ -200,8 +229,8 @@ func _attempt_gridded_translation(movement: Movement.MovementType, direction: Ve
         prev_data = step_data
 
     if failed:
-        if steps.size() < 2:
-            target = steps[-1][PhysicsControllerStepCaster.StepData.CENTER_POINT]
+        #if steps.size() < 2:
+            #target = steps[-1][PhysicsControllerStepCaster.StepData.CENTER_POINT]
         var mid: Vector3 = _player.global_position.lerp(target, _refuse_distance_forward if movement == Movement.MovementType.FORWARD else _refuse_distance_other)
         _animate_refused_movement(movement, mid)
         return
@@ -233,6 +262,8 @@ func _attempt_gridded_translation(movement: Movement.MovementType, direction: Ve
         func () -> void:
             _player.handle_translation_end(movement)
             _player.grid_entity.is_translating = false
+            if _wanted_rotation_delay > 0:
+                _wanted_rotation_delay -= 1
             __SignalBus.on_physics_player_arrive_tile.emit(
                 _player,
                 _player.dungeon.get_closest_coordinates(_player.global_position)
@@ -241,6 +272,8 @@ func _attempt_gridded_translation(movement: Movement.MovementType, direction: Ve
     ) != OK:
         push_warning("Failed to connect end of movement")
         _player.handle_translation_end(movement)
+        if _wanted_rotation_delay > 0:
+            _wanted_rotation_delay -= 1
         __SignalBus.on_physics_player_arrive_tile.emit(
             _player,
             _player.dungeon.get_closest_coordinates(_player.global_position)
@@ -334,6 +367,9 @@ func force_abort_translation() -> void:
     if _translation_tween.finished.connect(
         func () -> void:
             _player.handle_translation_end(_active_movement)
+            _wanted_rotation_delay = -1
+            _wanted_rotation = 0.0
+            _player.clear_translation_stack()
             _player.grid_entity.is_translating = false
             __SignalBus.on_physics_player_arrive_tile.emit(
                 _player,
@@ -343,6 +379,9 @@ func force_abort_translation() -> void:
     ) != OK:
         push_warning("Failed to connect end of movement")
         _player.handle_translation_end(_active_movement)
+        _wanted_rotation_delay = -1
+        _wanted_rotation = 0.0
+        _player.clear_translation_stack()
         __SignalBus.on_physics_player_arrive_tile.emit(
             _player,
             _player.dungeon.get_closest_coordinates(_player.global_position)
@@ -373,6 +412,16 @@ func _attempt_turn(angle: float) -> void:
         push_error("Failed to connect rotation ended")
 
 func _animate_refused_movement(movement: Movement.MovementType, mid: Vector3) -> void:
+    _player.clear_translation_stack()
+    _wanted_rotation = 0.0
+    _wanted_rotation_delay = -1
+
+    if mid == _player.global_position:
+        push_warning("Midpoint is same as player point")
+        _player.handle_translation_end(movement)
+        return
+
+    _player.grid_entity.start_translation(mid - _player.global_position, _translation_duration * 0.5)
     _translation_tween = create_tween()
     @warning_ignore_start("return_value_discarded")
     _translation_tween.tween_property(_player, "global_position", mid, _translation_duration * 0.5)
@@ -382,3 +431,4 @@ func _animate_refused_movement(movement: Movement.MovementType, mid: Vector3) ->
     if _translation_tween.finished.connect(_player.handle_translation_end.bind(movement)) != OK:
         push_error("Failed to connect to translation tween end")
         _player.handle_translation_end(movement)
+        _player.grid_entity.is_translating = false

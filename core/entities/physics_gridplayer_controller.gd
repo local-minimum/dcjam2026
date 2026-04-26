@@ -248,7 +248,11 @@ func _push_ontop_of_movement_stack(movement: Movement.MovementType) -> void:
         if !_translation_stack.has(movement):
             _translation_stack.append(movement)
     else:
-        _translation_stack.append(movement)
+        var inverse: Movement.MovementType = Movement.invert(movement)
+        if _translation_stack.has(inverse):
+            _translation_stack.clear()
+        else:
+            _translation_stack.append(movement)
         _translation_pressed[movement] = _allow_continious_translation
 
 func _release_movement(movement: Movement.MovementType) -> void:
@@ -270,6 +274,9 @@ func _physics_process(delta: float) -> void:
 func handle_translation_end(movement: Movement.MovementType) -> void:
     if !_translation_pressed.get(movement, false):
         _translation_stack.erase(movement)
+
+func clear_translation_stack() -> void:
+    _translation_stack.clear()
 
 func _handle_force_abort_translation() -> void:
     if gridless:

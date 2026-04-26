@@ -28,7 +28,7 @@ func _ready() -> void:
     cam_fov = _player.camera.fov
     cam_near = _player.camera.near
 
-var _wanted_rotation: float
+var _wanted_rotation: int
 var _wanted_rotation_delay: int = -1
 
 func handle_movement(translation_stack: Array[Movement.MovementType]) -> void:
@@ -47,35 +47,47 @@ func handle_movement(translation_stack: Array[Movement.MovementType]) -> void:
                 push_error("Player %s's movement %s is not a valid translation" % [name, Movement.name(movement)])
 
     if Input.is_action_just_pressed("crawl_turn_left"):
-        if _wanted_rotation >= 0.0:
+        if _wanted_rotation >= 0:
             if translation_stack.size() <= 1:
-                _attempt_turn(PI * 0.5)
-                _wanted_rotation_delay = -1
-                _wanted_rotation = 0.0
+                if _player.grid_entity.is_rotating:
+                    _wanted_rotation += 1
+                elif _wanted_rotation_delay != -1:
+                    _wanted_rotation += 1
+                    _wanted_rotation_delay = 0
+                else:
+                    _wanted_rotation_delay = 0
+                    _wanted_rotation = 1
+                    _attempt_turn(0.5 * PI)
             else:
-                _wanted_rotation = PI * 0.5
-                _wanted_rotation_delay = translation_stack.size() - 1
+                _wanted_rotation += 1
+                if _wanted_rotation_delay == -1:
+                    _wanted_rotation_delay = translation_stack.size() - 1
         else:
-            _wanted_rotation = 0.0
+            _wanted_rotation = 0
             _wanted_rotation_delay = -1
 
     elif Input.is_action_just_pressed("crawl_turn_right"):
-        if _wanted_rotation <= 0.0:
+        if _wanted_rotation <= 0:
             if translation_stack.size() <= 1:
-                _attempt_turn(-PI * 0.5)
-                _wanted_rotation_delay = -1
-                _wanted_rotation = 0.0
+                if _player.grid_entity.is_rotating:
+                    _wanted_rotation -= 1
+                elif _wanted_rotation_delay != -1:
+                    _wanted_rotation -= 1
+                    _wanted_rotation_delay = 0
+                else:
+                    _wanted_rotation_delay = 0
+                    _wanted_rotation = -1
+                    _attempt_turn(-0.5 * PI)
             else:
-                _wanted_rotation = -PI * 0.5
-                _wanted_rotation_delay = translation_stack.size() - 1
+                _wanted_rotation -= 1
+                if _wanted_rotation_delay == -1:
+                    _wanted_rotation_delay = translation_stack.size() - 1
         else:
-            _wanted_rotation = 0.0
+            _wanted_rotation = 0
             _wanted_rotation_delay = -1
 
     elif _wanted_rotation_delay == 0:
-        _attempt_turn(_wanted_rotation)
-        _wanted_rotation = 0.0
-        _wanted_rotation_delay = -1
+        _attempt_turn(signf(_wanted_rotation) * 0.5 * PI)
 
 ## Force alignment with the grid
 func transition_into_gridded() -> void:
@@ -368,7 +380,7 @@ func force_abort_translation() -> void:
         func () -> void:
             _player.handle_translation_end(_active_movement)
             _wanted_rotation_delay = -1
-            _wanted_rotation = 0.0
+            _wanted_rotation = 0
             _player.clear_translation_stack()
             _player.grid_entity.is_translating = false
             __SignalBus.on_physics_player_arrive_tile.emit(
@@ -380,7 +392,7 @@ func force_abort_translation() -> void:
         push_warning("Failed to connect end of movement")
         _player.handle_translation_end(_active_movement)
         _wanted_rotation_delay = -1
-        _wanted_rotation = 0.0
+        _wanted_rotation = 0
         _player.clear_translation_stack()
         __SignalBus.on_physics_player_arrive_tile.emit(
             _player,
@@ -408,12 +420,14 @@ func _attempt_turn(angle: float) -> void:
     @warning_ignore_restore("return_value_discarded")
     if _rotation_tween.finished.connect(func () -> void:
         _player.grid_entity.is_rotating = false
+        _wanted_rotation -= signi(_wanted_rotation)
+        if _wanted_rotation == 0:
+            _wanted_rotation_delay = -1
     ) != OK:
         push_error("Failed to connect rotation ended")
 
 func _animate_refused_movement(movement: Movement.MovementType, mid: Vector3) -> void:
     _player.clear_translation_stack()
-    _wanted_rotation = 0.0
     _wanted_rotation_delay = -1
 
     if mid == _player.global_position:

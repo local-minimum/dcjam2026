@@ -51,7 +51,7 @@ height = 1.0
 [sub_resource type="BoxShape3D" id="BoxShape3D_aoiyr"]
 size = Vector3(0.1, 0.1, 0.1)
 
-[node name="Player3d" type="CharacterBody3D" unique_id=942295760 node_paths=PackedStringArray("_camera", "_freelook_cam", "_gridded_controller", "grid_entity", "look_target", "_captured_pointer_eventer", "stepper", "_forward", "_left", "_right", "_backward", "_debug_shapes")]
+[node name="Player3d" type="CharacterBody3D" unique_id=942295760 node_paths=PackedStringArray("_camera", "_freelook_cam", "_gridded_controller", "grid_entity", "look_target", "_captured_pointer_eventer", "stepper", "_forward", "_left", "_right", "_backward")]
 collision_layer = 512
 collision_mask = 1025
 input_ray_pickable = false
@@ -67,7 +67,6 @@ _forward = NodePath("Casting Origin/Cast Forward")
 _left = NodePath("Casting Origin/Cast Left")
 _right = NodePath("Casting Origin/Cast Right")
 _backward = NodePath("Casting Origin/Cast Backward")
-_debug_shapes = [NodePath("Debug Step CollisionPt"), NodePath("Player Collision Body/Debug Body Shape"), NodePath("Camera3D/Debug Cam Position"), NodePath("Camera3D/Debug Cam Look Direction")]
 
 [node name="GriddedController" type="Node" parent="." unique_id=1745718286 node_paths=PackedStringArray("_player")]
 script = ExtResource("3_aoiyr")
@@ -159,11 +158,10 @@ _debug_shape = NodePath("../../Debug Step CollisionPt")
 [node name="Look Target" type="Node3D" parent="." unique_id=368639951]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8004148, 0)
 
-[node name="Player GridEntity" type="Node" parent="." unique_id=11367634 node_paths=PackedStringArray("entity_root", "detection_areas")]
+[node name="Player GridEntity" type="Node" parent="." unique_id=11367634 node_paths=PackedStringArray("entity_root")]
 script = ExtResource("15_jrod8")
 type = 1
 entity_root = NodePath("..")
-detection_areas = [NodePath("../GridEntity Collision Area")]
 metadata/_custom_type_script = "uid://cbaspepqt0vih"
 
 [node name="GridEntity Collision Area" type="Area3D" parent="." unique_id=1658601083]

@@ -43,4 +43,6 @@ signal on_horror_outro_triggered()
 signal on_trigger_keith(trigger: KeithTrigger)
 signal on_jail_keith()
 
+signal on_mute(what: MuteManager.MuteTarget)
+
 @warning_ignore_restore("unused_signal")

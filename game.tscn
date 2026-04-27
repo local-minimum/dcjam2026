@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://wwcp3t7inmqj" path="res://pause_manager.tscn" id="26_i2p71"]
 [ext_resource type="Script" uid="uid://cycuc5ntkfi75" path="res://core/subtitles/subbed_audio.gd" id="26_xa8c5"]
 [ext_resource type="PackedScene" uid="uid://cfelmhc86djyq" path="res://core/subtitles/simple_subtitles_container.tscn" id="28_5b14r"]
+[ext_resource type="PackedScene" uid="uid://8egqj7o2jn3a" path="res://muting.tscn" id="28_36jdj"]
 [ext_resource type="PackedScene" uid="uid://k06e602vjxni" path="res://game_settings.tscn" id="29_bnpwn"]
 [ext_resource type="PackedScene" uid="uid://3heqxlultjpy" path="res://clicker/loot/loot_and_inventory.tscn" id="39_eu6ph"]
 [ext_resource type="Script" uid="uid://dpr1k74riep1o" path="res://clicker/dev_console_loot.gd" id="44_kq12w"]
@@ -556,6 +557,9 @@ _signal_lost = SubResource("Resource_lwlx3")
 _horror_music = "res://horror/audio/After.mp3"
 _click_hard_ability = ExtResource("49_6qn5j")
 _steps_until_dragon_quest = 70
+
+[node name="Muting" parent="." unique_id=610066808 instance=ExtResource("28_36jdj")]
+layout_mode = 1
 
 [node name="Simple Subtitles Container" parent="." unique_id=148810722 instance=ExtResource("28_5b14r")]
 layout_mode = 1

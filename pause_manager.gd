@@ -33,6 +33,9 @@ func _input(event: InputEvent) -> void:
 func _on_pause_menu_closed() -> void:
     _paused = false
 
+    if is_instance_valid(_pause_menu_instance):
+        _pause_menu_instance.queue_free()
+
 
 
 func _can_pause() -> bool:

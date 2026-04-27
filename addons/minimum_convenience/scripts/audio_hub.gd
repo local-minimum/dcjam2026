@@ -204,7 +204,7 @@ func _delay_play(player: AudioStreamPlayer, delay_start: float, callback_bind: N
         await get_tree().create_timer(delay_start, false).timeout
 
     print_debug("[Audio Hub] started playing %s after delay %s" % [player, delay_start])
-    if on_start is Callable && is_instance_valid(callback_bind):
+    if on_start is Callable && (callback_bind == null || is_instance_valid(callback_bind)):
         (on_start as Callable).call()
 
     player.play()

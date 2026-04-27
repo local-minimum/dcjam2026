@@ -2,6 +2,8 @@ extends SignalBusCore
 class_name SignalBus
 
 @warning_ignore_start("unused_signal")
+signal on_request_clicker_dialog(dialog: ClickerDialogueManager.DialogRequest)
+
 signal on_change_xp_max(new_max: float)
 signal on_change_xp(value: float, old_value: float)
 

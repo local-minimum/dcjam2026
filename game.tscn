@@ -177,6 +177,21 @@ script = ExtResource("26_xa8c5")
 audio_path = "uid://bgky8itb0sb73"
 metadata/_custom_type_script = "uid://cycuc5ntkfi75"
 
+[sub_resource type="Resource" id="Resource_mljfx"]
+script = ExtResource("26_xa8c5")
+audio_path = "uid://b7mkavcr7mu6l"
+metadata/_custom_type_script = "uid://cycuc5ntkfi75"
+
+[sub_resource type="Resource" id="Resource_qpefm"]
+script = ExtResource("26_xa8c5")
+audio_path = "uid://4uyedugrxqvv"
+metadata/_custom_type_script = "uid://cycuc5ntkfi75"
+
+[sub_resource type="Resource" id="Resource_tb2lt"]
+script = ExtResource("26_xa8c5")
+audio_path = "uid://cnh2rcfad2dd6"
+metadata/_custom_type_script = "uid://cycuc5ntkfi75"
+
 [sub_resource type="Resource" id="Resource_xa8c5"]
 script = ExtResource("26_xa8c5")
 audio_path = "uid://jw1nkt7wth00"
@@ -535,6 +550,9 @@ _first_death = SubResource("Resource_dhpj7")
 _repeat_death = SubResource("Resource_7knny")
 _refuse_clicking = SubResource("Resource_082n1")
 _bored = SubResource("Resource_xex6t")
+_xp_pile_1 = SubResource("Resource_mljfx")
+_xp_pile_2 = SubResource("Resource_qpefm")
+_xp_pile_3 = SubResource("Resource_tb2lt")
 _fight = SubResource("Resource_xa8c5")
 _new_day_first_fight = SubResource("Resource_5b14r")
 _healing = SubResource("Resource_aa0lp")

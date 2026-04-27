@@ -129,6 +129,17 @@ var _special_level: int
 var _abilities_learnt: int
 var _steps: int
 
+var can_buy_ability: bool:
+    get():
+        for ab: ClickerAbilityButton in _abilities:
+            if ab == null || !is_instance_valid(ab):
+                continue
+
+            if ab.intercatable:
+                return true
+
+        return false
+
 func _enter_tree() -> void:
     if __SignalBus.on_change_weapon.connect(_handle_change_weapon) != OK:
         push_error("Failed to connect change weapon")
@@ -157,13 +168,41 @@ func _ready() -> void:
 
     _handle_change_gear()
 
+var _xp_pile_reminder_step: int = 0
+var _xp_pile_waiting_to_remind: bool
+var _xp_pile_reset: bool
+const _WAIT_XP_REMINDER: float = 50.0
+
+
 func _handle_arrive_at_tile(_player: PhysicsGridPlayerController, _coords: Vector3i) -> void:
     _steps += 1
     #print_debug("Specials %s / %s %s" % [_steps, _ready_special_after_steps, _special_ready])
     if !_special_ready && _steps >= _ready_special_after_steps[mini(_special_level, _ready_special_after_steps.size() - 1)]:
         __SignalBus.on_show_ability.emit(_ab_click_hard.id)
 
+    if !_xp_pile_waiting_to_remind && __GlobalGameState.xp / float(__GlobalGameState.max_xp) > 0.9 && can_buy_ability:
+        _xp_pile_waiting_to_remind = true
+        _xp_pile_reset = false
+
+        await get_tree().create_timer(_WAIT_XP_REMINDER).timeout
+
+        if __GlobalGameState.xp / float(__GlobalGameState.max_xp) > 0.9 && can_buy_ability && !_xp_pile_reset:
+            _xp_pile_reminder_step += 1
+            match _xp_pile_reminder_step:
+                1:
+                    __SignalBus.on_request_clicker_dialog.emit(ClickerDialogueManager.DialogRequest.XP_PILE_1)
+                2:
+                    __SignalBus.on_request_clicker_dialog.emit(ClickerDialogueManager.DialogRequest.XP_PILE_2)
+                4,7,13,18,25:
+                    __SignalBus.on_request_clicker_dialog.emit(ClickerDialogueManager.DialogRequest.XP_PILE_3)
+
+        await get_tree().create_timer(_WAIT_XP_REMINDER * 2.0).timeout
+
+        _xp_pile_waiting_to_remind = false
+
 func _handle_change_ability_level(ability: String, lvl: int) -> void:
+    _xp_pile_reset = true
+
     if ability == _ab_click_hard.id:
         _special_ready = false
         _special_level = lvl

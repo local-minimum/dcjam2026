@@ -1,6 +1,8 @@
 extends Node
 class_name ClickerDialogueManager
 
+enum DialogRequest { NONE, XP_PILE_1, XP_PILE_2, XP_PILE_3 }
+
 @export var _awake: SubbedAudio
 @export var _repeat_awake: SubbedAudio
 @export var _awake_after_dispose: SubbedAudio
@@ -9,6 +11,10 @@ class_name ClickerDialogueManager
 
 @export var _refuse_clicking: SubbedAudio
 @export var _bored: SubbedAudio
+@export var _xp_pile_1: SubbedAudio
+@export var _xp_pile_2: SubbedAudio
+@export var _xp_pile_3: SubbedAudio
+
 @export var _fight: SubbedAudio
 @export var _new_day_first_fight: SubbedAudio
 
@@ -63,7 +69,8 @@ func _enter_tree() -> void:
         push_error("Failed to connect progress quest")
     if __SignalBus.on_change_ability_level.connect(_handle_change_ability_level) != OK:
         push_error("Failed to connect change ability level")
-
+    if __SignalBus.on_request_clicker_dialog.connect(_handle_request_dialog) != OK:
+        push_error("Failed to connect dialog request")
 
 var _player: PhysicsGridPlayerController
 
@@ -87,6 +94,20 @@ func _ready() -> void:
 
         await get_tree().create_timer(5.0).timeout
         __SignalBus.on_gain_bonus_autoclickers.emit(2)
+
+
+func _handle_request_dialog(dialog: DialogRequest) -> void:
+    match dialog:
+        DialogRequest.XP_PILE_1:
+            _xp_pile_1.play()
+        DialogRequest.XP_PILE_2:
+            _xp_pile_2.play()
+        DialogRequest.XP_PILE_3:
+            _xp_pile_3.play()
+
+        _:
+            push_warning("No dialog for %s available" % [DialogRequest.find_key(dialog)])
+            return
 
 var _started_click_through: bool
 

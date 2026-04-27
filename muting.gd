@@ -14,9 +14,11 @@ func _handle_mute(what: MuteManager.MuteTarget) -> void:
             target.hide()
         MuteManager.MuteTarget.MUSIC:
             target.texture = no_music
+            target.tooltip_text = "Music muted"
             target.show()
         MuteManager.MuteTarget.EVERYTHING:
             target.texture = no_sound
+            target.tooltip_text = "All sounds muted"
             target.show()
         _:
             push_warning("Unhandled mute-target %s" % [MuteManager.MuteTarget.find_key(what)])

@@ -476,8 +476,7 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_v2mkm")
 text = "BACK"
 
 [node name="Muting" parent="UICanvas/UI" unique_id=610066808 instance=ExtResource("7_pgi0o")]
-layout_mode = 0
-anchors_preset = 0
+layout_mode = 1
 
 [node name="3D" type="Node3D" parent="." unique_id=1338561247]
 

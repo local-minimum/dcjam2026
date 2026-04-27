@@ -559,8 +559,7 @@ _click_hard_ability = ExtResource("49_6qn5j")
 _steps_until_dragon_quest = 70
 
 [node name="Muting" parent="." unique_id=610066808 instance=ExtResource("28_36jdj")]
-layout_mode = 0
-anchors_preset = 0
+layout_mode = 1
 
 [node name="Simple Subtitles Container" parent="." unique_id=148810722 instance=ExtResource("28_5b14r")]
 layout_mode = 1

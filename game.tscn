@@ -423,9 +423,6 @@ layout_mode = 2
 text = "Dispose of Dragons"
 label_settings = SubResource("LabelSettings_6qn5j")
 
-[node name="PauseManager" parent="HSplitContainer/Viewport Side" unique_id=727944804 node_paths=PackedStringArray("_root") instance=ExtResource("26_i2p71")]
-_root = NodePath("..")
-
 [node name="Sidebar" parent="HSplitContainer" unique_id=597927285 instance=ExtResource("16_082n1")]
 layout_mode = 2
 
@@ -485,7 +482,7 @@ clicker_soft_volumes = Array[float]([1.0, 0.0, 0.0])
 clicker_medium_volumes = Array[float]([1.0, 1.0, 0.0])
 clicker_intense_volumes = Array[float]([1.0, 1.0, 1.0])
 
-[node name="Break Through Screen Grab Target" type="TextureRect" parent="." unique_id=1884846982 node_paths=PackedStringArray("_split_container", "_subviewport", "_unloading_nodes", "_transition_prep_animator", "_overlay_label", "_subtitles_container")]
+[node name="Break Through Screen Grab Target" type="TextureRect" parent="." unique_id=1884846982 node_paths=PackedStringArray("_split_container", "_subviewport", "_unloading_nodes", "_transition_prep_animator", "_overlay_label", "_viewport_immitating_containers")]
 material = SubResource("ShaderMaterial_vyqle")
 layout_mode = 1
 anchors_preset = 15
@@ -503,7 +500,7 @@ _transition_duration = 5.0
 _transition_prep_animator = NodePath("AnimationPlayer")
 _transition_animation = "Lost"
 _overlay_label = NodePath("Connection Lost Label")
-_subtitles_container = NodePath("../Simple Subtitles Container")
+_viewport_immitating_containers = [NodePath("../Simple Subtitles Container"), NodePath("../PauseMenuLocation")]
 _horror_dungeon_scene = "res://horror/horror_dungeon.tscn"
 _horror_panel_scene = "res://horror/horror_sidebar.tscn"
 
@@ -568,5 +565,14 @@ anchor_right = 0.766
 offset_top = -70.0
 
 [node name="GameSettings" parent="." unique_id=1134563579 instance=ExtResource("29_bnpwn")]
+
+[node name="PauseMenuLocation" type="Control" parent="." unique_id=852892323]
+layout_mode = 1
+anchor_right = 0.766
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="PauseManager" parent="PauseMenuLocation" unique_id=727944804 node_paths=PackedStringArray("_root") instance=ExtResource("26_i2p71")]
+_root = NodePath("..")
 
 [connection signal="timeout" from="HSplitContainer/Viewport Side/PlayerHealthBar/HealthTimer" to="HSplitContainer/Viewport Side/PlayerHealthBar" method="_on_health_timer_timeout"]

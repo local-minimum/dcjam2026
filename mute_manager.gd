@@ -1,26 +1,32 @@
 extends Node
 class_name MuteManager
 
-enum MuteCycle { NOTHING, MUSIC, EVERYTHING }
+enum MuteTarget { NOTHING, MUSIC, EVERYTHING }
 
-var _muted: MuteCycle = MuteCycle.NOTHING
+static var muted: MuteTarget = MuteTarget.NOTHING:
+    set(value):
+        muted = value
+        __SignalBus.on_mute.emit(value)
+
+func _ready() -> void:
+    __SignalBus.on_mute.emit(muted)
 
 func _input(event: InputEvent) -> void:
     if !event.is_echo() && event.is_action_pressed(&"mute"):
-        if _muted == MuteCycle.NOTHING:
-            _muted = MuteCycle.MUSIC
-        elif _muted == MuteCycle.MUSIC:
-            _muted = MuteCycle.EVERYTHING
+        if muted == MuteTarget.NOTHING:
+            muted = MuteTarget.MUSIC
+        elif muted == MuteTarget.MUSIC:
+            muted = MuteTarget.EVERYTHING
         else:
-            _muted = MuteCycle.NOTHING
+            muted = MuteTarget.NOTHING
 
-        match _muted:
-            MuteCycle.NOTHING:
+        match muted:
+            MuteTarget.NOTHING:
                 __AudioHub.unmute_bus(AudioHub.Bus.SFX)
                 __AudioHub.unmute_bus(AudioHub.Bus.DIALGUE)
                 __AudioHub.unmute_bus(AudioHub.Bus.MUSIC)
-            MuteCycle.MUSIC:
+            MuteTarget.MUSIC:
                 __AudioHub.mute_bus(AudioHub.Bus.MUSIC)
-            MuteCycle.EVERYTHING:
+            MuteTarget.EVERYTHING:
                 __AudioHub.mute_bus(AudioHub.Bus.SFX)
                 __AudioHub.mute_bus(AudioHub.Bus.DIALGUE)

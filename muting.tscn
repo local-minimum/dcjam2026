@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://8egqj7o2jn3a"]
+
+[ext_resource type="Script" uid="uid://dgig57h8uvkpa" path="res://muting.gd" id="1_nmeeu"]
+[ext_resource type="Texture2D" uid="uid://dgt8hq0bfqonf" path="res://visual/ui/mute_music.png" id="2_ymlgg"]
+[ext_resource type="Texture2D" uid="uid://b733dc6p7yhfl" path="res://visual/ui/mute_all.png" id="3_cgbe2"]
+
+[node name="Muting" type="CenterContainer" unique_id=610066808 node_paths=PackedStringArray("target")]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -150.0
+offset_right = 150.0
+grow_vertical = 0
+mouse_filter = 2
+script = ExtResource("1_nmeeu")
+target = NodePath("MuteState")
+no_music = ExtResource("2_ymlgg")
+no_sound = ExtResource("3_cgbe2")
+
+[node name="MuteState" type="TextureRect" parent="." unique_id=1905205355]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("3_cgbe2")
+expand_mode = 1
+stretch_mode = 5

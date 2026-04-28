@@ -1,4 +1,9 @@
 extends EntityCollisionResolutionSystem
+class_name HorrorCollisionResolutionSystem
+
+@export var captures_dialogs: Array[SubbedAudio]
+@export var capture_easter_egg_dialog: SubbedAudio
+@export var kill_dialog: SubbedAudio
 
 func _resolve_collision(a: GridEntity, b: GridEntity) -> void:
     if b.player != null && a.type == GridEntity.EntityType.ENEMY && a is MonsterEntity:
@@ -27,6 +32,26 @@ func _handle(player: PhysicsGridPlayerController, monster_entity: MonsterEntity)
 func _after_look_towards(player: PhysicsGridPlayerController, monster_entity: MonsterEntity) -> void:
     __GlobalGameState.keith_kills += 1
 
+    var do_kill: bool = posmod(__GlobalGameState.keith_kills, 3) == 0
+
+    if do_kill:
+        kill_dialog.play(self, null, null, AudioHub.QueueBehaviour.IGNORE_QUEUE)
+
+    elif __GlobalGameState.keith_kills == 11:
+        capture_easter_egg_dialog.play(self, null, null, AudioHub.QueueBehaviour.IGNORE_QUEUE)
+
+    else:
+        @warning_ignore_start("integer_division")
+        var idx: int = mini(
+            captures_dialogs.size() - 1,
+            posmod(
+                __GlobalGameState.keith_kills - __GlobalGameState.keith_kills / 3,
+                captures_dialogs.size()
+            )
+        )
+        @warning_ignore_restore("integer_division")
+        captures_dialogs[idx].play(self, null, null, AudioHub.QueueBehaviour.IGNORE_QUEUE)
+
     await get_tree().create_timer(1.0).timeout
 
     var tween: Tween = create_tween()
@@ -38,7 +63,7 @@ func _after_look_towards(player: PhysicsGridPlayerController, monster_entity: Mo
 
     await get_tree().create_timer(1.0).timeout
 
-    if posmod(__GlobalGameState.keith_kills, 3) == 0:
+    if do_kill:
         _kill_player(player, monster_entity)
         return
 

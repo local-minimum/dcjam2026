@@ -4,10 +4,10 @@ class_name ClickerDialogueManager
 enum DialogRequest { NONE, XP_PILE_1, XP_PILE_2, XP_PILE_3 }
 
 @export var _awake: SubbedAudio
-@export var _repeat_awake: SubbedAudio
+@export var _repeat_awake: Array[SubbedAudio]
 @export var _awake_after_dispose: SubbedAudio
 @export var _first_death: SubbedAudio
-@export var _repeat_death: SubbedAudio
+@export var _repeat_death: Array[SubbedAudio]
 
 @export var _refuse_clicking: SubbedAudio
 @export var _bored: SubbedAudio
@@ -90,7 +90,8 @@ func _ready() -> void:
             _awake_after_dispose.play(null, null, null, AudioHub.QueueBehaviour.ENQUEUE, _delay_first_dialogue)
 
         else:
-            _repeat_awake.play(null, null, null, AudioHub.QueueBehaviour.ENQUEUE, _delay_first_dialogue)
+            var idx: int = mini(_repeat_awake.size() - 1, __GlobalGameState.replay - 1)
+            _repeat_awake[idx].play(null, null, null, AudioHub.QueueBehaviour.ENQUEUE, _delay_first_dialogue)
 
         await get_tree().create_timer(5.0).timeout
         __SignalBus.on_gain_bonus_autoclickers.emit(2)
@@ -196,7 +197,8 @@ func _handle_health_changed(new_health: float, prev_health: float) -> void:
         if __GlobalGameState.deaths == 0:
             _first_death.play(self, null, _restart_after_death_dialogue, AudioHub.QueueBehaviour.IGNORE_QUEUE_SILENCE_PLAYING, 0.5)
         else:
-            _repeat_death.play(self, null, _restart_after_death_dialogue, AudioHub.QueueBehaviour.IGNORE_QUEUE_SILENCE_PLAYING, 0.5)
+            var idx: int = mini(__GlobalGameState.deaths - 1, _repeat_death.size() - 1)
+            _repeat_death[idx].play(self, null, _restart_after_death_dialogue, AudioHub.QueueBehaviour.IGNORE_QUEUE_SILENCE_PLAYING, 0.5)
 
 func _restart_after_death_dialogue(_success: bool) -> void:
     __AudioHub.clear_all_dialogues()

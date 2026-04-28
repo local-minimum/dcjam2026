@@ -152,6 +152,11 @@ script = ExtResource("26_xa8c5")
 audio_path = "uid://33748w12x6ui"
 metadata/_custom_type_script = "uid://cycuc5ntkfi75"
 
+[sub_resource type="Resource" id="Resource_2tki7"]
+script = ExtResource("26_xa8c5")
+audio_path = "uid://calu8k2e6na7j"
+metadata/_custom_type_script = "uid://cycuc5ntkfi75"
+
 [sub_resource type="Resource" id="Resource_xfvwf"]
 script = ExtResource("26_xa8c5")
 audio_path = "uid://q7qpo5ykj2xt"
@@ -165,6 +170,21 @@ metadata/_custom_type_script = "uid://cycuc5ntkfi75"
 [sub_resource type="Resource" id="Resource_7knny"]
 script = ExtResource("26_xa8c5")
 audio_path = "uid://m2bc46ax485h"
+metadata/_custom_type_script = "uid://cycuc5ntkfi75"
+
+[sub_resource type="Resource" id="Resource_cfc7e"]
+script = ExtResource("26_xa8c5")
+audio_path = "uid://clc77bf2g8qkm"
+metadata/_custom_type_script = "uid://cycuc5ntkfi75"
+
+[sub_resource type="Resource" id="Resource_gh0px"]
+script = ExtResource("26_xa8c5")
+audio_path = "uid://dotp7m5ivet7b"
+metadata/_custom_type_script = "uid://cycuc5ntkfi75"
+
+[sub_resource type="Resource" id="Resource_v33yl"]
+script = ExtResource("26_xa8c5")
+audio_path = "uid://cw8djowvasdtd"
 metadata/_custom_type_script = "uid://cycuc5ntkfi75"
 
 [sub_resource type="Resource" id="Resource_082n1"]
@@ -544,10 +564,10 @@ next/Lost = &"Lost"
 process_mode = 1
 script = ExtResource("68_vyqle")
 _awake = SubResource("Resource_bnpwn")
-_repeat_awake = SubResource("Resource_36jdj")
+_repeat_awake = Array[ExtResource("26_xa8c5")]([SubResource("Resource_36jdj"), SubResource("Resource_2tki7")])
 _awake_after_dispose = SubResource("Resource_xfvwf")
 _first_death = SubResource("Resource_dhpj7")
-_repeat_death = SubResource("Resource_7knny")
+_repeat_death = Array[ExtResource("26_xa8c5")]([SubResource("Resource_7knny"), SubResource("Resource_cfc7e"), SubResource("Resource_gh0px"), SubResource("Resource_v33yl")])
 _refuse_clicking = SubResource("Resource_082n1")
 _bored = SubResource("Resource_xex6t")
 _xp_pile_1 = SubResource("Resource_mljfx")

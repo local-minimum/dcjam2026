@@ -43,6 +43,7 @@ signal on_collect_horror_key()
 signal on_not_enough_horror_keys()
 signal on_horror_outro_triggered()
 signal on_trigger_keith(trigger: KeithTrigger)
+signal on_steal_key(key: DragonKey)
 signal on_jail_keith()
 
 signal on_mute(what: MuteManager.MuteTarget)

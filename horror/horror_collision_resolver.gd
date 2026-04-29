@@ -34,6 +34,9 @@ func _after_look_towards(player: PhysicsGridPlayerController, monster_entity: Mo
 
     var do_kill: bool = posmod(__GlobalGameState.keith_kills, 3) == 0
 
+    if !do_kill && !DragonKey.taken_keys.is_empty():
+        __SignalBus.on_steal_key.emit(DragonKey.taken_keys.pick_random())
+
     if do_kill:
         kill_dialog.play(self, null, null, AudioHub.QueueBehaviour.IGNORE_QUEUE)
 

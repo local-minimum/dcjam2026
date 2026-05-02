@@ -1,15 +1,25 @@
 class_name PauseManager
 extends Node
 
+static var _instance: PauseManager
 
 @export var _pause_menu_scene: PackedScene
 @export var _root: Control
 var _pause_menu_instance: PauseMenu
 var _paused: bool = false
 
+func _enter_tree() -> void:
+    _instance = self
 
-func _input(event: InputEvent) -> void:
-    if event.is_action_pressed("pause"):
+func _exit_tree() -> void:
+    if _instance == self:
+        _instance = null
+
+static func pause() -> void:
+    if _instance != null:
+        _instance._pause()
+
+func _pause() -> void:
         if not _can_pause():
             return
 
@@ -36,9 +46,7 @@ func _on_pause_menu_closed() -> void:
     if is_instance_valid(_pause_menu_instance):
         _pause_menu_instance.queue_free()
 
-
-
-func _can_pause() -> bool:
+static func _can_pause() -> bool:
     if not PhysicsGridPlayerController.last_connected_player:
         return false
 

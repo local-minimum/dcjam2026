@@ -27,6 +27,7 @@ __GlobalGameState="*uid://boh0ngijf07o7"
 __AudioHub="*uid://1keqjvpsekq7"
 __BindingHints="*uid://dn88c6xiunk4h"
 __MuteManager="*uid://bvo1dw7f6kvd1"
+__SystemManager="*uid://q2cfo22co7tx"
 
 [dialogic]
 

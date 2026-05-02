@@ -9,6 +9,7 @@ signal closed
 @export var accessibility_container: VBoxContainer
 @export var quit_container: VBoxContainer
 
+@export var fullscreen_btn: Button
 @export var clicker_env: Environment
 @export var horror_env: Environment
 @export var brightness_slider: HSlider
@@ -42,6 +43,7 @@ func _on_resume_btn_pressed() -> void:
     queue_free()
 
 func _on_gfx_btn_pressed() -> void:
+    fullscreen_btn.button_pressed = DisplayManager.fullscreen
     brightness_slider.value = clicker_env.get_adjustment_brightness()
     contrast_slider.value = clicker_env.get_adjustment_contrast()
     saturation_slider.value = clicker_env.get_adjustment_saturation()
@@ -136,3 +138,7 @@ func _handle_language_changed(id: int) -> void:
 
 func _on_subtitle_size_slider_value_changed(value: float) -> void:
     AccessibilitySettings.subtitles_size = roundi(value)
+
+
+func _on_enable_fullscreen_toggled(toggled_on: bool) -> void:
+    DisplayManager.fullscreen = toggled_on

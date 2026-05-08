@@ -76,7 +76,11 @@ func _handle_change_autoclicker_count(clickers: int) -> void:
         _autoclickers[idx].active = clickers > idx
         _autoclickers[idx].next_click = t0 + interval + step * idx
 
+var _xpmax: float
+var _maxed: bool
+
 func _handle_change_xp(new_value: float, _old_value: float = 0.0) -> void:
+    _maxed = new_value >= _xpmax && _xpmax > 0
     var suffix: String = ""
 
     if new_value > 1000.0:
@@ -92,6 +96,7 @@ func _handle_change_xp(new_value: float, _old_value: float = 0.0) -> void:
     _sync_progress_bar()
 
 func _handle_change_max_xp(_new_max: float) -> void:
+    _xpmax = _new_max
     _sync_progress_bar()
 
 func _sync_progress_bar() -> void:
@@ -119,6 +124,10 @@ var _update_freq_msec: int = 200
 var _next_update_msec: int
 
 func _process(_delta: float) -> void:
+    if _maxed:
+        _xp_speed_label.text = "CAPPED"
+        return
+
     if _gain_history.is_empty():
         _set_speed(0.0)
         return

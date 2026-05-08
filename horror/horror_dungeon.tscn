@@ -30,26 +30,31 @@ size = Vector3(6, 1, 6)
 [sub_resource type="Resource" id="Resource_31oss"]
 script = ExtResource("16_8byix")
 audio_path = "uid://brtfb0qvv33lj"
+disable_subtitle = true
 metadata/_custom_type_script = "uid://cycuc5ntkfi75"
 
 [sub_resource type="Resource" id="Resource_q66fe"]
 script = ExtResource("16_8byix")
 audio_path = "uid://c66fhuf1h6471"
+disable_subtitle = true
 metadata/_custom_type_script = "uid://cycuc5ntkfi75"
 
 [sub_resource type="Resource" id="Resource_yqwqu"]
 script = ExtResource("16_8byix")
 audio_path = "uid://ds84msjb5af4"
+disable_subtitle = true
 metadata/_custom_type_script = "uid://cycuc5ntkfi75"
 
 [sub_resource type="Resource" id="Resource_8byix"]
 script = ExtResource("16_8byix")
 audio_path = "uid://dy2daoc31yo3a"
+disable_subtitle = true
 metadata/_custom_type_script = "uid://cycuc5ntkfi75"
 
 [sub_resource type="Resource" id="Resource_jv3fo"]
 script = ExtResource("16_8byix")
 audio_path = "uid://bx77kgbahlqlk"
+disable_subtitle = true
 metadata/_custom_type_script = "uid://cycuc5ntkfi75"
 
 [node name="HorrorLevel" type="Node3D" unique_id=1143420985 node_paths=PackedStringArray("collision_system", "player")]

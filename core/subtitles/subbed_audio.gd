@@ -2,6 +2,7 @@ extends Resource
 class_name SubbedAudio
 
 @export_file("*.mp3") var audio_path: String
+@export var disable_subtitle: bool
 
 var _subs: SubDatabase = SubDatabase.new()
 var _loaded: bool
@@ -42,5 +43,8 @@ func play(
     )
 
 func _on_start_dialog(language_override: String = "") -> void:
+    if disable_subtitle:
+        return
+
     for data: SubData in _subs.get_subs(language_override):
         __SignalBus.on_subtitle.emit(data)

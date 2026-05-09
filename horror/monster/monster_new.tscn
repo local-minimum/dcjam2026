@@ -23,10 +23,9 @@ _step_targets = [NodePath("Armature/StepTargets/LegFLRayCast/LegFLStepTarget"), 
 _step_rays = [NodePath("Armature/StepTargets/LegFLRayCast"), NodePath("Armature/StepTargets/LegFRRayCast"), NodePath("Armature/StepTargets/LegBLRayCast"), NodePath("Armature/StepTargets/LegBRRayCast")]
 _front_ray = NodePath("Armature/FrontRay")
 
-[node name="MonsterEntity" type="Node" parent="." index="0" unique_id=1537029992 node_paths=PackedStringArray("monster", "red_light", "entity_root", "detection_areas")]
+[node name="MonsterEntity" type="Node" parent="." index="0" unique_id=1537029992 node_paths=PackedStringArray("monster", "entity_root", "detection_areas")]
 script = ExtResource("7_4xj1w")
 monster = NodePath("..")
-red_light = NodePath("../Light")
 type = 2
 entity_root = NodePath("..")
 detection_areas = [NodePath("../Detection Area")]

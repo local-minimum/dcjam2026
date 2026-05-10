@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://bc71grtjpw6tl"]
+
+[ext_resource type="Texture2D" uid="uid://r2jrv64jr4dn" path="res://horror/monster/monster_smoke_flipbook.png" id="1_2xinw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_38n8p"]
+transparency = 1
+albedo_color = Color(1.5257139, 1.5257139, 1.5257139, 1)
+albedo_texture = ExtResource("1_2xinw")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 8
+particles_anim_v_frames = 8
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_h6nxr"]
+particle_flag_rotate_y = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 180, 0)
+emission_ring_height = 0.0
+emission_ring_radius = 1.0
+emission_ring_inner_radius = 0.5
+emission_ring_cone_angle = 90.0
+angle_min = -179.99998
+angle_max = 180.00002
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_max = 2.0
+angular_velocity_min = -50.000015
+angular_velocity_max = 49.99998
+gravity = Vector3(0, 0, 0)
+scale_min = 2.0
+scale_max = 4.0
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_qvw0q"]
+
+[node name="MonsterSmokeParticles" type="GPUParticles3D" unique_id=717967690]
+material_override = SubResource("StandardMaterial3D_38n8p")
+emitting = false
+amount = 32
+lifetime = 2.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_h6nxr")
+draw_pass_1 = SubResource("QuadMesh_qvw0q")

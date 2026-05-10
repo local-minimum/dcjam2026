@@ -42,6 +42,9 @@ const WOBBLE_INTENSITY: float = 0.05
 @export var arm_ik_bone: JacobianIK3D
 @export var arm_ik_target: Marker3D
 
+@export var smoke_particles_scene: PackedScene
+
+var _smoke: GPUParticles3D
 var _wobble_time: float = 0.0
 var _target_value: float = 0.0
 var _move_last_frame_pos: Vector3 = Vector3.ZERO
@@ -267,12 +270,28 @@ func clear_queue(snap_rotation: bool = false) -> void:
     _target_value = 0.0
     _command_queue.clear()
 
+
+func _enable_smoke() -> void:
+    _smoke = smoke_particles_scene.instantiate()
+    get_parent().add_child(_smoke)
+    _smoke.global_position = self.global_position
+    _smoke.emitting = true
+
+
+
 func teleport(pos: Vector3, global_rot: Vector3 = Vector3.ZERO) -> void:
+    call_deferred("_enable_smoke")
+    await get_tree().create_timer(1.0).timeout
+
     global_position = pos
     global_rotation = global_rot
     _command_queue.clear()
     reset_leg_ik_targets()
     lookat_IK_target.global_position = to_global(_resting_look_target)
     _current_command = null
+
+    if _smoke:
+        await get_tree().create_timer(1.0).timeout
+        _smoke.queue_free()
 
 #endregion

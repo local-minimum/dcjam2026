@@ -89,6 +89,8 @@ var max_xp: float = 10.0:
 
 var xp_click_value: float = 1.0
 
+var xp_from_autoclick: bool
+
 var xp: float:
     set(value):
         var old_value: float = xp

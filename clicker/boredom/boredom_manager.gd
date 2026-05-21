@@ -4,31 +4,28 @@ class_name BoredomManager
 @export var _ui: SplitTextureProgressBars
 
 @export_category("XP")
-@export_range(0.0, 1.0) var _change_to_velocity_factor: float = 0.1
+@export_range(0.0, 1.0) var _gain_fraction_to_bordom_factor: float = 0.1
+@export_range(0.0, 1.0) var _auto_gain_fraction_to_bordom_factor: float = 0.025
 
 @export_category("Exploration")
 @export_range(0.0, 1.0) var _new_coordinates_exploration_decay: float = 0.1
-@export_range(0.0, 1.0) var _repeat_coordinates_exploration_decay_factor: float = 0.01
+@export_range(0.0, 1.0) var _repeat_coordinates_exploration_decay: float = 0.01
 @export var _exploration_memory: int = 50
 
 @export_category("Battle")
-@export_range(0.0, 1.0) var _enemy_encounter_decay: float = 0.001
-
-@export_category("Decay")
-@export_range(0.0, 1.0) var _velocity_decay_over_time: float = 0.1
-@export var _velocity_decay_latency_msec: int = 100
+@export_range(0.0, 1.0) var _enemy_encounter_decay: float = 0.1
+@export_range(0.0, 1.0) var _enemy_encounter_decay_over_time: float = 0.01
 
 @export_category("Other")
 @export var _hidden_overshoots: float = 0.5
 
 
-var _boredom: float = 0.0:
+var _boredom: float = -0.2:
     set(value):
         __GlobalGameState.boredome = clampf(value, 0.0, 1.0)
         _boredom = value
+        _ui.value = __GlobalGameState.boredome
 
-var _boredom_velocity: float = 0.0
-var _decay_after: int
 var _dead: bool
 var _in_battle: bool
 
@@ -58,7 +55,7 @@ func _handle_battle_end(_credits: int) -> void:
 
 func _handle_enemy_join_battle(_enemy_data: EnemyData) -> void:
     _in_battle = true
-    _boredom_velocity -= _enemy_encounter_decay
+    _boredom -= _enemy_encounter_decay
 
 func _handle_player_death(phase: int) -> void:
     if phase == 0:
@@ -77,12 +74,9 @@ func _handle_player_arrive_tile(_player: PhysicsGridPlayerController, coords: Ve
     while _exploration_history.size() > _exploration_memory:
         _exploration_history.remove_at(0)
 
-    var delta: float = _new_coordinates_exploration_decay * (
-        1.0 if new_coords else _repeat_coordinates_exploration_decay_factor
-    )
+    var delta: float = _new_coordinates_exploration_decay if new_coords else _repeat_coordinates_exploration_decay
 
-    #print_debug("Explored new %s delta %s velocity %s -> %s" % [new_coords, delta, _boredom_velocity, _boredom_velocity - delta])
-    _boredom_velocity -= delta
+    _boredom = clampf(_boredom - delta, 0.0 - _hidden_overshoots, 1.0 + _hidden_overshoots)
     _last_coord = coords
 
 func _handle_update_xp(new_value: float, old_value: float) -> void:
@@ -90,26 +84,12 @@ func _handle_update_xp(new_value: float, old_value: float) -> void:
         return
 
     var change: float = (new_value - old_value) / __GlobalGameState.max_xp
-    _boredom_velocity += change * _change_to_velocity_factor
-
-    _decay_after = Time.get_ticks_msec() + _velocity_decay_latency_msec
+    var factor: float = _auto_gain_fraction_to_bordom_factor if __GlobalGameState.xp_from_autoclick else _gain_fraction_to_bordom_factor
+    _boredom = clampf(_boredom + change * factor, 0.0 - _hidden_overshoots, 1.0 + _hidden_overshoots)
 
 func _process(delta: float) -> void:
     if _dead || PhysicsGridPlayerController.last_connected_player_cinematic:
         return
 
-    if Time.get_ticks_msec() > _decay_after:
-        if _in_battle:
-            if _boredom_velocity > 0:
-                _boredom_velocity *= (1.0 - _velocity_decay_over_time * delta)
-        else:
-            _boredom_velocity *= (1.0 - _velocity_decay_over_time * delta)
-
-    _boredom = clamp(_boredom + _boredom_velocity * delta, -_hidden_overshoots, 1.0 + _hidden_overshoots)
-    if _boredom <= -_hidden_overshoots && _boredom_velocity < 0:
-        _boredom_velocity = 0.0
-    elif _boredom >= 1.0 + _hidden_overshoots && _boredom_velocity > 0:
-        _boredom_velocity = 0.0
-
-    #print_debug(_boredom)
-    _ui.value = clampf(_boredom, 0.0, 1.0)
+    if _in_battle:
+        _boredom = clamp(_boredom - delta * _enemy_encounter_decay_over_time, 0.0 - _hidden_overshoots, 1.0 + _hidden_overshoots)

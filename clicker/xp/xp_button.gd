@@ -65,7 +65,7 @@ func _handle_player_death(phase: int) -> void:
         set_process(false)
 
 func _handle_autoclick(efficiency: float) -> void:
-    _click(efficiency)
+    _click(efficiency, true)
 
 func _handle_change_autoclicker_count(clickers: int) -> void:
     var interval: int = _autoclickers[0].click_frequency_msec
@@ -105,11 +105,12 @@ func _sync_progress_bar() -> void:
 
 var _gain_history: Array[GainInfo]
 
-func _click(efficiency: float = 1.0) -> void:
+func _click(efficiency: float = 1.0, autoclick: bool = false) -> void:
     if _player_dead || PhysicsGridPlayerController.last_connected_player_cinematic:
         return
 
     var gain: float = __GlobalGameState.xp_click_value * efficiency * (1.0 - __GlobalGameState.boredome)
+    __GlobalGameState.xp_from_autoclick = autoclick
     __GlobalGameState.xp += gain
     _gain_history.append(GainInfo.new(Time.get_ticks_msec(), gain))
 

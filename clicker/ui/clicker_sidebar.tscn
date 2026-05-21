@@ -188,8 +188,10 @@ uppercase = true
 [node name="BoredomManager" type="Node" parent="Clicker Content/VBoxContainer/Boredom" unique_id=156615065 node_paths=PackedStringArray("_ui")]
 script = ExtResource("7_rso4y")
 _ui = NodePath("..")
-_change_to_velocity_factor = 0.7
-_velocity_decay_over_time = 0.4
+_gain_fraction_to_bordom_factor = 0.9
+_auto_gain_fraction_to_bordom_factor = 0.25
+_new_coordinates_exploration_decay = 0.02
+_repeat_coordinates_exploration_decay = 0.001
 
 [node name="HSeparator" type="HSeparator" parent="Clicker Content/VBoxContainer" unique_id=1918784816]
 layout_mode = 2

@@ -69,10 +69,10 @@ metadata/_custom_type_script = "uid://5nd45w6q42kq"
 [node name="Interactables" type="Node3D" parent="." unique_id=1469902659]
 
 [node name="Dragon Key" parent="Interactables" unique_id=123338660 instance=ExtResource("2_1m84d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.641368, 0, -14)
+transform = Transform3D(-0.25881904, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, -0.25881904, 8.245125, 0, -9.425394)
 
 [node name="SpotLight3D" parent="Interactables/Dragon Key" index="0" unique_id=5359294]
-transform = Transform3D(0.99870646, -0.0056267087, 0.050489433, -0.050801877, -0.11061457, 0.99256414, 2.9802255e-08, -0.9938476, -0.11075757, 0, 1.1601533, 0)
+transform = Transform3D(0.9987064, -0.0056267087, 0.050489433, -0.050801873, -0.11061457, 0.99256414, 2.9802253e-08, -0.9938476, -0.11075757, 0, 1.1601533, 0)
 
 [node name="Area3D" parent="Interactables/Dragon Key" index="3" unique_id=2087952680]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47469425, 0, 0)
@@ -81,16 +81,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47469425, 0, 0)
 transform = Transform3D(-0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, -0.70710677, 42.292103, 0, -4)
 
 [node name="SpotLight3D" parent="Interactables/Dragon Key5" index="0" unique_id=5359294]
-transform = Transform3D(0.99870646, -0.0056267087, 0.050489433, -0.050801877, -0.11061457, 0.99256414, 2.9802255e-08, -0.9938476, -0.11075757, 0, 1.1601533, 0)
+transform = Transform3D(0.9987064, -0.0056267087, 0.050489433, -0.050801873, -0.11061457, 0.99256414, 2.9802253e-08, -0.9938476, -0.11075757, 0, 1.1601533, 0)
 
 [node name="Area3D" parent="Interactables/Dragon Key5" index="3" unique_id=2087952680]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47469425, 0, 0)
 
 [node name="Dragon Key2" parent="Interactables" unique_id=2040728135 instance=ExtResource("2_1m84d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.597461, 0, -6)
+transform = Transform3D(-0.99261206, 0, 0.12133222, 0, 1, 0, -0.12133222, 0, -0.99261206, 4.5514336, 0, -29.868967)
 
 [node name="SpotLight3D" parent="Interactables/Dragon Key2" index="0" unique_id=5359294]
-transform = Transform3D(0.99870646, -0.0056267087, 0.050489433, -0.050801877, -0.11061457, 0.99256414, 2.9802255e-08, -0.9938476, -0.11075757, 0, 1.1601533, 0)
+transform = Transform3D(0.9987064, -0.0056267087, 0.050489433, -0.050801873, -0.11061457, 0.99256414, 2.9802253e-08, -0.9938476, -0.11075757, 0, 1.1601533, 0)
 
 [node name="AnimationPlayer" parent="Interactables/Dragon Key2" index="2" unique_id=1381750830]
 root_node = NodePath("../../Dragon Key2")
@@ -99,10 +99,10 @@ root_node = NodePath("../../Dragon Key2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4202175, 0, 0)
 
 [node name="Dragon Key3" parent="Interactables" unique_id=2064522595 instance=ExtResource("2_1m84d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.544454, 0, -8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.496857, 0, -6.151012)
 
 [node name="SpotLight3D" parent="Interactables/Dragon Key3" index="0" unique_id=5359294]
-transform = Transform3D(0.99870646, -0.0056267087, 0.050489433, -0.050801877, -0.11061457, 0.99256414, 2.9802255e-08, -0.9938476, -0.11075757, 0, 1.1601533, 0)
+transform = Transform3D(0.9987064, -0.0056267087, 0.050489433, -0.050801873, -0.11061457, 0.99256414, 2.9802253e-08, -0.9938476, -0.11075757, 0, 1.1601533, 0)
 
 [node name="AnimationPlayer" parent="Interactables/Dragon Key3" index="2" unique_id=1381750830]
 root_node = NodePath("../../Dragon Key3")
@@ -111,10 +111,10 @@ root_node = NodePath("../../Dragon Key3")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.48708344, 0, 0)
 
 [node name="Dragon Key4" parent="Interactables" unique_id=708908782 instance=ExtResource("2_1m84d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.022394, -0.00017893314, -28.045038)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.857964, -0.00017893314, -27.861612)
 
 [node name="SpotLight3D" parent="Interactables/Dragon Key4" index="0" unique_id=5359294]
-transform = Transform3D(0.99870646, -0.0056267087, 0.050489433, -0.050801877, -0.11061457, 0.99256414, 2.9802255e-08, -0.9938476, -0.11075757, 0, 1.1601533, 0)
+transform = Transform3D(0.9987064, -0.0056267087, 0.050489433, -0.050801873, -0.11061457, 0.99256414, 2.9802253e-08, -0.9938476, -0.11075757, 0, 1.1601533, 0)
 
 [node name="AnimationPlayer" parent="Interactables/Dragon Key4" index="2" unique_id=1381750830]
 root_node = NodePath("../../Dragon Key4")

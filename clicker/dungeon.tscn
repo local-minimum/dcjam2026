@@ -14,9 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cp1smxbjpbolo" path="res://clicker/enemies/tintron_mk1.tscn" id="12_24q6l"]
 [ext_resource type="PackedScene" uid="uid://ctar0x0es8uc6" path="res://clicker/models/sideboard.blend" id="12_sm5ll"]
 [ext_resource type="PackedScene" uid="uid://bxsolwwd7avg6" path="res://clicker/enemies/ironosaurus.tscn" id="13_2upc0"]
-[ext_resource type="ArrayMesh" uid="uid://b0vlo73s2fd38" path="res://visual/clutter/sculptures/sculpture_triangle.obj" id="13_hm7ry"]
 [ext_resource type="PackedScene" uid="uid://dy8nc6drfd83y" path="res://clicker/enemies/b_ore.tscn" id="14_24q6l"]
-[ext_resource type="ArrayMesh" uid="uid://ceb8oy4go2no4" path="res://visual/clutter/sculptures/sculpture_walk.obj" id="14_eppcp"]
 [ext_resource type="PackedScene" uid="uid://c1kmuoujwaipa" path="res://clicker/rooms/atrium_clicker.tscn" id="14_i6glv"]
 [ext_resource type="PackedScene" uid="uid://cgl7x0ttstr4c" path="res://clicker/rooms/corridor_clicker.tscn" id="15_02l0h"]
 [ext_resource type="PackedScene" uid="uid://dhvl02rm22akm" path="res://clicker/enemies/tintron_mk2.tscn" id="15_4ftrl"]
@@ -83,14 +81,6 @@ shape = SubResource("BoxShape3D_sufut")
 
 [node name="sideboard" parent="Misc" unique_id=1737767895 instance=ExtResource("12_sm5ll")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6.4856634, 0, -2.0275226)
-
-[node name="SculptureTriangle" type="MeshInstance3D" parent="Misc" unique_id=248872972]
-transform = Transform3D(-0.076597214, 0, -0.9970621, 0, 1, 0, 0.9970621, 0, -0.076597214, 2.3989048, -0.00048824548, -4.8501587)
-mesh = ExtResource("13_hm7ry")
-
-[node name="SculptureWalk" type="MeshInstance3D" parent="Misc" unique_id=459975525]
-transform = Transform3D(0.016946416, 0, -0.9998564, 0, 1, 0, 0.9998564, 0, 0.016946416, -1.9434199, 0.024633849, -6.031372)
-mesh = ExtResource("14_eppcp")
 
 [node name="Player" parent="." unique_id=942295760 instance=ExtResource("3_sufut")]
 

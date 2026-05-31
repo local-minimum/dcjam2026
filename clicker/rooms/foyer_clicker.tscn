@@ -5,7 +5,10 @@
 [ext_resource type="Material" uid="uid://ca3jquhtlsk3d" path="res://visual/tiles/stylised_geometric_metal/stylised_geometric_metal_mat.tres" id="2_da362"]
 [ext_resource type="Material" uid="uid://dtj6oh3w7ikhg" path="res://visual/tiles/stylised_bolted_panels/stylised_bolted_panels_mat.tres" id="3_ktvci"]
 [ext_resource type="Material" uid="uid://c0b7e6xapiqb1" path="res://visual/tiles/stylised_piped_panels/stylised_piped_panels.mat.tres" id="3_nlq8e"]
+[ext_resource type="Material" uid="uid://doubdvy88wgr7" path="res://visual/common/trims/1/trim_1_mat.tres" id="7_ssfv3"]
 [ext_resource type="ArrayOccluder3D" uid="uid://b3dhjr3uixae1" path="res://clicker/occluders/foyer_clicker.occ" id="7_uhitq"]
+[ext_resource type="ArrayMesh" uid="uid://b0vlo73s2fd38" path="res://visual/clutter/sculptures/sculpture_triangle.obj" id="8_54h1t"]
+[ext_resource type="ArrayMesh" uid="uid://ceb8oy4go2no4" path="res://visual/clutter/sculptures/sculpture_walk.obj" id="9_ny3kt"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_tshes"]
 _surfaces = [{
@@ -585,3 +588,13 @@ shape = SubResource("BoxShape3D_i06fa")
 [node name="OccluderInstance3D" type="OccluderInstance3D" parent="." unique_id=1644350098]
 occluder = ExtResource("7_uhitq")
 bake_mask = 1
+
+[node name="SculptureTriangle" type="MeshInstance3D" parent="." unique_id=1405490122]
+transform = Transform3D(-0.076597214, 0, -0.9970621, 0, 1, 0, 0.9970621, 0, -0.076597214, 2.3989048, -0.00048824548, -4.8501587)
+material_override = ExtResource("7_ssfv3")
+mesh = ExtResource("8_54h1t")
+
+[node name="SculptureWalk" type="MeshInstance3D" parent="." unique_id=144139087]
+transform = Transform3D(0.016946416, 0, -0.9998564, 0, 1, 0, 0.9998564, 0, 0.016946416, -1.9434199, 0.024633849, -6.031372)
+material_override = ExtResource("7_ssfv3")
+mesh = ExtResource("9_ny3kt")
